@@ -1,0 +1,4523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Digital Marketing & Performance Growth Practice | Digiolic</title>
+  <meta name="description" content="Transform your digital presence with Digiolic. Full-funnel performance marketing, SEO, AI-driven automation, PPC, branding, and CRO connected to CRM revenue.">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+
+  <!-- Mainframe Custom Typography Fonts -->
+  <link rel="stylesheet" href="https://db.onlinewebfonts.com/c/5ac3fe7c6abd2f62067f266d89671492?family=HelveticaNowDisplay-Medium">
+  <link rel="stylesheet" href="https://db.onlinewebfonts.com/c/1aa3377e489837a26d019bba501e779d?family=HelveticaNowDisplayW01-Rg">
+
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+
+  <!-- Core & Component CSS -->
+  <link rel="stylesheet" href="../css/style.css?v=20260919_v209">
+  <link rel="stylesheet" href="../css/components.css?v=20260919_v209">
+  <link rel="stylesheet" href="../css/pages.css?v=20260919_v209">
+  <link rel="stylesheet" href="../css/responsive.css?v=20260919_v209">
+  <link rel="stylesheet" href="../css/chat-widget.css?v=20260919_v209">
+
+  <!-- Exact Font specified -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Comic+Neue:ital,wght@0,400;0,700;1,700&family=Inter:ital,opsz,wght@0,14..32,300..900;1,14..32,300..900&family=Manrope:wght@400;500;600;700;800&family=Montserrat:wght@800;900&family=Outfit:wght@400;600;700;800&family=Patrick+Hand&family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==========================================================================
+       IMAGE 1 MOBILE NAVIGATION DRAWER SPECIFICATION (EXACT REPLICATION)
+       ========================================================================== */
+    .mainframe-mobile-overlay,
+    .mobile-nav-drawer,
+    #mainframeMobileOverlay,
+    #mobileNavDrawer {
+      position: fixed !important;
+      inset: 0 !important;
+      top: 0 !important;
+      left: 0 !important;
+      right: 0 !important;
+      bottom: 0 !important;
+      width: 100vw !important;
+      height: 100vh !important;
+      height: 100dvh !important;
+      background-color: #1D3145 !important;
+      background: #1D3145 !important;
+      z-index: 999999 !important;
+      display: flex !important;
+      flex-direction: column !important;
+      justify-content: flex-start !important;
+      align-items: flex-start !important;
+      padding: 2.5rem 2.25rem 3rem 2.25rem !important;
+      box-sizing: border-box !important;
+      overflow-y: auto !important;
+      -webkit-overflow-scrolling: touch !important;
+      opacity: 0 !important;
+      visibility: hidden !important;
+      pointer-events: none !important;
+      transform: translateY(-8px) !important;
+      transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.3s ease !important;
+    }
+
+    .mainframe-mobile-overlay.is-open,
+    .mobile-nav-drawer.is-open,
+    #mainframeMobileOverlay.is-open,
+    #mobileNavDrawer.is-open {
+      opacity: 1 !important;
+      visibility: visible !important;
+      pointer-events: auto !important;
+      transform: translateY(0) !important;
+    }
+
+    @media (min-width: 860px) {
+      .mainframe-mobile-overlay,
+      .mobile-nav-drawer,
+      #mainframeMobileOverlay,
+      #mobileNavDrawer {
+        display: none !important;
+      }
+    }
+
+    .mainframe-mobile-top,
+    .mobile-nav-top {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+      width: 100% !important;
+      margin-bottom: 3.5rem !important;
+      padding: 0 !important;
+    }
+
+    .mainframe-mobile-logo-link,
+    .mobile-nav-logo-link {
+      display: flex !important;
+      align-items: center !important;
+      text-decoration: none !important;
+    }
+
+    .mobile-nav-logo {
+      height: 34px !important;
+      width: auto !important;
+      filter: brightness(0) invert(1) !important;
+      display: block !important;
+    }
+
+    .mobile-nav-close,
+    .mainframe-mobile-close {
+      background: transparent !important;
+      border: none !important;
+      color: #FFFFFF !important;
+      cursor: pointer !important;
+      padding: 6px !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      outline: none !important;
+      line-height: 1 !important;
+      opacity: 0.9 !important;
+    }
+
+    .mainframe-mobile-links,
+    .mainframe-mobile-nav,
+    .mobile-nav-list {
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: flex-start !important;
+      gap: 1.75rem !important;
+      width: 100% !important;
+      padding: 0 !important;
+      margin: 0 !important;
+    }
+
+    .mainframe-mobile-link,
+    .mobile-nav-link {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+      font-size: 1.5rem !important;
+      line-height: 1.3 !important;
+      font-weight: 400 !important;
+      color: rgba(255, 255, 255, 0.7) !important;
+      display: block !important;
+      width: auto !important;
+      max-width: 100% !important;
+      padding: 0.25rem 0 !important;
+      border: none !important;
+      border-bottom: none !important;
+      text-decoration: none !important;
+      box-sizing: border-box !important;
+      transition: color 0.2s ease !important;
+      text-align: left !important;
+      letter-spacing: -0.01em !important;
+    }
+
+    .mainframe-mobile-link:hover,
+    .mainframe-mobile-link.active,
+    .mobile-nav-link:hover,
+    .mobile-nav-link.active {
+      color: #FFFFFF !important;
+      font-weight: 500 !important;
+      border: none !important;
+      border-bottom: none !important;
+      padding-left: 0 !important;
+      transform: none !important;
+    }
+
+    .mainframe-mobile-link span:last-child:not(:first-child),
+    .mobile-nav-link span:last-child:not(:first-child) {
+      display: none !important;
+    }
+
+    .mainframe-mobile-link.cta-pill,
+    .mainframe-mobile-link.cta-underlined,
+    .mobile-nav-link.cta-pill,
+    .mobile-nav-footer .btn {
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      width: fit-content !important;
+      margin-top: 1.75rem !important;
+      background-color: #FFFFFF !important;
+      background: #FFFFFF !important;
+      color: #000000 !important;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+      font-size: 1rem !important;
+      font-weight: 600 !important;
+      border-radius: 9999px !important;
+      padding: 0.85rem 2.25rem !important;
+      border: none !important;
+      text-decoration: none !important;
+      text-align: center !important;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12) !important;
+      transition: background-color 0.2s ease, transform 0.2s ease !important;
+    }
+
+    .mainframe-mobile-link.cta-pill:hover,
+    .mainframe-mobile-link.cta-underlined:hover,
+    .mobile-nav-link.cta-pill:hover,
+    .mobile-nav-footer .btn:hover {
+      background: rgba(255, 255, 255, 0.94) !important;
+      color: #000000 !important;
+      transform: translateY(-1px) !important;
+    }
+
+    .mobile-nav-footer,
+    .mobile-contact-info {
+      border: none !important;
+      padding: 0 !important;
+      margin: 0 !important;
+    }
+    /* ==========================================================================
+       MAINFRAME DESIGN SYSTEM TOKENS & TYPOGRAPHY
+       ========================================================================== */
+    :root {
+      --font-heading: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    body {
+      font-family: var(--font-body);
+      font-size: 17px;
+      font-weight: 400;
+      background-color: #050505;
+      color: #0F172A;
+    }
+
+    /* Mainframe Hero Section Container (Pure Hero Red Background) */
+    .mainframe-hero-section {
+      position: relative !important;
+      z-index: 10 !important;
+      min-height: 100vh;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 7.5rem 1.5rem 4rem 1.5rem;
+      overflow: hidden;
+      box-sizing: border-box;
+      font-family: var(--font-body);
+      background: #FC4849 !important;
+    }
+
+    /* Red Particle Chaos Background Canvas Across All Sections Below Hero */
+    .dm-particle-canvas,
+    .dm-trusted-particle-canvas {
+      position: absolute !important;
+      inset: 0 !important;
+      width: 100% !important;
+      height: 100% !important;
+      z-index: 1 !important;
+      pointer-events: none !important;
+      display: block !important;
+    }
+
+    @media (min-width: 768px) {
+      .mainframe-hero-section {
+        padding: 8.5rem 3.5rem 5rem 3.5rem;
+      }
+    }
+
+    @media (min-width: 1280px) {
+      .mainframe-hero-section {
+        padding: 9rem 4.5rem 5.5rem 4.5rem;
+      }
+    }
+
+    /* Background Video (Mouse-Scrub Controlled) */
+    .mainframe-bg-video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      object-fit: cover;
+      object-position: 70% center;
+      pointer-events: none;
+    }
+
+    /* No Black Shades / Pure Red Video */
+    .mainframe-video-overlay {
+      display: none !important;
+    }
+
+    /* Topbar Navigation (Absolute Header - Scrolls Out Of View Naturally) */
+    .mainframe-navbar {
+      position: absolute !important;
+      top: 0 !important;
+      left: 0 !important;
+      right: 0 !important;
+      width: 100% !important;
+      z-index: 1000 !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+      padding: 1.5rem 1.75rem !important;
+      min-height: 84px !important;
+      background: transparent !important;
+      backdrop-filter: none !important;
+      -webkit-backdrop-filter: none !important;
+      border-bottom: none !important;
+      box-shadow: none !important;
+      box-sizing: border-box !important;
+      pointer-events: auto !important;
+      transition: opacity 0.25s ease, visibility 0.25s ease !important;
+    }
+
+    .mainframe-navbar.is-scrolled {
+      opacity: 0 !important;
+      visibility: hidden !important;
+      pointer-events: none !important;
+      display: none !important;
+    }
+
+    @media (min-width: 768px) {
+      .mainframe-navbar {
+        padding: 1.75rem 3rem !important;
+        min-height: 96px !important;
+      }
+    }
+
+    @media (min-width: 1280px) {
+      .mainframe-navbar {
+        padding: 2rem 4.5rem !important;
+        min-height: 104px !important;
+      }
+    }
+
+    .mainframe-logo-wrap {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+    }
+
+    .brand-logo-img {
+      height: 34px;
+      width: auto;
+      display: block;
+      transition: opacity 0.2s ease;
+    }
+
+    .brand-logo-img:hover {
+      opacity: 0.85;
+    }
+
+    /* Keyframes matching Home page tab section animation */
+    @keyframes navTabFadeDown {
+      0% {
+        opacity: 0;
+        transform: translateY(-12px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes navIndicatorGrow {
+      0% {
+        transform: scaleX(0);
+        opacity: 0;
+      }
+      100% {
+        transform: scaleX(1);
+        opacity: 1;
+      }
+    }
+
+    .mainframe-desktop-nav {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      gap: clamp(1.75rem, 2.5vw, 2.5rem) !important;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      z-index: 102;
+    }
+
+    @media (min-width: 860px) {
+      .mainframe-desktop-nav {
+        display: flex !important;
+      }
+    }
+
+    .mainframe-nav-link {
+      position: relative !important;
+      color: rgba(255, 255, 255, 0.9) !important;
+      font-size: 15px !important;
+      font-weight: 500 !important;
+      text-decoration: none !important;
+      transition: color 0.3s ease, opacity 0.3s ease, transform 0.3s ease !important;
+      letter-spacing: 0.01em !important;
+      padding: 0.35rem 0 !important;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+      text-shadow: 0 1px 8px rgba(0, 0, 0, 0.7), 0 0 16px rgba(0, 0, 0, 0.5) !important;
+    }
+
+    /* Same animation as Home page tab section */
+    .mainframe-desktop-nav .mainframe-nav-link {
+      opacity: 0;
+      animation: navTabFadeDown 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    .mainframe-desktop-nav .mainframe-nav-link:nth-child(1) { animation-delay: 100ms; }
+    .mainframe-desktop-nav .mainframe-nav-link:nth-child(2) { animation-delay: 160ms; }
+    .mainframe-desktop-nav .mainframe-nav-link:nth-child(3) { animation-delay: 220ms; }
+    .mainframe-desktop-nav .mainframe-nav-link:nth-child(4) { animation-delay: 280ms; }
+    .mainframe-desktop-nav .mainframe-nav-link:nth-child(5) { animation-delay: 340ms; }
+
+    .mainframe-nav-link:hover {
+      color: #38BDF8 !important;
+      opacity: 0.8 !important;
+    }
+
+    .mainframe-nav-link.active {
+      color: #38BDF8 !important;
+      font-weight: 700 !important;
+    }
+
+    .mainframe-nav-link.active::after {
+      content: '' !important;
+      position: absolute !important;
+      bottom: -10px !important;
+      left: 0 !important;
+      width: 100% !important;
+      height: 2.5px !important;
+      background-color: #38BDF8 !important;
+      border-radius: 9999px !important;
+      box-shadow: 0 0 10px rgba(56, 189, 248, 0.6) !important;
+      transform-origin: center !important;
+      animation: navIndicatorGrow 0.4s cubic-bezier(0.16, 1, 0.3, 1) 340ms forwards !important;
+    }
+
+    .mainframe-desktop-cta {
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      background: #FFFFFF !important;
+      background-color: #FFFFFF !important;
+      color: #000000 !important;
+      border: none !important;
+      border-radius: 9999px !important;
+      padding: 0.65rem 1.65rem !important;
+      font-weight: 700 !important;
+      font-size: 0.9rem !important;
+      text-decoration: none !important;
+      transition: transform 0.25s ease, background-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease !important;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3) !important;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+      z-index: 102 !important;
+    }
+
+    .mainframe-desktop-cta:hover {
+      transform: translateY(-2px) !important;
+      background: #F8FAFC !important;
+      background-color: #F8FAFC !important;
+      color: #000000 !important;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2) !important;
+    }
+
+    /* Mobile Hamburger */
+    .mainframe-hamburger-btn {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      width: 38px;
+      height: 38px;
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      border-radius: 999px;
+      cursor: pointer;
+      padding: 0;
+      z-index: 110;
+      transition: background 0.2s ease;
+    }
+
+    .mainframe-hamburger-btn:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    @media (min-width: 860px) {
+      .mainframe-hamburger-btn {
+        display: none;
+      }
+    }
+
+    .mainframe-bar {
+      width: 18px;
+      height: 2px;
+      background-color: #FFFFFF;
+      transition: all 0.3s ease;
+      border-radius: 2px;
+      transform-origin: center;
+    }
+
+    .mainframe-hamburger-btn.is-active .mainframe-bar:nth-child(1) {
+      transform: translateY(6px) rotate(45deg);
+    }
+
+    .mainframe-hamburger-btn.is-active .mainframe-bar:nth-child(2) {
+      opacity: 0;
+    }
+
+    .mainframe-hamburger-btn.is-active .mainframe-bar:nth-child(3) {
+      transform: translateY(-6px) rotate(-45deg);
+    }
+
+    /* Mobile Overlay Drawer (Image 1 Design) */
+    .mainframe-mobile-overlay {
+      position: fixed;
+      inset: 0;
+      width: 100vw;
+      height: 100vh;
+      height: 100dvh;
+      background: #1D3045;
+      z-index: 100000;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      padding: 2.25rem 2rem 2.5rem 2rem;
+      box-sizing: border-box;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(-8px);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    .mainframe-mobile-overlay.is-open {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    @media (min-width: 860px) {
+      .mainframe-mobile-overlay {
+        display: none !important;
+      }
+    }
+
+    /* Hero Marketing Content Area */
+    .mainframe-hero-content {
+      position: relative;
+      z-index: 10;
+      max-width: 780px;
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+    }
+
+    /* Main Title: 64px, Manrope, 800 (Extra Bold) */
+    .dm-hero-title {
+      font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif !important;
+      font-size: 64px !important;
+      font-weight: 800 !important;
+      line-height: 1.1 !important;
+      letter-spacing: -0.03em !important;
+      color: #FFFFFF;
+      margin: 0 0 1rem 0;
+      text-shadow: 0 2px 20px rgba(0, 0, 0, 0.6);
+      max-width: 820px;
+    }
+
+    @media (max-width: 1024px) {
+      .dm-hero-title {
+        font-size: clamp(34px, 5.5vw, 56px) !important;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .dm-hero-title {
+        font-size: clamp(28px, 8vw, 38px) !important;
+      }
+    }
+
+    .dm-hero-title-accent {
+      color: #72B868;
+      text-shadow: 0 0 25px rgba(114, 184, 104, 0.45);
+    }
+
+    /* Description / Sub heading: 17px Inter 400 */
+    .dm-hero-desc {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+      font-size: 17px !important;
+      color: rgba(255, 255, 255, 0.95);
+      line-height: 1.65 !important;
+      max-width: 620px;
+      margin: 0 0 1.35rem 0;
+      text-shadow: 0 1px 6px rgba(0, 0, 0, 0.35);
+      font-weight: 400 !important;
+    }
+
+    /* 6 Department Pill Badges (20% Scaled) */
+    .dm-hero-badges-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 1.6rem;
+      max-width: 580px;
+    }
+
+    .dm-hero-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.35em 0.95rem;
+      background-color: #FFFFFF;
+      border: 1px solid #FFFFFF;
+      border-radius: 9999px;
+      font-size: 0.76rem;
+      font-weight: 500;
+      color: #000000;
+      letter-spacing: -0.01em;
+      transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.16);
+      cursor: default;
+    }
+
+    .dm-hero-pill:hover {
+      background-color: #F8FAFC;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 16px rgba(0, 0, 0, 0.24);
+    }
+
+    /* Action Buttons (20% Scaled) */
+    .dm-hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      flex-wrap: wrap;
+    }
+
+    .dm-btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: linear-gradient(135deg, #6EAE65, #558C4E);
+      color: #FFFFFF;
+      font-size: 0.84rem;
+      font-weight: 700;
+      padding: 0.72rem 1.85rem;
+      border-radius: 9999px;
+      text-decoration: none;
+      transition: all 0.25s ease;
+      box-shadow: 0 4px 18px rgba(90, 148, 82, 0.45);
+    }
+
+    .dm-btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 26px rgba(90, 148, 82, 0.65);
+      background: linear-gradient(135deg, #78BC6F, #5E9956);
+    }
+
+    .dm-btn-arrow {
+      font-size: 1.15rem;
+      line-height: 1;
+      transition: transform 0.2s ease;
+    }
+
+    .dm-btn-primary:hover .dm-btn-arrow {
+      transform: translateX(4px);
+    }
+
+    .dm-btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255, 255, 255, 0.12);
+      color: #FFFFFF;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      font-size: 0.95rem;
+      font-weight: 700;
+      padding: 0.85rem 2rem;
+      border-radius: 9999px;
+      text-decoration: none;
+      transition: all 0.25s ease;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+    }
+
+    .dm-btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.24);
+      border-color: rgba(255, 255, 255, 0.48);
+      transform: translateY(-2px);
+      color: #FFFFFF;
+    }
+
+    /* ==========================================================================
+       DARK MODE / BLACK THEME (SECTIONS BELOW HERO ONLY)
+       ========================================================================== */
+    body {
+      background-color: #000000 !important;
+      color: #FFFFFF !important;
+    }
+
+    #mainContent {
+      background-color: #000000 !important;
+      color: #FFFFFF !important;
+    }
+
+    /* ==========================================================================
+       DARK MODE / DEEP BLACK THEME ACROSS ALL SECTIONS BELOW HERO
+       ========================================================================== */
+    body {
+      background-color: #000000 !important;
+      color: #FFFFFF !important;
+    }
+
+    #mainContent {
+      background-color: #000000 !important;
+      color: #FFFFFF !important;
+    }
+
+    /* 1. 60-40% SPLIT PORTAL: 60% METRICS (LEFT) + 40% TRUSTED BY COMPANIES (RIGHT) */
+    .dm-trusted-by-section {
+      background: #050505 !important;
+      border-top: none !important;
+      border-bottom: none !important;
+      padding: clamp(2rem, 3vw, 2.75rem) 0 !important;
+      position: relative !important;
+      overflow: hidden !important;
+    }
+
+    .dm-trusted-split-layout {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+      gap: clamp(1.2rem, 2.2vw, 2.5rem) !important;
+      width: 100% !important;
+      max-width: 1240px !important;
+      margin: 0 auto !important;
+    }
+
+    /* LEFT PORTAL (60%): METRIC STATS WITH COOL ANIMATIONS */
+    .dm-trusted-numbers-portal {
+      flex: 0 0 60% !important;
+      max-width: 60% !important;
+      width: 60% !important;
+    }
+
+    .dm-metrics-grid {
+      display: grid !important;
+      grid-template-columns: repeat(4, 1fr) !important;
+      gap: clamp(0.6rem, 1vw, 1.15rem) !important;
+      align-items: flex-start !important;
+    }
+
+    .dm-metric-item {
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      text-align: center !important;
+      padding: 0.4rem 0.25rem !important;
+      cursor: default !important;
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    }
+
+    .dm-metric-item:hover {
+      transform: translateY(-5px) !important;
+    }
+
+    .dm-metric-icon-wrap {
+      width: 46px !important;
+      height: 36px !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      margin-bottom: 0.6rem !important;
+      transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.3s ease !important;
+    }
+
+    .dm-metric-item:hover .dm-metric-icon-wrap {
+      transform: scale(1.15) !important;
+      filter: drop-shadow(0 0 10px rgba(114, 184, 104, 0.8)) !important;
+    }
+
+    .dm-metric-num {
+      font-family: var(--font-heading), 'Inter', sans-serif !important;
+      font-size: clamp(1.7rem, 2.15vw, 2.45rem) !important;
+      font-weight: 800 !important;
+      color: #FFFFFF !important;
+      line-height: 1.1 !important;
+      margin-bottom: 0.5rem !important;
+      letter-spacing: -0.02em !important;
+      transition: text-shadow 0.3s ease, color 0.3s ease !important;
+    }
+
+    .dm-metric-item:hover .dm-metric-num {
+      color: #FFFFFF !important;
+      text-shadow: 0 0 16px rgba(255, 255, 255, 0.8), 0 0 28px rgba(114, 184, 104, 0.5) !important;
+    }
+
+    .dm-metric-label {
+      font-family: var(--font-body), 'Inter', sans-serif !important;
+      font-size: clamp(0.7rem, 0.78vw, 0.78rem) !important;
+      font-weight: 600 !important;
+      color: #72B868 !important;
+      line-height: 1.32 !important;
+      text-align: center !important;
+      max-width: 125px !important;
+      margin: 0 auto !important;
+      transition: color 0.3s ease !important;
+    }
+
+    .dm-metric-item:hover .dm-metric-label {
+      color: #85DC79 !important;
+      text-shadow: 0 0 8px rgba(114, 184, 104, 0.4) !important;
+    }
+
+    /* RIGHT PORTAL (40%): TRUSTED BY COMPANY LOGOS */
+    .dm-trusted-companies-portal {
+      flex: 0 0 38% !important;
+      max-width: 38% !important;
+      width: 38% !important;
+      border-left: 1px solid rgba(255, 255, 255, 0.12) !important;
+      padding-left: clamp(1.2rem, 1.8vw, 1.8rem) !important;
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      justify-content: center !important;
+      overflow: hidden !important;
+    }
+
+    .dm-trusted-by-title {
+      color: #72B868 !important;
+      font-family: var(--font-heading), 'Inter', sans-serif !important;
+      font-size: clamp(1.05rem, 1.35vw, 1.25rem) !important;
+      font-weight: 800 !important;
+      letter-spacing: 0.08em !important;
+      text-transform: uppercase !important;
+      margin: 0 auto 0.85rem auto !important;
+      text-align: center !important;
+      text-shadow: 0 0 20px rgba(114, 184, 104, 0.3) !important;
+    }
+
+    .dm-trusted-track-wrap {
+      width: 100% !important;
+      max-width: 100% !important;
+      margin: 0 auto !important;
+      position: relative !important;
+      overflow: hidden !important;
+    }
+
+    .dm-trusted-track-ltr {
+      display: flex !important;
+      align-items: center !important;
+      gap: 1.15rem !important;
+      white-space: nowrap !important;
+      animation: scrollLeftToRight 28s linear infinite !important;
+      width: max-content !important;
+      padding: 0.25rem 0 !important;
+    }
+
+    .dm-trusted-track-ltr:hover {
+      animation-play-state: paused !important;
+    }
+
+    .dm-trusted-track-wrap::before,
+    .dm-trusted-track-wrap::after {
+      content: '' !important;
+      position: absolute !important;
+      top: 0 !important;
+      width: 35px !important;
+      height: 100% !important;
+      z-index: 2 !important;
+      pointer-events: none !important;
+    }
+
+    .dm-trusted-track-wrap::before {
+      left: 0 !important;
+      background: linear-gradient(to right, #000000, rgba(0, 0, 0, 0)) !important;
+    }
+
+    .dm-trusted-track-wrap::after {
+      right: 0 !important;
+      background: linear-gradient(to left, #000000, rgba(0, 0, 0, 0)) !important;
+    }
+
+    .dm-trusted-logo-item {
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      background: #FFFFFF !important;
+      border-radius: 8px !important;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4) !important;
+      min-width: 110px !important;
+      max-width: 135px !important;
+      height: 38px !important;
+      padding: 0.25rem 0.65rem !important;
+      box-sizing: border-box !important;
+      flex: 0 0 120px !important;
+      transition: transform 0.25s ease, box-shadow 0.25s ease !important;
+    }
+
+    .dm-trusted-logo-item:hover {
+      transform: scale(1.06) translateY(-2px) !important;
+      box-shadow: 0 6px 16px rgba(114, 184, 104, 0.4) !important;
+    }
+
+    .dm-trusted-pure-img {
+      height: 24px !important;
+      max-height: 24px !important;
+      width: auto !important;
+      max-width: 100% !important;
+      object-fit: contain !important;
+      display: block !important;
+      filter: none !important;
+      opacity: 1 !important;
+      user-select: none !important;
+      transition: transform 0.25s ease !important;
+    }
+
+    .dm-trusted-pure-img[alt*="Mor'ish"],
+    .dm-trusted-pure-img[alt*="Morish"] {
+      border-radius: 50% !important;
+      background: #000000 !important;
+    }
+
+    @media (max-width: 1024px) {
+      .dm-trusted-split-layout {
+        flex-direction: column !important;
+        gap: 2.2rem !important;
+      }
+      .dm-trusted-numbers-portal {
+        flex: 0 0 100% !important;
+        max-width: 100% !important;
+        width: 100% !important;
+      }
+      .dm-trusted-companies-portal {
+        flex: 0 0 100% !important;
+        max-width: 100% !important;
+        width: 100% !important;
+        border-left: none !important;
+        border-top: none !important;
+        padding-left: 0 !important;
+        padding-top: 1.8rem !important;
+      }
+      .dm-trusted-track-wrap {
+        max-width: 600px !important;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .dm-metrics-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 1.5rem 0.8rem !important;
+      }
+      .dm-trusted-track-wrap {
+        max-width: 100% !important;
+      }
+    }
+
+    /* 2. CORE SERVICES & EXTRA SERVICES: DEEP BLACK */
+    .dm-white-section {
+      background: #050505 !important;
+      color: #FFFFFF !important;
+      padding-top: clamp(3.5rem, 5.5vw, 5rem) !important;
+      padding-bottom: clamp(3.5rem, 5.5vw, 5rem) !important;
+      border-top: none !important;
+      border-bottom: none !important;
+      position: relative;
+    }
+
+    .dm-white-section-alt {
+      background: #050505 !important;
+      border-top: none !important;
+      border-bottom: none !important;
+      color: #FFFFFF !important;
+      padding-top: clamp(3.5rem, 5.5vw, 5rem) !important;
+      padding-bottom: clamp(3.5rem, 5.5vw, 5rem) !important;
+      position: relative;
+    }
+
+    .dm-clean-header-title {
+      font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif !important;
+      font-size: 42px !important;
+      font-weight: 700 !important;
+      letter-spacing: -0.02em !important;
+      text-transform: uppercase !important;
+      margin-bottom: 0.95rem !important;
+      text-align: center !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      gap: 0.4em !important;
+      cursor: default !important;
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    }
+
+    @media (max-width: 1024px) {
+      .dm-clean-header-title {
+        font-size: clamp(28px, 4vw, 36px) !important;
+      }
+    }
+
+    .dm-clean-header-title:hover {
+      transform: translateY(-3px) scale(1.02) !important;
+    }
+
+    .dm-title-light {
+      color: #FFFFFF !important;
+      font-weight: 900 !important;
+      display: inline-block !important;
+      transition: text-shadow 0.3s ease, transform 0.3s ease !important;
+    }
+
+    .dm-clean-header-title:hover .dm-title-light {
+      text-shadow: 0 0 16px rgba(255, 255, 255, 0.75) !important;
+    }
+
+    .dm-title-accent {
+      font-weight: 900 !important;
+      display: inline-block !important;
+      background: linear-gradient(135deg, #FF4545 0%, #FF1E38 35%, #FFA3A3 50%, #FF1E38 65%, #E60026 100%) !important;
+      background-size: 250% auto !important;
+      -webkit-background-clip: text !important;
+      background-clip: text !important;
+      -webkit-text-fill-color: transparent !important;
+      filter: drop-shadow(0 0 12px rgba(252, 72, 73, 0.45)) !important;
+      animation: redTextShimmer 4s linear infinite, redPulseGlow 2.8s ease-in-out infinite alternate !important;
+      transition: filter 0.3s ease !important;
+    }
+
+    .dm-clean-header-title:hover .dm-title-accent {
+      filter: drop-shadow(0 0 20px rgba(255, 30, 56, 0.85)) drop-shadow(0 0 35px rgba(252, 72, 73, 0.5)) !important;
+    }
+
+    @keyframes redTextShimmer {
+      0% {
+        background-position: 0% center;
+      }
+      100% {
+        background-position: 250% center;
+      }
+    }
+
+    @keyframes redPulseGlow {
+      0% {
+        filter: drop-shadow(0 0 10px rgba(252, 72, 73, 0.35));
+      }
+      100% {
+        filter: drop-shadow(0 0 22px rgba(252, 72, 73, 0.75)) drop-shadow(0 0 38px rgba(252, 72, 73, 0.35));
+      }
+    }
+
+    .dm-clean-header-desc {
+      color: rgba(255, 255, 255, 0.88) !important;
+      font-size: clamp(1.02rem, 1.3vw, 1.16rem) !important;
+      line-height: 1.72 !important;
+      font-weight: 450 !important;
+      max-width: 780px !important;
+      margin: 0 auto 3rem auto !important;
+      text-align: center !important;
+    }
+
+    .dm-services-img-grid,
+    .dm-extra-services-grid {
+      display: grid !important;
+      grid-template-columns: repeat(3, 1fr) !important;
+      max-width: 1005px !important;
+      margin: 0 auto !important;
+      gap: 24px !important;
+    }
+
+    @media (max-width: 860px) {
+      .dm-services-img-grid,
+      .dm-extra-services-grid {
+        grid-template-columns: 1fr !important;
+        max-width: 480px !important;
+        margin: 0 auto !important;
+        gap: 1.5rem !important;
+      }
+      .dm-flip-card-wrapper,
+      .dm-flip-card-inner {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-height: 285px !important;
+      }
+      .dm-extra-services-grid .dm-flip-card-wrapper,
+      .dm-extra-services-grid .dm-flip-card-inner {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-height: 335px !important;
+      }
+    }
+
+    .dm-flip-card-wrapper {
+      min-height: 285px !important;
+      height: 285px !important;
+      border-radius: 20px !important;
+    }
+
+    .dm-flip-card-inner {
+      min-height: 285px !important;
+      height: 285px !important;
+      border-radius: 20px !important;
+    }
+
+    .dm-flip-card-front,
+    .dm-flip-card-back {
+      border-radius: 20px !important;
+      box-sizing: border-box !important;
+    }
+
+    /* 3D Flip Card Front Face: New Layout with Right Number Tab */
+    .dm-flip-card-front {
+      background: #0E0E0E !important;
+      opacity: 1 !important;
+      border: 1px solid rgba(255, 255, 255, 0.09) !important;
+      color: #FFFFFF !important;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45) !important;
+      display: flex !important;
+      flex-direction: row !important;
+      align-items: stretch !important;
+      justify-content: space-between !important;
+      padding: 0 !important;
+      overflow: hidden !important;
+      position: absolute !important;
+      top: 0 !important;
+      left: 0 !important;
+      width: 100% !important;
+      height: 100% !important;
+    }
+
+    .dm-flip-card-front:hover {
+      background: #141414 !important;
+      border-color: rgba(114, 184, 104, 0.4) !important;
+      box-shadow: 0 14px 36px rgba(0, 0, 0, 0.6), 0 0 20px rgba(114, 184, 104, 0.15) !important;
+    }
+
+    /* Content Area on Left */
+    .dm-card-main-content {
+      flex: 1 1 auto !important;
+      padding: 1.6rem 1.15rem 1.6rem 1.35rem !important;
+      display: flex !important;
+      flex-direction: column !important;
+      justify-content: flex-start !important;
+      box-sizing: border-box !important;
+      text-align: left !important;
+    }
+
+    /* Circular Outline Icon Container matching Reference Mockup */
+    .dm-service-icon-wrap {
+      width: 44px !important;
+      height: 44px !important;
+      border-radius: 50% !important;
+      border: 1.5px solid #72B868 !important;
+      background: rgba(114, 184, 104, 0.08) !important;
+      color: #72B868 !important;
+      margin-bottom: 1rem !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      padding: 0 !important;
+      transition: all 0.3s ease !important;
+    }
+
+    .dm-flip-card-front:hover .dm-service-icon-wrap {
+      background: rgba(114, 184, 104, 0.18) !important;
+      transform: scale(1.05) !important;
+      box-shadow: 0 0 14px rgba(114, 184, 104, 0.35) !important;
+    }
+
+    .dm-service-icon-wrap svg {
+      width: 22px !important;
+      height: 22px !important;
+      stroke-width: 1.8 !important;
+      color: #72B868 !important;
+    }
+
+    /* Service Title: Responsive, Manrope, 700 (Bold) */
+    .dm-service-title {
+      color: #72B868 !important;
+      font-size: clamp(18px, 4.5vw, 26px) !important;
+      font-weight: 700 !important;
+      line-height: 1.25 !important;
+      letter-spacing: -0.015em !important;
+      text-transform: uppercase !important;
+      margin-bottom: 0.45rem !important;
+      font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif !important;
+      word-break: break-word !important;
+      overflow-wrap: break-word !important;
+    }
+
+    /* Service Description */
+    .dm-service-desc {
+      color: rgba(255, 255, 255, 0.78) !important;
+      font-size: 0.81rem !important;
+      line-height: 1.48 !important;
+      margin: 0 !important;
+    }
+
+    /* Right Vertical Bookmark Tab Strip */
+    .dm-service-tab-strip {
+      width: 44px !important;
+      flex: 0 0 44px !important;
+      height: 100% !important;
+      background: linear-gradient(180deg, #72B868 0%, #467E3F 100%) !important;
+      border-top-right-radius: 20px !important;
+      border-bottom-right-radius: 20px !important;
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      justify-content: flex-start !important;
+      padding-top: 14px !important;
+      box-sizing: border-box !important;
+      box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2) !important;
+      position: relative !important;
+    }
+
+    /* White Number at Top of Tab */
+    .dm-service-tab-num {
+      color: #FFFFFF !important;
+      font-family: var(--font-heading), 'Inter', sans-serif !important;
+      font-size: 1.15rem !important;
+      font-weight: 800 !important;
+      line-height: 1 !important;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4) !important;
+    }
+
+    /* Individual Bookmark Tab Colors matching Reference Image (1 to 12) */
+    .dm-tab-1 {
+      background: linear-gradient(180deg, #F8CB4D 0%, #E2A72A 100%) !important;
+    }
+    .dm-tab-2 {
+      background: linear-gradient(180deg, #EE7C4D 0%, #D85A27 100%) !important;
+    }
+    .dm-tab-3 {
+      background: linear-gradient(180deg, #948072 0%, #766356 100%) !important;
+    }
+    .dm-tab-4 {
+      background: linear-gradient(180deg, #74B765 0%, #529643 100%) !important;
+    }
+    .dm-tab-5 {
+      background: linear-gradient(180deg, #65BDCE 0%, #399EAF 100%) !important;
+    }
+    .dm-tab-6 {
+      background: linear-gradient(180deg, #397BAC 0%, #206192 100%) !important;
+    }
+    .dm-tab-7 {
+      background: linear-gradient(180deg, #8494B0 0%, #617391 100%) !important;
+    }
+    .dm-tab-8 {
+      background: linear-gradient(180deg, #9B72AC 0%, #7D5190 100%) !important;
+    }
+    .dm-tab-9 {
+      background: linear-gradient(180deg, #F26DAA 0%, #D84489 100%) !important;
+    }
+    .dm-tab-10 {
+      background: linear-gradient(180deg, #F8CB4D 0%, #E2A72A 100%) !important;
+    }
+    .dm-tab-11 {
+      background: linear-gradient(180deg, #65BDCE 0%, #399EAF 100%) !important;
+    }
+    .dm-tab-12 {
+      background: linear-gradient(180deg, #F26DAA 0%, #D84489 100%) !important;
+    }
+
+    .dm-flip-hint {
+      display: none !important;
+    }
+
+    /* Flipped Card Back Face: Content Evenly Covers Entire Card Height */
+    .dm-flip-card-back {
+      background: #FFFFFF !important;
+      border: 1px solid #E2E8F0 !important;
+      color: #0F172A !important;
+      box-shadow: 0 14px 36px rgba(0, 0, 0, 0.35) !important;
+      border-radius: 20px !important;
+      padding: 1.65rem 1.35rem !important;
+      display: flex !important;
+      flex-direction: column !important;
+      justify-content: space-between !important;
+      height: 100% !important;
+      box-sizing: border-box !important;
+    }
+
+    /* Remove Heading on Card Back Face as Not Required */
+    .dm-flip-back-title {
+      display: none !important;
+    }
+
+    .dm-flip-bullet-list {
+      display: flex !important;
+      flex-direction: column !important;
+      justify-content: space-between !important;
+      flex-grow: 1 !important;
+      gap: 0.75rem !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      height: 100% !important;
+    }
+
+    .dm-flip-bullet-list li {
+      color: #334155 !important;
+      font-size: 0.83rem !important;
+      line-height: 1.52 !important;
+      padding-left: 1.1rem !important;
+    }
+
+    .dm-flip-bullet-list li::before {
+      color: #000000 !important;
+      font-size: 1.05rem !important;
+      top: -1px !important;
+    }
+
+    .dm-flip-bullet-list li strong {
+      color: #000000 !important;
+      font-weight: 700 !important;
+      font-size: 0.83rem !important;
+    }
+
+    /* ==========================================================================
+       EXTRA SERVICES: TWO-PILL GRADIENT PLATE DESIGN
+       ========================================================================== */
+    .dm-extra-services-grid .dm-flip-card-wrapper {
+      min-height: 335px !important;
+      height: 335px !important;
+      border-radius: 26px !important;
+    }
+
+    .dm-extra-services-grid .dm-flip-card-inner {
+      min-height: 335px !important;
+      height: 335px !important;
+      border-radius: 26px !important;
+    }
+
+    /* Extra Card Front & Back Plates with Vibrant Gradient */
+    .dm-extra-services-grid .dm-flip-card-front {
+      border-radius: 26px !important;
+      padding: 12px !important;
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: stretch !important;
+      justify-content: space-between !important;
+      box-sizing: border-box !important;
+      border: none !important;
+      box-shadow: 0 16px 36px -6px rgba(0, 0, 0, 0.45) !important;
+      position: absolute !important;
+      top: 0 !important;
+      left: 0 !important;
+      width: 100% !important;
+      height: 100% !important;
+      backdrop-filter: none !important;
+      -webkit-backdrop-filter: none !important;
+    }
+
+    .dm-extra-services-grid .dm-flip-card-back {
+      border-radius: 26px !important;
+      padding: 12px !important;
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: stretch !important;
+      justify-content: stretch !important;
+      box-sizing: border-box !important;
+      border: none !important;
+      box-shadow: 0 16px 36px -6px rgba(0, 0, 0, 0.45) !important;
+      position: absolute !important;
+      top: 0 !important;
+      left: 0 !important;
+      width: 100% !important;
+      height: 100% !important;
+      background: transparent !important;
+    }
+
+    /* Card 1: Magenta / Rose Gradient */
+    .dm-extra-card-1 {
+      --extra-accent: #E25267;
+    }
+    .dm-extra-card-1 .dm-flip-card-front,
+    .dm-extra-card-1 .dm-flip-card-back {
+      background: linear-gradient(180deg, #F68DFF 0%, #E25267 100%) !important;
+    }
+
+    /* Card 2: Peach / Coral Gradient */
+    .dm-extra-card-2 {
+      --extra-accent: #ED8F91;
+    }
+    .dm-extra-card-2 .dm-flip-card-front,
+    .dm-extra-card-2 .dm-flip-card-back {
+      background: linear-gradient(180deg, #FFB8A5 0%, #ED8F91 100%) !important;
+    }
+
+    /* Card 3: Aqua Mint / Azure Blue Gradient */
+    .dm-extra-card-3 {
+      --extra-accent: #0284C7;
+    }
+    .dm-extra-card-3 .dm-flip-card-front,
+    .dm-extra-card-3 .dm-flip-card-back {
+      background: linear-gradient(180deg, #6EDBCF 0%, #1E91E7 100%) !important;
+    }
+
+    /* Top White Pill: Number | Icon */
+    .dm-extra-header-pill {
+      background: #FFFFFF !important;
+      border-radius: 16px !important;
+      padding: 0.65rem 1.1rem !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      gap: 0.95rem !important;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08) !important;
+      box-sizing: border-box !important;
+      flex-shrink: 0 !important;
+    }
+
+    .dm-extra-num {
+      font-size: 1.65rem !important;
+      font-weight: 800 !important;
+      font-family: var(--font-heading), 'Inter', sans-serif !important;
+      line-height: 1 !important;
+      color: var(--extra-accent) !important;
+      letter-spacing: -0.02em !important;
+    }
+
+    .dm-extra-divider {
+      width: 1.5px !important;
+      height: 24px !important;
+      background: var(--extra-accent) !important;
+      opacity: 0.35 !important;
+      display: inline-block !important;
+    }
+
+    .dm-extra-icon {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      color: var(--extra-accent) !important;
+    }
+
+    .dm-extra-icon svg {
+      width: 26px !important;
+      height: 26px !important;
+      stroke: var(--extra-accent) !important;
+      stroke-width: 1.8 !important;
+    }
+
+    /* Bottom White Pill: Title & Description */
+    .dm-extra-body-box {
+      background: #FFFFFF !important;
+      border-radius: 18px !important;
+      margin-top: 10px !important;
+      flex: 1 1 auto !important;
+      padding: 1.35rem 1.15rem 1.25rem 1.15rem !important;
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      text-align: center !important;
+      justify-content: center !important;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08) !important;
+      box-sizing: border-box !important;
+    }
+
+    .dm-extra-title {
+      font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif !important;
+      font-size: clamp(18px, 4.5vw, 26px) !important;
+      font-weight: 700 !important;
+      letter-spacing: -0.015em !important;
+      text-transform: uppercase !important;
+      color: #1E293B !important;
+      margin: 0 0 0.55rem 0 !important;
+      line-height: 1.25 !important;
+      word-break: break-word !important;
+      overflow-wrap: break-word !important;
+    }
+
+    .dm-extra-desc {
+      font-size: 0.81rem !important;
+      line-height: 1.5 !important;
+      color: #64748B !important;
+      margin: 0 !important;
+    }
+
+    /* Extra Card Back Content Box */
+    .dm-extra-back-content {
+      background: #FFFFFF !important;
+      border-radius: 18px !important;
+      padding: 1.15rem 1.1rem !important;
+      display: flex !important;
+      flex-direction: column !important;
+      justify-content: space-between !important;
+      height: 100% !important;
+      box-sizing: border-box !important;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08) !important;
+      overflow: hidden !important;
+    }
+
+    .dm-extra-back-content .dm-flip-bullet-list {
+      height: 100% !important;
+      display: flex !important;
+      flex-direction: column !important;
+      justify-content: space-between !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      gap: 6px !important;
+      flex-grow: 1 !important;
+    }
+
+    .dm-extra-back-content .dm-flip-bullet-list li {
+      font-size: 0.77rem !important;
+      line-height: 1.38 !important;
+      color: #475569 !important;
+      padding-left: 1rem !important;
+    }
+
+    .dm-extra-back-content .dm-flip-bullet-list li strong {
+      font-size: 0.81rem !important;
+      font-weight: 700 !important;
+      color: #0F172A !important;
+      display: inline !important;
+    }
+
+    .dm-extra-back-content .dm-flip-bullet-list li::before {
+      color: var(--extra-accent) !important;
+      font-size: 0.95rem !important;
+      top: -1px !important;
+    }
+
+    /* ==========================================================================
+       3. HOW DO WE DELIVER SUCCESS? (FIVE PILLARS. NOT ONE. - HANGING CARDS)
+       ========================================================================== */
+    .delivery-success-section {
+      background: #000000 !important;
+      color: #FFFFFF !important;
+      padding: clamp(4.5rem, 7vw, 6.5rem) 0 clamp(5rem, 8vw, 7.5rem) 0 !important;
+      position: relative !important;
+      overflow: hidden !important;
+      border-top: none !important;
+      border-bottom: none !important;
+    }
+
+    .pillars-hero-header {
+      display: flex !important;
+      justify-content: space-between !important;
+      align-items: flex-end !important;
+      margin-bottom: 2.2rem !important;
+      gap: 2rem !important;
+    }
+
+    .pillars-hero-text {
+      flex: 1 1 540px !important;
+      max-width: 580px !important;
+      text-align: left !important;
+    }
+
+    .pillars-eyebrow-badge {
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 0.5rem !important;
+      font-size: 0.76rem !important;
+      font-weight: 800 !important;
+      letter-spacing: 0.08em !important;
+      text-transform: uppercase !important;
+      color: #FC4849 !important;
+      background: rgba(252, 72, 73, 0.12) !important;
+      border: 1px solid rgba(252, 72, 73, 0.35) !important;
+      padding: 0.35rem 0.85rem !important;
+      border-radius: 9999px !important;
+      margin-bottom: 1.15rem !important;
+    }
+
+    .pillars-display-title {
+      font-family: var(--font-heading), 'Inter', sans-serif !important;
+      font-size: clamp(2.4rem, 4.4vw, 3.8rem) !important;
+      font-weight: 900 !important;
+      line-height: 1.08 !important;
+      letter-spacing: -0.035em !important;
+      color: #FFFFFF !important;
+      margin: 0 0 1.65rem 0 !important;
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    }
+
+    @media (max-width: 1024px) {
+      .pillars-display-title {
+        font-size: clamp(2.2rem, 4vw, 3.2rem) !important;
+      }
+    }
+
+    .pillars-display-title:hover {
+      transform: translateY(-2px) !important;
+    }
+
+    .pillars-blue-text {
+      display: inline-block !important;
+      font-weight: 900 !important;
+      background: linear-gradient(135deg, #FF4545 0%, #FF1E38 35%, #FFA3A3 50%, #FF1E38 65%, #E60026 100%) !important;
+      background-size: 250% auto !important;
+      -webkit-background-clip: text !important;
+      background-clip: text !important;
+      -webkit-text-fill-color: transparent !important;
+      filter: drop-shadow(0 0 14px rgba(252, 72, 73, 0.5)) !important;
+      animation: redTextShimmer 4s linear infinite, redPulseGlow 2.8s ease-in-out infinite alternate !important;
+      transition: filter 0.3s ease !important;
+    }
+
+    .pillars-display-title:hover .pillars-blue-text {
+      filter: drop-shadow(0 0 24px rgba(255, 30, 56, 0.9)) drop-shadow(0 0 42px rgba(252, 72, 73, 0.6)) !important;
+    }
+
+    .pillars-blue-bar {
+      width: 54px !important;
+      height: 4px !important;
+      background: #FC4849 !important;
+      border-radius: 2px !important;
+      margin: 0 0 2.2rem 0 !important;
+      box-shadow: 0 0 14px rgba(252, 72, 73, 0.55) !important;
+    }
+
+    .pillars-subtitle {
+      font-size: 0.98rem !important;
+      line-height: 1.65 !important;
+      color: rgba(255, 255, 255, 0.82) !important;
+      font-weight: 400 !important;
+      max-width: 620px !important;
+      margin: 0 !important;
+    }
+
+    .pillars-hand-graphic-wrap {
+      flex: 0 0 auto !important;
+      display: flex !important;
+      align-items: flex-end !important;
+      justify-content: center !important;
+      margin-bottom: -15px !important;
+      z-index: 2 !important;
+    }
+
+    .pillars-hand-img {
+      width: 340px !important;
+      max-width: 100% !important;
+      height: auto !important;
+      display: block !important;
+      border-radius: 12px !important;
+      transform: translate(15px, 8px) !important;
+    }
+
+    /* Tension Rope Track */
+    .pillars-rope-track {
+      position: relative !important;
+      width: 100% !important;
+      height: 16px !important;
+      margin-bottom: -8px !important;
+      z-index: 5 !important;
+    }
+
+    .pillars-rope-line {
+      width: 100% !important;
+      height: 4px !important;
+      background: linear-gradient(90deg, rgba(252, 72, 73, 0.2) 0%, #DC2626 15%, #FC4849 85%, rgba(252, 72, 73, 0.2) 100%) !important;
+      border-radius: 9999px !important;
+      box-shadow: 0 0 16px rgba(252, 72, 73, 0.7) !important;
+    }
+
+    /* 5 Hanging Cards Grid */
+    .pillars-hanging-grid {
+      display: grid !important;
+      grid-template-columns: repeat(5, 1fr) !important;
+      gap: 16px !important;
+      max-width: 1200px !important;
+      margin: 0 auto !important;
+      position: relative !important;
+      z-index: 10 !important;
+      align-items: stretch !important;
+    }
+
+    .pillar-hanging-card {
+      background: #FFFFFF !important;
+      border: 1px solid rgba(255, 255, 255, 0.2) !important;
+      border-radius: 16px !important;
+      padding: 1.85rem 1.25rem 1.65rem 1.25rem !important;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.75), 0 0 25px rgba(252, 72, 73, 0.15) !important;
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      text-align: center !important;
+      position: relative !important;
+      transition: all 0.35s cubic-bezier(0.2, 0.9, 0.3, 1) !important;
+      cursor: default !important;
+      transform-origin: top center !important;
+    }
+
+    /* Hanging Arc Subtle Tilts */
+    .pillar-arc-1 {
+      transform: rotate(-2.5deg) translateY(4px);
+    }
+    .pillar-arc-2 {
+      transform: rotate(-1deg) translateY(1px);
+    }
+    .pillar-arc-3 {
+      transform: rotate(0deg) translateY(0px);
+    }
+    .pillar-arc-4 {
+      transform: rotate(1deg) translateY(1px);
+    }
+    .pillar-arc-5 {
+      transform: rotate(2.5deg) translateY(4px);
+    }
+
+    .pillar-hanging-card:hover {
+      transform: translateY(-10px) scale(1.025) !important;
+      box-shadow: 0 25px 60px -8px rgba(0, 0, 0, 0.9), 0 0 30px rgba(252, 72, 73, 0.45) !important;
+      border-color: #FC4849 !important;
+      z-index: 20 !important;
+    }
+
+    /* Red Carabiner / Clasp at Top */
+    .pillar-clasp {
+      position: absolute !important;
+      top: -14px !important;
+      left: 50% !important;
+      transform: translateX(-50%) !important;
+      width: 14px !important;
+      height: 22px !important;
+      background: linear-gradient(180deg, #991B1B, #FC4849) !important;
+      border-radius: 4px !important;
+      box-shadow: 0 3px 8px rgba(252, 72, 73, 0.5) !important;
+      z-index: 15 !important;
+    }
+
+    .clasp-grommet {
+      position: absolute !important;
+      top: 4px !important;
+      left: 50% !important;
+      transform: translateX(-50%) !important;
+      width: 4px !important;
+      height: 4px !important;
+      background: #FFFFFF !important;
+      border-radius: 50% !important;
+      display: block !important;
+    }
+
+    /* Card Icon */
+    .pillar-icon-wrap {
+      color: #FC4849 !important;
+      margin-bottom: 1rem !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      transition: transform 0.25s ease !important;
+    }
+
+    .pillar-hanging-card:hover .pillar-icon-wrap {
+      transform: scale(1.1) !important;
+    }
+
+    /* Card Title */
+    .pillar-card-title {
+      font-family: var(--font-heading), 'Inter', sans-serif !important;
+      font-size: 0.88rem !important;
+      font-weight: 800 !important;
+      letter-spacing: 0.04em !important;
+      text-transform: uppercase !important;
+      color: #0A192F !important;
+      margin: 0 0 0.55rem 0 !important;
+      line-height: 1.25 !important;
+    }
+
+    /* Red Accent Line below Title */
+    .pillar-accent-line {
+      width: 24px !important;
+      height: 3px !important;
+      background: #FC4849 !important;
+      border-radius: 2px !important;
+      margin: 0 auto 0.95rem auto !important;
+      transition: width 0.3s ease !important;
+    }
+
+    .pillar-hanging-card:hover .pillar-accent-line {
+      width: 38px !important;
+    }
+
+    /* Card Description */
+    .pillar-card-desc {
+      font-size: 0.76rem !important;
+      line-height: 1.55 !important;
+      color: #475569 !important;
+      margin: 0 !important;
+      font-weight: 450 !important;
+      text-align: left !important;
+      flex-grow: 1 !important;
+    }
+
+    /* Mobile / Tablet Responsiveness */
+    @media (max-width: 992px) {
+      .pillars-hero-header {
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+      }
+      .pillars-hero-text {
+        text-align: center !important;
+      }
+      .pillars-blue-bar {
+        margin: 0 auto 1.35rem auto !important;
+      }
+      .pillars-hand-graphic-wrap {
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        margin: 1.5rem auto 1.5rem auto !important;
+        width: 100% !important;
+        max-width: 280px !important;
+      }
+      .pillars-hand-img {
+        width: 100% !important;
+        max-width: 240px !important;
+        height: auto !important;
+        transform: none !important;
+        display: block !important;
+        margin: 0 auto !important;
+      }
+      .pillars-rope-track {
+        display: none !important;
+      }
+      .pillars-hanging-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 1.25rem !important;
+      }
+      .pillar-hanging-card {
+        transform: none !important;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .pillars-hanging-grid {
+        grid-template-columns: 1fr !important;
+      }
+    }
+
+    /* ==========================================================================
+       WHY CHOOSE DIGIOLIC? SECTION (POSTER-STYLE EXPANDING VALUE CARDS)
+       ========================================================================== */
+    .dm-why-choose-section {
+      background: #000000 !important;
+      color: #FFFFFF !important;
+      padding: clamp(4.5rem, 6.5vw, 6.5rem) 0 !important;
+      border-top: none !important;
+      border-bottom: none !important;
+      position: relative !important;
+      overflow: hidden !important;
+    }
+
+    .dm-why-choose-title {
+      font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif !important;
+      font-size: 42px !important;
+      font-weight: 700 !important;
+      line-height: 1.2 !important;
+      letter-spacing: -0.025em !important;
+      text-transform: uppercase !important;
+      text-align: center !important;
+      margin: 0 auto 0.95rem auto !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      gap: 0.35em !important;
+      flex-wrap: wrap !important;
+      cursor: default !important;
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    }
+
+    @media (max-width: 1024px) {
+      .dm-why-choose-title {
+        font-size: clamp(28px, 4vw, 36px) !important;
+      }
+    }
+
+    .dm-why-choose-title:hover {
+      transform: translateY(-3px) scale(1.015) !important;
+    }
+
+    .dm-why-white {
+      color: #FFFFFF !important;
+      font-weight: 900 !important;
+      display: inline-block !important;
+      transition: text-shadow 0.3s ease !important;
+    }
+
+    .dm-why-choose-title:hover .dm-why-white {
+      text-shadow: 0 0 20px rgba(255, 255, 255, 0.8) !important;
+    }
+
+    .dm-why-red {
+      font-weight: 900 !important;
+      display: inline-block !important;
+      background: linear-gradient(135deg, #FF4545 0%, #FF1E38 35%, #FFA3A3 50%, #FF1E38 65%, #E60026 100%) !important;
+      background-size: 250% auto !important;
+      -webkit-background-clip: text !important;
+      background-clip: text !important;
+      -webkit-text-fill-color: transparent !important;
+      filter: drop-shadow(0 0 16px rgba(252, 72, 73, 0.5)) !important;
+      animation: redTextShimmer 4s linear infinite, redPulseGlow 2.8s ease-in-out infinite alternate !important;
+      transition: filter 0.3s ease !important;
+    }
+
+    .dm-why-choose-title:hover .dm-why-red {
+      filter: drop-shadow(0 0 24px rgba(255, 30, 56, 0.9)) drop-shadow(0 0 45px rgba(252, 72, 73, 0.6)) !important;
+    }
+
+    .dm-why-choose-subtitle {
+      font-family: var(--font-body), 'Inter', sans-serif !important;
+      font-size: clamp(1.05rem, 1.35vw, 1.22rem) !important;
+      font-weight: 450 !important;
+      line-height: 1.6 !important;
+      color: rgba(255, 255, 255, 0.85) !important;
+      text-align: center !important;
+      max-width: 680px !important;
+      margin: 0 auto clamp(2.5rem, 3.8vw, 3.5rem) auto !important;
+      letter-spacing: -0.01em !important;
+    }
+
+    .dm-why-cards-grid {
+      display: grid !important;
+      grid-template-columns: repeat(4, 1fr) !important;
+      gap: clamp(0.85rem, 1.5vw, 1.4rem) !important;
+      max-width: 1200px !important;
+      margin: 0 auto !important;
+      align-items: stretch !important;
+    }
+
+    /* Base Poster Card */
+    .dm-poster-card {
+      border-radius: 26px !important;
+      padding: clamp(1.8rem, 2.2vw, 2.3rem) clamp(1.3rem, 1.6vw, 1.7rem) !important;
+      display: flex !important;
+      flex-direction: column !important;
+      justify-content: space-between !important;
+      min-height: 440px !important;
+      position: relative !important;
+      cursor: pointer !important;
+      user-select: none !important;
+      color: #000000 !important;
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+      overflow: hidden !important;
+    }
+
+    /* Card Palettes - Sampled Exact Hexes */
+    .dm-poster-pink {
+      background: #FEAFD9 !important;
+    }
+    .dm-poster-lime {
+      background: #CAEB2E !important;
+    }
+    .dm-poster-gold {
+      background: #FFB800 !important;
+    }
+    .dm-poster-white {
+      background: #FFFFFF !important;
+    }
+
+    /* Card Elevation & Ambient Colored Shadow on Hover/Active */
+    .dm-poster-pink:hover,
+    .dm-poster-pink.active {
+      transform: translateY(-8px) scale(1.015) !important;
+      box-shadow: 0 24px 50px -10px rgba(254, 175, 217, 0.5) !important;
+    }
+    .dm-poster-lime:hover,
+    .dm-poster-lime.active {
+      transform: translateY(-8px) scale(1.015) !important;
+      box-shadow: 0 24px 50px -10px rgba(202, 235, 46, 0.5) !important;
+    }
+    .dm-poster-gold:hover,
+    .dm-poster-gold.active {
+      transform: translateY(-8px) scale(1.015) !important;
+      box-shadow: 0 24px 50px -10px rgba(255, 184, 0, 0.5) !important;
+    }
+    .dm-poster-white:hover,
+    .dm-poster-white.active {
+      transform: translateY(-8px) scale(1.015) !important;
+      box-shadow: 0 24px 50px -10px rgba(255, 255, 255, 0.35) !important;
+    }
+
+    /* Top Icon */
+    .dm-poster-top {
+      margin-bottom: 2rem !important;
+    }
+
+    .dm-poster-icon-wrap {
+      width: 48px !important;
+      height: 48px !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: flex-start !important;
+    }
+
+    .dm-geom-icon {
+      width: 44px !important;
+      height: 44px !important;
+      display: block !important;
+      transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+      transform-origin: center center !important;
+    }
+
+    .dm-poster-card:hover .dm-geom-icon,
+    .dm-poster-card.active .dm-geom-icon {
+      transform: rotate(90deg) scale(1.08) !important;
+    }
+
+    /* Bottom Section */
+    .dm-poster-bottom {
+      display: flex !important;
+      flex-direction: column !important;
+      justify-content: flex-end !important;
+      margin-top: auto !important;
+    }
+
+    .dm-poster-num {
+      font-family: var(--font-heading), 'Inter', sans-serif !important;
+      font-size: 0.95rem !important;
+      font-weight: 700 !important;
+      color: #000000 !important;
+      margin-bottom: 0.45rem !important;
+      letter-spacing: -0.01em !important;
+    }
+
+    .dm-poster-header-row {
+      display: flex !important;
+      align-items: flex-end !important;
+      justify-content: space-between !important;
+      gap: 0.75rem !important;
+      margin-bottom: 0.75rem !important;
+    }
+
+    .dm-poster-title {
+      font-family: var(--font-heading), 'Inter', sans-serif !important;
+      font-size: clamp(1.35rem, 1.85vw, 1.68rem) !important;
+      font-weight: 800 !important;
+      line-height: 1.15 !important;
+      color: #000000 !important;
+      margin: 0 !important;
+      letter-spacing: -0.025em !important;
+    }
+
+    /* Circular Arrow Button (Smooth Pop & Rotation) */
+    .dm-poster-arrow-circle {
+      width: 40px !important;
+      height: 40px !important;
+      border-radius: 50% !important;
+      border: 1.5px solid #000000 !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      flex-shrink: 0 !important;
+      opacity: 0 !important;
+      transform: scale(0.6) rotate(-45deg) !important;
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
+      background: transparent !important;
+    }
+
+    .dm-poster-card:hover .dm-poster-arrow-circle,
+    .dm-poster-card.active .dm-poster-arrow-circle {
+      opacity: 1 !important;
+      transform: scale(1) rotate(0deg) !important;
+    }
+
+    .dm-poster-arrow-circle:hover {
+      background: rgba(0, 0, 0, 0.12) !important;
+      transform: scale(1.1) !important;
+    }
+
+    /* Expanding Horizontal Divider */
+    .dm-poster-divider {
+      width: 100% !important;
+      height: 1.5px !important;
+      background: #000000 !important;
+      margin-bottom: 0.85rem !important;
+      transform: scaleX(0) !important;
+      transform-origin: left !important;
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    }
+
+    .dm-poster-card:hover .dm-poster-divider,
+    .dm-poster-card.active .dm-poster-divider {
+      transform: scaleX(1) !important;
+    }
+
+    /* Description Reveal Accordion Effect */
+    .dm-poster-desc-wrap {
+      max-height: 0 !important;
+      opacity: 0 !important;
+      overflow: hidden !important;
+      transform: translateY(-8px) !important;
+      transition: max-height 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+                  opacity 0.35s ease,
+                  transform 0.35s ease !important;
+    }
+
+    .dm-poster-card:hover .dm-poster-desc-wrap,
+    .dm-poster-card.active .dm-poster-desc-wrap {
+      max-height: 140px !important;
+      opacity: 1 !important;
+      transform: translateY(0) !important;
+    }
+
+    .dm-poster-desc {
+      font-size: 0.84rem !important;
+      line-height: 1.55 !important;
+      color: rgba(0, 0, 0, 0.88) !important;
+      font-weight: 500 !important;
+      margin: 0 !important;
+      letter-spacing: -0.01em !important;
+    }
+
+    /* Responsive Grid */
+    @media (max-width: 1024px) {
+      .dm-why-cards-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 1.5rem !important;
+      }
+      .dm-poster-card {
+        min-height: 390px !important;
+      }
+    }
+
+    @media (max-width: 580px) {
+      .dm-why-cards-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1.25rem !important;
+      }
+      .dm-poster-card {
+        min-height: auto !important;
+      }
+      .dm-poster-arrow-circle {
+        opacity: 1 !important;
+        transform: scale(1) rotate(0deg) !important;
+      }
+      .dm-poster-divider {
+        transform: scaleX(1) !important;
+      }
+      .dm-poster-desc-wrap {
+        max-height: 200px !important;
+        opacity: 1 !important;
+        transform: translateY(0) !important;
+      }
+    }
+
+    /* ==========================================================================
+       8. CASE STUDIES SECTION (4 SQUARE GREEN CARDS AS IN REFERENCE IMAGE)
+       ========================================================================== */
+    .dm-case-studies-section {
+      background: #000000 !important;
+      border-top: none !important;
+      border-bottom: none !important;
+      color: #FFFFFF !important;
+      padding: clamp(4.5rem, 6.5vw, 6rem) 0 !important;
+      position: relative !important;
+      overflow: hidden !important;
+    }
+
+    .dm-case-studies-title {
+      font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif !important;
+      font-size: 42px !important;
+      font-weight: 700 !important;
+      line-height: 1.2 !important;
+      letter-spacing: -0.025em !important;
+      text-transform: uppercase !important;
+      text-align: center !important;
+      margin: 0 auto clamp(2.5rem, 4vw, 3.8rem) auto !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      gap: 0.35em !important;
+      flex-wrap: wrap !important;
+      cursor: default !important;
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    }
+
+    @media (max-width: 1024px) {
+      .dm-case-studies-title {
+        font-size: clamp(28px, 4vw, 36px) !important;
+      }
+    }
+
+    .dm-case-studies-title:hover {
+      transform: translateY(-3px) scale(1.015) !important;
+    }
+
+    .dm-case-white {
+      color: #FFFFFF !important;
+      font-weight: 900 !important;
+      display: inline-block !important;
+      transition: text-shadow 0.3s ease !important;
+    }
+
+    .dm-case-studies-title:hover .dm-case-white {
+      text-shadow: 0 0 20px rgba(255, 255, 255, 0.8) !important;
+    }
+
+    .dm-case-red {
+      font-weight: 900 !important;
+      display: inline-block !important;
+      background: linear-gradient(135deg, #FF4545 0%, #FF1E38 35%, #FFA3A3 50%, #FF1E38 65%, #E60026 100%) !important;
+      background-size: 250% auto !important;
+      -webkit-background-clip: text !important;
+      background-clip: text !important;
+      -webkit-text-fill-color: transparent !important;
+      filter: drop-shadow(0 0 16px rgba(252, 72, 73, 0.5)) !important;
+      animation: redTextShimmer 4s linear infinite, redPulseGlow 2.8s ease-in-out infinite alternate !important;
+      transition: filter 0.3s ease !important;
+    }
+
+    .dm-case-studies-title:hover .dm-case-red {
+      filter: drop-shadow(0 0 24px rgba(255, 30, 56, 0.9)) drop-shadow(0 0 45px rgba(252, 72, 73, 0.6)) !important;
+    }
+
+    .dm-case-studies-grid {
+      display: grid !important;
+      grid-template-columns: repeat(4, 1fr) !important;
+      gap: clamp(1rem, 1.8vw, 1.75rem) !important;
+      max-width: 1080px !important;
+      margin: 0 auto !important;
+      align-items: stretch !important;
+    }
+
+    .dm-case-study-card {
+      position: relative !important;
+      border-radius: 10px !important;
+      overflow: hidden !important;
+      background: #87C442 !important;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5) !important;
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                  box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
+      cursor: pointer !important;
+    }
+
+    .dm-case-study-card:hover {
+      transform: translateY(-8px) scale(1.025) !important;
+      box-shadow: 0 20px 45px -8px rgba(135, 196, 66, 0.55),
+                  0 0 0 1.5px rgba(255, 255, 255, 0.25) !important;
+    }
+
+    .dm-case-study-img {
+      width: 100% !important;
+      height: 100% !important;
+      aspect-ratio: 1 / 1 !important;
+      object-fit: cover !important;
+      display: block !important;
+      user-select: none !important;
+    }
+
+    @media (max-width: 992px) {
+      .dm-case-studies-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        max-width: 580px !important;
+        gap: 1.5rem !important;
+      }
+    }
+
+    @media (max-width: 540px) {
+      .dm-case-studies-grid {
+        grid-template-columns: 1fr !important;
+        max-width: 320px !important;
+        gap: 1.25rem !important;
+      }
+    }
+
+    /* ==========================================================================
+       5. EDITORIAL CONTACT SECTION (DEEP BLACK BACKGROUND & WHITE TEXT)
+       ========================================================================== */
+    .dm-contact-editorial-section {
+      background: #000000 !important;
+      color: #FFFFFF !important;
+      padding: clamp(3.2rem, 4.8vw, 4.8rem) 0 !important;
+      position: relative !important;
+      overflow: hidden !important;
+      border-top: none !important;
+      border-bottom: none !important;
+    }
+
+    .dm-editorial-grid {
+      display: grid !important;
+      grid-template-columns: 1fr 1.15fr !important;
+      gap: clamp(2.5rem, 5vw, 4.5rem) !important;
+      align-items: center !important;
+      max-width: 1200px !important;
+      margin: 0 auto !important;
+    }
+
+    /* Left Column: Brand Statement & 3D Character Illustration */
+    .dm-editorial-left {
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      text-align: center !important;
+      justify-content: space-between !important;
+      min-height: 400px !important;
+      width: 100% !important;
+    }
+
+    .dm-editorial-heading {
+      font-family: 'Playfair Display', 'Georgia', serif !important;
+      font-size: clamp(2.1rem, 3.6vw, 3.2rem) !important;
+      font-weight: 700 !important;
+      line-height: 1.3 !important;
+      letter-spacing: -0.025em !important;
+      color: #FFFFFF !important;
+      margin: 0 auto 1rem auto !important;
+      text-align: center !important;
+      cursor: default !important;
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    }
+
+    .dm-editorial-heading:hover {
+      transform: translateY(-3px) scale(1.015) !important;
+    }
+
+    .dm-editorial-white {
+      color: #FFFFFF !important;
+      font-weight: 700 !important;
+      display: inline-block !important;
+      line-height: 1.25 !important;
+      transition: text-shadow 0.3s ease !important;
+    }
+
+    .dm-editorial-heading:hover .dm-editorial-white {
+      text-shadow: 0 0 20px rgba(255, 255, 255, 0.8) !important;
+    }
+
+    .dm-editorial-red {
+      font-weight: 700 !important;
+      display: inline-block !important;
+      line-height: 1.25 !important;
+      padding-bottom: 0.22em !important;
+      padding-top: 0.04em !important;
+      padding-right: 0.08em !important;
+      margin-bottom: -0.22em !important;
+      background: linear-gradient(135deg, #FF4545 0%, #FF1E38 35%, #FFA3A3 50%, #FF1E38 65%, #E60026 100%) !important;
+      background-size: 250% auto !important;
+      -webkit-background-clip: text !important;
+      background-clip: text !important;
+      -webkit-text-fill-color: transparent !important;
+      filter: drop-shadow(0 0 16px rgba(252, 72, 73, 0.5)) !important;
+      animation: redTextShimmer 4s linear infinite, redPulseGlow 2.8s ease-in-out infinite alternate !important;
+      transition: filter 0.3s ease !important;
+    }
+
+    .dm-editorial-heading:hover .dm-editorial-red {
+      filter: drop-shadow(0 0 24px rgba(255, 30, 56, 0.9)) drop-shadow(0 0 45px rgba(252, 72, 73, 0.6)) !important;
+    }
+
+    .dm-editorial-handshake-wrap {
+      margin-top: auto !important;
+      padding-top: 0.75rem !important;
+      display: flex !important;
+      justify-content: center !important;
+    }
+
+    .dm-editorial-team-img,
+    .dm-editorial-handshake-img {
+      width: 350px !important;
+      max-width: 90% !important;
+      height: auto !important;
+      display: block !important;
+      filter: drop-shadow(0 15px 35px rgba(0, 0, 0, 0.9)) !important;
+      user-select: none !important;
+    }
+
+    /* Right Column: Contact Form (Dark / Black Mode) */
+    .dm-editorial-right {
+      background: #090D16 !important;
+      padding: clamp(1.8rem, 2.5vw, 2.5rem) clamp(1.8rem, 3vw, 2.8rem) !important;
+      border-radius: 20px !important;
+      border: 1px solid rgba(255, 255, 255, 0.1) !important;
+      box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(255, 255, 255, 0.05) !important;
+      box-sizing: border-box !important;
+      width: 100% !important;
+    }
+
+    .contact-pane-title {
+      font-family: var(--font-primary, 'Plus Jakarta Sans', 'Inter', sans-serif) !important;
+      font-size: 1.55rem !important;
+      font-weight: 800 !important;
+      color: #FFFFFF !important;
+      letter-spacing: -0.02em !important;
+      margin: 0 0 1.15rem 0 !important;
+      line-height: 1.25 !important;
+    }
+
+    .contact-form-grid {
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 1rem !important;
+      width: 100% !important;
+      position: relative !important;
+      z-index: 5 !important;
+    }
+
+    .contact-form-row {
+      display: grid !important;
+      grid-template-columns: 1fr 1fr !important;
+      gap: 1rem !important;
+    }
+
+    @media (max-width: 640px) {
+      .contact-form-row {
+        grid-template-columns: 1fr !important;
+      }
+    }
+
+    .contact-field-wrap {
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 0.35rem !important;
+      position: relative !important;
+    }
+
+    .contact-field-label {
+      font-family: 'Inter', -apple-system, sans-serif !important;
+      font-size: 0.82rem !important;
+      font-weight: 600 !important;
+      color: #E2E8F0 !important;
+      letter-spacing: 0.01em !important;
+      margin-bottom: 0.1rem !important;
+    }
+
+    .contact-field-label .req {
+      color: #EF4444 !important;
+      font-weight: 700 !important;
+    }
+
+    .contact-field-input,
+    .contact-field-textarea {
+      width: 100% !important;
+      background: #111827 !important;
+      border: 1px solid #283548 !important;
+      border-radius: 8px !important;
+      padding: 0.68rem 0.95rem !important;
+      font-family: 'Inter', -apple-system, sans-serif !important;
+      font-size: 0.9rem !important;
+      color: #F8FAFC !important;
+      outline: none !important;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+      box-sizing: border-box !important;
+    }
+
+    .contact-field-input:focus,
+    .contact-field-textarea:focus {
+      background: #152033 !important;
+      border-color: #3B82F6 !important;
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.25) !important;
+    }
+
+    .contact-field-input::placeholder,
+    .contact-field-textarea::placeholder {
+      color: #64748B !important;
+      font-size: 0.88rem !important;
+    }
+
+    .contact-field-textarea {
+      min-height: 100px !important;
+      resize: vertical !important;
+    }
+
+    /* Multi-Select Field for Subject / Services */
+    .contact-multiselect {
+      position: relative !important;
+      width: 100% !important;
+    }
+
+    .contact-select-trigger {
+      width: 100% !important;
+      background: #111827 !important;
+      border: 1px solid #283548 !important;
+      border-radius: 8px !important;
+      padding: 0.68rem 0.95rem !important;
+      font-family: 'Inter', -apple-system, sans-serif !important;
+      font-size: 0.9rem !important;
+      color: #F8FAFC !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+      cursor: pointer !important;
+      user-select: none !important;
+      min-height: 44px !important;
+      box-sizing: border-box !important;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    }
+
+    .contact-select-trigger:focus,
+    .contact-multiselect.open .contact-select-trigger {
+      background: #152033 !important;
+      border-color: #3B82F6 !important;
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.25) !important;
+    }
+
+    .contact-trigger-text {
+      color: #64748B !important;
+      font-size: 0.88rem !important;
+      white-space: nowrap !important;
+      overflow: hidden !important;
+      text-overflow: ellipsis !important;
+    }
+
+    .contact-trigger-text.has-selection {
+      color: #F8FAFC !important;
+      font-weight: 600 !important;
+    }
+
+    .contact-select-arrow {
+      color: #94A3B8 !important;
+      transition: transform 0.25s ease !important;
+      flex-shrink: 0 !important;
+    }
+
+    .contact-multiselect.open .contact-select-arrow {
+      transform: rotate(180deg) !important;
+    }
+
+    .contact-options-panel {
+      position: absolute !important;
+      top: calc(100% + 5px) !important;
+      left: 0 !important;
+      right: 0 !important;
+      background: #0B0F19 !important;
+      border: 1px solid #283548 !important;
+      border-radius: 10px !important;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.8) !important;
+      max-height: 250px !important;
+      overflow-y: auto !important;
+      padding: 0.5rem !important;
+      z-index: 50 !important;
+      display: none !important;
+      scrollbar-width: thin !important;
+      scrollbar-color: #334155 #0B0F19 !important;
+    }
+
+    .contact-options-panel::-webkit-scrollbar {
+      width: 6px !important;
+    }
+
+    .contact-options-panel::-webkit-scrollbar-thumb {
+      background: #334155 !important;
+      border-radius: 4px !important;
+    }
+
+    .contact-multiselect.open .contact-options-panel {
+      display: block !important;
+      animation: fadeInDropdown 0.2s ease forwards !important;
+    }
+
+    @keyframes fadeInDropdown {
+      from {
+        opacity: 0;
+        transform: translateY(-6px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .contact-option-item {
+      display: flex !important;
+      align-items: center !important;
+      gap: 0.65rem !important;
+      padding: 0.45rem 0.65rem !important;
+      border-radius: 6px !important;
+      cursor: pointer !important;
+      font-size: 0.86rem !important;
+      color: #CBD5E1 !important;
+      transition: background 0.15s ease, color 0.15s ease !important;
+    }
+
+    .contact-option-item:hover {
+      background: #1E293B !important;
+      color: #FFFFFF !important;
+    }
+
+    .contact-option-item input[type="checkbox"] {
+      accent-color: #2563EB !important;
+      width: 15px !important;
+      height: 15px !important;
+      cursor: pointer !important;
+    }
+
+    .contact-chips-wrap {
+      display: flex !important;
+      flex-wrap: wrap !important;
+      gap: 0.4rem !important;
+      margin-top: 0.45rem !important;
+    }
+
+    .contact-chip {
+      background: rgba(37, 99, 235, 0.18) !important;
+      border: 1px solid rgba(59, 130, 246, 0.4) !important;
+      border-radius: 9999px !important;
+      padding: 0.2rem 0.65rem !important;
+      font-size: 0.76rem !important;
+      font-weight: 500 !important;
+      color: #93C5FD !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 0.35rem !important;
+    }
+
+    .contact-chip-remove {
+      cursor: pointer !important;
+      font-weight: 700 !important;
+      font-size: 0.85rem !important;
+      color: #60A5FA !important;
+    }
+
+    .contact-chip-remove:hover {
+      color: #DBEAFE !important;
+    }
+
+    /* Submit Button (Matching Blue Send Button from Contact Page) */
+    .contact-send-btn {
+      width: 100% !important;
+      background: #2563EB !important;
+      color: #FFFFFF !important;
+      border: none !important;
+      border-radius: 8px !important;
+      padding: 0.88rem 1.5rem !important;
+      font-family: 'Inter', -apple-system, sans-serif !important;
+      font-size: 15px !important;
+      font-weight: 600 !important;
+      letter-spacing: -0.01em !important;
+      cursor: pointer !important;
+      margin-top: 0.5rem !important;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+      box-shadow: 0 4px 18px rgba(37, 99, 235, 0.28) !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+    }
+
+    .contact-send-btn:hover {
+      background: #1D4ED8 !important;
+      transform: translateY(-2px) !important;
+      box-shadow: 0 8px 24px rgba(37, 99, 235, 0.38) !important;
+    }
+
+    .contact-send-btn:active {
+      transform: translateY(0) !important;
+      box-shadow: 0 2px 8px rgba(37, 99, 235, 0.25) !important;
+    }
+
+    @media (max-width: 960px) {
+      .dm-editorial-grid {
+        grid-template-columns: 1fr !important;
+        gap: 3rem !important;
+      }
+      .dm-editorial-left {
+        min-height: auto !important;
+      }
+      .dm-editorial-handshake-wrap {
+        margin-top: 1.5rem !important;
+      }
+    }
+
+    /* NO SECTION DIVIDER LINES ACROSS THE MAIN SECTIONS */
+    section,
+    main > section,
+    .dm-trusted-by-section,
+    .dm-white-section,
+    .dm-white-section-alt,
+    .delivery-success-section,
+    .dm-why-choose-section,
+    .dm-case-studies-section,
+    .dm-contact-editorial-section {
+      border-top: none !important;
+      border-bottom: none !important;
+    }
+
+    /* 0% TRANSPARENT (100% SOLID OPAQUE #050505) SECTIONS ACROSS ENTIRE PAGE BELOW HERO */
+    .dm-trusted-by-section,
+    .dm-white-section,
+    .dm-white-section-alt,
+    .delivery-success-section,
+    .dm-why-choose-section,
+    .dm-case-studies-section,
+    .dm-contact-editorial-section {
+      background: #050505 !important;
+      opacity: 1 !important;
+      position: relative !important;
+      overflow: hidden !important;
+      border-top: none !important;
+      border-bottom: none !important;
+    }
+
+    /* ALL SECTION CONTENT SITS SECURELY AT Z-INDEX: 2 ABOVE BACKGROUND PARTICLE CANVAS */
+    .dm-trusted-by-section > .container,
+    .dm-white-section > .container,
+    .dm-white-section-alt > .container,
+    .delivery-success-section > .container,
+    .dm-why-choose-section > .container,
+    .dm-case-studies-section > .container,
+    .dm-contact-editorial-section > .container {
+      position: relative !important;
+      z-index: 2 !important;
+    }
+  </style>
+  <link rel="stylesheet" href="../css/responsive.css?v=20260914_header_v7">
+</head>
+<body>
+
+  <!-- ==========================================================================
+       DIGIOLIC GLOBAL TOPBAR NAVIGATION & MOBILE OVERLAY DRAWER
+       ========================================================================== -->
+  <header class="mainframe-navbar" id="mainframeNavbar">
+    <!-- Left: Digiolic Brand Logo -->
+    <a href="../index.html" class="mainframe-logo-wrap" aria-label="Digiolic Home">
+      <img src="../assets/images/digiolic-logo.png" alt="Digiolic" class="brand-logo-img" width="96" height="34" style="height: 34px !important; width: auto !important; max-height: 34px !important; display: block;">
+    </a>
+
+    <!-- Center: Desktop Nav Links (Hidden below md) -->
+    <nav class="mainframe-desktop-nav" aria-label="Primary Navigation">
+      <a href="../index.html" class="mainframe-nav-link">Home</a>
+      <a href="zoho.html" class="mainframe-nav-link">Zoho</a>
+      <a href="salesforce.html" class="mainframe-nav-link">Salesforce</a>
+      <a href="digital-marketing.html" class="mainframe-nav-link active">Digital Marketing</a>
+      <a href="case-stories.html" class="mainframe-nav-link">Case Studies</a>
+    </nav>
+
+    <!-- Right: Desktop CTA Pill Button -->
+    <a href="contact.html" class="mainframe-desktop-cta">Contact Us</a>
+
+    <!-- Mobile Hamburger Button (Visible below md) -->
+    <button class="mainframe-hamburger-btn" id="mainframeMenuBtn" aria-label="Toggle Menu" aria-expanded="false">
+      <span class="mainframe-bar"></span>
+      <span class="mainframe-bar"></span>
+      <span class="mainframe-bar"></span>
+    </button>
+  </header>
+
+  <!-- Mobile Navigation Overlay Drawer (Image 1 Design) -->
+  <div class="mainframe-mobile-overlay" id="mainframeMobileOverlay" role="dialog" aria-modal="true" aria-label="Mobile Navigation">
+    <div class="mainframe-mobile-top">
+      <a href="../index.html" class="mainframe-mobile-logo-link" aria-label="Digiolic Home">
+        <img src="../assets/images/digiolic-logo-dark.png" alt="Digiolic" class="mobile-nav-logo">
+      </a>
+      <button class="mobile-nav-close" id="dmCloseBtn" aria-label="Close Menu" onclick="document.getElementById('mainframeMobileOverlay').classList.remove('is-open'); document.getElementById('mainframeMenuBtn').classList.remove('is-active'); document.body.style.overflow='';">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+    <div class="mainframe-mobile-links">
+      <a href="../index.html" class="mainframe-mobile-link">Home</a>
+      <a href="zoho.html" class="mainframe-mobile-link">Zoho</a>
+      <a href="salesforce.html" class="mainframe-mobile-link">Salesforce</a>
+      <a href="digital-marketing.html" class="mainframe-mobile-link active">Digital Marketing</a>
+      <a href="case-stories.html" class="mainframe-mobile-link">Case Studies</a>
+      <a href="contact.html" class="mainframe-mobile-link cta-pill">Contact Us</a>
+    </div>
+  </div>
+
+  <main id="mainContent">
+
+    <!-- ==========================================================================
+         MAINFRAME FULL-SCREEN HERO SECTION (MOUSE-SCRUB CONTROLLED VIDEO)
+         ========================================================================== -->
+    <section class="mainframe-hero-section" id="mainframeHeroSection" aria-label="Digital Marketing Growth Experience">
+      
+      <!-- Background Video (Mouse Scrub Controlled) -->
+      <video id="mainframeBgVideo" class="mainframe-bg-video" muted playsinline preload="auto">
+        <source src="../assets/videos/mainframe-hero.mp4" type="video/mp4">
+        <source src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260826_041744_63efcd78-bf7d-4039-99e2-2461e8a61903.mp4" type="video/mp4">
+      </video>
+
+      <!-- Hero Marketing Content Container -->
+      <div class="mainframe-hero-content">
+        
+        <!-- Main Title -->
+        <h1 class="dm-hero-title">
+          Empowering Brands with<br>
+          <span class="dm-hero-title-accent">Digital Marketing and Tech Solutions</span>
+        </h1>
+
+        <!-- Subtitle Description -->
+        <p class="dm-hero-desc">
+          Transform Your Business with ROI-Driven Digital Marketing Solutions
+        </p>
+
+        <!-- 6 Department Pill Badges -->
+        <div class="dm-hero-badges-grid">
+          <span class="dm-hero-pill">Performance Marketing &amp; CRO</span>
+          <span class="dm-hero-pill">Search Engine Optimization</span>
+          <span class="dm-hero-pill">PPC &amp; Paid Social</span>
+          <span class="dm-hero-pill">AI Marketing Automation</span>
+          <span class="dm-hero-pill">Influencer &amp; Creator Growth</span>
+          <span class="dm-hero-pill">Branding &amp; Visual Design</span>
+        </div>
+
+        <!-- Action Button -->
+        <div class="dm-hero-actions">
+          <a href="#coreServicesSection" class="dm-btn-primary">
+            <span>Explore Services</span>
+            <span class="dm-btn-arrow">&rarr;</span>
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         2. 60-40% SPLIT PORTAL (60% METRIC NUMBERS + 40% TRUSTED BY COMPANIES)
+         ========================================================================== -->
+    <section class="dm-trusted-by-section" aria-label="Impact Metrics and Trusted By Clients">
+      
+      <!-- RED PARTICLE CHAOS BACKGROUND CANVAS -->
+      <canvas id="canvas" class="dm-particle-canvas dm-trusted-particle-canvas" aria-hidden="true"></canvas>
+
+      <div class="container" style="position: relative; z-index: 2;">
+        
+        <div class="dm-trusted-split-layout">
+          
+          <!-- LEFT PORTAL (60%): THE NUMBERS WITH COOL ANIMATIONS -->
+          <div class="dm-trusted-numbers-portal reveal-on-scroll">
+            <div class="dm-metrics-grid">
+              
+              <!-- Metric 1: Websites Ranked on First Page -->
+              <div class="dm-metric-item">
+                <div class="dm-metric-icon-wrap" aria-hidden="true">
+                  <svg width="44" height="34" viewBox="0 0 46 34" fill="none">
+                    <rect x="2" y="3" width="30" height="18" rx="4" stroke="#72B868" stroke-width="2" fill="none"/>
+                    <text x="6" y="15" fill="#72B868" font-family="'Inter', sans-serif" font-size="7" font-weight="700">http://</text>
+                    <path d="M25 10L35 24L30.5 25L33.5 32L29.5 33.5L26.5 26.5L22 30V10Z" fill="#72B868" stroke="#000000" stroke-width="1.2" stroke-linejoin="round"/>
+                  </svg>
+                </div>
+                <div class="dm-metric-num" data-target="54" data-prefix="" data-suffix="">54</div>
+                <div class="dm-metric-label">Websites Ranked on First Page</div>
+              </div>
+
+              <!-- Metric 2: Leads Generated for Clients -->
+              <div class="dm-metric-item">
+                <div class="dm-metric-icon-wrap" aria-hidden="true">
+                  <svg width="44" height="34" viewBox="0 0 46 34" fill="none">
+                    <circle cx="23" cy="9" r="4.5" fill="#72B868"/>
+                    <path d="M16 26C16 22 19 19 23 19C27 19 30 22 30 26H16Z" fill="#72B868"/>
+                    <circle cx="11" cy="12" r="3.5" fill="#72B868"/>
+                    <path d="M5 25C5 22 7.5 20 10.5 20C12 20 13.2 20.6 14.1 21.5C13.4 22.5 13 23.7 13 25H5Z" fill="#72B868"/>
+                    <circle cx="35" cy="12" r="3.5" fill="#72B868"/>
+                    <path d="M33 25C33 23.7 32.6 22.5 31.9 21.5C32.8 20.6 34 20 35.5 20C38.5 20 41 22 41 25H33Z" fill="#72B868"/>
+                  </svg>
+                </div>
+                <div class="dm-metric-num" data-target="10000" data-prefix="" data-suffix="+" data-comma="true">10,000+</div>
+                <div class="dm-metric-label">Leads Generated for Clients</div>
+              </div>
+
+              <!-- Metric 3: Annual Budget Mastery -->
+              <div class="dm-metric-item">
+                <div class="dm-metric-icon-wrap" aria-hidden="true">
+                  <svg width="44" height="34" viewBox="0 0 46 34" fill="none">
+                    <rect x="2" y="2" width="31" height="19" rx="9.5" fill="#72B868"/>
+                    <text x="8" y="15" fill="#000000" font-family="'Inter', sans-serif" font-size="9" font-weight="900" letter-spacing="-0.02em">Ads</text>
+                    <path d="M22 11L32 25L27.5 26L30.5 33L26.5 34.5L23.5 27.5L19 31V11Z" fill="#72B868" stroke="#000000" stroke-width="1.2" stroke-linejoin="round"/>
+                  </svg>
+                </div>
+                <div class="dm-metric-num" data-target="1" data-prefix="$ " data-suffix="M">$ 1M</div>
+                <div class="dm-metric-label">Annual Budget Mastery</div>
+              </div>
+
+              <!-- Metric 4: Clients Served -->
+              <div class="dm-metric-item">
+                <div class="dm-metric-icon-wrap" aria-hidden="true">
+                  <svg width="44" height="34" viewBox="0 0 46 34" fill="none">
+                    <path d="M12 18L18 12C19.1 10.9 20.9 10.9 22 12L25.5 15.5C26.6 16.6 26.6 18.4 25.5 19.5L24 21L26.5 23.5C27.6 24.6 27.6 26.4 26.5 27.5L23.5 30.5C22.4 31.6 20.6 31.6 19.5 30.5L16 27L14 29C12.9 30.1 11.1 30.1 10 29L6 25C4.9 23.9 4.9 22.1 6 21L12 18Z" stroke="#72B868" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                    <path d="M6 14L2 18L6 22" stroke="#72B868" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M38 14L42 18L38 22" stroke="#72B868" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <line x1="21" y1="15" x2="26" y2="20" stroke="#72B868" stroke-width="1.8" stroke-linecap="round"/>
+                    <line x1="18" y1="18" x2="23" y2="23" stroke="#72B868" stroke-width="1.8" stroke-linecap="round"/>
+                    <line x1="15" y1="21" x2="20" y2="26" stroke="#72B868" stroke-width="1.8" stroke-linecap="round"/>
+                  </svg>
+                </div>
+                <div class="dm-metric-num" data-target="90" data-prefix="" data-suffix="+">90+</div>
+                <div class="dm-metric-label">Clients Served</div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- RIGHT PORTAL (40%): TRUSTED BY COMPANIES -->
+          <div class="dm-trusted-companies-portal reveal-on-scroll">
+            <h2 class="dm-trusted-by-title">TRUSTED BY</h2>
+            
+            <div class="dm-trusted-track-wrap">
+              <div class="dm-trusted-track-ltr">
+                <!-- Set 1 -->
+                <div class="dm-trusted-logo-item"><img src="../assets/images/company-logos/audible-india.webp" alt="Audible" class="dm-trusted-pure-img"></div>
+                <div class="dm-trusted-logo-item"><img src="../assets/images/company-logos/flipkart.jpeg" alt="Flipkart" class="dm-trusted-pure-img"></div>
+                <div class="dm-trusted-logo-item"><img src="../assets/images/company-logos/Siemens.jpeg" alt="Siemens" class="dm-trusted-pure-img"></div>
+                <div class="dm-trusted-logo-item"><img src="../assets/images/company-logos/Betterplace.png" alt="Betterplace" class="dm-trusted-pure-img"></div>
+                <div class="dm-trusted-logo-item"><img src="../assets/images/company-logos/haldirams.png" alt="Haldiram's" class="dm-trusted-pure-img"></div>
+                <div class="dm-trusted-logo-item"><img src="../assets/images/company-logos/Xiaomi.png" alt="Xiaomi" class="dm-trusted-pure-img"></div>
+                <div class="dm-trusted-logo-item"><img src="../assets/images/company-logos/Sobha.jpeg" alt="Sobha" class="dm-trusted-pure-img"></div>
+                <div class="dm-trusted-logo-item"><img src="../assets/images/company-logos/Melorra.png" alt="Melorra" class="dm-trusted-pure-img"></div>
+                <div class="dm-trusted-logo-item"><img src="../assets/images/company-logos/nexus-wealth-management.jpeg" alt="Nexus Wealth Management" class="dm-trusted-pure-img"></div>
+                <div class="dm-trusted-logo-item"><img src="../assets/images/company-logos/savaari-car-rentals.jpeg" alt="Savaari Car Rentals" class="dm-trusted-pure-img"></div>
+                <div class="dm-trusted-logo-item"><img src="../assets/images/company-logos/medall-diagnostics.jpeg" alt="Medall Diagnostics" class="dm-trusted-pure-img"></div>
+                <div class="dm-trusted-logo-item"><img src="../assets/images/company-logos/ur-health.jpeg" alt="ur Health" class="dm-trusted-pure-img"></div>
+                <div class="dm-trusted-logo-item"><img src="../assets/images/company-logos/Freshersworld.png" alt="Freshersworld" class="dm-trusted-pure-img"></div>
+                <!-- Set 2 (Seamless loop) -->
+                <div class="dm-trusted-logo-item"><img src="../assets/images/company-logos/audible-india.webp" alt="Audible" class="dm-trusted-pure-img"></div>
+                <div class="dm-trusted-logo-item"><img src="../assets/images/company-logos/flipkart.jpeg" alt="Flipkart" class="dm-trusted-pure-img"></div>
+                <div class="dm-trusted-logo-item"><img src="../assets/images/company-logos/Siemens.jpeg" alt="Siemens" class="dm-trusted-pure-img"></div>
+                <div class="dm-trusted-logo-item"><img src="../assets/images/company-logos/Betterplace.png" alt="Betterplace" class="dm-trusted-pure-img"></div>
+                <div class="dm-trusted-logo-item"><img src="../assets/images/company-logos/haldirams.png" alt="Haldiram's" class="dm-trusted-pure-img"></div>
+                <div class="dm-trusted-logo-item"><img src="../assets/images/company-logos/Xiaomi.png" alt="Xiaomi" class="dm-trusted-pure-img"></div>
+                <div class="dm-trusted-logo-item"><img src="../assets/images/company-logos/Sobha.jpeg" alt="Sobha" class="dm-trusted-pure-img"></div>
+                <div class="dm-trusted-logo-item"><img src="../assets/images/company-logos/Melorra.png" alt="Melorra" class="dm-trusted-pure-img"></div>
+                <div class="dm-trusted-logo-item"><img src="../assets/images/company-logos/nexus-wealth-management.jpeg" alt="Nexus Wealth Management" class="dm-trusted-pure-img"></div>
+                <div class="dm-trusted-logo-item"><img src="../assets/images/company-logos/savaari-car-rentals.jpeg" alt="Savaari Car Rentals" class="dm-trusted-pure-img"></div>
+                <div class="dm-trusted-logo-item"><img src="../assets/images/company-logos/medall-diagnostics.jpeg" alt="Medall Diagnostics" class="dm-trusted-pure-img"></div>
+                <div class="dm-trusted-logo-item"><img src="../assets/images/company-logos/ur-health.jpeg" alt="ur Health" class="dm-trusted-pure-img"></div>
+                <div class="dm-trusted-logo-item"><img src="../assets/images/company-logos/Freshersworld.png" alt="Freshersworld" class="dm-trusted-pure-img"></div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         3. OUR SERVICES (9 3D FLIP CARDS — CLEAN WHITE THEME)
+         ========================================================================== -->
+    <section class="dm-white-section" id="coreServicesSection">
+      <canvas class="dm-particle-canvas" aria-hidden="true"></canvas>
+      <div class="container">
+        
+        <h2 class="dm-clean-header-title reveal-on-scroll">
+          <span class="dm-title-light">OUR</span> <span class="dm-title-accent">SERVICES</span>
+        </h2>
+        <p class="dm-clean-header-desc reveal-on-scroll">
+          At Digiolic, we offer a wide range of digital marketing services designed to help your business grow and thrive online. Hover over each service card to explore our detailed capabilities.
+        </p>
+
+        <div class="dm-services-img-grid reveal-on-scroll stagger-1">
+          
+          <!-- 1. Performance Marketing -->
+          <div class="dm-flip-card-wrapper">
+            <div class="dm-flip-card-inner">
+              <!-- Front -->
+              <div class="dm-flip-card-front">
+                <div class="dm-card-main-content">
+                  <div class="dm-service-icon-wrap">
+                    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+                  </div>
+                  <h3 class="dm-service-title">Performance Marketing</h3>
+                  <p class="dm-service-desc">
+                    Maximize your ROI with data-driven performance marketing campaigns.
+                  </p>
+                </div>
+                <div class="dm-service-tab-strip dm-tab-1">
+                  <span class="dm-service-tab-num">1</span>
+                </div>
+              </div>
+              <!-- Back -->
+              <div class="dm-flip-card-back">
+                <h4 class="dm-flip-back-title">Performance Marketing</h4>
+                <ul class="dm-flip-bullet-list">
+                  <li><strong>Affiliate Marketing:</strong> Leveraging partnerships to drive sales.</li>
+                  <li><strong>Conversion Rate Optimization:</strong> Enhancing your site to improve conversion rates.</li>
+                  <li><strong>A/B Testing:</strong> Testing different elements to find the best-performing options.</li>
+                  <li><strong>Data Analysis:</strong> Using analytics to optimize campaigns for better results.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2. Search Engine Optimization -->
+          <div class="dm-flip-card-wrapper">
+            <div class="dm-flip-card-inner">
+              <!-- Front -->
+              <div class="dm-flip-card-front">
+                <div class="dm-card-main-content">
+                  <div class="dm-service-icon-wrap">
+                    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+                  </div>
+                  <h3 class="dm-service-title">Search Engine Optimization</h3>
+                  <p class="dm-service-desc">
+                    Boost your online visibility and drive organic traffic with our comprehensive SEO strategies.
+                  </p>
+                </div>
+                <div class="dm-service-tab-strip dm-tab-2">
+                  <span class="dm-service-tab-num">2</span>
+                </div>
+              </div>
+              <!-- Back -->
+              <div class="dm-flip-card-back">
+                <h4 class="dm-flip-back-title">Search Engine Optimization</h4>
+                <ul class="dm-flip-bullet-list">
+                  <li><strong>Keyword Research:</strong> In-depth analysis to find the most effective keywords for your business.</li>
+                  <li><strong>On-Page Optimization:</strong> Enhancing website elements like meta tags, content, and images.</li>
+                  <li><strong>Link Building:</strong> Building high-quality backlinks to improve your site’s authority.</li>
+                  <li><strong>SEO Audits:</strong> Comprehensive audits to identify and fix issues affecting your site’s performance.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3. Influencer Marketing -->
+          <div class="dm-flip-card-wrapper">
+            <div class="dm-flip-card-inner">
+              <!-- Front -->
+              <div class="dm-flip-card-front">
+                <div class="dm-card-main-content">
+                  <div class="dm-service-icon-wrap">
+                    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                  </div>
+                  <h3 class="dm-service-title">Influencer Marketing</h3>
+                  <p class="dm-service-desc">
+                    Leverage the power of influencers to reach a wider audience and build trust.
+                  </p>
+                </div>
+                <div class="dm-service-tab-strip dm-tab-3">
+                  <span class="dm-service-tab-num">3</span>
+                </div>
+              </div>
+              <!-- Back -->
+              <div class="dm-flip-card-back">
+                <h4 class="dm-flip-back-title">Influencer Marketing</h4>
+                <ul class="dm-flip-bullet-list">
+                  <li><strong>Influencer Identification:</strong> Finding the right influencers for your brand.</li>
+                  <li><strong>Campaign Strategy:</strong> Developing effective influencer marketing strategies.</li>
+                  <li><strong>Content Collaboration:</strong> Working with influencers to create engaging content.</li>
+                  <li><strong>Performance Tracking:</strong> Measuring the success of influencer campaigns.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4. Branding -->
+          <div class="dm-flip-card-wrapper">
+            <div class="dm-flip-card-inner">
+              <!-- Front -->
+              <div class="dm-flip-card-front">
+                <div class="dm-card-main-content">
+                  <div class="dm-service-icon-wrap">
+                    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
+                  </div>
+                  <h3 class="dm-service-title">Branding</h3>
+                  <p class="dm-service-desc">
+                    Establish a strong, memorable brand identity that resonates with your audience.
+                  </p>
+                </div>
+                <div class="dm-service-tab-strip dm-tab-4">
+                  <span class="dm-service-tab-num">4</span>
+                </div>
+              </div>
+              <!-- Back -->
+              <div class="dm-flip-card-back">
+                <h4 class="dm-flip-back-title">Branding</h4>
+                <ul class="dm-flip-bullet-list">
+                  <li><strong>Brand Strategy:</strong> Defining your brand’s mission, vision, and values.</li>
+                  <li><strong>Logo Design:</strong> Creating a unique and impactful logo.</li>
+                  <li><strong>Brand Messaging:</strong> Crafting consistent and compelling brand messages.</li>
+                  <li><strong>Visual Identity:</strong> Designing cohesive visual elements like colors, fonts, and imagery.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- 5. Digital Strategy Creation -->
+          <div class="dm-flip-card-wrapper">
+            <div class="dm-flip-card-inner">
+              <!-- Front -->
+              <div class="dm-flip-card-front">
+                <div class="dm-card-main-content">
+                  <div class="dm-service-icon-wrap">
+                    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon></svg>
+                  </div>
+                  <h3 class="dm-service-title">Digital Strategy Creation</h3>
+                  <p class="dm-service-desc">
+                    Develop a comprehensive digital strategy to achieve your business objectives.
+                  </p>
+                </div>
+                <div class="dm-service-tab-strip dm-tab-5">
+                  <span class="dm-service-tab-num">5</span>
+                </div>
+              </div>
+              <!-- Back -->
+              <div class="dm-flip-card-back">
+                <h4 class="dm-flip-back-title">Digital Strategy Creation</h4>
+                <ul class="dm-flip-bullet-list">
+                  <li><strong>Market Research:</strong> Analyzing your industry and competitors.</li>
+                  <li><strong>Goal Setting:</strong> Defining clear and measurable objectives.</li>
+                  <li><strong>Strategic Planning:</strong> Creating a roadmap to reach your goals.</li>
+                  <li><strong>Implementation:</strong> Executing the strategy with precision.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- 6. Web Design and Development -->
+          <div class="dm-flip-card-wrapper">
+            <div class="dm-flip-card-inner">
+              <!-- Front -->
+              <div class="dm-flip-card-front">
+                <div class="dm-card-main-content">
+                  <div class="dm-service-icon-wrap">
+                    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
+                  </div>
+                  <h3 class="dm-service-title">Web Design and Development</h3>
+                  <p class="dm-service-desc">
+                    Build a stunning, user-friendly website that drives conversions.
+                  </p>
+                </div>
+                <div class="dm-service-tab-strip dm-tab-6">
+                  <span class="dm-service-tab-num">6</span>
+                </div>
+              </div>
+              <!-- Back -->
+              <div class="dm-flip-card-back">
+                <h4 class="dm-flip-back-title">Web Design and Development</h4>
+                <ul class="dm-flip-bullet-list">
+                  <li><strong>Custom Web Design:</strong> Creating unique and responsive designs.</li>
+                  <li><strong>Web Development:</strong> Building fast and secure websites.</li>
+                  <li><strong>E-commerce Solutions:</strong> Developing online stores to boost sales.</li>
+                  <li><strong>Website Maintenance:</strong> Ongoing support and updates.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- 7. Online Reputation Management -->
+          <div class="dm-flip-card-wrapper">
+            <div class="dm-flip-card-inner">
+              <!-- Front -->
+              <div class="dm-flip-card-front">
+                <div class="dm-card-main-content">
+                  <div class="dm-service-icon-wrap">
+                    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                  </div>
+                  <h3 class="dm-service-title">Online Reputation Management</h3>
+                  <p class="dm-service-desc">
+                    Protect and enhance your brand's reputation online.
+                  </p>
+                </div>
+                <div class="dm-service-tab-strip dm-tab-7">
+                  <span class="dm-service-tab-num">7</span>
+                </div>
+              </div>
+              <!-- Back -->
+              <div class="dm-flip-card-back">
+                <h4 class="dm-flip-back-title">Online Reputation Management</h4>
+                <ul class="dm-flip-bullet-list">
+                  <li><strong>Review Management:</strong> Monitoring and responding to online reviews.</li>
+                  <li><strong>Crisis Management:</strong> Handling PR crises and mitigating damage.</li>
+                  <li><strong>Positive PR:</strong> Promoting positive stories and content about your brand.</li>
+                  <li><strong>Social Listening:</strong> Tracking online mentions and sentiment analysis.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- 8. Content Marketing -->
+          <div class="dm-flip-card-wrapper">
+            <div class="dm-flip-card-inner">
+              <!-- Front -->
+              <div class="dm-flip-card-front">
+                <div class="dm-card-main-content">
+                  <div class="dm-service-icon-wrap">
+                    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                  </div>
+                  <h3 class="dm-service-title">Content Marketing</h3>
+                  <p class="dm-service-desc">
+                    Create and distribute valuable content to attract and engage your target audience.
+                  </p>
+                </div>
+                <div class="dm-service-tab-strip dm-tab-8">
+                  <span class="dm-service-tab-num">8</span>
+                </div>
+              </div>
+              <!-- Back -->
+              <div class="dm-flip-card-back">
+                <h4 class="dm-flip-back-title">Content Marketing</h4>
+                <ul class="dm-flip-bullet-list">
+                  <li><strong>Content Strategy:</strong> Planning content that aligns with your business goals.</li>
+                  <li><strong>Blog Writing:</strong> Creating informative and engaging blog posts.</li>
+                  <li><strong>Video Production:</strong> Producing high-quality video content.</li>
+                  <li><strong>Infographics:</strong> Designing visually appealing infographics to convey complex information.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- 9. AI-driven Marketing Automation -->
+          <div class="dm-flip-card-wrapper">
+            <div class="dm-flip-card-inner">
+              <!-- Front -->
+              <div class="dm-flip-card-front">
+                <div class="dm-card-main-content">
+                  <div class="dm-service-icon-wrap">
+                    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect><rect x="9" y="9" width="6" height="6"></rect><line x1="9" y1="1" x2="9" y2="4"></line><line x1="15" y1="1" x2="15" y2="4"></line><line x1="9" y1="20" x2="9" y2="23"></line><line x1="15" y1="20" x2="15" y2="23"></line><line x1="20" y1="9" x2="23" y2="9"></line><line x1="20" y1="14" x2="23" y2="14"></line><line x1="1" y1="9" x2="4" y2="9"></line><line x1="1" y1="14" x2="4" y2="14"></line></svg>
+                  </div>
+                  <h3 class="dm-service-title">AI-driven Marketing Automation</h3>
+                  <p class="dm-service-desc">
+                    Automate and optimize your marketing efforts with cutting-edge AI technology.
+                  </p>
+                </div>
+                <div class="dm-service-tab-strip dm-tab-9">
+                  <span class="dm-service-tab-num">9</span>
+                </div>
+              </div>
+              <!-- Back -->
+              <div class="dm-flip-card-back">
+                <h4 class="dm-flip-back-title">AI-Driven Automation</h4>
+                <ul class="dm-flip-bullet-list">
+                  <li><strong>AI-Powered Campaigns:</strong> Create and manage marketing campaigns for maximum efficiency and impact.</li>
+                  <li><strong>Predictive Analytics:</strong> Leveraging AI to predict customer behavior, preferences, trends, and future sales to deliver personalized content.</li>
+                  <li><strong>Workflow Automation:</strong> Streamlining and automating marketing processes to save time and resources.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         4. EXTRA SERVICES (3 3D FLIP CARDS — CLEAN WHITE THEME)
+         ========================================================================== -->
+    <section class="dm-white-section-alt" id="extraServicesSection">
+      <canvas class="dm-particle-canvas" aria-hidden="true"></canvas>
+      <div class="container">
+        
+        <h2 class="dm-clean-header-title reveal-on-scroll">
+          <span class="dm-title-light">EXTRA</span> <span class="dm-title-accent">SERVICES</span>
+        </h2>
+        <p class="dm-clean-header-desc reveal-on-scroll">
+          Specialized growth levers designed to maximize channel velocity and client engagement.
+        </p>
+
+        <div class="dm-extra-services-grid reveal-on-scroll stagger-1">
+          
+          <!-- Extra 1: Social Media Management -->
+          <div class="dm-flip-card-wrapper dm-extra-card dm-extra-card-1">
+            <div class="dm-flip-card-inner">
+              <!-- Front -->
+              <div class="dm-flip-card-front">
+                <div class="dm-extra-header-pill">
+                  <span class="dm-extra-num">01</span>
+                  <span class="dm-extra-divider"></span>
+                  <div class="dm-extra-icon">
+                    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+                  </div>
+                </div>
+                <div class="dm-extra-body-box">
+                  <h3 class="dm-extra-title">Social Media Management</h3>
+                  <p class="dm-extra-desc">
+                    Engage your audience and grow your brand with our expert social media management.
+                  </p>
+                </div>
+              </div>
+              <!-- Back -->
+              <div class="dm-flip-card-back">
+                <div class="dm-extra-back-content">
+                  <ul class="dm-flip-bullet-list">
+                    <li><strong>Social Media Strategy:</strong> Crafting tailored strategies for each platform.</li>
+                    <li><strong>Content Creation:</strong> High-quality posts, images, and videos.</li>
+                    <li><strong>Community Management:</strong> Engaging with your audience and managing interactions.</li>
+                    <li><strong>Analytics & Reporting:</strong> Detailed reports to track your social media performance.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Extra 2: PPC Advertising -->
+          <div class="dm-flip-card-wrapper dm-extra-card dm-extra-card-2">
+            <div class="dm-flip-card-inner">
+              <!-- Front -->
+              <div class="dm-flip-card-front">
+                <div class="dm-extra-header-pill">
+                  <span class="dm-extra-num">02</span>
+                  <span class="dm-extra-divider"></span>
+                  <div class="dm-extra-icon">
+                    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line><path d="M7 8h3m-3 3h4m3-3h3m-3 3h3"></path></svg>
+                  </div>
+                </div>
+                <div class="dm-extra-body-box">
+                  <h3 class="dm-extra-title">PPC Advertising</h3>
+                  <p class="dm-extra-desc">
+                    Drive immediate traffic and conversions with our targeted PPC campaigns.
+                  </p>
+                </div>
+              </div>
+              <!-- Back -->
+              <div class="dm-flip-card-back">
+                <div class="dm-extra-back-content">
+                  <ul class="dm-flip-bullet-list">
+                    <li><strong>Keyword Research:</strong> In-depth analysis to find high-converting keywords.</li>
+                    <li><strong>On-Page Optimization:</strong> Enhancing landing page elements, copy, and visual hierarchy.</li>
+                    <li><strong>Link & Asset Building:</strong> Building high-authority creative assets to maximize quality score.</li>
+                    <li><strong>PPC Performance Audits:</strong> Comprehensive audits to eliminate budget waste and maximize ROAS.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Extra 3: Email Marketing -->
+          <div class="dm-flip-card-wrapper dm-extra-card dm-extra-card-3">
+            <div class="dm-flip-card-inner">
+              <!-- Front -->
+              <div class="dm-flip-card-front">
+                <div class="dm-extra-header-pill">
+                  <span class="dm-extra-num">03</span>
+                  <span class="dm-extra-divider"></span>
+                  <div class="dm-extra-icon">
+                    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                  </div>
+                </div>
+                <div class="dm-extra-body-box">
+                  <h3 class="dm-extra-title">Email Marketing</h3>
+                  <p class="dm-extra-desc">
+                    Reach and convert your audience with personalized email campaigns.
+                  </p>
+                </div>
+              </div>
+              <!-- Back -->
+              <div class="dm-flip-card-back">
+                <div class="dm-extra-back-content">
+                  <ul class="dm-flip-bullet-list">
+                    <li><strong>Audience Segmentation:</strong> Targeting high-intent cohorts with personalized sequences.</li>
+                    <li><strong>Campaign Strategy:</strong> Developing automated lifecycle nurture and re-engagement flows.</li>
+                    <li><strong>Content & Copywriting:</strong> Creating engaging, mobile-optimized email templates that drive clicks.</li>
+                    <li><strong>Performance Tracking:</strong> Measuring open rates, CTR, revenue per recipient, and inbox health.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         6. HOW DO WE DELIVER SUCCESS? (FIVE PILLARS. NOT ONE. - HANGING CARDS)
+         ========================================================================== -->
+    <section class="delivery-success-section" id="howWeDeliverSection">
+      <canvas class="dm-particle-canvas" aria-hidden="true"></canvas>
+      <div class="container">
+        
+        <!-- Top Section Header with Left Text & Right Hand Visual -->
+        <div class="pillars-hero-header reveal-on-scroll">
+          
+          <div class="pillars-hero-text">
+            <span class="pillars-eyebrow-badge">
+              <span class="badge-dot"></span> STRUCTURED METHODOLOGY
+            </span>
+            <h2 class="pillars-display-title">
+              FIVE PILLARS.<br>
+              <span class="pillars-blue-text">NOT ONE.</span>
+            </h2>
+            <div class="pillars-blue-bar"></div>
+            <p class="pillars-subtitle">
+              From consultation to implementation, we manage every aspect of your brand’s digital presence with a transparent, collaborative, and measurable approach. Our expertise in digital marketing, SEO, and web development ensures a significant return on investment.
+            </p>
+          </div>
+
+          <div class="pillars-hand-graphic-wrap">
+            <img src="../assets/images/image%20copy%202.png" alt="Strategic Pillars Held by Single Thread" class="pillars-hand-img">
+          </div>
+
+        </div>
+
+        <!-- Tension Rope Line -->
+        <div class="pillars-rope-track reveal-on-scroll">
+          <div class="pillars-rope-line"></div>
+        </div>
+
+        <!-- 5 Hanging Cards along the Suspension Arc -->
+        <div class="pillars-hanging-grid reveal-on-scroll stagger-1">
+          
+          <!-- Pillar 01: Strategy -->
+          <div class="pillar-hanging-card pillar-arc-1">
+            <div class="pillar-clasp">
+              <span class="clasp-grommet"></span>
+            </div>
+            <div class="pillar-icon-wrap">
+              <svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon>
+              </svg>
+            </div>
+            <h3 class="pillar-card-title">STRATEGY</h3>
+            <div class="pillar-accent-line"></div>
+            <p class="pillar-card-desc">
+              Measure twice, cut once. Every project deserves a careful planning phase that outlines and strategizes the key goal and objective.
+            </p>
+          </div>
+
+          <!-- Pillar 02: Design -->
+          <div class="pillar-hanging-card pillar-arc-2">
+            <div class="pillar-clasp">
+              <span class="clasp-grommet"></span>
+            </div>
+            <div class="pillar-icon-wrap">
+              <svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 19l7-7 3 3-7 7-3-3z"></path>
+                <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path>
+                <path d="M2 2l7.586 7.586"></path>
+                <circle cx="11" cy="11" r="2"></circle>
+              </svg>
+            </div>
+            <h3 class="pillar-card-title">DESIGN</h3>
+            <div class="pillar-accent-line"></div>
+            <p class="pillar-card-desc">
+              From paper napkins and mood boards to photoshop and style sheets. Watch us take the guts of the project and turn it into a visual masterpiece.
+            </p>
+          </div>
+
+          <!-- Pillar 03: Development -->
+          <div class="pillar-hanging-card pillar-arc-3">
+            <div class="pillar-clasp">
+              <span class="clasp-grommet"></span>
+            </div>
+            <div class="pillar-icon-wrap">
+              <svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="16 18 22 12 16 6"></polyline>
+                <polyline points="8 6 2 12 8 18"></polyline>
+              </svg>
+            </div>
+            <h3 class="pillar-card-title">DEVELOPMENT</h3>
+            <div class="pillar-accent-line"></div>
+            <p class="pillar-card-desc">
+              Test driven approach to all the project that our world class Developers and Digital Marketers employ to build the platform from an idea into a full blown digital ecosystem.
+            </p>
+          </div>
+
+          <!-- Pillar 04: Deployment and Execution -->
+          <div class="pillar-hanging-card pillar-arc-4">
+            <div class="pillar-clasp">
+              <span class="clasp-grommet"></span>
+            </div>
+            <div class="pillar-icon-wrap">
+              <svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"></path>
+                <path d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"></path>
+                <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"></path>
+                <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"></path>
+              </svg>
+            </div>
+            <h3 class="pillar-card-title">DEPLOYMENT & EXECUTION</h3>
+            <div class="pillar-accent-line"></div>
+            <p class="pillar-card-desc">
+              Check the work, test for errors, stress the server, ensure that the system is ready for users, set up all the tracking parameters to set everything on track.
+            </p>
+          </div>
+
+          <!-- Pillar 05: ROI Analysis Improvisation -->
+          <div class="pillar-hanging-card pillar-arc-5">
+            <div class="pillar-clasp">
+              <span class="clasp-grommet"></span>
+            </div>
+            <div class="pillar-icon-wrap">
+              <svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="20" x2="18" y2="10"></line>
+                <line x1="12" y1="20" x2="12" y2="4"></line>
+                <line x1="6" y1="20" x2="6" y2="14"></line>
+                <polyline points="4 8 12 2 20 6"></polyline>
+              </svg>
+            </div>
+            <h3 class="pillar-card-title">ROI ANALYSIS & IMPROVISATION</h3>
+            <div class="pillar-accent-line"></div>
+            <p class="pillar-card-desc">
+              This step marks the start of the journey, focusing on ROI analysis to gauge task benefits and plan next steps, crucial for improvement and data record-keeping.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         7. WHY CHOOSE DIGIOLIC? (POSTER-STYLE EXPANDING VALUE CARDS)
+         ========================================================================== -->
+    <section class="dm-why-choose-section" id="whyChooseSection">
+      <canvas class="dm-particle-canvas" aria-hidden="true"></canvas>
+      <div class="container">
+        
+        <h2 class="dm-why-choose-title reveal-on-scroll">
+          <span class="dm-why-white">WHY CHOOSE</span> <span class="dm-why-red">DIGIOLIC?</span>
+        </h2>
+        <p class="dm-why-choose-subtitle reveal-on-scroll">
+          Transform Your Digital Presence with Digiolic
+        </p>
+
+        <div class="dm-why-cards-grid reveal-on-scroll stagger-1">
+          
+          <!-- Card 01: Pink -->
+          <div class="dm-poster-card dm-poster-pink" data-card="1">
+            <div class="dm-poster-top">
+              <div class="dm-poster-icon-wrap">
+                <svg width="48" height="48" viewBox="0 0 48 48" fill="none" class="dm-geom-icon">
+                  <path d="M24 24V10C31.732 10 38 16.268 38 24H24Z" fill="#000000"/>
+                  <path d="M24 24H38C38 31.732 31.732 38 24 38V24Z" fill="#000000"/>
+                  <path d="M24 24V38C16.268 38 10 31.732 10 24H24Z" fill="#000000"/>
+                  <path d="M24 24H10C10 16.268 16.268 10 24 10V24Z" fill="#000000"/>
+                </svg>
+              </div>
+            </div>
+            <div class="dm-poster-bottom">
+              <div class="dm-poster-num">01.</div>
+              <div class="dm-poster-header-row">
+                <h3 class="dm-poster-title">Proven<br>Results</h3>
+                <div class="dm-poster-arrow-circle" aria-label="Explore Proven Results">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                  </svg>
+                </div>
+              </div>
+              <div class="dm-poster-divider"></div>
+              <div class="dm-poster-desc-wrap">
+                <p class="dm-poster-desc">
+                  Over 100 successful campaigns with measurable outcomes and compounding ROI.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 02: Lime (Default Active as shown in reference) -->
+          <div class="dm-poster-card dm-poster-lime active" data-card="2">
+            <div class="dm-poster-top">
+              <div class="dm-poster-icon-wrap">
+                <svg width="48" height="48" viewBox="0 0 48 48" fill="none" class="dm-geom-icon">
+                  <circle cx="24" cy="12" r="4.5" fill="#000000"/>
+                  <rect x="13" y="20" width="22" height="7" rx="3.5" fill="#000000"/>
+                  <path d="M12 31C12 37.627 17.373 43 24 43C30.627 43 36 37.627 36 31H12Z" fill="#000000"/>
+                </svg>
+              </div>
+            </div>
+            <div class="dm-poster-bottom">
+              <div class="dm-poster-num">02.</div>
+              <div class="dm-poster-header-row">
+                <h3 class="dm-poster-title">Customized<br>Strategies</h3>
+                <div class="dm-poster-arrow-circle" aria-label="Explore Customized Strategies">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                  </svg>
+                </div>
+              </div>
+              <div class="dm-poster-divider"></div>
+              <div class="dm-poster-desc-wrap">
+                <p class="dm-poster-desc">
+                  Tailored to your specific business goals, audience, tech stack, and scalability needs.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 03: Amber Gold -->
+          <div class="dm-poster-card dm-poster-gold" data-card="3">
+            <div class="dm-poster-top">
+              <div class="dm-poster-icon-wrap">
+                <svg width="48" height="48" viewBox="0 0 48 48" fill="none" class="dm-geom-icon">
+                  <circle cx="28" cy="18" r="10" fill="#000000"/>
+                  <circle cx="18" cy="28" r="10" fill="#000000"/>
+                  <rect x="18" y="18" width="10" height="10" fill="#000000"/>
+                  <rect x="21" y="21" width="4.5" height="4.5" fill="#FFB800" rx="0.5"/>
+                </svg>
+              </div>
+            </div>
+            <div class="dm-poster-bottom">
+              <div class="dm-poster-num">03.</div>
+              <div class="dm-poster-header-row">
+                <h3 class="dm-poster-title">Experienced<br>Team</h3>
+                <div class="dm-poster-arrow-circle" aria-label="Explore Experienced Team">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                  </svg>
+                </div>
+              </div>
+              <div class="dm-poster-divider"></div>
+              <div class="dm-poster-desc-wrap">
+                <p class="dm-poster-desc">
+                  Industry experts with years of deep domain experience in enterprise digital marketing.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 04: White -->
+          <div class="dm-poster-card dm-poster-white" data-card="4">
+            <div class="dm-poster-top">
+              <div class="dm-poster-icon-wrap">
+                <svg width="48" height="48" viewBox="0 0 48 48" fill="none" class="dm-geom-icon">
+                  <path d="M22 8C16.477 8 12 12.477 12 18C12 24.5 22 34 22 34V8Z" fill="#000000"/>
+                  <path d="M26 40C31.523 40 36 35.523 36 30C36 23.5 26 14 26 14V40Z" fill="#000000"/>
+                </svg>
+              </div>
+            </div>
+            <div class="dm-poster-bottom">
+              <div class="dm-poster-num">04.</div>
+              <div class="dm-poster-header-row">
+                <h3 class="dm-poster-title">Transparent<br>Reporting</h3>
+                <div class="dm-poster-arrow-circle" aria-label="Explore Transparent Reporting">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                  </svg>
+                </div>
+              </div>
+              <div class="dm-poster-divider"></div>
+              <div class="dm-poster-desc-wrap">
+                <p class="dm-poster-desc">
+                  Clear, detailed live dashboards to keep you informed of every pipeline milestone.
+                </p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         8. CASE STUDIES (4 SQUARE GREEN CARDS AS IN REFERENCE IMAGE)
+         ========================================================================== -->
+    <section class="dm-case-studies-section" id="caseStudiesSection">
+      <canvas class="dm-particle-canvas" aria-hidden="true"></canvas>
+      <div class="container">
+        
+        <h2 class="dm-case-studies-title reveal-on-scroll">
+          <span class="dm-case-white">CASE</span> <span class="dm-case-red">STUDIES</span>
+        </h2>
+
+        <div class="dm-case-studies-grid reveal-on-scroll stagger-1">
+          
+          <!-- Card 1: Deccan Herald -->
+          <div class="dm-case-study-card" data-study="deccan-herald">
+            <img 
+              src="../assets/images/case-study-card-1.png" 
+              alt="Deccan Herald Case Study - News & Publication: 37% Boost in Lead Generation, 49% Reduction in CAC" 
+              class="dm-case-study-img" 
+              loading="lazy">
+          </div>
+
+          <!-- Card 2: Myntra -->
+          <div class="dm-case-study-card" data-study="myntra">
+            <img 
+              src="../assets/images/case-study-card-2.png" 
+              alt="Myntra Case Study - E-Commerce: 10X Boost in Organic traffic, 100% Increase MOM" 
+              class="dm-case-study-img" 
+              loading="lazy">
+          </div>
+
+          <!-- Card 3: Flipkart -->
+          <div class="dm-case-study-card" data-study="flipkart">
+            <img 
+              src="../assets/images/case-study-card-3.png" 
+              alt="Flipkart Case Study - E-Commerce: 40% Boost in IG Engagement, 70% Boost in YT Views" 
+              class="dm-case-study-img" 
+              loading="lazy">
+          </div>
+
+          <!-- Card 4: via Milano -->
+          <div class="dm-case-study-card" data-study="via-milano">
+            <img 
+              src="../assets/images/case-study-card-4.png" 
+              alt="via Milano Case Study - E-Commerce: 4X Boost in Table Booking, 100% Increase Revenue" 
+              class="dm-case-study-img" 
+              loading="lazy">
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         8. EDITORIAL CONTACT SECTION (LET'S SCALE YOUR BRAND, TOGETHER.)
+         ========================================================================== -->
+    <section class="dm-contact-editorial-section" id="contactSection" aria-label="Contact Us">
+      <canvas class="dm-particle-canvas" aria-hidden="true"></canvas>
+      <div class="container">
+        
+        <div class="dm-editorial-grid reveal-on-scroll">
+          
+          <!-- Left Column: Editorial Statement & Handshake Illustration -->
+          <div class="dm-editorial-left">
+            <div style="text-align: center; width: 100%;">
+              <h2 class="dm-editorial-heading">
+                <span class="dm-editorial-white">Let’s scale your</span><br><span class="dm-editorial-red">brand, together.</span>
+              </h2>
+            </div>
+
+            <div class="dm-editorial-handshake-wrap">
+              <img 
+                src="../assets/images/image copy 4.png" 
+                alt="Digiolic Growth Team" 
+                class="dm-editorial-team-img"
+                loading="lazy">
+            </div>
+          </div>
+
+          <!-- Right Column: Contact Form (Matching Salesforce Page Design) -->
+          <div class="dm-editorial-right">
+            <h2 class="contact-pane-title">Send us a message</h2>
+
+            <div id="crmWebToEntityForm" class="crmWebToEntityForm" style="width: 100%;">
+            <form class="contact-form-grid" id="webform1410226000000468646" name="WebToLeads1410226000000468646" action="https://crm.zoho.in/crm/WebToLeadForm" method="POST" onsubmit="javascript:document.charset='UTF-8'; return checkMandatory1410226000000468646()" accept-charset="UTF-8">
+              
+              <!-- Zoho CRM Web-to-Lead Configuration Tokens -->
+              <input type="text" style="display:none;" name="xnQsjsdp" value="2bec8fc379fa8b2907466baf9c9027a10d782e535a700961df9cc7f9cc9e3a0f">
+              <input type="hidden" name="zc_gad" id="zc_gad" value="">
+              <input type="text" style="display:none;" name="xmIwtLD" value="84b7c141f3115de860a5ea90aee2f7e092be13d393114f0ae233a01053b1d7c48e28efc64f4853ce787599eb00717ff5">
+              <input type="text" style="display:none;" name="actionType" value="TGVhZHM=">
+              <input type="text" style="display:none;" name="returnURL" value="null">
+              <input type="text" style="display:none;" name="aG9uZXlwb3Q" value="">
+
+              <!-- Row 1: Name & Company (2 Columns) -->
+              <div class="contact-form-row">
+                <div class="contact-field-wrap">
+                  <label for="Last_Name" class="contact-field-label">Name <span class="req">*</span></label>
+                  <input type="text" id="Last_Name" name="Last Name" class="contact-field-input" placeholder="Name" maxlength="80" aria-required="true" required>
+                </div>
+                <div class="contact-field-wrap">
+                  <label for="Company" class="contact-field-label">Company <span class="req">*</span></label>
+                  <input type="text" id="Company" name="Company" class="contact-field-input" placeholder="Company" maxlength="200" aria-required="true" required>
+                </div>
+              </div>
+
+              <!-- Row 2: Phone & Email (2 Columns) -->
+              <div class="contact-form-row">
+                <div class="contact-field-wrap">
+                  <label for="Phone" class="contact-field-label">Phone <span class="req">*</span></label>
+                  <input type="text" id="Phone" name="Phone" class="contact-field-input" placeholder="Phone" maxlength="30" aria-required="true" required>
+                </div>
+                <div class="contact-field-wrap">
+                  <label for="Email" class="contact-field-label">Email <span class="req">*</span></label>
+                  <input type="text" ftype="email" autocomplete="false" id="Email" name="Email" class="contact-field-input" placeholder="Email" maxlength="100" aria-required="true" required>
+                </div>
+              </div>
+
+              <!-- Row 3: Subject / Service (Full Width Multi-Select) -->
+              <div class="contact-field-wrap">
+                <label for="LEADCF2" class="contact-field-label">Subject / Service <span class="req">*</span></label>
+                
+                <!-- Native multi-select matching Zoho CRM Web-to-Lead configuration -->
+                <select class="zcwf_col_fld_slt" role="combobox" aria-expanded="false" aria-haspopup="listbox" id="LEADCF2" aria-required="true" aria-label="LEADCF2" name="LEADCF2" multiple style="display:none;">
+                  <option value="Performance marketing">Performance marketing</option>
+                  <option value="Search engine optimization">Search engine optimization</option>
+                  <option value="Ppc advertising">Ppc advertising</option>
+                  <option value="Social media management">Social media management</option>
+                  <option value="Content marketing">Content marketing</option>
+                  <option value="Ai-driven marketing automation">Ai-driven marketing automation</option>
+                  <option value="Influencer marketing">Influencer marketing</option>
+                  <option value="Branding">Branding</option>
+                  <option value="Email marketing">Email marketing</option>
+                  <option value="Web design and development">Web design and development</option>
+                  <option value="Digital strategy creation">Digital strategy creation</option>
+                  <option value="Online reputation management">Online reputation management</option>
+                  <option value="Salesfoce Developement">Salesfoce Developement</option>
+                  <option value="Salesforce Sales Cloud">Salesforce Sales Cloud</option>
+                  <option value="Salesforce Service Cloud">Salesforce Service Cloud</option>
+                  <option value="Salesforce Marketing Cloud">Salesforce Marketing Cloud</option>
+                  <option value="Salesforce Experience Cloud">Salesforce Experience Cloud</option>
+                  <option value="Salesforce Commerce Cloud">Salesforce Commerce Cloud</option>
+                  <option value="Salesforce Data Cloud">Salesforce Data Cloud</option>
+                  <option value="Salesforce Platform">Salesforce Platform</option>
+                  <option value="Zoho CRM">Zoho CRM</option>
+                  <option value="Zoho CRM Plus">Zoho CRM Plus</option>
+                  <option value="Bigin">Bigin</option>
+                  <option value="Zoho SalesIQ">Zoho SalesIQ</option>
+                  <option value="Zoho Marketing Automation">Zoho Marketing Automation</option>
+                  <option value="Zoho Social">Zoho Social</option>
+                  <option value="Zoho Campaigns">Zoho Campaigns</option>
+                  <option value="Zoho Forms">Zoho Forms</option>
+                  <option value="Zoho Sign">Zoho Sign</option>
+                  <option value="Zoho Bookings">Zoho Bookings</option>
+                  <option value="Zoho Backstage">Zoho Backstage</option>
+                  <option value="Zoho People">Zoho People</option>
+                  <option value="Zoho People Plus">Zoho People Plus</option>
+                  <option value="Zoho Recruit">Zoho Recruit</option>
+                  <option value="Zoho Payroll">Zoho Payroll</option>
+                  <option value="Zoho Books">Zoho Books</option>
+                  <option value="Zoho Invoice">Zoho Invoice</option>
+                  <option value="Zoho Expense">Zoho Expense</option>
+                  <option value="Zoho Inventory">Zoho Inventory</option>
+                  <option value="Zoho Checkout">Zoho Checkout</option>
+                  <option value="Zoho Desk">Zoho Desk</option>
+                  <option value="Zoho Assist">Zoho Assist</option>
+                  <option value="Zoho Lens">Zoho Lens</option>
+                  <option value="Zoho Mail">Zoho Mail</option>
+                  <option value="Zoho Cliq">Zoho Cliq</option>
+                  <option value="Zoho WorkDrive">Zoho WorkDrive</option>
+                  <option value="Zoho Projects">Zoho Projects</option>
+                  <option value="Zoho Meeting">Zoho Meeting</option>
+                  <option value="Zoho Writer">Zoho Writer</option>
+                  <option value="Zoho Sheet">Zoho Sheet</option>
+                  <option value="Zoho Show">Zoho Show</option>
+                  <option value="Zoho Analytics">Zoho Analytics</option>
+                  <option value="Zoho DataPrep">Zoho DataPrep</option>
+                  <option value="Zoho One">Zoho One</option>
+                  <option value="Zoho Creator">Zoho Creator</option>
+                  <option value="Zoho Flow">Zoho Flow</option>
+                </select>
+
+                <!-- Custom Multi-Select Dropdown UI -->
+                <div class="contact-multiselect" id="contactServicesMultiselect">
+                  <div class="contact-select-trigger" tabindex="0" role="combobox" aria-expanded="false" aria-haspopup="listbox">
+                    <span class="contact-trigger-text" id="contactServicesTriggerText">Select your service</span>
+                    <svg class="contact-select-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                  </div>
+
+                  <div class="contact-options-panel" role="listbox">
+                    <div style="padding: 6px 12px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: #60A5FA; background: #162032; border-radius: 4px; margin-bottom: 4px;">Digital Marketing &amp; Strategy</div>
+                    <label class="contact-option-item"><input type="checkbox" data-service-val="Performance marketing"><span>Performance Marketing &amp; CRO</span></label>
+                    <label class="contact-option-item"><input type="checkbox" data-service-val="Search engine optimization"><span>Search Engine Optimization (SEO)</span></label>
+                    <label class="contact-option-item"><input type="checkbox" data-service-val="Ppc advertising"><span>PPC Advertising &amp; Paid Social</span></label>
+                    <label class="contact-option-item"><input type="checkbox" data-service-val="Social media management"><span>Social Media Management</span></label>
+                    <label class="contact-option-item"><input type="checkbox" data-service-val="Content marketing"><span>Content Creation &amp; Strategy</span></label>
+                    <label class="contact-option-item"><input type="checkbox" data-service-val="Ai-driven marketing automation"><span>AI Marketing Automation</span></label>
+                    <label class="contact-option-item"><input type="checkbox" data-service-val="Influencer marketing"><span>Influencer &amp; Creator Growth</span></label>
+                    <label class="contact-option-item"><input type="checkbox" data-service-val="Branding"><span>Branding &amp; Visual Design</span></label>
+                    <label class="contact-option-item"><input type="checkbox" data-service-val="Email marketing"><span>Email Marketing &amp; Retention</span></label>
+                    <label class="contact-option-item"><input type="checkbox" data-service-val="Web design and development"><span>Web Design &amp; Development</span></label>
+                    <label class="contact-option-item"><input type="checkbox" data-service-val="Digital strategy creation"><span>Strategy &amp; Consulting</span></label>
+                    <label class="contact-option-item"><input type="checkbox" data-service-val="Online reputation management"><span>Online Reputation Management</span></label>
+
+                    <div style="padding: 6px 12px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: #94A3B8; background: #111A2B; border-radius: 4px; margin: 6px 0 4px 0;">Salesforce Solutions</div>
+                    <label class="contact-option-item"><input type="checkbox" data-service-val="Salesfoce Developement"><span>Salesforce Development &amp; Consulting</span></label>
+                    <label class="contact-option-item"><input type="checkbox" data-service-val="Salesforce Sales Cloud"><span>Salesforce Sales Cloud</span></label>
+                    <label class="contact-option-item"><input type="checkbox" data-service-val="Salesforce Service Cloud"><span>Salesforce Service Cloud</span></label>
+                    <label class="contact-option-item"><input type="checkbox" data-service-val="Salesforce Marketing Cloud"><span>Salesforce Marketing Cloud</span></label>
+                    <label class="contact-option-item"><input type="checkbox" data-service-val="Salesforce Experience Cloud"><span>Salesforce Experience Cloud</span></label>
+                    <label class="contact-option-item"><input type="checkbox" data-service-val="Salesforce Commerce Cloud"><span>Salesforce Commerce Cloud</span></label>
+                    <label class="contact-option-item"><input type="checkbox" data-service-val="Salesforce Data Cloud"><span>Salesforce Data Cloud</span></label>
+                    <label class="contact-option-item"><input type="checkbox" data-service-val="Salesforce Platform"><span>Salesforce Platform</span></label>
+
+                    <div style="padding: 6px 12px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: #94A3B8; background: #111A2B; border-radius: 4px; margin: 6px 0 4px 0;">Zoho Applications</div>
+                    <label class="contact-option-item"><input type="checkbox" data-service-val="Zoho CRM"><span>Zoho CRM</span></label>
+                    <label class="contact-option-item"><input type="checkbox" data-service-val="Zoho CRM Plus"><span>Zoho CRM Plus</span></label>
+                    <label class="contact-option-item"><input type="checkbox" data-service-val="Bigin"><span>Bigin</span></label>
+                    <label class="contact-option-item"><input type="checkbox" data-service-val="Zoho One"><span>Zoho One</span></label>
+                    <label class="contact-option-item"><input type="checkbox" data-service-val="Zoho Creator"><span>Zoho Creator</span></label>
+                    <label class="contact-option-item"><input type="checkbox" data-service-val="Zoho Flow"><span>Zoho Flow</span></label>
+                    <label class="contact-option-item"><input type="checkbox" data-service-val="Zoho Books"><span>Zoho Books</span></label>
+                    <label class="contact-option-item"><input type="checkbox" data-service-val="Zoho Invoice"><span>Zoho Invoice</span></label>
+                    <label class="contact-option-item"><input type="checkbox" data-service-val="Zoho Expense"><span>Zoho Expense</span></label>
+                    <label class="contact-option-item"><input type="checkbox" data-service-val="Zoho Inventory"><span>Zoho Inventory</span></label>
+                    <label class="contact-option-item"><input type="checkbox" data-service-val="Zoho Checkout"><span>Zoho Checkout</span></label>
+                    <label class="contact-option-item"><input type="checkbox" data-service-val="Zoho Desk"><span>Zoho Desk</span></label>
+                    <label class="contact-option-item"><input type="checkbox" data-service-val="Zoho Assist"><span>Zoho Assist</span></label>
+                    <label class="contact-option-item"><input type="checkbox" data-service-val="Zoho Lens"><span>Zoho Lens</span></label>
+                    <label class="contact-option-item"><input type="checkbox" data-service-val="Zoho SalesIQ"><span>Zoho SalesIQ</span></label>
+                    <label class="contact-option-item"><input type="checkbox" data-service-val="Zoho Marketing Automation"><span>Zoho Marketing Automation</span></label>
+                    <label class="contact-option-item"><input type="checkbox" data-service-val="Zoho Social"><span>Zoho Social</span></label>
+                    <label class="contact-option-item"><input type="checkbox" data-service-val="Zoho Campaigns"><span>Zoho Campaigns</span></label>
+                    <label class="contact-option-item"><input type="checkbox" data-service-val="Zoho Forms"><span>Zoho Forms</span></label>
+                    <label class="contact-option-item"><input type="checkbox" data-service-val="Zoho Sign"><span>Zoho Sign</span></label>
+                    <label class="contact-option-item"><input type="checkbox" data-service-val="Zoho Bookings"><span>Zoho Bookings</span></label>
+                    <label class="contact-option-item"><input type="checkbox" data-service-val="Zoho Backstage"><span>Zoho Backstage</span></label>
+                    <label class="contact-option-item"><input type="checkbox" data-service-val="Zoho People"><span>Zoho People</span></label>
+                    <label class="contact-option-item"><input type="checkbox" data-service-val="Zoho People Plus"><span>Zoho People Plus</span></label>
+                    <label class="contact-option-item"><input type="checkbox" data-service-val="Zoho Recruit"><span>Zoho Recruit</span></label>
+                    <label class="contact-option-item"><input type="checkbox" data-service-val="Zoho Payroll"><span>Zoho Payroll</span></label>
+                    <label class="contact-option-item"><input type="checkbox" data-service-val="Zoho Mail"><span>Zoho Mail</span></label>
+                    <label class="contact-option-item"><input type="checkbox" data-service-val="Zoho Cliq"><span>Zoho Cliq</span></label>
+                    <label class="contact-option-item"><input type="checkbox" data-service-val="Zoho WorkDrive"><span>Zoho WorkDrive</span></label>
+                    <label class="contact-option-item"><input type="checkbox" data-service-val="Zoho Projects"><span>Zoho Projects</span></label>
+                    <label class="contact-option-item"><input type="checkbox" data-service-val="Zoho Meeting"><span>Zoho Meeting</span></label>
+                    <label class="contact-option-item"><input type="checkbox" data-service-val="Zoho Writer"><span>Zoho Writer</span></label>
+                    <label class="contact-option-item"><input type="checkbox" data-service-val="Zoho Sheet"><span>Zoho Sheet</span></label>
+                    <label class="contact-option-item"><input type="checkbox" data-service-val="Zoho Show"><span>Zoho Show</span></label>
+                    <label class="contact-option-item"><input type="checkbox" data-service-val="Zoho Analytics"><span>Zoho Analytics</span></label>
+                    <label class="contact-option-item"><input type="checkbox" data-service-val="Zoho DataPrep"><span>Zoho DataPrep</span></label>
+                  </div>
+                </div>
+
+                <!-- Selected Badges / Chips Display -->
+                <div class="contact-chips-wrap" id="contactSelectedChips"></div>
+              </div>
+
+              <!-- Row 4: Message (Full Width) -->
+              <div class="contact-field-wrap">
+                <label for="LEADCF1" class="contact-field-label">Message <span class="req">*</span></label>
+                <textarea id="LEADCF1" name="LEADCF1" class="contact-field-textarea" placeholder="Describe your digital marketing goals, budget, timelines or strategy..." rows="4" aria-multiline="true" aria-required="true" required></textarea>
+              </div>
+
+              <!-- Row 5: Full-Width Blue Send Button -->
+              <div>
+                <button type="submit" id="formsubmit" class="contact-send-btn formsubmit" role="button" value="Send" aria-label="Send Message" title="Send Message">
+                  Send
+                </button>
+              </div>
+
+            </form>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==========================================================================
+       SITE FOOTER
+       ========================================================================== -->
+  <footer class="site-footer">
+    <div class="container-home-compact">
+
+      <div class="footer-grid">
+
+        <!-- 1) Digiolic Brand (Left side) -->
+        <div class="footer-brand-col">
+          <a href="../index.html" class="brand-logo" aria-label="Digiolic Home">
+            <img src="../assets/images/digiolic-logo.png" alt="Digiolic" height="34">
+          </a>
+          <p>
+            Architecting next-generation enterprise business systems. Unified Zoho One, Salesforce Cloud, and performance growth marketing.
+          </p>
+
+        </div>
+
+        <!-- 2) Services (After Digiolic) -->
+        <div>
+          <h4 class="footer-heading">Services</h4>
+          <ul class="footer-links">
+            <li><a href="zoho.html" class="footer-link">Zoho Enterprise</a></li>
+            <li><a href="salesforce.html" class="footer-link">Salesforce Cloud</a></li>
+            <li><a href="digital-marketing.html" class="footer-link">Digital Marketing</a></li>
+            <li><a href="case-stories.html" class="footer-link">Case Stories</a></li>
+          </ul>
+        </div>
+
+        <!-- 3) Contact (After Services) -->
+        <div>
+          <h4 class="footer-heading">Contact</h4>
+          <div class="footer-contact-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+            </svg>
+            <div>
+              <span style="display: block; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; color: #64748B; margin-bottom: 2px;">Mobile</span>
+              <a href="tel:+919665530071" class="footer-link" style="color: #F8FAFC; font-weight: 500;">+91 9665530071</a>
+            </div>
+          </div>
+          <div class="footer-contact-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+              <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
+            <div>
+              <span style="display: block; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; color: #64748B; margin-bottom: 2px;">Email id</span>
+              <a href="mailto:info@digiolic.com" class="footer-link" style="color: #F8FAFC; font-weight: 500;">info@digiolic.com</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4) Subscribe Now (After Contact, RIGHT SIDE) -->
+        <div class="footer-subscribe-col">
+          <!-- Social Icons Row (Facebook, Twitter/X, LinkedIn, Instagram, YouTube) -->
+          <div class="footer-social-row">
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="footer-social-icon-btn" aria-label="Facebook">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="#1877F2"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </a>
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="footer-social-icon-btn" aria-label="Twitter">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="#0284C7"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.936 9.936 0 0024 4.59z"/></svg>
+            </a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="footer-social-icon-btn" aria-label="LinkedIn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="#0A66C2"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+            </a>
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="footer-social-icon-btn" aria-label="Instagram">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="#0F172A"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            </a>
+            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="footer-social-icon-btn" aria-label="YouTube">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="#0284C7"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            </a>
+          </div>
+
+          <!-- Title & Subtitle (Matching Image 2) -->
+          <h3 class="footer-subscribe-title">Subscribe Now</h3>
+          <p class="footer-subscribe-subtitle">Don’t miss our future updates! Get Subscribed Today!</p>
+
+          <!-- Zoho Campaigns Web-Optin Form -->
+          <div name="signupFormContainer" style="width: 100%; max-width: 390px;">
+            <input type="hidden" id="signupTmplName" value="quick_form_8">
+            <input type="hidden" value="0" id="recapThemeOptin">
+            <input type="hidden" id="orgNameFull" value="Digiolic">
+            <div id="sf3z9b6c828aa5af22b4a6077a0465071583a608aedf9a4312cd59de68709570dfed" data-type="signupform">
+              <div id="customForm">
+                <div name="SIGNUP_BODY" id="SIGNUP_BODY" style="width: 100%;">
+                  <form method="POST" id="zcampaignOptinForm" action="https://zgp4-zgp4.maillist-manage.in/weboptin.zc" target="_zcSignup" onsubmit="if(typeof zcActionUrlRest==='function'){zcActionUrlRest();}" class="footer-subscribe-pill-form">
+                    <div id="errorMsgDiv" style="display: none; position: absolute; bottom: calc(100% + 8px); left: 0; background-color: #FEF2F2; padding: 6px 12px; color: #DC2626; font-size: 12px; border: 1px solid #FECACA; border-radius: 6px; white-space: nowrap; z-index: 10; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">Please enter a valid email address.</div>
+                    <input type="email" placeholder="Enter your email address" changeitem="SIGNUP_FORM_FIELD" name="CONTACT_EMAIL" id="EMBED_FORM_EMAIL_LABEL" class="footer-subscribe-input" required aria-label="Enter your email address">
+                    <button type="button" action="Save" name="SIGNUP_SUBMIT_BUTTON" id="zcWebOptin" changetype="SIGNUP_SUBMIT_BUTTON_TEXT" class="footer-subscribe-btn" aria-label="Join Now" onclick="if(typeof saveOptin==='function'){saveOptin(this,false,window['runOnFormSubmit_sf3z9b6c828aa5af22b4a6077a0465071583a608aedf9a4312cd59de68709570dfed'],'#sf3z9b6c828aa5af22b4a6077a0465071583a608aedf9a4312cd59de68709570dfed ',event);}else{document.getElementById('zcampaignOptinForm').submit();}">
+                      <span>Join Now</span>
+                      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                      </svg>
+                    </button>
+                    <input type="hidden" id="fieldBorder" value="">
+                    <input type="hidden" id="submitType" name="submitType" value="optinCustomView">
+                    <input type="hidden" id="emailReportId" name="emailReportId" value="">
+                    <input type="hidden" id="formType" name="formType" value="QuickForm">
+                    <input type="hidden" name="zx" id="cmpZuid" value="1df9e0c1b9">
+                    <input type="hidden" name="zcvers" value="2.0">
+                    <input type="hidden" name="oldListIds" id="allCheckedListIds" value="">
+                    <input type="hidden" id="mode" name="mode" value="OptinCreateView">
+                    <input type="hidden" id="zcld" name="zcld" value="154815acb3547a19">
+                    <input type="hidden" id="zctd" name="zctd" value="154815acb3547211">
+                    <input type="hidden" id="document_domain" value="">
+                    <input type="hidden" id="zc_Url" value="zgp4-zgp4.maillist-manage.in">
+                    <input type="hidden" id="new_optin_response_in" value="0">
+                    <input type="hidden" id="duplicate_optin_response_in" value="0">
+                    <input type="hidden" id="zcOrgIx" value="">
+                    <input type="hidden" id="zcActIx" value="">
+                    <input type="hidden" id="zcCustIx" value="">
+                    <input type="hidden" name="zc_trackCode" id="zc_trackCode" value="ZCFORMVIEW">
+                    <input type="hidden" id="zc_formIx" name="zc_formIx" value="3z9b6c828aa5af22b4a6077a0465071583a608aedf9a4312cd59de68709570dfed">
+                    <input type="hidden" id="viewFrom" value="URL_ACTION">
+                    <span style="display: none" id="dt_CONTACT_EMAIL">1,true,6,Contact Email,2</span>
+                  </form>
+                  <iframe name="_zcSignup" id="_zcSignup" style="display:none;" title="Zoho Campaigns Target"></iframe>
+                </div>
+              </div>
+            </div>
+            <input type="hidden" id="signupFormType" value="QuickForm_Horizontal">
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="footer-bottom">
+        <div>
+          &copy; 2026 Digiolic All rights reserved.
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+  <script src="../js/3d-effects.js"></script>
+  <script src="../js/mainframe-hero.js"></script>
+
+  <!-- Interactive script for Why Choose Digiolic poster cards -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const cards = document.querySelectorAll('.dm-poster-card');
+      if (!cards.length) return;
+
+      cards.forEach(card => {
+        card.addEventListener('mouseenter', function () {
+          cards.forEach(c => c.classList.remove('active'));
+          this.classList.add('active');
+        });
+
+        card.addEventListener('click', function () {
+          cards.forEach(c => c.classList.remove('active'));
+          this.classList.add('active');
+        });
+      });
+
+      const grid = document.querySelector('.dm-why-cards-grid');
+      if (grid) {
+        grid.addEventListener('mouseleave', function () {
+          cards.forEach(c => c.classList.remove('active'));
+          const defaultActive = document.querySelector('.dm-poster-lime');
+          if (defaultActive) defaultActive.classList.add('active');
+        });
+      }
+
+      // Animated number counters for 60% metrics portal
+      const metricElements = document.querySelectorAll('.dm-metric-num');
+      if (metricElements.length) {
+        const observer = new IntersectionObserver((entries, obs) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const el = entry.target;
+              obs.unobserve(el);
+
+              const targetVal = parseFloat(el.getAttribute('data-target') || '0');
+              const prefix = el.getAttribute('data-prefix') || '';
+              const suffix = el.getAttribute('data-suffix') || '';
+              const hasComma = el.getAttribute('data-comma') === 'true';
+              const duration = 1600;
+              const startTime = performance.now();
+
+              function updateCounter(currentTime) {
+                const elapsed = currentTime - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                // easeOutCubic
+                const ease = 1 - Math.pow(1 - progress, 3);
+                const currentVal = Math.floor(ease * targetVal);
+
+                let formattedVal = currentVal.toString();
+                if (hasComma) {
+                  formattedVal = currentVal.toLocaleString('en-US');
+                }
+
+                el.textContent = `${prefix}${formattedVal}${progress >= 1 ? suffix : ''}`;
+
+                if (progress < 1) {
+                  requestAnimationFrame(updateCounter);
+                } else {
+                  let finalVal = targetVal.toString();
+                  if (hasComma) finalVal = targetVal.toLocaleString('en-US');
+                  el.textContent = `${prefix}${finalVal}${suffix}`;
+                }
+              }
+
+              requestAnimationFrame(updateCounter);
+            }
+          });
+        }, { threshold: 0.2 });
+
+        metricElements.forEach(el => observer.observe(el));
+      }
+
+      // Multi-Select Component Logic for Digital Marketing Form
+      (function initDigitalMarketingMultiselect() {
+        const contactMs = document.getElementById('contactServicesMultiselect');
+        const nativeSelect = document.getElementById('LEADCF2');
+        if (!contactMs || !nativeSelect) return;
+
+        const trigger = contactMs.querySelector('.contact-select-trigger');
+        const triggerText = document.getElementById('contactServicesTriggerText');
+        const options = contactMs.querySelectorAll('.contact-option-item input[type="checkbox"]');
+        const chipsWrap = document.getElementById('contactSelectedChips');
+
+        function updateContactServices() {
+          const selected = [];
+          Array.from(nativeSelect.options).forEach(opt => opt.selected = false);
+
+          options.forEach(opt => {
+            if (opt.checked) {
+              const val = opt.getAttribute('data-service-val');
+              selected.push(val);
+              Array.from(nativeSelect.options).forEach(nativeOpt => {
+                if (nativeOpt.value.toLowerCase() === val.toLowerCase()) {
+                  nativeOpt.selected = true;
+                }
+              });
+            }
+          });
+
+          chipsWrap.innerHTML = '';
+          if (selected.length === 0) {
+            triggerText.textContent = 'Select your service';
+            triggerText.classList.remove('has-selection');
+          } else {
+            triggerText.textContent = `${selected.length} service${selected.length > 1 ? 's' : ''} selected`;
+            triggerText.classList.add('has-selection');
+
+            selected.forEach(svc => {
+              const chip = document.createElement('span');
+              chip.className = 'contact-chip';
+              let displayLabel = svc;
+              if (svc === 'Performance marketing') displayLabel = 'Performance Marketing & CRO';
+              else if (svc === 'Salesfoce Developement') displayLabel = 'Salesforce Development & Consulting';
+              else if (svc === 'Search engine optimization') displayLabel = 'Search Engine Optimization (SEO)';
+              else if (svc === 'Ppc advertising') displayLabel = 'PPC Advertising & Paid Social';
+              else if (svc === 'Social media management') displayLabel = 'Social Media Management';
+              else if (svc === 'Content marketing') displayLabel = 'Content Creation & Strategy';
+              else if (svc === 'Ai-driven marketing automation') displayLabel = 'AI Marketing Automation';
+              else if (svc === 'Influencer marketing') displayLabel = 'Influencer & Creator Growth';
+              else if (svc === 'Branding') displayLabel = 'Branding & Visual Design';
+              else if (svc === 'Email marketing') displayLabel = 'Email Marketing & Retention';
+              else if (svc === 'Web design and development') displayLabel = 'Web Design & Development';
+              else if (svc === 'Digital strategy creation') displayLabel = 'Strategy & Consulting';
+              else if (svc === 'Online reputation management') displayLabel = 'Online Reputation Management';
+
+              chip.innerHTML = `${displayLabel} <span class="contact-chip-remove" data-val="${svc}">&times;</span>`;
+              chipsWrap.appendChild(chip);
+            });
+          }
+        }
+
+        window.selectDigitalMarketingService = function (val) {
+          if (!val) return;
+          const lower = val.toLowerCase();
+          options.forEach(opt => {
+            const oval = opt.getAttribute('data-service-val');
+            if (oval && (oval.toLowerCase() === lower || oval.toLowerCase().includes(lower) || lower.includes(oval.toLowerCase()))) {
+              opt.checked = true;
+            }
+          });
+          updateContactServices();
+        };
+
+        trigger.addEventListener('click', (e) => {
+          e.stopPropagation();
+          contactMs.classList.toggle('open');
+          trigger.setAttribute('aria-expanded', contactMs.classList.contains('open'));
+        });
+
+        document.addEventListener('click', (e) => {
+          if (!contactMs.contains(e.target)) {
+            contactMs.classList.remove('open');
+            trigger.setAttribute('aria-expanded', 'false');
+          }
+        });
+
+        options.forEach(opt => {
+          opt.addEventListener('change', updateContactServices);
+        });
+
+        chipsWrap.addEventListener('click', (e) => {
+          if (e.target.classList.contains('contact-chip-remove')) {
+            const val = e.target.getAttribute('data-val');
+            options.forEach(opt => {
+              if (opt.getAttribute('data-service-val') === val) opt.checked = false;
+            });
+            updateContactServices();
+          }
+        });
+
+        updateContactServices();
+      })();
+
+      // Zoho CRM Web-to-Lead Validation Script
+      function validateEmail1410226000000468646() {
+        var form = document.forms['WebToLeads1410226000000468646'];
+        var emailFld = form.querySelectorAll('[ftype=email]');
+        var i;
+        for (i = 0; i < emailFld.length; i++) {
+          var emailVal = emailFld[i].value;
+          if ((emailVal.replace(/^\s+|\s+$/g, '')).length != 0) {
+            var atpos = emailVal.indexOf('@');
+            var dotpos = emailVal.lastIndexOf('.');
+            if (atpos < 1 || dotpos < atpos + 2 || dotpos + 2 >= emailVal.length) {
+              alert('Please enter a valid email address.');
+              emailFld[i].focus();
+              return false;
+            }
+          }
+        }
+        return true;
+      }
+
+      window.checkMandatory1410226000000468646 = function(isAjax) {
+        var mndFileds = new Array('Last Name');
+        var fldLangVal = new Array('Last Name');
+        var form = document.forms['WebToLeads1410226000000468646'];
+        for (var i = 0; i < mndFileds.length; i++) {
+          var fieldObj = form[mndFileds[i]];
+          if (fieldObj) {
+            if (((fieldObj.value).replace(/^\s+|\s+$/g, '')).length == 0) {
+              alert(fldLangVal[i] + ' cannot be empty.');
+              fieldObj.focus();
+              return false;
+            }
+          }
+        }
+        if (!validateEmail1410226000000468646()) {
+          return false;
+        }
+
+        // If no checkbox is selected, ensure fallback service is present
+        var checkedServices = form.querySelectorAll('input[name="LEADCF2"]:checked');
+        if (checkedServices.length === 0) {
+          var fallbackSvc = form.querySelector('input[name="LEADCF2"][type="hidden"]');
+          if (!fallbackSvc) {
+            fallbackSvc = document.createElement('input');
+            fallbackSvc.type = 'hidden';
+            fallbackSvc.name = 'LEADCF2';
+            form.appendChild(fallbackSvc);
+          }
+          fallbackSvc.value = 'Performance marketing';
+        }
+
+        var urlparams = new URLSearchParams(window.location.search);
+        if (urlparams.has('service') && (urlparams.get('service') === 'smarturl')) {
+          var webform = document.getElementById('webform1410226000000468646');
+          var service = urlparams.get('service');
+          var smarturlfield = document.createElement('input');
+          smarturlfield.setAttribute('type', 'hidden');
+          smarturlfield.setAttribute('value', service);
+          smarturlfield.setAttribute('name', 'service');
+          webform.appendChild(smarturlfield);
+        }
+        var submitBtn = document.getElementById('formsubmit');
+        if (submitBtn) {
+          submitBtn.setAttribute('disabled', true);
+          submitBtn.textContent = 'Sending Message...';
+        }
+        return true;
+      };
+    });
+
+    /* ==========================================================================
+       RED PARTICLE CHAOS BACKGROUND ANIMATION (ACROSS ENTIRE PAGE BELOW HERO)
+       ========================================================================== */
+    (function() {
+      function initRedParticleCanvas(canvas) {
+        if (!canvas) return;
+        const ctx = canvas.getContext('2d');
+        if (!ctx) return;
+
+        let width, height;
+        let particles = [];
+        let isVisible = true;
+        let animationFrameId = null;
+
+        function resize() {
+          const parent = canvas.parentElement;
+          width = canvas.width = (parent && parent.offsetWidth > 0) ? parent.offsetWidth : window.innerWidth;
+          height = canvas.height = (parent && parent.offsetHeight > 0) ? parent.offsetHeight : window.innerHeight;
+        }
+
+        class Particle {
+          constructor() {
+            this.x = Math.random() * width;
+            this.y = Math.random() * height;
+            this.size = Math.random() * 2 + 1;
+            this.speedX = (Math.random() - 0.5) * 3;
+            this.speedY = (Math.random() - 0.5) * 3;
+            
+            const redShades = [
+              '#ff0000', 
+              '#ff1a1a', 
+              '#cc0000', 
+              '#ff4d4d', 
+              '#b30000'  
+            ];
+            this.color = redShades[Math.floor(Math.random() * redShades.length)];
+            this.alpha = Math.random() * 0.5 + 0.2;
+          }
+
+          update() {
+            this.x += this.speedX;
+            this.y += this.speedY;
+
+            if (this.x < 0 || this.x > width) this.speedX *= -1;
+            if (this.y < 0 || this.y > height) this.speedY *= -1;
+          }
+
+          draw() {
+            ctx.save();
+            ctx.globalAlpha = this.alpha;
+            ctx.fillStyle = this.color;
+            ctx.shadowBlur = 8;
+            ctx.shadowColor = '#ff0000';
+
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.restore();
+          }
+        }
+
+        function init() {
+          particles = [];
+          // Increased the volume by 10% relative to the previous baseline (60000 / 1.10 ≈ 54545)
+          const baseCount = Math.max(15, Math.floor((width * height) / 60000));
+          const particleCount = Math.round(baseCount * 1.10);
+          
+          for (let i = 0; i < particleCount; i++) {
+            particles.push(new Particle());
+          }
+        }
+
+        function drawLines() {
+          for (let i = 0; i < particles.length; i++) {
+            for (let j = i + 1; j < particles.length; j++) {
+              const dx = particles[i].x - particles[j].x;
+              const dy = particles[i].y - particles[j].y;
+              const distance = Math.sqrt(dx * dx + dy * dy);
+
+              if (distance < 70) {
+                ctx.save();
+                ctx.globalAlpha = (1 - (distance / 70)) * 0.1;
+                ctx.strokeStyle = '#ff0000';
+                ctx.lineWidth = 0.4;
+                ctx.beginPath();
+                ctx.moveTo(particles[i].x, particles[i].y);
+                ctx.lineTo(particles[j].x, particles[j].y);
+                ctx.stroke();
+                ctx.restore();
+              }
+            }
+          }
+        }
+
+        function animate() {
+          if (!isVisible) return;
+          ctx.clearRect(0, 0, width, height);
+          particles.forEach(p => {
+            p.update();
+            p.draw();
+          });
+          drawLines();
+          animationFrameId = requestAnimationFrame(animate);
+        }
+
+        resize();
+        init();
+        animate();
+
+        // IntersectionObserver for performance (only animate when in viewport)
+        if ('IntersectionObserver' in window) {
+          const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                if (!isVisible) {
+                  isVisible = true;
+                  animate();
+                }
+              } else {
+                isVisible = false;
+                if (animationFrameId) cancelAnimationFrame(animationFrameId);
+              }
+            });
+          }, { threshold: 0.05 });
+          observer.observe(canvas);
+        }
+
+        window.addEventListener('resize', () => {
+          resize();
+          init();
+        }, { passive: true });
+      }
+
+      // Initialize all particle background canvases across sections
+      const canvases = document.querySelectorAll('.dm-particle-canvas');
+      canvases.forEach(c => initRedParticleCanvas(c));
+
+      // Navbar scroll backdrop toggle
+      const dmNavbar = document.getElementById('mainframeNavbar');
+      if (dmNavbar) {
+        const handleDmNavScroll = () => {
+          if (window.scrollY > 20) {
+            dmNavbar.classList.add('is-scrolled');
+            dmNavbar.style.setProperty('display', 'none', 'important');
+            dmNavbar.style.setProperty('opacity', '0', 'important');
+            dmNavbar.style.setProperty('visibility', 'hidden', 'important');
+            dmNavbar.style.setProperty('pointer-events', 'none', 'important');
+          } else {
+            dmNavbar.classList.remove('is-scrolled');
+            dmNavbar.style.removeProperty('display');
+            dmNavbar.style.removeProperty('opacity');
+            dmNavbar.style.removeProperty('visibility');
+            dmNavbar.style.removeProperty('pointer-events');
+          }
+        };
+        window.addEventListener('scroll', handleDmNavScroll, { passive: true });
+        handleDmNavScroll();
+      }
+    })();
+  </script>
+
+  <!-- Zoho WebForm Analytics Tracking -->
+  <script>
+    if (typeof _wfa_fstprtcken === 'undefined') {
+      _wfa_fstprtcken = {};
+    }
+    _wfa_fstprtcken[1410226000000468646] = true;
+  </script>
+  <script id="wf_anal" src="https://crm.zohopublic.in/crm/WebFormAnalyticsServeServlet?rid=d4dd7fbabaeb68e8633ec9da92e375746a184b20eb647581d95f0bdbf8cc48910686b1cdafc5a4d114c281049a2fbcdbgid7c507c708694be9822821a780dfb41110e0b9e44539006ddc61a126f891d103fgid72543aa4b762561a80e0cb169bef977a2b371d1161b936cd28563838efe66d3cgid40d3ba5102eefb9c4479b6de7029a4bf8bc8ecee6913936a98f2de2592dfb119&tw=ff9c790a973b9d50a533615b473a975547954926e5aef75a5cde54b8f467d500&version=v2"></script>
+
+  <!-- Zoho SalesIQ Speech Bubble Prompt ("Talk with an expert") -->
+  <div id="salesiq-chat-prompt" class="salesiq-chat-prompt" role="button" tabindex="0" aria-label="Talk with an expert. How can I help you today?">
+    <button type="button" class="chat-prompt-close" id="chatPromptClose" aria-label="Dismiss message" title="Dismiss">&times;</button>
+    <div class="chat-prompt-content">
+      <div class="chat-prompt-title">Talk with an expert.</div>
+      <div class="chat-prompt-subtitle">How can I help you today?</div>
+    </div>
+    <div class="chat-prompt-arrow" aria-hidden="true"></div>
+  </div>
+  <script src="../js/salesiq-prompt.js?v=20260911_v1"></script>
+
+  <!-- Zoho SalesIQ Live Chat & Activity Tracking -->
+  <script>
+	window.$zoho = window.$zoho || {};
+	$zoho.salesiq = $zoho.salesiq || {
+		ready: function(){}
+	}
+</script>
+<script id = "zsiqscript" src = "https://salesiq.zoho.in/widget?wc=siq1c8e34c2ec6e86af688a258868b48665a7db0df0ec6b9d8fe1d0ceb63b3212b8" defer >
+</script>
+
+  <!-- Zoho Campaigns Web-Optin Script -->
+  <script type="text/javascript">
+    // Safe shim for browser popup blockers so Zoho optin.min.js never crashes
+    (function() {
+      var _origOpen = window.open;
+      window.open = function() {
+        try {
+          var w = _origOpen ? _origOpen.apply(this, arguments) : null;
+          if (w) return w;
+        } catch (e) {}
+        return {
+          document: {
+            body: { innerHTML: '' },
+            write: function() {},
+            close: function() {}
+          },
+          focus: function() {},
+          close: function() {},
+          window: { history: { pushState: function() {} } }
+        };
+      };
+    })();
+  </script>
+  <script type="text/javascript" src="https://ma.zoho.in/js/optin.min.js" onload="setupSF('sf3z9b6c828aa5af22b4a6077a0465071583a608aedf9a4312cd59de68709570dfed','ZCFORMVIEW',false,'light',false,'undefined')"></script>
+  <script type="text/javascript">
+    function runOnFormSubmit_sf3z9b6c828aa5af22b4a6077a0465071583a608aedf9a4312cd59de68709570dfed(th){
+      /*Before submit event trigger*/
+    };
+  </script>
+
+  <!-- Zoho Campaigns Optin Overlay & Success Popup -->
+  <div id="zcOptinOverLay" oncontextmenu="return false" style="display:none;text-align: center; background-color: rgb(0, 0, 0); opacity: 0.5; z-index: 10000; position: fixed; inset: 0; width: 100%; height: 100%;"></div>
+  <div id="zcOptinSuccessPopup" style="display:none;z-index: 10001;max-width: 600px; width: 90%; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: #FFFFFF; border: 1px solid #E6E6E6; border-radius: 16px; box-shadow: 0 10px 40px rgba(0,0,0,0.3); padding: 35px; box-sizing: border-box;">
+    <span style="position: absolute; top: 12px; right: 14px; z-index: 10002; cursor: pointer;" id="closeSuccess" onclick="document.getElementById('zcOptinSuccessPopup').style.display='none'; document.getElementById('zcOptinOverLay').style.display='none';">
+      <img src="https://ma.zoho.in/images/videoclose.png" alt="Close" width="20" height="20">
+    </span>
+    <div id="zcOptinSuccessPanel"></div>
+  </div>
+</body>
+</html>

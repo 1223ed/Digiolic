@@ -1,0 +1,1399 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Case Stories & Quantifiable Client Results | Digiolic</title>
+  <meta name="description"
+    content="Explore real enterprise transformations delivered by Digiolic. Scalable Zoho One architectures, Salesforce cloud modernizations, and high-impact digital growth case studies.">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+
+  <!-- Core & Component CSS -->
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+
+  <!-- Core & Component CSS -->
+  <link rel="stylesheet" href="../css/style.css?v=20260919_v209">
+  <link rel="stylesheet" href="../css/components.css?v=20260919_v209">
+  <link rel="stylesheet" href="../css/pages.css?v=20260919_v209">
+  <link rel="stylesheet" href="../css/case-stories.css?v=20260919_v209">
+  <link rel="stylesheet" href="../css/responsive.css?v=20260919_v209">
+  <link rel="stylesheet" href="../css/chat-widget.css?v=20260919_v209">
+
+  <!-- Exact Font specified -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Comic+Neue:ital,wght@0,400;0,700;1,700&family=Inter:ital,opsz,wght@0,14..32,300..900;1,14..32,300..900&family=Manrope:wght@400;500;600;700;800&family=Montserrat:wght@800;900&family=Outfit:wght@400;600;700;800&family=Patrick+Hand&family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==========================================================================
+       IMAGE 1 MOBILE NAVIGATION DRAWER SPECIFICATION (EXACT REPLICATION)
+       ========================================================================== */
+    .mainframe-mobile-overlay,
+    .mobile-nav-drawer,
+    #mainframeMobileOverlay,
+    #mobileNavDrawer {
+      position: fixed !important;
+      inset: 0 !important;
+      top: 0 !important;
+      left: 0 !important;
+      right: 0 !important;
+      bottom: 0 !important;
+      width: 100vw !important;
+      height: 100vh !important;
+      height: 100dvh !important;
+      background-color: #1D3145 !important;
+      background: #1D3145 !important;
+      z-index: 999999 !important;
+      display: flex !important;
+      flex-direction: column !important;
+      justify-content: flex-start !important;
+      align-items: flex-start !important;
+      padding: 2.5rem 2.25rem 3rem 2.25rem !important;
+      box-sizing: border-box !important;
+      overflow-y: auto !important;
+      -webkit-overflow-scrolling: touch !important;
+      opacity: 0 !important;
+      visibility: hidden !important;
+      pointer-events: none !important;
+      transform: translateY(-8px) !important;
+      transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.3s ease !important;
+    }
+
+    .mainframe-mobile-overlay.is-open,
+    .mobile-nav-drawer.is-open,
+    #mainframeMobileOverlay.is-open,
+    #mobileNavDrawer.is-open {
+      opacity: 1 !important;
+      visibility: visible !important;
+      pointer-events: auto !important;
+      transform: translateY(0) !important;
+    }
+
+    @media (min-width: 860px) {
+      .mainframe-mobile-overlay,
+      .mobile-nav-drawer,
+      #mainframeMobileOverlay,
+      #mobileNavDrawer {
+        display: none !important;
+      }
+    }
+
+    .mainframe-mobile-top,
+    .mobile-nav-top {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+      width: 100% !important;
+      margin-bottom: 3.5rem !important;
+      padding: 0 !important;
+    }
+
+    .mainframe-mobile-logo-link,
+    .mobile-nav-logo-link {
+      display: flex !important;
+      align-items: center !important;
+      text-decoration: none !important;
+    }
+
+    .mobile-nav-logo {
+      height: 34px !important;
+      width: auto !important;
+      filter: brightness(0) invert(1) !important;
+      display: block !important;
+    }
+
+    .mobile-nav-close,
+    .mainframe-mobile-close {
+      background: transparent !important;
+      border: none !important;
+      color: #FFFFFF !important;
+      cursor: pointer !important;
+      padding: 6px !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      outline: none !important;
+      line-height: 1 !important;
+      opacity: 0.9 !important;
+    }
+
+    .mainframe-mobile-links,
+    .mainframe-mobile-nav,
+    .mobile-nav-list {
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: flex-start !important;
+      gap: 1.75rem !important;
+      width: 100% !important;
+      padding: 0 !important;
+      margin: 0 !important;
+    }
+
+    .mainframe-mobile-link,
+    .mobile-nav-link {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+      font-size: 1.5rem !important;
+      line-height: 1.3 !important;
+      font-weight: 400 !important;
+      color: rgba(255, 255, 255, 0.7) !important;
+      display: block !important;
+      width: auto !important;
+      max-width: 100% !important;
+      padding: 0.25rem 0 !important;
+      border: none !important;
+      border-bottom: none !important;
+      text-decoration: none !important;
+      box-sizing: border-box !important;
+      transition: color 0.2s ease !important;
+      text-align: left !important;
+      letter-spacing: -0.01em !important;
+    }
+
+    .mainframe-mobile-link:hover,
+    .mainframe-mobile-link.active,
+    .mobile-nav-link:hover,
+    .mobile-nav-link.active {
+      color: #FFFFFF !important;
+      font-weight: 500 !important;
+      border: none !important;
+      border-bottom: none !important;
+      padding-left: 0 !important;
+      transform: none !important;
+    }
+
+    .mainframe-mobile-link span:last-child:not(:first-child),
+    .mobile-nav-link span:last-child:not(:first-child) {
+      display: none !important;
+    }
+
+    .mainframe-mobile-link.cta-pill,
+    .mainframe-mobile-link.cta-underlined,
+    .mobile-nav-link.cta-pill,
+    .mobile-nav-footer .btn {
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      width: fit-content !important;
+      margin-top: 1.75rem !important;
+      background-color: #000000 !important;
+      background: #000000 !important;
+      color: #FFFFFF !important;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+      font-size: 1rem !important;
+      font-weight: 600 !important;
+      border-radius: 9999px !important;
+      padding: 0.85rem 2.25rem !important;
+      border: 1px solid rgba(255, 255, 255, 0.25) !important;
+      text-decoration: none !important;
+      text-align: center !important;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3) !important;
+      transition: background-color 0.2s ease, transform 0.2s ease !important;
+    }
+
+    .mainframe-mobile-link.cta-pill:hover,
+    .mainframe-mobile-link.cta-underlined:hover,
+    .mobile-nav-link.cta-pill:hover,
+    .mobile-nav-footer .btn:hover {
+      background: #1E293B !important;
+      background-color: #1E293B !important;
+      color: #FFFFFF !important;
+      transform: translateY(-1px) !important;
+    }
+
+    .mobile-nav-footer,
+    .mobile-contact-info {
+      border: none !important;
+      padding: 0 !important;
+      margin: 0 !important;
+    }
+    /* Absolute Navbar at Top Only — Never Floats or Sticks When Scrolled */
+    .mainframe-navbar,
+    .hero-video-navbar,
+    #mainframeNavbar,
+    #heroNavbar {
+      position: absolute !important;
+      top: 0 !important;
+      left: 0 !important;
+      right: 0 !important;
+      width: 100% !important;
+      z-index: 1000 !important;
+      padding: 1.5rem 1.75rem !important;
+      min-height: 84px !important;
+      box-sizing: border-box !important;
+    }
+
+    @media (min-width: 768px) {
+
+      .mainframe-navbar,
+      .hero-video-navbar,
+      #mainframeNavbar,
+      #heroNavbar {
+        padding: 1.75rem 3rem !important;
+        min-height: 96px !important;
+      }
+    }
+
+    @media (min-width: 1280px) {
+
+      .mainframe-navbar,
+      .hero-video-navbar,
+      #mainframeNavbar,
+      #heroNavbar {
+        padding: 2rem 4.5rem !important;
+        min-height: 104px !important;
+      }
+    }
+
+    .mainframe-navbar.is-scrolled,
+    .hero-video-navbar.is-scrolled,
+    .mainframe-navbar.is-light-page.is-scrolled,
+    .hero-video-navbar.is-light.is-scrolled,
+    #mainframeNavbar.is-scrolled,
+    #heroNavbar.is-scrolled {
+      opacity: 0 !important;
+      visibility: hidden !important;
+      pointer-events: none !important;
+      display: none !important;
+    }
+
+    /* Case Studies Navbar Contact Us Button: Black button, white text */
+    .mainframe-desktop-cta,
+    .mainframe-navbar.is-light-page .mainframe-desktop-cta {
+      background-color: #000000 !important;
+      background: #000000 !important;
+      color: #FFFFFF !important;
+      border: none !important;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25) !important;
+    }
+
+    .mainframe-desktop-cta:hover,
+    .mainframe-navbar.is-light-page .mainframe-desktop-cta:hover {
+      background-color: #1E293B !important;
+      background: #1E293B !important;
+      color: #FFFFFF !important;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35) !important;
+    }
+
+    /* Keyframes matching Home page tab section animation */
+    @keyframes navTabFadeDown {
+      0% {
+        opacity: 0;
+        transform: translateY(-12px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes navIndicatorGrow {
+      0% {
+        transform: scaleX(0);
+        opacity: 0;
+      }
+      100% {
+        transform: scaleX(1);
+        opacity: 1;
+      }
+    }
+
+    .mainframe-desktop-nav {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      gap: clamp(1.75rem, 2.5vw, 2.5rem) !important;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      z-index: 102;
+    }
+
+    @media (min-width: 860px) {
+      .mainframe-desktop-nav {
+        display: flex !important;
+      }
+    }
+
+    .mainframe-navbar.is-light-page .mainframe-nav-link {
+      position: relative !important;
+      color: #1E293B !important;
+      font-size: 15px !important;
+      font-weight: 500 !important;
+      text-decoration: none !important;
+      transition: color 0.3s ease, opacity 0.3s ease, transform 0.3s ease !important;
+      letter-spacing: 0.01em !important;
+      padding: 0.35rem 0 !important;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+      text-shadow: none !important;
+    }
+
+    /* Same animation as Home page tab section */
+    .mainframe-desktop-nav .mainframe-nav-link {
+      opacity: 0;
+      animation: navTabFadeDown 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    .mainframe-desktop-nav .mainframe-nav-link:nth-child(1) { animation-delay: 100ms; }
+    .mainframe-desktop-nav .mainframe-nav-link:nth-child(2) { animation-delay: 160ms; }
+    .mainframe-desktop-nav .mainframe-nav-link:nth-child(3) { animation-delay: 220ms; }
+    .mainframe-desktop-nav .mainframe-nav-link:nth-child(4) { animation-delay: 280ms; }
+    .mainframe-desktop-nav .mainframe-nav-link:nth-child(5) { animation-delay: 340ms; }
+
+    .mainframe-navbar.is-light-page .mainframe-nav-link:hover {
+      color: #0284C7 !important;
+      opacity: 0.8 !important;
+    }
+
+    .mainframe-navbar.is-light-page .mainframe-nav-link.active {
+      color: #0284C7 !important;
+      font-weight: 700 !important;
+    }
+
+    .mainframe-navbar.is-light-page .mainframe-nav-link.active::after {
+      content: '' !important;
+      position: absolute !important;
+      bottom: -10px !important;
+      left: 0 !important;
+      width: 100% !important;
+      height: 2.5px !important;
+      background-color: #0284C7 !important;
+      border-radius: 9999px !important;
+      box-shadow: 0 0 10px rgba(2, 132, 199, 0.4) !important;
+      transform-origin: center !important;
+      animation: navIndicatorGrow 0.4s cubic-bezier(0.16, 1, 0.3, 1) 340ms forwards !important;
+    }
+  </style>
+  <link rel="stylesheet" href="../css/responsive.css?v=20260919_v209">
+</head>
+
+<body>
+
+  <!-- ==========================================================================
+       TOPBAR NAVIGATION
+       ========================================================================== -->
+  <header class="mainframe-navbar is-light-page" id="mainframeNavbar">
+    <!-- Left: Digiolic Brand Logo -->
+    <a href="../index.html" class="mainframe-logo-wrap" aria-label="Digiolic Home">
+      <img src="../assets/images/digiolic-logo-dark.png" alt="Digiolic" class="brand-logo-img" width="96" height="34"
+        style="height: 34px !important; width: auto !important; max-height: 34px !important; display: block;">
+    </a>
+
+    <!-- Center: Desktop Nav Links -->
+    <nav class="mainframe-desktop-nav" aria-label="Primary Navigation">
+      <a href="../index.html" class="mainframe-nav-link">Home</a>
+      <a href="zoho.html" class="mainframe-nav-link">Zoho</a>
+      <a href="salesforce.html" class="mainframe-nav-link">Salesforce</a>
+      <a href="digital-marketing.html" class="mainframe-nav-link">Digital Marketing</a>
+      <a href="case-stories.html" class="mainframe-nav-link active">Case Studies</a>
+    </nav>
+
+    <!-- Right: Desktop CTA Pill Button -->
+    <a href="contact.html" class="mainframe-desktop-cta">Contact Us</a>
+
+    <!-- Mobile Hamburger Button -->
+    <button class="mainframe-hamburger-btn" id="mainframeMenuBtn" aria-label="Toggle Menu" aria-expanded="false">
+      <span class="mainframe-bar"></span>
+      <span class="mainframe-bar"></span>
+      <span class="mainframe-bar"></span>
+    </button>
+  </header>
+
+  <!-- Fullscreen Mobile Navigation Drawer (Image 1 Design) -->
+  <div class="mobile-nav-drawer" id="mobileNavDrawer" role="dialog" aria-modal="true" aria-label="Mobile Navigation">
+    <div class="mobile-nav-top">
+      <a href="../index.html" class="mobile-nav-logo-link" aria-label="Digiolic Home">
+        <img src="../assets/images/digiolic-logo-dark.png" alt="Digiolic" class="mobile-nav-logo">
+      </a>
+      <button class="mobile-nav-close" id="caseStoriesCloseBtn" aria-label="Close Menu" onclick="document.getElementById('mobileNavDrawer').classList.remove('is-open'); document.getElementById('mainframeMenuBtn').classList.remove('is-active'); document.body.style.overflow='';">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+    <div class="mobile-nav-list">
+      <a href="../index.html" class="mobile-nav-link">Home</a>
+      <a href="zoho.html" class="mobile-nav-link">Zoho</a>
+      <a href="salesforce.html" class="mobile-nav-link">Salesforce</a>
+      <a href="digital-marketing.html" class="mobile-nav-link">Digital Marketing</a>
+      <a href="case-stories.html" class="mobile-nav-link active">Case Studies</a>
+      <a href="contact.html" class="mobile-nav-link cta-pill">Contact Us</a>
+    </div>
+  </div>
+
+  <main id="mainContent">
+
+    <!-- ==========================================================================
+         1. CINEMATIC VIDEO HERO SECTION
+         ========================================================================== -->
+    <section class="cs-hero-section" id="csHeroSection">
+      <!-- Full-bleed background video & subtle gradient blend -->
+      <div class="cs-hero-video-bg">
+        <video id="csHeroVideo" class="cs-hero-bg-video" autoplay loop muted playsinline preload="auto">
+          <source src="../assets/videos/case-stories-hero-fast.mp4" type="video/mp4">
+        </video>
+        <div class="cs-hero-overlay"></div>
+      </div>
+
+      <div class="cs-hero-container">
+
+        <div class="cs-hero-content">
+
+          <!-- Hero Headline (Matching Salesforce design & shiny text animation) -->
+          <h1 class="dp-main-heading cs-hero-title">
+            <span class="dp-heading-line1">Architectural Engineering That</span>
+            <span class="dp-heading-line2">
+              <span class="dp-shiny-text">Compounds Revenue.</span>
+            </span>
+          </h1>
+
+          <!-- Lead Paragraph -->
+          <p class="cs-hero-lead">
+            Explore how Digiolic partners with forward-thinking enterprises to replace software patchwork with
+            battle-tested cloud architectures, streamline multi-app operations, and generate verifiable commercial
+            returns across Zoho One, Salesforce Cloud, and digital performance funnels.
+          </p>
+
+        </div>
+
+      </div>
+
+      <script>
+        (function() {
+          var v = document.getElementById('csHeroVideo');
+          if (v) {
+            v.muted = true;
+            var playVid = function() {
+              var p = v.play();
+              if (p && typeof p.catch === 'function') { p.catch(function(){}); }
+            };
+            if (document.readyState === 'complete' || document.readyState === 'interactive') {
+              playVid();
+            } else {
+              document.addEventListener('DOMContentLoaded', playVid);
+            }
+            document.addEventListener('touchstart', playVid, { once: true, passive: true });
+          }
+        })();
+      </script>
+    </section>
+
+    <!-- ==========================================================================
+         2. CLIENT TRUST & SECTOR MARQUEE
+         ========================================================================== -->
+    <section class="cs-trust-bar" aria-label="Trusted Enterprise Clients">
+      <div class="cs-trust-label">TRUSTED BY</div>
+
+      <div class="cs-marquee-wrapper">
+        <div class="cs-marquee-track">
+          <!-- Loop set 1 -->
+          <div class="cs-marquee-logo-item"><img src="../assets/images/company-logos/audible-india.webp" alt="Audible" class="cs-marquee-logo-img" loading="lazy"></div>
+          <div class="cs-marquee-logo-item"><img src="../assets/images/company-logos/flipkart.jpeg" alt="Flipkart" class="cs-marquee-logo-img" loading="lazy"></div>
+          <div class="cs-marquee-logo-item"><img src="../assets/images/company-logos/Siemens.jpeg" alt="Siemens" class="cs-marquee-logo-img" loading="lazy"></div>
+          <div class="cs-marquee-logo-item"><img src="../assets/images/company-logos/Betterplace.png" alt="Betterplace" class="cs-marquee-logo-img" loading="lazy"></div>
+          <div class="cs-marquee-logo-item"><img src="../assets/images/company-logos/haldirams.png" alt="Haldiram's" class="cs-marquee-logo-img" loading="lazy"></div>
+          <div class="cs-marquee-logo-item"><img src="../assets/images/company-logos/Xiaomi.png" alt="Xiaomi" class="cs-marquee-logo-img" loading="lazy"></div>
+          <div class="cs-marquee-logo-item"><img src="../assets/images/company-logos/Sobha.jpeg" alt="Sobha" class="cs-marquee-logo-img" loading="lazy"></div>
+          <div class="cs-marquee-logo-item"><img src="../assets/images/company-logos/Melorra.png" alt="Melorra" class="cs-marquee-logo-img" loading="lazy"></div>
+          <div class="cs-marquee-logo-item"><img src="../assets/images/company-logos/nexus-wealth-management.jpeg" alt="Nexus Wealth Management" class="cs-marquee-logo-img" loading="lazy"></div>
+          <div class="cs-marquee-logo-item"><img src="../assets/images/company-logos/savaari-car-rentals.jpeg" alt="Savaari Car Rentals" class="cs-marquee-logo-img" loading="lazy"></div>
+          <div class="cs-marquee-logo-item"><img src="../assets/images/company-logos/medall-diagnostics.jpeg" alt="Medall Diagnostics" class="cs-marquee-logo-img" loading="lazy"></div>
+          <div class="cs-marquee-logo-item"><img src="../assets/images/company-logos/ur-health.jpeg" alt="ur Health" class="cs-marquee-logo-img" loading="lazy"></div>
+          <div class="cs-marquee-logo-item"><img src="../assets/images/company-logos/Freshersworld.png" alt="Freshersworld" class="cs-marquee-logo-img" loading="lazy"></div>
+
+          <!-- Loop set 2 (Seamless buffer) -->
+          <div class="cs-marquee-logo-item"><img src="../assets/images/company-logos/audible-india.webp" alt="Audible" class="cs-marquee-logo-img" loading="lazy"></div>
+          <div class="cs-marquee-logo-item"><img src="../assets/images/company-logos/flipkart.jpeg" alt="Flipkart" class="cs-marquee-logo-img" loading="lazy"></div>
+          <div class="cs-marquee-logo-item"><img src="../assets/images/company-logos/Siemens.jpeg" alt="Siemens" class="cs-marquee-logo-img" loading="lazy"></div>
+          <div class="cs-marquee-logo-item"><img src="../assets/images/company-logos/Betterplace.png" alt="Betterplace" class="cs-marquee-logo-img" loading="lazy"></div>
+          <div class="cs-marquee-logo-item"><img src="../assets/images/company-logos/haldirams.png" alt="Haldiram's" class="cs-marquee-logo-img" loading="lazy"></div>
+          <div class="cs-marquee-logo-item"><img src="../assets/images/company-logos/Xiaomi.png" alt="Xiaomi" class="cs-marquee-logo-img" loading="lazy"></div>
+          <div class="cs-marquee-logo-item"><img src="../assets/images/company-logos/Sobha.jpeg" alt="Sobha" class="cs-marquee-logo-img" loading="lazy"></div>
+          <div class="cs-marquee-logo-item"><img src="../assets/images/company-logos/Melorra.png" alt="Melorra" class="cs-marquee-logo-img" loading="lazy"></div>
+          <div class="cs-marquee-logo-item"><img src="../assets/images/company-logos/nexus-wealth-management.jpeg" alt="Nexus Wealth Management" class="cs-marquee-logo-img" loading="lazy"></div>
+          <div class="cs-marquee-logo-item"><img src="../assets/images/company-logos/savaari-car-rentals.jpeg" alt="Savaari Car Rentals" class="cs-marquee-logo-img" loading="lazy"></div>
+          <div class="cs-marquee-logo-item"><img src="../assets/images/company-logos/medall-diagnostics.jpeg" alt="Medall Diagnostics" class="cs-marquee-logo-img" loading="lazy"></div>
+          <div class="cs-marquee-logo-item"><img src="../assets/images/company-logos/ur-health.jpeg" alt="ur Health" class="cs-marquee-logo-img" loading="lazy"></div>
+          <div class="cs-marquee-logo-item"><img src="../assets/images/company-logos/Freshersworld.png" alt="Freshersworld" class="cs-marquee-logo-img" loading="lazy"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         3. FILTERABLE CASE STUDIES GALLERY & SEARCH
+         ========================================================================== -->
+    <section class="cs-gallery-section" id="caseStudiesGallery">
+
+      <!-- Interactive Filter & Live Search Toolbar -->
+      <div class="cs-toolbar-wrapper">
+
+        <!-- Category Filter Buttons -->
+        <div class="cs-category-pills" role="tablist" aria-label="Filter case studies by practice">
+          <button class="cs-filter-btn active" data-filter="all" role="tab" aria-selected="true">
+            <span>All Case Stories</span>
+            <span class="cs-count-badge" data-count-target="all">6</span>
+          </button>
+          <button class="cs-filter-btn" data-filter="zoho" role="tab" aria-selected="false">
+            <span>Zoho Enterprise</span>
+            <span class="cs-count-badge" data-count-target="zoho">2</span>
+          </button>
+          <button class="cs-filter-btn" data-filter="salesforce" role="tab" aria-selected="false">
+            <span>Salesforce Cloud</span>
+            <span class="cs-count-badge" data-count-target="salesforce">2</span>
+          </button>
+          <button class="cs-filter-btn" data-filter="marketing" role="tab" aria-selected="false">
+            <span>Digital Growth &amp; CRO</span>
+            <span class="cs-count-badge" data-count-target="marketing">2</span>
+          </button>
+        </div>
+
+        <!-- Real-Time Keyword Search Input -->
+        <div class="cs-search-box">
+          <svg class="cs-search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input type="text" id="csSearchInput" class="cs-search-input"
+            placeholder="Search by tech, metric, or industry..." aria-label="Search case studies">
+        </div>
+
+      </div>
+
+      <!-- Flagship Spotlight Case Study (Story 1) -->
+      <div class="cs-spotlight-wrapper">
+        <article class="cs-spotlight-card" data-category="zoho">
+
+          <div class="cs-spotlight-header">
+            <div class="cs-spotlight-meta">
+              <span class="cs-tag-flagship">★ Flagship Transformation</span>
+              <span class="cs-tag-domain zoho">Zoho One Enterprise</span>
+              <span class="cs-tag-scale">Global Logistics • 450+ Users across 6 Countries</span>
+            </div>
+
+            <div class="cs-verified-badge">
+              <svg width="15" height="15" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                  clip-rule="evenodd" />
+              </svg>
+              <span>Verified Client Outcome</span>
+            </div>
+          </div>
+
+          <h2 class="cs-spotlight-title">
+            Consolidating 14 Disjointed SaaS Tools into a Single Unified Zoho Operating System
+          </h2>
+
+          <div class="cs-dual-narrative">
+            <div class="cs-narrative-box challenge">
+              <div class="cs-narrative-label">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="12" y1="8" x2="12" y2="12"></line>
+                  <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                </svg>
+                The Operational Challenge
+              </div>
+              <p class="cs-narrative-text">
+                Multi-national freight forwarder handling 120,000+ shipments suffered from 3-day quotation turnaround,
+                frequent manual invoicing errors, and $180,000/yr in redundant SaaS licenses across regional offices.
+              </p>
+            </div>
+
+            <div class="cs-narrative-box solution">
+              <div class="cs-narrative-label">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                The Architectural Solution
+              </div>
+              <p class="cs-narrative-text">
+                Deployed unified Zoho One with custom Deluge blueprints enforcing automated dispatch validation rules,
+                automated multi-currency billing in Zoho Books, and real-time operational BI in Zoho Analytics.
+              </p>
+            </div>
+          </div>
+
+          <div class="cs-spotlight-footer">
+            <div class="cs-metric-chips-row">
+              <div class="cs-metric-chip">
+                <span class="cs-metric-val" style="color: #2563EB;">+340%</span>
+                <span class="cs-metric-lbl">Pipeline Velocity</span>
+              </div>
+              <div class="cs-metric-chip">
+                <span class="cs-metric-val" style="color: #059669;">-$180k</span>
+                <span class="cs-metric-lbl">Annual Cost Savings</span>
+              </div>
+              <div class="cs-metric-chip">
+                <span class="cs-metric-val" style="color: #7C3AED;">98%</span>
+                <span class="cs-metric-lbl">User Adoption Rate</span>
+              </div>
+            </div>
+
+            <button class="cs-cta-btn js-open-case-modal" data-case-id="case-zoho-logistics" type="button">
+              <span>View Architecture Breakdown</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </button>
+          </div>
+
+        </article>
+      </div>
+
+      <!-- Bento Cards Grid for Remaining Stories -->
+      <div class="cs-grid-container">
+        <div class="cs-bento-grid">
+
+          <!-- Story 2: Salesforce Cloud Scale -->
+          <article class="cs-bento-card" data-category="salesforce">
+            <div>
+              <div class="cs-card-top">
+                <span class="cs-tag-domain salesforce">Salesforce Cloud</span>
+                <span class="cs-tag-scale">FinTech SaaS • Series B ($40M ARR)</span>
+              </div>
+
+              <h3 class="cs-card-title">
+                Refactoring Complex Apex &amp; Flow Architecture for 10x Inbound Volume
+              </h3>
+
+              <div class="cs-card-narrative">
+                <div class="cs-card-split-item challenge">
+                  <strong>Challenge</strong>
+                  Rapidly growing payments platform constantly triggered SOQL 101 governor limits, causing lead
+                  drop-offs and a 4.5-hour sales rep response lag.
+                </div>
+                <div class="cs-card-split-item solution">
+                  <strong>Solution</strong>
+                  Redesigned org with a single-trigger framework, converted 42 legacy Process Builders to bulkified
+                  sub-second Record-Triggered Flows, and built custom LWC consoles.
+                </div>
+              </div>
+
+              <div class="cs-card-metrics-grid">
+                <div class="cs-metric-chip">
+                  <span class="cs-metric-val blue">9 min</span>
+                  <span class="cs-metric-lbl">Lead Response</span>
+                </div>
+                <div class="cs-metric-chip">
+                  <span class="cs-metric-val green">+68%</span>
+                  <span class="cs-metric-lbl">Close Rate</span>
+                </div>
+                <div class="cs-metric-chip">
+                  <span class="cs-metric-val purple">100%</span>
+                  <span class="cs-metric-lbl">Gov Compliance</span>
+                </div>
+              </div>
+
+              <div class="cs-card-tech-tags">
+                <span class="cs-tech-tag">Sales Cloud</span>
+                <span class="cs-tech-tag">Apex Trigger Framework</span>
+                <span class="cs-tech-tag">Flow Engine</span>
+                <span class="cs-tech-tag">Lightning Web Components</span>
+              </div>
+            </div>
+
+            <button class="cs-card-btn js-open-case-modal" data-case-id="case-sf-fintech" type="button">
+              <span>Explore Architecture Breakdown</span>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </button>
+          </article>
+
+          <!-- Story 3: Digital Growth & CRO -->
+          <article class="cs-bento-card" data-category="marketing">
+            <div>
+              <div class="cs-card-top">
+                <span class="cs-tag-domain marketing">Digital Growth &amp; CRO</span>
+                <span class="cs-tag-scale">HealthTech Enterprise • Specialized Diagnostics</span>
+              </div>
+
+              <h3 class="cs-card-title">
+                Multi-Channel Performance Acquisition &amp; Closed-Loop CRM Attribution
+              </h3>
+
+              <div class="cs-card-narrative">
+                <div class="cs-card-split-item challenge">
+                  <strong>Challenge</strong>
+                  High-ticket diagnostic service was burning $80k/month on untargeted paid search with zero tracking
+                  into which campaigns resulted in booked consultations.
+                </div>
+                <div class="cs-card-split-item solution">
+                  <strong>Solution</strong>
+                  Rebuilt search funnels around high-intent medical queries, implemented GCLID-to-CRM offline
+                  attribution, and engineered high-converting mobile booking flows.
+                </div>
+              </div>
+
+              <div class="cs-card-metrics-grid">
+                <div class="cs-metric-chip">
+                  <span class="cs-metric-val green">4.6x</span>
+                  <span class="cs-metric-lbl">Attributed ROAS</span>
+                </div>
+                <div class="cs-metric-chip">
+                  <span class="cs-metric-val blue">+185%</span>
+                  <span class="cs-metric-lbl">Booked Consults</span>
+                </div>
+                <div class="cs-metric-chip">
+                  <span class="cs-metric-val purple">-42%</span>
+                  <span class="cs-metric-lbl">Cost Per Lead</span>
+                </div>
+              </div>
+
+              <div class="cs-card-tech-tags">
+                <span class="cs-tech-tag">Google Ads PMax</span>
+                <span class="cs-tech-tag">Conversion Rate Optimization</span>
+                <span class="cs-tech-tag">CRM Attribution</span>
+                <span class="cs-tech-tag">Meta Ads</span>
+              </div>
+            </div>
+
+            <button class="cs-card-btn js-open-case-modal" data-case-id="case-mkt-healthtech" type="button">
+              <span>Explore Architecture Breakdown</span>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </button>
+          </article>
+
+          <!-- Story 4: Custom Zoho Creator -->
+          <article class="cs-bento-card" data-category="zoho">
+            <div>
+              <div class="cs-card-top">
+                <span class="cs-tag-domain zoho">Custom Zoho App</span>
+                <span class="cs-tag-scale">Industrial Manufacturing • 120 Field Techs</span>
+              </div>
+
+              <h3 class="cs-card-title">
+                Custom Field Service &amp; Preventive Maintenance Offline Mobile Application
+              </h3>
+
+              <div class="cs-card-narrative">
+                <div class="cs-card-split-item challenge">
+                  <strong>Challenge</strong>
+                  120 field engineers relied on carbon paper service forms and manual warehouse orders, causing 6-day
+                  repair completion delays and lost equipment.
+                </div>
+                <div class="cs-card-split-item solution">
+                  <strong>Solution</strong>
+                  Engineered bespoke Zoho Creator offline-ready mobile application synced directly to Zoho Inventory and
+                  Zoho CRM for instant parts lookup and digital sign-off.
+                </div>
+              </div>
+
+              <div class="cs-card-metrics-grid">
+                <div class="cs-metric-chip">
+                  <span class="cs-metric-val green">100%</span>
+                  <span class="cs-metric-lbl">Paperless Ops</span>
+                </div>
+                <div class="cs-metric-chip">
+                  <span class="cs-metric-val blue">-62%</span>
+                  <span class="cs-metric-lbl">Dispatch Lag</span>
+                </div>
+                <div class="cs-metric-chip">
+                  <span class="cs-metric-val purple">$420k</span>
+                  <span class="cs-metric-lbl">Inventory Saved</span>
+                </div>
+              </div>
+
+              <div class="cs-card-tech-tags">
+                <span class="cs-tech-tag">Zoho Creator</span>
+                <span class="cs-tech-tag">Zoho Inventory</span>
+                <span class="cs-tech-tag">Deluge Offline Sync</span>
+                <span class="cs-tech-tag">REST Webhooks</span>
+              </div>
+            </div>
+
+            <button class="cs-card-btn js-open-case-modal" data-case-id="case-zoho-manufacturing" type="button">
+              <span>Explore Architecture Breakdown</span>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </button>
+          </article>
+
+          <!-- Story 5: Salesforce Experience Cloud -->
+          <article class="cs-bento-card" data-category="salesforce">
+            <div>
+              <div class="cs-card-top">
+                <span class="cs-tag-domain salesforce">Experience Cloud</span>
+                <span class="cs-tag-scale">Global Advisory Firm • 800+ Partners</span>
+              </div>
+
+              <h3 class="cs-card-title">
+                Partner Deal Registration &amp; Self-Service Knowledge Community Portal
+              </h3>
+
+              <div class="cs-card-narrative">
+                <div class="cs-card-split-item challenge">
+                  <strong>Challenge</strong>
+                  External channel partners struggled to register leads, causing channel conflict and double-selling
+                  across international geographic territories.
+                </div>
+                <div class="cs-card-split-item solution">
+                  <strong>Solution</strong>
+                  Built an Experience Cloud partner community with automated territory conflict detection, live
+                  commission tracking, and encrypted contract automation.
+                </div>
+              </div>
+
+              <div class="cs-card-metrics-grid">
+                <div class="cs-metric-chip">
+                  <span class="cs-metric-val blue">+240%</span>
+                  <span class="cs-metric-lbl">Partner Leads</span>
+                </div>
+                <div class="cs-metric-chip">
+                  <span class="cs-metric-val green">85%</span>
+                  <span class="cs-metric-lbl">Self-Service Res</span>
+                </div>
+                <div class="cs-metric-chip">
+                  <span class="cs-metric-val purple">12 Wks</span>
+                  <span class="cs-metric-lbl">Go-Live Time</span>
+                </div>
+              </div>
+
+              <div class="cs-card-tech-tags">
+                <span class="cs-tech-tag">Experience Cloud</span>
+                <span class="cs-tech-tag">Custom LWC</span>
+                <span class="cs-tech-tag">Sharing Rules</span>
+                <span class="cs-tech-tag">Sales Cloud</span>
+              </div>
+            </div>
+
+            <button class="cs-card-btn js-open-case-modal" data-case-id="case-sf-advisory" type="button">
+              <span>Explore Architecture Breakdown</span>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </button>
+          </article>
+
+          <!-- Story 6: Growth & SEO -->
+          <article class="cs-bento-card" data-category="marketing">
+            <div>
+              <div class="cs-card-top">
+                <span class="cs-tag-domain marketing">Technical SEO &amp; Growth</span>
+                <span class="cs-tag-scale">Enterprise EdTech • 2M+ Monthly Learners</span>
+              </div>
+
+              <h3 class="cs-card-title">
+                Organic Topical Architecture &amp; Automated Behavioral Nurture Sequences
+              </h3>
+
+              <div class="cs-card-narrative">
+                <div class="cs-card-split-item challenge">
+                  <strong>Challenge</strong>
+                  Organic search growth had plateaued due to slow page load times and fragmented landing pages, with a
+                  65% drop-off in email lead nurturing.
+                </div>
+                <div class="cs-card-split-item solution">
+                  <strong>Solution</strong>
+                  Re-engineered Core Web Vitals to 99/100, established 18 authoritative B2B topic clusters, and deployed
+                  behavior-triggered CRM email automation flows.
+                </div>
+              </div>
+
+              <div class="cs-card-metrics-grid">
+                <div class="cs-metric-chip">
+                  <span class="cs-metric-val green">+290%</span>
+                  <span class="cs-metric-lbl">Organic Traffic</span>
+                </div>
+                <div class="cs-metric-chip">
+                  <span class="cs-metric-val blue">5.2x</span>
+                  <span class="cs-metric-lbl">Email ROI</span>
+                </div>
+                <div class="cs-metric-chip">
+                  <span class="cs-metric-val purple">99/100</span>
+                  <span class="cs-metric-lbl">Speed Score</span>
+                </div>
+              </div>
+
+              <div class="cs-card-tech-tags">
+                <span class="cs-tech-tag">Technical SEO</span>
+                <span class="cs-tech-tag">Content Architecture</span>
+                <span class="cs-tech-tag">Marketing Automation</span>
+                <span class="cs-tech-tag">Core Web Vitals</span>
+              </div>
+            </div>
+
+            <button class="cs-card-btn js-open-case-modal" data-case-id="case-mkt-edtech" type="button">
+              <span>Explore Architecture Breakdown</span>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </button>
+          </article>
+
+          <!-- Empty State Container when filter/search yields 0 matches -->
+          <div class="cs-no-results" id="csNoResults">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#94A3B8" stroke-width="2"
+              style="margin-bottom: 1rem;">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <h4 style="font-size: 1.25rem; font-weight: 800; color: #0F172A; margin-bottom: 0.5rem;">No case stories
+              match your query</h4>
+            <p style="color: #64748B; max-width: 450px; margin: 0 auto 1.5rem auto;">Try searching with different
+              keywords like "Zoho", "Apex", "Advisory", or reset category filters.</p>
+          </div>
+
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ==========================================================================
+         4. EDITORIAL PULL QUOTE SECTION
+         ========================================================================== -->
+    <section class="cs-quote-section">
+      <div class="cs-quote-container">
+        <div class="cs-quote-icon" aria-hidden="true">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+          </svg>
+        </div>
+
+        <blockquote class="cs-quote-text">
+          &ldquo;Digiolic did an incredible job setting up Zoho CRM for our team, and the entire process was completely stress-free. They customized everything to match how we actually work, so our daily tracking and follow-ups are so much easier now. The training they provided made adoption a breeze for everyone on the team. I’m really happy with the results and would definitely recommend them.&rdquo;
+        </blockquote>
+
+        <div class="cs-quote-author-wrap">
+          <span class="cs-quote-author-role">CEO AND FOUNDER</span>
+          <cite class="cs-quote-author-title">Harsh Chirania</cite>
+          <span class="cs-quote-author-meta">Blume Labs</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         5. ENTERPRISE CLIENT SHOWCASE (30-BRAND MATRIX)
+         ========================================================================== -->
+    <section class="cs-clients-section" id="clientsShowcase" aria-label="Enterprise Client Showcase">
+      <div class="cs-clients-container">
+        <div class="cs-clients-header">
+          <span class="cs-eyebrow">ENTERPRISE CLIENT ECOSYSTEM</span>
+          <h2 class="cs-section-title">Trusted by Industry Leaders</h2>
+          <p class="cs-section-subtitle">
+            Partnering with world-class enterprises, high-velocity disruptors, and category leaders to build scalable revenue architecture.
+          </p>
+        </div>
+
+        <div class="cs-clients-grid" role="list">
+          <div class="cs-client-card" role="listitem" title="Audible (An Amazon Company)">
+            <img src="../assets/images/clients-grid/audible.png" alt="Audible - An Amazon Company" width="152" height="125" loading="lazy">
+          </div>
+          <div class="cs-client-card" role="listitem" title="Flipkart">
+            <img src="../assets/images/clients-grid/flipkart.png" alt="Flipkart" width="152" height="125" loading="lazy">
+          </div>
+          <div class="cs-client-card" role="listitem" title="Melorra">
+            <img src="../assets/images/clients-grid/melorra.png" alt="Melorra" width="152" height="125" loading="lazy">
+          </div>
+          <div class="cs-client-card" role="listitem" title="Savaari Car Rentals">
+            <img src="../assets/images/clients-grid/savaari.png" alt="Savaari Car Rentals" width="152" height="125" loading="lazy">
+          </div>
+          <div class="cs-client-card" role="listitem" title="Medall Diagnostics">
+            <img src="../assets/images/clients-grid/medall.png" alt="Medall Diagnostics" width="152" height="125" loading="lazy">
+          </div>
+          <div class="cs-client-card" role="listitem" title="Ur Health">
+            <img src="../assets/images/clients-grid/ur-health.png" alt="Ur Health" width="152" height="125" loading="lazy">
+          </div>
+
+          <div class="cs-client-card" role="listitem" title="CloudRobo">
+            <img src="../assets/images/clients-grid/cloudrobo.png" alt="CloudRobo" width="152" height="125" loading="lazy">
+          </div>
+          <div class="cs-client-card" role="listitem" title="Freshersworld.com">
+            <img src="../assets/images/clients-grid/freshersworld.png" alt="Freshersworld.com" width="152" height="125" loading="lazy">
+          </div>
+          <div class="cs-client-card" role="listitem" title="Siemens">
+            <img src="../assets/images/clients-grid/siemens.png" alt="Siemens" width="152" height="125" loading="lazy">
+          </div>
+          <div class="cs-client-card" role="listitem" title="Tenacious Bee Collective">
+            <img src="../assets/images/clients-grid/tenacious-bee.png" alt="Tenacious Bee Collective" width="152" height="125" loading="lazy">
+          </div>
+          <div class="cs-client-card" role="listitem" title="Big Pitcher">
+            <img src="../assets/images/clients-grid/big-pitcher.png" alt="Big Pitcher" width="152" height="125" loading="lazy">
+          </div>
+          <div class="cs-client-card" role="listitem" title="ISACA">
+            <img src="../assets/images/clients-grid/isaca.png" alt="ISACA" width="152" height="125" loading="lazy">
+          </div>
+
+          <div class="cs-client-card" role="listitem" title="Mr. Naan &amp; Mrs. Idli">
+            <img src="../assets/images/clients-grid/mr-naan-mrs-idli.png" alt="Mr. Naan &amp; Mrs. Idli" width="152" height="125" loading="lazy">
+          </div>
+          <div class="cs-client-card" role="listitem" title="Chat360">
+            <img src="../assets/images/clients-grid/chat360.png" alt="Chat360" width="152" height="125" loading="lazy">
+          </div>
+          <div class="cs-client-card" role="listitem" title="Tycoon Fintech">
+            <img src="../assets/images/clients-grid/tycoon-fintech.png" alt="Tycoon Fintech" width="152" height="125" loading="lazy">
+          </div>
+          <div class="cs-client-card" role="listitem" title="Indiabulls Home Loans">
+            <img src="../assets/images/clients-grid/indiabulls.png" alt="Indiabulls Home Loans" width="152" height="125" loading="lazy">
+          </div>
+          <div class="cs-client-card" role="listitem" title="Mahindra First Choice">
+            <img src="../assets/images/clients-grid/mahindra-first-choice.png" alt="Mahindra First Choice" width="152" height="125" loading="lazy">
+          </div>
+          <div class="cs-client-card" role="listitem" title="Betterplace">
+            <img src="../assets/images/clients-grid/betterplace-1.png" alt="Betterplace" width="152" height="125" loading="lazy">
+          </div>
+
+          <div class="cs-client-card" role="listitem" title="Hero">
+            <img src="../assets/images/clients-grid/hero.png" alt="Hero" width="152" height="125" loading="lazy">
+          </div>
+          <div class="cs-client-card" role="listitem" title="Shape Crunch">
+            <img src="../assets/images/clients-grid/shape-crunch.png" alt="Shape Crunch" width="152" height="125" loading="lazy">
+          </div>
+          <div class="cs-client-card" role="listitem" title="Daaki">
+            <img src="../assets/images/clients-grid/daaki.png" alt="Daaki" width="152" height="125" loading="lazy">
+          </div>
+          <div class="cs-client-card" role="listitem" title="Betterplace">
+            <img src="../assets/images/clients-grid/betterplace-2.png" alt="Betterplace" width="152" height="125" loading="lazy">
+          </div>
+          <div class="cs-client-card" role="listitem" title="Xiaomi Mi">
+            <img src="../assets/images/clients-grid/xiaomi-mi.png" alt="Xiaomi Mi" width="152" height="125" loading="lazy">
+          </div>
+          <div class="cs-client-card" role="listitem" title="Nexus Wealth Management Ltd.">
+            <img src="../assets/images/clients-grid/nexus.png" alt="Nexus Wealth Management Ltd." width="152" height="125" loading="lazy">
+          </div>
+
+          <div class="cs-client-card" role="listitem" title="Yorozu">
+            <img src="../assets/images/clients-grid/yorozu.png" alt="Yorozu" width="152" height="125" loading="lazy">
+          </div>
+          <div class="cs-client-card" role="listitem" title="Sobha">
+            <img src="../assets/images/clients-grid/sobha.png" alt="Sobha" width="152" height="125" loading="lazy">
+          </div>
+          <div class="cs-client-card" role="listitem" title="viaMilano">
+            <img src="../assets/images/clients-grid/via-milano.png" alt="viaMilano" width="152" height="125" loading="lazy">
+          </div>
+          <div class="cs-client-card" role="listitem" title="Myntra">
+            <img src="../assets/images/clients-grid/myntra.png" alt="Myntra" width="152" height="125" loading="lazy">
+          </div>
+          <div class="cs-client-card" role="listitem" title="Haldiram's">
+            <img src="../assets/images/clients-grid/haldirams.png" alt="Haldiram's" width="152" height="125" loading="lazy">
+          </div>
+          <div class="cs-client-card" role="listitem" title="Truffles">
+            <img src="../assets/images/clients-grid/truffles.png" alt="Truffles" width="152" height="125" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==========================================================================
+       6. INTERACTIVE ARCHITECTURE DETAIL MODAL
+       ========================================================================== -->
+  <div class="cs-modal-backdrop" id="csModalBackdrop" role="dialog" aria-modal="true" aria-labelledby="csModalTitle">
+    <div class="cs-modal-container">
+
+      <!-- Close Button -->
+      <button class="cs-modal-close-btn" id="csModalCloseBtn" aria-label="Close Architecture Breakdown" type="button">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+          stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+
+      <!-- Modal Header -->
+      <div class="cs-modal-header">
+        <div style="display: flex; align-items: center; gap: 0.65rem; margin-bottom: 0.5rem;">
+          <span class="cs-tag-domain" id="csModalDomain">Zoho Enterprise</span>
+          <span class="cs-tag-scale" id="csModalScale">Global Logistics • 450+ Users</span>
+        </div>
+        <h2 class="cs-modal-title" id="csModalTitle">
+          Case Study Title
+        </h2>
+      </div>
+
+      <!-- Executive Overview -->
+      <div style="margin-bottom: 1.75rem;">
+        <h4
+          style="font-size: 0.82rem; font-weight: 800; color: #64748B; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.5rem;">
+          Executive Overview
+        </h4>
+        <p id="csModalOverview" style="font-size: 0.95rem; line-height: 1.6; color: #334155; margin: 0;">
+          Overview text...
+        </p>
+      </div>
+
+      <!-- Challenge & Solution Split -->
+      <div class="cs-dual-narrative" style="margin-bottom: 1.75rem;">
+        <div class="cs-narrative-box challenge">
+          <div class="cs-narrative-label">The Challenge</div>
+          <p id="csModalChallenge" class="cs-narrative-text">Challenge details...</p>
+        </div>
+        <div class="cs-narrative-box solution">
+          <div class="cs-narrative-label">The Architecture</div>
+          <p id="csModalSolution" class="cs-narrative-text">Solution details...</p>
+        </div>
+      </div>
+
+      <!-- Transformation Phases Timeline -->
+      <div style="margin-bottom: 1.75rem;">
+        <h4
+          style="font-size: 0.82rem; font-weight: 800; color: #64748B; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.5rem;">
+          Execution Methodology &amp; Milestones
+        </h4>
+        <div class="cs-modal-timeline" id="csModalTimeline">
+          <!-- Populated dynamically via JS -->
+        </div>
+      </div>
+
+      <!-- Verified Outcomes Metrics -->
+      <div
+        style="margin-bottom: 1.75rem; background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 14px; padding: 1.25rem 1.5rem;">
+        <h4
+          style="font-size: 0.82rem; font-weight: 800; color: #64748B; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.85rem;">
+          Verified Performance Impact
+        </h4>
+        <div class="cs-metric-chips-row" id="csModalMetrics" style="gap: 2rem;">
+          <!-- Populated dynamically via JS -->
+        </div>
+      </div>
+
+      <!-- Tech Stack & Action Footer -->
+      <div
+        style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1.25rem; padding-top: 1.25rem; border-top: 1px solid #E2E8F0;">
+        <div>
+          <div
+            style="font-size: 0.76rem; font-weight: 700; color: #64748B; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.4rem;">
+            Deployed Tech Stack</div>
+          <div class="cs-card-tech-tags" id="csModalTechStack" style="margin-bottom: 0;">
+            <!-- Populated dynamically via JS -->
+          </div>
+        </div>
+
+        <a href="contact.html" class="cs-cta-btn"
+          onclick="document.getElementById('csModalBackdrop').classList.remove('is-open'); document.body.style.overflow='';">
+          <span>Discuss Similar Architecture</span>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       SITE FOOTER
+       ========================================================================== -->
+  <footer class="site-footer">
+    <div class="container-home-compact">
+
+      <div class="footer-grid">
+
+        <!-- 1) Digiolic Brand (Left side) -->
+        <div class="footer-brand-col">
+          <a href="../index.html" class="brand-logo" aria-label="Digiolic Home">
+            <img src="../assets/images/digiolic-logo.png" alt="Digiolic" height="34">
+          </a>
+          <p>
+            Architecting next-generation enterprise business systems. Unified Zoho One, Salesforce Cloud, and performance growth marketing.
+          </p>
+
+        </div>
+
+        <!-- 2) Services (After Digiolic) -->
+        <div>
+          <h4 class="footer-heading">Services</h4>
+          <ul class="footer-links">
+            <li><a href="zoho.html" class="footer-link">Zoho Enterprise</a></li>
+            <li><a href="salesforce.html" class="footer-link">Salesforce Cloud</a></li>
+            <li><a href="digital-marketing.html" class="footer-link">Digital Marketing</a></li>
+            <li><a href="case-stories.html" class="footer-link">Case Stories</a></li>
+          </ul>
+        </div>
+
+        <!-- 3) Contact (After Services) -->
+        <div>
+          <h4 class="footer-heading">Contact</h4>
+          <div class="footer-contact-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+            </svg>
+            <div>
+              <span style="display: block; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; color: #64748B; margin-bottom: 2px;">Mobile</span>
+              <a href="tel:+919665530071" class="footer-link" style="color: #F8FAFC; font-weight: 500;">+91 9665530071</a>
+            </div>
+          </div>
+          <div class="footer-contact-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+              <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
+            <div>
+              <span style="display: block; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; color: #64748B; margin-bottom: 2px;">Email id</span>
+              <a href="mailto:info@digiolic.com" class="footer-link" style="color: #F8FAFC; font-weight: 500;">info@digiolic.com</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4) Subscribe Now (After Contact, RIGHT SIDE) -->
+        <div class="footer-subscribe-col">
+          <!-- Social Icons Row (Facebook, Twitter/X, LinkedIn, Instagram, YouTube) -->
+          <div class="footer-social-row">
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="footer-social-icon-btn" aria-label="Facebook">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="#1877F2"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </a>
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="footer-social-icon-btn" aria-label="Twitter">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="#0284C7"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.936 9.936 0 0024 4.59z"/></svg>
+            </a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="footer-social-icon-btn" aria-label="LinkedIn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="#0A66C2"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+            </a>
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="footer-social-icon-btn" aria-label="Instagram">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="#0F172A"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            </a>
+            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="footer-social-icon-btn" aria-label="YouTube">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="#0284C7"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            </a>
+          </div>
+
+          <!-- Title & Subtitle (Matching Image 2) -->
+          <h3 class="footer-subscribe-title">Subscribe Now</h3>
+          <p class="footer-subscribe-subtitle">Don’t miss our future updates! Get Subscribed Today!</p>
+
+          <!-- Zoho Campaigns Web-Optin Form -->
+          <div name="signupFormContainer" style="width: 100%; max-width: 390px;">
+            <input type="hidden" id="signupTmplName" value="quick_form_8">
+            <input type="hidden" value="0" id="recapThemeOptin">
+            <input type="hidden" id="orgNameFull" value="Digiolic">
+            <div id="sf3z9b6c828aa5af22b4a6077a0465071583a608aedf9a4312cd59de68709570dfed" data-type="signupform">
+              <div id="customForm">
+                <div name="SIGNUP_BODY" id="SIGNUP_BODY" style="width: 100%;">
+                  <form method="POST" id="zcampaignOptinForm" action="https://zgp4-zgp4.maillist-manage.in/weboptin.zc" target="_zcSignup" onsubmit="if(typeof zcActionUrlRest==='function'){zcActionUrlRest();}" class="footer-subscribe-pill-form">
+                    <div id="errorMsgDiv" style="display: none; position: absolute; bottom: calc(100% + 8px); left: 0; background-color: #FEF2F2; padding: 6px 12px; color: #DC2626; font-size: 12px; border: 1px solid #FECACA; border-radius: 6px; white-space: nowrap; z-index: 10; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">Please enter a valid email address.</div>
+                    <input type="email" placeholder="Enter your email address" changeitem="SIGNUP_FORM_FIELD" name="CONTACT_EMAIL" id="EMBED_FORM_EMAIL_LABEL" class="footer-subscribe-input" required aria-label="Enter your email address">
+                    <button type="button" action="Save" name="SIGNUP_SUBMIT_BUTTON" id="zcWebOptin" changetype="SIGNUP_SUBMIT_BUTTON_TEXT" class="footer-subscribe-btn" aria-label="Join Now" onclick="if(typeof saveOptin==='function'){saveOptin(this,false,window['runOnFormSubmit_sf3z9b6c828aa5af22b4a6077a0465071583a608aedf9a4312cd59de68709570dfed'],'#sf3z9b6c828aa5af22b4a6077a0465071583a608aedf9a4312cd59de68709570dfed ',event);}else{document.getElementById('zcampaignOptinForm').submit();}">
+                      <span>Join Now</span>
+                      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                      </svg>
+                    </button>
+                    <input type="hidden" id="fieldBorder" value="">
+                    <input type="hidden" id="submitType" name="submitType" value="optinCustomView">
+                    <input type="hidden" id="emailReportId" name="emailReportId" value="">
+                    <input type="hidden" id="formType" name="formType" value="QuickForm">
+                    <input type="hidden" name="zx" id="cmpZuid" value="1df9e0c1b9">
+                    <input type="hidden" name="zcvers" value="2.0">
+                    <input type="hidden" name="oldListIds" id="allCheckedListIds" value="">
+                    <input type="hidden" id="mode" name="mode" value="OptinCreateView">
+                    <input type="hidden" id="zcld" name="zcld" value="154815acb3547a19">
+                    <input type="hidden" id="zctd" name="zctd" value="154815acb3547211">
+                    <input type="hidden" id="document_domain" value="">
+                    <input type="hidden" id="zc_Url" value="zgp4-zgp4.maillist-manage.in">
+                    <input type="hidden" id="new_optin_response_in" value="0">
+                    <input type="hidden" id="duplicate_optin_response_in" value="0">
+                    <input type="hidden" id="zcOrgIx" value="">
+                    <input type="hidden" id="zcActIx" value="">
+                    <input type="hidden" id="zcCustIx" value="">
+                    <input type="hidden" name="zc_trackCode" id="zc_trackCode" value="ZCFORMVIEW">
+                    <input type="hidden" id="zc_formIx" name="zc_formIx" value="3z9b6c828aa5af22b4a6077a0465071583a608aedf9a4312cd59de68709570dfed">
+                    <input type="hidden" id="viewFrom" value="URL_ACTION">
+                    <span style="display: none" id="dt_CONTACT_EMAIL">1,true,6,Contact Email,2</span>
+                  </form>
+                  <iframe name="_zcSignup" id="_zcSignup" style="display:none;" title="Zoho Campaigns Target"></iframe>
+                </div>
+              </div>
+            </div>
+            <input type="hidden" id="signupFormType" value="QuickForm_Horizontal">
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="footer-bottom">
+        <div>
+          &copy; 2026 Digiolic All rights reserved.
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- JavaScript Modules -->
+  <script src="../js/main.js?v=20260912_footer_v3"></script>
+  <script src="../js/case-filter.js?v=20260912_footer_v3"></script>
+  <script src="../js/form-validation.js?v=20260912_footer_v3"></script>
+
+  <!-- Zoho WebForm Analytics Tracking -->
+  <script>
+    if (typeof _wfa_fstprtcken === 'undefined') {
+      _wfa_fstprtcken = {};
+    }
+    _wfa_fstprtcken[1410226000000468646] = true;
+  </script>
+  <script id="wf_anal"
+    src="https://crm.zohopublic.in/crm/WebFormAnalyticsServeServlet?rid=d4dd7fbabaeb68e8633ec9da92e375746a184b20eb647581d95f0bdbf8cc48910686b1cdafc5a4d114c281049a2fbcdbgid7c507c708694be9822821a780dfb41110e0b9e44539006ddc61a126f891d103fgid72543aa4b762561a80e0cb169bef977a2b371d1161b936cd28563838efe66d3cgid40d3ba5102eefb9c4479b6de7029a4bf8bc8ecee6913936a98f2de2592dfb119&tw=ff9c790a973b9d50a533615b473a975547954926e5aef75a5cde54b8f467d500&version=v2"></script>
+
+  <!-- Zoho SalesIQ Speech Bubble Prompt ("Talk with an expert") -->
+  <div id="salesiq-chat-prompt" class="salesiq-chat-prompt" role="button" tabindex="0" aria-label="Talk with an expert. How can I help you today?">
+    <button type="button" class="chat-prompt-close" id="chatPromptClose" aria-label="Dismiss message" title="Dismiss">&times;</button>
+    <div class="chat-prompt-content">
+      <div class="chat-prompt-title">Talk with an expert.</div>
+      <div class="chat-prompt-subtitle">How can I help you today?</div>
+    </div>
+    <div class="chat-prompt-arrow" aria-hidden="true"></div>
+  </div>
+  <script src="../js/salesiq-prompt.js?v=20260911_v1"></script>
+
+  <!-- Zoho SalesIQ Live Chat & Activity Tracking -->
+  <script>
+	window.$zoho = window.$zoho || {};
+	$zoho.salesiq = $zoho.salesiq || {
+		ready: function(){}
+	}
+</script>
+<script id = "zsiqscript" src = "https://salesiq.zoho.in/widget?wc=siq1c8e34c2ec6e86af688a258868b48665a7db0df0ec6b9d8fe1d0ceb63b3212b8" defer >
+</script>
+
+  <!-- Zoho Campaigns Web-Optin Script -->
+  <script type="text/javascript">
+    // Safe shim for browser popup blockers so Zoho optin.min.js never crashes
+    (function() {
+      var _origOpen = window.open;
+      window.open = function() {
+        try {
+          var w = _origOpen ? _origOpen.apply(this, arguments) : null;
+          if (w) return w;
+        } catch (e) {}
+        return {
+          document: {
+            body: { innerHTML: '' },
+            write: function() {},
+            close: function() {}
+          },
+          focus: function() {},
+          close: function() {},
+          window: { history: { pushState: function() {} } }
+        };
+      };
+    })();
+  </script>
+  <script type="text/javascript" src="https://ma.zoho.in/js/optin.min.js" onload="setupSF('sf3z9b6c828aa5af22b4a6077a0465071583a608aedf9a4312cd59de68709570dfed','ZCFORMVIEW',false,'light',false,'undefined')"></script>
+  <script type="text/javascript">
+    function runOnFormSubmit_sf3z9b6c828aa5af22b4a6077a0465071583a608aedf9a4312cd59de68709570dfed(th){
+      /*Before submit event trigger*/
+    };
+  </script>
+
+  <!-- Zoho Campaigns Optin Overlay & Success Popup -->
+  <div id="zcOptinOverLay" oncontextmenu="return false" style="display:none;text-align: center; background-color: rgb(0, 0, 0); opacity: 0.5; z-index: 10000; position: fixed; inset: 0; width: 100%; height: 100%;"></div>
+  <div id="zcOptinSuccessPopup" style="display:none;z-index: 10001;max-width: 600px; width: 90%; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: #FFFFFF; border: 1px solid #E6E6E6; border-radius: 16px; box-shadow: 0 10px 40px rgba(0,0,0,0.3); padding: 35px; box-sizing: border-box;">
+    <span style="position: absolute; top: 12px; right: 14px; z-index: 10002; cursor: pointer;" id="closeSuccess" onclick="document.getElementById('zcOptinSuccessPopup').style.display='none'; document.getElementById('zcOptinOverLay').style.display='none';">
+      <img src="https://ma.zoho.in/images/videoclose.png" alt="Close" width="20" height="20">
+    </span>
+    <div id="zcOptinSuccessPanel"></div>
+  </div>
+</body>
+</html>

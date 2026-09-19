@@ -1,0 +1,1316 @@
+/* ==========================================================================
+   DIGIOLIC — COMPREHENSIVE RESPONSIVE DESIGN SYSTEM
+   Mobile Usability, Anti-Overflow, Fluid Typography, Vertical Card Stacking,
+   and Responsive Navigation Drawer across all screen sizes (< 768px down to 360px).
+   ========================================================================== */
+
+/* ==========================================================================
+   1. GLOBAL MOBILE RESETS & ANTI-OVERFLOW LOCKS (UNIVERSAL)
+   ========================================================================== */
+html,
+body {
+  overflow-x: clip !important;
+  max-width: 100vw !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  box-sizing: border-box !important;
+  -webkit-text-size-adjust: 100% !important;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box !important;
+}
+
+img,
+video,
+canvas {
+  max-width: 100% !important;
+  height: auto;
+}
+
+/* Prevent iOS Safari auto-zoom on input focus */
+input,
+select,
+textarea {
+  font-size: 16px !important;
+}
+
+/* ==========================================================================
+   2. LARGE SCREENS & DESKTOP SYSTEM (1280px - 1920px+)
+   ========================================================================== */
+@media (min-width: 1440px) {
+  :root {
+    --container-max: 1380px;
+    --container-wide: 1560px;
+  }
+}
+
+@media (max-width: 1280px) {
+  .footer-grid {
+    grid-template-columns: 1.2fr 0.85fr 1.05fr 1.5fr;
+    gap: 2rem;
+  }
+  .process-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ==========================================================================
+   3. TABLETS & SMALL DESKTOPS (769px - 1023px)
+   ========================================================================== */
+@media (max-width: 1023px) {
+  .nav-desktop,
+  .mainframe-desktop-nav,
+  .video-nav-center {
+    display: none !important;
+  }
+
+  .mobile-menu-btn,
+  .mainframe-hamburger-btn,
+  .video-nav-hamburger {
+    display: flex !important;
+  }
+
+  .grid-4,
+  .grid-3 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .ecosystem-display,
+  .case-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 2.5rem !important;
+  }
+  .footer-brand-col {
+    grid-column: span 1 !important;
+  }
+  .footer-subscribe-col {
+    grid-column: span 2 !important;
+  }
+
+  .hero-beat-dots {
+    display: none !important;
+  }
+}
+
+/* ==========================================================================
+   4. PRIMARY MOBILE BREAKPOINT (< 768px): FULL USABILITY ENGINE
+   ========================================================================== */
+@media (max-width: 768px) {
+
+  /* --- 4.1 Global Section & Container Fluid Sizing --- */
+  .container,
+  .container-wide,
+  .container-narrow,
+  .container-home-compact,
+  .container-home-metrics,
+  .trust-reviews-container,
+  .cs-container,
+  .contact-container {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding-left: 1.25rem !important;
+    padding-right: 1.25rem !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Scale down massive desktop section padding */
+  .section-padding,
+  .section-padding-compact,
+  .sf-section,
+  .dm-white-section,
+  .dm-white-section-alt,
+  .zoho-directory-section,
+  .zoho-pillars-section,
+  .delivery-success-section,
+  .deliver-success-section,
+  .cs-gallery-section,
+  .contact-card-section,
+  .contact-hero-banner {
+    padding-top: 2.75rem !important;
+    padding-bottom: 2.75rem !important;
+  }
+
+  /* Scale down card padding */
+  .card,
+  .stat-card,
+  .practice-rect-card,
+  .deliver-step-col,
+  .zoho-rect-card,
+  .sf-problem-card,
+  .sf-cloud-card,
+  .dm-service-img-card,
+  .cs-case-card,
+  .contact-form-card,
+  .contact-info-cluster {
+    padding: 1.4rem 1.15rem !important;
+    border-radius: 12px !important;
+  }
+
+  /* --- 4.2 Fluid Typography & Heading Anti-Overlap System --- */
+  h1:not(.hero-brand-heading):not(#heroScrollWrapper h1),
+  .heading-xl,
+  .heading-2xl,
+  .hero-title,
+  .hero-v1-main-heading,
+  .hero-v1-line-primary,
+  .dm-hero-title,
+  .zoho-hero-title,
+  .dp-hero-title,
+  .sf-hero-title,
+  .cs-hero-title,
+  .contact-hero-title {
+    font-size: clamp(24px, 6.6vw, 36px) !important;
+    line-height: 1.18 !important;
+    letter-spacing: -0.025em !important;
+    word-break: break-word !important;
+    overflow-wrap: break-word !important;
+    margin-bottom: 0.6rem !important;
+    max-width: 100% !important;
+  }
+
+  /* Dedicated Headings for Home Hero: Zoho, Salesforce, and Digital Marketing */
+  #heroScrollWrapper h1,
+  .hero-brand-heading {
+    font-size: clamp(28px, 7.5vw, 42px) !important;
+    line-height: 1.18 !important;
+    letter-spacing: -0.035em !important;
+    white-space: normal !important;
+    word-break: normal !important;
+    overflow-wrap: break-word !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    text-align: center !important;
+    margin-bottom: 0.35rem !important;
+  }
+
+  #heroScrollWrapper h3,
+  .hero-brand-tagline {
+    font-size: clamp(22px, 6vw, 34px) !important;
+    line-height: 1.18 !important;
+    letter-spacing: -0.025em !important;
+    white-space: normal !important;
+    word-break: normal !important;
+    overflow-wrap: break-word !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    text-align: center !important;
+    margin-top: 0.35rem !important;
+  }
+
+  .hero-v1-line-tagline {
+    font-size: clamp(16px, 4.2vw, 22px) !important;
+    line-height: 1.25 !important;
+    letter-spacing: -0.015em !important;
+    margin-bottom: 0.5rem !important;
+    word-break: break-word !important;
+  }
+
+  .hero-v1-subtitle,
+  .dm-hero-desc,
+  .zoho-hero-desc,
+  .dp-hero-subtitle,
+  .lead,
+  .contact-hero-subtitle {
+    font-size: 15px !important;
+    line-height: 1.55 !important;
+    max-width: 100% !important;
+    margin-bottom: 1.25rem !important;
+  }
+
+  h2,
+  .section-title,
+  .sf-section-title,
+  .dm-section-title,
+  .zoho-section-title,
+  .trust-reviews-main-title {
+    font-size: clamp(22px, 5.5vw, 32px) !important;
+    line-height: 1.22 !important;
+    letter-spacing: -0.02em !important;
+    word-break: break-word !important;
+    overflow-wrap: break-word !important;
+  }
+
+  h3,
+  h4,
+  .service-card-title,
+  .deliver-step-title,
+  .why-us-item-title,
+  .sf-problem-title,
+  .sf-flow-title {
+    font-size: clamp(18px, 4.5vw, 22px) !important;
+    line-height: 1.28 !important;
+    word-break: break-word !important;
+  }
+
+  /* --- 4.3 Universal Responsive Mobile Navigation Drawer & Header --- */
+  .mainframe-navbar {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    padding: 0.9rem 1.25rem !important;
+    min-height: 68px !important;
+    box-sizing: border-box !important;
+  }
+
+  .mainframe-desktop-nav {
+    display: none !important;
+  }
+
+  /* Show Contact Us pill button on ALL pages on mobile (matching Image 2) */
+  .mainframe-desktop-cta {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    height: 38px !important;
+    padding: 0 1.15rem !important;
+    font-size: 13.5px !important;
+    font-weight: 600 !important;
+    border-radius: 9999px !important;
+    line-height: 1 !important;
+    box-sizing: border-box !important;
+    text-decoration: none !important;
+    margin-left: auto !important;
+    margin-right: 0.65rem !important;
+    white-space: nowrap !important;
+    z-index: 102 !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15) !important;
+    background-color: #FFFFFF !important;
+    background: #FFFFFF !important;
+    color: #000000 !important;
+    border: none !important;
+    transition: transform 0.2s ease, background-color 0.2s ease !important;
+  }
+
+  .mainframe-desktop-cta:hover {
+    transform: translateY(-1px) !important;
+    background-color: #F8FAFC !important;
+    color: #000000 !important;
+  }
+
+  /* Exception: Keep Case Studies page button dark (black button, white text) */
+  .mainframe-navbar.is-light-page .mainframe-desktop-cta {
+    background-color: #000000 !important;
+    background: #000000 !important;
+    color: #FFFFFF !important;
+    border: none !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25) !important;
+  }
+
+  /* Exception: Remove Contact Us button completely from contact page only */
+  body.contact-page .mainframe-desktop-cta,
+  body.contact-page #mainframeNavbar .mainframe-desktop-cta {
+    display: none !important;
+  }
+
+  .mobile-menu-btn,
+  .mainframe-hamburger-btn,
+  .video-nav-hamburger {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    z-index: 100005 !important;
+    position: relative !important;
+    cursor: pointer !important;
+    flex-shrink: 0 !important;
+    width: 38px !important;
+    height: 38px !important;
+  }
+
+  .mainframe-hamburger-btn.is-active .mainframe-bar:nth-child(1) {
+    transform: translateY(6px) rotate(45deg) !important;
+    background-color: #FFFFFF !important;
+  }
+
+  .mainframe-hamburger-btn.is-active .mainframe-bar:nth-child(2) {
+    opacity: 0 !important;
+  }
+
+  .mainframe-hamburger-btn.is-active .mainframe-bar:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg) !important;
+    background-color: #FFFFFF !important;
+  }
+
+  /* Consistent Drawer Styling Across All Pages — Exact Image 1 Design */
+  .mainframe-mobile-overlay,
+  .mobile-nav-drawer,
+  .hero-video-mobile-overlay {
+    position: fixed !important;
+    inset: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    height: 100dvh !important;
+    background: #1D3045 !important;
+    z-index: 100000 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+    align-items: flex-start !important;
+    padding: 2.25rem 2rem 2.5rem 2rem !important;
+    box-sizing: border-box !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+    transform: translateY(-8px) !important;
+    transition: opacity 0.3s ease, transform 0.3s ease !important;
+  }
+
+  .hero-video-mobile-overlay {
+    padding: 0 !important; /* hero overlay uses internal wrapper */
+  }
+
+  body.mobile-menu-open .video-nav-hamburger {
+    opacity: 0 !important;
+    pointer-events: none !important;
+    visibility: hidden !important;
+  }
+
+  .mainframe-mobile-overlay.is-open,
+  .mobile-nav-drawer.is-open,
+  .hero-video-mobile-overlay.is-open {
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    transform: translateY(0) !important;
+  }
+
+  /* Drawer Top Row with Logo & Close Button */
+  .mobile-nav-top,
+  .mainframe-mobile-top {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    width: 100% !important;
+    margin-bottom: 3.5rem !important;
+  }
+
+  .mobile-nav-logo {
+    height: 32px !important;
+    width: auto !important;
+    filter: brightness(0) invert(1) !important;
+    display: block !important;
+  }
+
+  .mobile-nav-close,
+  .mobile-drawer-close,
+  .mainframe-mobile-close {
+    background: none !important;
+    border: none !important;
+    color: #FFFFFF !important;
+    cursor: pointer !important;
+    padding: 0.5rem !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    outline: none !important;
+  }
+
+  .mobile-nav-list,
+  .mobile-nav-links {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 1.5rem !important;
+    width: 100% !important;
+  }
+
+  .mainframe-mobile-link,
+  .mobile-nav-link,
+  .hero-video-mobile-link {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+    font-size: 1.5rem !important;
+    line-height: 1.3 !important;
+    font-weight: 400 !important;
+    color: rgba(255, 255, 255, 0.7) !important;
+    display: block !important;
+    width: auto !important;
+    max-width: 100% !important;
+    padding: 0.25rem 0 !important;
+    border-bottom: none !important;
+    text-decoration: none !important;
+    box-sizing: border-box !important;
+    transition: color 0.2s ease !important;
+    text-align: left !important;
+    letter-spacing: -0.01em !important;
+  }
+
+  /* Hide arrows (&rarr;) in links */
+  .mainframe-mobile-link span:last-child:not(:first-child),
+  .mobile-nav-link span:last-child:not(:first-child) {
+    display: none !important;
+  }
+
+  .mainframe-mobile-link:hover,
+  .mainframe-mobile-link.active,
+  .mobile-nav-link:hover,
+  .mobile-nav-link.active,
+  .hero-video-mobile-link:hover,
+  .hero-video-mobile-link.is-active {
+    color: #FFFFFF !important;
+    font-weight: 500 !important;
+    border-bottom: none !important;
+    padding-left: 0 !important;
+  }
+
+  /* White Pill Button — Exact Image 1 */
+  .mainframe-mobile-link.cta-underlined,
+  .mainframe-mobile-link.cta-pill,
+  .mobile-nav-link.cta-pill,
+  .mobile-nav-footer .btn,
+  .hero-video-mobile-btn {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: fit-content !important;
+    margin-top: 1.5rem !important;
+    background: #FFFFFF !important;
+    color: #000000 !important;
+    font-size: 0.95rem !important;
+    font-weight: 600 !important;
+    border-radius: 9999px !important;
+    padding: 0.75rem 2rem !important;
+    border: none !important;
+    text-decoration: none !important;
+    text-align: center !important;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15) !important;
+    transition: background-color 0.2s ease, transform 0.2s ease !important;
+  }
+
+  .mainframe-mobile-link.cta-underlined:hover,
+  .mainframe-mobile-link.cta-pill:hover,
+  .mobile-nav-footer .btn:hover {
+    background: rgba(255, 255, 255, 0.9) !important;
+    color: #1D3045 !important;
+    transform: translateY(-2px) !important;
+  }
+
+  /* Case Studies Mobile Navigation Drawer: Black button, white text */
+  .mobile-nav-drawer .mobile-nav-link.cta-pill,
+  .mainframe-navbar.is-light-page ~ .mobile-nav-drawer .mobile-nav-link.cta-pill,
+  body.case-stories-page .mobile-nav-link.cta-pill,
+  body.case-stories-page .mainframe-mobile-link.cta-pill {
+    background-color: #000000 !important;
+    background: #000000 !important;
+    color: #FFFFFF !important;
+    border: 1px solid rgba(255, 255, 255, 0.25) !important;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3) !important;
+  }
+
+  .mobile-nav-drawer .mobile-nav-link.cta-pill:hover,
+  .mainframe-navbar.is-light-page ~ .mobile-nav-drawer .mobile-nav-link.cta-pill:hover,
+  body.case-stories-page .mobile-nav-link.cta-pill:hover,
+  body.case-stories-page .mainframe-mobile-link.cta-pill:hover {
+    background-color: #1E293B !important;
+    background: #1E293B !important;
+    color: #FFFFFF !important;
+  }
+
+  .mobile-contact-info,
+  .mobile-nav-footer p {
+    display: none !important;
+  }
+
+  /* --- 4.4 Multi-Column Card Layouts Vertical Stacking --- */
+  /* Universal CSS Grids */
+  .grid-2,
+  .grid-3,
+  .grid-4,
+  .grid-12,
+  .process-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+  }
+
+  /* 4.4.1 Homepage Layouts */
+  .home-mc-grid,
+  .home-mc-stats-row {
+    grid-template-columns: 1fr !important;
+    gap: 1.25rem !important;
+  }
+
+  .practice-rect-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.25rem !important;
+  }
+
+  /* Homepage Hero on Mobile: 3-Stage Sticky Cinematic Scroll (Sections 1, 2 & 3) */
+  .hero-video-scroll-wrapper {
+    height: 500vh !important;
+    background-color: #DBE3EB !important;
+    position: relative !important;
+    width: 100% !important;
+  }
+
+  .hero-bg-video,
+  .hero-bg-canvas {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: 30% 60% !important;
+    display: block !important;
+    opacity: 1 !important;
+    z-index: 1 !important;
+    background-color: transparent !important;
+    filter: none !important;
+  }
+
+  .hero-video-sticky-stage {
+    position: sticky !important;
+    top: 0 !important;
+    left: 0 !important;
+    height: 100vh !important;
+    height: 100dvh !important;
+    width: 100% !important;
+    overflow: hidden !important;
+    background-color: #DBE3EB !important;
+    z-index: 10 !important;
+  }
+
+  .hero-video-ui-overlay {
+    position: absolute !important;
+    inset: 0 !important;
+    pointer-events: none !important;
+    z-index: 20 !important;
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  .video-section-layer {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    box-sizing: border-box !important;
+    transition: opacity 0.25s ease-out !important;
+    pointer-events: none !important;
+  }
+
+  /* Section 1: Hero Centered */
+  #heroSection1 {
+    display: flex !important;
+    padding: 0 1.25rem !important;
+  }
+
+  .hero-v1-center-wrap {
+    max-width: 100% !important;
+    padding: 0 !important;
+  }
+
+  .hero-v1-btn-wrap {
+    position: absolute !important;
+    bottom: 1.5rem !important;
+    right: 1.25rem !important;
+    z-index: 25 !important;
+    pointer-events: auto !important;
+  }
+
+  .hero-v1-btn-circle {
+    width: 42px !important;
+    height: 42px !important;
+  }
+
+  /* Section 2: Precision Execution (Restored & Mobile-Tuned) */
+  #heroSection2 {
+    display: flex !important;
+    padding: 0 1.25rem !important;
+    text-align: center !important;
+  }
+
+  .hero-v2-container {
+    max-width: 100% !important;
+    padding: 0 0.5rem !important;
+    margin: 0 auto !important;
+    text-align: center !important;
+  }
+
+  .hero-v2-badge {
+    font-size: 0.78rem !important;
+    letter-spacing: 0.2em !important;
+    margin-bottom: 0.75rem !important;
+    color: #1D3045 !important;
+    font-weight: 700 !important;
+    display: inline-block !important;
+  }
+
+  .hero-v2-heading-wrap {
+    position: relative !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    margin-bottom: 0.85rem !important;
+  }
+
+  .hero-v2-crosshair {
+    position: static !important;
+    transform: none !important;
+    margin-bottom: 0.4rem !important;
+    opacity: 0.65 !important;
+  }
+
+  .hero-v2-quote {
+    font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif !important;
+    font-size: clamp(22px, 5.5vw, 32px) !important;
+    line-height: 1.2 !important;
+    margin-bottom: 0.85rem !important;
+    color: #1D3045 !important;
+    text-transform: uppercase !important;
+    font-weight: 700 !important;
+  }
+
+  .hero-v2-desc {
+    font-size: clamp(13px, 3.6vw, 15px) !important;
+    line-height: 1.55 !important;
+    color: rgba(29, 48, 69, 0.9) !important;
+    max-width: 92% !important;
+    margin: 0 auto !important;
+  }
+
+  .hero-v2-right-column {
+    position: absolute !important;
+    bottom: 1.5rem !important;
+    right: 1rem !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+    pointer-events: auto !important;
+    z-index: 25 !important;
+  }
+
+  .hero-v2-down-btn,
+  .hero-v2-up-btn {
+    width: 38px !important;
+    height: 38px !important;
+  }
+
+  .hero-v2-dots {
+    margin: 0.25rem 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0.35rem !important;
+  }
+
+  /* Section 3: The Digiolic Promise (Restored & Mobile-Tuned) */
+  #heroSection3 {
+    display: flex !important;
+    padding: 0 1.25rem !important;
+    justify-content: center !important;
+    align-items: center !important;
+    text-align: center !important;
+    background: transparent !important;
+  }
+
+  .hero-v3-content {
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    text-align: center !important;
+    padding: 0 0.5rem !important;
+  }
+
+  .hero-v3-eyebrow {
+    font-size: 0.78rem !important;
+    letter-spacing: 0.2em !important;
+    margin-bottom: 0.6rem !important;
+    color: rgba(255, 255, 255, 0.8) !important;
+    text-transform: uppercase !important;
+    font-weight: 600 !important;
+    display: inline-block !important;
+  }
+
+  .hero-v3-title {
+    font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif !important;
+    font-size: clamp(24px, 6vw, 34px) !important;
+    line-height: 1.15 !important;
+    margin-bottom: 0.85rem !important;
+    color: #FFFFFF !important;
+    text-transform: uppercase !important;
+    font-weight: 700 !important;
+  }
+
+  .hero-v3-desc {
+    font-size: clamp(13px, 3.6vw, 15px) !important;
+    line-height: 1.55 !important;
+    color: rgba(255, 255, 255, 0.9) !important;
+    max-width: 92% !important;
+    margin: 0 auto 1.5rem auto !important;
+  }
+
+  .hero-v3-cta-row {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 0.75rem !important;
+    pointer-events: auto !important;
+  }
+
+  .btn-v3-primary,
+  .btn-v3-secondary {
+    padding: 0.75rem 1.35rem !important;
+    font-size: 13.5px !important;
+    border-radius: 9999px !important;
+  }
+
+  .hero-bg-canvas {
+    display: none !important;
+  }
+
+  .why-us-infographic-stage {
+    grid-template-columns: 1fr !important;
+    gap: 1.75rem !important;
+  }
+
+  .why-us-col-center {
+    order: -1 !important;
+    margin-bottom: 0.75rem !important;
+  }
+
+  .why-us-connectors-svg {
+    display: none !important;
+  }
+
+  .why-us-hero-img {
+    max-height: 280px !important;
+    width: auto !important;
+    margin: 0 auto !important;
+  }
+
+  .why-us-column {
+    gap: 1.25rem !important;
+  }
+
+  .why-us-title,
+  h2.why-us-title {
+    font-size: clamp(2.2rem, 8vw, 3.5rem) !important;
+    line-height: 0.95 !important;
+  }
+
+  .deliver-serpentine-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.25rem !important;
+  }
+
+  .deliver-circuit-bg {
+    display: none !important;
+  }
+
+  .deliver-step-col:last-child {
+    grid-column: span 1 !important;
+  }
+
+  /* Denim Testimonial Section Fluid Sizing */
+  .denim-testimonial-section {
+    min-height: auto !important;
+    padding: 3rem 1rem 4rem !important;
+  }
+
+  .dt-stripes-background {
+    display: none !important;
+  }
+
+  .dt-header-cluster {
+    gap: 0.75rem !important;
+    margin-bottom: 1.75rem !important;
+  }
+
+  .dt-title-lockup h2.dt-main-title {
+    font-size: clamp(2.2rem, 9.5vw, 3.8rem) !important;
+    line-height: 0.95 !important;
+    letter-spacing: 0.01em !important;
+    word-break: break-word !important;
+  }
+
+  .dt-client-pill {
+    font-size: clamp(1.4rem, 5vw, 2.2rem) !important;
+    padding: 0.2rem 0.65rem !important;
+  }
+
+  .dt-torn-paper-card {
+    padding: 1.8rem 1.25rem 2.8rem !important;
+    max-width: 100% !important;
+    min-height: auto !important;
+    box-sizing: border-box !important;
+  }
+
+  .dt-top-quote svg {
+    width: 44px !important;
+    height: 38px !important;
+  }
+
+  .dt-bottom-quote svg {
+    width: 70px !important;
+    height: 60px !important;
+  }
+
+  .dt-bottom-quote {
+    right: 8px !important;
+    bottom: -38px !important;
+  }
+
+  .dt-quote-body {
+    font-size: clamp(1rem, 3.8vw, 1.2rem) !important;
+    line-height: 1.5 !important;
+    margin-bottom: 1.5rem !important;
+  }
+
+  /* 4.4.2 Zoho Page Layouts & Hero Spacing (Image 3 fix) */
+  .zoho-video-hero-section {
+    min-height: 100vh !important;
+    min-height: 100dvh !important;
+    height: auto !important;
+    padding-top: 105px !important;
+    padding-bottom: 3.5rem !important;
+    padding-left: 1.25rem !important;
+    padding-right: 1.25rem !important;
+    justify-content: flex-start !important;
+    overflow: visible !important;
+  }
+
+  .zoho-hero-center-content {
+    margin-top: 0 !important;
+    padding: 0 !important;
+  }
+
+  .zoho-main-heading {
+    margin-top: 0.25rem !important;
+    margin-bottom: 0.85rem !important;
+  }
+
+  .zoho-heading-line1 {
+    font-size: clamp(20px, 5.5vw, 30px) !important;
+    line-height: 1.2 !important;
+  }
+
+  .zoho-heading-line2 {
+    font-size: clamp(24px, 6.8vw, 36px) !important;
+    line-height: 1.2 !important;
+    margin-top: 0.25rem !important;
+  }
+
+  .zoho-hero-subheading-block {
+    margin-bottom: 1rem !important;
+  }
+
+  .zoho-hero-sub-title {
+    font-size: clamp(13px, 3.5vw, 15px) !important;
+    margin-bottom: 0.4rem !important;
+  }
+
+  .zoho-hero-description {
+    font-size: clamp(12px, 3.2vw, 14px) !important;
+    line-height: 1.55 !important;
+    margin-bottom: 1.25rem !important;
+    max-width: 90% !important;
+  }
+
+  .zoho-hero-pill-grid,
+  .zoho-hero-pills-grid {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 0.5rem !important;
+    max-width: 100% !important;
+  }
+
+  .zoho-hero-dept-pill {
+    font-size: 0.78rem !important;
+    padding: 0.45rem 0.85rem !important;
+    flex: 0 1 auto !important;
+  }
+
+  .zoho-directory-layout {
+    grid-template-columns: 1fr !important;
+    gap: 1.25rem !important;
+  }
+
+  .zoho-directory-sidebar {
+    width: 100% !important;
+    max-width: 100% !important;
+    position: static !important;
+    top: auto !important;
+    margin-bottom: 1.25rem !important;
+  }
+
+  #zohoCatNav,
+  .zoho-cat-nav {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    gap: 0.5rem !important;
+    padding: 0.25rem 0 0.85rem 0 !important;
+    justify-content: flex-start !important;
+  }
+
+  .zoho-category-pill-btn,
+  .zoho-cat-btn {
+    white-space: nowrap !important;
+    padding: 0.55rem 0.95rem !important;
+    font-size: 0.82rem !important;
+    flex: 0 1 auto !important;
+    width: auto !important;
+    margin-bottom: 0 !important;
+    border-radius: 9999px !important;
+  }
+
+  .zoho-directory-content {
+    width: 100% !important;
+    clear: both !important;
+  }
+
+  .zoho-rect-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.25rem !important;
+  }
+
+  .pillars-concentric-stage,
+  .delivery-5-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.25rem !important;
+  }
+
+  .pillars-disc-visual-wrap {
+    order: -1 !important;
+    margin-bottom: 1.5rem !important;
+    max-width: 100% !important;
+  }
+
+  .pillars-disc-sticky {
+    position: static !important;
+    max-width: 100% !important;
+    top: auto !important;
+  }
+
+  .trust-reviews-body-split {
+    grid-template-columns: 1fr !important;
+    gap: 1.75rem !important;
+  }
+
+  .trust-reviews-left-col {
+    text-align: center !important;
+    margin-bottom: 0.5rem !important;
+  }
+
+  .trust-quote-icon {
+    margin: 0 auto 0.75rem auto !important;
+  }
+
+  .trust-nav-controls {
+    justify-content: center !important;
+  }
+
+  .zoho-exact-fields-grid,
+  .contact-solution-form {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+
+  .zoho-faq-split-wrapper {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+  }
+
+  /* 4.4.3 Salesforce Page Layouts */
+  .sf-flow-row {
+    grid-template-columns: 1fr !important;
+    gap: 1.25rem !important;
+  }
+
+  .sf-donut-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+  }
+
+  .sf-industries-grid,
+  .sf-usecases-grid,
+  .sf-cases-grid,
+  .sf-testimonials-grid,
+  .sf-tech-cards-grid,
+  .sf-problem-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.25rem !important;
+  }
+
+  .sf-timeline-scroll-wrap,
+  .sf-arc-scroll-wrap {
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding-bottom: 0.75rem !important;
+  }
+
+  /* 4.4.4 Digital Marketing Page Layouts */
+  .dm-metrics-grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 0.85rem !important;
+  }
+
+  .dm-services-img-grid,
+  .dm-extra-services-grid,
+  .pillars-hanging-grid,
+  .dm-why-cards-grid,
+  .dm-case-studies-grid,
+  .dm-editorial-grid,
+  .contact-form-row {
+    grid-template-columns: 1fr !important;
+    gap: 1.25rem !important;
+  }
+
+  .dm-service-img-card {
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+
+  .dm-flip-card-wrapper,
+  .dm-flip-card-inner {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-height: 285px !important;
+    height: auto !important;
+  }
+
+  .dm-extra-services-grid .dm-flip-card-wrapper,
+  .dm-extra-services-grid .dm-flip-card-inner {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-height: 335px !important;
+    height: auto !important;
+  }
+
+  .dm-extra-title {
+    font-size: clamp(18px, 4.5vw, 24px) !important;
+    word-break: break-word !important;
+    overflow-wrap: break-word !important;
+  }
+
+  .dm-service-title {
+    font-size: clamp(18px, 4.5vw, 24px) !important;
+    word-break: break-word !important;
+    overflow-wrap: break-word !important;
+  }
+
+  .dm-flip-bullet-list li {
+    font-size: 0.8rem !important;
+    line-height: 1.45 !important;
+    word-break: break-word !important;
+  }
+
+  .pillars-hand-graphic-wrap {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    margin: 1.5rem auto 1.5rem auto !important;
+    width: 100% !important;
+    max-width: 280px !important;
+  }
+
+  .pillars-hand-img {
+    width: 100% !important;
+    max-width: 240px !important;
+    height: auto !important;
+    transform: none !important;
+    display: block !important;
+    margin: 0 auto !important;
+  }
+
+  /* 4.4.5 Case Stories Page Layouts */
+  .cs-hero-stats-row,
+  .cs-dual-narrative,
+  .cs-bento-grid,
+  .cs-card-metrics-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.25rem !important;
+  }
+
+  .cs-clients-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 0.75rem !important;
+  }
+
+  .cs-filter-bar,
+  .cs-filter-pills {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    gap: 0.5rem !important;
+    padding-bottom: 0.5rem !important;
+    width: 100% !important;
+  }
+
+  .cs-filter-btn {
+    white-space: nowrap !important;
+    flex-shrink: 0 !important;
+  }
+
+  /* 4.4.6 Contact Page Layouts */
+  .contact-split-grid,
+  .contact-card-split {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
+
+  .contact-form-row {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+
+  .contact-form-card,
+  .contact-info-cluster {
+    padding: 1.5rem !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .contact-map-iframe {
+    height: 280px !important;
+  }
+
+  /* 4.4.7 Universal Site Footer Mobile Stacking */
+  .footer-grid {
+    grid-template-columns: 1fr !important;
+    gap: 2.25rem !important;
+    text-align: left !important;
+  }
+
+  .footer-brand-col,
+  .footer-subscribe-col {
+    grid-column: span 1 !important;
+  }
+
+  .footer-subscribe-pill-form {
+    flex-direction: column !important;
+    border-radius: 12px !important;
+    background: transparent !important;
+    padding: 0 !important;
+    gap: 0.75rem !important;
+    border: none !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .footer-subscribe-input {
+    width: 100% !important;
+    height: 48px !important;
+    border-radius: 8px !important;
+    background: rgba(255, 255, 255, 0.08) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    padding: 0 1rem !important;
+    box-sizing: border-box !important;
+  }
+
+  .footer-subscribe-btn {
+    width: 100% !important;
+    height: 48px !important;
+    border-radius: 8px !important;
+    justify-content: center !important;
+    text-align: center !important;
+  }
+}
+
+/* ==========================================================================
+   5. COMPACT MOBILE VIEWPORTS (< 480px)
+   ========================================================================== */
+@media (max-width: 480px) {
+  .container,
+  .container-wide,
+  .container-narrow,
+  .container-home-compact,
+  .container-home-metrics,
+  .trust-reviews-container,
+  .cs-container,
+  .contact-container {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+
+  #heroScrollWrapper h1,
+  .hero-brand-heading {
+    font-size: clamp(24px, 7.8vw, 32px) !important;
+    line-height: 1.2 !important;
+    white-space: normal !important;
+    margin-bottom: 0.4rem !important;
+  }
+
+  #heroScrollWrapper h3,
+  .hero-brand-tagline {
+    font-size: clamp(19px, 6.2vw, 26px) !important;
+    line-height: 1.2 !important;
+    white-space: normal !important;
+    margin-top: 0.4rem !important;
+  }
+
+  .btn {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+
+  .dm-metrics-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .hero-experience-badge {
+    padding: 0.52rem 1.15rem !important;
+    margin-bottom: 1rem !important;
+    border-radius: 12px !important;
+  }
+
+  .hero-experience-badge .badge-text {
+    font-size: 13px !important;
+    letter-spacing: 0.06em !important;
+    white-space: nowrap !important;
+    text-align: center !important;
+  }
+
+  .hero-experience-badge .badge-blue-dot {
+    width: 10px !important;
+    height: 10px !important;
+  }
+
+  .dt-dots-wrapper {
+    gap: 6px !important;
+  }
+
+  .dt-dot {
+    width: 8px !important;
+    height: 8px !important;
+  }
+
+  .dt-dot.is-active {
+    width: 24px !important;
+  }
+}
+
+/* ==========================================================================
+   6. ULTRA-COMPACT SCREENS (360px and below)
+   ========================================================================== */
+@media (max-width: 360px) {
+  html {
+    font-size: 14.5px;
+  }
+
+  .brand-logo img,
+  .brand-logo-img {
+    height: 28px !important;
+  }
+
+  .booking-chip {
+    padding: 0.4rem 0.75rem !important;
+    font-size: 0.8rem !important;
+  }
+}

@@ -1,0 +1,1159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Digiolic — Your Growth Is Our Mission | Enterprise Zoho, Salesforce & Digital Growth</title>
+  <meta name="description"
+    content="Digiolic architects high-performance enterprise ecosystems. Scalable Zoho One architectures, Salesforce cloud engineering, and data-driven performance marketing.">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+
+  <!-- Core & Component CSS -->
+  <link rel="stylesheet" href="css/style.css?v=20260919_v209">
+  <link rel="stylesheet" href="css/components.css?v=20260919_v209">
+  <link rel="stylesheet" href="css/hero.css?v=20260919_v209">
+  <link rel="stylesheet" href="css/pages.css?v=20260919_v209">
+  <link rel="stylesheet" href="css/chat-widget.css?v=20260919_v209">
+
+  <!-- Exact Font specified -->
+  <link href="https://db.onlinewebfonts.com/c/95cecf452d3208890088a5b4c19c7ecf?family=Helvetica+Neue+ME" rel="stylesheet">
+  <link rel="stylesheet" href="assets/vectrus/vectrus-hero.css?v=20260919_v213">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Comic+Neue:ital,wght@0,400;0,700;1,700&family=Inter:ital,opsz,wght@0,14..32,300..900;1,14..32,300..900&family=Manrope:wght@400;500;600;700;800&family=Montserrat:wght@800;900&family=Outfit:wght@400;600;700;800&family=Patrick+Hand&family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+
+  <style>
+    /* Hero container for standalone React mount */
+    #heroNavbar,
+    #heroMobileOverlay {
+      display: none !important;
+    }
+    #heroScrollWrapper {
+      position: relative !important;
+      width: 100% !important;
+      height: auto !important;
+      min-height: 500vh !important;
+    }
+    /* Absolute Navbar at Top Only — Never Floats or Sticks When Scrolled */
+    .mainframe-navbar,
+    .hero-video-navbar,
+    #mainframeNavbar,
+    #heroNavbar {
+      position: absolute !important;
+      top: 0 !important;
+      left: 0 !important;
+      right: 0 !important;
+      width: 100% !important;
+      z-index: 1000 !important;
+      padding: 1.5rem 1.75rem !important;
+      min-height: 84px !important;
+      box-sizing: border-box !important;
+    }
+    @media (min-width: 768px) {
+      .mainframe-navbar,
+      .hero-video-navbar,
+      #mainframeNavbar,
+      #heroNavbar {
+        padding: 1.75rem 3rem !important;
+        min-height: 96px !important;
+      }
+    }
+    @media (min-width: 1280px) {
+      .mainframe-navbar,
+      .hero-video-navbar,
+      #mainframeNavbar,
+      #heroNavbar {
+        padding: 2rem 4.5rem !important;
+        min-height: 104px !important;
+      }
+    }
+    .mainframe-navbar.is-scrolled,
+    .hero-video-navbar.is-scrolled,
+    .mainframe-navbar.is-light-page.is-scrolled,
+    .hero-video-navbar.is-light.is-scrolled,
+    #mainframeNavbar.is-scrolled,
+    #heroNavbar.is-scrolled {
+      opacity: 0 !important;
+      visibility: hidden !important;
+      pointer-events: none !important;
+      display: none !important;
+    }
+
+    /* ==========================================================================
+       HOMEPAGE ONLY: Black Navbar Typography & Indicator
+       ========================================================================== */
+    #heroNavbar .video-nav-link {
+      color: #1E293B !important;
+      text-shadow: none !important;
+      font-weight: 500 !important;
+      transition: color 0.2s ease !important;
+    }
+
+    #heroNavbar .video-nav-link:hover {
+      color: #000000 !important;
+      opacity: 1 !important;
+    }
+
+    #heroNavbar .video-nav-link.is-active {
+      color: #000000 !important;
+      font-weight: 700 !important;
+      text-shadow: none !important;
+    }
+
+    #heroNavbar .video-nav-link.is-active::after {
+      background-color: #000000 !important;
+      box-shadow: none !important;
+      height: 2.5px !important;
+      border-radius: 9999px !important;
+    }
+
+    #heroNavbar .btn-nav-contact-pill {
+      background-color: #000000 !important;
+      background: #000000 !important;
+      color: #FFFFFF !important;
+      border: none !important;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25) !important;
+    }
+
+    #heroNavbar .btn-nav-contact-pill:hover {
+      background-color: #1E293B !important;
+      background: #1E293B !important;
+      color: #FFFFFF !important;
+      transform: translateY(-2px) !important;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3) !important;
+    }
+
+    #heroNavbar .video-nav-hamburger {
+      color: #0F172A !important;
+    }
+
+    #heroNavbar .video-hamburger-bar {
+      background-color: #0F172A !important;
+    }
+
+    /* ==========================================================================
+       HOMEPAGE HERO: Pure Black Headline & Action Circle
+       ========================================================================== */
+    #heroSection1 .hero-v1-main-heading,
+    #heroSection1 .hero-v1-line-primary,
+    #heroSection1 .hero-v1-line-tagline,
+    #heroSection1 .hero-v1-title,
+    .hero-v1-title {
+      color: #000000 !important;
+      text-shadow: none !important;
+    }
+
+    #heroSection1 .hero-v1-btn-circle {
+      color: #000000 !important;
+    }
+  </style>
+  <link rel="stylesheet" href="css/responsive.css?v=20260919_v213">
+</head>
+
+<body>
+
+  <main id="mainContent">
+
+    <!-- ==========================================================================
+         CINEMATIC SCROLL-TIED VIDEO HERO SECTION (Vite React WebCodecs Mount)
+         ========================================================================== -->
+    <div id="heroScrollWrapper"></div>
+
+    <!-- ==========================================================================
+         2. KEY METRICS & TRUSTED CLIENTS (Single Row, 50-50 Proportion)
+         ========================================================================== -->
+    <section class="home-metrics-clients-section" id="metricsSection" aria-label="Key Achievements and Clients">
+      <div class="container-home-metrics">
+        <div class="home-mc-grid">
+          
+          <!-- Left Side (50%): 3 Key Numbers with Animated Counters -->
+          <div class="home-mc-left reveal-on-scroll">
+            <div class="home-mc-stats-row">
+              
+              <div class="home-mc-stat">
+                <div class="home-mc-num" data-count="8">0</div>
+                <div class="home-mc-label">Years of Serving Clients</div>
+                <p class="home-mc-sub">Continuous cloud & growth execution.</p>
+              </div>
+
+              <div class="home-mc-stat">
+                <div class="home-mc-num" data-count="100" data-suffix="+">0+</div>
+                <div class="home-mc-label">Projects Completed</div>
+                <p class="home-mc-sub">Bespoke Zoho, Salesforce & marketing builds.</p>
+              </div>
+
+              <div class="home-mc-stat">
+                <div class="home-mc-num" data-count="20" data-suffix="+">0+</div>
+                <div class="home-mc-label">Clients Served</div>
+                <p class="home-mc-sub">Trusted by high-growth enterprise brands.</p>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Divider -->
+          <div class="home-mc-divider"></div>
+
+          <!-- Right Side (50%): Client Logo Marquee Animation -->
+          <div class="home-mc-right reveal-on-scroll stagger-1">
+            <div class="home-mc-trusted-head">
+              <h2 class="home-mc-trusted-title">TRUSTED BY</h2>
+            </div>
+            
+            <div class="home-mc-marquee-wrap">
+              <div class="home-mc-marquee-track">
+                <!-- Loop set 1 -->
+                <div class="home-mc-logo-item"><img src="assets/images/company-logos/audible-india.webp" alt="Audible" class="home-mc-logo-img"></div>
+                <div class="home-mc-logo-item"><img src="assets/images/company-logos/flipkart.jpeg" alt="Flipkart" class="home-mc-logo-img"></div>
+                <div class="home-mc-logo-item"><img src="assets/images/company-logos/Siemens.jpeg" alt="Siemens" class="home-mc-logo-img"></div>
+                <div class="home-mc-logo-item"><img src="assets/images/company-logos/Betterplace.png" alt="Betterplace" class="home-mc-logo-img"></div>
+                <div class="home-mc-logo-item"><img src="assets/images/company-logos/haldirams.png" alt="Haldiram's" class="home-mc-logo-img"></div>
+                <div class="home-mc-logo-item"><img src="assets/images/company-logos/Xiaomi.png" alt="Xiaomi" class="home-mc-logo-img"></div>
+                <div class="home-mc-logo-item"><img src="assets/images/company-logos/Sobha.jpeg" alt="Sobha" class="home-mc-logo-img"></div>
+                <div class="home-mc-logo-item"><img src="assets/images/company-logos/Melorra.png" alt="Melorra" class="home-mc-logo-img"></div>
+                <div class="home-mc-logo-item"><img src="assets/images/company-logos/nexus-wealth-management.jpeg" alt="Nexus Wealth Management" class="home-mc-logo-img"></div>
+                <div class="home-mc-logo-item"><img src="assets/images/company-logos/savaari-car-rentals.jpeg" alt="Savaari Car Rentals" class="home-mc-logo-img"></div>
+                <div class="home-mc-logo-item"><img src="assets/images/company-logos/medall-diagnostics.jpeg" alt="Medall Diagnostics" class="home-mc-logo-img"></div>
+                <div class="home-mc-logo-item"><img src="assets/images/company-logos/ur-health.jpeg" alt="ur Health" class="home-mc-logo-img"></div>
+                <div class="home-mc-logo-item"><img src="assets/images/company-logos/Freshersworld.png" alt="Freshersworld" class="home-mc-logo-img"></div>
+                <!-- Loop set 2 (Seamless loop) -->
+                <div class="home-mc-logo-item"><img src="assets/images/company-logos/audible-india.webp" alt="Audible" class="home-mc-logo-img"></div>
+                <div class="home-mc-logo-item"><img src="assets/images/company-logos/flipkart.jpeg" alt="Flipkart" class="home-mc-logo-img"></div>
+                <div class="home-mc-logo-item"><img src="assets/images/company-logos/Siemens.jpeg" alt="Siemens" class="home-mc-logo-img"></div>
+                <div class="home-mc-logo-item"><img src="assets/images/company-logos/Betterplace.png" alt="Betterplace" class="home-mc-logo-img"></div>
+                <div class="home-mc-logo-item"><img src="assets/images/company-logos/haldirams.png" alt="Haldiram's" class="home-mc-logo-img"></div>
+                <div class="home-mc-logo-item"><img src="assets/images/company-logos/Xiaomi.png" alt="Xiaomi" class="home-mc-logo-img"></div>
+                <div class="home-mc-logo-item"><img src="assets/images/company-logos/Sobha.jpeg" alt="Sobha" class="home-mc-logo-img"></div>
+                <div class="home-mc-logo-item"><img src="assets/images/company-logos/Melorra.png" alt="Melorra" class="home-mc-logo-img"></div>
+                <div class="home-mc-logo-item"><img src="assets/images/company-logos/nexus-wealth-management.jpeg" alt="Nexus Wealth Management" class="home-mc-logo-img"></div>
+                <div class="home-mc-logo-item"><img src="assets/images/company-logos/savaari-car-rentals.jpeg" alt="Savaari Car Rentals" class="home-mc-logo-img"></div>
+                <div class="home-mc-logo-item"><img src="assets/images/company-logos/medall-diagnostics.jpeg" alt="Medall Diagnostics" class="home-mc-logo-img"></div>
+                <div class="home-mc-logo-item"><img src="assets/images/company-logos/ur-health.jpeg" alt="ur Health" class="home-mc-logo-img"></div>
+                <div class="home-mc-logo-item"><img src="assets/images/company-logos/Freshersworld.png" alt="Freshersworld" class="home-mc-logo-img"></div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         3. CORE TECHNOLOGY & SERVICES OVERVIEW (Rectangle Practice Cards)
+         ========================================================================== -->
+    <section class="section-padding-compact" id="servicesSection"
+      style="background: var(--color-bg-alt); border-top: 1px solid var(--color-card-border); border-bottom: 1px solid var(--color-card-border);">
+      <div class="container-home-compact">
+
+        <div class="section-header-compact reveal-on-scroll">
+          <span class="badge-eyebrow">
+            <span class="badge-dot"></span> Core Practices
+          </span>
+          <h2 class="heading-xl heading-bold-enterprise">Enterprise Solutions Built for <span class="compound-growth-anim">Compound Growth</span></h2>
+          <p class="lead">
+            Specialized engineering and growth teams designed to scale your operations, streamline CRM adoption, and
+            maximize customer acquisition.
+          </p>
+        </div>
+
+        <!-- Rectangle Practice Grid -->
+        <div class="practice-rect-grid">
+
+          <!-- Pillar 1: Zoho (Rectangle Card) -->
+          <div class="practice-rect-card reveal-on-scroll stagger-1">
+            <div>
+              <div class="practice-rect-img-wrap">
+                <img src="assets/images/zoho-practice.png" alt="Enterprise Zoho" class="practice-rect-img">
+              </div>
+              <span class="practice-rect-badge">Enterprise Zoho</span>
+              <h3 class="practice-rect-title">Zoho Applications & Features</h3>
+              <p class="practice-rect-desc">
+                Transform Zoho One into an agile, highly tailored operating system. Custom CRM blueprints, Creator
+                applications, automated Books billing, and deep Deluge scripts.
+              </p>
+              <ul class="practice-feature-list">
+                <li class="practice-feature-item">
+                  <svg width="18" height="18" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd"
+                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                      clip-rule="evenodd" />
+                  </svg>
+                  <span>Zoho One & CRM Plus Enterprise Architecture</span>
+                </li>
+                <li class="practice-feature-item">
+                  <svg width="18" height="18" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd"
+                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                      clip-rule="evenodd" />
+                  </svg>
+                  <span>Custom Zoho Creator Portal Engineering</span>
+                </li>
+                <li class="practice-feature-item">
+                  <svg width="18" height="18" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd"
+                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                      clip-rule="evenodd" />
+                  </svg>
+                  <span>Deluge Workflow & Webhook Automation</span>
+                </li>
+              </ul>
+            </div>
+            <a href="pages/zoho.html" class="practice-rect-link">Explore Zoho Practice &rarr;</a>
+          </div>
+
+          <!-- Pillar 2: Salesforce (Rectangle Card) -->
+          <div class="practice-rect-card reveal-on-scroll stagger-2">
+            <div>
+              <div class="practice-rect-img-wrap">
+                <img src="assets/images/salesforce-practice.png" alt="Salesforce Engineering" class="practice-rect-img">
+              </div>
+              <span class="practice-rect-badge">Cloud Engineering</span>
+              <h3 class="practice-rect-title">Salesforce Ecosystem & Apex</h3>
+              <p class="practice-rect-desc">
+                Scale Sales Cloud, Service Cloud, and Experience Cloud with bulletproof architecture. Flow automation,
+                custom LWC components, and seamless ERP/API integrations.
+              </p>
+              <ul class="practice-feature-list">
+                <li class="practice-feature-item">
+                  <svg width="18" height="18" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd"
+                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                      clip-rule="evenodd" />
+                  </svg>
+                  <span>Sales Cloud & Service Cloud Optimization</span>
+                </li>
+                <li class="practice-feature-item">
+                  <svg width="18" height="18" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd"
+                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                      clip-rule="evenodd" />
+                  </svg>
+                  <span>Sub-Second Flow & Apex Logic Engineering</span>
+                </li>
+                <li class="practice-feature-item">
+                  <svg width="18" height="18" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd"
+                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                      clip-rule="evenodd" />
+                  </svg>
+                  <span>Experience Cloud Portals & MuleSoft Sync</span>
+                </li>
+              </ul>
+            </div>
+            <a href="pages/salesforce.html" class="practice-rect-link">Explore Salesforce Practice &rarr;</a>
+          </div>
+
+          <!-- Pillar 3: Digital Marketing (Rectangle Card) -->
+          <div class="practice-rect-card reveal-on-scroll stagger-3">
+            <div>
+              <div class="practice-rect-img-wrap">
+                <img src="assets/images/marketing-practice.png" alt="Digital Marketing" class="practice-rect-img">
+              </div>
+              <span class="practice-rect-badge">Revenue Acceleration</span>
+              <h3 class="practice-rect-title">Performance Marketing & CRO</h3>
+              <p class="practice-rect-desc">
+                Full-funnel digital acquisition that connects directly to pipeline revenue. Precision paid ads, technical
+                SEO, conversion rate optimization, and multi-touch attribution.
+              </p>
+              <ul class="practice-feature-list">
+                <li class="practice-feature-item">
+                  <svg width="18" height="18" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd"
+                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                      clip-rule="evenodd" />
+                  </svg>
+                  <span>Multi-Channel Paid Acquisition (Google/Meta/LinkedIn)</span>
+                </li>
+                <li class="practice-feature-item">
+                  <svg width="18" height="18" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd"
+                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                      clip-rule="evenodd" />
+                  </svg>
+                  <span>Technical SEO & High-Intent Funnels</span>
+                </li>
+                <li class="practice-feature-item">
+                  <svg width="18" height="18" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd"
+                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                      clip-rule="evenodd" />
+                  </svg>
+                  <span>CRM-Integrated Lead Scoring & Nurturing</span>
+                </li>
+              </ul>
+            </div>
+            <a href="pages/digital-marketing.html" class="practice-rect-link">Explore Marketing Practice &rarr;</a>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         3.5 WHY CHOOSE DIGIOLIC? (3D INFOGRAPHIC DESIGN)
+         ========================================================================== -->
+    <section class="why-us-infographic-section" id="whyDigiolicSection" aria-label="Why Choose Digiolic">
+      
+      <!-- Top Right Subtle Dot Matrix Decorative Accent -->
+      <div class="why-us-dot-grid" aria-hidden="true">
+        <svg width="100" height="90" viewBox="0 0 100 90" fill="none">
+          <pattern id="dotPatternWCU" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+            <circle cx="5" cy="5" r="3.2" fill="#CBD5E1" opacity="0.8"/>
+          </pattern>
+          <rect width="100" height="90" fill="url(#dotPatternWCU)"/>
+        </svg>
+      </div>
+
+      <div class="why-us-main-container">
+
+        <!-- Top Header (Matching Infographic Reference) -->
+        <div class="why-us-header reveal-on-scroll">
+          <span class="why-us-eyebrow">W H Y &nbsp; C H O O S E</span>
+          <h2 class="why-us-title">US?</h2>
+          <p class="why-us-subtitle">SMART SOLUTIONS. <span class="why-us-gradient-text">REAL RESULTS.</span></p>
+        </div>
+
+        <!-- 3-Column Infographic Layout -->
+        <div class="why-us-infographic-stage">
+
+          <!-- SVG CONNECTING DASHED ARROWS (Desktop only) -->
+          <svg class="why-us-connectors-svg" viewBox="0 0 1240 816" fill="none" preserveAspectRatio="none" aria-hidden="true">
+            <defs>
+              <marker id="arrowhead-left" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto">
+                <polygon points="8 1, 2 4, 8 7" fill="#6366F1"/>
+              </marker>
+              <marker id="arrowhead-right" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+                <polygon points="0 1, 6 4, 0 7" fill="#6366F1"/>
+              </marker>
+            </defs>
+            <!-- Left 1: Top-Left (From question mark curve to CLIENT SUPPORT badge) -->
+            <path d="M 430 140 C 350 160, 290 75, 216 34" stroke="#6366F1" stroke-width="2" stroke-dasharray="5 5" marker-end="url(#arrowhead-left)"/>
+            <!-- Left 2: Mid-Left (From question mark body to OUR STRATEGY badge) -->
+            <path d="M 440 330 C 370 355, 290 330, 216 330" stroke="#6366F1" stroke-width="2" stroke-dasharray="5 5" marker-end="url(#arrowhead-left)"/>
+            <!-- Left 3: Bottom-Left (From question mark stem to EXPERT TEAM badge) -->
+            <path d="M 460 520 C 380 570, 300 615, 216 626" stroke="#6366F1" stroke-width="2" stroke-dasharray="5 5" marker-end="url(#arrowhead-left)"/>
+
+            <!-- Right 1: Top-Right (From question mark top-right curve to MORE GROWTH badge) -->
+            <path d="M 780 140 C 860 160, 930 75, 1025 34" stroke="#6366F1" stroke-width="2" stroke-dasharray="5 5" marker-end="url(#arrowhead-right)"/>
+            <!-- Right 2: Mid-Right (From question mark outer curve to MORE REACH badge) -->
+            <path d="M 840 309 C 900 330, 960 309, 1025 309" stroke="#6366F1" stroke-width="2" stroke-dasharray="5 5" marker-end="url(#arrowhead-right)"/>
+            <!-- Right 3: Bottom-Right (From question mark dot to CREATIVE IDEAS badge) -->
+            <path d="M 740 520 C 820 560, 920 575, 1025 583" stroke="#6366F1" stroke-width="2" stroke-dasharray="5 5" marker-end="url(#arrowhead-right)"/>
+          </svg>
+
+          <!-- LEFT COLUMN (3 Callouts) -->
+          <div class="why-us-column why-us-col-left">
+
+            <!-- Item 1: Industry Domain Expertise -->
+            <div class="why-us-item reveal-on-scroll stagger-1" id="wcuItem1">
+              <div class="why-us-icon-badge">
+                <svg width="34" height="34" viewBox="0 0 36 36" fill="none">
+                  <!-- Modern Headset / Support Icon in Blue/Purple -->
+                  <circle cx="18" cy="18" r="16" fill="url(#iconGlow1)" opacity="0.15"/>
+                  <path d="M9 19V17C9 12.03 13.03 8 18 8C22.97 8 27 12.03 27 17V19" stroke="#4F46E5" stroke-width="2.2" stroke-linecap="round"/>
+                  <rect x="7" y="18" width="4.5" height="8" rx="2.2" fill="#2563EB" stroke="#1D4ED8" stroke-width="1.5"/>
+                  <rect x="24.5" y="18" width="4.5" height="8" rx="2.2" fill="#7C3AED" stroke="#6D28D9" stroke-width="1.5"/>
+                  <path d="M26.7 26V28.5C26.7 30 25.2 31 23.5 31H21" stroke="#7C3AED" stroke-width="2" stroke-linecap="round"/>
+                  <circle cx="19.5" cy="31" r="1.5" fill="#4F46E5"/>
+                  <defs>
+                    <linearGradient id="iconGlow1" x1="0" y1="0" x2="36" y2="36" gradientUnits="userSpaceOnUse">
+                      <stop stop-color="#2563EB"/>
+                      <stop offset="1" stop-color="#7C3AED"/>
+                    </linearGradient>
+                  </defs>
+                </svg>
+              </div>
+              <h3 class="why-us-item-title">
+                CLIENT<br><span class="why-us-title-accent">SUPPORT</span>
+              </h3>
+              <div class="why-us-item-bar"></div>
+              <p class="why-us-item-desc">
+                We bring deep industry insight across Professional Services, Retail, Manufacturing, BFSI, and Healthcare, tailoring our Zoho, Salesforce, and digital marketing strategies to your sector.
+              </p>
+            </div>
+
+            <!-- Item 2: Business Process Excellence (OUR STRATEGY) -->
+            <div class="why-us-item reveal-on-scroll stagger-2" id="wcuItem2">
+              <div class="why-us-icon-badge">
+                <svg width="34" height="34" viewBox="0 0 36 36" fill="none">
+                  <!-- Target / Strategy Icon -->
+                  <circle cx="18" cy="18" r="13" stroke="#2563EB" stroke-width="2.2"/>
+                  <circle cx="18" cy="18" r="8" stroke="#7C3AED" stroke-width="2.2"/>
+                  <circle cx="18" cy="18" r="3.5" fill="#2563EB"/>
+                  <path d="M26 10L30 6M30 6H25M30 6V11" stroke="#4F46E5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <h3 class="why-us-item-title">
+                OUR<br><span class="why-us-title-accent">STRATEGY</span>
+              </h3>
+              <div class="why-us-item-bar"></div>
+              <p class="why-us-item-desc">
+                We optimize your operational ecosystem—spanning Sales, Support, and Marketing—by seamlessly integrating Zoho, Salesforce, and performance growth channels.
+              </p>
+            </div>
+
+            <!-- Item 3: Solution Leadership (EXPERT TEAM) -->
+            <div class="why-us-item reveal-on-scroll stagger-3" id="wcuItem3">
+              <div class="why-us-icon-badge">
+                <svg width="34" height="34" viewBox="0 0 36 36" fill="none">
+                  <!-- People / Team Icon -->
+                  <circle cx="14" cy="13" r="4.5" fill="#2563EB"/>
+                  <path d="M7 27C7 22.8 10.2 20 14 20C17.8 20 21 22.8 21 27" fill="#2563EB" opacity="0.9"/>
+                  <circle cx="23.5" cy="14" r="3.5" fill="#7C3AED"/>
+                  <path d="M19 27C19.3 24 21.2 22 23.5 22C26.5 22 29 24.2 29 27" fill="#7C3AED" opacity="0.9"/>
+                </svg>
+              </div>
+              <h3 class="why-us-item-title">
+                EXPERT<br><span class="why-us-title-accent">TEAM</span>
+              </h3>
+              <div class="why-us-item-bar"></div>
+              <p class="why-us-item-desc">
+                We guide you to the absolute best-fit tools across the Zoho and Salesforce landscapes, expertly pairing them with high-impact digital marketing solutions.
+              </p>
+            </div>
+
+          </div>
+
+          <!-- CENTER COLUMN (3D Question Mark with Businessman) -->
+          <div class="why-us-column why-us-col-center">
+            <div class="why-us-figure-wrapper">
+              <div class="why-us-back-glow" aria-hidden="true"></div>
+              <img
+                src="assets/images/why-choose-us-figure.png"
+                alt="Why Choose Digiolic Professional Team"
+                class="why-us-hero-img"
+                loading="eager"
+                fetchpriority="high"
+              >
+            </div>
+          </div>
+
+          <!-- RIGHT COLUMN (3 Callouts) -->
+          <div class="why-us-column why-us-col-right">
+
+            <!-- Item 4: Implementation Skills (MORE GROWTH) -->
+            <div class="why-us-item reveal-on-scroll stagger-4" id="wcuItem4">
+              <div class="why-us-icon-badge">
+                <svg width="34" height="34" viewBox="0 0 36 36" fill="none">
+                  <!-- Bar Chart with Growth Arrow -->
+                  <rect x="8" y="21" width="4" height="8" rx="1.5" fill="#2563EB"/>
+                  <rect x="16" y="16" width="4" height="13" rx="1.5" fill="#4F46E5"/>
+                  <rect x="24" y="10" width="4" height="19" rx="1.5" fill="#7C3AED"/>
+                  <path d="M9 16L18 10L27 6M27 6H21M27 6V12" stroke="#2563EB" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <h3 class="why-us-item-title">
+                MORE<br><span class="why-us-title-accent">GROWTH</span>
+              </h3>
+              <div class="why-us-item-bar"></div>
+              <p class="why-us-item-desc">
+                We leverage 8 years of technical expertise to deploy scalable Zoho and Salesforce environments backed by performance-driven marketing systems.
+              </p>
+            </div>
+
+            <!-- Item 5: Delivery (MORE REACH) -->
+            <div class="why-us-item reveal-on-scroll stagger-5" id="wcuItem5">
+              <div class="why-us-icon-badge">
+                <svg width="34" height="34" viewBox="0 0 36 36" fill="none">
+                  <!-- Globe / Reach Icon -->
+                  <circle cx="18" cy="18" r="12" stroke="#2563EB" stroke-width="2.2"/>
+                  <ellipse cx="18" cy="18" rx="5.5" ry="12" stroke="#7C3AED" stroke-width="1.8"/>
+                  <line x1="6" y1="18" x2="30" y2="18" stroke="#4F46E5" stroke-width="1.8"/>
+                </svg>
+              </div>
+              <h3 class="why-us-item-title">
+                MORE<br><span class="why-us-title-accent">REACH</span>
+              </h3>
+              <div class="why-us-item-bar"></div>
+              <p class="why-us-item-desc">
+                We manage your end-to-end digital transformation using proven project management methodologies across all Zoho, Salesforce, and marketing rollouts.
+              </p>
+            </div>
+
+            <!-- Item 6: Continued Support for Success (CREATIVE IDEAS) -->
+            <div class="why-us-item reveal-on-scroll stagger-6" id="wcuItem6">
+              <div class="why-us-icon-badge">
+                <svg width="34" height="34" viewBox="0 0 36 36" fill="none">
+                  <!-- Lightbulb / Creative Ideas Icon -->
+                  <path d="M18 7C13.6 7 10 10.6 10 15C10 18.2 11.8 20.8 14.5 22.2V24.5C14.5 25.3 15.2 26 16 26H20C20.8 26 21.5 25.3 21.5 24.5V22.2C24.2 20.8 26 18.2 26 15C26 10.6 22.4 7 18 7Z" stroke="#7C3AED" stroke-width="2.2" fill="#FAF5FF"/>
+                  <line x1="15.5" y1="29" x2="20.5" y2="29" stroke="#4F46E5" stroke-width="2.5" stroke-linecap="round"/>
+                  <line x1="18" y1="3" x2="18" y2="1" stroke="#2563EB" stroke-width="2" stroke-linecap="round"/>
+                  <line x1="27" y1="6" x2="28.5" y2="4.5" stroke="#2563EB" stroke-width="2" stroke-linecap="round"/>
+                  <line x1="9" y1="6" x2="7.5" y2="4.5" stroke="#2563EB" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <h3 class="why-us-item-title">
+                CREATIVE<br><span class="why-us-title-accent">IDEAS</span>
+              </h3>
+              <div class="why-us-item-bar"></div>
+              <p class="why-us-item-desc">
+                We provide ongoing technical and strategic support to keep your Zoho, Salesforce, and digital marketing campaigns synchronized, secure, and scaling.
+              </p>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         3.75 HOW DO WE DELIVER SUCCESS?
+         ========================================================================== -->
+    <!-- ==========================================================================
+         3.75 HOW DO WE DELIVER SUCCESS? (SERPENTINE PIPELINE FLOW)
+         ========================================================================== -->
+    <section class="deliver-success-section" id="howWeDeliverSection" aria-label="How Do We Deliver Success">
+      
+      <!-- Subtle Circuit Watermarks on Sides (Matching Infographic Reference) -->
+      <div class="deliver-circuit-bg deliver-circuit-left" aria-hidden="true">
+        <svg width="220" height="600" viewBox="0 0 220 600" fill="none">
+          <path d="M 0 60 H 70 V 160 H 130 V 260 H 180" stroke="#7C3AED" stroke-width="1.5" stroke-dasharray="4 4" opacity="0.16"/>
+          <circle cx="180" cy="260" r="3.5" fill="#7C3AED" opacity="0.25"/>
+          <path d="M 0 360 H 100 V 440 H 50 V 530 H 140" stroke="#7C3AED" stroke-width="1.5" stroke-dasharray="4 4" opacity="0.16"/>
+          <circle cx="140" cy="530" r="3.5" fill="#7C3AED" opacity="0.25"/>
+        </svg>
+      </div>
+
+      <div class="deliver-circuit-bg deliver-circuit-right" aria-hidden="true">
+        <svg width="220" height="600" viewBox="0 0 220 600" fill="none">
+          <path d="M 220 80 H 150 V 200 H 90 V 300 H 40" stroke="#7C3AED" stroke-width="1.5" stroke-dasharray="4 4" opacity="0.16"/>
+          <circle cx="40" cy="300" r="3.5" fill="#7C3AED" opacity="0.25"/>
+          <path d="M 220 380 H 130 V 460 H 170 V 540 H 80" stroke="#7C3AED" stroke-width="1.5" stroke-dasharray="4 4" opacity="0.16"/>
+          <circle cx="80" cy="540" r="3.5" fill="#7C3AED" opacity="0.25"/>
+        </svg>
+      </div>
+
+      <div class="container-home-compact">
+
+        <div class="section-header-compact reveal-on-scroll">
+          <span class="badge-eyebrow">
+            <span class="badge-dot"></span> Execution Methodology
+          </span>
+          <h2 class="heading-xl">How Do We Deliver <span class="deliver-title-gradient">Success?</span></h2>
+          <p class="lead">
+            Our battle-tested five-phase delivery framework turns complex enterprise cloud requirements into compound operational velocity.
+          </p>
+        </div>
+
+        <!-- Serpentine Flow Timeline Stage -->
+        <div class="deliver-serpentine-stage">
+
+          <!-- Desktop SVG Connecting Dashed Pipeline Overlay -->
+          <svg class="deliver-pipeline-svg" viewBox="0 0 1114 590" fill="none" preserveAspectRatio="none" aria-hidden="true">
+            <!-- Pipeline 1: Node 1 Top to Node 2 Top -->
+            <path d="M 105 180 V 35 Q 105 15, 125 15 H 311 Q 331 15, 331 35 V 45" stroke="#7C3AED" stroke-width="2.5" stroke-dasharray="6 6" stroke-linecap="round" stroke-linejoin="round"/>
+            
+            <!-- Pipeline 2: Card 2 Bottom to Card 3 Bottom -->
+            <path d="M 331 359 V 545 Q 331 565, 351 565 H 537 Q 557 565, 557 545 V 515" stroke="#7C3AED" stroke-width="2.5" stroke-dasharray="6 6" stroke-linecap="round" stroke-linejoin="round"/>
+
+            <!-- Pipeline 3: Node 3 Top to Node 4 Top -->
+            <path d="M 557 180 V 35 Q 557 15, 577 15 H 763 Q 783 15, 783 35 V 45" stroke="#7C3AED" stroke-width="2.5" stroke-dasharray="6 6" stroke-linecap="round" stroke-linejoin="round"/>
+
+            <!-- Pipeline 4: Card 4 Bottom to Card 5 Bottom -->
+            <path d="M 783 359 V 545 Q 783 565, 803 565 H 989 Q 1009 565, 1009 545 V 494" stroke="#7C3AED" stroke-width="2.5" stroke-dasharray="6 6" stroke-linecap="round" stroke-linejoin="round"/>
+
+            <!-- Straight dashed connectors between node bottom and card top -->
+            <line x1="105" y1="310" x2="105" y2="330" stroke="#7C3AED" stroke-width="2.5" stroke-dasharray="5 5" stroke-linecap="round"/>
+            <line x1="331" y1="175" x2="331" y2="195" stroke="#7C3AED" stroke-width="2.5" stroke-dasharray="5 5" stroke-linecap="round"/>
+            <line x1="557" y1="310" x2="557" y2="330" stroke="#7C3AED" stroke-width="2.5" stroke-dasharray="5 5" stroke-linecap="round"/>
+            <line x1="783" y1="175" x2="783" y2="195" stroke="#7C3AED" stroke-width="2.5" stroke-dasharray="5 5" stroke-linecap="round"/>
+            <line x1="1009" y1="310" x2="1009" y2="330" stroke="#7C3AED" stroke-width="2.5" stroke-dasharray="5 5" stroke-linecap="round"/>
+          </svg>
+
+          <!-- 5 Alternating Serpentine Columns -->
+          <div class="deliver-serpentine-grid">
+
+            <!-- Step 01: Consulting (Low Node) -->
+            <div class="deliver-step-col deliver-col-low reveal-on-scroll stagger-1" id="deliverStep1">
+              <div class="deliver-node-wrap">
+                <div class="deliver-node-outer" aria-hidden="true"></div>
+                <div class="deliver-node-middle" aria-hidden="true"></div>
+                <div class="deliver-node-badge">
+                  <!-- Strategy / Target Discovery Icon (Matching Reference Icon 1) -->
+                  <svg width="40" height="40" viewBox="0 0 36 36" fill="none">
+                    <circle cx="18" cy="18" r="14" stroke="#7C3AED" stroke-width="2.2"/>
+                    <circle cx="18" cy="18" r="9" stroke="#7C3AED" stroke-width="2.2"/>
+                    <circle cx="18" cy="18" r="4" fill="#7C3AED"/>
+                    <path d="M26 10L30 6M30 6H25M30 6V11" stroke="#7C3AED" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </div>
+              </div>
+              <div class="deliver-step-info">
+                <div class="deliver-step-num-pill">01 / STRATEGY</div>
+                <h3 class="deliver-step-title">Consulting</h3>
+                <p class="deliver-step-desc">
+                  In-depth discovery workshops to understand your workflows, pain points, and strategic goals across Zoho, Salesforce, and digital marketing channels.
+                </p>
+              </div>
+            </div>
+
+            <!-- Step 02: Gap Analysis (Elevated Node) -->
+            <div class="deliver-step-col deliver-col-high reveal-on-scroll stagger-2" id="deliverStep2">
+              <div class="deliver-node-wrap">
+                <div class="deliver-node-outer" aria-hidden="true"></div>
+                <div class="deliver-node-middle" aria-hidden="true"></div>
+                <div class="deliver-node-badge">
+                  <!-- Pen Tool / Audit & Analysis Icon (Matching Reference Icon 2) -->
+                  <svg width="40" height="40" viewBox="0 0 36 36" fill="none">
+                    <path d="M18 9L23 16L20 25H16L13 16L18 9Z" stroke="#7C3AED" stroke-width="2.2" stroke-linejoin="round" fill="#FAF5FF"/>
+                    <line x1="18" y1="16" x2="18" y2="21" stroke="#7C3AED" stroke-width="2"/>
+                    <circle cx="18" cy="21" r="1.5" fill="#7C3AED"/>
+                    <path d="M11 12C14 8 22 8 25 12" stroke="#7C3AED" stroke-width="1.8" stroke-dasharray="2 2"/>
+                    <rect x="9" y="10.5" width="3" height="3" fill="#7C3AED"/>
+                    <rect x="24" y="10.5" width="3" height="3" fill="#7C3AED"/>
+                  </svg>
+                </div>
+              </div>
+              <div class="deliver-step-info">
+                <div class="deliver-step-num-pill">02 / AUDIT</div>
+                <h3 class="deliver-step-title">Gap Analysis</h3>
+                <p class="deliver-step-desc">
+                  Comprehensive system audits to uncover data bottlenecks, manual workflow gaps, and alignment issues across your CRM and marketing stack.
+                </p>
+              </div>
+            </div>
+
+            <!-- Step 03: Implementation (Low Node) -->
+            <div class="deliver-step-col deliver-col-low reveal-on-scroll stagger-3" id="deliverStep3">
+              <div class="deliver-node-wrap">
+                <div class="deliver-node-outer" aria-hidden="true"></div>
+                <div class="deliver-node-middle" aria-hidden="true"></div>
+                <div class="deliver-node-badge">
+                  <!-- Code Architecture Window </> Icon (Matching Reference Icon 3) -->
+                  <svg width="40" height="40" viewBox="0 0 36 36" fill="none">
+                    <rect x="6" y="8" width="24" height="20" rx="3.5" stroke="#7C3AED" stroke-width="2.2" fill="#FAF5FF"/>
+                    <line x1="6" y1="14" x2="30" y2="14" stroke="#7C3AED" stroke-width="1.8"/>
+                    <circle cx="10" cy="11" r="1.2" fill="#7C3AED"/>
+                    <circle cx="14" cy="11" r="1.2" fill="#7C3AED"/>
+                    <path d="M13 18L10 21L13 24" stroke="#7C3AED" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M23 18L26 21L23 24" stroke="#7C3AED" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <line x1="19.5" y1="17.5" x2="16.5" y2="24.5" stroke="#7C3AED" stroke-width="2" stroke-linecap="round"/>
+                  </svg>
+                </div>
+              </div>
+              <div class="deliver-step-info">
+                <div class="deliver-step-num-pill">03 / BUILD</div>
+                <h3 class="deliver-step-title">Implementation</h3>
+                <p class="deliver-step-desc">
+                  Custom architecture, advanced scripting, and seamless multi-app integration across Zoho, Salesforce, and performance marketing tools in a dedicated sandbox.
+                </p>
+              </div>
+            </div>
+
+            <!-- Step 04: Support (Elevated Node) -->
+            <div class="deliver-step-col deliver-col-high reveal-on-scroll stagger-4" id="deliverStep4">
+              <div class="deliver-node-wrap">
+                <div class="deliver-node-outer" aria-hidden="true"></div>
+                <div class="deliver-node-middle" aria-hidden="true"></div>
+                <div class="deliver-node-badge">
+                  <!-- SLA Maintenance & Support Shield Icon -->
+                  <svg width="40" height="40" viewBox="0 0 36 36" fill="none">
+                    <path d="M18 7L28 11.5V19C28 25.5 23.5 29.5 18 31C12.5 29.5 8 25.5 8 19V11.5L18 7Z" stroke="#7C3AED" stroke-width="2.2" stroke-linejoin="round" fill="#FAF5FF"/>
+                    <path d="M14 19L17 22L23 15" stroke="#7C3AED" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </div>
+              </div>
+              <div class="deliver-step-info">
+                <div class="deliver-step-num-pill">04 / SLA</div>
+                <h3 class="deliver-step-title">Support</h3>
+                <p class="deliver-step-desc">
+                  SLA-backed maintenance, rapid issue resolution, schema optimization, and ongoing technical upkeep for your entire tech and growth ecosystem.
+                </p>
+              </div>
+            </div>
+
+            <!-- Step 05: Training & Adoption (Low Node) -->
+            <div class="deliver-step-col deliver-col-low reveal-on-scroll stagger-5" id="deliverStep5">
+              <div class="deliver-node-wrap">
+                <div class="deliver-node-outer" aria-hidden="true"></div>
+                <div class="deliver-node-middle" aria-hidden="true"></div>
+                <div class="deliver-node-badge">
+                  <!-- Rocket Launching Icon (Matching Reference Icon 4) -->
+                  <svg width="40" height="40" viewBox="0 0 36 36" fill="none">
+                    <path d="M25 8C25 8 20 8.5 15 13.5C12.5 16 11 19.5 11.5 22L14 24.5C16.5 25 20 23.5 22.5 21C27.5 16 28 11 28 11L25 8Z" stroke="#7C3AED" stroke-width="2.2" stroke-linejoin="round" fill="#FAF5FF"/>
+                    <circle cx="20" cy="16" r="2.5" fill="#7C3AED"/>
+                    <path d="M12 22L8 24.5L9.5 21" stroke="#7C3AED" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M14 24L11.5 28L15 26.5" stroke="#7C3AED" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M10 27L6 31" stroke="#7C3AED" stroke-width="2" stroke-linecap="round"/>
+                  </svg>
+                </div>
+              </div>
+              <div class="deliver-step-info">
+                <div class="deliver-step-num-pill">05 / SCALE</div>
+                <h3 class="deliver-step-title">Training & Adoption</h3>
+                <p class="deliver-step-desc">
+                  Role-tailored user training, executive walkthroughs, and dedicated onboarding support to ensure high team adoption and long-term ROI.
+                </p>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+
+    <!-- ==========================================================================
+         5. CLIENT TESTIMONIAL (DENIM GRID & YELLOW TORN-PAPER NOTE DESIGN)
+         ========================================================================== -->
+    <section class="denim-testimonial-section" id="testimonialShowcase" aria-label="Client Testimonials">
+      
+      <!-- Top-Left White Corner Cutout / Sticker Accent -->
+      <div class="dt-corner-cutout" aria-hidden="true"></div>
+
+      <!-- Edge-to-Edge 3 White Horizontal Stripes Across Entire Section Width -->
+      <div class="dt-stripes-background" aria-hidden="true">
+        <div class="dt-stripe"></div>
+        <div class="dt-stripe"></div>
+        <div class="dt-stripe"></div>
+      </div>
+
+      <div class="dt-main-container">
+
+        <!-- Header: Floating Hand-drawn Quote + CLIENT badge + TESTIMONIAL title -->
+        <div class="dt-header-cluster reveal-on-scroll">
+          
+          <!-- Left Floating Hand-Drawn Quote Mark -->
+          <div class="dt-top-quote" aria-hidden="true">
+            <svg width="86" height="74" viewBox="0 0 86 74" fill="none">
+              <g filter="url(#dtQuoteTopGlow)">
+                <!-- Left Quote Mark bulb & tail -->
+                <path d="M36 42 C36 26 28 12 14 6 L8 15 C17 19 22 26 22 33 C18 33 15 35 15 39 C15 45 20 50 26 50 C32 50 36 46 36 42 Z" fill="#FFFFFF"/>
+                <!-- Right Quote Mark bulb & tail -->
+                <path d="M74 42 C74 26 66 12 52 6 L46 15 C55 19 60 26 60 33 C56 33 53 35 53 39 C53 45 58 50 64 50 C70 50 74 46 74 42 Z" fill="#FFFFFF"/>
+              </g>
+              <defs>
+                <filter id="dtQuoteTopGlow" x="-8" y="-6" width="102" height="90" filterUnits="userSpaceOnUse">
+                  <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#000000" flood-opacity="0.32"/>
+                </filter>
+              </defs>
+            </svg>
+          </div>
+
+          <div class="dt-title-lockup">
+            <div class="dt-client-pill">CLIENT</div>
+            <h2 class="dt-main-title">TESTIMONIAL</h2>
+          </div>
+
+        </div>
+
+        <!-- The Yellow Torn-Paper Testimonial Card Stage -->
+        <div class="dt-card-stage">
+          
+          <!-- Underlying Slate Shadow Layer for Torn Paper 3D Depth -->
+          <div class="dt-torn-shadow-layer" aria-hidden="true"></div>
+
+          <!-- Main Yellow Torn Paper Card -->
+          <div class="dt-torn-paper-card" id="dtTornPaperCard">
+
+            <!-- Interactive Slider Wrapper -->
+            <div class="dt-slider-wrap" id="dtSliderWrap">
+              <div class="dt-slides-track" id="dtSlidesTrack">
+
+                <!-- Slide 1 -->
+                <div class="dt-slide is-active" data-index="0">
+                  <p class="dt-quote-body">
+                    DIGIOLIC delivered a fantastic implementation of Zoho CRM, Zoho Campaigns, and telephony integration for our business. Their expertise and attention to detail made the entire process smooth and efficient. The seamless integration has improved our lead management, communication, and overall productivity. Their team was professional, responsive, and excellent at understanding our requirements. Highly recommended for end-to-end Zoho solutions and business automation.
+                  </p>
+                  <div class="dt-author-cluster">
+                    <div class="dt-author-name">Pawan Kumar</div>
+                    <div class="dt-author-company">IndiQube</div>
+                    <div class="dt-author-role">CRM Head</div>
+                  </div>
+                </div>
+
+                <!-- Slide 2 -->
+                <div class="dt-slide" data-index="1">
+                  <p class="dt-quote-body">
+                    Digiolic did an incredible job setting up Zoho CRM for our team, and the entire process was completely stress-free. They customized everything to match how we actually work, so our daily tracking and follow-ups are so much easier now. The training they provided made adoption a breeze for everyone on the team. I’m really happy with the results and would definitely recommend them.
+                  </p>
+                  <div class="dt-author-cluster">
+                    <div class="dt-author-name">Harsh Chirania</div>
+                    <div class="dt-author-company">Blume Labs</div>
+                    <div class="dt-author-role">CEO and Founder</div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- Realistic Jagged Torn Paper Bottom Edge with Underlaid Peeling Slate Shadow Layer -->
+            <div class="dt-torn-bottom-svg" aria-hidden="true">
+              <svg viewBox="0 0 1000 70" preserveAspectRatio="none">
+                <!-- Underlaid Dark Slate Torn Edge Shadow Layer (Exposed largely on right side) -->
+                <path d="M 0 0 L 1000 0 L 1000 35 L 980 32 L 960 38 L 940 30 L 915 44 L 885 52 L 850 60 L 810 65 L 770 68 L 730 65 L 690 62 L 650 56 L 610 50 L 570 42 L 530 36 L 490 32 L 450 30 L 410 28 L 370 26 L 330 24 L 290 22 L 250 20 L 210 18 L 170 16 L 130 15 L 90 14 L 50 12 L 0 10 Z" fill="#22354A"/>
+                <!-- Yellow Torn Paper Edge (Slopes upward on right side, exposing the slate paper) -->
+                <path d="M 0 0 L 1000 0 L 1000 28 L 980 25 L 960 22 L 940 18 L 910 15 L 870 12 L 830 10 L 790 14 L 750 16 L 710 18 L 670 22 L 630 24 L 590 28 L 550 32 L 510 34 L 470 32 L 430 30 L 390 28 L 350 26 L 310 24 L 270 22 L 230 20 L 190 18 L 150 16 L 110 14 L 70 12 L 30 10 L 0 8 Z" fill="#F8E71C"/>
+              </svg>
+            </div>
+
+            <!-- Giant White Closing Quote Mark Overlapping Torn Bottom Edge -->
+            <div class="dt-bottom-quote" aria-hidden="true">
+              <svg width="155" height="135" viewBox="0 0 155 135" fill="none">
+                <g filter="url(#dtQuoteBottomGlow)">
+                  <!-- Left bulb & tail (curves up and left) -->
+                  <path d="M 46 92 C 46 108 32 122 16 122 C 0 122 -8 108 -8 92 C -8 76 6 64 20 64 C 24 64 27 65 30 67 C 30 52 24 34 8 18 L 24 8 C 42 28 46 62 46 92 Z" transform="translate(14, 0) scale(-1, 1) translate(-50, 0)" fill="#FFFFFF"/>
+                  <!-- Right bulb & tail (curves up and left) -->
+                  <path d="M 46 92 C 46 108 32 122 16 122 C 0 122 -8 108 -8 92 C -8 76 6 64 20 64 C 24 64 27 65 30 67 C 30 52 24 34 8 18 L 24 8 C 42 28 46 62 46 92 Z" transform="translate(74, 0) scale(-1, 1) translate(-50, 0)" fill="#FFFFFF"/>
+                  <!-- Hand drawn inner chalk texture strokes -->
+                  <path d="M 44 90 Q 42 104 36 110" stroke="#CBD5E1" stroke-width="2.5" stroke-linecap="round" opacity="0.65"/>
+                  <path d="M 104 90 Q 102 104 96 110" stroke="#CBD5E1" stroke-width="2.5" stroke-linecap="round" opacity="0.65"/>
+                </g>
+                <defs>
+                  <filter id="dtQuoteBottomGlow" x="-15" y="-10" width="185" height="165" filterUnits="userSpaceOnUse">
+                    <feDropShadow dx="3" dy="8" stdDeviation="7" flood-color="#000000" flood-opacity="0.35"/>
+                  </filter>
+                </defs>
+              </svg>
+            </div>
+
+          </div>
+
+          <!-- Carousel Controls: Floating Left/Right Chevrons -->
+          <button class="dt-arrow-btn dt-arrow-prev" id="dtPrevBtn" aria-label="Previous testimonial" type="button">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+          </button>
+          
+          <button class="dt-arrow-btn dt-arrow-next" id="dtNextBtn" aria-label="Next testimonial" type="button">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </button>
+
+        </div>
+
+        <!-- Carousel Pagination Dots -->
+        <div class="dt-dots-wrapper" id="dtDots" role="tablist" aria-label="Testimonial slides">
+          <button class="dt-dot is-active" aria-label="Slide 1: Pawan Kumar, IndiQube" data-index="0"></button>
+          <button class="dt-dot" aria-label="Slide 2: Harsh Chirania, Blume Labs" data-index="1"></button>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==========================================================================
+       SITE FOOTER
+       ========================================================================== -->
+  <footer class="site-footer">
+    <div class="container-home-compact">
+
+      <div class="footer-grid">
+
+        <!-- 1) Digiolic Brand (Left side) -->
+        <div class="footer-brand-col">
+          <a href="index.html" class="brand-logo" aria-label="Digiolic Home">
+            <img src="assets/images/digiolic-logo.png" alt="Digiolic" height="34">
+          </a>
+          <p>
+            Architecting next-generation enterprise business systems. Unified Zoho One, Salesforce Cloud, and performance growth marketing.
+          </p>
+        </div>
+
+        <!-- 2) Services (After Digiolic) -->
+        <div>
+          <h4 class="footer-heading">Services</h4>
+          <ul class="footer-links">
+            <li><a href="pages/zoho.html" class="footer-link">Zoho Enterprise</a></li>
+            <li><a href="pages/salesforce.html" class="footer-link">Salesforce Cloud</a></li>
+            <li><a href="pages/digital-marketing.html" class="footer-link">Digital Marketing</a></li>
+            <li><a href="pages/case-stories.html" class="footer-link">Case Stories</a></li>
+          </ul>
+        </div>
+
+        <!-- 3) Contact (After Services) -->
+        <div>
+          <h4 class="footer-heading">Contact</h4>
+          <div class="footer-contact-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+            </svg>
+            <div>
+              <span style="display: block; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; color: #64748B; margin-bottom: 2px;">Mobile</span>
+              <a href="tel:+919665530071" class="footer-link" style="color: #F8FAFC; font-weight: 500;">+91 9665530071</a>
+            </div>
+          </div>
+          <div class="footer-contact-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+              <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
+            <div>
+              <span style="display: block; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; color: #64748B; margin-bottom: 2px;">Email id</span>
+              <a href="mailto:info@digiolic.com" class="footer-link" style="color: #F8FAFC; font-weight: 500;">info@digiolic.com</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4) Subscribe Now (After Contact, RIGHT SIDE) -->
+        <div class="footer-subscribe-col">
+          <!-- Social Icons Row (Facebook, Twitter/X, LinkedIn, Instagram, YouTube) -->
+          <div class="footer-social-row">
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="footer-social-icon-btn" aria-label="Facebook">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="#1877F2"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </a>
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="footer-social-icon-btn" aria-label="Twitter">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="#0284C7"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.936 9.936 0 0024 4.59z"/></svg>
+            </a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="footer-social-icon-btn" aria-label="LinkedIn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="#0A66C2"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+            </a>
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="footer-social-icon-btn" aria-label="Instagram">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="#0F172A"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            </a>
+            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="footer-social-icon-btn" aria-label="YouTube">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="#0284C7"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            </a>
+          </div>
+
+          <!-- Title & Subtitle (Matching Image 2) -->
+          <h3 class="footer-subscribe-title">Subscribe Now</h3>
+          <p class="footer-subscribe-subtitle">Don’t miss our future updates! Get Subscribed Today!</p>
+
+          <!-- Zoho Campaigns Web-Optin Form -->
+          <div name="signupFormContainer" style="width: 100%; max-width: 390px;">
+            <input type="hidden" id="signupTmplName" value="quick_form_8">
+            <input type="hidden" value="0" id="recapThemeOptin">
+            <input type="hidden" id="orgNameFull" value="Digiolic">
+            <div id="sf3z9b6c828aa5af22b4a6077a0465071583a608aedf9a4312cd59de68709570dfed" data-type="signupform">
+              <div id="customForm">
+                <div name="SIGNUP_BODY" id="SIGNUP_BODY" style="width: 100%;">
+                  <form method="POST" id="zcampaignOptinForm" action="https://zgp4-zgp4.maillist-manage.in/weboptin.zc" target="_zcSignup" onsubmit="if(typeof zcActionUrlRest==='function'){zcActionUrlRest();}" class="footer-subscribe-pill-form">
+                    <div id="errorMsgDiv" style="display: none; position: absolute; bottom: calc(100% + 8px); left: 0; background-color: #FEF2F2; padding: 6px 12px; color: #DC2626; font-size: 12px; border: 1px solid #FECACA; border-radius: 6px; white-space: nowrap; z-index: 10; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">Please enter a valid email address.</div>
+                    <input type="email" placeholder="Enter your email address" changeitem="SIGNUP_FORM_FIELD" name="CONTACT_EMAIL" id="EMBED_FORM_EMAIL_LABEL" class="footer-subscribe-input" required aria-label="Enter your email address">
+                    <button type="button" action="Save" name="SIGNUP_SUBMIT_BUTTON" id="zcWebOptin" changetype="SIGNUP_SUBMIT_BUTTON_TEXT" class="footer-subscribe-btn" aria-label="Join Now" onclick="if(typeof saveOptin==='function'){saveOptin(this,false,window['runOnFormSubmit_sf3z9b6c828aa5af22b4a6077a0465071583a608aedf9a4312cd59de68709570dfed'],'#sf3z9b6c828aa5af22b4a6077a0465071583a608aedf9a4312cd59de68709570dfed ',event);}else{document.getElementById('zcampaignOptinForm').submit();}">
+                      <span>Join Now</span>
+                      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                      </svg>
+                    </button>
+                    <input type="hidden" id="fieldBorder" value="">
+                    <input type="hidden" id="submitType" name="submitType" value="optinCustomView">
+                    <input type="hidden" id="emailReportId" name="emailReportId" value="">
+                    <input type="hidden" id="formType" name="formType" value="QuickForm">
+                    <input type="hidden" name="zx" id="cmpZuid" value="1df9e0c1b9">
+                    <input type="hidden" name="zcvers" value="2.0">
+                    <input type="hidden" name="oldListIds" id="allCheckedListIds" value="">
+                    <input type="hidden" id="mode" name="mode" value="OptinCreateView">
+                    <input type="hidden" id="zcld" name="zcld" value="154815acb3547a19">
+                    <input type="hidden" id="zctd" name="zctd" value="154815acb3547211">
+                    <input type="hidden" id="document_domain" value="">
+                    <input type="hidden" id="zc_Url" value="zgp4-zgp4.maillist-manage.in">
+                    <input type="hidden" id="new_optin_response_in" value="0">
+                    <input type="hidden" id="duplicate_optin_response_in" value="0">
+                    <input type="hidden" id="zcOrgIx" value="">
+                    <input type="hidden" id="zcActIx" value="">
+                    <input type="hidden" id="zcCustIx" value="">
+                    <input type="hidden" name="zc_trackCode" id="zc_trackCode" value="ZCFORMVIEW">
+                    <input type="hidden" id="zc_formIx" name="zc_formIx" value="3z9b6c828aa5af22b4a6077a0465071583a608aedf9a4312cd59de68709570dfed">
+                    <input type="hidden" id="viewFrom" value="URL_ACTION">
+                    <span style="display: none" id="dt_CONTACT_EMAIL">1,true,6,Contact Email,2</span>
+                  </form>
+                  <iframe name="_zcSignup" id="_zcSignup" style="display:none;" title="Zoho Campaigns Target"></iframe>
+                </div>
+              </div>
+            </div>
+            <input type="hidden" id="signupFormType" value="QuickForm_Horizontal">
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="footer-bottom">
+        <div>
+          &copy; 2026 Digiolic All rights reserved.
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- JavaScript Modules -->
+  <script type="module" src="assets/vectrus/vectrus-hero.js?v=20260919_v214"></script>
+  <script src="js/main.js?v=20260919_v200"></script>
+  <script src="js/testimonial-showcase.js?v=20260914_faster_v3"></script>
+  <script src="js/form-validation.js?v=20260906_v17"></script>
+
+  <!-- Zoho SalesIQ Speech Bubble Prompt ("Talk with an expert") -->
+  <div id="salesiq-chat-prompt" class="salesiq-chat-prompt" role="button" tabindex="0" aria-label="Talk with an expert. How can I help you today?">
+    <button type="button" class="chat-prompt-close" id="chatPromptClose" aria-label="Dismiss message" title="Dismiss">&times;</button>
+    <div class="chat-prompt-content">
+      <div class="chat-prompt-title">Talk with an expert.</div>
+      <div class="chat-prompt-subtitle">How can I help you today?</div>
+    </div>
+    <div class="chat-prompt-arrow" aria-hidden="true"></div>
+  </div>
+
+  <!-- Zoho SalesIQ Speech Bubble Prompt ("Talk with an expert") -->
+  <script src="js/salesiq-prompt.js?v=20260911_v1"></script>
+
+  <!-- Zoho SalesIQ Live Chat & Activity Tracking -->
+  <script>
+	window.$zoho = window.$zoho || {};
+	$zoho.salesiq = $zoho.salesiq || {
+		ready: function(){}
+	}
+</script>
+<script id = "zsiqscript" src = "https://salesiq.zoho.in/widget?wc=siq1c8e34c2ec6e86af688a258868b48665a7db0df0ec6b9d8fe1d0ceb63b3212b8" defer >
+</script>
+
+  <!-- Zoho Campaigns Web-Optin Script -->
+  <script type="text/javascript">
+    // Safe shim for browser popup blockers so Zoho optin.min.js never crashes
+    (function() {
+      var _origOpen = window.open;
+      window.open = function() {
+        try {
+          var w = _origOpen ? _origOpen.apply(this, arguments) : null;
+          if (w) return w;
+        } catch (e) {}
+        return {
+          document: {
+            body: { innerHTML: '' },
+            write: function() {},
+            close: function() {}
+          },
+          focus: function() {},
+          close: function() {},
+          window: { history: { pushState: function() {} } }
+        };
+      };
+    })();
+  </script>
+  <script type="text/javascript" src="https://ma.zoho.in/js/optin.min.js" onload="setupSF('sf3z9b6c828aa5af22b4a6077a0465071583a608aedf9a4312cd59de68709570dfed','ZCFORMVIEW',false,'light',false,'undefined')"></script>
+  <script type="text/javascript">
+    function runOnFormSubmit_sf3z9b6c828aa5af22b4a6077a0465071583a608aedf9a4312cd59de68709570dfed(th){
+      /*Before submit event trigger*/
+    };
+  </script>
+
+  <!-- Zoho Campaigns Optin Overlay & Success Popup -->
+  <div id="zcOptinOverLay" oncontextmenu="return false" style="display:none;text-align: center; background-color: rgb(0, 0, 0); opacity: 0.5; z-index: 10000; position: fixed; inset: 0; width: 100%; height: 100%;"></div>
+  <div id="zcOptinSuccessPopup" style="display:none;z-index: 10001;max-width: 600px; width: 90%; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: #FFFFFF; border: 1px solid #E6E6E6; border-radius: 16px; box-shadow: 0 10px 40px rgba(0,0,0,0.3); padding: 35px; box-sizing: border-box;">
+    <span style="position: absolute; top: 12px; right: 14px; z-index: 10002; cursor: pointer;" id="closeSuccess" onclick="document.getElementById('zcOptinSuccessPopup').style.display='none'; document.getElementById('zcOptinOverLay').style.display='none';">
+      <img src="https://ma.zoho.in/images/videoclose.png" alt="Close" width="20" height="20">
+    </span>
+    <div id="zcOptinSuccessPanel"></div>
+  </div>
+</body>
+
+</html>

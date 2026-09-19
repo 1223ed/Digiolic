@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zoho Enterprise Architecture & Applications Catalog | Digiolic</title>
+  <meta name="description" content="Explore the complete Zoho product ecosystem with Digiolic. Certified enterprise engineering for CRM, Bigin, Creator, Books, Deluge automation, and 50+ Zoho business apps.">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+
+  <!-- Core & Component CSS -->
+  <link rel="stylesheet" href="../css/style.css">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+
+  <link rel="stylesheet" href="../css/style.css?v=20260919_v102">
+  <link rel="stylesheet" href="../css/components.css?v=20260919_v102">
+  <link rel="stylesheet" href="../css/pages.css?v=20260919_v102">
+  <link rel="stylesheet" href="../css/responsive.css?v=20260919_v102">
+
+  <style>
+    /* ==========================================================================
+       IMAGE 1 MOBILE NAVIGATION DRAWER SPECIFICATION (EXACT REPLICATION)
+       ========================================================================== */
+    .mainframe-mobile-overlay,
+    .mobile-nav-drawer,
+    #mainframeMobileOverlay,
+    #mobileNavDrawer {
+      position: fixed !important;
+      inset: 0 !important;
+      top: 0 !important;
+      left: 0 !important;
+      right: 0 !important;
+      bottom: 0 !important;
+      width: 100vw !important;
+      height: 100vh !important;
+      height: 100dvh !important;
+      background-color: #1D3145 !important;
+      background: #1D3145 !important;
+      z-index: 999999 !important;
+      display: flex !important;
+      flex-direction: column !important;
+      justify-content: flex-start !important;
+      align-items: flex-start !important;
+      padding: 2.5rem 2.25rem 3rem 2.25rem !important;
+      box-sizing: border-box !important;
+      overflow-y: auto !important;
+      -webkit-overflow-scrolling: touch !important;
+      opacity: 0 !important;
+      visibility: hidden !important;
+      pointer-events: none !important;
+      transform: translateY(-8px) !important;
+      transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.3s ease !important;
+    }
+
+    .mainframe-mobile-overlay.is-open,
+    .mobile-nav-drawer.is-open,
+    #mainframeMobileOverlay.is-open,
+    #mobileNavDrawer.is-open {
+      opacity: 1 !important;
+      visibility: visible !important;
+      pointer-events: auto !important;
+      transform: translateY(0) !important;
+    }
+
+    @media (min-width: 860px) {
+      .mainframe-mobile-overlay,
+      .mobile-nav-drawer,
+      #mainframeMobileOverlay,
+      #mobileNavDrawer {
+        display: none !important;
+      }
+    }
+
+    .mainframe-mobile-top,
+    .mobile-nav-top {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+      width: 100% !important;
+      margin-bottom: 3.5rem !important;
+      padding: 0 !important;
+    }
+
+    .mainframe-mobile-logo-link,
+    .mobile-nav-logo-link {
+      display: flex !important;
+      align-items: center !important;
+      text-decoration: none !important;
+    }
+
+    .mobile-nav-logo {
+      height: 34px !important;
+      width: auto !important;
+      filter: brightness(0) invert(1) !important;
+      display: block !important;
+    }
+
+    .mobile-nav-close,
+    .mainframe-mobile-close {
+      background: transparent !important;
+      border: none !important;
+      color: #FFFFFF !important;
+      cursor: pointer !important;
+      padding: 6px !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      outline: none !important;
+      line-height: 1 !important;
+      opacity: 0.9 !important;
+    }
+
+    .mainframe-mobile-links,
+    .mainframe-mobile-nav,
+    .mobile-nav-list {
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: flex-start !important;
+      gap: 1.75rem !important;
+      width: 100% !important;
+      padding: 0 !important;
+      margin: 0 !important;
+    }
+
+    .mainframe-mobile-link,
+    .mobile-nav-link {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+      font-size: 1.5rem !important;
+      line-height: 1.3 !important;
+      font-weight: 400 !important;
+      color: rgba(255, 255, 255, 0.7) !important;
+      display: block !important;
+      width: auto !important;
+      max-width: 100% !important;
+      padding: 0.25rem 0 !important;
+      border: none !important;
+      border-bottom: none !important;
+      text-decoration: none !important;
+      box-sizing: border-box !important;
+      transition: color 0.2s ease !important;
+      text-align: left !important;
+      letter-spacing: -0.01em !important;
+    }
+
+    .mainframe-mobile-link:hover,
+    .mainframe-mobile-link.active,
+    .mobile-nav-link:hover,
+    .mobile-nav-link.active {
+      color: #FFFFFF !important;
+      font-weight: 500 !important;
+      border: none !important;
+      border-bottom: none !important;
+      padding-left: 0 !important;
+      transform: none !important;
+    }
+
+    .mainframe-mobile-link span:last-child:not(:first-child),
+    .mobile-nav-link span:last-child:not(:first-child) {
+      display: none !important;
+    }
+
+    .mainframe-mobile-link.cta-pill,
+    .mainframe-mobile-link.cta-underlined,
+    .mobile-nav-link.cta-pill,
+    .mobile-nav-footer .btn {
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      width: fit-content !important;
+      margin-top: 1.75rem !important;
+      background-color: #FFFFFF !important;
+      background: #FFFFFF !important;
+      color: #1D3145 !important;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+      font-size: 1rem !important;
+      font-weight: 600 !important;
+      border-radius: 9999px !important;
+      padding: 0.85rem 2.25rem !important;
+      border: none !important;
+      text-decoration: none !important;
+      text-align: center !important;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12) !important;
+      transition: background-color 0.2s ease, transform 0.2s ease !important;
+    }
+
+    .mainframe-mobile-link.cta-pill:hover,
+    .mainframe-mobile-link.cta-underlined:hover,
+    .mobile-nav-link.cta-pill:hover,
+    .mobile-nav-footer .btn:hover {
+      background: rgba(255, 255, 255, 0.94) !important;
+      color: #1D3145 !important;
+      transform: translateY(-1px) !important;
+    }
+
+    .mobile-nav-footer,
+    .mobile-contact-info {
+      border: none !important;
+      padding: 0 !important;
+      margin: 0 !important;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==========================================================================
+       SITE HEADER & NAVIGATION
+       ========================================================================== -->
+  <header class="site-header" id="siteHeader">
+    <div class="container-wide header-inner">
+      <a href="../index.html" class="brand-logo" aria-label="Digiolic Home">
+        <img src="../assets/images/digiolic-logo-dark.png" alt="Digiolic" class="logo-img">
+      </a>
+
+      <nav class="nav-desktop" aria-label="Main Navigation">
+        <ul class="nav-list">
+          <li class="nav-item"><a href="../index.html" class="nav-link">Home</a></li>
+          <li class="nav-item"><a href="zoho.html" class="nav-link active">Zoho</a></li>
+          <li class="nav-item"><a href="salesforce.html" class="nav-link">Salesforce</a></li>
+          <li class="nav-item"><a href="digital-marketing.html" class="nav-link">Digital Marketing</a></li>
+          <li class="nav-item"><a href="case-stories.html" class="nav-link">Case Stories</a></li>
+          <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <a href="#contactSection" class="btn btn-primary btn-sm">Book a Consultation</a>
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle Menu" aria-expanded="false">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Fullscreen Mobile Navigation Drawer (Image 1 Design) -->
+  <div class="mobile-nav-drawer" id="mobileNavDrawer" role="dialog" aria-modal="true" aria-label="Mobile Navigation">
+    <div class="mobile-nav-top">
+      <a href="../index.html" class="mobile-nav-logo-link" aria-label="Digiolic Home">
+        <img src="../assets/images/digiolic-logo-dark.png" alt="Digiolic" class="mobile-nav-logo">
+      </a>
+      <button class="mobile-nav-close" id="zohoStepCloseBtn" aria-label="Close Menu" onclick="document.getElementById('mobileNavDrawer').classList.remove('is-open'); document.getElementById('siteHeader').classList.remove('is-active'); document.body.style.overflow='';">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+    <div class="mobile-nav-list">
+      <a href="../index.html" class="mobile-nav-link">Home</a>
+      <a href="zoho.html" class="mobile-nav-link active">Zoho</a>
+      <a href="salesforce.html" class="mobile-nav-link">Salesforce</a>
+      <a href="digital-marketing.html" class="mobile-nav-link">Digital Marketing</a>
+      <a href="case-stories.html" class="mobile-nav-link">Case Studies</a>
+      <a href="contact.html" class="mobile-nav-link cta-pill">Contact Us</a>
+    </div>
+  </div>
+
+  <main id="mainContent">
+
+    <!-- ==========================================================================
+         1. ZOHO HERO SECTION WITH 60% VIDEO / ANIMATION SPLIT LAYOUT
+         ========================================================================== -->
+    <section class="page-hero">
+      <div class="container-wide">
+        
+        <div class="breadcrumbs">
+          <a href="../index.html">Home</a>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          <a href="zoho.html">Services</a>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          <span>Zoho Enterprise Practice</span>
+        </div>
+
+        <!-- 60% Left Video / 40% Right Content Split Layout -->
+        <div class="zoho-hero-split">
+          
+          <!-- 60% Left: Cinematic Zoho Video & Animation Container -->
+          <div class="zoho-hero-video-col reveal-on-scroll">
+            <div class="zoho-hero-video-box">
+              
+              <!-- Video Player with seamless loop -->
+              <video 
+                id="zohoHeroVideo" 
+                class="zoho-hero-video" 
+                autoplay 
+                loop 
+                muted 
+                playsinline 
+                preload="auto"
+                data-yoyo="true"
+                poster="../assets/frames/zoho/frame-0001.png">
+                <source src="zoho-hero-yoyo.mp4" type="video/mp4">
+                <source src="../assets/videos/zoho-hero-yoyo.mp4" type="video/mp4">
+                <source src="347325.mp4" type="video/mp4">
+                Your browser does not support HTML5 video.
+              </video>
+
+              <!-- Video Overlay Badge -->
+              <div class="zoho-video-overlay-badge">
+                <span class="badge-dot-live"></span>
+                <span>ZOHO ECOSYSTEM ENGINE</span>
+              </div>
+
+              <!-- Video Play / Pause Controls -->
+              <div class="zoho-video-controls">
+                <button class="zoho-ctrl-btn" id="zohoPlayPauseBtn" aria-label="Toggle Playback">
+                  <svg id="zohoPauseIcon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg>
+                  <svg id="zohoPlayIcon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="display: none;"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                </button>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- 40% Right: Executive Value Proposition & Actions -->
+          <div class="zoho-hero-content-col reveal-on-scroll stagger-1">
+            <span class="badge-eyebrow">
+              <span class="badge-dot"></span> Certified Zoho Enterprise Engineering
+            </span>
+            <h1 class="heading-xl" style="margin-top: 0.5rem; margin-bottom: 1rem;">
+              Turn Zoho One into an Agile <span class="text-gradient">Operating System</span>.
+            </h1>
+            <p class="body-text" style="margin-bottom: 1.5rem; font-size: 1.05rem;">
+              We architect unified enterprise Zoho environments: customized CRM blueprints, Deluge business logic, custom Zoho Creator portals, automated Books billing, and real-time Analytics dashboards.
+            </p>
+
+            <div class="flex items-center gap-md" style="flex-wrap: wrap; margin-bottom: 1.5rem;">
+              <a href="#allProductsSection" class="btn btn-primary">
+                Browse All Zoho Apps <span class="btn-icon-arrow"><svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M6 3l5 5-5 5V3z"/></svg></span>
+              </a>
+              <a href="#contactSection" class="btn btn-secondary">Schedule Architecture Audit</a>
+            </div>
+
+            <!-- Mini stats bar -->
+            <div class="grid grid-3" style="gap: 0.75rem; border-top: 1px solid var(--color-card-border); padding-top: 1.25rem;">
+              <div>
+                <div style="font-size: 1.25rem; font-weight: 800; color: var(--color-text-primary); font-family: var(--font-display);">250+</div>
+                <div style="font-size: 0.75rem; color: var(--color-text-muted);">Deluge Scripts</div>
+              </div>
+              <div>
+                <div style="font-size: 1.25rem; font-weight: 800; color: var(--color-primary); font-family: var(--font-display);">-45%</div>
+                <div style="font-size: 0.75rem; color: var(--color-text-muted);">TCO Reduction</div>
+              </div>
+              <div>
+                <div style="font-size: 1.25rem; font-weight: 800; color: var(--color-text-primary); font-family: var(--font-display);">98%</div>
+                <div style="font-size: 0.75rem; color: var(--color-text-muted);">User Adoption</div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         2. ZOHO ALL-PRODUCTS CATALOG (MATCHING ZOHO.COM/ALL-PRODUCTS.HTML DESIGN)
+         ========================================================================== -->
+    <section class="zoho-catalog-section" id="allProductsSection">
+      <div class="container-wide">
+        
+        <!-- Section Header -->
+        <div class="section-header reveal-on-scroll" style="margin-bottom: 2rem;">
+          <span class="badge-eyebrow">
+            <span class="badge-dot"></span> Complete Product Suite
+          </span>
+          <h2 class="heading-xl">Explore All Zoho Applications</h2>
+          <p class="lead" style="max-width: 720px; margin-top: 0.5rem;">
+            Find the right Zoho software for your department. Every application can be customized, automated, and seamlessly integrated by Digiolic.
+          </p>
+        </div>
+
+        <!-- Search Bar with Live Filter -->
+        <div class="zoho-search-container reveal-on-scroll">
+          <div class="zoho-search-input-wrapper">
+            <svg class="zoho-search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input 
+              type="text" 
+              id="zohoSearchInput" 
+              class="zoho-search-input" 
+              placeholder="I'm looking for... (e.g. CRM, Bigin, Books, Sign, Campaigns)"
+              aria-label="Search Zoho Applications">
+          </div>
+        </div>
+
+        <!-- Two Column Layout: Left Category Navigation & Right Product Cards Grid -->
+        <div class="zoho-catalog-layout">
+          
+          <!-- Left Sidebar Navigation -->
+          <aside class="zoho-sidebar-nav" id="zohoCatNav" aria-label="Zoho Categories">
+            <!-- Dynamically populated by js/zoho-products.js -->
+          </aside>
+
+          <!-- Right Products Catalog Area -->
+          <div class="zoho-main-catalog">
+            
+            <div class="zoho-catalog-header-bar">
+              <h3 class="zoho-cat-heading" id="currentCatTitle">Sales</h3>
+              <span class="badge-eyebrow" id="productCountBadge" style="margin-bottom: 0;">12 Apps</span>
+            </div>
+
+            <!-- Product Cards Grid -->
+            <div class="zoho-product-grid" id="zohoProductGrid">
+              <!-- Dynamically populated by js/zoho-products.js with SVG icons, descriptions, and Contact Us buttons -->
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         3. IMPLEMENTATION LIFECYCLE
+         ========================================================================== -->
+    <section class="section-padding" style="background: var(--color-bg-alt); border-top: 1px solid var(--color-card-border);">
+      <div class="container">
+        
+        <div class="section-header text-center reveal-on-scroll">
+          <span class="badge-eyebrow">
+            <span class="badge-dot"></span> Structured Methodology
+          </span>
+          <h2 class="heading-xl">Our 4-Stage Deployment Roadmap</h2>
+          <p class="lead" style="max-width: 680px; margin: 0 auto;">
+            Rigorous engineering standards ensure zero downtime, complete data fidelity, and seamless user adoption.
+          </p>
+        </div>
+
+        <div class="process-grid reveal-on-scroll stagger-1">
+          
+          <div class="process-step-card">
+            <div class="process-step-num">01</div>
+            <h4 class="process-step-title">Discovery & Schema Audit</h4>
+            <p class="process-step-desc">
+              We audit your current data structures, workflow bottlenecks, integration points, and user journeys to define an airtight architecture specification.
+            </p>
+          </div>
+
+          <div class="process-step-card">
+            <div class="process-step-num">02</div>
+            <h4 class="process-step-title">Blueprint & Deluge Build</h4>
+            <p class="process-step-desc">
+              We construct custom modules, code Deluge business logic, configure validation blueprints, and build external REST API connectors in a dedicated sandbox.
+            </p>
+          </div>
+
+          <div class="process-step-card">
+            <div class="process-step-num">03</div>
+            <h4 class="process-step-title">Cleansing & Migration</h4>
+            <p class="process-step-desc">
+              Data is deduplicated, normalized, mapped, and validated through multi-pass test migrations before final cutover execution.
+            </p>
+          </div>
+
+          <div class="process-step-card">
+            <div class="process-step-num">04</div>
+            <h4 class="process-step-title">Enablement & Hypercare</h4>
+            <p class="process-step-desc">
+              Role-based training videos, comprehensive documentation, live Q&A sessions, and 60 days of hypercare support to ensure 95%+ user adoption.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         4. CAPABILITY COMPARISON TABLE
+         ========================================================================== -->
+    <section class="section-padding">
+      <div class="container">
+        
+        <div class="section-header text-center reveal-on-scroll">
+          <span class="badge-eyebrow">
+            <span class="badge-dot"></span> The Digiolic Difference
+          </span>
+          <h2 class="heading-xl">Out-of-the-Box vs. Digiolic Engineered</h2>
+          <p class="lead" style="max-width: 680px; margin: 0 auto;">
+            Why enterprise leaders choose Digiolic over generic self-implementation.
+          </p>
+        </div>
+
+        <div class="table-container reveal-on-scroll stagger-1">
+          <table class="comparison-table">
+            <thead>
+              <tr>
+                <th>Capability Matrix</th>
+                <th>Standard Out-of-the-Box Setup</th>
+                <th>Digiolic Enterprise Engineered</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Process Enforcement</strong></td>
+                <td>Optional manual field completion, loose stage transitions</td>
+                <td><strong>Strict Blueprint validations with mandatory criteria at every gate</strong></td>
+              </tr>
+              <tr>
+                <td><strong>Cross-System Logic</strong></td>
+                <td>Basic point-and-click email notifications</td>
+                <td><strong>Deep Deluge scripting, webhook payload sync, multi-app triggers</strong></td>
+              </tr>
+              <tr>
+                <td><strong>Custom Applications</strong></td>
+                <td>Generic spreadsheet-like forms</td>
+                <td><strong>Bespoke Zoho Creator apps with role-based security & relational models</strong></td>
+              </tr>
+              <tr>
+                <td><strong>Data Architecture</strong></td>
+                <td>Prone to duplicates, unstructured text inputs</td>
+                <td><strong>Normalized relational data, automated deduplication & standardized schemas</strong></td>
+              </tr>
+              <tr>
+                <td><strong>User Adoption Guarantee</strong></td>
+                <td>Often under 45% due to UI complexity</td>
+                <td><strong>95%+ adoption backed by custom role-tailored layouts and video onboarding</strong></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         5. FAQS SECTION
+         ========================================================================== -->
+    <section class="section-padding" style="background: var(--color-bg-alt); border-top: 1px solid var(--color-card-border);">
+      <div class="container">
+        
+        <div class="section-header text-center reveal-on-scroll">
+          <span class="badge-eyebrow">
+            <span class="badge-dot"></span> Common Inquiries
+          </span>
+          <h2 class="heading-xl">Zoho Implementation FAQs</h2>
+        </div>
+
+        <div class="faq-list reveal-on-scroll stagger-1">
+          
+          <div class="faq-item is-open">
+            <button class="faq-question-btn">
+              <span>Can you migrate our data from Salesforce or HubSpot into Zoho?</span>
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="faq-answer">
+              <p>
+                Yes. We perform complete migrations from Salesforce, HubSpot, Pipedrive, and legacy custom databases into Zoho One. We map relationships, historical activity logs, attachments, and custom fields with zero data loss.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question-btn">
+              <span>What is Deluge, and why is it essential for enterprise Zoho?</span>
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="faq-answer">
+              <p>
+                Deluge is Zoho's proprietary scripting language. While standard Zoho workflows handle basic triggers, Deluge allows us to build complex enterprise logic: calculating tiered commissions, verifying API responses from external ERPs, generating dynamic PDF contracts, and synchronizing multi-module databases.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question-btn">
+              <span>How long does a typical Zoho One deployment take?</span>
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="faq-answer">
+              <p>
+                Depending on organizational complexity and the number of Zoho apps in scope, a core deployment typically ranges from 3 to 8 weeks, delivered in iterative two-week sprint milestones with continuous staging reviews.
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         6. CONSULTATION BOOKING & CONTACT FORM
+         ========================================================================== -->
+    <section class="section-padding" id="contactSection">
+      <div class="container">
+        
+        <div class="section-header text-center reveal-on-scroll">
+          <span class="badge-eyebrow">
+            <span class="badge-dot"></span> Get Started
+          </span>
+          <h2 class="heading-xl">Schedule Your Zoho Discovery Consultation</h2>
+          <p class="lead" style="max-width: 680px; margin: 0 auto;">
+            Speak directly with a Senior Zoho Solutions Architect to audit your current system and map out an optimization plan.
+          </p>
+        </div>
+
+        <div class="grid grid-2 items-center gap-xl">
+          
+          <!-- Booking Scheduler Widget -->
+          <div class="booking-widget-card reveal-on-scroll stagger-1">
+            <span class="badge-eyebrow" style="font-size: 0.75rem; margin-bottom: 0.5rem;">Direct Scheduler</span>
+            <h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 0.5rem;">Book a Zoho Consultation</h3>
+            <p class="body-sm" style="margin-bottom: 1.25rem;">
+              Let's discuss how Digiolic can help your business grow with Zoho.
+            </p>
+
+            <div>
+              <label class="form-label">Selected Focus</label>
+              <div class="booking-chip-group">
+                <span class="booking-chip selected" data-service="Zoho">Zoho One Architecture</span>
+                <span class="booking-chip" data-service="Zoho">Zoho CRM & Bigin</span>
+                <span class="booking-chip" data-service="CRM Automation">Deluge Scripting</span>
+                <span class="booking-chip" data-service="Custom Development">Zoho Creator Portal</span>
+                <span class="booking-chip" data-service="Zoho">Books & Finance</span>
+              </div>
+            </div>
+
+            <div>
+              <label class="form-label">Select Time Slot</label>
+              <div class="booking-time-grid">
+                <div class="booking-slot selected">10:00 AM</div>
+                <div class="booking-slot">01:30 PM</div>
+                <div class="booking-slot">04:00 PM</div>
+                <div class="booking-slot">06:00 PM</div>
+              </div>
+            </div>
+
+            <div style="margin-top: 1.75rem;">
+              <button class="btn btn-primary btn-lg js-book-consultation-btn" style="width: 100%;">
+                Book a Consultation <span class="btn-icon-arrow"><svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M6 3l5 5-5 5V3z"/></svg></span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Contact Form -->
+          <div class="card reveal-on-scroll stagger-2" id="contactForm">
+            
+            <div class="demo-badge-banner">
+              <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" style="color: var(--color-primary); flex-shrink: 0;"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/></svg>
+              <span><strong>Demo Form</strong> — Standalone frontend prototype. Submission system coming soon.</span>
+            </div>
+
+            <h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 0.5rem;">Inquire About Zoho Services</h3>
+            
+            <form class="js-contact-form" novalidate>
+              <div class="form-fields-wrapper">
+                
+                <div class="grid grid-2" style="gap: 1rem;">
+                  <div class="form-group">
+                    <label class="form-label" for="fullName">Full Name <span class="required-star">*</span></label>
+                    <input type="text" id="fullName" name="fullName" class="form-input" placeholder="Sarah Jenkins" required>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label" for="workEmail">Work Email <span class="required-star">*</span></label>
+                    <input type="email" id="workEmail" name="workEmail" class="form-input" placeholder="sarah@enterprise.com" required>
+                  </div>
+                </div>
+
+                <div class="grid grid-2" style="gap: 1rem;">
+                  <div class="form-group">
+                    <label class="form-label" for="phoneNumber">Phone Number <span class="required-star">*</span></label>
+                    <input type="tel" id="phoneNumber" name="phoneNumber" class="form-input" placeholder="+1 (555) 234-5678" required>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label" for="companyName">Company Name <span class="required-star">*</span></label>
+                    <input type="text" id="companyName" name="companyName" class="form-input" placeholder="Acme Global Corp" required>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="service">Service Focus <span class="required-star">*</span></label>
+                  <select id="service" name="service" class="form-select" required>
+                    <option value="Zoho" selected>Zoho</option>
+                    <option value="Salesforce">Salesforce</option>
+                    <option value="Digital Marketing">Digital Marketing</option>
+                    <option value="CRM Automation">CRM Automation</option>
+                    <option value="Custom Development">Custom Development</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="projectDetails">Project Details <span class="required-star">*</span></label>
+                  <textarea id="projectDetails" name="projectDetails" class="form-textarea" placeholder="Tell us about your current Zoho environment, desired applications, and timeline..." required></textarea>
+                </div>
+
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-lg js-submit-btn" style="width: 100%;">
+                <span class="btn-spinner"></span>
+                <span class="btn-text">Submit Zoho Inquiry</span>
+              </button>
+
+              <div class="form-success-banner">
+                <div class="form-success-icon">
+                  <svg width="24" height="24" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                </div>
+                <h4 style="font-size: 1.35rem; font-weight: 700; color: #065F46; margin-bottom: 0.5rem;">Thank you.</h4>
+                <p style="color: #047857; font-weight: 600; margin-bottom: 0.75rem;">
+                  Your inquiry form has been completed successfully.
+                </p>
+                <p style="font-size: 0.85rem; color: #065F46; line-height: 1.5; margin-bottom: 1.25rem;">
+                  We'll connect the submission system when the website backend is integrated.
+                </p>
+                <button type="button" class="btn btn-secondary btn-sm js-reset-form">
+                  Submit Another Response (Demo)
+                </button>
+              </div>
+
+            </form>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==========================================================================
+       SITE FOOTER
+       ========================================================================== -->
+  <footer class="site-footer">
+    <div class="container-home-compact">
+
+      <div class="footer-grid">
+
+        <!-- 1) Digiolic Brand (Left side) -->
+        <div class="footer-brand-col">
+          <a href="../index.html" class="brand-logo" aria-label="Digiolic Home">
+            <img src="../assets/images/digiolic-logo.png" alt="Digiolic" height="34">
+          </a>
+          <p>
+            Architecting next-generation enterprise business systems. Unified Zoho One, Salesforce Cloud, and performance growth marketing.
+          </p>
+        </div>
+
+        <!-- 2) Services (After Digiolic) -->
+        <div>
+          <h4 class="footer-heading">Services</h4>
+          <ul class="footer-links">
+            <li><a href="zoho.html" class="footer-link">Zoho Enterprise</a></li>
+            <li><a href="salesforce.html" class="footer-link">Salesforce Cloud</a></li>
+            <li><a href="digital-marketing.html" class="footer-link">Digital Marketing</a></li>
+            <li><a href="case-stories.html" class="footer-link">Case Stories</a></li>
+          </ul>
+        </div>
+
+        <!-- 3) Contact (After Services) -->
+        <div>
+          <h4 class="footer-heading">Contact</h4>
+          <div class="footer-contact-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+            </svg>
+            <div>
+              <span style="display: block; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; color: #64748B; margin-bottom: 2px;">Mobile</span>
+              <a href="tel:+919665530071" class="footer-link" style="color: #F8FAFC; font-weight: 500;">+91 9665530071</a>
+            </div>
+          </div>
+          <div class="footer-contact-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+              <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
+            <div>
+              <span style="display: block; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; color: #64748B; margin-bottom: 2px;">Email id</span>
+              <a href="mailto:info@digiolic.com" class="footer-link" style="color: #F8FAFC; font-weight: 500;">info@digiolic.com</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4) Subscribe Now (After Contact, RIGHT SIDE) -->
+        <div class="footer-subscribe-col">
+          <!-- Social Icons Row (Facebook, Twitter/X, LinkedIn, Instagram, YouTube) -->
+          <div class="footer-social-row">
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="footer-social-icon-btn" aria-label="Facebook">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="#1877F2"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </a>
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="footer-social-icon-btn" aria-label="Twitter">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="#0284C7"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.936 9.936 0 0024 4.59z"/></svg>
+            </a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="footer-social-icon-btn" aria-label="LinkedIn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="#0A66C2"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+            </a>
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="footer-social-icon-btn" aria-label="Instagram">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="#0F172A"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            </a>
+            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="footer-social-icon-btn" aria-label="YouTube">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="#0284C7"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            </a>
+          </div>
+
+          <!-- Title & Subtitle (Matching Image 2) -->
+          <h3 class="footer-subscribe-title">Subscribe Now</h3>
+          <p class="footer-subscribe-subtitle">Don’t miss our future updates! Get Subscribed Today!</p>
+
+          <!-- Zoho Campaigns Web-Optin Form -->
+          <div name="signupFormContainer" style="width: 100%; max-width: 390px;">
+            <input type="hidden" id="signupTmplName" value="quick_form_8">
+            <input type="hidden" value="0" id="recapThemeOptin">
+            <input type="hidden" id="orgNameFull" value="Digiolic">
+            <div id="sf3z9b6c828aa5af22b4a6077a0465071583a608aedf9a4312cd59de68709570dfed" data-type="signupform">
+              <div id="customForm">
+                <div name="SIGNUP_BODY" id="SIGNUP_BODY" style="width: 100%;">
+                  <form method="POST" id="zcampaignOptinForm" action="https://zgp4-zgp4.maillist-manage.in/weboptin.zc" target="_zcSignup" onsubmit="if(typeof zcActionUrlRest==='function'){zcActionUrlRest();}" class="footer-subscribe-pill-form">
+                    <div id="errorMsgDiv" style="display: none; position: absolute; bottom: calc(100% + 8px); left: 0; background-color: #FEF2F2; padding: 6px 12px; color: #DC2626; font-size: 12px; border: 1px solid #FECACA; border-radius: 6px; white-space: nowrap; z-index: 10; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">Please enter a valid email address.</div>
+                    <input type="email" placeholder="Enter your email address" changeitem="SIGNUP_FORM_FIELD" name="CONTACT_EMAIL" id="EMBED_FORM_EMAIL_LABEL" class="footer-subscribe-input" required aria-label="Enter your email address">
+                    <button type="button" action="Save" name="SIGNUP_SUBMIT_BUTTON" id="zcWebOptin" changetype="SIGNUP_SUBMIT_BUTTON_TEXT" class="footer-subscribe-btn" aria-label="Join Now" onclick="if(typeof saveOptin==='function'){saveOptin(this,false,window['runOnFormSubmit_sf3z9b6c828aa5af22b4a6077a0465071583a608aedf9a4312cd59de68709570dfed'],'#sf3z9b6c828aa5af22b4a6077a0465071583a608aedf9a4312cd59de68709570dfed ',event);}else{document.getElementById('zcampaignOptinForm').submit();}">
+                      <span>Join Now</span>
+                      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                      </svg>
+                    </button>
+                    <input type="hidden" id="fieldBorder" value="">
+                    <input type="hidden" id="submitType" name="submitType" value="optinCustomView">
+                    <input type="hidden" id="emailReportId" name="emailReportId" value="">
+                    <input type="hidden" id="formType" name="formType" value="QuickForm">
+                    <input type="hidden" name="zx" id="cmpZuid" value="1df9e0c1b9">
+                    <input type="hidden" name="zcvers" value="2.0">
+                    <input type="hidden" name="oldListIds" id="allCheckedListIds" value="">
+                    <input type="hidden" id="mode" name="mode" value="OptinCreateView">
+                    <input type="hidden" id="zcld" name="zcld" value="154815acb3547a19">
+                    <input type="hidden" id="zctd" name="zctd" value="154815acb3547211">
+                    <input type="hidden" id="document_domain" value="">
+                    <input type="hidden" id="zc_Url" value="zgp4-zgp4.maillist-manage.in">
+                    <input type="hidden" id="new_optin_response_in" value="0">
+                    <input type="hidden" id="duplicate_optin_response_in" value="0">
+                    <input type="hidden" id="zcOrgIx" value="">
+                    <input type="hidden" id="zcActIx" value="">
+                    <input type="hidden" id="zcCustIx" value="">
+                    <input type="hidden" name="zc_trackCode" id="zc_trackCode" value="ZCFORMVIEW">
+                    <input type="hidden" id="zc_formIx" name="zc_formIx" value="3z9b6c828aa5af22b4a6077a0465071583a608aedf9a4312cd59de68709570dfed">
+                    <input type="hidden" id="viewFrom" value="URL_ACTION">
+                    <span style="display: none" id="dt_CONTACT_EMAIL">1,true,6,Contact Email,2</span>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <input type="hidden" id="signupFormType" value="QuickForm_Horizontal">
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="footer-bottom">
+        <div>
+          &copy; 2026 Digiolic All rights reserved.
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+  <script src="../js/zoho-video.js"></script>
+  <script src="../js/zoho-products.js"></script>
+  <script src="../js/form-validation.js"></script>
+
+  <!-- Zoho SalesIQ Live Chat & Activity Tracking -->
+  <script>
+	window.$zoho = window.$zoho || {};
+	$zoho.salesiq = $zoho.salesiq || {
+		ready: function(){}
+	}
+</script>
+<script id = "zsiqscript" src = "https://salesiq.zoho.in/widget?wc=siq1c8e34c2ec6e86af688a258868b48665a7db0df0ec6b9d8fe1d0ceb63b3212b8" defer >
+</script>
+  <!-- Zoho SalesIQ Speech Bubble Prompt ("Talk with an expert") -->
+  <script src="../js/salesiq-prompt.js"></script>
+
+  <!-- Zoho Campaigns Web-Optin Script -->
+  <script type="text/javascript">
+    // Safe shim for browser popup blockers so Zoho optin.min.js never crashes
+    (function() {
+      var _origOpen = window.open;
+      window.open = function() {
+        try {
+          var w = _origOpen ? _origOpen.apply(this, arguments) : null;
+          if (w) return w;
+        } catch (e) {}
+        return {
+          document: {
+            body: { innerHTML: '' },
+            write: function() {},
+            close: function() {}
+          },
+          focus: function() {},
+          close: function() {},
+          window: { history: { pushState: function() {} } }
+        };
+      };
+    })();
+  </script>
+  <script type="text/javascript" src="https://ma.zoho.in/js/optin.min.js" onload="setupSF('sf3z9b6c828aa5af22b4a6077a0465071583a608aedf9a4312cd59de68709570dfed','ZCFORMVIEW',false,'light',false,'undefined')"></script>
+  <script type="text/javascript">
+    function runOnFormSubmit_sf3z9b6c828aa5af22b4a6077a0465071583a608aedf9a4312cd59de68709570dfed(th){
+      /*Before submit event trigger*/
+    };
+  </script>
+
+  <!-- Zoho Campaigns Optin Overlay & Success Popup -->
+  <div id="zcOptinOverLay" oncontextmenu="return false" style="display:none;text-align: center; background-color: rgb(0, 0, 0); opacity: 0.5; z-index: 10000; position: fixed; inset: 0; width: 100%; height: 100%;"></div>
+  <div id="zcOptinSuccessPopup" style="display:none;z-index: 10001;max-width: 600px; width: 90%; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: #FFFFFF; border: 1px solid #E6E6E6; border-radius: 16px; box-shadow: 0 10px 40px rgba(0,0,0,0.3); padding: 35px; box-sizing: border-box;">
+    <span style="position: absolute; top: 12px; right: 14px; z-index: 10002; cursor: pointer;" id="closeSuccess" onclick="document.getElementById('zcOptinSuccessPopup').style.display='none'; document.getElementById('zcOptinOverLay').style.display='none';">
+      <img src="https://ma.zoho.in/images/videoclose.png" alt="Close" width="20" height="20">
+    </span>
+    <div id="zcOptinSuccessPanel"></div>
+  </div>
+</body>
+</html>

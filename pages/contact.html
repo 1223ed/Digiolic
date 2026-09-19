@@ -1,0 +1,1562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Digiolic & Book a Consultation | Global Advisory Hubs</title>
+  <meta name="description" content="Connect with Digiolic senior solutions engineers. Schedule an architectural discovery session for Zoho One, Salesforce Cloud, and performance marketing.">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+
+  <!-- Core & Component CSS -->
+  <link rel="stylesheet" href="../css/style.css?v=20260919_v208">
+  <link rel="stylesheet" href="../css/components.css?v=20260919_v208">
+  <link rel="stylesheet" href="../css/pages.css?v=20260919_v208">
+  <link rel="stylesheet" href="../css/responsive.css?v=20260919_v208">
+  <link rel="stylesheet" href="../css/chat-widget.css?v=20260919_v208">
+
+  <!-- Exact Font specified -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Comic+Neue:ital,wght@0,400;0,700;1,700&family=Inter:ital,opsz,wght@0,14..32,300..900;1,14..32,300..900&family=Manrope:wght@400;500;600;700;800&family=Montserrat:wght@800;900&family=Outfit:wght@400;600;700;800&family=Patrick+Hand&family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==========================================================================
+       IMAGE 1 MOBILE NAVIGATION DRAWER SPECIFICATION (EXACT REPLICATION)
+       ========================================================================== */
+    .mainframe-mobile-overlay,
+    .mobile-nav-drawer,
+    #mainframeMobileOverlay,
+    #mobileNavDrawer {
+      position: fixed !important;
+      inset: 0 !important;
+      top: 0 !important;
+      left: 0 !important;
+      right: 0 !important;
+      bottom: 0 !important;
+      width: 100vw !important;
+      height: 100vh !important;
+      height: 100dvh !important;
+      background-color: #1D3145 !important;
+      background: #1D3145 !important;
+      z-index: 999999 !important;
+      display: flex !important;
+      flex-direction: column !important;
+      justify-content: flex-start !important;
+      align-items: flex-start !important;
+      padding: 2.5rem 2.25rem 3rem 2.25rem !important;
+      box-sizing: border-box !important;
+      overflow-y: auto !important;
+      -webkit-overflow-scrolling: touch !important;
+      opacity: 0 !important;
+      visibility: hidden !important;
+      pointer-events: none !important;
+      transform: translateY(-8px) !important;
+      transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.3s ease !important;
+    }
+
+    .mainframe-mobile-overlay.is-open,
+    .mobile-nav-drawer.is-open,
+    #mainframeMobileOverlay.is-open,
+    #mobileNavDrawer.is-open {
+      opacity: 1 !important;
+      visibility: visible !important;
+      pointer-events: auto !important;
+      transform: translateY(0) !important;
+    }
+
+    @media (min-width: 860px) {
+      .mainframe-mobile-overlay,
+      .mobile-nav-drawer,
+      #mainframeMobileOverlay,
+      #mobileNavDrawer {
+        display: none !important;
+      }
+    }
+
+    .mainframe-mobile-top,
+    .mobile-nav-top {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+      width: 100% !important;
+      margin-bottom: 3.5rem !important;
+      padding: 0 !important;
+    }
+
+    .mainframe-mobile-logo-link,
+    .mobile-nav-logo-link {
+      display: flex !important;
+      align-items: center !important;
+      text-decoration: none !important;
+    }
+
+    .mobile-nav-logo {
+      height: 34px !important;
+      width: auto !important;
+      filter: brightness(0) invert(1) !important;
+      display: block !important;
+    }
+
+    .mobile-nav-close,
+    .mainframe-mobile-close {
+      background: transparent !important;
+      border: none !important;
+      color: #FFFFFF !important;
+      cursor: pointer !important;
+      padding: 6px !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      outline: none !important;
+      line-height: 1 !important;
+      opacity: 0.9 !important;
+    }
+
+    .mainframe-mobile-links,
+    .mainframe-mobile-nav,
+    .mobile-nav-list {
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: flex-start !important;
+      gap: 1.75rem !important;
+      width: 100% !important;
+      padding: 0 !important;
+      margin: 0 !important;
+    }
+
+    .mainframe-mobile-link,
+    .mobile-nav-link {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+      font-size: 1.5rem !important;
+      line-height: 1.3 !important;
+      font-weight: 400 !important;
+      color: rgba(255, 255, 255, 0.7) !important;
+      display: block !important;
+      width: auto !important;
+      max-width: 100% !important;
+      padding: 0.25rem 0 !important;
+      border: none !important;
+      border-bottom: none !important;
+      text-decoration: none !important;
+      box-sizing: border-box !important;
+      transition: color 0.2s ease !important;
+      text-align: left !important;
+      letter-spacing: -0.01em !important;
+    }
+
+    /* Hide Contact Us button completely on Contact page */
+    .mainframe-desktop-cta,
+    .mobile-nav-link.cta-pill,
+    .mainframe-mobile-link.cta-pill {
+      display: none !important;
+    }
+
+    .mainframe-mobile-link:hover,
+    .mainframe-mobile-link.active,
+    .mobile-nav-link:hover,
+    .mobile-nav-link.active {
+      color: #FFFFFF !important;
+      font-weight: 500 !important;
+      border: none !important;
+      border-bottom: none !important;
+      padding-left: 0 !important;
+      transform: none !important;
+    }
+
+    .mainframe-mobile-link span:last-child:not(:first-child),
+    .mobile-nav-link span:last-child:not(:first-child) {
+      display: none !important;
+    }
+
+    .mainframe-mobile-link.cta-pill,
+    .mainframe-mobile-link.cta-underlined,
+    .mobile-nav-link.cta-pill,
+    .mobile-nav-footer .btn {
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      width: fit-content !important;
+      margin-top: 1.75rem !important;
+      background-color: #FFFFFF !important;
+      background: #FFFFFF !important;
+      color: #1D3145 !important;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+      font-size: 1rem !important;
+      font-weight: 600 !important;
+      border-radius: 9999px !important;
+      padding: 0.85rem 2.25rem !important;
+      border: none !important;
+      text-decoration: none !important;
+      text-align: center !important;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12) !important;
+      transition: background-color 0.2s ease, transform 0.2s ease !important;
+    }
+
+    .mainframe-mobile-link.cta-pill:hover,
+    .mainframe-mobile-link.cta-underlined:hover,
+    .mobile-nav-link.cta-pill:hover,
+    .mobile-nav-footer .btn:hover {
+      background: rgba(255, 255, 255, 0.94) !important;
+      color: #1D3145 !important;
+      transform: translateY(-1px) !important;
+    }
+
+    .mobile-nav-footer,
+    .mobile-contact-info {
+      border: none !important;
+      padding: 0 !important;
+      margin: 0 !important;
+    }
+    .mainframe-navbar,
+    .hero-video-navbar,
+    #mainframeNavbar,
+    #heroNavbar {
+      position: absolute !important;
+      top: 0 !important;
+      left: 0 !important;
+      right: 0 !important;
+      width: 100% !important;
+      z-index: 1000 !important;
+      padding: 1.5rem 1.75rem !important;
+      min-height: 84px !important;
+      box-sizing: border-box !important;
+    }
+    @media (min-width: 768px) {
+      .mainframe-navbar,
+      .hero-video-navbar,
+      #mainframeNavbar,
+      #heroNavbar {
+        padding: 1.75rem 3rem !important;
+        min-height: 96px !important;
+      }
+    }
+    @media (min-width: 1280px) {
+      .mainframe-navbar,
+      .hero-video-navbar,
+      #mainframeNavbar,
+      #heroNavbar {
+        padding: 2rem 4.5rem !important;
+        min-height: 104px !important;
+      }
+    }
+    .mainframe-navbar.is-scrolled,
+    .hero-video-navbar.is-scrolled,
+    #mainframeNavbar.is-scrolled,
+    #heroNavbar.is-scrolled {
+      opacity: 0 !important;
+      visibility: hidden !important;
+      pointer-events: none !important;
+      display: none !important;
+    }
+
+    /* ==========================================================================
+       CENTERED DESKTOP NAVIGATION TABS (MATCHING ZOHO PAGE POSITIONING & STYLE)
+       ========================================================================== */
+    @media (min-width: 860px) {
+      .mainframe-desktop-nav,
+      body.contact-page .mainframe-desktop-nav {
+        position: absolute !important;
+        left: 50% !important;
+        top: 50% !important;
+        transform: translate(-50%, -50%) !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: clamp(1.5rem, 2.4vw, 2.75rem) !important;
+        z-index: 102 !important;
+      }
+    }
+
+    .mainframe-nav-link,
+    body.contact-page .mainframe-nav-link {
+      position: relative !important;
+      color: #FFFFFF !important;
+      font-size: 0.95rem !important;
+      font-weight: 600 !important;
+      text-decoration: none !important;
+      transition: color 0.25s ease !important;
+      letter-spacing: 0.01em !important;
+      padding: 0.35rem 0 !important;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+      text-shadow: 0 1px 6px rgba(0, 0, 0, 0.8), 0 2px 12px rgba(0, 0, 0, 0.5) !important;
+    }
+
+    .mainframe-nav-link:hover,
+    body.contact-page .mainframe-nav-link:hover {
+      color: #38BDF8 !important;
+    }
+
+    /* ==========================================================================
+       HERO BANNER (MATCHING REFERENCE DESIGN: CORPORATE BLUE WITH IMAGE OVERLAY)
+       ========================================================================== */
+    .contact-hero-banner {
+      position: relative;
+      background: url('../assets/images/contact_hero_bg.jpg') center 30% / cover no-repeat;
+      padding: 165px 1.5rem 185px 1.5rem;
+      text-align: center;
+      color: #FFFFFF;
+      overflow: hidden;
+    }
+
+    .contact-hero-banner::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(10, 25, 60, 0.76) 0%, rgba(26, 54, 138, 0.84) 55%, rgba(15, 23, 42, 0.88) 100%);
+      z-index: 1;
+    }
+
+    .contact-hero-inner {
+      position: relative;
+      z-index: 2;
+      max-width: 780px;
+      margin: 0 auto;
+    }
+
+    .contact-hero-title {
+      font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif !important;
+      font-size: 64px !important;
+      font-weight: 800 !important;
+      color: #FFFFFF;
+      margin: 0 0 0.85rem 0;
+      letter-spacing: -0.03em !important;
+      line-height: 1.1 !important;
+    }
+
+    @media (max-width: 1024px) {
+      .contact-hero-title {
+        font-size: clamp(34px, 5.5vw, 56px) !important;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .contact-hero-title {
+        font-size: clamp(28px, 8vw, 38px) !important;
+      }
+    }
+
+    .contact-hero-subtitle {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+      font-size: 17px !important;
+      font-weight: 400 !important;
+      color: rgba(255, 255, 255, 0.9);
+      line-height: 1.65 !important;
+      max-width: 620px;
+      margin: 0 auto;
+    }
+
+    /* ==========================================================================
+       FLOATING 2-COLUMN CONTACT CARD (MATCHING REFERENCE DESIGN)
+       ========================================================================== */
+    .contact-card-section {
+      position: relative;
+      z-index: 10;
+      padding: 0 1.5rem 4.5rem 1.5rem;
+      margin-top: -125px; /* Overlaps hero banner */
+      background: linear-gradient(180deg, transparent 0%, var(--color-bg, #FAFAFC) 125px, var(--color-bg, #FAFAFC) 100%);
+    }
+
+    .contact-main-card {
+      max-width: 1120px;
+      margin: 0 auto;
+      background: #FFFFFF;
+      border-radius: 20px;
+      box-shadow: 0 25px 70px -15px rgba(15, 23, 42, 0.12), 0 4px 24px rgba(0, 0, 0, 0.04);
+      border: 1px solid rgba(226, 232, 240, 0.9);
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      overflow: hidden;
+      box-sizing: border-box;
+    }
+
+    @media (max-width: 960px) {
+      .contact-hero-banner {
+        padding: 130px 1.5rem 150px 1.5rem;
+      }
+      .contact-card-section {
+        margin-top: -95px;
+        padding: 0 1rem 3.5rem 1rem;
+      }
+      .contact-main-card {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* --------------------------------------------------------------------------
+       LEFT COLUMN: GET IN TOUCH
+       -------------------------------------------------------------------------- */
+    .contact-left-pane {
+      padding: clamp(2rem, 3.2vw, 3.25rem);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border-right: 1px solid #F1F5F9;
+      background: #FFFFFF;
+      box-sizing: border-box;
+    }
+
+    @media (max-width: 960px) {
+      .contact-left-pane {
+        border-right: none;
+        border-bottom: 1px solid #F1F5F9;
+        padding: 2rem 1.5rem;
+      }
+    }
+
+    .contact-pane-title {
+      font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif !important;
+      font-size: 42px !important;
+      font-weight: 700 !important;
+      color: #0F172A;
+      margin: 0 0 0.5rem 0;
+      letter-spacing: -0.02em;
+      line-height: 1.2 !important;
+    }
+
+    @media (max-width: 1024px) {
+      .contact-pane-title {
+        font-size: clamp(28px, 4vw, 36px) !important;
+      }
+    }
+
+    .contact-pane-desc {
+      font-family: 'Inter', -apple-system, sans-serif !important;
+      font-size: 17px !important;
+      font-weight: 400 !important;
+      color: #64748B;
+      line-height: 1.65 !important;
+      margin: 0 0 2rem 0;
+    }
+
+    .contact-info-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.65rem;
+      margin-bottom: 2.2rem;
+    }
+
+    .contact-info-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1.1rem;
+    }
+
+    .contact-icon-badge {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: #2563EB;
+      color: #FFFFFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      box-shadow: 0 6px 16px rgba(37, 99, 235, 0.25);
+    }
+
+    .contact-icon-badge svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    .contact-item-label {
+      font-family: 'Inter', -apple-system, sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #0F172A;
+      margin: 0 0 0.25rem 0;
+    }
+
+    .contact-item-text {
+      font-family: 'Inter', -apple-system, sans-serif;
+      font-size: 0.85rem;
+      color: #64748B;
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    .contact-social-block {
+      margin-top: auto;
+      padding-top: 1.25rem;
+    }
+
+    .contact-social-title {
+      font-family: 'Inter', -apple-system, sans-serif;
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: #0F172A;
+      margin: 0 0 0.85rem 0;
+    }
+
+    .contact-social-icons {
+      display: flex;
+      gap: 0.75rem;
+      align-items: center;
+    }
+
+    .contact-social-btn {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: #2563EB;
+      color: #FFFFFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 4px 10px rgba(37, 99, 235, 0.2);
+    }
+
+    .contact-social-btn:hover {
+      background: #1D4ED8;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 18px rgba(37, 99, 235, 0.35);
+    }
+
+    .contact-social-btn svg {
+      width: 17px;
+      height: 17px;
+      fill: currentColor;
+    }
+
+    /* --------------------------------------------------------------------------
+       RIGHT COLUMN: SEND US A MESSAGE (ZOHO CRM WEB-TO-LEAD FORM)
+       -------------------------------------------------------------------------- */
+    .contact-right-pane {
+      padding: clamp(2rem, 3.2vw, 3.25rem);
+      display: flex;
+      flex-direction: column;
+      background: #FFFFFF;
+      box-sizing: border-box;
+    }
+
+    @media (max-width: 960px) {
+      .contact-right-pane {
+        padding: 2rem 1.5rem;
+      }
+    }
+
+    .contact-form-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 1.15rem;
+      width: 100%;
+    }
+
+    .contact-form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    @media (max-width: 640px) {
+      .contact-form-row {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .contact-field-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+      position: relative;
+    }
+
+    .contact-field-label {
+      font-family: 'Inter', -apple-system, sans-serif;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: #334155;
+      letter-spacing: 0.01em;
+    }
+
+    .contact-field-label .req {
+      color: #EF4444;
+      font-weight: 700;
+    }
+
+    .contact-field-input,
+    .contact-field-textarea {
+      width: 100%;
+      background: #F8FAFC;
+      border: 1px solid #E2E8F0;
+      border-radius: 8px;
+      padding: 0.68rem 0.95rem;
+      font-family: 'Inter', -apple-system, sans-serif;
+      font-size: 0.9rem;
+      color: #0F172A;
+      outline: none;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      box-sizing: border-box;
+    }
+
+    .contact-field-input:focus,
+    .contact-field-textarea:focus {
+      background: #FFFFFF;
+      border-color: #2563EB;
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+    }
+
+    .contact-field-input::placeholder,
+    .contact-field-textarea::placeholder {
+      color: #94A3B8;
+      font-size: 0.88rem;
+    }
+
+    .contact-field-textarea {
+      min-height: 100px;
+      resize: vertical;
+    }
+
+    /* Multi-Select Field for Subject / Services */
+    .contact-multiselect {
+      position: relative;
+      width: 100%;
+    }
+
+    .contact-select-trigger {
+      width: 100%;
+      background: #F8FAFC;
+      border: 1px solid #E2E8F0;
+      border-radius: 8px;
+      padding: 0.68rem 0.95rem;
+      font-family: 'Inter', -apple-system, sans-serif;
+      font-size: 0.9rem;
+      color: #0F172A;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      user-select: none;
+      min-height: 44px;
+      box-sizing: border-box;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .contact-select-trigger:focus,
+    .contact-multiselect.open .contact-select-trigger {
+      background: #FFFFFF;
+      border-color: #2563EB;
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+    }
+
+    .contact-trigger-text {
+      color: #94A3B8;
+      font-size: 0.88rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .contact-trigger-text.has-selection {
+      color: #0F172A;
+      font-weight: 600;
+    }
+
+    .contact-select-arrow {
+      color: #64748B;
+      transition: transform 0.25s ease;
+      flex-shrink: 0;
+    }
+
+    .contact-multiselect.open .contact-select-arrow {
+      transform: rotate(180deg);
+    }
+
+    .contact-options-panel {
+      position: absolute;
+      top: calc(100% + 5px);
+      left: 0;
+      right: 0;
+      background: #FFFFFF;
+      border: 1px solid #E2E8F0;
+      border-radius: 10px;
+      box-shadow: 0 16px 36px rgba(15, 23, 42, 0.14);
+      max-height: 230px;
+      overflow-y: auto;
+      padding: 0.5rem;
+      z-index: 50;
+      display: none;
+    }
+
+    .contact-multiselect.open .contact-options-panel {
+      display: block;
+      animation: fadeInDropdown 0.2s ease forwards;
+    }
+
+    .contact-option-item {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      padding: 0.45rem 0.65rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.86rem;
+      color: #1E293B;
+      transition: background 0.15s ease, color 0.15s ease;
+    }
+
+    .contact-option-item:hover {
+      background: #EFF6FF;
+      color: #2563EB;
+    }
+
+    .contact-option-item input[type="checkbox"] {
+      accent-color: #2563EB;
+      width: 15px;
+      height: 15px;
+      cursor: pointer;
+    }
+
+    .contact-chips-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.45rem;
+    }
+
+    .contact-chip {
+      background: #EFF6FF;
+      border: 1px solid #BFDBFE;
+      border-radius: 9999px;
+      padding: 0.2rem 0.65rem;
+      font-size: 0.76rem;
+      font-weight: 500;
+      color: #1D4ED8;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .contact-chip-remove {
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 0.85rem;
+      color: #3B82F6;
+    }
+
+    .contact-chip-remove:hover {
+      color: #1D4ED8;
+    }
+
+    /* Submit Button (Matching Blue Send Button from Reference) */
+    .contact-send-btn {
+      width: 100%;
+      background: #2563EB;
+      color: #FFFFFF;
+      border: none;
+      border-radius: 8px;
+      padding: 0.88rem 1.5rem;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+      font-size: 15px !important;
+      font-weight: 600 !important;
+      letter-spacing: -0.01em;
+      cursor: pointer;
+      margin-top: 0.5rem;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 4px 18px rgba(37, 99, 235, 0.28);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .contact-send-btn:hover {
+      background: #1D4ED8;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(37, 99, 235, 0.38);
+    }
+
+    .contact-send-btn:active {
+      transform: translateY(0);
+      box-shadow: 0 2px 8px rgba(37, 99, 235, 0.25);
+    }
+
+    /* ==========================================================================
+       INTERACTIVE FULL-WIDTH GOOGLE MAP SECTION (MATCHING REFERENCE IMAGE)
+       ========================================================================== */
+    .contact-map-section {
+      width: 100%;
+      height: 440px;
+      position: relative;
+      overflow: hidden;
+      border-top: 1px solid #E2E8F0;
+      border-bottom: 1px solid #E2E8F0;
+      background: #E2E8F0;
+    }
+
+    .contact-map-iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      display: block;
+    }
+
+    @media (max-width: 768px) {
+      .contact-map-section {
+        height: 340px;
+      }
+    }
+  </style>
+</head>
+<body class="contact-page">
+
+  <!-- Topbar Navigation (Dark Hero Mode: White Logo and Crisp Navigation) -->
+  <header class="mainframe-navbar" id="mainframeNavbar">
+    <!-- Left: Digiolic Brand Logo -->
+    <a href="../index.html" class="mainframe-logo-wrap" aria-label="Digiolic Home">
+      <img src="../assets/images/digiolic-logo.png" alt="Digiolic" class="brand-logo-img" width="96" height="34" style="height: 34px !important; width: auto !important; max-height: 34px !important; display: block;">
+    </a>
+
+    <!-- Center: Desktop Nav Links -->
+    <nav class="mainframe-desktop-nav" aria-label="Primary Navigation">
+      <a href="../index.html" class="mainframe-nav-link">Home</a>
+      <a href="zoho.html" class="mainframe-nav-link">Zoho</a>
+      <a href="salesforce.html" class="mainframe-nav-link">Salesforce</a>
+      <a href="digital-marketing.html" class="mainframe-nav-link">Digital Marketing</a>
+      <a href="case-stories.html" class="mainframe-nav-link">Case Studies</a>
+    </nav>
+
+    <!-- Right: Desktop CTA Pill Button (Removed for Contact page) -->
+
+    <!-- Mobile Hamburger Button -->
+    <button class="mainframe-hamburger-btn" id="mainframeMenuBtn" aria-label="Toggle Menu" aria-expanded="false">
+      <span class="mainframe-bar"></span>
+      <span class="mainframe-bar"></span>
+      <span class="mainframe-bar"></span>
+    </button>
+  </header>
+
+  <!-- Fullscreen Mobile Navigation Drawer (Image 1 Design) -->
+  <div class="mobile-nav-drawer" id="mobileNavDrawer" role="dialog" aria-modal="true" aria-label="Mobile Navigation">
+    <div class="mobile-nav-top">
+      <a href="../index.html" class="mobile-nav-logo-link" aria-label="Digiolic Home">
+        <img src="../assets/images/digiolic-logo-dark.png" alt="Digiolic" class="mobile-nav-logo">
+      </a>
+      <button class="mobile-nav-close" id="contactNavCloseBtn" aria-label="Close Menu" onclick="document.getElementById('mobileNavDrawer').classList.remove('is-open'); document.getElementById('mainframeMenuBtn').classList.remove('is-active'); document.body.style.overflow='';">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+    <div class="mobile-nav-list">
+      <a href="../index.html" class="mobile-nav-link">Home</a>
+      <a href="zoho.html" class="mobile-nav-link">Zoho</a>
+      <a href="salesforce.html" class="mobile-nav-link">Salesforce</a>
+      <a href="digital-marketing.html" class="mobile-nav-link">Digital Marketing</a>
+      <a href="case-stories.html" class="mobile-nav-link">Case Studies</a>
+    </div>
+  </div>
+
+  <main id="mainContent">
+
+    <!-- ==========================================================================
+         SECTION 1: HERO BANNER (CORPORATE DEEP BLUE OVERLAY WITH OFFICE IMAGE)
+         ========================================================================== -->
+    <section class="contact-hero-banner" id="contactHero">
+      <div class="contact-hero-inner">
+        <h1 class="contact-hero-title">Contact us</h1>
+        <p class="contact-hero-subtitle">
+          Digiolic is ready to provide the right solution according to your needs
+        </p>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECTION 2: FLOATING 2-COLUMN CONTACT CARD (MATCHING REFERENCE DESIGN)
+         ========================================================================== -->
+    <section class="contact-card-section" id="contactSection">
+      <div class="contact-main-card" id="contactFormCard">
+        
+        <!-- Left Column: Get in touch -->
+        <div class="contact-left-pane">
+          <div>
+            <h2 class="contact-pane-title">Get in touch</h2>
+            <p class="contact-pane-desc">
+              Connect directly with our senior cloud architects and strategists. We are ready to help you optimize and scale your enterprise systems.
+            </p>
+
+            <div class="contact-info-list">
+              <!-- Item 1: Office Location -->
+              <div class="contact-info-item">
+                <div class="contact-icon-badge" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="contact-item-label">Office Location</h3>
+                  <p class="contact-item-text">
+                    BHIVE Premium HSR, Bangalore<br>
+                    Karnataka, India
+                  </p>
+                </div>
+              </div>
+
+              <!-- Item 2: Email Us -->
+              <div class="contact-info-item">
+                <div class="contact-icon-badge" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                    <polyline points="22,6 12,13 2,6"></polyline>
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="contact-item-label">Email Us</h3>
+                  <p class="contact-item-text">
+                    <a href="mailto:info@digiolic.com" style="color: inherit; text-decoration: none; font-weight: 500;">info@digiolic.com</a>
+                  </p>
+                </div>
+              </div>
+
+              <!-- Item 3: Call Us -->
+              <div class="contact-info-item">
+                <div class="contact-icon-badge" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="contact-item-label">Call Us</h3>
+                  <p class="contact-item-text">
+                    <a href="tel:+918971660217" style="color: inherit; text-decoration: none; font-weight: 500;">+91 89716 60217</a><br>
+                    Mon - Fri, 9:00 AM - 6:00 PM IST
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Social Media Block -->
+          <div class="contact-social-block">
+            <h4 class="contact-social-title">Follow our social media</h4>
+            <div class="contact-social-icons">
+              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="contact-social-btn" aria-label="Facebook">
+                <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+              </a>
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="contact-social-btn" aria-label="Instagram">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+              </a>
+              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="contact-social-btn" aria-label="Twitter / X">
+                <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+              </a>
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="contact-social-btn" aria-label="LinkedIn">
+                <svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Send us a message (Zoho CRM Web-to-Lead Form) -->
+        <div class="contact-right-pane">
+          <h2 class="contact-pane-title">Send us a message</h2>
+
+          <div id="crmWebToEntityForm" class="crmWebToEntityForm" style="width: 100%;">
+            <form class="contact-form-grid" id="webform1410226000000468646" name="WebToLeads1410226000000468646" action="https://crm.zoho.in/crm/WebToLeadForm" method="POST" onsubmit="javascript:document.charset='UTF-8'; return checkMandatory1410226000000468646()" accept-charset="UTF-8">
+              
+              <!-- Zoho CRM Web-to-Lead Configuration Tokens -->
+              <input type="text" style="display:none;" name="xnQsjsdp" value="2bec8fc379fa8b2907466baf9c9027a10d782e535a700961df9cc7f9cc9e3a0f">
+              <input type="hidden" name="zc_gad" id="zc_gad" value="">
+              <input type="text" style="display:none;" name="xmIwtLD" value="84b7c141f3115de860a5ea90aee2f7e092be13d393114f0ae233a01053b1d7c48e28efc64f4853ce787599eb00717ff5">
+              <input type="text" style="display:none;" name="actionType" value="TGVhZHM=">
+              <input type="text" style="display:none;" name="returnURL" value="null">
+              <input type="text" style="display:none;" name="aG9uZXlwb3Q" value="">
+
+              <!-- Row 1: Name & Company (2 Columns) -->
+              <div class="contact-form-row">
+                <div class="contact-field-wrap">
+                  <label for="Last_Name" class="contact-field-label">Name <span class="req">*</span></label>
+                  <input type="text" id="Last_Name" name="Last Name" class="contact-field-input" placeholder="Name" maxlength="80" aria-required="true" required>
+                </div>
+                <div class="contact-field-wrap">
+                  <label for="Company" class="contact-field-label">Company <span class="req">*</span></label>
+                  <input type="text" id="Company" name="Company" class="contact-field-input" placeholder="Company" maxlength="200" aria-required="true" required>
+                </div>
+              </div>
+
+              <!-- Row 2: Phone & Email (2 Columns) -->
+              <div class="contact-form-row">
+                <div class="contact-field-wrap">
+                  <label for="Phone" class="contact-field-label">Phone <span class="req">*</span></label>
+                  <input type="text" id="Phone" name="Phone" class="contact-field-input" placeholder="Phone" maxlength="30" aria-required="true" required>
+                </div>
+                <div class="contact-field-wrap">
+                  <label for="Email" class="contact-field-label">Email <span class="req">*</span></label>
+                  <input type="text" ftype="email" autocomplete="false" id="Email" name="Email" class="contact-field-input" placeholder="Email" maxlength="100" aria-required="true" required>
+                </div>
+              </div>
+
+              <!-- Row 3: Subject / Service (Full Width Multi-Select) -->
+              <div class="contact-field-wrap">
+                <label for="LEADCF2" class="contact-field-label">Subject / Service <span class="req">*</span></label>
+                
+                <!-- Native multi-select for Zoho submission -->
+                <select class="zcwf_col_fld_slt" role="combobox" aria-expanded="false" aria-haspopup="listbox" id="LEADCF2" aria-required="true" aria-label="LEADCF2" name="LEADCF2" multiple style="display:none;">
+                  <option value="Zoho CRM">Zoho CRM</option>
+                  <option value="Zoho CRM Plus">Zoho CRM Plus</option>
+                  <option value="Bigin">Bigin</option>
+                  <option value="Zoho SalesIQ">Zoho SalesIQ</option>
+                  <option value="Zoho Marketing Automation">Zoho Marketing Automation</option>
+                  <option value="Zoho Social">Zoho Social</option>
+                  <option value="Zoho Campaigns">Zoho Campaigns</option>
+                  <option value="Zoho Forms">Zoho Forms</option>
+                  <option value="Zoho Sign">Zoho Sign</option>
+                  <option value="Zoho Bookings">Zoho Bookings</option>
+                  <option value="Zoho Backstage">Zoho Backstage</option>
+                  <option value="Zoho People">Zoho People</option>
+                  <option value="Zoho People Plus">Zoho People Plus</option>
+                  <option value="Zoho Recruit">Zoho Recruit</option>
+                  <option value="Zoho Payroll">Zoho Payroll</option>
+                  <option value="Zoho Books">Zoho Books</option>
+                  <option value="Zoho Invoice">Zoho Invoice</option>
+                  <option value="Zoho Expense">Zoho Expense</option>
+                  <option value="Zoho Inventory">Zoho Inventory</option>
+                  <option value="Zoho Checkout">Zoho Checkout</option>
+                  <option value="Zoho Desk">Zoho Desk</option>
+                  <option value="Zoho Assist">Zoho Assist</option>
+                  <option value="Zoho Lens">Zoho Lens</option>
+                  <option value="Zoho Mail">Zoho Mail</option>
+                  <option value="Zoho Cliq">Zoho Cliq</option>
+                  <option value="Zoho WorkDrive">Zoho WorkDrive</option>
+                  <option value="Zoho Projects">Zoho Projects</option>
+                  <option value="Zoho Meeting">Zoho Meeting</option>
+                  <option value="Zoho Writer">Zoho Writer</option>
+                  <option value="Zoho Sheet">Zoho Sheet</option>
+                  <option value="Zoho Show">Zoho Show</option>
+                  <option value="Zoho Analytics">Zoho Analytics</option>
+                  <option value="Zoho DataPrep">Zoho DataPrep</option>
+                  <option value="Zoho One">Zoho One</option>
+                  <option value="Zoho Creator">Zoho Creator</option>
+                  <option value="Zoho Flow">Zoho Flow</option>
+                  <option value="Performance marketing">Performance marketing</option>
+                  <option value="Search engine optimization">Search engine optimization</option>
+                  <option value="Ppc advertising">Ppc advertising</option>
+                  <option value="Social media management">Social media management</option>
+                  <option value="Content marketing">Content marketing</option>
+                  <option value="Ai-driven marketing automation">Ai-driven marketing automation</option>
+                  <option value="Influencer marketing">Influencer marketing</option>
+                  <option value="Branding">Branding</option>
+                  <option value="Email marketing">Email marketing</option>
+                  <option value="Web design and development">Web design and development</option>
+                  <option value="Digital strategy creation">Digital strategy creation</option>
+                  <option value="Online reputation management">Online reputation management</option>
+                  <option value="Salesfoce Developement">Salesfoce Developement</option>
+                  <option value="Salesforce Sales Cloud">Salesforce Sales Cloud</option>
+                  <option value="Salesforce Service Cloud">Salesforce Service Cloud</option>
+                  <option value="Salesforce Marketing Cloud">Salesforce Marketing Cloud</option>
+                  <option value="Salesforce Experience Cloud">Salesforce Experience Cloud</option>
+                  <option value="Salesforce Commerce Cloud">Salesforce Commerce Cloud</option>
+                  <option value="Salesforce Data Cloud">Salesforce Data Cloud</option>
+                  <option value="Salesforce Platform">Salesforce Platform</option>
+                </select>
+
+                <!-- Custom Multi-Select Dropdown UI -->
+                <div class="contact-multiselect" id="contactServicesMultiselect">
+                  <div class="contact-select-trigger" tabindex="0" role="combobox" aria-expanded="false" aria-haspopup="listbox">
+                    <span class="contact-trigger-text" id="contactServicesTriggerText">Select your service</span>
+                    <svg class="contact-select-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                  </div>
+
+                  <div class="contact-options-panel" role="listbox">
+                    <div style="padding: 6px 12px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: #64748B; background: #F8FAFC;">Zoho Applications</div>
+                    <label class="contact-option-item"><input type="checkbox" data-service-val="Zoho CRM"><span>Zoho CRM</span></label>
+                    <label class="contact-option-item"><input type="checkbox" data-service-val="Zoho CRM Plus"><span>Zoho CRM Plus</span></label>
+                    <label class="contact-option-item"><input type="checkbox" data-service-val="Bigin"><span>Bigin</span></label>
+                    <label class="contact-option-item"><input type="checkbox" data-service-val="Zoho One"><span>Zoho One</span></label>
+                    <label class="contact-option-item"><input type="checkbox" data-service-val="Zoho Creator"><span>Zoho Creator</span></label>
+                    <label class="contact-option-item"><input type="checkbox" data-service-val="Zoho Flow"><span>Zoho Flow</span></label>
+                    <label class="contact-option-item"><input type="checkbox" data-service-val="Zoho Books"><span>Zoho Books</span></label>
+                    <label class="contact-option-item"><input type="checkbox" data-service-val="Zoho Invoice"><span>Zoho Invoice</span></label>
+                    <label class="contact-option-item"><input type="checkbox" data-service-val="Zoho Expense"><span>Zoho Expense</span></label>
+                    <label class="contact-option-item"><input type="checkbox" data-service-val="Zoho Inventory"><span>Zoho Inventory</span></label>
+                    <label class="contact-option-item"><input type="checkbox" data-service-val="Zoho Checkout"><span>Zoho Checkout</span></label>
+                    <label class="contact-option-item"><input type="checkbox" data-service-val="Zoho Desk"><span>Zoho Desk</span></label>
+                    <label class="contact-option-item"><input type="checkbox" data-service-val="Zoho Assist"><span>Zoho Assist</span></label>
+                    <label class="contact-option-item"><input type="checkbox" data-service-val="Zoho Lens"><span>Zoho Lens</span></label>
+                    <label class="contact-option-item"><input type="checkbox" data-service-val="Zoho SalesIQ"><span>Zoho SalesIQ</span></label>
+                    <label class="contact-option-item"><input type="checkbox" data-service-val="Zoho Marketing Automation"><span>Zoho Marketing Automation</span></label>
+                    <label class="contact-option-item"><input type="checkbox" data-service-val="Zoho Social"><span>Zoho Social</span></label>
+                    <label class="contact-option-item"><input type="checkbox" data-service-val="Zoho Campaigns"><span>Zoho Campaigns</span></label>
+                    <label class="contact-option-item"><input type="checkbox" data-service-val="Zoho Forms"><span>Zoho Forms</span></label>
+                    <label class="contact-option-item"><input type="checkbox" data-service-val="Zoho Sign"><span>Zoho Sign</span></label>
+                    <label class="contact-option-item"><input type="checkbox" data-service-val="Zoho Bookings"><span>Zoho Bookings</span></label>
+                    <label class="contact-option-item"><input type="checkbox" data-service-val="Zoho Backstage"><span>Zoho Backstage</span></label>
+                    <label class="contact-option-item"><input type="checkbox" data-service-val="Zoho People"><span>Zoho People</span></label>
+                    <label class="contact-option-item"><input type="checkbox" data-service-val="Zoho People Plus"><span>Zoho People Plus</span></label>
+                    <label class="contact-option-item"><input type="checkbox" data-service-val="Zoho Recruit"><span>Zoho Recruit</span></label>
+                    <label class="contact-option-item"><input type="checkbox" data-service-val="Zoho Payroll"><span>Zoho Payroll</span></label>
+                    <label class="contact-option-item"><input type="checkbox" data-service-val="Zoho Mail"><span>Zoho Mail</span></label>
+                    <label class="contact-option-item"><input type="checkbox" data-service-val="Zoho Cliq"><span>Zoho Cliq</span></label>
+                    <label class="contact-option-item"><input type="checkbox" data-service-val="Zoho WorkDrive"><span>Zoho WorkDrive</span></label>
+                    <label class="contact-option-item"><input type="checkbox" data-service-val="Zoho Projects"><span>Zoho Projects</span></label>
+                    <label class="contact-option-item"><input type="checkbox" data-service-val="Zoho Meeting"><span>Zoho Meeting</span></label>
+                    <label class="contact-option-item"><input type="checkbox" data-service-val="Zoho Writer"><span>Zoho Writer</span></label>
+                    <label class="contact-option-item"><input type="checkbox" data-service-val="Zoho Sheet"><span>Zoho Sheet</span></label>
+                    <label class="contact-option-item"><input type="checkbox" data-service-val="Zoho Show"><span>Zoho Show</span></label>
+                    <label class="contact-option-item"><input type="checkbox" data-service-val="Zoho Analytics"><span>Zoho Analytics</span></label>
+                    <label class="contact-option-item"><input type="checkbox" data-service-val="Zoho DataPrep"><span>Zoho DataPrep</span></label>
+
+                    <div style="padding: 6px 12px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: #64748B; background: #F8FAFC;">Digital Marketing &amp; Strategy</div>
+                    <label class="contact-option-item"><input type="checkbox" data-service-val="Performance marketing"><span>Performance marketing</span></label>
+                    <label class="contact-option-item"><input type="checkbox" data-service-val="Search engine optimization"><span>Search engine optimization</span></label>
+                    <label class="contact-option-item"><input type="checkbox" data-service-val="Ppc advertising"><span>Ppc advertising</span></label>
+                    <label class="contact-option-item"><input type="checkbox" data-service-val="Social media management"><span>Social media management</span></label>
+                    <label class="contact-option-item"><input type="checkbox" data-service-val="Content marketing"><span>Content marketing</span></label>
+                    <label class="contact-option-item"><input type="checkbox" data-service-val="Ai-driven marketing automation"><span>Ai-driven marketing automation</span></label>
+                    <label class="contact-option-item"><input type="checkbox" data-service-val="Influencer marketing"><span>Influencer marketing</span></label>
+                    <label class="contact-option-item"><input type="checkbox" data-service-val="Branding"><span>Branding</span></label>
+                    <label class="contact-option-item"><input type="checkbox" data-service-val="Email marketing"><span>Email marketing</span></label>
+                    <label class="contact-option-item"><input type="checkbox" data-service-val="Web design and development"><span>Web design and development</span></label>
+                    <label class="contact-option-item"><input type="checkbox" data-service-val="Digital strategy creation"><span>Digital strategy creation</span></label>
+                    <label class="contact-option-item"><input type="checkbox" data-service-val="Online reputation management"><span>Online reputation management</span></label>
+
+                    <div style="padding: 6px 12px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: #64748B; background: #F8FAFC;">Salesforce Development</div>
+                    <label class="contact-option-item"><input type="checkbox" data-service-val="Salesfoce Developement"><span>Salesfoce Developement</span></label>
+                    <label class="contact-option-item"><input type="checkbox" data-service-val="Salesforce Sales Cloud"><span>Salesforce Sales Cloud</span></label>
+                    <label class="contact-option-item"><input type="checkbox" data-service-val="Salesforce Service Cloud"><span>Salesforce Service Cloud</span></label>
+                    <label class="contact-option-item"><input type="checkbox" data-service-val="Salesforce Marketing Cloud"><span>Salesforce Marketing Cloud</span></label>
+                    <label class="contact-option-item"><input type="checkbox" data-service-val="Salesforce Experience Cloud"><span>Salesforce Experience Cloud</span></label>
+                    <label class="contact-option-item"><input type="checkbox" data-service-val="Salesforce Commerce Cloud"><span>Salesforce Commerce Cloud</span></label>
+                    <label class="contact-option-item"><input type="checkbox" data-service-val="Salesforce Data Cloud"><span>Salesforce Data Cloud</span></label>
+                    <label class="contact-option-item"><input type="checkbox" data-service-val="Salesforce Platform"><span>Salesforce Platform</span></label>
+                  </div>
+                </div>
+
+                <div class="contact-chips-wrap" id="contactSelectedChips"></div>
+              </div>
+
+              <!-- Row 4: Message (Full Width) -->
+              <div class="contact-field-wrap">
+                <label for="LEADCF1" class="contact-field-label">Message <span class="req">*</span></label>
+                <textarea id="LEADCF1" name="LEADCF1" class="contact-field-textarea" placeholder="Message" rows="4" aria-multiline="true" aria-required="true" required></textarea>
+              </div>
+
+              <!-- Row 5: Full-Width Blue Send Button -->
+              <div>
+                <button type="submit" id="formsubmit" class="contact-send-btn formsubmit" role="button" value="Send" aria-label="Send Message" title="Send Message">
+                  Send
+                </button>
+              </div>
+
+              <!-- Zoho CRM Analytics Script -->
+              <script id="wf_anal" src="https://crm.zohopublic.in/crm/WebFormAnalyticsServeServlet?rid=d4dd7fbabaeb68e8633ec9da92e375746a184b20eb647581d95f0bdbf8cc48910686b1cdafc5a4d114c281049a2fbcdbgid7c507c708694be9822821a780dfb41110e0b9e44539006ddc61a126f891d103fgid72543aa4b762561a80e0cb169bef977a2b371d1161b936cd28563838efe66d3cgid40d3ba5102eefb9c4479b6de7029a4bf8bc8ecee6913936a98f2de2592dfb119&tw=ff9c790a973b9d50a533615b473a975547954926e5aef75a5cde54b8f467d500&version=v2"></script>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECTION 3: INTERACTIVE FULL-WIDTH GOOGLE MAP (BHIVE PREMIUM HSR, BANGALORE)
+         ========================================================================== -->
+    <section class="contact-map-section" id="contactMapSection" aria-label="Digiolic Bangalore Office Location Map">
+      <iframe 
+        src="https://maps.google.com/maps?q=BHIVE+Workspace+HSR+Layout+Bangalore&amp;t=&amp;z=15&amp;ie=UTF8&amp;iwloc=&amp;output=embed" 
+        class="contact-map-iframe" 
+        title="Digiolic Office - BHIVE Premium HSR, Bangalore"
+        allowfullscreen="" 
+        loading="lazy" 
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </section>
+
+  </main>
+
+  <!-- ==========================================================================
+       FOOTER
+       ========================================================================== -->
+  <footer class="site-footer">
+    <div class="container-home-compact">
+
+      <div class="footer-grid">
+
+        <!-- 1) Digiolic Brand (Left side) -->
+        <div class="footer-brand-col">
+          <a href="../index.html" class="brand-logo" aria-label="Digiolic Home">
+            <img src="../assets/images/digiolic-logo.png" alt="Digiolic" height="34">
+          </a>
+          <p>
+            Architecting next-generation enterprise business systems. Unified Zoho One, Salesforce Cloud, and performance growth marketing.
+          </p>
+
+        </div>
+
+        <!-- 2) Services (After Digiolic) -->
+        <div>
+          <h4 class="footer-heading">Services</h4>
+          <ul class="footer-links">
+            <li><a href="zoho.html" class="footer-link">Zoho Enterprise</a></li>
+            <li><a href="salesforce.html" class="footer-link">Salesforce Cloud</a></li>
+            <li><a href="digital-marketing.html" class="footer-link">Digital Marketing</a></li>
+            <li><a href="case-stories.html" class="footer-link">Case Stories</a></li>
+          </ul>
+        </div>
+
+        <!-- 3) Contact (After Services) -->
+        <div>
+          <h4 class="footer-heading">Contact</h4>
+          <div class="footer-contact-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+            </svg>
+            <div>
+              <span style="display: block; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; color: #64748B; margin-bottom: 2px;">Mobile</span>
+              <a href="tel:+919665530071" class="footer-link" style="color: #F8FAFC; font-weight: 500;">+91 9665530071</a>
+            </div>
+          </div>
+          <div class="footer-contact-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+              <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
+            <div>
+              <span style="display: block; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; color: #64748B; margin-bottom: 2px;">Email id</span>
+              <a href="mailto:info@digiolic.com" class="footer-link" style="color: #F8FAFC; font-weight: 500;">info@digiolic.com</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4) Subscribe Now (After Contact, RIGHT SIDE) -->
+        <div class="footer-subscribe-col">
+          <!-- Social Icons Row (Facebook, Twitter/X, LinkedIn, Instagram, YouTube) -->
+          <div class="footer-social-row">
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="footer-social-icon-btn" aria-label="Facebook">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="#1877F2"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </a>
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="footer-social-icon-btn" aria-label="Twitter">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="#0284C7"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.936 9.936 0 0024 4.59z"/></svg>
+            </a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="footer-social-icon-btn" aria-label="LinkedIn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="#0A66C2"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+            </a>
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="footer-social-icon-btn" aria-label="Instagram">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="#0F172A"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            </a>
+            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="footer-social-icon-btn" aria-label="YouTube">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="#0284C7"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            </a>
+          </div>
+
+          <!-- Title & Subtitle (Matching Image 2) -->
+          <h3 class="footer-subscribe-title">Subscribe Now</h3>
+          <p class="footer-subscribe-subtitle">Don’t miss our future updates! Get Subscribed Today!</p>
+
+          <!-- Zoho Campaigns Web-Optin Form -->
+          <div name="signupFormContainer" style="width: 100%; max-width: 390px;">
+            <input type="hidden" id="signupTmplName" value="quick_form_8">
+            <input type="hidden" value="0" id="recapThemeOptin">
+            <input type="hidden" id="orgNameFull" value="Digiolic">
+            <div id="sf3z9b6c828aa5af22b4a6077a0465071583a608aedf9a4312cd59de68709570dfed" data-type="signupform">
+              <div id="customForm">
+                <div name="SIGNUP_BODY" id="SIGNUP_BODY" style="width: 100%;">
+                  <form method="POST" id="zcampaignOptinForm" action="https://zgp4-zgp4.maillist-manage.in/weboptin.zc" target="_zcSignup" onsubmit="if(typeof zcActionUrlRest==='function'){zcActionUrlRest();}" class="footer-subscribe-pill-form">
+                    <div id="errorMsgDiv" style="display: none; position: absolute; bottom: calc(100% + 8px); left: 0; background-color: #FEF2F2; padding: 6px 12px; color: #DC2626; font-size: 12px; border: 1px solid #FECACA; border-radius: 6px; white-space: nowrap; z-index: 10; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">Please enter a valid email address.</div>
+                    <input type="email" placeholder="Enter your email address" changeitem="SIGNUP_FORM_FIELD" name="CONTACT_EMAIL" id="EMBED_FORM_EMAIL_LABEL" class="footer-subscribe-input" required aria-label="Enter your email address">
+                    <button type="button" action="Save" name="SIGNUP_SUBMIT_BUTTON" id="zcWebOptin" changetype="SIGNUP_SUBMIT_BUTTON_TEXT" class="footer-subscribe-btn" aria-label="Join Now" onclick="if(typeof saveOptin==='function'){saveOptin(this,false,window['runOnFormSubmit_sf3z9b6c828aa5af22b4a6077a0465071583a608aedf9a4312cd59de68709570dfed'],'#sf3z9b6c828aa5af22b4a6077a0465071583a608aedf9a4312cd59de68709570dfed ',event);}else{document.getElementById('zcampaignOptinForm').submit();}">
+                      <span>Join Now</span>
+                      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                      </svg>
+                    </button>
+                    <input type="hidden" id="fieldBorder" value="">
+                    <input type="hidden" id="submitType" name="submitType" value="optinCustomView">
+                    <input type="hidden" id="emailReportId" name="emailReportId" value="">
+                    <input type="hidden" id="formType" name="formType" value="QuickForm">
+                    <input type="hidden" name="zx" id="cmpZuid" value="1df9e0c1b9">
+                    <input type="hidden" name="zcvers" value="2.0">
+                    <input type="hidden" name="oldListIds" id="allCheckedListIds" value="">
+                    <input type="hidden" id="mode" name="mode" value="OptinCreateView">
+                    <input type="hidden" id="zcld" name="zcld" value="154815acb3547a19">
+                    <input type="hidden" id="zctd" name="zctd" value="154815acb3547211">
+                    <input type="hidden" id="document_domain" value="">
+                    <input type="hidden" id="zc_Url" value="zgp4-zgp4.maillist-manage.in">
+                    <input type="hidden" id="new_optin_response_in" value="0">
+                    <input type="hidden" id="duplicate_optin_response_in" value="0">
+                    <input type="hidden" id="zcOrgIx" value="">
+                    <input type="hidden" id="zcActIx" value="">
+                    <input type="hidden" id="zcCustIx" value="">
+                    <input type="hidden" name="zc_trackCode" id="zc_trackCode" value="ZCFORMVIEW">
+                    <input type="hidden" id="zc_formIx" name="zc_formIx" value="3z9b6c828aa5af22b4a6077a0465071583a608aedf9a4312cd59de68709570dfed">
+                    <input type="hidden" id="viewFrom" value="URL_ACTION">
+                    <span style="display: none" id="dt_CONTACT_EMAIL">1,true,6,Contact Email,2</span>
+                  </form>
+                  <iframe name="_zcSignup" id="_zcSignup" style="display:none;" title="Zoho Campaigns Target"></iframe>
+                </div>
+              </div>
+            </div>
+            <input type="hidden" id="signupFormType" value="QuickForm_Horizontal">
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="footer-bottom">
+        <div>
+          &copy; 2026 Digiolic All rights reserved.
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <script src="../js/main.js?v=20260906_v5"></script>
+
+  <!-- Zoho CRM Web-to-Lead Validation Scripts -->
+  <script>
+    function validateEmail1410226000000468646() {
+      var form = document.forms['WebToLeads1410226000000468646'];
+      if (!form) return true;
+      var emailFld = form.querySelectorAll('[ftype=email]');
+      for (var i = 0; i < emailFld.length; i++) {
+        var emailVal = emailFld[i].value;
+        if ((emailVal.replace(/^\s+|\s+$/g, '')).length != 0) {
+          var atpos = emailVal.indexOf('@');
+          var dotpos = emailVal.lastIndexOf('.');
+          if (atpos < 1 || dotpos < atpos + 2 || dotpos + 2 >= emailVal.length) {
+            alert('Please enter a valid email address.');
+            emailFld[i].focus();
+            return false;
+          }
+        }
+      }
+      return true;
+    }
+
+    function checkMandatory1410226000000468646(isAjax) {
+      var form = document.forms['WebToLeads1410226000000468646'];
+      if (!form) return true;
+      var mndFileds = new Array('Company', 'Last Name', 'Email', 'Phone', 'LEADCF1', 'LEADCF2');
+      var fldLangVal = new Array('Company', 'Name', 'Email', 'Phone', 'Message', 'Subject / Service');
+      
+      for (var i = 0; i < mndFileds.length; i++) {
+        var fieldObj = form[mndFileds[i]];
+        if (fieldObj) {
+          if (((fieldObj.value).replace(/^\s+|\s+$/g, '')).length == 0) {
+            if (fieldObj.type == 'file') {
+              alert('Please select a file to upload.');
+              fieldObj.focus();
+              return false;
+            }
+            alert(fldLangVal[i] + ' cannot be empty.');
+            if (mndFileds[i] === 'LEADCF2') {
+              var trigger = document.querySelector('#contactServicesMultiselect .contact-select-trigger');
+              if (trigger) trigger.focus();
+            } else {
+              fieldObj.focus();
+            }
+            return false;
+          } else if (fieldObj.nodeName == 'SELECT') {
+            if (fieldObj.selectedIndex >= 0 && fieldObj.options[fieldObj.selectedIndex].value == '-None-') {
+              alert(fldLangVal[i] + ' cannot be none.');
+              fieldObj.focus();
+              return false;
+            }
+          } else if (fieldObj.type == 'checkbox') {
+            if (fieldObj.checked == false) {
+              alert('Please accept ' + fldLangVal[i]);
+              fieldObj.focus();
+              return false;
+            }
+          }
+          try {
+            if (fieldObj.name == 'Last Name') {
+              name = fieldObj.value;
+            }
+          } catch (e) {}
+        }
+      }
+      if (!validateEmail1410226000000468646()) {
+        return false;
+      }
+      var urlparams = new URLSearchParams(window.location.search);
+      if (urlparams.has('service') && (urlparams.get('service') === 'smarturl')) {
+        var webform = document.getElementById('webform1410226000000468646');
+        var service = urlparams.get('service');
+        var smarturlfield = document.createElement('input');
+        smarturlfield.setAttribute('type', 'hidden');
+        smarturlfield.setAttribute('value', service);
+        smarturlfield.setAttribute('name', 'service');
+        webform.appendChild(smarturlfield);
+      }
+      var submitBtn = document.getElementById('formsubmit');
+      if (submitBtn) {
+        submitBtn.setAttribute('disabled', 'true');
+        submitBtn.textContent = 'Sending...';
+      }
+      return true;
+    }
+    _wFa_ajax_will_be_replaced = false;
+    if (typeof _wfa_fstprtcken === 'undefined') {
+      _wfa_fstprtcken = {};
+    }
+    _wfa_fstprtcken[1410226000000468646] = true;
+  </script>
+
+  <!-- Interactive Multi-Select for Contact Page -->
+  <script>
+    (function () {
+      const contactMs = document.getElementById('contactServicesMultiselect');
+      const nativeSelect = document.getElementById('LEADCF2');
+      if (!contactMs || !nativeSelect) return;
+
+      const trigger = contactMs.querySelector('.contact-select-trigger');
+      const triggerText = document.getElementById('contactServicesTriggerText');
+      const options = contactMs.querySelectorAll('.contact-option-item input[type="checkbox"]');
+      const chipsWrap = document.getElementById('contactSelectedChips');
+
+      function updateContactServices() {
+        const selected = [];
+        // Clear native selection
+        Array.from(nativeSelect.options).forEach(opt => opt.selected = false);
+
+        options.forEach(opt => {
+          if (opt.checked) {
+            const val = opt.getAttribute('data-service-val');
+            selected.push(val);
+            // Match in native select
+            Array.from(nativeSelect.options).forEach(nativeOpt => {
+              if (nativeOpt.value.toLowerCase() === val.toLowerCase()) {
+                nativeOpt.selected = true;
+              }
+            });
+          }
+        });
+
+        chipsWrap.innerHTML = '';
+        if (selected.length === 0) {
+          triggerText.textContent = 'Select your service';
+          triggerText.classList.remove('has-selection');
+        } else {
+          triggerText.textContent = `${selected.length} service${selected.length > 1 ? 's' : ''} selected`;
+          triggerText.classList.add('has-selection');
+
+          selected.forEach(svc => {
+            const chip = document.createElement('span');
+            chip.className = 'contact-chip';
+            chip.innerHTML = `${svc} <span class="contact-chip-remove" data-val="${svc}">&times;</span>`;
+            chipsWrap.appendChild(chip);
+          });
+        }
+      }
+
+      window.selectContactService = function(val) {
+        options.forEach(opt => {
+          if (opt.getAttribute('data-service-val') === val) {
+            opt.checked = true;
+          }
+        });
+        updateContactServices();
+      };
+
+      trigger.addEventListener('click', (e) => {
+        e.stopPropagation();
+        contactMs.classList.toggle('open');
+        trigger.setAttribute('aria-expanded', contactMs.classList.contains('open'));
+      });
+
+      document.addEventListener('click', (e) => {
+        if (!contactMs.contains(e.target)) {
+          contactMs.classList.remove('open');
+          trigger.setAttribute('aria-expanded', 'false');
+        }
+      });
+
+      options.forEach(opt => {
+        opt.addEventListener('change', updateContactServices);
+      });
+
+      chipsWrap.addEventListener('click', (e) => {
+        if (e.target.classList.contains('contact-chip-remove')) {
+          const val = e.target.getAttribute('data-val');
+          options.forEach(opt => {
+            if (opt.getAttribute('data-service-val') === val) opt.checked = false;
+          });
+          updateContactServices();
+        }
+      });
+
+      updateContactServices();
+    })();
+  </script>
+
+  <!-- Zoho WebForm Analytics Tracking -->
+  <script>
+    if (typeof _wfa_fstprtcken === 'undefined') {
+      _wfa_fstprtcken = {};
+    }
+    _wfa_fstprtcken[1410226000000468646] = true;
+  </script>
+
+  <!-- Zoho SalesIQ Speech Bubble Prompt ("Talk with an expert") -->
+  <div id="salesiq-chat-prompt" class="salesiq-chat-prompt" role="button" tabindex="0" aria-label="Talk with an expert. How can I help you today?">
+    <button type="button" class="chat-prompt-close" id="chatPromptClose" aria-label="Dismiss message" title="Dismiss">&times;</button>
+    <div class="chat-prompt-content">
+      <div class="chat-prompt-title">Talk with an expert.</div>
+      <div class="chat-prompt-subtitle">How can I help you today?</div>
+    </div>
+    <div class="chat-prompt-arrow" aria-hidden="true"></div>
+  </div>
+  <script src="../js/salesiq-prompt.js?v=20260912_footer_v3"></script>
+
+  <!-- Zoho SalesIQ Live Chat & Activity Tracking -->
+  <script>
+	window.$zoho = window.$zoho || {};
+	$zoho.salesiq = $zoho.salesiq || {
+		ready: function(){}
+	}
+</script>
+<script id = "zsiqscript" src = "https://salesiq.zoho.in/widget?wc=siq1c8e34c2ec6e86af688a258868b48665a7db0df0ec6b9d8fe1d0ceb63b3212b8" defer >
+</script>
+
+  <!-- Zoho Campaigns Web-Optin Script -->
+  <script type="text/javascript">
+    // Safe shim for browser popup blockers so Zoho optin.min.js never crashes
+    (function() {
+      var _origOpen = window.open;
+      window.open = function() {
+        try {
+          var w = _origOpen ? _origOpen.apply(this, arguments) : null;
+          if (w) return w;
+        } catch (e) {}
+        return {
+          document: {
+            body: { innerHTML: '' },
+            write: function() {},
+            close: function() {}
+          },
+          focus: function() {},
+          close: function() {},
+          window: { history: { pushState: function() {} } }
+        };
+      };
+    })();
+  </script>
+  <script type="text/javascript" src="https://ma.zoho.in/js/optin.min.js" onload="setupSF('sf3z9b6c828aa5af22b4a6077a0465071583a608aedf9a4312cd59de68709570dfed','ZCFORMVIEW',false,'light',false,'undefined')"></script>
+  <script type="text/javascript">
+    function runOnFormSubmit_sf3z9b6c828aa5af22b4a6077a0465071583a608aedf9a4312cd59de68709570dfed(th){
+      /*Before submit event trigger*/
+    };
+  </script>
+
+  <!-- Zoho Campaigns Optin Overlay & Success Popup -->
+  <div id="zcOptinOverLay" oncontextmenu="return false" style="display:none;text-align: center; background-color: rgb(0, 0, 0); opacity: 0.5; z-index: 10000; position: fixed; inset: 0; width: 100%; height: 100%;"></div>
+  <div id="zcOptinSuccessPopup" style="display:none;z-index: 10001;max-width: 600px; width: 90%; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: #FFFFFF; border: 1px solid #E6E6E6; border-radius: 16px; box-shadow: 0 10px 40px rgba(0,0,0,0.3); padding: 35px; box-sizing: border-box;">
+    <span style="position: absolute; top: 12px; right: 14px; z-index: 10002; cursor: pointer;" id="closeSuccess" onclick="document.getElementById('zcOptinSuccessPopup').style.display='none'; document.getElementById('zcOptinOverLay').style.display='none';">
+      <img src="https://ma.zoho.in/images/videoclose.png" alt="Close" width="20" height="20">
+    </span>
+    <div id="zcOptinSuccessPanel"></div>
+  </div>
+</body>
+</html>
