@@ -7,36 +7,63 @@
   'use strict';
 
   document.addEventListener('DOMContentLoaded', () => {
-    initVideoScrub();
+    initHeroVideo();
     initTypewriter();
     initPillButtons();
     initNavbarAndDrawer();
   });
 
   /* ==========================================================================
-     1. MOUSE-SCRUB VIDEO PLAYBACK (Anti-flood frame queueing)
+     1. HERO VIDEO CONTROLLER (AutoPlay loop on mobile, desktop mouse-scrub)
      ========================================================================== */
-  function initVideoScrub() {
+  function initHeroVideo() {
     const video = document.getElementById('mainframeBgVideo');
     if (!video) return;
 
     video.muted = true;
+    video.defaultMuted = true;
+    video.loop = true;
     video.playsInline = true;
-    video.preload = 'auto';
+    video.setAttribute('playsinline', '');
+    video.setAttribute('webkit-playsinline', '');
 
+    const isMobile =
+      window.innerWidth < 768 ||
+      ('ontouchstart' in window && !window.matchMedia('(pointer: fine)').matches);
+
+    // Reliable playback trigger (handles iOS Safari Low Power Mode & autoplay policies)
+    const startPlayback = () => {
+      video.muted = true;
+      const playPromise = video.play();
+      if (playPromise !== undefined && typeof playPromise.then === 'function') {
+        playPromise.catch(() => {
+          // Autoplay blocked until user interaction
+        });
+      }
+    };
+
+    startPlayback();
+    video.addEventListener('canplay', startPlayback, { once: true });
+    video.addEventListener('loadeddata', startPlayback, { once: true });
+    document.addEventListener('touchstart', startPlayback, { once: true, passive: true });
+    document.addEventListener('click', startPlayback, { once: true });
+
+    // On mobile devices, let the video loop continuously and smoothly.
+    // Never scrub or set video.currentTime on mobile touch, which freezes iOS Safari WebKit!
+    if (isMobile) {
+      return;
+    }
+
+    // DESKTOP ONLY: Interactive mouse scrub when cursor moves over hero
     let prevX = null;
     let targetTime = 0;
     let isSeeking = false;
+    let resumeTimer = null;
     const SENSITIVITY = 0.8;
-
-    video.addEventListener('loadedmetadata', () => {
-      targetTime = Math.min(0.1, video.duration || 1);
-      video.currentTime = targetTime;
-    });
 
     video.addEventListener('seeked', () => {
       isSeeking = false;
-      if (Math.abs(video.currentTime - targetTime) > 0.02) {
+      if (Math.abs(video.currentTime - targetTime) > 0.03) {
         performSeek();
       }
     });
@@ -47,7 +74,9 @@
       video.currentTime = targetTime;
     }
 
-    window.addEventListener('mousemove', (e) => {
+    const heroEl = document.getElementById('mainframeHeroSection') || window;
+
+    heroEl.addEventListener('mousemove', (e) => {
       if (prevX === null) {
         prevX = e.clientX;
         return;
@@ -58,35 +87,28 @@
 
       if (!video.duration) return;
 
+      if (!video.paused) {
+        video.pause();
+      }
+
       const timeOffset = (delta / window.innerWidth) * SENSITIVITY * video.duration;
-      targetTime = Math.max(0, Math.min(video.duration, targetTime + timeOffset));
+      targetTime = Math.max(0, Math.min(video.duration, (video.currentTime || 0) + timeOffset));
 
       if (!isSeeking) {
         performSeek();
       }
+
+      // Resume smooth continuous playback after mouse stops
+      clearTimeout(resumeTimer);
+      resumeTimer = setTimeout(() => {
+        startPlayback();
+      }, 2500);
     });
 
-    // Touch support for mobile scrubbing
-    let touchStartX = null;
-    window.addEventListener('touchstart', (e) => {
-      if (e.touches.length > 0) {
-        touchStartX = e.touches[0].clientX;
-      }
-    }, { passive: true });
-
-    window.addEventListener('touchmove', (e) => {
-      if (touchStartX === null || !video.duration || e.touches.length === 0) return;
-      const currentTouchX = e.touches[0].clientX;
-      const delta = currentTouchX - touchStartX;
-      touchStartX = currentTouchX;
-
-      const timeOffset = (delta / window.innerWidth) * SENSITIVITY * video.duration;
-      targetTime = Math.max(0, Math.min(video.duration, targetTime + timeOffset));
-
-      if (!isSeeking) {
-        performSeek();
-      }
-    }, { passive: true });
+    window.addEventListener('mouseleave', () => {
+      clearTimeout(resumeTimer);
+      startPlayback();
+    });
   }
 
   /* ==========================================================================

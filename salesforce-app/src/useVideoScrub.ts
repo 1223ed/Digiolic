@@ -125,7 +125,7 @@ export function useVideoScrub(
           if (!response.ok) throw new Error('Primary video fetch failed');
         } catch {
           try {
-            response = await fetch('/hf_20260821_114821_a8ca298f-be2c-4613-a4dd-51b69e16bbde.mp4');
+            response = await fetch('assets/videos/hf_20260821_114821_a8ca298f-be2c-4613-a4dd-51b69e16bbde.mp4');
           } catch {
             response = await fetch(
               'https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260821_114821_a8ca298f-be2c-4613-a4dd-51b69e16bbde.mp4'
@@ -309,9 +309,40 @@ export function useVideoScrub(
       return Math.max(0, Math.min(1, scrollY / maxScroll));
     };
 
-    // Video metadata sync
+    // Video metadata sync & mobile playback management
     const video = videoRef.current;
     if (video) {
+      video.muted = true;
+      video.defaultMuted = true;
+      video.loop = true;
+      video.playsInline = true;
+      video.setAttribute('playsinline', '');
+      video.setAttribute('webkit-playsinline', '');
+
+      const isMobileDevice =
+        window.innerWidth < 768 ||
+        ('ontouchstart' in window && !window.matchMedia('(pointer: fine)').matches);
+
+      const tryPlay = () => {
+        if (!video) return;
+        video.muted = true;
+        const p = video.play();
+        if (p && typeof p.then === 'function') {
+          p.catch(() => {
+            // Autoplay blocked until user interaction
+          });
+        }
+      };
+
+      // Always ensure video playback starts for mobile devices or while canvas is loading
+      if (isMobileDevice || !readyRef.current) {
+        tryPlay();
+        video.addEventListener('canplay', tryPlay, { once: true });
+        video.addEventListener('loadeddata', tryPlay, { once: true });
+        document.addEventListener('touchstart', tryPlay, { once: true, passive: true });
+        document.addEventListener('click', tryPlay, { once: true });
+      }
+
       const syncMeta = () => {
         if (video.duration && video.duration > 0) {
           durationRef.current = video.duration;
@@ -361,16 +392,31 @@ export function useVideoScrub(
                   canvasLiveRef.current = true;
                   paintedRef.current = true;
                   setCanvasLive(true);
+                  // Once canvas is live and active, pause background video to save resources
+                  videoRef.current?.pause();
                 }
               }
             }
           }
         } else {
-          // 2. Fallback: video currentTime seeking
+          // 2. Fallback:
+          const isMobileDevice =
+            window.innerWidth < 768 ||
+            ('ontouchstart' in window && !window.matchMedia('(pointer: fine)').matches);
+
           const vid = videoRef.current;
-          if (vid && !vid.seeking) {
-            if (Math.abs(vid.currentTime - currentTimeRef.current) > 0.01) {
-              vid.currentTime = currentTimeRef.current;
+          if (vid) {
+            if (isMobileDevice) {
+              // On mobile, keep video smoothly playing in a loop.
+              // Never repeatedly seek vid.currentTime on mobile, which freezes iOS WebKit!
+              if (vid.paused) {
+                vid.play().catch(() => {});
+              }
+            } else {
+              // Desktop fallback without WebCodecs
+              if (!vid.seeking && Math.abs(vid.currentTime - currentTimeRef.current) > 0.03) {
+                vid.currentTime = currentTimeRef.current;
+              }
             }
           }
         }

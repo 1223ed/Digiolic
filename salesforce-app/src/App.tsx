@@ -92,15 +92,22 @@ export default function App() {
     >
       {/* Sticky Full-Viewport Stage */}
       <div className="sticky top-0 w-full h-screen overflow-hidden">
-        {/* 1. Video Element (Full Cover Background, Fallback) */}
+        {/* 1. Video Element (Full Cover Background, AutoPlay on Mobile & Fallback) */}
         <video
           ref={videoRef}
-          src={VIDEO_URL}
           className="absolute inset-0 w-full h-full object-cover"
+          autoPlay
+          loop
           muted
           playsInline
+          // @ts-ignore
+          webkit-playsinline="true"
           preload="auto"
         >
+          <source
+            src="assets/videos/hf_20260821_114821_a8ca298f-be2c-4613-a4dd-51b69e16bbde.mp4"
+            type="video/mp4"
+          />
           <source src={VIDEO_URL} type="video/mp4" />
         </video>
 
