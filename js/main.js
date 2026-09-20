@@ -377,9 +377,9 @@
   }
 
   /* ==========================================================================
-     BRAND TYPOGRAPHY: Ensure 'g' / 'G' in Digiolic is always colored green
+     BRAND TYPOGRAPHY: Ensure 'D' in Digiolic is always colored green (not g)
      ========================================================================== */
-  function applyBrandGreenG() {
+  function applyBrandGreenD() {
     try {
       if (!document.body) return;
       const walker = document.createTreeWalker(
@@ -391,7 +391,7 @@
             const parent = node.parentElement;
             if (!parent) return NodeFilter.FILTER_REJECT;
             const tag = parent.tagName.toLowerCase();
-            if (tag === 'script' || tag === 'style' || tag === 'textarea' || tag === 'title' || tag === 'input' || tag === 'noscript' || parent.classList.contains('brand-g') || parent.classList.contains('digi-g')) {
+            if (tag === 'script' || tag === 'style' || tag === 'textarea' || tag === 'title' || tag === 'input' || tag === 'noscript' || parent.classList.contains('brand-d') || parent.classList.contains('digi-d') || parent.classList.contains('brand-g') || parent.classList.contains('digi-g')) {
               return NodeFilter.FILTER_REJECT;
             }
             if (/(?:Digiolic|DIGIOLIC)/.test(node.nodeValue)) {
@@ -411,8 +411,8 @@
         const parent = node.parentElement;
         if (!parent) return;
         const html = node.nodeValue
-          .replace(/Digiolic/g, 'Di<span class="brand-g">g</span>iolic')
-          .replace(/DIGIOLIC/g, 'DI<span class="brand-g">G</span>IOLIC');
+          .replace(/Digiolic/g, '<span class="brand-d">D</span>igiolic')
+          .replace(/DIGIOLIC/g, '<span class="brand-d">D</span>IGIOLIC');
         const span = document.createElement('span');
         span.innerHTML = html;
         parent.replaceChild(span, node);
@@ -428,7 +428,7 @@
     initMetricCounters();
     initDeliveryStepsMotion();
     initZohoSubscriptionHandler();
-    applyBrandGreenG();
+    applyBrandGreenD();
   }
 
   if (document.readyState === 'loading') {

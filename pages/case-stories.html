@@ -103,7 +103,6 @@
     .mobile-nav-logo {
       height: 34px !important;
       width: auto !important;
-      filter: brightness(0) invert(1) !important;
       display: block !important;
     }
 
@@ -297,7 +296,10 @@
     }
 
     .brand-logo-img {
-      filter: brightness(0) invert(1) !important;
+      height: 34px !important;
+      width: auto !important;
+      max-height: 34px !important;
+      display: block !important;
     }
 
     .mainframe-hamburger-btn .mainframe-bar {
@@ -554,7 +556,7 @@
       letter-spacing: -0.03em !important;
       color: #FFFFFF !important;
       text-align: center !important;
-      margin: 0 0 2.2rem 0 !important;
+      margin: 0 0 1.5rem 0 !important;
       text-shadow: 0 2px 20px rgba(0, 0, 0, 0.85) !important;
       font-family: 'Manrope', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif !important;
       overflow: visible !important;
@@ -708,8 +710,8 @@
   <header class="mainframe-navbar" id="mainframeNavbar">
     <!-- Left: Digiolic Brand Logo -->
     <a href="../index.html" class="mainframe-logo-wrap" aria-label="Digiolic Home">
-      <img src="../assets/images/digiolic-logo-dark.png" alt="Digiolic" class="brand-logo-img" width="96" height="34"
-        style="height: 34px !important; width: auto !important; max-height: 34px !important; display: block; filter: brightness(0) invert(1) !important;">
+      <img src="../assets/images/digiolic-logo.png" alt="Digiolic" class="brand-logo-img" width="96" height="34"
+        style="height: 34px !important; width: auto !important; max-height: 34px !important; display: block;">
     </a>
 
     <!-- Center: Desktop Nav Links -->
@@ -736,7 +738,7 @@
   <div class="mobile-nav-drawer" id="mobileNavDrawer" role="dialog" aria-modal="true" aria-label="Mobile Navigation">
     <div class="mobile-nav-top">
       <a href="../index.html" class="mobile-nav-logo-link" aria-label="Digiolic Home">
-        <img src="../assets/images/digiolic-logo-dark.png" alt="Digiolic" class="mobile-nav-logo">
+        <img src="../assets/images/digiolic-logo.png" alt="Digiolic" class="mobile-nav-logo">
       </a>
       <button class="mobile-nav-close" id="caseStoriesCloseBtn" aria-label="Close Menu" onclick="document.getElementById('mobileNavDrawer').classList.remove('is-open'); document.getElementById('mainframeMenuBtn').classList.remove('is-active'); document.body.style.overflow='';">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -784,6 +786,12 @@
             </span>
           </h1>
 
+          <!-- Lead Paragraph -->
+          <p class="cs-hero-lead">
+            Explore how <span class="brand-d">D</span>igiolic partners with forward-thinking enterprises to replace software patchwork with
+            battle-tested cloud architectures, streamline multi-app operations, and generate verifiable commercial
+            returns across Zoho One, Salesforce Cloud, and digital performance funnels.
+          </p>
 
           <!-- CTA Button -->
           <div class="cs-hero-actions">
@@ -1344,7 +1352,7 @@
         </div>
 
         <blockquote class="cs-quote-text">
-          &ldquo;Di<span class="brand-g">g</span>iolic did an incredible job setting up Zoho CRM for our team, and the entire process was completely stress-free. They customized everything to match how we actually work, so our daily tracking and follow-ups are so much easier now. The training they provided made adoption a breeze for everyone on the team. I’m really happy with the results and would definitely recommend them.&rdquo;
+          &ldquo;<span class="brand-d">D</span>igiolic did an incredible job setting up Zoho CRM for our team, and the entire process was completely stress-free. They customized everything to match how we actually work, so our daily tracking and follow-ups are so much easier now. The training they provided made adoption a breeze for everyone on the team. I’m really happy with the results and would definitely recommend them.&rdquo;
         </blockquote>
 
         <div class="cs-quote-author-wrap">
@@ -1697,7 +1705,7 @@
       <!-- Bottom Bar -->
       <div class="footer-bottom">
         <div>
-          &copy; 2026 Di<span class="brand-g">g</span>iolic All rights reserved.
+          &copy; 2026 <span class="brand-d">D</span>igiolic All rights reserved.
         </div>
       </div>
 
