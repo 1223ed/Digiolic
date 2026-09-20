@@ -376,12 +376,69 @@
     form.onsubmit = submitSubscription;
   }
 
+  // Floating Scroll Up/Down Navigation Button (Above Live Chat Widget)
+  function initFloatingScrollNav() {
+    if (document.getElementById('floatingScrollNav')) return;
+
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.id = 'floatingScrollNav';
+    btn.className = 'floating-scroll-nav is-down';
+    btn.setAttribute('aria-label', 'Scroll down');
+    btn.setAttribute('title', 'Scroll down');
+    btn.innerHTML = `
+      <svg class="scroll-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="18 15 12 9 6 15"></polyline>
+      </svg>
+    `;
+
+    document.body.appendChild(btn);
+
+    let lastScrollPos = 0;
+    const threshold = 250;
+
+    function updateNavState() {
+      const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+      if (currentScroll > threshold) {
+        if (!btn.classList.contains('is-up')) {
+          btn.classList.remove('is-down');
+          btn.classList.add('is-up');
+          btn.setAttribute('aria-label', 'Scroll to top');
+          btn.setAttribute('title', 'Scroll to top');
+        }
+      } else {
+        if (!btn.classList.contains('is-down')) {
+          btn.classList.remove('is-up');
+          btn.classList.add('is-down');
+          btn.setAttribute('aria-label', 'Scroll down');
+          btn.setAttribute('title', 'Scroll down');
+        }
+      }
+    }
+
+    btn.addEventListener('click', function(e) {
+      e.preventDefault();
+      const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+      if (currentScroll > threshold) {
+        lastScrollPos = currentScroll;
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        const target = lastScrollPos > threshold ? lastScrollPos : (window.innerHeight * 0.85);
+        window.scrollTo({ top: target, behavior: 'smooth' });
+      }
+    });
+
+    window.addEventListener('scroll', updateNavState, { passive: true });
+    updateNavState();
+  }
+
   // Initialize
   function initAll() {
     initScrollReveals();
     initMetricCounters();
     initDeliveryStepsMotion();
     initZohoSubscriptionHandler();
+    initFloatingScrollNav();
   }
 
   if (document.readyState === 'loading') {
