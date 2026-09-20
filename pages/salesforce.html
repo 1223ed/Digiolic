@@ -877,6 +877,70 @@
       width: 100%;
     }
 
+    /* Experience Badge */
+    .dp-hero-badge {
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 0.65rem !important;
+      padding: 0.5rem 1.35rem !important;
+      background: rgba(14, 20, 36, 0.85) !important;
+      backdrop-filter: blur(16px) !important;
+      -webkit-backdrop-filter: blur(16px) !important;
+      border: 1px solid rgba(56, 189, 248, 0.45) !important;
+      border-radius: 9999px !important;
+      font-family: 'Plus Jakarta Sans', 'Manrope', sans-serif !important;
+      font-size: clamp(0.92rem, 1.1vw, 1.05rem) !important;
+      font-weight: 700 !important;
+      letter-spacing: 0.04em !important;
+      margin-bottom: 1.6rem !important;
+      box-shadow: 0 0 20px rgba(56, 189, 248, 0.25), 0 4px 24px rgba(0, 0, 0, 0.7) !important;
+      animation: dpBadgeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both, dpBadgeGlow 4s ease-in-out infinite alternate !important;
+    }
+
+    @keyframes dpBadgeIn {
+      from { opacity: 0; transform: translateY(-12px) scale(0.96); }
+      to   { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    @keyframes dpBadgeGlow {
+      0% {
+        box-shadow: 0 0 16px rgba(56, 189, 248, 0.3), 0 4px 20px rgba(0, 0, 0, 0.6);
+        border-color: rgba(56, 189, 248, 0.4);
+      }
+      50% {
+        box-shadow: 0 0 28px rgba(129, 140, 248, 0.5), 0 0 45px rgba(56, 189, 248, 0.25);
+        border-color: rgba(129, 140, 248, 0.7);
+      }
+      100% {
+        box-shadow: 0 0 20px rgba(56, 189, 248, 0.4), 0 4px 24px rgba(0, 0, 0, 0.7);
+        border-color: rgba(56, 189, 248, 0.45);
+      }
+    }
+
+    .dp-hero-badge-dot {
+      width: 8px !important;
+      height: 8px !important;
+      border-radius: 50% !important;
+      background: #38BDF8 !important;
+      box-shadow: 0 0 12px #38BDF8 !important;
+      animation: dpPulseDot 2s ease-in-out infinite !important;
+      flex-shrink: 0 !important;
+    }
+
+    @keyframes dpPulseDot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.8); }
+    }
+
+    .dp-hero-badge-text {
+      background: linear-gradient(95deg, #FFFFFF 0%, #BAE6FD 45%, #60A5FA 100%) !important;
+      -webkit-background-clip: text !important;
+      background-clip: text !important;
+      -webkit-text-fill-color: transparent !important;
+      color: #38BDF8 !important;
+      display: inline-block !important;
+    }
+
     .dp-eyebrow {
       color: rgba(255, 255, 255, 0.8);
       font-size: clamp(0.75rem, 1.1vw, 0.875rem);
@@ -886,16 +950,17 @@
       margin: 0 0 1rem 0;
     }
 
-    /* Main Heading: 64px, Manrope, 800 (Extra Bold) */
+    /* Main Heading: 64px, Manrope, 800 (Extra Bold) with overflow:visible & proper descender clearance */
     .dp-main-heading {
       font-size: 64px !important;
       font-weight: 800 !important;
-      line-height: 1.1 !important;
+      line-height: 1.25 !important;
       letter-spacing: -0.035em !important;
       margin: 0;
       max-width: 1120px;
       color: #FFFFFF;
       font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif !important;
+      overflow: visible !important;
     }
 
     .dp-heading-line1 {
@@ -904,6 +969,10 @@
       font-weight: 800 !important;
       font-size: 76px !important;
       font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif !important;
+      line-height: 1.25 !important;
+      padding-bottom: 0.12em;
+      margin-bottom: -0.12em;
+      overflow: visible !important;
     }
 
     .dp-heading-line2 {
@@ -912,6 +981,10 @@
       font-size: 64px !important;
       font-weight: 800 !important;
       font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif !important;
+      line-height: 1.25 !important;
+      padding-bottom: 0.2em;
+      margin-bottom: -0.2em;
+      overflow: visible !important;
     }
 
     @media (max-width: 1024px) {
@@ -951,7 +1024,12 @@
       -webkit-text-fill-color: transparent;
       color: transparent;
       animation: dp-shiny-sweep 3s linear infinite;
-      font-weight: 500;
+      font-weight: 800;
+      line-height: 1.25 !important;
+      padding-bottom: 0.22em !important;
+      margin-bottom: -0.22em !important;
+      overflow: visible !important;
+      vertical-align: top;
     }
 
     .dp-subheading {
@@ -3654,6 +3732,10 @@
 
         <!-- Hero Section (center) -->
         <div class="dp-center-hero">
+          <div class="dp-hero-badge" aria-label="Experience & Team">
+            <span class="dp-hero-badge-dot"></span>
+            <span class="dp-hero-badge-text">8+ Years of Experience with Certified Team</span>
+          </div>
           <h1 class="dp-main-heading">
             <span class="dp-heading-line1">Turn Salesforce Into Your</span>
             <span class="dp-heading-line2">
