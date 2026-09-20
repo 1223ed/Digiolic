@@ -31,7 +31,7 @@ export function useVideoScrub(
   const lruPendingRef = useRef<Set<number>>(new Set());
   const currentTimeRef = useRef<number>(0);
   const targetTimeRef = useRef<number>(0);
-  const durationRef = useRef<number>(0);
+  const durationRef = useRef<number>(10.042);
   const readyRef = useRef<boolean>(false);
   const revertedRef = useRef<boolean>(false);
   const paintedRef = useRef<boolean>(false);
@@ -309,7 +309,7 @@ export function useVideoScrub(
       return Math.max(0, Math.min(1, scrollY / maxScroll));
     };
 
-    // Video metadata sync
+    // Video metadata sync & iOS Safari priming
     const video = videoRef.current;
     if (video) {
       video.muted = true;
@@ -319,14 +319,49 @@ export function useVideoScrub(
       video.setAttribute('webkit-playsinline', '');
 
       const syncMeta = () => {
-        if (video.duration && video.duration > 0) {
+        if (video.duration && !isNaN(video.duration) && video.duration > 0) {
           durationRef.current = video.duration;
           setDuration(video.duration);
         }
       };
       video.addEventListener('loadedmetadata', syncMeta);
+      video.addEventListener('loadeddata', syncMeta);
       video.addEventListener('canplay', syncMeta);
       if (video.duration > 0) syncMeta();
+
+      // In iOS Safari, inline muted videos will not decode or paint frame 0 to the screen
+      // unless briefly kicked into playback. We prime it and immediately pause at 0
+      // so it never autoplays as a timeline, but frame 0 renders and seeking is enabled.
+      let primed = false;
+      const prime = () => {
+        if (primed || !video) return;
+        const p = video.play();
+        if (p !== undefined) {
+          p.then(() => {
+            primed = true;
+            video.pause();
+            video.currentTime = 0;
+            syncMeta();
+          }).catch(() => {});
+        }
+      };
+
+      if (video.readyState >= 2) {
+        prime();
+      } else {
+        video.addEventListener('canplay', prime, { once: true });
+        video.addEventListener('loadeddata', prime, { once: true });
+      }
+
+      // Also ensure first user touch or scroll immediately primes if browser blocked initial call
+      const onUserAction = () => {
+        if (!primed) {
+          prime();
+        }
+      };
+      window.addEventListener('touchstart', onUserAction, { once: true, passive: true });
+      window.addEventListener('scroll', onUserAction, { once: true, passive: true });
+      window.addEventListener('click', onUserAction, { once: true });
     }
 
     const loop = (now: number) => {
@@ -374,8 +409,12 @@ export function useVideoScrub(
         } else {
           // 2. Fallback: if not seeking and abs(video.currentTime - current) > 0.01, set video.currentTime = current
           const vid = videoRef.current;
-          if (vid && !vid.seeking && Math.abs(vid.currentTime - currentTimeRef.current) > 0.01) {
-            vid.currentTime = currentTimeRef.current;
+          if (vid && vid.readyState >= 1) {
+            if (!vid.seeking && Math.abs(vid.currentTime - currentTimeRef.current) > 0.01) {
+              try {
+                vid.currentTime = currentTimeRef.current;
+              } catch {}
+            }
           }
         }
       }

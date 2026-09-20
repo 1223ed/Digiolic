@@ -94,20 +94,23 @@ export default function App() {
       }}
     >
       {/* Sticky Full-Viewport Scene */}
-      <div className="sticky top-0 w-full h-screen overflow-hidden">
+      <div className="sticky top-0 w-full h-screen h-[100dvh] overflow-hidden">
         {/* 1. Video Element (Full Cover Background, no autoplay, driven strictly by scroll) */}
         <video
           ref={videoRef}
+          src={VIDEO_URL}
           className="absolute inset-0 w-full h-full object-cover"
           muted
           playsInline
+          // @ts-ignore
+          webkit-playsinline="true"
           preload="auto"
         >
+          <source src={VIDEO_URL} type="video/mp4" />
           <source
             src="assets/videos/hf_20260821_114821_a8ca298f-be2c-4613-a4dd-51b69e16bbde.mp4"
             type="video/mp4"
           />
-          <source src={VIDEO_URL} type="video/mp4" />
         </video>
 
         {/* 2. WebCodecs Frame Bank Canvas (Full Cover, fades in when frame-bank is live) */}
