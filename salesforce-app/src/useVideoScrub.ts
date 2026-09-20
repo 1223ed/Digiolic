@@ -101,7 +101,11 @@ export function useVideoScrub(
     let decoder: VideoDecoder | null = null;
 
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (prefersReducedMotion || typeof VideoDecoder === 'undefined') {
+    const isMobileDevice =
+      typeof window !== 'undefined' &&
+      (window.innerWidth < 768 || ('ontouchstart' in window && !window.matchMedia('(pointer: fine)').matches));
+
+    if (prefersReducedMotion || typeof VideoDecoder === 'undefined' || isMobileDevice) {
       return;
     }
 
@@ -355,6 +359,20 @@ export function useVideoScrub(
     }
 
     const loop = (now: number) => {
+      const isMobileDevice =
+        window.innerWidth < 768 ||
+        ('ontouchstart' in window && !window.matchMedia('(pointer: fine)').matches);
+
+      if (isMobileDevice) {
+        // Mobile mode: continuous smooth 60fps video playback with zero seeking lag
+        const vid = videoRef.current;
+        if (vid && vid.paused) {
+          vid.play().catch(() => {});
+        }
+        animationFrameId = requestAnimationFrame(loop);
+        return;
+      }
+
       const deltaSeconds = (now - lastTime) / 1000;
       lastTime = now;
       const dt = Math.min(0.1, deltaSeconds);

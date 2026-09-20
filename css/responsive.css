@@ -131,11 +131,20 @@ textarea {
   .zoho-pillars-section,
   .delivery-success-section,
   .deliver-success-section,
-  .cs-gallery-section,
-  .contact-card-section,
-  .contact-hero-banner {
+  .cs-gallery-section {
     padding-top: 2.75rem !important;
     padding-bottom: 2.75rem !important;
+  }
+
+  /* Dedicated Mobile Padding for Contact Page: Guarantees Header Clears Navbar by 100px+ */
+  .contact-hero-banner {
+    padding-top: 175px !important;
+    padding-bottom: 160px !important;
+  }
+  .contact-card-section {
+    padding-top: 0 !important;
+    padding-bottom: 3.5rem !important;
+    margin-top: -95px !important;
   }
 
   /* Scale down card padding */

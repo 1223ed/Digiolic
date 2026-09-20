@@ -23,6 +23,34 @@ export default function App() {
 
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [navEntered, setNavEntered] = useState(false);
+  const [activeSlide, setActiveSlide] = useState(0);
+  const [isMobile, setIsMobile] = useState<boolean>(() => {
+    if (typeof window !== 'undefined') {
+      return window.innerWidth < 768;
+    }
+    return false;
+  });
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    window.addEventListener('resize', handleResize);
+    window.addEventListener('orientationchange', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      window.removeEventListener('orientationchange', handleResize);
+    };
+  }, []);
+
+  // Auto-advance slides smoothly on mobile every 6s unless user interacts
+  useEffect(() => {
+    if (!isMobile) return;
+    const timer = setInterval(() => {
+      setActiveSlide((prev) => (prev + 1) % 3);
+    }, 6000);
+    return () => clearInterval(timer);
+  }, [isMobile]);
 
   // Entrance animation for navbar items after 200ms
   useEffect(() => {
@@ -46,30 +74,35 @@ export default function App() {
 
   const p = scrollProgress;
 
-  // Opacities per specification
-  // s1Opacity: p < 0.20 -> 1, else -> max(0, 1 - (p - 0.20) / 0.08)
-  const s1Opacity = p < 0.2 ? 1 : Math.max(0, 1 - (p - 0.2) / 0.08);
+  // On mobile: opacities are tied ONLY to activeSlide (instant, no scroll lag, zero scroll-jacking)
+  // On desktop: opacities are tied to scroll progress p
+  const s1Opacity = isMobile
+    ? (activeSlide === 0 ? 1 : 0)
+    : (p < 0.2 ? 1 : Math.max(0, 1 - (p - 0.2) / 0.08));
 
-  // s2Opacity: p < 0.32 -> 0, p < 0.40 -> (p - 0.32) / 0.08, p < 0.55 -> 1, else -> max(0, 1 - (p - 0.55) / 0.08)
-  const s2Opacity =
-    p < 0.32
-      ? 0
-      : p < 0.4
-      ? (p - 0.32) / 0.08
-      : p < 0.55
-      ? 1
-      : Math.max(0, 1 - (p - 0.55) / 0.08);
+  const s2Opacity = isMobile
+    ? (activeSlide === 1 ? 1 : 0)
+    : (p < 0.32
+        ? 0
+        : p < 0.4
+        ? (p - 0.32) / 0.08
+        : p < 0.55
+        ? 1
+        : Math.max(0, 1 - (p - 0.55) / 0.08));
 
-  // s3Opacity: p < 0.67 -> 0, p < 0.75 -> (p - 0.67) / 0.08, else -> 1
-  const s3Opacity = p < 0.67 ? 0 : p < 0.75 ? (p - 0.67) / 0.08 : 1;
+  const s3Opacity = isMobile
+    ? (activeSlide === 2 ? 1 : 0)
+    : (p < 0.67 ? 0 : p < 0.75 ? (p - 0.67) / 0.08 : 1);
 
-  // Stagger visibility threshold: section opacity > 0.3
-  const s1StaggerVisible = s1Opacity > 0.3;
-  const s2StaggerVisible = s2Opacity > 0.3;
-  const s3StaggerVisible = s3Opacity > 0.3;
+  // Stagger visibility threshold
+  const s1StaggerVisible = isMobile ? activeSlide === 0 : s1Opacity > 0.3;
+  const s2StaggerVisible = isMobile ? activeSlide === 1 : s2Opacity > 0.3;
+  const s3StaggerVisible = isMobile ? activeSlide === 2 : s3Opacity > 0.3;
 
-  // Color flips at p > 0.55: DARK -> white (duration-500)
-  const isLight = p <= 0.55;
+  // Color flips:
+  // Desktop: flips at p > 0.55: DARK -> white
+  // Mobile: slide 0 and 1 are dark text, slide 2 is white text
+  const isLight = isMobile ? activeSlide !== 2 : p <= 0.55;
   const navColor = isLight ? DARK : '#FFFFFF';
   const navInvertedBg = isLight ? '#FFFFFF' : DARK;
 
@@ -82,16 +115,39 @@ export default function App() {
     });
   };
 
+  const handleMobileNext = () => {
+    if (activeSlide < 2) {
+      setActiveSlide((prev) => prev + 1);
+    } else {
+      // On last slide, scroll smoothly down past the hero to the metrics/overview section
+      const nextSection = document.getElementById('metricsSection') || document.querySelector('section');
+      if (nextSection) {
+        nextSection.scrollIntoView({ behavior: 'smooth' });
+      } else if (containerRef.current) {
+        window.scrollTo({
+          top: containerRef.current.offsetHeight,
+          behavior: 'smooth',
+        });
+      }
+    }
+  };
+
   return (
     <div
       ref={containerRef}
-      className="relative h-[500vh] w-full"
+      className={`relative w-full ${
+        isMobile ? 'h-[100dvh] min-h-[560px] overflow-hidden' : 'h-[500vh]'
+      }`}
       style={{
         fontFamily: "'Helvetica Neue ME', 'Helvetica Neue', Helvetica, Arial, sans-serif",
       }}
     >
-      {/* Sticky Full-Viewport Stage */}
-      <div className="sticky top-0 w-full h-screen overflow-hidden">
+      {/* Viewport Stage: Sticky on Desktop, Full-Height Relative on Mobile */}
+      <div
+        className={`${
+          isMobile ? 'relative h-full' : 'sticky top-0 h-screen'
+        } w-full overflow-hidden`}
+      >
         {/* 1. Video Element (Full Cover Background, AutoPlay on Mobile & Fallback) */}
         <video
           ref={videoRef}
@@ -111,14 +167,31 @@ export default function App() {
           <source src={VIDEO_URL} type="video/mp4" />
         </video>
 
-        {/* 2. WebCodecs Frame Bank Canvas (Full Cover) */}
+        {/* 2. WebCodecs Frame Bank Canvas (Full Cover — Desktop Only) */}
         <canvas
           ref={canvasRef}
           width={1920}
           height={1080}
           className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-300 ${
-            canvasLive ? 'opacity-100' : 'opacity-0'
+            !isMobile && canvasLive ? 'opacity-100' : 'opacity-0'
           }`}
+        />
+
+        {/* Top Vignette Gradient: Guarantees Digiolic Logo and Nav Links are 100% visible against clouds/mist */}
+        <div
+          className={`absolute top-0 left-0 right-0 h-28 pointer-events-none z-40 transition-opacity duration-500 ${
+            !isLight ? 'opacity-100 bg-gradient-to-b from-black/60 via-black/25 to-transparent' : 'opacity-0'
+          }`}
+        />
+
+        {/* Cinematic Dark Backdrop for Section 3: Guarantees 100% text contrast & legibility across all video frames */}
+        <div
+          className="absolute inset-0 pointer-events-none transition-opacity duration-500 z-10"
+          style={{
+            background:
+              'radial-gradient(ellipse at center, rgba(15, 23, 42, 0.6) 0%, rgba(15, 23, 42, 0.45) 50%, rgba(15, 23, 42, 0.75) 100%)',
+            opacity: s3Opacity > 0.1 ? 1 : 0,
+          }}
         />
 
         {/* 3. Overlay Layer (Navbar + 3 Sequential Sections) */}
@@ -232,27 +305,28 @@ export default function App() {
           </header>
 
           {/* =========================================================================
-              SECTION 1 (hero, centered, exact style from screenshot)
+              SECTION 1 (hero, centered)
               ========================================================================= */}
           <section
-            className="absolute inset-0 flex flex-col items-center justify-center text-center px-2 sm:px-8 md:px-12"
+            className="absolute inset-0 flex flex-col items-center justify-center text-center px-4 sm:px-8 md:px-12 pt-16 sm:pt-20 md:pt-0"
             style={{
               opacity: s1Opacity,
-              transition: 'opacity 0.1s ease-out',
+              transition: isMobile ? 'opacity 0.35s ease-out' : 'opacity 0.1s ease-out',
               pointerEvents: s1Opacity > 0.1 ? 'auto' : 'none',
             }}
           >
             <div className="max-w-[1400px] w-full flex flex-col items-center text-center px-1 sm:px-2">
               {/* Experience Badge */}
               <div
-                className="inline-flex items-center justify-center gap-2.5 px-4 sm:px-5 py-1.5 sm:py-2 rounded-full mb-5 sm:mb-6 shadow-sm select-none"
+                className="inline-flex items-center justify-center gap-2.5 px-4 sm:px-5 py-1.5 sm:py-2 rounded-full mb-4 sm:mb-6 shadow-sm select-none"
                 style={{
                   backgroundColor: 'rgba(238, 246, 255, 0.95)',
                   border: '1.5px solid #BFDBFE',
                   opacity: s1StaggerVisible ? 1 : 0,
                   transform: s1StaggerVisible ? 'translateY(0)' : 'translateY(24px)',
-                  transition:
-                    'opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1)',
+                  transition: isMobile
+                    ? 'opacity 0.35s ease, transform 0.35s ease'
+                    : 'opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1)',
                   transitionDelay: '0ms',
                 }}
               >
@@ -262,7 +336,7 @@ export default function App() {
                     boxShadow: '0 0 0 3px rgba(56, 189, 248, 0.28), 0 0 8px rgba(56, 189, 248, 0.65)',
                   }}
                 />
-                <span className="text-[#1D4ED8] font-extrabold text-[12px] sm:text-[13.5px] uppercase tracking-wider leading-none">
+                <span className="text-[#1D4ED8] font-extrabold text-[11px] sm:text-[13.5px] uppercase tracking-wider leading-none">
                   8+ YEARS OF EXPERIENCE WITH A CERTIFIED TEAM
                 </span>
               </div>
@@ -272,13 +346,14 @@ export default function App() {
                 className="hero-brand-heading font-extrabold tracking-tight leading-[1.1] whitespace-normal sm:whitespace-nowrap w-full max-w-full text-center"
                 style={{
                   color: '#000000',
-                  fontSize: '64px',
+                  fontSize: isMobile ? 'clamp(28px, 7.5vw, 42px)' : '64px',
                   letterSpacing: '-0.035em',
                   opacity: s1StaggerVisible ? 1 : 0,
                   transform: s1StaggerVisible ? 'translateY(0)' : 'translateY(24px)',
-                  transition:
-                    'opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1)',
-                  transitionDelay: '0ms',
+                  transition: isMobile
+                    ? 'opacity 0.35s ease, transform 0.35s ease'
+                    : 'opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1)',
+                  transitionDelay: isMobile ? '0ms' : '0ms',
                 }}
               >
                 <span className="hero-brand-anim hero-brand-zoho">Zoho</span>{', '}
@@ -291,13 +366,14 @@ export default function App() {
                 className="hero-brand-tagline mt-2 sm:mt-3 font-extrabold tracking-tight leading-[1.15] whitespace-normal sm:whitespace-nowrap w-full max-w-full text-center"
                 style={{
                   color: '#000000',
-                  fontSize: '52px',
+                  fontSize: isMobile ? 'clamp(20px, 5.5vw, 32px)' : '52px',
                   letterSpacing: '-0.025em',
                   opacity: s1StaggerVisible ? 1 : 0,
                   transform: s1StaggerVisible ? 'translateY(0)' : 'translateY(24px)',
-                  transition:
-                    'opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1)',
-                  transitionDelay: '100ms',
+                  transition: isMobile
+                    ? 'opacity 0.35s ease, transform 0.35s ease'
+                    : 'opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1)',
+                  transitionDelay: isMobile ? '0ms' : '100ms',
                 }}
               >
                 Complexity Simplified, Growth Amplified
@@ -305,34 +381,36 @@ export default function App() {
 
               {/* Subtitle */}
               <p
-                className="mt-5 sm:mt-7 text-[16px] sm:text-[18px] md:text-[20px] max-w-3xl text-center leading-[1.65] font-normal"
+                className="mt-4 sm:mt-7 text-[15px] sm:text-[18px] md:text-[20px] max-w-3xl text-center leading-[1.6] font-normal"
                 style={{
-                  color: '#374151', // Neutral dark gray for high readability
+                  color: '#374151',
                   opacity: s1StaggerVisible ? 1 : 0,
                   transform: s1StaggerVisible ? 'translateY(0)' : 'translateY(24px)',
-                  transition:
-                    'opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1)',
-                  transitionDelay: '200ms',
+                  transition: isMobile
+                    ? 'opacity 0.35s ease, transform 0.35s ease'
+                    : 'opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1)',
+                  transitionDelay: isMobile ? '0ms' : '200ms',
                 }}
               >
                 Let's make your business incredible together by uniting powerful Zoho and Salesforce architectures with performance-driven digital marketing.
               </p>
             </div>
 
-            {/* Bottom-right 48px circle button */}
+            {/* Bottom-right circle button */}
             <button
-              onClick={() => scrollToNext(0.42)}
-              className="absolute bottom-12 right-6 sm:right-8 md:right-12 w-12 h-12 rounded-full flex items-center justify-center hover:opacity-70 transition-opacity duration-300"
+              onClick={isMobile ? handleMobileNext : () => scrollToNext(0.42)}
+              className="absolute bottom-8 sm:bottom-12 right-6 sm:right-8 md:right-12 w-12 h-12 rounded-full flex items-center justify-center hover:opacity-70 transition-opacity duration-300 z-30"
               style={{
-                border: '1px solid #1D304580', // DARK 50% alpha
+                border: '1px solid #1D304580',
                 color: DARK,
                 opacity: s1StaggerVisible ? 1 : 0,
                 transform: s1StaggerVisible ? 'translateY(0)' : 'translateY(24px)',
-                transition:
-                  'opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1)',
-                transitionDelay: '300ms',
+                transition: isMobile
+                  ? 'opacity 0.35s ease, transform 0.35s ease'
+                  : 'opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1)',
+                transitionDelay: isMobile ? '0ms' : '300ms',
               }}
-              aria-label="Next Section"
+              aria-label={isMobile ? 'Next Slide' : 'Next Section'}
             >
               <ArrowRight size={18} />
             </button>
@@ -342,10 +420,10 @@ export default function App() {
               SECTION 2 (center)
               ========================================================================= */}
           <section
-            className="absolute inset-0 flex items-center justify-center px-6 sm:px-8"
+            className="absolute inset-0 flex items-center justify-center px-6 sm:px-8 pt-16 sm:pt-20 md:pt-0"
             style={{
               opacity: s2Opacity,
-              transition: 'opacity 0.1s ease-out',
+              transition: isMobile ? 'opacity 0.35s ease-out' : 'opacity 0.1s ease-out',
               pointerEvents: s2Opacity > 0.1 ? 'auto' : 'none',
             }}
           >
@@ -357,8 +435,9 @@ export default function App() {
                   color: DARK,
                   opacity: s2StaggerVisible ? 1 : 0,
                   transform: s2StaggerVisible ? 'translateY(0)' : 'translateY(24px)',
-                  transition:
-                    'opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1)',
+                  transition: isMobile
+                    ? 'opacity 0.35s ease, transform 0.35s ease'
+                    : 'opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1)',
                   transitionDelay: '0ms',
                 }}
               >
@@ -373,9 +452,10 @@ export default function App() {
                   fontSize: 'clamp(1.8rem, 5.4vw, 5.4rem)',
                   opacity: s2StaggerVisible ? 1 : 0,
                   transform: s2StaggerVisible ? 'translateY(0)' : 'translateY(24px)',
-                  transition:
-                    'opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1)',
-                  transitionDelay: '0ms',
+                  transition: isMobile
+                    ? 'opacity 0.35s ease, transform 0.35s ease'
+                    : 'opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1)',
+                  transitionDelay: isMobile ? '0ms' : '0ms',
                 }}
               >
                 SCALING ENTERPRISE POTENTIAL &amp; VELOCITY
@@ -388,79 +468,75 @@ export default function App() {
                   color: `${DARK}E6`,
                   opacity: s2StaggerVisible ? 1 : 0,
                   transform: s2StaggerVisible ? 'translateY(0)' : 'translateY(24px)',
-                  transition:
-                    'opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1)',
-                  transitionDelay: '150ms',
+                  transition: isMobile
+                    ? 'opacity 0.35s ease, transform 0.35s ease'
+                    : 'opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1)',
+                  transitionDelay: isMobile ? '0ms' : '150ms',
                 }}
               >
                 From strategy to flawless cloud execution. We eliminate operational silos, automate mission-critical workflows, and accelerate pipeline velocity.
               </p>
             </div>
 
-            {/* Right column: 48px circle down, 3 dots, 40px circle up */}
+            {/* Right column: buttons */}
             <div
-              className="absolute bottom-16 right-6 sm:right-8 md:right-12 flex flex-col items-center gap-4"
+              className="absolute bottom-12 sm:bottom-16 right-6 sm:right-8 md:right-12 flex flex-col items-center gap-4 z-30"
               style={{
                 pointerEvents: s2Opacity > 0.1 ? 'auto' : 'none',
               }}
             >
               {/* Down arrow button */}
               <button
-                onClick={() => scrollToNext(0.78)}
+                onClick={isMobile ? handleMobileNext : () => scrollToNext(0.78)}
                 className="w-12 h-12 rounded-full flex items-center justify-center hover:opacity-70 transition-opacity duration-300"
                 style={{
-                  border: `1px solid ${DARK}66`, // 40% alpha
+                  border: `1px solid ${DARK}66`,
                   color: DARK,
                   opacity: s2StaggerVisible ? 1 : 0,
                   transform: s2StaggerVisible ? 'translateY(0)' : 'translateY(24px)',
-                  transition:
-                    'opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1)',
-                  transitionDelay: '200ms',
+                  transition: isMobile
+                    ? 'opacity 0.35s ease, transform 0.35s ease'
+                    : 'opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1)',
+                  transitionDelay: isMobile ? '0ms' : '200ms',
                 }}
-                aria-label="Scroll Down"
+                aria-label={isMobile ? 'Next Slide' : 'Scroll Down'}
               >
                 <ArrowDown size={18} />
               </button>
 
-              {/* Three dots: 8px solid DARK active, 6px DARK 40%, 6px DARK 40% */}
-              <div
-                className="flex flex-col items-center gap-2 mt-4"
-                style={{
-                  opacity: s2StaggerVisible ? 1 : 0,
-                  transform: s2StaggerVisible ? 'translateY(0)' : 'translateY(24px)',
-                  transition:
-                    'opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1)',
-                  transitionDelay: '350ms',
-                }}
-              >
-                <span
-                  className="w-2 h-2 rounded-full"
-                  style={{ backgroundColor: DARK }}
-                />
-                <span
-                  className="w-1.5 h-1.5 rounded-full"
-                  style={{ backgroundColor: `${DARK}66` }}
-                />
-                <span
-                  className="w-1.5 h-1.5 rounded-full"
-                  style={{ backgroundColor: `${DARK}66` }}
-                />
-              </div>
+              {/* Three dots: only on desktop */}
+              {!isMobile && (
+                <div
+                  className="flex flex-col items-center gap-2 mt-4"
+                  style={{
+                    opacity: s2StaggerVisible ? 1 : 0,
+                    transform: s2StaggerVisible ? 'translateY(0)' : 'translateY(24px)',
+                    transition:
+                      'opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1)',
+                    transitionDelay: '350ms',
+                  }}
+                >
+                  <span className="w-2 h-2 rounded-full" style={{ backgroundColor: DARK }} />
+                  <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: `${DARK}66` }} />
+                  <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: `${DARK}66` }} />
+                </div>
+              )}
 
               {/* Up arrow button */}
               <button
-                onClick={() => scrollToNext(0)}
+                onClick={isMobile ? () => setActiveSlide(0) : () => scrollToNext(0)}
                 className="w-10 h-10 rounded-full flex items-center justify-center hover:opacity-70 transition-opacity duration-300 mt-2"
                 style={{
-                  border: `1px solid ${DARK}4D`, // 30% alpha
-                  color: `${DARK}CC`, // 80% alpha
+                  border: `1px solid ${DARK}4D`,
+                  color: `${DARK}CC`,
                   opacity: s2StaggerVisible ? 1 : 0,
                   transform: s2StaggerVisible ? 'translateY(0)' : 'translateY(24px)',
-                  transition:
-                    'opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1)',
-                  transitionDelay: '500ms',
+                  transition: isMobile
+                    ? 'opacity 0.35s ease, transform 0.35s ease'
+                    : 'opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1)',
+                  transitionDelay: isMobile ? '0ms' : '500ms',
                 }}
-                aria-label="Scroll to Top"
+                aria-label={isMobile ? 'Previous Slide' : 'Scroll to Top'}
               >
                 <ChevronUp size={16} />
               </button>
@@ -468,26 +544,28 @@ export default function App() {
           </section>
 
           {/* =========================================================================
-              SECTION 3 (right aligned, white type — video is dark here)
+              SECTION 3 (right aligned on desktop, centered on mobile)
               ========================================================================= */}
           <section
-            className="absolute inset-0 flex items-center justify-end px-6 sm:px-8 md:px-20 lg:px-32"
+            className="absolute inset-0 flex items-center justify-center md:justify-end px-6 sm:px-8 md:px-20 lg:px-32 pt-16 sm:pt-20 md:pt-0"
             style={{
               opacity: s3Opacity,
-              transition: 'opacity 0.1s ease-out',
+              transition: isMobile ? 'opacity 0.35s ease-out' : 'opacity 0.1s ease-out',
               pointerEvents: s3Opacity > 0.1 ? 'auto' : 'none',
             }}
           >
-            <div className="max-w-2xl text-left">
+            <div className="max-w-2xl text-center md:text-left flex flex-col items-center md:items-start">
               {/* Eyebrow */}
               <div
-                className="text-white font-bold text-lg tracking-wider mb-4"
+                className="text-white font-bold text-base sm:text-lg tracking-wider mb-4 drop-shadow-md"
                 style={{
                   fontWeight: 800,
+                  textShadow: '0 2px 10px rgba(0,0,0,0.85)',
                   opacity: s3StaggerVisible ? 1 : 0,
                   transform: s3StaggerVisible ? 'translateY(0)' : 'translateY(24px)',
-                  transition:
-                    'opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1)',
+                  transition: isMobile
+                    ? 'opacity 0.35s ease, transform 0.35s ease'
+                    : 'opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1)',
                   transitionDelay: '0ms',
                 }}
               >
@@ -496,32 +574,38 @@ export default function App() {
 
               {/* H2 */}
               <h2
-                className="font-light text-white leading-[1.2] uppercase tracking-wide mb-8"
+                className="font-light text-white leading-[1.2] uppercase tracking-wide mb-6 sm:mb-8"
                 style={{
-                  fontSize: 'clamp(2rem, 4vw, 4rem)',
+                  fontSize: 'clamp(1.8rem, 4vw, 4rem)',
+                  textShadow: '0 2px 24px rgba(0,0,0,0.9), 0 4px 40px rgba(0,0,0,0.65)',
                   opacity: s3StaggerVisible ? 1 : 0,
                   transform: s3StaggerVisible ? 'translateY(0)' : 'translateY(24px)',
-                  transition:
-                    'opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1)',
-                  transitionDelay: '150ms',
+                  transition: isMobile
+                    ? 'opacity 0.35s ease, transform 0.35s ease'
+                    : 'opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1)',
+                  transitionDelay: isMobile ? '0ms' : '150ms',
                 }}
               >
                 YOUR GROWTH IS OUR MISSION
                 <br />
-                <span className="text-[0.55em] font-normal leading-normal block mt-3 normal-case tracking-normal text-white/90">
+                <span
+                  className="text-[0.55em] font-normal leading-normal block mt-3 normal-case tracking-normal text-white"
+                  style={{ textShadow: '0 2px 14px rgba(0,0,0,0.9)' }}
+                >
                   Connecting CRM, automation, and full-funnel performance marketing into a synchronized revenue powerhouse
                 </span>
               </h2>
 
               {/* CTA Row */}
               <div
-                className="flex items-center gap-4 cursor-pointer group"
+                className="flex items-center gap-4 cursor-pointer group pointer-events-auto"
                 style={{
                   opacity: s3StaggerVisible ? 1 : 0,
                   transform: s3StaggerVisible ? 'translateY(0)' : 'translateY(24px)',
-                  transition:
-                    'opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1)',
-                  transitionDelay: '300ms',
+                  transition: isMobile
+                    ? 'opacity 0.35s ease, transform 0.35s ease'
+                    : 'opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1)',
+                  transitionDelay: isMobile ? '0ms' : '300ms',
                 }}
                 onClick={() => {
                   window.location.href = 'pages/contact.html';
@@ -529,7 +613,10 @@ export default function App() {
               >
                 <span
                   className="text-sm tracking-[0.3em] text-white font-bold uppercase group-hover:text-white transition-colors"
-                  style={{ fontWeight: 700 }}
+                  style={{
+                    fontWeight: 700,
+                    textShadow: '0 2px 10px rgba(0,0,0,0.85)',
+                  }}
                 >
                   Contact Us
                 </span>
@@ -540,6 +627,24 @@ export default function App() {
             </div>
           </section>
         </div>
+
+        {/* Mobile Slide Navigation Dots */}
+        {isMobile && (
+          <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-40 flex items-center gap-3 pointer-events-auto bg-black/40 backdrop-blur-md px-4 py-2 rounded-full border border-white/20 shadow-lg">
+            {[0, 1, 2].map((idx) => (
+              <button
+                key={idx}
+                onClick={() => setActiveSlide(idx)}
+                className={`transition-all duration-300 rounded-full ${
+                  activeSlide === idx
+                    ? 'w-7 h-2 bg-white shadow-sm'
+                    : 'w-2 h-2 bg-white/50 hover:bg-white/80'
+                }`}
+                aria-label={`Slide ${idx + 1}`}
+              />
+            ))}
+          </div>
+        )}
       </div>
 
       {/* =========================================================================
