@@ -376,59 +376,12 @@
     form.onsubmit = submitSubscription;
   }
 
-  /* ==========================================================================
-     BRAND TYPOGRAPHY: Ensure 'D' in Digiolic is always colored green (not g)
-     ========================================================================== */
-  function applyBrandGreenD() {
-    try {
-      if (!document.body) return;
-      const walker = document.createTreeWalker(
-        document.body,
-        NodeFilter.SHOW_TEXT,
-        {
-          acceptNode: function (node) {
-            if (!node.nodeValue) return NodeFilter.FILTER_REJECT;
-            const parent = node.parentElement;
-            if (!parent) return NodeFilter.FILTER_REJECT;
-            const tag = parent.tagName.toLowerCase();
-            if (tag === 'script' || tag === 'style' || tag === 'textarea' || tag === 'title' || tag === 'input' || tag === 'noscript' || parent.classList.contains('brand-d') || parent.classList.contains('digi-d') || parent.classList.contains('brand-g') || parent.classList.contains('digi-g')) {
-              return NodeFilter.FILTER_REJECT;
-            }
-            if (/(?:Digiolic|DIGIOLIC)/.test(node.nodeValue)) {
-              return NodeFilter.FILTER_ACCEPT;
-            }
-            return NodeFilter.FILTER_SKIP;
-          }
-        }
-      );
-
-      const nodesToReplace = [];
-      while (walker.nextNode()) {
-        nodesToReplace.push(walker.currentNode);
-      }
-
-      nodesToReplace.forEach(node => {
-        const parent = node.parentElement;
-        if (!parent) return;
-        const html = node.nodeValue
-          .replace(/Digiolic/g, '<span class="brand-d">D</span>igiolic')
-          .replace(/DIGIOLIC/g, '<span class="brand-d">D</span>IGIOLIC');
-        const span = document.createElement('span');
-        span.innerHTML = html;
-        parent.replaceChild(span, node);
-      });
-    } catch (e) {
-      console.warn('Brand typography highlight non-critical error:', e);
-    }
-  }
-
   // Initialize
   function initAll() {
     initScrollReveals();
     initMetricCounters();
     initDeliveryStepsMotion();
     initZohoSubscriptionHandler();
-    applyBrandGreenD();
   }
 
   if (document.readyState === 'loading') {

@@ -3584,8 +3584,8 @@ input[type="button"] {
   letter-spacing: 0.03em !important;
 }
 
-/* Global Digiolic Green D */
+/* Digiolic: D is green ONLY on company logo; inherit text color everywhere else */
 .brand-d, .digi-d {
-  color: #85C340 !important;
+  color: inherit !important;
   display: inline !important;
 }
