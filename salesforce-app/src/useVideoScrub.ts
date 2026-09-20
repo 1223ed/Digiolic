@@ -101,11 +101,7 @@ export function useVideoScrub(
     let decoder: VideoDecoder | null = null;
 
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const isMobileDevice =
-      typeof window !== 'undefined' &&
-      (window.innerWidth < 768 || ('ontouchstart' in window && !window.matchMedia('(pointer: fine)').matches));
-
-    if (prefersReducedMotion || typeof VideoDecoder === 'undefined' || isMobileDevice) {
+    if (prefersReducedMotion || typeof VideoDecoder === 'undefined') {
       return;
     }
 
@@ -313,39 +309,14 @@ export function useVideoScrub(
       return Math.max(0, Math.min(1, scrollY / maxScroll));
     };
 
-    // Video metadata sync & mobile playback management
+    // Video metadata sync
     const video = videoRef.current;
     if (video) {
       video.muted = true;
       video.defaultMuted = true;
-      video.loop = true;
       video.playsInline = true;
       video.setAttribute('playsinline', '');
       video.setAttribute('webkit-playsinline', '');
-
-      const isMobileDevice =
-        window.innerWidth < 768 ||
-        ('ontouchstart' in window && !window.matchMedia('(pointer: fine)').matches);
-
-      const tryPlay = () => {
-        if (!video) return;
-        video.muted = true;
-        const p = video.play();
-        if (p && typeof p.then === 'function') {
-          p.catch(() => {
-            // Autoplay blocked until user interaction
-          });
-        }
-      };
-
-      // Always ensure video playback starts for mobile devices or while canvas is loading
-      if (isMobileDevice || !readyRef.current) {
-        tryPlay();
-        video.addEventListener('canplay', tryPlay, { once: true });
-        video.addEventListener('loadeddata', tryPlay, { once: true });
-        document.addEventListener('touchstart', tryPlay, { once: true, passive: true });
-        document.addEventListener('click', tryPlay, { once: true });
-      }
 
       const syncMeta = () => {
         if (video.duration && video.duration > 0) {
@@ -359,20 +330,6 @@ export function useVideoScrub(
     }
 
     const loop = (now: number) => {
-      const isMobileDevice =
-        window.innerWidth < 768 ||
-        ('ontouchstart' in window && !window.matchMedia('(pointer: fine)').matches);
-
-      if (isMobileDevice) {
-        // Mobile mode: continuous smooth 60fps video playback with zero seeking lag
-        const vid = videoRef.current;
-        if (vid && vid.paused) {
-          vid.play().catch(() => {});
-        }
-        animationFrameId = requestAnimationFrame(loop);
-        return;
-      }
-
       const deltaSeconds = (now - lastTime) / 1000;
       lastTime = now;
       const dt = Math.min(0.1, deltaSeconds);
@@ -410,32 +367,15 @@ export function useVideoScrub(
                   canvasLiveRef.current = true;
                   paintedRef.current = true;
                   setCanvasLive(true);
-                  // Once canvas is live and active, pause background video to save resources
-                  videoRef.current?.pause();
                 }
               }
             }
           }
         } else {
-          // 2. Fallback:
-          const isMobileDevice =
-            window.innerWidth < 768 ||
-            ('ontouchstart' in window && !window.matchMedia('(pointer: fine)').matches);
-
+          // 2. Fallback: if not seeking and abs(video.currentTime - current) > 0.01, set video.currentTime = current
           const vid = videoRef.current;
-          if (vid) {
-            if (isMobileDevice) {
-              // On mobile, keep video smoothly playing in a loop.
-              // Never repeatedly seek vid.currentTime on mobile, which freezes iOS WebKit!
-              if (vid.paused) {
-                vid.play().catch(() => {});
-              }
-            } else {
-              // Desktop fallback without WebCodecs
-              if (!vid.seeking && Math.abs(vid.currentTime - currentTimeRef.current) > 0.03) {
-                vid.currentTime = currentTimeRef.current;
-              }
-            }
+          if (vid && !vid.seeking && Math.abs(vid.currentTime - currentTimeRef.current) > 0.01) {
+            vid.currentTime = currentTimeRef.current;
           }
         }
       }
