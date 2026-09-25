@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 90" width="340" height="90">
+  <g transform="translate(10, 12)">
+    <!-- Emblem -->
+    <rect x="0" y="0" width="66" height="66" rx="14" fill="#0A2540"/>
+    <!-- Silver Fern / Stylized Kiwi Leaf Path -->
+    <path d="M18 48 C 22 36, 32 26, 48 18 C 42 28, 36 38, 34 50 Z" fill="#00A3C4"/>
+    <path d="M26 44 C 32 36, 40 30, 52 24 C 46 32, 42 40, 40 46 Z" fill="#38BDF8" opacity="0.8"/>
+    <circle cx="48" cy="18" r="3" fill="#FFFFFF"/>
+    
+    <!-- Text -->
+    <text x="82" y="32" font-family="'Outfit', -apple-system, BlinkMacSystemFont, sans-serif" font-size="22" font-weight="800" fill="#0A2540" letter-spacing="-0.02em">NZ IMMIGRATION</text>
+    <text x="83" y="49" font-family="'Inter', -apple-system, BlinkMacSystemFont, sans-serif" font-size="10.5" font-weight="700" fill="#00A3C4" letter-spacing="0.16em">STUDY &amp; VISA CONSULTANCY</text>
+    <text x="83" y="61" font-family="'Inter', -apple-system, BlinkMacSystemFont, sans-serif" font-size="9" font-weight="500" fill="#64748B">Auckland • Wellington • Christchurch</text>
+  </g>
+</svg>

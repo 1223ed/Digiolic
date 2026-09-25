@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 90" width="340" height="90">
+  <g transform="translate(10, 12)">
+    <!-- Academic Crest / Pillar -->
+    <rect x="0" y="0" width="66" height="66" rx="14" fill="#991B1B"/>
+    <!-- Classical Pillar & Book Icon -->
+    <path d="M22 46 L44 46 L44 44 L22 44 Z M24 44 L24 28 L27 28 L27 44 Z M31 44 L31 28 L35 28 L35 44 Z M39 44 L39 28 L42 28 L42 44 Z M21 28 L45 28 L33 20 Z" fill="#FEF08A"/>
+
+    <!-- Typography -->
+    <text x="82" y="31" font-family="'Outfit', -apple-system, BlinkMacSystemFont, sans-serif" font-size="20" font-weight="800" fill="#0F172A" letter-spacing="-0.01em">CHANAKYA</text>
+    <text x="82" y="47" font-family="'Inter', -apple-system, BlinkMacSystemFont, sans-serif" font-size="11" font-weight="800" fill="#991B1B" letter-spacing="0.18em">UNIVERSITY</text>
+    <text x="83" y="60" font-family="'Inter', -apple-system, BlinkMacSystemFont, sans-serif" font-size="9" font-weight="500" fill="#64748B">Higher Education &amp; Research • Bangalore</text>
+  </g>
+</svg>

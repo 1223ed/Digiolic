@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 90" width="340" height="90">
+  <g transform="translate(10, 12)">
+    <!-- 3D Isometric Cube Symbol -->
+    <rect x="0" y="0" width="66" height="66" rx="14" fill="#18181B"/>
+    <g transform="translate(19, 17)">
+      <!-- Top Face -->
+      <polygon points="14,0 28,8 14,16 0,8" fill="#F97316"/>
+      <!-- Left Face -->
+      <polygon points="0,8 14,16 14,32 0,24" fill="#EA580C"/>
+      <!-- Right Face -->
+      <polygon points="28,8 14,16 14,32 28,24" fill="#FB923C"/>
+    </g>
+
+    <!-- Typography -->
+    <text x="82" y="34" font-family="'Outfit', -apple-system, BlinkMacSystemFont, sans-serif" font-size="25" font-weight="800" fill="#18181B" letter-spacing="-0.02em">Indi<tspan fill="#EA580C">Qube</tspan></text>
+    <text x="83" y="50" font-family="'Inter', -apple-system, BlinkMacSystemFont, sans-serif" font-size="10.5" font-weight="700" fill="#EA580C" letter-spacing="0.15em">ENTERPRISE WORKSPACE NETWORK</text>
+    <text x="83" y="62" font-family="'Inter', -apple-system, BlinkMacSystemFont, sans-serif" font-size="9" font-weight="500" fill="#71717A">Smart Coworking • Managed Offices</text>
+  </g>
+</svg>

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 90" width="340" height="90">
+  <g transform="translate(10, 12)">
+    <!-- Interlocking Hexagonal/M Crest -->
+    <rect x="0" y="0" width="66" height="66" rx="14" fill="#0D9488"/>
+    <path d="M19 46 L19 22 L27 22 L33 34 L39 22 L47 22 L47 46 L39 46 L39 34 L34 42 L32 42 L27 34 L27 46 Z" fill="#FFFFFF"/>
+    
+    <!-- Typography -->
+    <text x="82" y="32" font-family="'Outfit', -apple-system, BlinkMacSystemFont, sans-serif" font-size="22" font-weight="800" fill="#0F172A" letter-spacing="-0.02em">MANU COMPANY</text>
+    <text x="83" y="49" font-family="'Inter', -apple-system, BlinkMacSystemFont, sans-serif" font-size="10.5" font-weight="700" fill="#0D9488" letter-spacing="0.14em">COMMERCIAL &amp; FINANCIAL SERVICES</text>
+    <text x="83" y="61" font-family="'Inter', -apple-system, BlinkMacSystemFont, sans-serif" font-size="9" font-weight="500" fill="#64748B">Multi-Currency Trade • Enterprise Billing</text>
+  </g>
+</svg>

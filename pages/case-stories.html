@@ -20,7 +20,7 @@
   <link rel="stylesheet" href="../css/style.css?v=20260920_v302">
   <link rel="stylesheet" href="../css/components.css?v=20260919_v209">
   <link rel="stylesheet" href="../css/pages.css?v=20260919_v209">
-  <link rel="stylesheet" href="../css/case-stories.css?v=20260919_v209">
+  <link rel="stylesheet" href="../css/case-stories.css?v=20260925_image2_v999">
   <link rel="stylesheet" href="../css/responsive.css?v=20260919_v209">
   <link rel="stylesheet" href="../css/chat-widget.css?v=20260919_v209">
 
@@ -913,6 +913,140 @@
       </div>
     </section>
 
+    <!-- Inlined styles for Image 2 Clean 2-Box Layout to prevent any browser caching delays -->
+    <style>
+      .cs-clean-gallery-grid {
+        display: grid !important;
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 2.5rem !important;
+        max-width: 1080px !important;
+        margin: 0 auto !important;
+      }
+      @media (max-width: 820px) {
+        .cs-clean-gallery-grid {
+          grid-template-columns: 1fr !important;
+          gap: 1.75rem !important;
+        }
+      }
+      .cs-clean-box-card {
+        background: #FFFFFF !important;
+        border: 1.5px solid #CBD5E1 !important;
+        border-radius: 12px !important;
+        padding: 2.5rem 2rem 2.25rem 2rem !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+        justify-content: space-between !important;
+        min-height: 410px !important;
+        box-shadow: 0 4px 18px rgba(15, 23, 42, 0.04) !important;
+        transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease !important;
+        position: relative !important;
+      }
+      .cs-clean-box-card:hover {
+        transform: translateY(-4px) !important;
+        border-color: #3AAFA9 !important;
+        box-shadow: 0 16px 32px -8px rgba(58, 175, 169, 0.22) !important;
+      }
+      .cs-clean-box-top {
+        width: 100% !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+      }
+      .cs-clean-logo-container {
+        width: 100% !important;
+        height: 125px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        margin-bottom: 1.5rem !important;
+        padding: 0.85rem 1.25rem !important;
+        background: #F8FAFC !important;
+        border-radius: 10px !important;
+        border: 1px solid #F1F5F9 !important;
+      }
+      .cs-clean-logo-img {
+        max-width: 100% !important;
+        max-height: 85px !important;
+        width: auto !important;
+        height: auto !important;
+        object-fit: contain !important;
+      }
+      .cs-clean-meta-group {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 0.85rem !important;
+        width: 100% !important;
+        margin-bottom: 1.75rem !important;
+      }
+      .cs-clean-location-pill {
+        display: inline-flex !important;
+        align-items: center !important;
+        gap: 0.4rem !important;
+        font-size: 0.92rem !important;
+        font-weight: 700 !important;
+        color: #1E293B !important;
+        background: #F1F5F9 !important;
+        border: 1px solid #E2E8F0 !important;
+        padding: 0.35rem 0.95rem !important;
+        border-radius: 9999px !important;
+      }
+      .cs-clean-products-box {
+        width: 100% !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 0.45rem !important;
+      }
+      .cs-clean-products-label {
+        font-size: 0.78rem !important;
+        font-weight: 800 !important;
+        text-transform: uppercase !important;
+        letter-spacing: 0.08em !important;
+        color: #64748B !important;
+      }
+      .cs-clean-products-tags {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        gap: 0.45rem !important;
+        justify-content: center !important;
+      }
+      .cs-clean-product-tag {
+        font-size: 0.82rem !important;
+        font-weight: 700 !important;
+        color: #0D9488 !important;
+        background: #F0FDFA !important;
+        border: 1px solid #CCFBF1 !important;
+        padding: 0.3rem 0.75rem !important;
+        border-radius: 9999px !important;
+      }
+      .cs-clean-readmore-btn {
+        background: #3AAFA9 !important;
+        color: #FFFFFF !important;
+        border: none !important;
+        font-family: inherit !important;
+        font-size: 0.98rem !important;
+        font-weight: 600 !important;
+        padding: 0.7rem 2.5rem !important;
+        border-radius: 6px !important;
+        cursor: pointer !important;
+        transition: all 0.25s ease !important;
+        box-shadow: 0 4px 12px rgba(58, 175, 169, 0.25) !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        width: auto !important;
+        text-decoration: none !important;
+      }
+      .cs-clean-readmore-btn:hover {
+        background: #2B9B95 !important;
+        transform: translateY(-2px) !important;
+        box-shadow: 0 6px 18px rgba(43, 155, 149, 0.35) !important;
+      }
+    </style>
+
     <!-- ==========================================================================
          3. FILTERABLE CASE STUDIES GALLERY & SEARCH
          ========================================================================== -->
@@ -955,407 +1089,229 @@
       </div>
 
 
-      <!-- Bento Cards Grid for Remaining Stories -->
+      <!-- Image 2 Design: 2-Box Column Grid for Client Case Studies -->
       <div class="cs-grid-container">
-        <div class="cs-bento-grid">
+        <div class="cs-clean-gallery-grid">
 
-          <!-- Story 1: NZ Immigration -->
-          <article class="cs-bento-card" data-category="crm">
-            <div>
-              <div class="cs-card-top">
-                <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
-                  <span class="cs-tag-domain zoho">Zoho CRM &amp; Admissions</span>
-                  <span style="font-size: 0.78rem; font-weight: 700; color: #1E293B; background: #F1F5F9; border: 1px solid #CBD5E1; padding: 0.22rem 0.65rem; border-radius: 9999px;">NZ Immigration</span>
-                </div>
-                <span class="cs-tag-scale">📍 New Zealand</span>
+          <!-- Box 1: NZ Immigration -->
+          <article class="cs-clean-box-card" data-category="crm zoho">
+            <div class="cs-clean-box-top">
+              <div class="cs-clean-logo-container">
+                <img src="../assets/images/case-studies/nz-immigration.svg" alt="NZ Immigration Logo" class="cs-clean-logo-img">
               </div>
 
-              <h3 class="cs-card-title">
-                NZ Immigration: Centralized Journey Lifecycle &amp; 10+ Lakh Record Migration
-              </h3>
+              <div class="cs-clean-meta-group">
+                <div class="cs-clean-location-pill">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#E11D48" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                  </svg>
+                  <span>Location: <strong>New Zealand</strong></span>
+                </div>
 
-              <div class="cs-card-narrative">
-                <div class="cs-card-split-item challenge">
-                  <strong>Challenge</strong>
-                  Managing student enquiries from multiple channels, manual follow-up delays, lack of counselor visibility, and migrating 10+ lakh historical records with intact accuracy.
+                <div class="cs-clean-products-box">
+                  <span class="cs-clean-products-label">Zoho Products Used</span>
+                  <div class="cs-clean-products-tags">
+                    <span class="cs-clean-product-tag">Zoho CRM</span>
+                    <span class="cs-clean-product-tag">Zoho Form</span>
+                    <span class="cs-clean-product-tag">Zoho Social</span>
+                    <span class="cs-clean-product-tag">Zoho Workdrive</span>
+                  </div>
                 </div>
-                <div class="cs-card-split-item solution">
-                  <strong>Solution</strong>
-                  Implemented end-to-end Zoho CRM with Blueprints and Deluge custom functions, bulk migrated 10+ lakh records, and integrated Zoho Social, webhooks, and analytics dashboards.
-                </div>
-              </div>
-
-              <div class="cs-card-metrics-grid">
-                <div class="cs-metric-chip">
-                  <span class="cs-metric-val blue">10+ Lakh</span>
-                  <span class="cs-metric-lbl">Records Migrated</span>
-                </div>
-                <div class="cs-metric-chip">
-                  <span class="cs-metric-val green">360°</span>
-                  <span class="cs-metric-lbl">Student Journey</span>
-                </div>
-                <div class="cs-metric-chip">
-                  <span class="cs-metric-val purple">100%</span>
-                  <span class="cs-metric-lbl">Data Accuracy</span>
-                </div>
-              </div>
-
-              <div class="cs-card-tech-tags">
-                <span class="cs-tech-tag">Zoho CRM</span>
-                <span class="cs-tech-tag">Zoho Form</span>
-                <span class="cs-tech-tag">Zoho Social</span>
-                <span class="cs-tech-tag">Zoho Workdrive</span>
-                <span class="cs-tech-tag">Deluge Custom Functions</span>
               </div>
             </div>
 
-            <button class="cs-card-btn js-open-case-modal" data-case-id="case-nz-immigration" type="button">
-              <span>Explore Architecture Breakdown</span>
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <polyline points="9 18 15 12 9 6"></polyline>
-              </svg>
+            <button class="cs-clean-readmore-btn js-open-case-modal" data-case-id="case-nz-immigration" type="button">
+              Read More
             </button>
           </article>
 
-          <!-- Story 2: Blume Labs -->
-          <article class="cs-bento-card" data-category="finance">
-            <div>
-              <div class="cs-card-top">
-                <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
-                  <span class="cs-tag-domain zoho">Sales-to-Finance Sync</span>
-                  <span style="font-size: 0.78rem; font-weight: 700; color: #1E293B; background: #F1F5F9; border: 1px solid #CBD5E1; padding: 0.22rem 0.65rem; border-radius: 9999px;">Blume Labs</span>
-                </div>
-                <span class="cs-tag-scale">📍 Bangalore</span>
+          <!-- Box 2: Blume Labs -->
+          <article class="cs-clean-box-card" data-category="finance zoho">
+            <div class="cs-clean-box-top">
+              <div class="cs-clean-logo-container">
+                <img src="../assets/images/case-studies/blume-labs.svg" alt="Blume Labs Logo" class="cs-clean-logo-img">
               </div>
 
-              <h3 class="cs-card-title">
-                Blume Labs: Eliminating Sales-Finance Silos via Automated CRM &amp; Books Sync
-              </h3>
+              <div class="cs-clean-meta-group">
+                <div class="cs-clean-location-pill">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#E11D48" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                  </svg>
+                  <span>Location: <strong>Bangalore</strong></span>
+                </div>
 
-              <div class="cs-card-narrative">
-                <div class="cs-card-split-item challenge">
-                  <strong>Challenge</strong>
-                  Disconnected sales and finance systems caused delayed invoicing after deal closures, manual data entry errors into Books, and lack of real-time payment visibility.
+                <div class="cs-clean-products-box">
+                  <span class="cs-clean-products-label">Zoho Products Used</span>
+                  <div class="cs-clean-products-tags">
+                    <span class="cs-clean-product-tag">Zoho CRM</span>
+                    <span class="cs-clean-product-tag">Zoho Books</span>
+                  </div>
                 </div>
-                <div class="cs-card-split-item solution">
-                  <strong>Solution</strong>
-                  Configured automated invoice generation upon "Closed Won", real-time two-way client sync, milestone-based billing workflows, and unified pipeline-revenue dashboards.
-                </div>
-              </div>
-
-              <div class="cs-card-metrics-grid">
-                <div class="cs-metric-chip">
-                  <span class="cs-metric-val green">Auto</span>
-                  <span class="cs-metric-lbl">Invoice Generation</span>
-                </div>
-                <div class="cs-metric-chip">
-                  <span class="cs-metric-val blue">2-Way</span>
-                  <span class="cs-metric-lbl">CRM-Books Sync</span>
-                </div>
-                <div class="cs-metric-chip">
-                  <span class="cs-metric-val purple">0</span>
-                  <span class="cs-metric-lbl">Billing Errors</span>
-                </div>
-              </div>
-
-              <div class="cs-card-tech-tags">
-                <span class="cs-tech-tag">Zoho CRM</span>
-                <span class="cs-tech-tag">Zoho Books</span>
-                <span class="cs-tech-tag">Milestone Workflows</span>
-                <span class="cs-tech-tag">Revenue Dashboards</span>
               </div>
             </div>
 
-            <button class="cs-card-btn js-open-case-modal" data-case-id="case-blume-labs" type="button">
-              <span>Explore Architecture Breakdown</span>
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <polyline points="9 18 15 12 9 6"></polyline>
-              </svg>
+            <button class="cs-clean-readmore-btn js-open-case-modal" data-case-id="case-blume-labs" type="button">
+              Read More
             </button>
           </article>
 
-          <!-- Story 3: IndiQube -->
-          <article class="cs-bento-card" data-category="crm">
-            <div>
-              <div class="cs-card-top">
-                <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
-                  <span class="cs-tag-domain zoho">Omnichannel Workspace CRM</span>
-                  <span style="font-size: 0.78rem; font-weight: 700; color: #1E293B; background: #F1F5F9; border: 1px solid #CBD5E1; padding: 0.22rem 0.65rem; border-radius: 9999px;">IndiQube</span>
-                </div>
-                <span class="cs-tag-scale">📍 Bangalore</span>
+          <!-- Box 3: IndiQube -->
+          <article class="cs-clean-box-card" data-category="crm zoho">
+            <div class="cs-clean-box-top">
+              <div class="cs-clean-logo-container">
+                <img src="../assets/images/case-studies/indiqube.svg" alt="IndiQube Logo" class="cs-clean-logo-img">
               </div>
 
-              <h3 class="cs-card-title">
-                IndiQube: Omnichannel Telephony, WhatsApp CRM &amp; Automated Tour Conversions
-              </h3>
+              <div class="cs-clean-meta-group">
+                <div class="cs-clean-location-pill">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#E11D48" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                  </svg>
+                  <span>Location: <strong>Bangalore</strong></span>
+                </div>
 
-              <div class="cs-card-narrative">
-                <div class="cs-card-split-item challenge">
-                  <strong>Challenge</strong>
-                  High volumes of prospective tenant inquiries across WhatsApp, phone, and web forms; lost context; untracked call recordings; and low conversion on renewal campaigns.
+                <div class="cs-clean-products-box">
+                  <span class="cs-clean-products-label">Zoho Products Used</span>
+                  <div class="cs-clean-products-tags">
+                    <span class="cs-clean-product-tag">Zoho CRM</span>
+                    <span class="cs-clean-product-tag">Zoho Campaign</span>
+                    <span class="cs-clean-product-tag">3rd Party WhatsApp</span>
+                    <span class="cs-clean-product-tag">Telephonic Integration</span>
+                  </div>
                 </div>
-                <div class="cs-card-split-item solution">
-                  <strong>Solution</strong>
-                  Centralized inbound inquiries into Zoho CRM, native WhatsApp &amp; cloud telephony CTI with one-click calling, automated task triggers, and behavior-driven Campaigns drip sequences.
-                </div>
-              </div>
-
-              <div class="cs-card-metrics-grid">
-                <div class="cs-metric-chip">
-                  <span class="cs-metric-val blue">Instant</span>
-                  <span class="cs-metric-lbl">Lead Assignment</span>
-                </div>
-                <div class="cs-metric-chip">
-                  <span class="cs-metric-val green">100%</span>
-                  <span class="cs-metric-lbl">Call &amp; Chat Logs</span>
-                </div>
-                <div class="cs-metric-chip">
-                  <span class="cs-metric-val purple">+45%</span>
-                  <span class="cs-metric-lbl">Tour Conversions</span>
-                </div>
-              </div>
-
-              <div class="cs-card-tech-tags">
-                <span class="cs-tech-tag">Zoho CRM</span>
-                <span class="cs-tech-tag">Zoho Campaign</span>
-                <span class="cs-tech-tag">WhatsApp Business API</span>
-                <span class="cs-tech-tag">Cloud Telephony CTI</span>
               </div>
             </div>
 
-            <button class="cs-card-btn js-open-case-modal" data-case-id="case-indiqube" type="button">
-              <span>Explore Architecture Breakdown</span>
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <polyline points="9 18 15 12 9 6"></polyline>
-              </svg>
+            <button class="cs-clean-readmore-btn js-open-case-modal" data-case-id="case-indiqube" type="button">
+              Read More
             </button>
           </article>
 
-          <!-- Story 4: Manu Company -->
-          <article class="cs-bento-card" data-category="finance">
-            <div>
-              <div class="cs-card-top">
-                <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
-                  <span class="cs-tag-domain zoho">Financial Compliance &amp; Books</span>
-                  <span style="font-size: 0.78rem; font-weight: 700; color: #1E293B; background: #F1F5F9; border: 1px solid #CBD5E1; padding: 0.22rem 0.65rem; border-radius: 9999px;">Manu Company</span>
-                </div>
-                <span class="cs-tag-scale">📍 Bangalore</span>
+          <!-- Box 4: Manu Company Name -->
+          <article class="cs-clean-box-card" data-category="finance zoho">
+            <div class="cs-clean-box-top">
+              <div class="cs-clean-logo-container">
+                <img src="../assets/images/case-studies/manu-company.svg" alt="Manu Company Logo" class="cs-clean-logo-img">
               </div>
 
-              <h3 class="cs-card-title">
-                Manu Company: Multi-Currency Automated Invoicing, Tax &amp; Reconciliation Engine
-              </h3>
+              <div class="cs-clean-meta-group">
+                <div class="cs-clean-location-pill">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#E11D48" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                  </svg>
+                  <span>Location: <strong>Bangalore</strong></span>
+                </div>
 
-              <div class="cs-card-narrative">
-                <div class="cs-card-split-item challenge">
-                  <strong>Challenge</strong>
-                  Manual multi-currency billing and complex compliance without a unified system, slow collections causing cash flow bottlenecks, and reconciliation discrepancies.
+                <div class="cs-clean-products-box">
+                  <span class="cs-clean-products-label">Zoho Products Used</span>
+                  <div class="cs-clean-products-tags">
+                    <span class="cs-clean-product-tag">Zoho Books</span>
+                    <span class="cs-clean-product-tag">Zoho Invoice</span>
+                  </div>
                 </div>
-                <div class="cs-card-split-item solution">
-                  <strong>Solution</strong>
-                  Centralized accounting with Zoho Books &amp; Invoice, automated recurring billing and payment reminders, automated tax calculation engines, and real-time payment gateway sync.
-                </div>
-              </div>
-
-              <div class="cs-card-metrics-grid">
-                <div class="cs-metric-chip">
-                  <span class="cs-metric-val green">Multi-Cur</span>
-                  <span class="cs-metric-lbl">Auto Billing</span>
-                </div>
-                <div class="cs-metric-chip">
-                  <span class="cs-metric-val blue">100%</span>
-                  <span class="cs-metric-lbl">Tax Compliance</span>
-                </div>
-                <div class="cs-metric-chip">
-                  <span class="cs-metric-val purple">-60%</span>
-                  <span class="cs-metric-lbl">Collection Lag</span>
-                </div>
-              </div>
-
-              <div class="cs-card-tech-tags">
-                <span class="cs-tech-tag">Zoho Books</span>
-                <span class="cs-tech-tag">Zoho Invoice</span>
-                <span class="cs-tech-tag">Tax Automation Engine</span>
-                <span class="cs-tech-tag">Payment Gateways</span>
               </div>
             </div>
 
-            <button class="cs-card-btn js-open-case-modal" data-case-id="case-manu-company" type="button">
-              <span>Explore Architecture Breakdown</span>
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <polyline points="9 18 15 12 9 6"></polyline>
-              </svg>
+            <button class="cs-clean-readmore-btn js-open-case-modal" data-case-id="case-manu-company" type="button">
+              Read More
             </button>
           </article>
 
-          <!-- Story 5: FYX -->
-          <article class="cs-bento-card" data-category="crm">
-            <div>
-              <div class="cs-card-top">
-                <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
-                  <span class="cs-tag-domain zoho">Digital Lending &amp; FinTech</span>
-                  <span style="font-size: 0.78rem; font-weight: 700; color: #1E293B; background: #F1F5F9; border: 1px solid #CBD5E1; padding: 0.22rem 0.65rem; border-radius: 9999px;">FYX</span>
-                </div>
-                <span class="cs-tag-scale">📍 Australia</span>
+          <!-- Box 5: FYX -->
+          <article class="cs-clean-box-card" data-category="crm zoho">
+            <div class="cs-clean-box-top">
+              <div class="cs-clean-logo-container">
+                <img src="../assets/images/case-studies/fyx.svg" alt="FYX Logo" class="cs-clean-logo-img">
               </div>
 
-              <h3 class="cs-card-title">
-                FYX: Paperless Digital Loan Origination, KYC Pipeline &amp; Zoho Sign Execution
-              </h3>
+              <div class="cs-clean-meta-group">
+                <div class="cs-clean-location-pill">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#E11D48" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                  </svg>
+                  <span>Location: <strong>Australia</strong></span>
+                </div>
 
-              <div class="cs-card-narrative">
-                <div class="cs-card-split-item challenge">
-                  <strong>Challenge</strong>
-                  Scattered loan inquiries, high drop-off rates due to delayed document collection, friction passing KYC documents into pipelines, and slow manual loan agreement signing.
+                <div class="cs-clean-products-box">
+                  <span class="cs-clean-products-label">Zoho Products Used</span>
+                  <div class="cs-clean-products-tags">
+                    <span class="cs-clean-product-tag">Zoho CRM</span>
+                    <span class="cs-clean-product-tag">Zoho Sign</span>
+                    <span class="cs-clean-product-tag">Zoho Form</span>
+                  </div>
                 </div>
-                <div class="cs-card-split-item solution">
-                  <strong>Solution</strong>
-                  Implemented Zoho CRM and dynamic Zoho Forms for auto-attaching KYC documents, automated loan officer routing, status notification triggers, and native Zoho Sign digital execution.
-                </div>
-              </div>
-
-              <div class="cs-card-metrics-grid">
-                <div class="cs-metric-chip">
-                  <span class="cs-metric-val green">3x Faster</span>
-                  <span class="cs-metric-lbl">Loan Processing</span>
-                </div>
-                <div class="cs-metric-chip">
-                  <span class="cs-metric-val blue">100%</span>
-                  <span class="cs-metric-lbl">Paperless KYC Vault</span>
-                </div>
-                <div class="cs-metric-chip">
-                  <span class="cs-metric-val purple">&lt; 24 Hrs</span>
-                  <span class="cs-metric-lbl">Contract Execution</span>
-                </div>
-              </div>
-
-              <div class="cs-card-tech-tags">
-                <span class="cs-tech-tag">Zoho CRM</span>
-                <span class="cs-tech-tag">Zoho Sign</span>
-                <span class="cs-tech-tag">Zoho Form</span>
-                <span class="cs-tech-tag">KYC Document Vault</span>
               </div>
             </div>
 
-            <button class="cs-card-btn js-open-case-modal" data-case-id="case-fyx" type="button">
-              <span>Explore Architecture Breakdown</span>
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <polyline points="9 18 15 12 9 6"></polyline>
-              </svg>
+            <button class="cs-clean-readmore-btn js-open-case-modal" data-case-id="case-fyx" type="button">
+              Read More
             </button>
           </article>
 
-          <!-- Story 6: Chanakya University -->
-          <article class="cs-bento-card" data-category="crm">
-            <div>
-              <div class="cs-card-top">
-                <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
-                  <span class="cs-tag-domain zoho">Higher Education Admissions</span>
-                  <span style="font-size: 0.78rem; font-weight: 700; color: #1E293B; background: #F1F5F9; border: 1px solid #CBD5E1; padding: 0.22rem 0.65rem; border-radius: 9999px;">Chanakya University</span>
-                </div>
-                <span class="cs-tag-scale">📍 Bangalore</span>
+          <!-- Box 6: Chanakya University -->
+          <article class="cs-clean-box-card" data-category="crm zoho">
+            <div class="cs-clean-box-top">
+              <div class="cs-clean-logo-container">
+                <img src="../assets/images/case-studies/chanakya-university.svg" alt="Chanakya University Logo" class="cs-clean-logo-img">
               </div>
 
-              <h3 class="cs-card-title">
-                Chanakya University: 360° Admissions Funnel, Fast Outreach &amp; Counselor BI
-              </h3>
+              <div class="cs-clean-meta-group">
+                <div class="cs-clean-location-pill">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#E11D48" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                  </svg>
+                  <span>Location: <strong>Bangalore</strong></span>
+                </div>
 
-              <div class="cs-card-narrative">
-                <div class="cs-card-split-item challenge">
-                  <strong>Challenge</strong>
-                  Scattered student inquiries, delayed counseling follow-ups reducing conversion rates, untracked student journeys, and lack of visibility into counselor performance.
+                <div class="cs-clean-products-box">
+                  <span class="cs-clean-products-label">Zoho Products Used</span>
+                  <div class="cs-clean-products-tags">
+                    <span class="cs-clean-product-tag">Zoho CRM</span>
+                  </div>
                 </div>
-                <div class="cs-card-split-item solution">
-                  <strong>Solution</strong>
-                  Deployed Zoho CRM as central hub with automated assignment rules for instant counselor outreach, multi-stage admission pipelines, integrated communication logs, and role-based dashboards.
-                </div>
-              </div>
-
-              <div class="cs-card-metrics-grid">
-                <div class="cs-metric-chip">
-                  <span class="cs-metric-val blue">Instant</span>
-                  <span class="cs-metric-lbl">Counselor Outreach</span>
-                </div>
-                <div class="cs-metric-chip">
-                  <span class="cs-metric-val green">360°</span>
-                  <span class="cs-metric-lbl">Admissions Pipeline</span>
-                </div>
-                <div class="cs-metric-chip">
-                  <span class="cs-metric-val purple">+52%</span>
-                  <span class="cs-metric-lbl">Enrollment Velocity</span>
-                </div>
-              </div>
-
-              <div class="cs-card-tech-tags">
-                <span class="cs-tech-tag">Zoho CRM</span>
-                <span class="cs-tech-tag">Admissions Pipelines</span>
-                <span class="cs-tech-tag">Counselor Routing</span>
-                <span class="cs-tech-tag">Role-Based BI</span>
               </div>
             </div>
 
-            <button class="cs-card-btn js-open-case-modal" data-case-id="case-chanakya-university" type="button">
-              <span>Explore Architecture Breakdown</span>
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <polyline points="9 18 15 12 9 6"></polyline>
-              </svg>
+            <button class="cs-clean-readmore-btn js-open-case-modal" data-case-id="case-chanakya-university" type="button">
+              Read More
             </button>
           </article>
 
-          <!-- Story 7: Rahul -->
-          <article class="cs-bento-card" data-category="hr">
-            <div>
-              <div class="cs-card-top">
-                <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
-                  <span class="cs-tag-domain zoho">HRMS, Talent &amp; Payroll</span>
-                  <span style="font-size: 0.78rem; font-weight: 700; color: #1E293B; background: #F1F5F9; border: 1px solid #CBD5E1; padding: 0.22rem 0.65rem; border-radius: 9999px;">Rahul</span>
-                </div>
-                <span class="cs-tag-scale">📍 Bangalore</span>
+          <!-- Box 7: Rahul -->
+          <article class="cs-clean-box-card" data-category="hr zoho">
+            <div class="cs-clean-box-top">
+              <div class="cs-clean-logo-container">
+                <img src="../assets/images/case-studies/rahul.svg" alt="Rahul Logo" class="cs-clean-logo-img">
               </div>
 
-              <h3 class="cs-card-title">
-                Rahul: Unified Talent Acquisition, Employee Lifecycle &amp; Automated Payroll Sync
-              </h3>
+              <div class="cs-clean-meta-group">
+                <div class="cs-clean-location-pill">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#E11D48" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                  </svg>
+                  <span>Location: <strong>Bangalore</strong></span>
+                </div>
 
-              <div class="cs-card-narrative">
-                <div class="cs-card-split-item challenge">
-                  <strong>Challenge</strong>
-                  Disconnected recruitment, HR, and payroll workflows across siloed tools; tedious manual candidate data entry; complex payroll errors from attendance reconciliation; and delayed onboarding.
+                <div class="cs-clean-products-box">
+                  <span class="cs-clean-products-label">Zoho Products Used</span>
+                  <div class="cs-clean-products-tags">
+                    <span class="cs-clean-product-tag">Zoho People</span>
+                    <span class="cs-clean-product-tag">Zoho Payroll</span>
+                    <span class="cs-clean-product-tag">Zoho Recruit</span>
+                  </div>
                 </div>
-                <div class="cs-card-split-item solution">
-                  <strong>Solution</strong>
-                  Implemented unified ecosystem connecting Zoho Recruit, Zoho People, and Zoho Payroll: automated candidate conversion, automated attendance/leave sync, and self-service portals.
-                </div>
-              </div>
-
-              <div class="cs-card-metrics-grid">
-                <div class="cs-metric-chip">
-                  <span class="cs-metric-val green">100%</span>
-                  <span class="cs-metric-lbl">Payroll Accuracy</span>
-                </div>
-                <div class="cs-metric-chip">
-                  <span class="cs-metric-val blue">Instant</span>
-                  <span class="cs-metric-lbl">Onboarding Flow</span>
-                </div>
-                <div class="cs-metric-chip">
-                  <span class="cs-metric-val purple">0</span>
-                  <span class="cs-metric-lbl">Manual Re-Entry</span>
-                </div>
-              </div>
-
-              <div class="cs-card-tech-tags">
-                <span class="cs-tech-tag">Zoho Recruit</span>
-                <span class="cs-tech-tag">Zoho People</span>
-                <span class="cs-tech-tag">Zoho Payroll</span>
-                <span class="cs-tech-tag">Employee Self-Service</span>
               </div>
             </div>
 
-            <button class="cs-card-btn js-open-case-modal" data-case-id="case-rahul-hr" type="button">
-              <span>Explore Architecture Breakdown</span>
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <polyline points="9 18 15 12 9 6"></polyline>
-              </svg>
+            <button class="cs-clean-readmore-btn js-open-case-modal" data-case-id="case-rahul-hr" type="button">
+              Read More
             </button>
           </article>
 
@@ -1366,10 +1322,8 @@
               <circle cx="11" cy="11" r="8"></circle>
               <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
             </svg>
-            <h4 style="font-size: 1.25rem; font-weight: 800; color: #0F172A; margin-bottom: 0.5rem;">No case stories
-              match your query</h4>
-            <p style="color: #64748B; max-width: 450px; margin: 0 auto 1.5rem auto;">Try searching with different
-              keywords like "Zoho", "Apex", "Advisory", or reset category filters.</p>
+            <h4 style="font-size: 1.25rem; font-weight: 800; color: #0F172A; margin-bottom: 0.5rem;">No case stories match your query</h4>
+            <p style="color: #64748B; max-width: 450px; margin: 0 auto 1.5rem auto;">Try searching with different keywords like "Zoho", "Australia", "New Zealand", or reset category filters.</p>
           </div>
 
         </div>
@@ -1519,10 +1473,10 @@
        6. INTERACTIVE ARCHITECTURE DETAIL MODAL
        ========================================================================== -->
   <div class="cs-modal-backdrop" id="csModalBackdrop" role="dialog" aria-modal="true" aria-labelledby="csModalTitle">
-    <div class="cs-modal-container">
+    <div class="cs-modal-container" style="max-width: 820px; padding: clamp(1.75rem, 3.5vw, 2.75rem);">
 
       <!-- Close Button -->
-      <button class="cs-modal-close-btn" id="csModalCloseBtn" aria-label="Close Architecture Breakdown" type="button">
+      <button class="cs-modal-close-btn" id="csModalCloseBtn" aria-label="Close Case Study" type="button">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
           stroke-linecap="round" stroke-linejoin="round">
           <line x1="18" y1="6" x2="6" y2="18"></line>
@@ -1531,86 +1485,65 @@
       </button>
 
       <!-- Modal Header -->
-      <div class="cs-modal-header">
-        <div style="display: flex; align-items: center; gap: 0.65rem; margin-bottom: 0.5rem;">
-          <span class="cs-tag-domain" id="csModalDomain">Zoho Enterprise</span>
-          <span class="cs-tag-scale" id="csModalScale">Global Logistics • 450+ Users</span>
+      <div class="cs-modal-header" style="margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 1px solid #E2E8F0;">
+        <div style="display: flex; align-items: center; gap: 0.65rem; margin-bottom: 0.5rem; flex-wrap: wrap;">
+          <span class="cs-tag-domain zoho" id="csModalLocation">📍 Location: New Zealand</span>
+          <span style="font-size: 0.82rem; font-weight: 700; color: #0D9488; background: #F0FDFA; border: 1px solid #CCFBF1; padding: 0.3rem 0.75rem; border-radius: 9999px;" id="csModalProducts">Zoho Products</span>
         </div>
-        <h2 class="cs-modal-title" id="csModalTitle">
-          Case Study Title
+        <h2 class="cs-modal-title" id="csModalTitle" style="font-size: 1.85rem; font-weight: 800; color: #0F172A; margin: 0;">
+          Company Name
         </h2>
       </div>
 
-      <!-- Executive Overview -->
-      <div style="margin-bottom: 1.75rem;">
-        <h4
-          style="font-size: 0.82rem; font-weight: 800; color: #64748B; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.5rem;">
-          Executive Overview
+      <!-- Description of the Company (At Top) -->
+      <div class="cs-modal-desc-box">
+        <h4 style="font-size: 0.8rem; font-weight: 800; color: #64748B; text-transform: uppercase; letter-spacing: 0.08em; margin: 0 0 0.5rem 0;">
+          Company Overview
         </h4>
-        <p id="csModalOverview" style="font-size: 0.95rem; line-height: 1.6; color: #334155; margin: 0;">
-          Overview text...
+        <p id="csModalOverview" class="cs-modal-desc-text">
+          Description...
         </p>
       </div>
 
-      <!-- Challenge & Solution Split -->
-      <div class="cs-dual-narrative" style="margin-bottom: 1.75rem;">
-        <div class="cs-narrative-box challenge">
-          <div class="cs-narrative-label">The Challenge</div>
-          <div id="csModalChallenge" class="cs-narrative-text">Challenge details...</div>
-        </div>
-        <div class="cs-narrative-box solution">
-          <div class="cs-narrative-label">The Solution</div>
-          <div id="csModalSolution" class="cs-narrative-text">Solution details...</div>
-        </div>
-      </div>
-
-      <!-- Verified Business Benefits Section -->
-      <div id="csModalBenefits" style="margin-bottom: 1.75rem; background: #F0FDF4; border: 1px solid #BBF7D0; border-radius: 14px; padding: 1.25rem 1.5rem; display: none;">
-        <!-- Populated dynamically via JS -->
-      </div>
-
-      <!-- Transformation Phases Timeline -->
-      <div style="margin-bottom: 1.75rem;">
-        <h4
-          style="font-size: 0.82rem; font-weight: 800; color: #64748B; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.5rem;">
-          Execution Methodology &amp; Milestones
-        </h4>
-        <div class="cs-modal-timeline" id="csModalTimeline">
-          <!-- Populated dynamically via JS -->
-        </div>
-      </div>
-
-      <!-- Verified Outcomes Metrics -->
-      <div
-        style="margin-bottom: 1.75rem; background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 14px; padding: 1.25rem 1.5rem;">
-        <h4
-          style="font-size: 0.82rem; font-weight: 800; color: #64748B; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.85rem;">
-          Verified Performance Impact
-        </h4>
-        <div class="cs-metric-chips-row" id="csModalMetrics" style="gap: 2rem;">
-          <!-- Populated dynamically via JS -->
-        </div>
-      </div>
-
-      <!-- Tech Stack & Action Footer -->
-      <div
-        style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1.25rem; padding-top: 1.25rem; border-top: 1px solid #E2E8F0;">
-        <div>
-          <div
-            style="font-size: 0.76rem; font-weight: 700; color: #64748B; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.4rem;">
-            Deployed Tech Stack</div>
-          <div class="cs-card-tech-tags" id="csModalTechStack" style="margin-bottom: 0;">
-            <!-- Populated dynamically via JS -->
-          </div>
-        </div>
-
-        <a href="contact.html" class="cs-cta-btn"
-          onclick="document.getElementById('csModalBackdrop').classList.remove('is-open'); document.body.style.overflow='';">
-          <span>Discuss Similar Architecture</span>
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-            <polyline points="9 18 15 12 9 6"></polyline>
+      <!-- 1) Key Challenges -->
+      <div class="cs-modal-section-card challenges">
+        <h3 class="cs-modal-section-heading challenges">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="12" y1="8" x2="12" y2="12"></line>
+            <line x1="12" y1="16" x2="12.01" y2="16"></line>
           </svg>
-        </a>
+          <span>Key Challenges</span>
+        </h3>
+        <div id="csModalChallenge">
+          <!-- Populated dynamically via JS -->
+        </div>
+      </div>
+
+      <!-- 2) Solution -->
+      <div class="cs-modal-section-card solution">
+        <h3 class="cs-modal-section-heading solution">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+          <span>Solution</span>
+        </h3>
+        <div id="csModalSolution">
+          <!-- Populated dynamically via JS -->
+        </div>
+      </div>
+
+      <!-- 3) Business Benefits -->
+      <div class="cs-modal-section-card benefits">
+        <h3 class="cs-modal-section-heading benefits">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+          </svg>
+          <span>Business Benefits</span>
+        </h3>
+        <div id="csModalBenefits">
+          <!-- Populated dynamically via JS -->
+        </div>
       </div>
 
     </div>
@@ -1757,7 +1690,7 @@
 
   <!-- JavaScript Modules -->
   <script src="../js/main.js?v=20260920_v302"></script>
-  <script src="../js/case-filter.js?v=20260925_v401"></script>
+  <script src="../js/case-filter.js?v=20260925_image2_v2"></script>
   <script src="../js/form-validation.js?v=20260912_footer_v3"></script>
 
   <!-- Zoho WebForm Analytics Tracking -->

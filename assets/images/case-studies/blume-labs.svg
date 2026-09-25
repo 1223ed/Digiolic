@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 90" width="340" height="90">
+  <g transform="translate(10, 12)">
+    <!-- Tech Blossom Hexagon Symbol -->
+    <rect x="0" y="0" width="66" height="66" rx="14" fill="#4F46E5"/>
+    <g transform="translate(33, 33)">
+      <circle cx="0" cy="0" r="6" fill="#FFFFFF"/>
+      <ellipse cx="0" cy="-14" rx="5" ry="8" fill="#A5B4FC" opacity="0.9"/>
+      <ellipse cx="0" cy="14" rx="5" ry="8" fill="#A5B4FC" opacity="0.9"/>
+      <ellipse cx="-13" cy="-7" rx="5" ry="8" transform="rotate(-60 -13 -7)" fill="#C7D2FE" opacity="0.9"/>
+      <ellipse cx="13" cy="7" rx="5" ry="8" transform="rotate(-60 13 7)" fill="#C7D2FE" opacity="0.9"/>
+      <ellipse cx="-13" cy="7" rx="5" ry="8" transform="rotate(60 -13 7)" fill="#818CF8" opacity="0.9"/>
+      <ellipse cx="13" cy="-7" rx="5" ry="8" transform="rotate(60 13 -7)" fill="#818CF8" opacity="0.9"/>
+    </g>
+
+    <!-- Typography -->
+    <text x="82" y="33" font-family="'Outfit', -apple-system, BlinkMacSystemFont, sans-serif" font-size="24" font-weight="800" fill="#0F172A" letter-spacing="-0.03em">blume labs</text>
+    <text x="83" y="49" font-family="'Inter', -apple-system, BlinkMacSystemFont, sans-serif" font-size="10.5" font-weight="700" fill="#4F46E5" letter-spacing="0.14em">TECHNOLOGY &amp; VENTURE SERVICES</text>
+    <text x="83" y="61" font-family="'Inter', -apple-system, BlinkMacSystemFont, sans-serif" font-size="9" font-weight="500" fill="#64748B">Engineering • Product Architecture</text>
+  </g>
+</svg>
