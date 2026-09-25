@@ -1560,6 +1560,65 @@
 }
 
 
+/* Digital Marketing 4 Green Square Cards (White Background) */
+.dm-case-studies-section {
+  background: #FFFFFF !important;
+  border-top: none !important;
+  border-bottom: none !important;
+  padding: 1.5rem 0 4.5rem 0 !important;
+  position: relative !important;
+}
+
+.dm-case-studies-grid {
+  display: grid !important;
+  grid-template-columns: repeat(4, 1fr) !important;
+  gap: clamp(1rem, 1.8vw, 1.75rem) !important;
+  max-width: 1080px !important;
+  margin: 0 auto !important;
+  align-items: stretch !important;
+}
+
+.dm-case-study-card {
+  position: relative !important;
+  border-radius: 12px !important;
+  overflow: hidden !important;
+  background: #87C442 !important;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08) !important;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  cursor: pointer !important;
+}
+
+.dm-case-study-card:hover {
+  transform: translateY(-6px) scale(1.02) !important;
+  box-shadow: 0 18px 36px -6px rgba(135, 196, 66, 0.45) !important;
+}
+
+.dm-case-study-img {
+  width: 100% !important;
+  height: 100% !important;
+  aspect-ratio: 1 / 1 !important;
+  object-fit: cover !important;
+  display: block !important;
+  user-select: none !important;
+}
+
+@media (max-width: 992px) {
+  .dm-case-studies-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    max-width: 580px !important;
+    gap: 1.5rem !important;
+  }
+}
+
+@media (max-width: 540px) {
+  .dm-case-studies-grid {
+    grid-template-columns: 1fr !important;
+    max-width: 320px !important;
+    gap: 1.25rem !important;
+  }
+}
+
 /* Digiolic: D is green ONLY on company logo; inherit text color everywhere else */
 .brand-d, .digi-d {
   color: inherit !important;
