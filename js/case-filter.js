@@ -8,35 +8,6 @@ document.addEventListener('DOMContentLoaded', () => {
   // 1. DATA REPOSITORY FOR ARCHITECTURE BREAKDOWN MODAL
   // ---------------------------------------------------------------------------
   const caseDetailsData = {
-    'case-zoho-logistics': {
-      domain: 'Zoho Enterprise',
-      domainClass: 'zoho',
-      scale: 'Global Logistics • 450+ Users across 6 Countries',
-      title: 'Consolidating 14 Disjointed SaaS Tools into a Single Zoho Operating System',
-      clientOverview: 'A multinational freight forwarder handling over 120,000 annual shipments suffered from severe system fragmentation, manual quoting lag, and redundant software licensing fees across regional offices.',
-      challenge: 'Operations were spread across 14 separate legacy tools, resulting in a 3-day quotation turnaround, frequent invoicing errors, zero cross-branch visibility, and $180,000/year in redundant SaaS subscriptions.',
-      solution: 'Digiolic architected and deployed an end-to-end Zoho One ecosystem. We built custom Deluge blueprints enforcing dispatch validation rules, automated multi-currency invoicing in Zoho Books, and unified global logistics intelligence in Zoho Analytics.',
-      phases: [
-        {
-          title: 'Phase 1: Architecture Audit & Data Cleansing',
-          desc: 'Audited 14 legacy systems, deduplicated 380,000 customer and shipment records, and defined a unified enterprise data schema.'
-        },
-        {
-          title: 'Phase 2: Custom Deluge Blueprints & Sandbox Testing',
-          desc: 'Engineered automated dispatch validation rules, customs documentation triggers, and multi-tier approval workflows in a secure sandbox.'
-        },
-        {
-          title: 'Phase 3: Multi-Currency Billing & Global Go-Live',
-          desc: 'Synchronized Zoho Books with regional payment gateways and rolled out to 450 users across 6 regional hubs with zero dispatch downtime.'
-        }
-      ],
-      metrics: [
-        { val: '+340%', lbl: 'Pipeline Velocity' },
-        { val: '-$180k', lbl: 'Annual SaaS Costs' },
-        { val: '98%', lbl: 'Day-30 User Adoption' }
-      ],
-      techStack: ['Zoho CRM', 'Zoho Books', 'Deluge Scripting', 'Zoho Analytics', 'REST APIs']
-    },
     'case-sf-fintech': {
       domain: 'Salesforce Cloud',
       domainClass: 'salesforce',
