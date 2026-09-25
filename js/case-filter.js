@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
       company: 'NZ Immigration',
       location: 'New Zealand',
       products: 'Zoho CRM, Zoho Form, Zoho Social, Zoho Workdrive',
-      description: 'NZ Immigration is a premier education and immigration consultancy based in New Zealand, facilitating study abroad admissions, student counseling, university offers, visas, work permits, and final career placements across multiple international offices.',
+      description: 'New Zealand immigration consultants who assess your immigration situation, establish eligibility, gather information, identify barriers, evaluate options, give immigration NZ provide, and then represent you throughout the immigration application process in a professional, ethical and responsible manner to ensure the best possible outcome.',
       challenges: [
         '<strong>Centralized Lead Ingestion:</strong> Managing student enquiries and applications from multiple channels in a centralized system.',
         '<strong>End-to-End Journey Tracking:</strong> Tracking students across the complete journey — enquiry, counselling, university application, offer, visa, work permit, and final placement.',
@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
       company: 'IndiQube',
       location: 'Bangalore',
       products: 'Zoho CRM, Zoho Campaign, 3rd party Whatsapp, Telephonic Integration',
-      description: 'IndiQube is a leading enterprise flexible workspace and coworking network based in Bangalore, delivering tailored office spaces, private cabins, and dynamic work environments across India.',
+      description: 'Indiqube Spaces Ltd. is a provider of managed office spaces and flexible workspace solutions.',
       challenges: [
         '<strong>Multi-Channel Inquiry Ingestion:</strong> Managing high volumes of prospective tenant inquiries scattered across WhatsApp, telephony, and web forms without losing lead context.',
         '<strong>Tour Booking & Follow-up Lags:</strong> Delays in tour bookings and membership follow-ups caused by manual data entry across disconnected communication channels.',
@@ -123,10 +123,10 @@ document.addEventListener('DOMContentLoaded', () => {
     },
 
     'case-fyx': {
-      company: 'FYX',
+      company: 'FYX Finance',
       location: 'Australia',
       products: 'Zoho CRM, Zoho Sign, Zoho Form',
-      description: 'FYX is a forward-thinking Australian financial services and digital lending provider delivering commercial credit, consumer loans, and instant loan origination solutions nationwide.',
+      description: 'FYX Finance is an independent Mortgage Manager and non-bank lender helping Australians make smarter moves in a shifting market.',
       challenges: [
         '<strong>Scattered Digital Loan Inquiries:</strong> Managing scattered loan inquiries without a unified tracking system.',
         '<strong>Application Drop-Off Bottlenecks:</strong> High application drop-off rates caused by delayed document collection and follow-ups.',
@@ -154,7 +154,7 @@ document.addEventListener('DOMContentLoaded', () => {
       company: 'Chanakya University',
       location: 'Bangalore',
       products: 'Zoho CRM',
-      description: 'Chanakya University is a multidisciplinary higher education institution based in Bangalore dedicated to academic excellence, student admissions, and streamlined counseling journeys.',
+      description: "Chanakya University is a multidisciplinary private university near Bengaluru known for blending modern global education under India's National Education Policy (NEP) 2020 with traditional Indian civilizational values and knowledge systems.",
       challenges: [
         '<strong>Disparate Student Inquiry Channels:</strong> Managing scattered student inquiries without a unified tracking database.',
         '<strong>Counseling Response Latency:</strong> Delayed follow-ups and slow counseling responses reducing conversion rates.',
