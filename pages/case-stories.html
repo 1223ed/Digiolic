@@ -925,19 +925,19 @@
         <div class="cs-category-pills" role="tablist" aria-label="Filter case studies by practice">
           <button class="cs-filter-btn active" data-filter="all" role="tab" aria-selected="true">
             <span>All Case Stories</span>
-            <span class="cs-count-badge" data-count-target="all">5</span>
+            <span class="cs-count-badge" data-count-target="all">7</span>
           </button>
-          <button class="cs-filter-btn" data-filter="zoho" role="tab" aria-selected="false">
-            <span>Zoho Enterprise</span>
-            <span class="cs-count-badge" data-count-target="zoho">1</span>
+          <button class="cs-filter-btn" data-filter="crm" role="tab" aria-selected="false">
+            <span>CRM &amp; Admissions</span>
+            <span class="cs-count-badge" data-count-target="crm">4</span>
           </button>
-          <button class="cs-filter-btn" data-filter="salesforce" role="tab" aria-selected="false">
-            <span>Salesforce Cloud</span>
-            <span class="cs-count-badge" data-count-target="salesforce">2</span>
+          <button class="cs-filter-btn" data-filter="finance" role="tab" aria-selected="false">
+            <span>Finance &amp; Books</span>
+            <span class="cs-count-badge" data-count-target="finance">2</span>
           </button>
-          <button class="cs-filter-btn" data-filter="marketing" role="tab" aria-selected="false">
-            <span>Digital Growth &amp; CRO</span>
-            <span class="cs-count-badge" data-count-target="marketing">2</span>
+          <button class="cs-filter-btn" data-filter="hr" role="tab" aria-selected="false">
+            <span>HRMS &amp; Payroll</span>
+            <span class="cs-count-badge" data-count-target="hr">1</span>
           </button>
         </div>
 
@@ -949,7 +949,7 @@
             <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
           </svg>
           <input type="text" id="csSearchInput" class="cs-search-input"
-            placeholder="Search by tech, metric, or industry..." aria-label="Search case studies">
+            placeholder="Search by client, tech, metric, or location..." aria-label="Search case studies">
         </div>
 
       </div>
@@ -959,55 +959,57 @@
       <div class="cs-grid-container">
         <div class="cs-bento-grid">
 
-          <!-- Story 2: Salesforce Cloud Scale -->
-          <article class="cs-bento-card" data-category="salesforce">
+          <!-- Story 1: NZ Immigration -->
+          <article class="cs-bento-card" data-category="crm">
             <div>
               <div class="cs-card-top">
-                <span class="cs-tag-domain salesforce">Salesforce Cloud</span>
-                <span class="cs-tag-scale">FinTech SaaS • Series B ($40M ARR)</span>
+                <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+                  <span class="cs-tag-domain zoho">Zoho CRM &amp; Admissions</span>
+                  <span style="font-size: 0.78rem; font-weight: 700; color: #1E293B; background: #F1F5F9; border: 1px solid #CBD5E1; padding: 0.22rem 0.65rem; border-radius: 9999px;">NZ Immigration</span>
+                </div>
+                <span class="cs-tag-scale">📍 New Zealand</span>
               </div>
 
               <h3 class="cs-card-title">
-                Refactoring Complex Apex &amp; Flow Architecture for 10x Inbound Volume
+                NZ Immigration: Centralized Journey Lifecycle &amp; 10+ Lakh Record Migration
               </h3>
 
               <div class="cs-card-narrative">
                 <div class="cs-card-split-item challenge">
                   <strong>Challenge</strong>
-                  Rapidly growing payments platform constantly triggered SOQL 101 governor limits, causing lead
-                  drop-offs and a 4.5-hour sales rep response lag.
+                  Managing student enquiries from multiple channels, manual follow-up delays, lack of counselor visibility, and migrating 10+ lakh historical records with intact accuracy.
                 </div>
                 <div class="cs-card-split-item solution">
                   <strong>Solution</strong>
-                  Redesigned org with a single-trigger framework, converted 42 legacy Process Builders to bulkified
-                  sub-second Record-Triggered Flows, and built custom LWC consoles.
+                  Implemented end-to-end Zoho CRM with Blueprints and Deluge custom functions, bulk migrated 10+ lakh records, and integrated Zoho Social, webhooks, and analytics dashboards.
                 </div>
               </div>
 
               <div class="cs-card-metrics-grid">
                 <div class="cs-metric-chip">
-                  <span class="cs-metric-val blue">9 min</span>
-                  <span class="cs-metric-lbl">Lead Response</span>
+                  <span class="cs-metric-val blue">10+ Lakh</span>
+                  <span class="cs-metric-lbl">Records Migrated</span>
                 </div>
                 <div class="cs-metric-chip">
-                  <span class="cs-metric-val green">+68%</span>
-                  <span class="cs-metric-lbl">Close Rate</span>
+                  <span class="cs-metric-val green">360°</span>
+                  <span class="cs-metric-lbl">Student Journey</span>
                 </div>
                 <div class="cs-metric-chip">
                   <span class="cs-metric-val purple">100%</span>
-                  <span class="cs-metric-lbl">Gov Compliance</span>
+                  <span class="cs-metric-lbl">Data Accuracy</span>
                 </div>
               </div>
 
               <div class="cs-card-tech-tags">
-                <span class="cs-tech-tag">Sales Cloud</span>
-                <span class="cs-tech-tag">Apex Trigger Framework</span>
-                <span class="cs-tech-tag">Flow Engine</span>
-                <span class="cs-tech-tag">Lightning Web Components</span>
+                <span class="cs-tech-tag">Zoho CRM</span>
+                <span class="cs-tech-tag">Zoho Form</span>
+                <span class="cs-tech-tag">Zoho Social</span>
+                <span class="cs-tech-tag">Zoho Workdrive</span>
+                <span class="cs-tech-tag">Deluge Custom Functions</span>
               </div>
             </div>
 
-            <button class="cs-card-btn js-open-case-modal" data-case-id="case-sf-fintech" type="button">
+            <button class="cs-card-btn js-open-case-modal" data-case-id="case-nz-immigration" type="button">
               <span>Explore Architecture Breakdown</span>
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                 <polyline points="9 18 15 12 9 6"></polyline>
@@ -1015,55 +1017,56 @@
             </button>
           </article>
 
-          <!-- Story 3: Digital Growth & CRO -->
-          <article class="cs-bento-card" data-category="marketing">
+          <!-- Story 2: Blume Labs -->
+          <article class="cs-bento-card" data-category="finance">
             <div>
               <div class="cs-card-top">
-                <span class="cs-tag-domain marketing">Digital Growth &amp; CRO</span>
-                <span class="cs-tag-scale">HealthTech Enterprise • Specialized Diagnostics</span>
+                <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+                  <span class="cs-tag-domain zoho">Sales-to-Finance Sync</span>
+                  <span style="font-size: 0.78rem; font-weight: 700; color: #1E293B; background: #F1F5F9; border: 1px solid #CBD5E1; padding: 0.22rem 0.65rem; border-radius: 9999px;">Blume Labs</span>
+                </div>
+                <span class="cs-tag-scale">📍 Bangalore</span>
               </div>
 
               <h3 class="cs-card-title">
-                Multi-Channel Performance Acquisition &amp; Closed-Loop CRM Attribution
+                Blume Labs: Eliminating Sales-Finance Silos via Automated CRM &amp; Books Sync
               </h3>
 
               <div class="cs-card-narrative">
                 <div class="cs-card-split-item challenge">
                   <strong>Challenge</strong>
-                  High-ticket diagnostic service was burning $80k/month on untargeted paid search with zero tracking
-                  into which campaigns resulted in booked consultations.
+                  Disconnected sales and finance systems caused delayed invoicing after deal closures, manual data entry errors into Books, and lack of real-time payment visibility.
                 </div>
                 <div class="cs-card-split-item solution">
                   <strong>Solution</strong>
-                  Rebuilt search funnels around high-intent medical queries, implemented GCLID-to-CRM offline
-                  attribution, and engineered high-converting mobile booking flows.
+                  Configured automated invoice generation upon "Closed Won", real-time two-way client sync, milestone-based billing workflows, and unified pipeline-revenue dashboards.
                 </div>
               </div>
 
               <div class="cs-card-metrics-grid">
                 <div class="cs-metric-chip">
-                  <span class="cs-metric-val green">4.6x</span>
-                  <span class="cs-metric-lbl">Attributed ROAS</span>
+                  <span class="cs-metric-val green">Auto</span>
+                  <span class="cs-metric-lbl">Invoice Generation</span>
                 </div>
                 <div class="cs-metric-chip">
-                  <span class="cs-metric-val blue">+185%</span>
-                  <span class="cs-metric-lbl">Booked Consults</span>
+                  <span class="cs-metric-val blue">2-Way</span>
+                  <span class="cs-metric-lbl">CRM-Books Sync</span>
                 </div>
                 <div class="cs-metric-chip">
-                  <span class="cs-metric-val purple">-42%</span>
-                  <span class="cs-metric-lbl">Cost Per Lead</span>
+                  <span class="cs-metric-val purple">0</span>
+                  <span class="cs-metric-lbl">Billing Errors</span>
                 </div>
               </div>
 
               <div class="cs-card-tech-tags">
-                <span class="cs-tech-tag">Google Ads PMax</span>
-                <span class="cs-tech-tag">Conversion Rate Optimization</span>
-                <span class="cs-tech-tag">CRM Attribution</span>
-                <span class="cs-tech-tag">Meta Ads</span>
+                <span class="cs-tech-tag">Zoho CRM</span>
+                <span class="cs-tech-tag">Zoho Books</span>
+                <span class="cs-tech-tag">Milestone Workflows</span>
+                <span class="cs-tech-tag">Revenue Dashboards</span>
               </div>
             </div>
 
-            <button class="cs-card-btn js-open-case-modal" data-case-id="case-mkt-healthtech" type="button">
+            <button class="cs-card-btn js-open-case-modal" data-case-id="case-blume-labs" type="button">
               <span>Explore Architecture Breakdown</span>
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                 <polyline points="9 18 15 12 9 6"></polyline>
@@ -1071,167 +1074,284 @@
             </button>
           </article>
 
-          <!-- Story 4: Custom Zoho Creator -->
-          <article class="cs-bento-card" data-category="zoho">
+          <!-- Story 3: IndiQube -->
+          <article class="cs-bento-card" data-category="crm">
             <div>
               <div class="cs-card-top">
-                <span class="cs-tag-domain zoho">Custom Zoho App</span>
-                <span class="cs-tag-scale">Industrial Manufacturing • 120 Field Techs</span>
+                <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+                  <span class="cs-tag-domain zoho">Omnichannel Workspace CRM</span>
+                  <span style="font-size: 0.78rem; font-weight: 700; color: #1E293B; background: #F1F5F9; border: 1px solid #CBD5E1; padding: 0.22rem 0.65rem; border-radius: 9999px;">IndiQube</span>
+                </div>
+                <span class="cs-tag-scale">📍 Bangalore</span>
               </div>
 
               <h3 class="cs-card-title">
-                Custom Field Service &amp; Preventive Maintenance Offline Mobile Application
+                IndiQube: Omnichannel Telephony, WhatsApp CRM &amp; Automated Tour Conversions
               </h3>
 
               <div class="cs-card-narrative">
                 <div class="cs-card-split-item challenge">
                   <strong>Challenge</strong>
-                  120 field engineers relied on carbon paper service forms and manual warehouse orders, causing 6-day
-                  repair completion delays and lost equipment.
+                  High volumes of prospective tenant inquiries across WhatsApp, phone, and web forms; lost context; untracked call recordings; and low conversion on renewal campaigns.
                 </div>
                 <div class="cs-card-split-item solution">
                   <strong>Solution</strong>
-                  Engineered bespoke Zoho Creator offline-ready mobile application synced directly to Zoho Inventory and
-                  Zoho CRM for instant parts lookup and digital sign-off.
+                  Centralized inbound inquiries into Zoho CRM, native WhatsApp &amp; cloud telephony CTI with one-click calling, automated task triggers, and behavior-driven Campaigns drip sequences.
+                </div>
+              </div>
+
+              <div class="cs-card-metrics-grid">
+                <div class="cs-metric-chip">
+                  <span class="cs-metric-val blue">Instant</span>
+                  <span class="cs-metric-lbl">Lead Assignment</span>
+                </div>
+                <div class="cs-metric-chip">
+                  <span class="cs-metric-val green">100%</span>
+                  <span class="cs-metric-lbl">Call &amp; Chat Logs</span>
+                </div>
+                <div class="cs-metric-chip">
+                  <span class="cs-metric-val purple">+45%</span>
+                  <span class="cs-metric-lbl">Tour Conversions</span>
+                </div>
+              </div>
+
+              <div class="cs-card-tech-tags">
+                <span class="cs-tech-tag">Zoho CRM</span>
+                <span class="cs-tech-tag">Zoho Campaign</span>
+                <span class="cs-tech-tag">WhatsApp Business API</span>
+                <span class="cs-tech-tag">Cloud Telephony CTI</span>
+              </div>
+            </div>
+
+            <button class="cs-card-btn js-open-case-modal" data-case-id="case-indiqube" type="button">
+              <span>Explore Architecture Breakdown</span>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </button>
+          </article>
+
+          <!-- Story 4: Manu Company -->
+          <article class="cs-bento-card" data-category="finance">
+            <div>
+              <div class="cs-card-top">
+                <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+                  <span class="cs-tag-domain zoho">Financial Compliance &amp; Books</span>
+                  <span style="font-size: 0.78rem; font-weight: 700; color: #1E293B; background: #F1F5F9; border: 1px solid #CBD5E1; padding: 0.22rem 0.65rem; border-radius: 9999px;">Manu Company</span>
+                </div>
+                <span class="cs-tag-scale">📍 Bangalore</span>
+              </div>
+
+              <h3 class="cs-card-title">
+                Manu Company: Multi-Currency Automated Invoicing, Tax &amp; Reconciliation Engine
+              </h3>
+
+              <div class="cs-card-narrative">
+                <div class="cs-card-split-item challenge">
+                  <strong>Challenge</strong>
+                  Manual multi-currency billing and complex compliance without a unified system, slow collections causing cash flow bottlenecks, and reconciliation discrepancies.
+                </div>
+                <div class="cs-card-split-item solution">
+                  <strong>Solution</strong>
+                  Centralized accounting with Zoho Books &amp; Invoice, automated recurring billing and payment reminders, automated tax calculation engines, and real-time payment gateway sync.
+                </div>
+              </div>
+
+              <div class="cs-card-metrics-grid">
+                <div class="cs-metric-chip">
+                  <span class="cs-metric-val green">Multi-Cur</span>
+                  <span class="cs-metric-lbl">Auto Billing</span>
+                </div>
+                <div class="cs-metric-chip">
+                  <span class="cs-metric-val blue">100%</span>
+                  <span class="cs-metric-lbl">Tax Compliance</span>
+                </div>
+                <div class="cs-metric-chip">
+                  <span class="cs-metric-val purple">-60%</span>
+                  <span class="cs-metric-lbl">Collection Lag</span>
+                </div>
+              </div>
+
+              <div class="cs-card-tech-tags">
+                <span class="cs-tech-tag">Zoho Books</span>
+                <span class="cs-tech-tag">Zoho Invoice</span>
+                <span class="cs-tech-tag">Tax Automation Engine</span>
+                <span class="cs-tech-tag">Payment Gateways</span>
+              </div>
+            </div>
+
+            <button class="cs-card-btn js-open-case-modal" data-case-id="case-manu-company" type="button">
+              <span>Explore Architecture Breakdown</span>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </button>
+          </article>
+
+          <!-- Story 5: FYX -->
+          <article class="cs-bento-card" data-category="crm">
+            <div>
+              <div class="cs-card-top">
+                <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+                  <span class="cs-tag-domain zoho">Digital Lending &amp; FinTech</span>
+                  <span style="font-size: 0.78rem; font-weight: 700; color: #1E293B; background: #F1F5F9; border: 1px solid #CBD5E1; padding: 0.22rem 0.65rem; border-radius: 9999px;">FYX</span>
+                </div>
+                <span class="cs-tag-scale">📍 Australia</span>
+              </div>
+
+              <h3 class="cs-card-title">
+                FYX: Paperless Digital Loan Origination, KYC Pipeline &amp; Zoho Sign Execution
+              </h3>
+
+              <div class="cs-card-narrative">
+                <div class="cs-card-split-item challenge">
+                  <strong>Challenge</strong>
+                  Scattered loan inquiries, high drop-off rates due to delayed document collection, friction passing KYC documents into pipelines, and slow manual loan agreement signing.
+                </div>
+                <div class="cs-card-split-item solution">
+                  <strong>Solution</strong>
+                  Implemented Zoho CRM and dynamic Zoho Forms for auto-attaching KYC documents, automated loan officer routing, status notification triggers, and native Zoho Sign digital execution.
+                </div>
+              </div>
+
+              <div class="cs-card-metrics-grid">
+                <div class="cs-metric-chip">
+                  <span class="cs-metric-val green">3x Faster</span>
+                  <span class="cs-metric-lbl">Loan Processing</span>
+                </div>
+                <div class="cs-metric-chip">
+                  <span class="cs-metric-val blue">100%</span>
+                  <span class="cs-metric-lbl">Paperless KYC Vault</span>
+                </div>
+                <div class="cs-metric-chip">
+                  <span class="cs-metric-val purple">&lt; 24 Hrs</span>
+                  <span class="cs-metric-lbl">Contract Execution</span>
+                </div>
+              </div>
+
+              <div class="cs-card-tech-tags">
+                <span class="cs-tech-tag">Zoho CRM</span>
+                <span class="cs-tech-tag">Zoho Sign</span>
+                <span class="cs-tech-tag">Zoho Form</span>
+                <span class="cs-tech-tag">KYC Document Vault</span>
+              </div>
+            </div>
+
+            <button class="cs-card-btn js-open-case-modal" data-case-id="case-fyx" type="button">
+              <span>Explore Architecture Breakdown</span>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </button>
+          </article>
+
+          <!-- Story 6: Chanakya University -->
+          <article class="cs-bento-card" data-category="crm">
+            <div>
+              <div class="cs-card-top">
+                <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+                  <span class="cs-tag-domain zoho">Higher Education Admissions</span>
+                  <span style="font-size: 0.78rem; font-weight: 700; color: #1E293B; background: #F1F5F9; border: 1px solid #CBD5E1; padding: 0.22rem 0.65rem; border-radius: 9999px;">Chanakya University</span>
+                </div>
+                <span class="cs-tag-scale">📍 Bangalore</span>
+              </div>
+
+              <h3 class="cs-card-title">
+                Chanakya University: 360° Admissions Funnel, Fast Outreach &amp; Counselor BI
+              </h3>
+
+              <div class="cs-card-narrative">
+                <div class="cs-card-split-item challenge">
+                  <strong>Challenge</strong>
+                  Scattered student inquiries, delayed counseling follow-ups reducing conversion rates, untracked student journeys, and lack of visibility into counselor performance.
+                </div>
+                <div class="cs-card-split-item solution">
+                  <strong>Solution</strong>
+                  Deployed Zoho CRM as central hub with automated assignment rules for instant counselor outreach, multi-stage admission pipelines, integrated communication logs, and role-based dashboards.
+                </div>
+              </div>
+
+              <div class="cs-card-metrics-grid">
+                <div class="cs-metric-chip">
+                  <span class="cs-metric-val blue">Instant</span>
+                  <span class="cs-metric-lbl">Counselor Outreach</span>
+                </div>
+                <div class="cs-metric-chip">
+                  <span class="cs-metric-val green">360°</span>
+                  <span class="cs-metric-lbl">Admissions Pipeline</span>
+                </div>
+                <div class="cs-metric-chip">
+                  <span class="cs-metric-val purple">+52%</span>
+                  <span class="cs-metric-lbl">Enrollment Velocity</span>
+                </div>
+              </div>
+
+              <div class="cs-card-tech-tags">
+                <span class="cs-tech-tag">Zoho CRM</span>
+                <span class="cs-tech-tag">Admissions Pipelines</span>
+                <span class="cs-tech-tag">Counselor Routing</span>
+                <span class="cs-tech-tag">Role-Based BI</span>
+              </div>
+            </div>
+
+            <button class="cs-card-btn js-open-case-modal" data-case-id="case-chanakya-university" type="button">
+              <span>Explore Architecture Breakdown</span>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </button>
+          </article>
+
+          <!-- Story 7: Rahul -->
+          <article class="cs-bento-card" data-category="hr">
+            <div>
+              <div class="cs-card-top">
+                <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+                  <span class="cs-tag-domain zoho">HRMS, Talent &amp; Payroll</span>
+                  <span style="font-size: 0.78rem; font-weight: 700; color: #1E293B; background: #F1F5F9; border: 1px solid #CBD5E1; padding: 0.22rem 0.65rem; border-radius: 9999px;">Rahul</span>
+                </div>
+                <span class="cs-tag-scale">📍 Bangalore</span>
+              </div>
+
+              <h3 class="cs-card-title">
+                Rahul: Unified Talent Acquisition, Employee Lifecycle &amp; Automated Payroll Sync
+              </h3>
+
+              <div class="cs-card-narrative">
+                <div class="cs-card-split-item challenge">
+                  <strong>Challenge</strong>
+                  Disconnected recruitment, HR, and payroll workflows across siloed tools; tedious manual candidate data entry; complex payroll errors from attendance reconciliation; and delayed onboarding.
+                </div>
+                <div class="cs-card-split-item solution">
+                  <strong>Solution</strong>
+                  Implemented unified ecosystem connecting Zoho Recruit, Zoho People, and Zoho Payroll: automated candidate conversion, automated attendance/leave sync, and self-service portals.
                 </div>
               </div>
 
               <div class="cs-card-metrics-grid">
                 <div class="cs-metric-chip">
                   <span class="cs-metric-val green">100%</span>
-                  <span class="cs-metric-lbl">Paperless Ops</span>
+                  <span class="cs-metric-lbl">Payroll Accuracy</span>
                 </div>
                 <div class="cs-metric-chip">
-                  <span class="cs-metric-val blue">-62%</span>
-                  <span class="cs-metric-lbl">Dispatch Lag</span>
+                  <span class="cs-metric-val blue">Instant</span>
+                  <span class="cs-metric-lbl">Onboarding Flow</span>
                 </div>
                 <div class="cs-metric-chip">
-                  <span class="cs-metric-val purple">$420k</span>
-                  <span class="cs-metric-lbl">Inventory Saved</span>
+                  <span class="cs-metric-val purple">0</span>
+                  <span class="cs-metric-lbl">Manual Re-Entry</span>
                 </div>
               </div>
 
               <div class="cs-card-tech-tags">
-                <span class="cs-tech-tag">Zoho Creator</span>
-                <span class="cs-tech-tag">Zoho Inventory</span>
-                <span class="cs-tech-tag">Deluge Offline Sync</span>
-                <span class="cs-tech-tag">REST Webhooks</span>
+                <span class="cs-tech-tag">Zoho Recruit</span>
+                <span class="cs-tech-tag">Zoho People</span>
+                <span class="cs-tech-tag">Zoho Payroll</span>
+                <span class="cs-tech-tag">Employee Self-Service</span>
               </div>
             </div>
 
-            <button class="cs-card-btn js-open-case-modal" data-case-id="case-zoho-manufacturing" type="button">
-              <span>Explore Architecture Breakdown</span>
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <polyline points="9 18 15 12 9 6"></polyline>
-              </svg>
-            </button>
-          </article>
-
-          <!-- Story 5: Salesforce Experience Cloud -->
-          <article class="cs-bento-card" data-category="salesforce">
-            <div>
-              <div class="cs-card-top">
-                <span class="cs-tag-domain salesforce">Experience Cloud</span>
-                <span class="cs-tag-scale">Global Advisory Firm • 800+ Partners</span>
-              </div>
-
-              <h3 class="cs-card-title">
-                Partner Deal Registration &amp; Self-Service Knowledge Community Portal
-              </h3>
-
-              <div class="cs-card-narrative">
-                <div class="cs-card-split-item challenge">
-                  <strong>Challenge</strong>
-                  External channel partners struggled to register leads, causing channel conflict and double-selling
-                  across international geographic territories.
-                </div>
-                <div class="cs-card-split-item solution">
-                  <strong>Solution</strong>
-                  Built an Experience Cloud partner community with automated territory conflict detection, live
-                  commission tracking, and encrypted contract automation.
-                </div>
-              </div>
-
-              <div class="cs-card-metrics-grid">
-                <div class="cs-metric-chip">
-                  <span class="cs-metric-val blue">+240%</span>
-                  <span class="cs-metric-lbl">Partner Leads</span>
-                </div>
-                <div class="cs-metric-chip">
-                  <span class="cs-metric-val green">85%</span>
-                  <span class="cs-metric-lbl">Self-Service Res</span>
-                </div>
-                <div class="cs-metric-chip">
-                  <span class="cs-metric-val purple">12 Wks</span>
-                  <span class="cs-metric-lbl">Go-Live Time</span>
-                </div>
-              </div>
-
-              <div class="cs-card-tech-tags">
-                <span class="cs-tech-tag">Experience Cloud</span>
-                <span class="cs-tech-tag">Custom LWC</span>
-                <span class="cs-tech-tag">Sharing Rules</span>
-                <span class="cs-tech-tag">Sales Cloud</span>
-              </div>
-            </div>
-
-            <button class="cs-card-btn js-open-case-modal" data-case-id="case-sf-advisory" type="button">
-              <span>Explore Architecture Breakdown</span>
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <polyline points="9 18 15 12 9 6"></polyline>
-              </svg>
-            </button>
-          </article>
-
-          <!-- Story 6: Growth & SEO -->
-          <article class="cs-bento-card" data-category="marketing">
-            <div>
-              <div class="cs-card-top">
-                <span class="cs-tag-domain marketing">Technical SEO &amp; Growth</span>
-                <span class="cs-tag-scale">Enterprise EdTech • 2M+ Monthly Learners</span>
-              </div>
-
-              <h3 class="cs-card-title">
-                Organic Topical Architecture &amp; Automated Behavioral Nurture Sequences
-              </h3>
-
-              <div class="cs-card-narrative">
-                <div class="cs-card-split-item challenge">
-                  <strong>Challenge</strong>
-                  Organic search growth had plateaued due to slow page load times and fragmented landing pages, with a
-                  65% drop-off in email lead nurturing.
-                </div>
-                <div class="cs-card-split-item solution">
-                  <strong>Solution</strong>
-                  Re-engineered Core Web Vitals to 99/100, established 18 authoritative B2B topic clusters, and deployed
-                  behavior-triggered CRM email automation flows.
-                </div>
-              </div>
-
-              <div class="cs-card-metrics-grid">
-                <div class="cs-metric-chip">
-                  <span class="cs-metric-val green">+290%</span>
-                  <span class="cs-metric-lbl">Organic Traffic</span>
-                </div>
-                <div class="cs-metric-chip">
-                  <span class="cs-metric-val blue">5.2x</span>
-                  <span class="cs-metric-lbl">Email ROI</span>
-                </div>
-                <div class="cs-metric-chip">
-                  <span class="cs-metric-val purple">99/100</span>
-                  <span class="cs-metric-lbl">Speed Score</span>
-                </div>
-              </div>
-
-              <div class="cs-card-tech-tags">
-                <span class="cs-tech-tag">Technical SEO</span>
-                <span class="cs-tech-tag">Content Architecture</span>
-                <span class="cs-tech-tag">Marketing Automation</span>
-                <span class="cs-tech-tag">Core Web Vitals</span>
-              </div>
-            </div>
-
-            <button class="cs-card-btn js-open-case-modal" data-case-id="case-mkt-edtech" type="button">
+            <button class="cs-card-btn js-open-case-modal" data-case-id="case-rahul-hr" type="button">
               <span>Explore Architecture Breakdown</span>
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                 <polyline points="9 18 15 12 9 6"></polyline>
@@ -1436,12 +1556,17 @@
       <div class="cs-dual-narrative" style="margin-bottom: 1.75rem;">
         <div class="cs-narrative-box challenge">
           <div class="cs-narrative-label">The Challenge</div>
-          <p id="csModalChallenge" class="cs-narrative-text">Challenge details...</p>
+          <div id="csModalChallenge" class="cs-narrative-text">Challenge details...</div>
         </div>
         <div class="cs-narrative-box solution">
-          <div class="cs-narrative-label">The Architecture</div>
-          <p id="csModalSolution" class="cs-narrative-text">Solution details...</p>
+          <div class="cs-narrative-label">The Solution</div>
+          <div id="csModalSolution" class="cs-narrative-text">Solution details...</div>
         </div>
+      </div>
+
+      <!-- Verified Business Benefits Section -->
+      <div id="csModalBenefits" style="margin-bottom: 1.75rem; background: #F0FDF4; border: 1px solid #BBF7D0; border-radius: 14px; padding: 1.25rem 1.5rem; display: none;">
+        <!-- Populated dynamically via JS -->
       </div>
 
       <!-- Transformation Phases Timeline -->
@@ -1632,7 +1757,7 @@
 
   <!-- JavaScript Modules -->
   <script src="../js/main.js?v=20260920_v302"></script>
-  <script src="../js/case-filter.js?v=20260912_footer_v3"></script>
+  <script src="../js/case-filter.js?v=20260925_v401"></script>
   <script src="../js/form-validation.js?v=20260912_footer_v3"></script>
 
   <!-- Zoho WebForm Analytics Tracking -->
