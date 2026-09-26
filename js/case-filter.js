@@ -204,6 +204,118 @@ document.addEventListener('DOMContentLoaded', () => {
         '<strong>Complete Workforce Transparency:</strong> Improved visibility into workforce operations, recruitment efficiency, and monthly salary expenses.',
         '<strong>Empowered Employee Self-Service:</strong> Enhanced employee experience via transparent self-service portals for leave tracking, attendance, and pay slip access.'
       ]
+    },
+
+    'case-monster-india': {
+      company: 'Monster India',
+      location: 'India',
+      products: 'Salesforce CRM, 3rd Party Integration: Razorpay & Google Maps Matrix API',
+      description: 'Monster India operates as an online recruitment platform that rebranded its core job-seeking marketplace to foundit.',
+      challenges: [
+        '<strong>Recruiter Subscription Volume:</strong> Managing massive volumes of high-frequency recruiter subscriptions and corporate user data across fragmented transactional platforms.',
+        '<strong>Multi-Tiered Enterprise Billing:</strong> Complex billing cycles and multi-tiered pricing plans for enterprise clients requiring robust payment handling.',
+        '<strong>Dynamic Tax & Regional Calculation:</strong> Inability to seamlessly calculate location-based vendor taxes, logistics fees, or regional service matching rules dynamically.',
+        '<strong>Manual Geographic Verification:</strong> High operational overhead in manually verifying recruiter geographic footprints and aligning them with regional sales targets.',
+        '<strong>Fragmented Milestone Tracking:</strong> Fragmented tracking of corporate client accounts, payment clearances, and service activation milestones inside legacy systems.'
+      ],
+      solution: [
+        '<strong>Customized Salesforce CRM Framework:</strong> Architect and deploy an end-to-end Salesforce CRM development framework customized for India\'s high-volume recruitment ecosystem.',
+        '<strong>Native Razorpay Payment Integration:</strong> Integrate Razorpay payment gateways natively within Salesforce to process automated corporate subscription checkouts and instantaneous invoice generation.',
+        '<strong>Google Maps Matrix API Integration:</strong> Implement Google Maps Matrix API integrations to compute precise geographic distances, regional service radiuses, and field sales routing parameters.',
+        '<strong>Custom Apex Fulfillment Workflows:</strong> Build custom Apex triggers and automated workflows to match corporate hiring locations with localized recruitment fulfillment teams.',
+        '<strong>Centralized Real-Time Dashboards:</strong> Establish centralized dashboards combining CRM pipeline metrics with real-time financial reconciliation data from payment and location engines.'
+      ],
+      benefits: [
+        '<strong>Accelerated Subscription Checkouts:</strong> Accelerated subscription checkouts and frictionless payment processing for enterprise recruiters via Razorpay integration.',
+        '<strong>Optimized Geographic Targeting:</strong> Optimized geographic targeting and accurate field execution enabled by real-time distance metrics from the Google Maps Matrix API.',
+        '<strong>Enhanced National Account Visibility:</strong> Enhanced operational visibility across national accounts, reducing administrative overhead and manual tracking errors.',
+        '<strong>Scalable High-Volume Infrastructure:</strong> Scalable sales and billing infrastructure capable of handling high transaction spikes across multiple regional hubs in India.',
+        '<strong>Instant Campaign Activation:</strong> Improved client onboarding turnaround times, transforming raw corporate inquiries into activated recruitment campaigns instantly.'
+      ]
+    },
+
+    'case-verzeo': {
+      company: 'Verzeo Technologies',
+      location: 'Bangalore, India',
+      products: 'Salesforce CRM, 3rd Party Integration: WhatsApp & Google Maps API',
+      description: "Verzeo is India's Largest E-Learning Platform. Being able to help thousands of students decide on their careers, we guarantee that Verzeo is the one-stop-learning online platform that has provided students with all the resources they need to make them industry-ready.",
+      challenges: [
+        '<strong>Demographic & Campus Mapping:</strong> Difficulty in mapping student demographics to specific college tie-ups and partner training campuses across different regions.',
+        '<strong>Enrollment Verification Drop-Off:</strong> High drop-off rates during payment and enrollment verification stages due to lack of real-time communication follow-ups.',
+        '<strong>Hybrid Class Scheduling & Attendance:</strong> Complex scheduling and attendance tracking for live virtual classes, webinars, and hybrid training sessions.',
+        '<strong>Disconnected Career Milestones:</strong> Disconnected tracking of student project progress, internship milestones, and final placement interviews.',
+        '<strong>Opaque Multi-Channel Marketing ROI:</strong> Inability of management to monitor multi-channel marketing ROI and counselor target achievements in real time.'
+      ],
+      solution: [
+        '<strong>Custom Lightning Web Components (LWC):</strong> Build custom Salesforce Lightning Web Components (LWC) and objects to manage student batches, courses, and partner institution networks.',
+        '<strong>Automated WhatsApp Notifications:</strong> Implement automated WhatsApp notification triggers for fee payment links, batch start dates, and class reminders.',
+        '<strong>Google Maps API Hub Locator:</strong> Utilize Google Maps API within Salesforce to locate nearby physical training hubs and assign regional placement coordinators.',
+        '<strong>Custom Apex Certification Controllers:</strong> Develop custom Apex controllers to handle automated certificate generation and milestone tracking upon course completion.',
+        '<strong>Executive Performance Dashboards:</strong> Create advanced Salesforce reports and executive dashboards for granular tracking of student progression and counselor KPIs.'
+      ],
+      benefits: [
+        '<strong>Higher Completion & Fee Collection:</strong> Higher course completion and fee collection rates driven by instant, automated WhatsApp alerts.',
+        '<strong>Streamlined Hybrid Operations:</strong> Streamlined hybrid operations with precise location-based tracking for physical bootcamps and training hubs.',
+        '<strong>Full Student Lifecycle Transparency:</strong> Enhanced transparency across the entire student lifecycle from enrollment to internship placement.',
+        '<strong>Productivity Through Automation:</strong> Increased team productivity through automated milestone updates and digital certificate processing.',
+        '<strong>Data-Driven Course Oversight:</strong> Complete data-driven oversight for management to optimize course offerings and regional marketing spend.'
+      ]
+    },
+
+    'case-banaraswala': {
+      company: 'Banaraswala',
+      location: 'Delhi',
+      products: 'Salesforce CRM, 3rd Party Integration: Facebook Chatbot & SMS Integration',
+      description: 'Banaraswala serves authentic culinary traditions from the vibrant lanes of Banaras, ranging from time-honored sweets and crispy savouries to iconic street food and comforting North Indian meals.',
+      challenges: [
+        '<strong>Scattered B2B Order Inquiries:</strong> Managing bulk industrial B2B orders and inquiries for wire mesh and perforated sheets scattered across legacy communication channels.',
+        '<strong>High Specification Turnaround Times:</strong> High turnaround times for handling repetitive customer queries regarding custom metal specifications, pricing, and bulk availability.',
+        '<strong>After-Hours Lead Capture Gaps:</strong> Inability to capture and qualify incoming digital leads automatically outside regular business hours.',
+        '<strong>Fragmented Client Communications:</strong> Fragmented communication tracking between regional sales agents and industrial clients discussing custom product requirements.',
+        '<strong>Delayed Field Quotation Alerts:</strong> Lack of instant notification systems to update field sales teams regarding urgent B2B quotation requests.'
+      ],
+      solution: [
+        '<strong>Manufacturing Salesforce CRM Architecture:</strong> Implement a full Salesforce CRM development lifecycle tailored for industrial manufacturing and supply workflows.',
+        '<strong>24/7 Facebook Chatbot API:</strong> Integrate a Facebook Chatbot API within Salesforce to automate initial B2B engagement, sizing queries, and catalog sharing 24/7.',
+        '<strong>Automated SMS Notification Gateway:</strong> Configure automated SMS integration inside Salesforce to trigger instant dispatch updates, quote notifications, and follow-ups.',
+        '<strong>Custom Apex Routing Rules:</strong> Build custom Apex automation rules to instantly route qualified chatbot leads to appropriate regional industrial sales reps.',
+        '<strong>Centralized Velocity Dashboards:</strong> Create centralized Salesforce dashboards to monitor social media lead conversion rates and sales pipeline velocities.'
+      ],
+      benefits: [
+        '<strong>Instant 24/7 Lead Capture:</strong> Instant 24/7 customer engagement and lead capture via automated Facebook chatbot interactions.',
+        '<strong>Accelerated Quotation & Sales Cycles:</strong> Accelerated sales cycles and improved communication reliability through automated SMS alerts and updates.',
+        '<strong>Prioritized High-Value Inquiries:</strong> Enhanced operational efficiency for sales teams by filtering out routine queries and prioritizing high-value bulk orders.',
+        '<strong>360° Order & Dispatch Visibility:</strong> Complete 360-degree visibility over customer interactions from social media inquiry to final dispatch.',
+        '<strong>Scalable Industrial Acquisition:</strong> Scalable digital infrastructure supporting high-volume industrial client acquisition and regional growth.'
+      ]
+    },
+
+    'case-loomcrafts': {
+      company: 'Loom Crafts',
+      location: 'Uttar Pradesh',
+      products: 'Salesforce CRM, 3rd Party Integration: Facebook Chatbot, SMS, Razorpay, WhatsApp',
+      description: "Loom Crafts is India's premier manufacturer of luxury outdoor furniture and bespoke architectural solutions, trusted by top designers and hospitality brands since 2005. Operating out of a state-of-the-art facility, the company delivers weather-resistant sofas, cabanas, and custom installations for high-end residential and commercial projects across the globe. Beyond manufacturing, Loom Crafts provides end-to-end support—from expert design consultation and technical detailing to nationwide installation and dependable after-sales care.",
+      challenges: [
+        '<strong>High-Volume Luxury Inquiries:</strong> Handling high volumes of customer inquiries for custom outdoor furniture and luxury shading systems across multiple uncoordinated communication touchpoints.',
+        '<strong>Checkout & Consultation Drop-Off:</strong> High drop-off rates during online design consultations and custom order checkout phases due to payment friction.',
+        '<strong>Disjointed Omnichannel Tracking:</strong> Fragmented tracking of telephonic conversations, WhatsApp chats, and SMS follow-ups between sales reps and premium clients.',
+        '<strong>Custom Order Deposit Verification:</strong> Difficulty in managing payment verifications and security deposits for heavy, made-to-order manufacturing projects.',
+        '<strong>Field & Digital History Gaps:</strong> Lack of real-time visibility into customer interaction history across field sales teams and digital channels.'
+      ],
+      solution: [
+        '<strong>Luxury Manufacturing CRM Architecture:</strong> Architect a comprehensive Salesforce CRM development environment tailored for luxury custom manufacturing and direct-to-consumer sales.',
+        '<strong>Cloud Telephony & Call Logging:</strong> Integrate cloud telephony systems directly into Salesforce to enable click-to-call functionality and automatic call logging for every agent.',
+        '<strong>WhatsApp Business & SMS API Integration:</strong> Embed WhatsApp Business and SMS API integrations within Salesforce to automate design catalog sharing, appointment reminders, and follow-ups.',
+        '<strong>Native Razorpay Advance Checkouts:</strong> Implement native Razorpay integration inside Salesforce to securely collect advance payments and custom order deposits instantly.',
+        '<strong>Executive Multi-Channel Dashboards:</strong> Build advanced executive dashboards to monitor multi-channel lead engagement, conversion rates, and sales pipeline velocities.'
+      ],
+      benefits: [
+        '<strong>Frictionless High-Value Checkouts:</strong> Accelerated order conversion and frictionless revenue collection through secure, integrated Razorpay checkouts.',
+        '<strong>100% Automated Communication Logging:</strong> Complete visibility over all customer communications with 100% automated logging across calls, WhatsApp chats, and SMS alerts.',
+        '<strong>Elevated Luxury Buyer Experience:</strong> Enhanced customer experience for luxury buyers via instant, responsive multi-channel engagement and automated status updates.',
+        '<strong>Maximized Sales Productivity:</strong> Improved sales team productivity by eliminating manual data entry and streamlining lead follow-up workflows.',
+        '<strong>Scalable Pan-India Growth:</strong> Scalable operational infrastructure supporting high-value custom manufacturing orders and pan-India growth.'
+      ]
     }
   };
 
