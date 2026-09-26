@@ -24,7 +24,7 @@
 
   <!-- Exact Font specified -->
   <link href="https://db.onlinewebfonts.com/c/95cecf452d3208890088a5b4c19c7ecf?family=Helvetica+Neue+ME" rel="stylesheet">
-  <link rel="stylesheet" href="assets/vectrus/vectrus-hero.css?v=20260926_green_d_v6">
+  <link rel="stylesheet" href="assets/vectrus/vectrus-hero.css?v=20260926_black_contact_v7">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -150,19 +150,23 @@
       animation: navIndicatorGrow 0.4s cubic-bezier(0.16, 1, 0.3, 1) 340ms forwards !important;
     }
 
-    #heroNavbar .btn-nav-contact-pill {
-      background-color: #FFFFFF !important;
-      background: #FFFFFF !important;
-      color: #000000 !important;
+    #heroNavbar .btn-nav-contact-pill,
+    #heroScrollWrapper header .btn-nav-contact-pill,
+    #heroScrollWrapper header a[href*="contact.html"] {
+      background-color: #000000 !important;
+      background: #000000 !important;
+      color: #FFFFFF !important;
       font-weight: 700 !important;
       border: none !important;
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25) !important;
     }
 
-    #heroNavbar .btn-nav-contact-pill:hover {
-      background-color: #F8FAFC !important;
-      background: #F8FAFC !important;
-      color: #000000 !important;
+    #heroNavbar .btn-nav-contact-pill:hover,
+    #heroScrollWrapper header .btn-nav-contact-pill:hover,
+    #heroScrollWrapper header a[href*="contact.html"]:hover {
+      background-color: #1E293B !important;
+      background: #1E293B !important;
+      color: #FFFFFF !important;
       transform: translateY(-2px) !important;
       box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3) !important;
     }
@@ -1163,7 +1167,7 @@
   </footer>
 
   <!-- JavaScript Modules -->
-  <script type="module" src="assets/vectrus/vectrus-hero.js?v=20260926_green_d_v6"></script>
+  <script type="module" src="assets/vectrus/vectrus-hero.js?v=20260926_black_contact_v7"></script>
   <script src="js/main.js?v=20260920_v302"></script>
   <script src="js/testimonial-showcase.js?v=20260914_faster_v3"></script>
   <script src="js/form-validation.js?v=20260906_v17"></script>
