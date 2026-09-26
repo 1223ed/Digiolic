@@ -580,7 +580,12 @@ export default function App() {
             <a
               href="pages/contact.html"
               onClick={() => setMobileMenuOpen(false)}
-              className="mt-4 inline-flex items-center justify-center w-fit px-7 py-2.5 rounded-full text-sm font-bold transition-all duration-300 shadow-md bg-white text-[#1D3045] hover:bg-white/90"
+              className="mt-4 inline-flex items-center justify-center w-fit px-7 py-2.5 rounded-full text-sm font-bold transition-all duration-300 shadow-md bg-black text-white hover:bg-slate-800"
+              style={{
+                backgroundColor: '#000000',
+                color: '#FFFFFF',
+                border: '1px solid rgba(255, 255, 255, 0.25)',
+              }}
             >
               Contact Us
             </a>
