@@ -24,7 +24,7 @@
 
   <!-- Exact Font specified -->
   <link href="https://db.onlinewebfonts.com/c/95cecf452d3208890088a5b4c19c7ecf?family=Helvetica+Neue+ME" rel="stylesheet">
-  <link rel="stylesheet" href="assets/vectrus/vectrus-hero.css?v=20260920_cinematic_ios_v2">
+  <link rel="stylesheet" href="assets/vectrus/vectrus-hero.css?v=20260926_simple_badge">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -90,12 +90,41 @@
     /* ==========================================================================
        HOMEPAGE ONLY: Black Navbar Typography & Indicator
        ========================================================================== */
+    @keyframes navTabFadeDown {
+      0% {
+        opacity: 0;
+        transform: translateY(-12px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes navIndicatorGrow {
+      0% {
+        transform: scaleX(0);
+        opacity: 0;
+      }
+      100% {
+        transform: scaleX(1);
+        opacity: 1;
+      }
+    }
+
     #heroNavbar .video-nav-link {
       color: #1E293B !important;
       text-shadow: none !important;
       font-weight: 500 !important;
-      transition: color 0.2s ease !important;
+      transition: color 0.2s ease, opacity 0.3s ease, transform 0.3s ease !important;
+      opacity: 0 !important;
+      animation: navTabFadeDown 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards !important;
     }
+    #heroNavbar .video-nav-link:nth-child(1) { animation-delay: 100ms !important; }
+    #heroNavbar .video-nav-link:nth-child(2) { animation-delay: 160ms !important; }
+    #heroNavbar .video-nav-link:nth-child(3) { animation-delay: 220ms !important; }
+    #heroNavbar .video-nav-link:nth-child(4) { animation-delay: 280ms !important; }
+    #heroNavbar .video-nav-link:nth-child(5) { animation-delay: 340ms !important; }
 
     #heroNavbar .video-nav-link:hover {
       color: #000000 !important;
@@ -109,24 +138,32 @@
     }
 
     #heroNavbar .video-nav-link.is-active::after {
-      background-color: #000000 !important;
-      box-shadow: none !important;
+      content: '' !important;
+      position: absolute !important;
+      bottom: -6px !important;
+      left: 0 !important;
+      width: 100% !important;
       height: 2.5px !important;
+      background-color: #000000 !important;
       border-radius: 9999px !important;
+      box-shadow: none !important;
+      transform-origin: center !important;
+      animation: navIndicatorGrow 0.4s cubic-bezier(0.16, 1, 0.3, 1) 340ms forwards !important;
     }
 
     #heroNavbar .btn-nav-contact-pill {
-      background-color: #000000 !important;
-      background: #000000 !important;
-      color: #FFFFFF !important;
+      background-color: #FFFFFF !important;
+      background: #FFFFFF !important;
+      color: #000000 !important;
+      font-weight: 700 !important;
       border: none !important;
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25) !important;
     }
 
     #heroNavbar .btn-nav-contact-pill:hover {
-      background-color: #1E293B !important;
-      background: #1E293B !important;
-      color: #FFFFFF !important;
+      background-color: #F8FAFC !important;
+      background: #F8FAFC !important;
+      color: #000000 !important;
       transform: translateY(-2px) !important;
       box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3) !important;
     }
@@ -157,7 +194,7 @@
 
 
     /* ==========================================================================
-       HOMEPAGE HERO EXPERIENCE BADGE (Animated, Glowing, Premium Color & Font)
+       HOMEPAGE HERO EXPERIENCE BADGE (Simple, Black Background, White Text)
        ========================================================================== */
     .hero-home-exp-badge {
       display: inline-flex !important;
@@ -165,66 +202,30 @@
       justify-content: center !important;
       gap: 0.65rem !important;
       padding: 0.52rem 1.45rem !important;
-      background: rgba(14, 20, 36, 0.88) !important;
-      backdrop-filter: blur(16px) !important;
-      -webkit-backdrop-filter: blur(16px) !important;
-      border: 1px solid rgba(56, 189, 248, 0.45) !important;
+      background: #000000 !important;
+      border: 1px solid rgba(255, 255, 255, 0.15) !important;
       border-radius: 9999px !important;
       font-family: 'Plus Jakarta Sans', var(--font-display, 'Outfit'), 'Helvetica Neue', sans-serif !important;
       font-size: clamp(0.92rem, 1.1vw, 1.05rem) !important;
       font-weight: 700 !important;
       letter-spacing: 0.04em !important;
       margin-bottom: 1.6rem !important;
-      box-shadow: 0 0 20px rgba(56, 189, 248, 0.28), 0 4px 24px rgba(0, 0, 0, 0.6) !important;
-      animation: homeBadgeGlow 4s ease-in-out infinite alternate !important;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4) !important;
+      animation: none !important;
       user-select: none !important;
       -webkit-user-select: none !important;
     }
 
-    @keyframes homeBadgeGlow {
-      0% {
-        box-shadow: 0 0 16px rgba(56, 189, 248, 0.3), 0 4px 20px rgba(0, 0, 0, 0.6);
-        border-color: rgba(56, 189, 248, 0.4);
-      }
-      50% {
-        box-shadow: 0 0 28px rgba(0, 161, 224, 0.55), 0 0 45px rgba(56, 189, 248, 0.35);
-        border-color: rgba(0, 161, 224, 0.7);
-      }
-      100% {
-        box-shadow: 0 0 22px rgba(56, 189, 248, 0.45), 0 4px 24px rgba(0, 0, 0, 0.7);
-        border-color: rgba(56, 189, 248, 0.5);
-      }
-    }
-
     .hero-home-exp-badge-dot {
-      width: 9px !important;
-      height: 9px !important;
-      border-radius: 50% !important;
-      background: #38BDF8 !important;
-      box-shadow: 0 0 12px #38BDF8 !important;
-      animation: homePulseDot 2s ease-in-out infinite !important;
-      flex-shrink: 0 !important;
-    }
-
-    @keyframes homePulseDot {
-      0%, 100% {
-        transform: scale(1);
-        opacity: 1;
-        box-shadow: 0 0 10px #38BDF8, 0 0 18px rgba(56, 189, 248, 0.6);
-      }
-      50% {
-        transform: scale(1.3);
-        opacity: 0.85;
-        box-shadow: 0 0 16px #00A1E0, 0 0 24px rgba(0, 161, 224, 0.8);
-      }
+      display: none !important;
     }
 
     .hero-home-exp-badge-text {
-      background: linear-gradient(95deg, #FFFFFF 0%, #BAE6FD 45%, #38BDF8 100%) !important;
-      -webkit-background-clip: text !important;
-      background-clip: text !important;
-      -webkit-text-fill-color: transparent !important;
-      color: #38BDF8 !important;
+      background: none !important;
+      -webkit-background-clip: unset !important;
+      background-clip: unset !important;
+      -webkit-text-fill-color: #FFFFFF !important;
+      color: #FFFFFF !important;
       display: inline-block !important;
       font-weight: 700 !important;
       letter-spacing: 0.03em !important;
@@ -1163,7 +1164,7 @@
   </footer>
 
   <!-- JavaScript Modules -->
-  <script type="module" src="assets/vectrus/vectrus-hero.js?v=20260920_cinematic_ios_v2"></script>
+  <script type="module" src="assets/vectrus/vectrus-hero.js?v=20260926_simple_badge"></script>
   <script src="js/main.js?v=20260920_v302"></script>
   <script src="js/testimonial-showcase.js?v=20260914_faster_v3"></script>
   <script src="js/form-validation.js?v=20260906_v17"></script>

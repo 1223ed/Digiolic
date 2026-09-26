@@ -121,16 +121,16 @@
   text-shadow: none !important;
 }
 
-/* Same animation as Home page tab section (excluding contact page) */
-body:not(.contact-page) .mainframe-desktop-nav .mainframe-nav-link {
+/* Same animation as Home page tab section (all pages) */
+.mainframe-desktop-nav .mainframe-nav-link {
   opacity: 0;
   animation: navTabFadeDown 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
-body:not(.contact-page) .mainframe-desktop-nav .mainframe-nav-link:nth-child(1) { animation-delay: 100ms; }
-body:not(.contact-page) .mainframe-desktop-nav .mainframe-nav-link:nth-child(2) { animation-delay: 160ms; }
-body:not(.contact-page) .mainframe-desktop-nav .mainframe-nav-link:nth-child(3) { animation-delay: 220ms; }
-body:not(.contact-page) .mainframe-desktop-nav .mainframe-nav-link:nth-child(4) { animation-delay: 280ms; }
-body:not(.contact-page) .mainframe-desktop-nav .mainframe-nav-link:nth-child(5) { animation-delay: 340ms; }
+.mainframe-desktop-nav .mainframe-nav-link:nth-child(1) { animation-delay: 100ms; }
+.mainframe-desktop-nav .mainframe-nav-link:nth-child(2) { animation-delay: 160ms; }
+.mainframe-desktop-nav .mainframe-nav-link:nth-child(3) { animation-delay: 220ms; }
+.mainframe-desktop-nav .mainframe-nav-link:nth-child(4) { animation-delay: 280ms; }
+.mainframe-desktop-nav .mainframe-nav-link:nth-child(5) { animation-delay: 340ms; }
 
 .mainframe-nav-link:hover {
   opacity: 0.8 !important;

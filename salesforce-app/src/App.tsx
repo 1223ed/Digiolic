@@ -206,8 +206,8 @@ export default function App() {
                 href="pages/contact.html"
                 className="inline-flex items-center justify-center px-6 py-2.5 rounded-full text-sm font-bold transition-all duration-300 shadow-md hover:scale-[1.02] hover:shadow-lg"
                 style={{
-                  backgroundColor: isLight ? '#000000' : '#FFFFFF',
-                  color: isLight ? '#FFFFFF' : '#000000',
+                  backgroundColor: '#FFFFFF',
+                  color: '#000000',
                   fontWeight: 700,
                   boxShadow: '0 2px 10px rgba(0, 0, 0, 0.25)',
                   transition:
@@ -253,25 +253,19 @@ export default function App() {
             <div className="max-w-[1400px] w-full flex flex-col items-center text-center px-1 sm:px-2">
               {/* Experience Badge */}
               <div
-                className="inline-flex items-center justify-center gap-2.5 px-4 sm:px-5 py-1.5 sm:py-2 rounded-full mb-4 sm:mb-6 shadow-sm select-none"
+                className="hero-home-exp-badge inline-flex items-center justify-center gap-2.5 px-4 sm:px-5 py-1.5 sm:py-2 rounded-full mb-4 sm:mb-6 select-none"
                 style={{
-                  backgroundColor: 'rgba(238, 246, 255, 0.95)',
-                  border: '1.5px solid #BFDBFE',
+                  backgroundColor: '#000000',
+                  border: '1px solid rgba(255, 255, 255, 0.15)',
+                  boxShadow: '0 4px 16px rgba(0, 0, 0, 0.4)',
                   opacity: s1StaggerVisible ? 1 : 0,
                   transform: s1StaggerVisible ? 'translateY(0)' : 'translateY(24px)',
                   transition: staggerTransition,
                   transitionDelay: '0ms',
                 }}
               >
-                <span
-                  className="w-2.5 h-2.5 rounded-full bg-[#1D4ED8]"
-                  style={{
-                    boxShadow:
-                      '0 0 0 3px rgba(56, 189, 248, 0.28), 0 0 8px rgba(56, 189, 248, 0.65)',
-                  }}
-                />
-                <span className="text-[#1D4ED8] font-extrabold text-[11px] sm:text-[13.5px] uppercase tracking-wider leading-none">
-                  8+ YEARS OF EXPERIENCE WITH A CERTIFIED TEAM
+                <span className="hero-home-exp-badge-text text-white font-extrabold text-[11px] sm:text-[13.5px] uppercase tracking-wider leading-none">
+                  8+ Years of Experience with Certified Team
                 </span>
               </div>
 
