@@ -95,10 +95,10 @@ document.addEventListener('DOMContentLoaded', () => {
     },
 
     'case-manu-company': {
-      company: 'Manu Company Name',
+      company: 'Manoj',
       location: 'Bangalore',
       products: 'Zoho Books, Zoho Invoice',
-      description: 'Manu Company is an expanding commercial business based in Bangalore managing multi-currency global transactions, recurring service billing, and enterprise financial compliance.',
+      description: 'Manoj is an expanding commercial business based in Bangalore managing multi-currency global transactions, recurring service billing, and enterprise financial compliance.',
       challenges: [
         '<strong>Multi-Currency Compliance Silos:</strong> Managing manual multi-currency billing and complex financial compliance without a unified system.',
         '<strong>Delayed Invoicing & Collection Cycles:</strong> Delayed invoicing cycles and slow collections causing cash flow bottlenecks.',
