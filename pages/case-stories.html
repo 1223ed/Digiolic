@@ -385,19 +385,18 @@
     /* Same animation as Home page tab section */
     .mainframe-desktop-nav .mainframe-nav-link,
     .velorah-desktop-nav .velorah-nav-link {
-      opacity: 0 !important;
-      animation: navTabFadeDown 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards !important;
+      animation: navTabFadeDown 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
     }
     .mainframe-desktop-nav .mainframe-nav-link:nth-child(1),
-    .velorah-desktop-nav .velorah-nav-link:nth-child(1) { animation-delay: 100ms !important; }
+    .velorah-desktop-nav .velorah-nav-link:nth-child(1) { animation-delay: 100ms; }
     .mainframe-desktop-nav .mainframe-nav-link:nth-child(2),
-    .velorah-desktop-nav .velorah-nav-link:nth-child(2) { animation-delay: 160ms !important; }
+    .velorah-desktop-nav .velorah-nav-link:nth-child(2) { animation-delay: 160ms; }
     .mainframe-desktop-nav .mainframe-nav-link:nth-child(3),
-    .velorah-desktop-nav .velorah-nav-link:nth-child(3) { animation-delay: 220ms !important; }
+    .velorah-desktop-nav .velorah-nav-link:nth-child(3) { animation-delay: 220ms; }
     .mainframe-desktop-nav .mainframe-nav-link:nth-child(4),
-    .velorah-desktop-nav .velorah-nav-link:nth-child(4) { animation-delay: 280ms !important; }
+    .velorah-desktop-nav .velorah-nav-link:nth-child(4) { animation-delay: 280ms; }
     .mainframe-desktop-nav .mainframe-nav-link:nth-child(5),
-    .velorah-desktop-nav .velorah-nav-link:nth-child(5) { animation-delay: 340ms !important; }
+    .velorah-desktop-nav .velorah-nav-link:nth-child(5) { animation-delay: 340ms; }
 
     .mainframe-nav-link:hover,
     .velorah-nav-link:hover {
@@ -409,7 +408,6 @@
     .velorah-nav-link.active {
       color: #FFFFFF !important;
       font-weight: 700 !important;
-      opacity: 1 !important;
     }
 
     .mainframe-nav-link.active::after,
