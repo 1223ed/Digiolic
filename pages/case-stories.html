@@ -18,7 +18,7 @@
 
   <!-- Core & Component CSS -->
   <link rel="stylesheet" href="../css/style.css?v=20260920_v302">
-  <link rel="stylesheet" href="../css/components.css?v=20260926_flat_white_v4">
+  <link rel="stylesheet" href="../css/components.css?v=20260926_mobile_drawer_v5">
   <link rel="stylesheet" href="../css/pages.css?v=20260919_v209">
   <link rel="stylesheet" href="../css/case-stories.css?v=20260925_image2_v999">
   <link rel="stylesheet" href="../css/responsive.css?v=20260919_v209">
@@ -478,9 +478,16 @@
       background: transparent !important;
       border: none !important;
       cursor: pointer !important;
-      padding: 6px !important;
+      padding: 8px !important;
+      min-width: 44px !important;
+      min-height: 44px !important;
+      align-items: center !important;
+      justify-content: center !important;
       flex-direction: column !important;
       gap: 5px !important;
+      touch-action: manipulation !important;
+      -webkit-tap-highlight-color: transparent !important;
+      z-index: 100005 !important;
     }
 
     @media (min-width: 768px) {
@@ -494,6 +501,7 @@
       width: 22px !important;
       height: 2px !important;
       display: block !important;
+      pointer-events: none !important;
       transition: transform 0.2s ease, opacity 0.2s ease !important;
     }
 
@@ -666,13 +674,71 @@
   <!-- ==========================================================================
        TOPBAR NAVIGATION
        ========================================================================== -->
-  <!-- Fullscreen Mobile Navigation Drawer (Preserved for Mobile Access) -->
+  <script>
+    window.toggleDigiolicMobileMenu = function(e) {
+      if (e) {
+        if (typeof e.preventDefault === 'function') e.preventDefault();
+        if (typeof e.stopPropagation === 'function') e.stopPropagation();
+        if (typeof e.stopImmediatePropagation === 'function') e.stopImmediatePropagation();
+      }
+      var drawer = document.getElementById('mobileNavDrawer') || document.getElementById('mainframeMobileOverlay');
+      var btn = document.getElementById('mainframeMenuBtn');
+      if (!drawer) return;
+      var isOpen = drawer.classList.contains('is-open');
+      if (!isOpen) {
+        drawer.classList.add('is-open');
+        drawer.style.setProperty('display', 'flex', 'important');
+        drawer.style.setProperty('opacity', '1', 'important');
+        drawer.style.setProperty('visibility', 'visible', 'important');
+        drawer.style.setProperty('pointer-events', 'auto', 'important');
+        drawer.style.setProperty('transform', 'translateY(0)', 'important');
+        if (btn) {
+          btn.classList.add('is-active');
+          btn.setAttribute('aria-expanded', 'true');
+        }
+        document.body.style.overflow = 'hidden';
+      } else {
+        drawer.classList.remove('is-open');
+        drawer.style.setProperty('opacity', '0', 'important');
+        drawer.style.setProperty('visibility', 'hidden', 'important');
+        drawer.style.setProperty('pointer-events', 'none', 'important');
+        drawer.style.setProperty('transform', 'translateY(-8px)', 'important');
+        if (btn) {
+          btn.classList.remove('is-active');
+          btn.setAttribute('aria-expanded', 'false');
+        }
+        document.body.style.overflow = '';
+      }
+    };
+
+    window.closeDigiolicMobileMenu = function(e) {
+      if (e) {
+        if (typeof e.stopPropagation === 'function') e.stopPropagation();
+      }
+      var drawer = document.getElementById('mobileNavDrawer') || document.getElementById('mainframeMobileOverlay');
+      var btn = document.getElementById('mainframeMenuBtn');
+      if (drawer) {
+        drawer.classList.remove('is-open');
+        drawer.style.setProperty('opacity', '0', 'important');
+        drawer.style.setProperty('visibility', 'hidden', 'important');
+        drawer.style.setProperty('pointer-events', 'none', 'important');
+        drawer.style.setProperty('transform', 'translateY(-8px)', 'important');
+      }
+      if (btn) {
+        btn.classList.remove('is-active');
+        btn.setAttribute('aria-expanded', 'false');
+      }
+      document.body.style.overflow = '';
+    };
+  </script>
+
+  <!-- Fullscreen Mobile Navigation Drawer (Exact Image 1 Replication) -->
   <div class="mobile-nav-drawer mainframe-mobile-overlay" id="mobileNavDrawer" role="dialog" aria-modal="true" aria-label="Mobile Navigation">
     <div class="mobile-nav-top">
       <a href="../index.html" class="mobile-nav-logo-link" aria-label="Digiolic Home">
         <img src="../assets/images/digiolic-logo.png" alt="Digiolic" class="mobile-nav-logo">
       </a>
-      <button class="mobile-nav-close" id="caseStoriesCloseBtn" aria-label="Close Menu" onclick="document.getElementById('mobileNavDrawer').classList.remove('is-open'); document.getElementById('mainframeMenuBtn').classList.remove('is-active'); document.body.style.overflow='';">
+      <button class="mobile-nav-close" id="caseStoriesCloseBtn" aria-label="Close Menu" onclick="window.closeDigiolicMobileMenu(event);">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <line x1="18" y1="6" x2="6" y2="18"></line>
           <line x1="6" y1="6" x2="18" y2="18"></line>
@@ -680,11 +746,11 @@
       </button>
     </div>
     <div class="mobile-nav-list">
-      <a href="../index.html" class="mobile-nav-link">Home</a>
-      <a href="zoho.html" class="mobile-nav-link">Zoho</a>
-      <a href="salesforce.html" class="mobile-nav-link">Salesforce</a>
-      <a href="digital-marketing.html" class="mobile-nav-link">Digital Marketing</a>
-      <a href="case-stories.html" class="mobile-nav-link">Case Studies</a>
+      <a href="../index.html" class="mobile-nav-link" onclick="window.closeDigiolicMobileMenu(event);">Home</a>
+      <a href="zoho.html" class="mobile-nav-link" onclick="window.closeDigiolicMobileMenu(event);">Zoho</a>
+      <a href="salesforce.html" class="mobile-nav-link" onclick="window.closeDigiolicMobileMenu(event);">Salesforce</a>
+      <a href="digital-marketing.html" class="mobile-nav-link" onclick="window.closeDigiolicMobileMenu(event);">Digital Marketing</a>
+      <a href="case-stories.html" class="mobile-nav-link" onclick="window.closeDigiolicMobileMenu(event);">Case Studies</a>
     </div>
   </div>
 
@@ -720,7 +786,7 @@
         <!-- Right: CTA Button & Mobile Trigger -->
         <div class="velorah-nav-actions">
           <a href="contact.html" class="velorah-nav-cta mainframe-desktop-cta">Contact Us</a>
-          <button class="velorah-hamburger mainframe-hamburger-btn" id="mainframeMenuBtn" aria-label="Toggle Menu" aria-expanded="false">
+          <button class="velorah-hamburger mainframe-hamburger-btn" id="mainframeMenuBtn" aria-label="Toggle Menu" aria-expanded="false" onclick="window.toggleDigiolicMobileMenu(event);">
             <span class="mainframe-bar"></span>
             <span class="mainframe-bar"></span>
             <span class="mainframe-bar"></span>
@@ -1790,7 +1856,7 @@
   </footer>
 
   <!-- JavaScript Modules -->
-  <script src="../js/main.js?v=20260920_v302"></script>
+  <script src="../js/main.js?v=20260926_mobile_drawer_v2"></script>
   <script src="../js/case-filter.js?v=20260926_reorder_v2"></script>
   <script src="../js/form-validation.js?v=20260912_footer_v3"></script>
 

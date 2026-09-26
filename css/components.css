@@ -307,6 +307,7 @@
   transition: all 0.3s ease !important;
   border-radius: 2px !important;
   transform-origin: center !important;
+  pointer-events: none !important;
 }
 
 .mainframe-navbar.is-light-page .mainframe-bar {

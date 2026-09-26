@@ -98,6 +98,7 @@
   }
 
   menuButtons.forEach((btn) => {
+    if (btn.hasAttribute('onclick')) return;
     btn.addEventListener('click', (e) => {
       e.stopPropagation();
       toggleAllDrawers();
