@@ -17,7 +17,7 @@
   <link rel="stylesheet" href="../css/style.css?v=20260920_v302">
   <link rel="stylesheet" href="../css/components.css?v=20260926_flat_white_v4">
   <link rel="stylesheet" href="../css/pages.css?v=20260920_v302">
-  <link rel="stylesheet" href="../css/responsive.css?v=20260920_v302">
+  <link rel="stylesheet" href="../css/responsive.css?v=20260926_green_d_v6">
   <link rel="stylesheet" href="../css/chat-widget.css?v=20260920_v302">
 
   <!-- Exact Font specified -->
@@ -99,7 +99,8 @@
     .mobile-nav-logo {
       height: 34px !important;
       width: auto !important;
-      filter: brightness(0) invert(1) !important;
+      filter: none !important;
+      -webkit-filter: none !important;
       display: block !important;
     }
 
@@ -879,7 +880,7 @@
   <div class="mobile-nav-drawer" id="mobileNavDrawer" role="dialog" aria-modal="true" aria-label="Mobile Navigation">
     <div class="mobile-nav-top">
       <a href="../index.html" class="mobile-nav-logo-link" aria-label="Digiolic Home">
-        <img src="../assets/images/digiolic-logo-dark.png" alt="Digiolic" class="mobile-nav-logo">
+        <img src="../assets/images/digiolic-logo.png" alt="Digiolic" class="mobile-nav-logo">
       </a>
       <button class="mobile-nav-close" id="contactNavCloseBtn" aria-label="Close Menu" onclick="document.getElementById('mobileNavDrawer').classList.remove('is-open'); document.getElementById('mainframeMenuBtn').classList.remove('is-active'); document.body.style.overflow='';">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -894,6 +895,7 @@
       <a href="salesforce.html" class="mobile-nav-link">Salesforce</a>
       <a href="digital-marketing.html" class="mobile-nav-link">Digital Marketing</a>
       <a href="case-stories.html" class="mobile-nav-link">Case Studies</a>
+      <a href="contact.html" class="mobile-nav-link cta-pill" onclick="document.getElementById('mobileNavDrawer').classList.remove('is-open'); document.getElementById('mainframeMenuBtn').classList.remove('is-active'); document.body.style.overflow='';">Contact Us</a>
     </div>
   </div>
 

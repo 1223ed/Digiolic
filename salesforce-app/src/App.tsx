@@ -543,9 +543,9 @@ export default function App() {
           {/* Top Row: Digiolic Logo and Close Button (40px circle border-white/30) */}
           <div className="w-full flex items-center justify-between px-6 sm:px-8 pt-8 sm:pt-12">
             <img
-              src="assets/images/digiolic-logo-dark.png?v=20260911_v4"
+              src="assets/images/digiolic-logo.png"
               alt="Digiolic"
-              className="h-8 w-auto object-contain filter brightness-0 invert"
+              className="h-8 w-auto object-contain"
             />
             <button
               onClick={() => setMobileMenuOpen(false)}

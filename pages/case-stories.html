@@ -18,10 +18,10 @@
 
   <!-- Core & Component CSS -->
   <link rel="stylesheet" href="../css/style.css?v=20260920_v302">
-  <link rel="stylesheet" href="../css/components.css?v=20260926_mobile_drawer_v5">
+  <link rel="stylesheet" href="../css/components.css?v=20260926_green_d_v6">
   <link rel="stylesheet" href="../css/pages.css?v=20260919_v209">
   <link rel="stylesheet" href="../css/case-stories.css?v=20260925_image2_v999">
-  <link rel="stylesheet" href="../css/responsive.css?v=20260919_v209">
+  <link rel="stylesheet" href="../css/responsive.css?v=20260926_green_d_v6">
   <link rel="stylesheet" href="../css/chat-widget.css?v=20260919_v209">
 
   <!-- Exact Font specified -->
@@ -103,7 +103,8 @@
     .mobile-nav-logo {
       height: 34px !important;
       width: auto !important;
-      filter: brightness(0) invert(1) !important;
+      filter: none !important;
+      -webkit-filter: none !important;
       display: block !important;
     }
 
@@ -181,30 +182,32 @@
       align-items: center !important;
       justify-content: center !important;
       width: fit-content !important;
-      margin-top: 1.75rem !important;
-      background-color: #000000 !important;
-      background: #000000 !important;
-      color: #FFFFFF !important;
+      margin-top: 1.5rem !important;
+      background-color: #FFFFFF !important;
+      background: #FFFFFF !important;
+      color: #000000 !important;
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
       font-size: 1rem !important;
       font-weight: 600 !important;
       border-radius: 9999px !important;
       padding: 0.85rem 2.25rem !important;
-      border: 1px solid rgba(255, 255, 255, 0.25) !important;
+      border: none !important;
       text-decoration: none !important;
       text-align: center !important;
-      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3) !important;
-      transition: background-color 0.2s ease, transform 0.2s ease !important;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25) !important;
+      transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease !important;
+      cursor: pointer !important;
     }
 
     .mainframe-mobile-link.cta-pill:hover,
     .mainframe-mobile-link.cta-underlined:hover,
     .mobile-nav-link.cta-pill:hover,
     .mobile-nav-footer .btn:hover {
-      background: #1E293B !important;
-      background-color: #1E293B !important;
-      color: #FFFFFF !important;
+      background: #F1F5F9 !important;
+      background-color: #F1F5F9 !important;
+      color: #000000 !important;
       transform: translateY(-1px) !important;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3) !important;
     }
 
     .mobile-nav-footer,
@@ -666,7 +669,7 @@
       background: linear-gradient(to left, #FFFFFF, rgba(255, 255, 255, 0)) !important;
     }
   </style>
-  <link rel="stylesheet" href="../css/responsive.css?v=20260919_v209">
+  <link rel="stylesheet" href="../css/responsive.css?v=20260926_green_d_v6">
 </head>
 
 <body>
@@ -751,6 +754,7 @@
       <a href="salesforce.html" class="mobile-nav-link" onclick="window.closeDigiolicMobileMenu(event);">Salesforce</a>
       <a href="digital-marketing.html" class="mobile-nav-link" onclick="window.closeDigiolicMobileMenu(event);">Digital Marketing</a>
       <a href="case-stories.html" class="mobile-nav-link" onclick="window.closeDigiolicMobileMenu(event);">Case Studies</a>
+      <a href="contact.html" class="mobile-nav-link cta-pill" onclick="window.closeDigiolicMobileMenu(event);">Contact Us</a>
     </div>
   </div>
 
@@ -1856,7 +1860,7 @@
   </footer>
 
   <!-- JavaScript Modules -->
-  <script src="../js/main.js?v=20260926_mobile_drawer_v2"></script>
+  <script src="../js/main.js?v=20260926_green_d_v6"></script>
   <script src="../js/case-filter.js?v=20260926_reorder_v2"></script>
   <script src="../js/form-validation.js?v=20260912_footer_v3"></script>
 

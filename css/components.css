@@ -369,7 +369,8 @@
 .mobile-nav-logo {
   height: 32px !important;
   width: auto !important;
-  filter: brightness(0) invert(1) !important;
+  filter: none !important;
+  -webkit-filter: none !important;
   display: block !important;
 }
 
@@ -459,25 +460,25 @@
   transform: translateY(-1px) !important;
 }
 
-/* Case Studies Mobile Navigation Drawer: Black button, white text */
+/* Case Studies Mobile Navigation Drawer: White button, black text */
 .mobile-nav-drawer .mobile-nav-link.cta-pill,
 .mainframe-navbar.is-light-page ~ .mobile-nav-drawer .mobile-nav-link.cta-pill,
 body.case-stories-page .mobile-nav-link.cta-pill,
 body.case-stories-page .mainframe-mobile-link.cta-pill {
-  background-color: #000000 !important;
-  background: #000000 !important;
-  color: #FFFFFF !important;
-  border: 1px solid rgba(255, 255, 255, 0.25) !important;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3) !important;
+  background-color: #FFFFFF !important;
+  background: #FFFFFF !important;
+  color: #000000 !important;
+  border: none !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25) !important;
 }
 
 .mobile-nav-drawer .mobile-nav-link.cta-pill:hover,
 .mainframe-navbar.is-light-page ~ .mobile-nav-drawer .mobile-nav-link.cta-pill:hover,
 body.case-stories-page .mobile-nav-link.cta-pill:hover,
 body.case-stories-page .mainframe-mobile-link.cta-pill:hover {
-  background-color: #1E293B !important;
-  background: #1E293B !important;
-  color: #FFFFFF !important;
+  background-color: #F1F5F9 !important;
+  background: #F1F5F9 !important;
+  color: #000000 !important;
 }
 
 /* Legacy .site-header now uses position: absolute so it moves with the page */
