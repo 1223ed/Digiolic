@@ -18,7 +18,7 @@
 
   <!-- Core & Component CSS -->
   <link rel="stylesheet" href="../css/style.css?v=20260920_v302">
-  <link rel="stylesheet" href="../css/components.css?v=20260926_white_tabs_v3">
+  <link rel="stylesheet" href="../css/components.css?v=20260926_flat_white_v4">
   <link rel="stylesheet" href="../css/pages.css?v=20260919_v209">
   <link rel="stylesheet" href="../css/case-stories.css?v=20260925_image2_v999">
   <link rel="stylesheet" href="../css/responsive.css?v=20260919_v209">
@@ -379,7 +379,8 @@
       letter-spacing: 0.01em !important;
       padding: 0.35rem 0 !important;
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
-      text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7) !important;
+      text-shadow: none !important;
+      filter: none !important;
     }
 
     /* Same animation as Home page tab section */
@@ -402,12 +403,14 @@
     .velorah-nav-link:hover {
       color: #FFFFFF !important;
       opacity: 0.8 !important;
+      text-shadow: none !important;
     }
 
     .mainframe-nav-link.active,
     .velorah-nav-link.active {
       color: #FFFFFF !important;
       font-weight: 700 !important;
+      text-shadow: none !important;
     }
 
     .mainframe-nav-link.active::after,
@@ -420,7 +423,8 @@
       height: 2.5px !important;
       background-color: #FFFFFF !important;
       border-radius: 9999px !important;
-      box-shadow: 0 0 10px rgba(255, 255, 255, 0.7) !important;
+      box-shadow: none !important;
+      filter: none !important;
       transform-origin: center !important;
       animation: navIndicatorGrow 0.4s cubic-bezier(0.16, 1, 0.3, 1) 340ms forwards !important;
     }

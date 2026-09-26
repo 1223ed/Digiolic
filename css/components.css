@@ -134,11 +134,15 @@
 .mainframe-nav-link:hover {
   color: #FFFFFF !important;
   opacity: 0.8 !important;
+  text-shadow: none !important;
+  filter: none !important;
 }
 
 .mainframe-nav-link.active {
   color: #FFFFFF !important;
   font-weight: 700 !important;
+  text-shadow: none !important;
+  filter: none !important;
 }
 
 .mainframe-nav-link.active::after {
@@ -150,7 +154,8 @@
   height: 2.5px !important;
   background-color: #FFFFFF !important;
   border-radius: 9999px !important;
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.7) !important;
+  box-shadow: none !important;
+  filter: none !important;
   transform-origin: center !important;
   animation: navIndicatorGrow 0.4s cubic-bezier(0.16, 1, 0.3, 1) 340ms forwards !important;
 }
