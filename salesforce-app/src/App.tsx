@@ -145,14 +145,26 @@ export default function App() {
               }}
               aria-label="Digiolic Home"
             >
-              <img
-                src="assets/images/digiolic-logo-dark.png?v=20260911_v4"
-                alt="Digiolic"
-                className="h-8 sm:h-9 w-auto object-contain transition-all duration-500"
-                style={{
-                  filter: isLight ? 'none' : 'brightness(0) invert(1)',
-                }}
-              />
+              <div className="relative h-8 sm:h-9 w-auto flex items-center">
+                <img
+                  src="assets/images/digiolic-logo-dark.png?v=20260927_green_d"
+                  alt="Digiolic"
+                  className="h-8 sm:h-9 w-auto object-contain transition-opacity duration-500"
+                  style={{
+                    opacity: isLight ? 1 : 0,
+                    filter: 'none',
+                  }}
+                />
+                <img
+                  src="assets/images/digiolic-logo.png?v=20260927_green_d"
+                  alt="Digiolic"
+                  className="absolute inset-0 h-8 sm:h-9 w-auto object-contain transition-opacity duration-500 pointer-events-none"
+                  style={{
+                    opacity: isLight ? 0 : 1,
+                    filter: 'none',
+                  }}
+                />
+              </div>
             </a>
 
             {/* Center: Navigation Tabs (Desktop md+) */}
@@ -543,9 +555,10 @@ export default function App() {
           {/* Top Row: Digiolic Logo and Close Button (40px circle border-white/30) */}
           <div className="w-full flex items-center justify-between px-6 sm:px-8 pt-8 sm:pt-12">
             <img
-              src="assets/images/digiolic-logo.png"
+              src="assets/images/digiolic-logo.png?v=20260927_green_d"
               alt="Digiolic"
               className="h-8 w-auto object-contain"
+              style={{ filter: 'none' }}
             />
             <button
               onClick={() => setMobileMenuOpen(false)}

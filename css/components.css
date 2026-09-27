@@ -59,11 +59,15 @@
 }
 
 .mainframe-logo-wrap .brand-logo-img,
-.mainframe-navbar .brand-logo-img {
+.mainframe-navbar .brand-logo-img,
+.velorah-logo-wrap .brand-logo-img,
+.brand-logo-img {
   height: 34px !important;
   width: auto !important;
   display: block !important;
   transition: opacity 0.2s ease;
+  filter: none !important;
+  -webkit-filter: none !important;
 }
 
 .mainframe-logo-wrap:hover .brand-logo-img {
