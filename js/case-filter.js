@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
     'case-indiqube': {
       company: 'IndiQube',
       location: 'Bangalore',
-      products: 'Zoho CRM, Zoho Campaign, 3rd party Whatsapp, Telephonic Integration',
+      products: 'Zoho CRM, Zoho Campaign, WhatsApp, Telephonic Integration',
       description: 'Indiqube Spaces Ltd. is a provider of managed office spaces and flexible workspace solutions.',
       challenges: [
         '<strong>Multi-Channel Inquiry Ingestion:</strong> Managing high volumes of prospective tenant inquiries scattered across WhatsApp, telephony, and web forms without losing lead context.',
