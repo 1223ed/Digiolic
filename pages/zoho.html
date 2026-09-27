@@ -939,31 +939,37 @@
     .zoho-video-hero-section {
       position: relative !important;
       width: 100% !important;
-      min-height: 100vh !important;
-      height: 100vh !important;
-      height: 100dvh !important;
+      min-height: 108vh !important;
+      min-height: 108dvh !important;
+      height: auto !important;
       overflow: hidden !important;
-      background: transparent !important;
-      border-bottom: 1.5px solid rgba(255, 255, 255, 0.1) !important;
+      background: #000000 !important;
+      border-bottom: none !important;
       z-index: 2 !important;
       display: flex !important;
       flex-direction: column !important;
       justify-content: center !important;
       align-items: center !important;
       text-align: center !important;
-      padding: 120px 1.5rem 3.5rem 1.5rem !important;
+      padding: 130px 1.5rem 6.5rem 1.5rem !important;
       box-sizing: border-box !important;
     }
 
     @media (min-width: 768px) {
       .zoho-video-hero-section {
-        padding: 130px 2.5rem 4rem 2.5rem !important;
+        min-height: 110vh !important;
+        min-height: 110dvh !important;
+        height: auto !important;
+        padding: 145px 2.5rem 7.5rem 2.5rem !important;
       }
     }
 
     @media (min-width: 1280px) {
       .zoho-video-hero-section {
-        padding: 140px 3.5rem 4rem 3.5rem !important;
+        min-height: 112vh !important;
+        min-height: 112dvh !important;
+        height: auto !important;
+        padding: 155px 3.5rem 8.5rem 3.5rem !important;
       }
     }
 
@@ -3904,8 +3910,8 @@
       width: 100% !important;
       max-width: 100% !important;
       margin: 0 !important;
-      background: #FFFFFF !important;
-      border-bottom: 1.5px solid #CBD5E1 !important;
+      background: #000000 !important;
+      border-bottom: none !important;
       box-sizing: border-box !important;
     }
 
@@ -4197,6 +4203,131 @@
       font-size: 0.84rem !important;
       font-weight: 500 !important;
       opacity: 1 !important;
+    }
+
+    /* ==========================================================================
+       SECTION 6: ENTERPRISE TOOLING (BUILT WITH ZOHO'S MODERN TECHNOLOGY STACK)
+       ========================================================================== */
+    .zoho-tech-stack-section {
+      width: 100% !important;
+      max-width: 100% !important;
+      margin: 0 !important;
+      background: #FFFFFF !important;
+      padding: clamp(4.5rem, 7vw, 6.5rem) 1.5rem !important;
+      border-top: 1px solid #E2E8F0 !important;
+      border-bottom: 1.5px solid #CBD5E1 !important;
+      box-sizing: border-box !important;
+      text-align: center !important;
+      position: relative !important;
+    }
+
+    .zoho-tech-container {
+      width: 100% !important;
+      max-width: 1100px !important;
+      margin: 0 auto !important;
+      padding: 0 1rem !important;
+      box-sizing: border-box !important;
+    }
+
+    .zoho-tech-header {
+      max-width: 780px !important;
+      margin: 0 auto clamp(2.5rem, 5vw, 3.5rem) auto !important;
+      text-align: center !important;
+    }
+
+    .zoho-tech-eyebrow {
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+      font-size: 0.8125rem !important;
+      font-weight: 700 !important;
+      text-transform: uppercase !important;
+      letter-spacing: 0.12em !important;
+      color: #0077D4 !important;
+      background: rgba(0, 119, 212, 0.08) !important;
+      padding: 0.45rem 1.15rem !important;
+      border-radius: 9999px !important;
+      margin-bottom: 1.25rem !important;
+      box-sizing: border-box !important;
+    }
+
+    .zoho-tech-title {
+      font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif !important;
+      font-size: clamp(30px, 4.5vw, 44px) !important;
+      font-weight: 800 !important;
+      line-height: 1.22 !important;
+      letter-spacing: -0.025em !important;
+      color: #0F172A !important;
+      margin: 0 0 1.15rem 0 !important;
+      text-align: center !important;
+    }
+
+    .zoho-tech-blue {
+      display: block !important;
+      color: #0077D4 !important;
+      background: linear-gradient(135deg, #0077D4 0%, #0284C7 50%, #38BDF8 100%) !important;
+      -webkit-background-clip: text !important;
+      background-clip: text !important;
+      -webkit-text-fill-color: transparent !important;
+    }
+
+    .zoho-tech-subtitle {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+      font-size: clamp(15px, 1.8vw, 17px) !important;
+      font-weight: 400 !important;
+      color: #64748B !important;
+      line-height: 1.65 !important;
+      max-width: 680px !important;
+      margin: 0 auto !important;
+      text-align: center !important;
+    }
+
+    .zoho-tech-grid {
+      display: flex !important;
+      flex-wrap: wrap !important;
+      justify-content: center !important;
+      gap: 1rem !important;
+      max-width: 980px !important;
+      margin: 0 auto !important;
+      box-sizing: border-box !important;
+    }
+
+    .zoho-tech-pill {
+      background: #FFFFFF !important;
+      border: 1.5px solid #E2E8F0 !important;
+      border-radius: 9999px !important;
+      padding: 0.75rem 1.85rem !important;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+      font-size: 1rem !important;
+      font-weight: 700 !important;
+      color: #1E293B !important;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04) !important;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+      cursor: default !important;
+      user-select: none !important;
+      white-space: nowrap !important;
+    }
+
+    .zoho-tech-pill:hover {
+      border-color: #0077D4 !important;
+      color: #0077D4 !important;
+      background: #F8FAFC !important;
+      transform: translateY(-2px) !important;
+      box-shadow: 0 8px 20px rgba(0, 119, 212, 0.12) !important;
+    }
+
+    @media (max-width: 768px) {
+      .zoho-tech-stack-section {
+        padding: 4rem 1.25rem !important;
+      }
+      .zoho-tech-grid {
+        gap: 0.75rem !important;
+      }
+      .zoho-tech-pill {
+        padding: 0.6rem 1.25rem !important;
+        font-size: 0.92rem !important;
+      }
     }
 
     /* Section 7: Editorial Contact Section (Deep Black Background, Red Shimmer Heading & Underline Form matching Digital Marketing) */
@@ -6203,7 +6334,33 @@
       </div>
     </section>
 
+    <!-- ==========================================================================
+         SECTION 6: ENTERPRISE TOOLING (BUILT WITH ZOHO'S MODERN TECHNOLOGY STACK)
+         ========================================================================== -->
+    <section class="zoho-tech-stack-section" id="zohoTechStackSection" aria-label="Zoho Enterprise Tooling and Technology Stack">
+      <div class="zoho-tech-container">
+        <div class="zoho-tech-header">
+          <div class="zoho-tech-eyebrow">ENTERPRISE TOOLING</div>
+          <h2 class="zoho-tech-title">Built With <span class="zoho-tech-blue zoho-heading-anim-text">Zoho's Modern Technology Stack</span></h2>
+          <p class="zoho-tech-subtitle">We build with standard-compliant Zoho developer tooling and modern cloud frameworks.</p>
+        </div>
 
+        <div class="zoho-tech-grid">
+          <div class="zoho-tech-pill">Zoho One</div>
+          <div class="zoho-tech-pill">Deluge</div>
+          <div class="zoho-tech-pill">Zoho Creator</div>
+          <div class="zoho-tech-pill">Zoho Flow</div>
+          <div class="zoho-tech-pill">APIs</div>
+          <div class="zoho-tech-pill">REST</div>
+          <div class="zoho-tech-pill">Webhooks</div>
+          <div class="zoho-tech-pill">Zoho Catalyst</div>
+          <div class="zoho-tech-pill">Zoho Analytics</div>
+          <div class="zoho-tech-pill">Widgets SDK</div>
+          <div class="zoho-tech-pill">Custom Functions</div>
+          <div class="zoho-tech-pill">Zoho CRM</div>
+        </div>
+      </div>
+    </section>
 
     <!-- ==========================================================================
          SECTION 7: DISCUSS YOUR ZOHO SOLUTION NEEDS (EDITORIAL 2-COLUMN SPLIT)

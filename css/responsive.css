@@ -879,13 +879,15 @@ textarea {
 
   /* 4.4.2 Zoho Page Layouts & Hero Spacing (Image 3 fix) */
   .zoho-video-hero-section {
-    min-height: 100vh !important;
-    min-height: 100dvh !important;
+    min-height: 108vh !important;
+    min-height: 108dvh !important;
     height: auto !important;
-    padding-top: 105px !important;
-    padding-bottom: 3.5rem !important;
+    padding-top: 110px !important;
+    padding-bottom: 5.5rem !important;
     padding-left: 1.25rem !important;
     padding-right: 1.25rem !important;
+    border-bottom: none !important;
+    background: #000000 !important;
     justify-content: flex-start !important;
     overflow: visible !important;
   }
