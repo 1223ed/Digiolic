@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     'case-blume-labs': {
       company: 'Blume Labs',
-      location: 'Bangalore',
+      location: 'Bangalore, India',
       products: 'Zoho CRM, Zoho Books',
       description: 'Blume Labs is an innovative technology services and engineering firm based in Bangalore, providing software solutions, tech consulting retainers, and milestone-based development projects.',
       challenges: [
@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     'case-indiqube': {
       company: 'IndiQube',
-      location: 'Bangalore',
+      location: 'Bangalore, India',
       products: 'Zoho CRM, Zoho Campaign, WhatsApp, Telephonic Integration',
       description: 'Indiqube Spaces Ltd. is a provider of managed office spaces and flexible workspace solutions.',
       challenges: [
@@ -95,10 +95,10 @@ document.addEventListener('DOMContentLoaded', () => {
     },
 
     'case-manu-company': {
-      company: 'Manoj',
-      location: 'Bangalore',
+      company: 'Pierian Service',
+      location: 'Bangalore, India',
       products: 'Zoho Books, Zoho Invoice',
-      description: 'Manoj is an expanding commercial business based in Bangalore managing multi-currency global transactions, recurring service billing, and enterprise financial compliance.',
+      description: 'Pierian Service is a global business and financial consulting firm based in Bangalore, India, managing multi-currency global transactions, recurring service billing, and enterprise financial compliance.',
       challenges: [
         '<strong>Multi-Currency Compliance Silos:</strong> Managing manual multi-currency billing and complex financial compliance without a unified system.',
         '<strong>Delayed Invoicing & Collection Cycles:</strong> Delayed invoicing cycles and slow collections causing cash flow bottlenecks.',
@@ -152,7 +152,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     'case-chanakya-university': {
       company: 'Chanakya University',
-      location: 'Bangalore',
+      location: 'Bangalore, India',
       products: 'Zoho CRM',
       description: "Chanakya University is a multidisciplinary private university near Bengaluru known for blending modern global education under India's National Education Policy (NEP) 2020 with traditional Indian civilizational values and knowledge systems.",
       challenges: [
@@ -179,10 +179,10 @@ document.addEventListener('DOMContentLoaded', () => {
     },
 
     'case-rahul-hr': {
-      company: 'Rahul',
-      location: 'Bangalore',
+      company: 'Greenworld Solarwares Private Limited',
+      location: 'Chhattisgarh, India',
       products: 'Zoho People, Zoho Payroll, Zoho Recruit',
-      description: 'Rahul is an enterprise corporate organization based in Bangalore managing extensive multi-departmental workforce recruitment, human resources, and monthly payroll operations.',
+      description: 'Greenworld Solarwares Private Limited is a leading renewable energy and solar solutions provider based in Chhattisgarh, India, managing extensive multi-departmental workforce recruitment, human resources, and monthly payroll operations.',
       challenges: [
         '<strong>Disconnected HR & Payroll Silos:</strong> Managing disconnected recruitment, HR, and payroll workflows across siloed systems without centralized data sharing.',
         '<strong>Manual Candidate Transfer Redundancy:</strong> Tedious manual data entry when transferring newly hired candidates from recruitment systems into employee databases.',
@@ -264,7 +264,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     'case-banaraswala': {
       company: 'Banaraswala',
-      location: 'Delhi',
+      location: 'Delhi, India',
       products: 'Salesforce CRM, 3rd Party Integration: Facebook Chatbot & SMS Integration',
       description: 'Banaraswala serves authentic culinary traditions from the vibrant lanes of Banaras, ranging from time-honored sweets and crispy savouries to iconic street food and comforting North Indian meals.',
       challenges: [
@@ -292,7 +292,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     'case-loomcrafts': {
       company: 'Loom Crafts',
-      location: 'Uttar Pradesh',
+      location: 'Uttar Pradesh, India',
       products: 'Salesforce CRM, 3rd Party Integration: Facebook Chatbot, SMS, Razorpay, WhatsApp',
       description: "Loom Crafts is India's premier manufacturer of luxury outdoor furniture and bespoke architectural solutions, trusted by top designers and hospitality brands since 2005. Operating out of a state-of-the-art facility, the company delivers weather-resistant sofas, cabanas, and custom installations for high-end residential and commercial projects across the globe. Beyond manufacturing, Loom Crafts provides end-to-end support—from expert design consultation and technical detailing to nationwide installation and dependable after-sales care.",
       challenges: [
