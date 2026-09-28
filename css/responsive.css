@@ -24,11 +24,36 @@ body {
   box-sizing: border-box !important;
 }
 
-img,
-video,
-canvas {
+img {
   max-width: 100% !important;
   height: auto;
+}
+
+/* Exclude full-viewport/absolute hero background videos and particle canvases from destructive height: auto */
+video:not(.dp-hero-video):not(.mainframe-bg-video):not(.hero-bg-video):not(#mainframeBgVideo):not(#zohoBgVideo):not(.zoho-hero-bg-video):not(.velorah-bg-video),
+canvas:not(.hero-bg-canvas):not(#heroScrollWrapper canvas):not(.dm-particle-canvas):not(.dm-trusted-particle-canvas) {
+  max-width: 100% !important;
+  height: auto;
+}
+
+/* Universal full-cover hero background video reset */
+.dp-hero-video,
+.mainframe-bg-video,
+#mainframeBgVideo,
+.hero-bg-video,
+.zoho-hero-bg-video,
+#zohoBgVideo,
+.velorah-bg-video,
+#heroScrollWrapper video {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  min-width: 100% !important;
+  min-height: 100% !important;
+  max-width: none !important;
+  max-height: none !important;
+  object-fit: cover !important;
 }
 
 /* Prevent iOS Safari auto-zoom on input focus */
@@ -550,69 +575,234 @@ textarea {
     gap: 1.25rem !important;
   }
 
-  /* Homepage Hero on Mobile: 3-Stage Sticky Cinematic Scroll (Sections 1, 2 & 3) */
-  .hero-video-scroll-wrapper {
-    height: 500vh !important;
-    background-color: #DBE3EB !important;
-    position: relative !important;
+  /* ==========================================================================
+     4.4.1 HOMEPAGE HERO: Dynamic Mobile Viewport & Full-Cover Looping Video
+     ========================================================================== */
+  #heroScrollWrapper {
     width: 100% !important;
+    max-width: 100vw !important;
+    position: relative !important;
+    min-height: 100vh !important;
+    min-height: 100dvh !important;
+    overflow: hidden !important;
   }
 
-  .hero-bg-video,
-  .hero-bg-canvas {
+  #heroScrollWrapper video {
     position: absolute !important;
-    top: 0 !important;
-    left: 0 !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    min-width: 100% !important;
+    min-height: 100% !important;
+    object-fit: cover !important;
+    object-position: center center !important;
+    display: block !important;
+    z-index: 0 !important;
+  }
+
+  #heroScrollWrapper canvas {
+    position: absolute !important;
+    inset: 0 !important;
     width: 100% !important;
     height: 100% !important;
     object-fit: cover !important;
-    object-position: 30% 60% !important;
-    display: block !important;
-    opacity: 1 !important;
     z-index: 1 !important;
-    background-color: transparent !important;
-    filter: none !important;
   }
 
-  .hero-video-sticky-stage {
-    position: sticky !important;
-    top: 0 !important;
-    left: 0 !important;
-    height: 100vh !important;
-    height: 100dvh !important;
-    width: 100% !important;
-    overflow: hidden !important;
-    background-color: #DBE3EB !important;
-    z-index: 10 !important;
-  }
-
-  .hero-video-ui-overlay {
-    position: absolute !important;
-    inset: 0 !important;
-    pointer-events: none !important;
-    z-index: 20 !important;
-    width: 100% !important;
-    height: 100% !important;
-  }
-
-  .video-section-layer {
-    position: absolute !important;
-    inset: 0 !important;
-    width: 100% !important;
-    height: 100% !important;
+  /* ==========================================================================
+     4.4.2 SALESFORCE HERO: Full Background Video, Balanced Typography & Mobile Clearance
+     ========================================================================== */
+  .dp-hero-container {
+    height: auto !important;
+    min-height: 100vh !important;
+    min-height: 100dvh !important;
+    padding-top: 5.5rem !important;
+    padding-bottom: 6.5rem !important; /* Clears floating Zoho chat widget */
     display: flex !important;
     flex-direction: column !important;
     justify-content: center !important;
+    position: relative !important;
+    overflow: hidden !important;
+  }
+
+  .dp-hero-video {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    min-width: 100% !important;
+    min-height: 100% !important;
+    object-fit: cover !important;
+    object-position: center 25% !important; /* Highlights 3D tower on mobile */
+    z-index: 0 !important;
+  }
+
+  .dp-hero-overlay {
+    position: absolute !important;
+    inset: 0 !important;
+    background: rgba(0, 0, 0, 0.52) !important;
+    z-index: 1 !important;
+  }
+
+  .dp-hero-content {
+    position: relative !important;
+    z-index: 10 !important;
+    height: auto !important;
+    padding: 0 1.25rem !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+  }
+
+  .dp-center-hero {
+    padding: 0 !important;
+    margin: 0 auto !important;
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
     align-items: center !important;
+    text-align: center !important;
+  }
+
+  .dp-main-heading,
+  .dp-heading-line1,
+  .dp-heading-line2 {
+    font-size: clamp(26px, 7.2vw, 36px) !important;
+    line-height: 1.15 !important;
+    padding-bottom: 0 !important;
+    margin-bottom: 0 !important;
+  }
+
+  .dp-heading-line2 {
+    margin-top: 0.15em !important;
+  }
+
+  .dp-shiny-text {
+    font-size: inherit !important;
+    line-height: 1.15 !important;
+  }
+
+  .dp-subheading {
+    font-size: 0.92rem !important;
+    line-height: 1.55 !important;
+    margin: 1.15rem auto 0 auto !important;
+    max-width: 95% !important;
+  }
+
+  .dp-cta-group {
+    margin-top: 1.5rem !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    gap: 0.75rem !important;
+    align-items: center !important;
+  }
+
+  .dp-btn {
+    width: 100% !important;
+    max-width: 320px !important;
+    padding: 0.82rem 1.25rem !important;
+    font-size: 0.9rem !important;
     box-sizing: border-box !important;
-    transition: opacity 0.25s ease-out !important;
+  }
+
+  .dp-bottom-bar {
+    display: none !important; /* Conceal on mobile to avoid overlapping with chat widget */
+  }
+
+  /* ==========================================================================
+     4.4.3 DIGITAL MARKETING HERO: Seamless Video Fill, Soft Gradient & High Contrast
+     ========================================================================== */
+  .mainframe-hero-section {
+    min-height: 100vh !important;
+    min-height: 100dvh !important;
+    height: auto !important;
+    padding-top: 5.5rem !important;
+    padding-bottom: 6.5rem !important; /* Clears floating Zoho chat widget */
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    position: relative !important;
+    overflow: hidden !important;
+    background: #FC4849 !important;
+  }
+
+  .mainframe-bg-video,
+  #mainframeBgVideo {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    min-width: 100% !important;
+    min-height: 100% !important;
+    object-fit: cover !important;
+    object-position: center 12% !important; /* Positions character seamlessly on mobile */
+    z-index: 0 !important;
+  }
+
+  .mainframe-hero-section::before {
+    content: '' !important;
+    position: absolute !important;
+    inset: 0 !important;
+    background: linear-gradient(
+      180deg,
+      rgba(252, 72, 73, 0.2) 0%,
+      rgba(252, 72, 73, 0.55) 38%,
+      rgba(252, 72, 73, 0.92) 78%,
+      #FC4849 100%
+    ) !important;
+    z-index: 1 !important;
     pointer-events: none !important;
   }
 
-  /* Section 1: Hero Centered */
-  #heroSection1 {
+  .mainframe-hero-content {
+    position: relative !important;
+    z-index: 10 !important;
+    width: 100% !important;
+    text-align: left !important;
+  }
+
+  .dm-hero-title {
+    font-size: clamp(24px, 6.8vw, 34px) !important;
+    line-height: 1.15 !important;
+    margin-bottom: 0.75rem !important;
+    text-shadow: 0 2px 14px rgba(0, 0, 0, 0.5) !important;
+  }
+
+  .dm-hero-desc {
+    font-size: 0.92rem !important;
+    line-height: 1.5 !important;
+    margin-bottom: 1.15rem !important;
+    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.4) !important;
+  }
+
+  .dm-hero-badges-grid {
     display: flex !important;
-    padding: 0 1.25rem !important;
+    flex-wrap: wrap !important;
+    gap: 0.35rem !important;
+    margin-bottom: 1.35rem !important;
+  }
+
+  .dm-hero-pill {
+    padding: 0.26rem 0.68rem !important;
+    font-size: 0.72rem !important;
+  }
+
+  .dm-hero-actions {
+    margin-top: 0.5rem !important;
+  }
+
+  .dm-btn-primary {
+    padding: 0.75rem 1.75rem !important;
+    font-size: 0.88rem !important;
+  }
+
+  /* Legacy Fallbacks */
+  .hero-video-scroll-wrapper {
+    height: 100vh !important;
+    height: 100dvh !important;
+    background-color: #DBE3EB !important;
+    position: relative !important;
+    width: 100% !important;
   }
 
   .hero-v1-center-wrap {

@@ -101,7 +101,8 @@ export function useVideoScrub(
     let decoder: VideoDecoder | null = null;
 
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (prefersReducedMotion || typeof VideoDecoder === 'undefined') {
+    const isMobile = typeof window !== 'undefined' && window.innerWidth <= 768;
+    if (isMobile || prefersReducedMotion || typeof VideoDecoder === 'undefined') {
       return;
     }
 
@@ -329,12 +330,18 @@ export function useVideoScrub(
       video.addEventListener('canplay', syncMeta);
       if (video.duration > 0) syncMeta();
 
-      // In iOS Safari, inline muted videos will not decode or paint frame 0 to the screen
-      // unless briefly kicked into playback. We prime it and immediately pause at 0
-      // so it never autoplays as a timeline, but frame 0 renders and seeking is enabled.
+      // In iOS Safari / mobile, play and loop continuously without pausing
       let primed = false;
       const prime = () => {
         if (primed || !video) return;
+        const isMobileScreen = typeof window !== 'undefined' && window.innerWidth <= 768;
+        if (isMobileScreen) {
+          primed = true;
+          video.loop = true;
+          video.play().catch(() => {});
+          syncMeta();
+          return;
+        }
         const p = video.play();
         if (p !== undefined) {
           p.then(() => {
@@ -365,6 +372,16 @@ export function useVideoScrub(
     }
 
     const loop = (now: number) => {
+      const isMobileScreen = typeof window !== 'undefined' && window.innerWidth <= 768;
+      if (isMobileScreen) {
+        // On mobile, let the video autoplay and loop smoothly without scroll scrubbing
+        if (videoRef.current && videoRef.current.paused) {
+          videoRef.current.play().catch(() => {});
+        }
+        animationFrameId = requestAnimationFrame(loop);
+        return;
+      }
+
       const deltaSeconds = (now - lastTime) / 1000;
       lastTime = now;
       const dt = Math.min(0.1, deltaSeconds);
