@@ -101,8 +101,7 @@ export function useVideoScrub(
     let decoder: VideoDecoder | null = null;
 
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const isMobile = typeof window !== 'undefined' && window.innerWidth <= 768;
-    if (isMobile || prefersReducedMotion || typeof VideoDecoder === 'undefined') {
+    if (prefersReducedMotion || typeof VideoDecoder === 'undefined') {
       return;
     }
 
@@ -330,24 +329,17 @@ export function useVideoScrub(
       video.addEventListener('canplay', syncMeta);
       if (video.duration > 0) syncMeta();
 
-      // In iOS Safari / mobile, play and loop continuously without pausing
+      // In iOS Safari, inline muted videos will not decode or paint frame 0 to the screen
+      // unless briefly kicked into playback. We prime it and immediately pause at 0
+      // so it never autoplays as a timeline, but frame 0 renders and seeking is enabled.
       let primed = false;
       const prime = () => {
         if (primed || !video) return;
-        const isMobileScreen = typeof window !== 'undefined' && window.innerWidth <= 768;
-        if (isMobileScreen) {
-          primed = true;
-          video.loop = true;
-          video.play().catch(() => {});
-          syncMeta();
-          return;
-        }
         const p = video.play();
         if (p !== undefined) {
           p.then(() => {
             primed = true;
             video.pause();
-            video.currentTime = 0;
             syncMeta();
           }).catch(() => {});
         }
@@ -372,16 +364,6 @@ export function useVideoScrub(
     }
 
     const loop = (now: number) => {
-      const isMobileScreen = typeof window !== 'undefined' && window.innerWidth <= 768;
-      if (isMobileScreen) {
-        // On mobile, let the video autoplay and loop smoothly without scroll scrubbing
-        if (videoRef.current && videoRef.current.paused) {
-          videoRef.current.play().catch(() => {});
-        }
-        animationFrameId = requestAnimationFrame(loop);
-        return;
-      }
-
       const deltaSeconds = (now - lastTime) / 1000;
       lastTime = now;
       const dt = Math.min(0.1, deltaSeconds);
@@ -389,7 +371,7 @@ export function useVideoScrub(
       const p = computeProgress();
       setScrollProgress(p);
 
-      const dur = durationRef.current || videoRef.current?.duration || 0;
+      const dur = durationRef.current || videoRef.current?.duration || 10.042;
       if (dur > 0) {
         targetTimeRef.current = p * dur;
 
@@ -424,12 +406,17 @@ export function useVideoScrub(
             }
           }
         } else {
-          // 2. Fallback: if not seeking and abs(video.currentTime - current) > 0.01, set video.currentTime = current
+          // 2. Fallback: video scrubbing via fastSeek / currentTime
           const vid = videoRef.current;
           if (vid && vid.readyState >= 1) {
-            if (!vid.seeking && Math.abs(vid.currentTime - currentTimeRef.current) > 0.01) {
+            if (!vid.seeking && Math.abs(vid.currentTime - currentTimeRef.current) > 0.02) {
               try {
-                vid.currentTime = currentTimeRef.current;
+                const anyVid = vid as any;
+                if (typeof anyVid.fastSeek === 'function') {
+                  anyVid.fastSeek(currentTimeRef.current);
+                } else {
+                  vid.currentTime = currentTimeRef.current;
+                }
               } catch {}
             }
           }
@@ -441,17 +428,21 @@ export function useVideoScrub(
 
     animationFrameId = requestAnimationFrame(loop);
 
-    const handleResize = () => {
+    const handleUpdate = () => {
       setScrollProgress(computeProgress());
     };
 
-    window.addEventListener('resize', handleResize);
-    window.addEventListener('orientationchange', handleResize);
+    window.addEventListener('scroll', handleUpdate, { passive: true });
+    window.addEventListener('touchmove', handleUpdate, { passive: true });
+    window.addEventListener('resize', handleUpdate);
+    window.addEventListener('orientationchange', handleUpdate);
 
     return () => {
       cancelAnimationFrame(animationFrameId);
-      window.removeEventListener('resize', handleResize);
-      window.removeEventListener('orientationchange', handleResize);
+      window.removeEventListener('scroll', handleUpdate);
+      window.removeEventListener('touchmove', handleUpdate);
+      window.removeEventListener('resize', handleUpdate);
+      window.removeEventListener('orientationchange', handleUpdate);
     };
   }, [containerRef, findNearestIndex, warmLRU]);
 

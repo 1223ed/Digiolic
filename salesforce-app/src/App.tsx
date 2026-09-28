@@ -44,72 +44,36 @@ export default function App() {
     };
   }, [mobileMenuOpen]);
 
-  const [isMobile, setIsMobile] = useState(() =>
-    typeof window !== 'undefined' ? window.innerWidth <= 768 : false
-  );
+  const p = scrollProgress;
 
-  useEffect(() => {
-    const handleResize = () => {
-      const mobile = window.innerWidth <= 768;
-      setIsMobile(mobile);
-      if (mobile && videoRef.current) {
-        videoRef.current.loop = true;
-        videoRef.current.play().catch(() => {});
-      }
-    };
-    handleResize();
-    window.addEventListener('resize', handleResize);
-    window.addEventListener('orientationchange', handleResize);
-    return () => {
-      window.removeEventListener('resize', handleResize);
-      window.removeEventListener('orientationchange', handleResize);
-    };
-  }, []);
+  // Continuous Smooth Opacities: no gaps, no dead zones
+  // Section 1: visible from start, smoothly cross-fades between 0.22 and 0.35
+  const s1Opacity =
+    p < 0.22 ? 1 : p < 0.35 ? Math.max(0, 1 - (p - 0.22) / 0.13) : 0;
 
-  // Ensure autoplay on mobile immediately and on user interaction
-  useEffect(() => {
-    if (!isMobile) return;
-    const playVid = () => {
-      if (videoRef.current) {
-        videoRef.current.loop = true;
-        videoRef.current.play().catch(() => {});
-      }
-    };
-    playVid();
-    window.addEventListener('touchstart', playVid, { once: true, passive: true });
-    window.addEventListener('click', playVid, { once: true });
-    window.addEventListener('scroll', playVid, { once: true, passive: true });
-    return () => {
-      window.removeEventListener('touchstart', playVid);
-      window.removeEventListener('click', playVid);
-      window.removeEventListener('scroll', playVid);
-    };
-  }, [isMobile]);
+  // Section 2: cross-fades in between 0.22 and 0.35, holds until 0.58, fades out between 0.58 and 0.70
+  const s2Opacity =
+    p < 0.22
+      ? 0
+      : p < 0.35
+      ? (p - 0.22) / 0.13
+      : p < 0.58
+      ? 1
+      : p < 0.70
+      ? Math.max(0, 1 - (p - 0.58) / 0.12)
+      : 0;
 
-  const p = isMobile ? 0 : scrollProgress;
+  // Section 3: cross-fades in between 0.58 and 0.70, holds until end
+  const s3Opacity =
+    p < 0.58 ? 0 : p < 0.70 ? (p - 0.58) / 0.12 : 1;
 
-  // Sequential Opacities: previous section fully fades out before next appears
-  const s1Opacity = isMobile ? 1 : (p < 0.2 ? 1 : Math.max(0, 1 - (p - 0.2) / 0.08));
+  // Stagger visibility: visible when section opacity > 0.15
+  const s1StaggerVisible = s1Opacity > 0.15;
+  const s2StaggerVisible = s2Opacity > 0.15;
+  const s3StaggerVisible = s3Opacity > 0.15;
 
-  const s2Opacity = isMobile
-    ? 0
-    : p < 0.32
-    ? 0
-    : p < 0.4
-    ? (p - 0.32) / 0.08
-    : p < 0.55
-    ? 1
-    : Math.max(0, 1 - (p - 0.55) / 0.08);
-
-  const s3Opacity = isMobile ? 0 : (p < 0.67 ? 0 : p < 0.75 ? (p - 0.67) / 0.08 : 1);
-
-  // Stagger visibility: visible when section opacity > 0.3
-  const s1StaggerVisible = isMobile || s1Opacity > 0.3;
-  const s2StaggerVisible = !isMobile && s2Opacity > 0.3;
-  const s3StaggerVisible = !isMobile && s3Opacity > 0.3;
-
-  // Color flips at p > 0.55: DARK -> white (duration-500)
-  const isLight = isMobile ? true : p <= 0.55;
+  // Color flips at p > 0.64: DARK -> white (when video enters dark mountain night scene)
+  const isLight = p <= 0.64;
   const navColor = isLight ? DARK : '#FFFFFF';
 
   const scrollToNext = (targetP: number) => {
@@ -127,14 +91,14 @@ export default function App() {
   return (
     <div
       ref={containerRef}
-      className={`relative w-full ${isMobile ? 'h-screen h-[100dvh] overflow-hidden' : 'h-[500vh]'}`}
+      className="relative h-[500vh] w-full"
       style={{
         fontFamily: "'Helvetica Neue ME', 'Helvetica Neue', Helvetica, Arial, sans-serif",
       }}
     >
-      {/* Sticky Full-Viewport Scene on Desktop, Relative Full-Viewport on Mobile */}
-      <div className={`w-full overflow-hidden ${isMobile ? 'relative h-full' : 'sticky top-0 h-screen h-[100dvh]'}`}>
-        {/* 1. Video Element (Full Cover Background, autoplays & loops on mobile) */}
+      {/* Sticky Full-Viewport Scene on both Desktop & Mobile */}
+      <div className="sticky top-0 w-full h-screen h-[100dvh] overflow-hidden">
+        {/* 1. Video Element (Full Cover Background, driven strictly by scroll) */}
         <video
           ref={videoRef}
           src={VIDEO_URL}
@@ -144,8 +108,6 @@ export default function App() {
           // @ts-ignore
           webkit-playsinline="true"
           preload="auto"
-          autoPlay={isMobile}
-          loop={isMobile}
         >
           <source src={VIDEO_URL} type="video/mp4" />
           <source
@@ -155,27 +117,14 @@ export default function App() {
         </video>
 
         {/* 2. WebCodecs Frame Bank Canvas (Full Cover, fades in when frame-bank is live) */}
-        {!isMobile && (
-          <canvas
-            ref={canvasRef}
-            width={1920}
-            height={1080}
-            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-300 ${
-              canvasLive ? 'opacity-100' : 'opacity-0'
-            }`}
-          />
-        )}
-
-        {/* Soft light overlay on mobile to ensure crisp typography over mountain video */}
-        {isMobile && (
-          <div
-            className="absolute inset-0 pointer-events-none"
-            style={{
-              background:
-                'linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.45) 50%, rgba(255, 255, 255, 0.72) 100%)',
-            }}
-          />
-        )}
+        <canvas
+          ref={canvasRef}
+          width={1920}
+          height={1080}
+          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-300 ${
+            canvasLive ? 'opacity-100' : 'opacity-0'
+          }`}
+        />
 
         {/* 3. Overlay Layer (Navbar + 3 Sequential Sections, no color overlays or gradients) */}
         <div className="absolute inset-0 pointer-events-none">
@@ -309,13 +258,11 @@ export default function App() {
               SECTION 1 (hero, centered)
               ========================================================================= */}
           <section
-            className={`absolute inset-0 flex flex-col items-center justify-center text-center px-4 sm:px-8 md:px-12 ${
-              isMobile ? 'pt-20 pb-8' : 'pt-16 sm:pt-20 md:pt-0'
-            }`}
+            className="absolute inset-0 flex flex-col items-center justify-center text-center px-4 sm:px-8 md:px-12 pt-16 sm:pt-20 md:pt-0"
             style={{
-              opacity: isMobile ? 1 : s1Opacity,
+              opacity: s1Opacity,
               transition: 'opacity 0.1s ease-out',
-              pointerEvents: isMobile || s1Opacity > 0.1 ? 'auto' : 'none',
+              pointerEvents: s1Opacity > 0.1 ? 'auto' : 'none',
             }}
           >
             <div className="max-w-[1400px] w-full flex flex-col items-center text-center px-1 sm:px-2">
@@ -326,8 +273,10 @@ export default function App() {
                   backgroundColor: '#000000',
                   border: '1px solid rgba(255, 255, 255, 0.2)',
                   boxShadow: '0 4px 16px rgba(0, 0, 0, 0.35)',
-                  opacity: 1,
-                  transform: 'translateY(0)',
+                  opacity: s1StaggerVisible ? 1 : 0,
+                  transform: s1StaggerVisible ? 'translateY(0)' : 'translateY(24px)',
+                  transition: staggerTransition,
+                  transitionDelay: '0ms',
                 }}
               >
                 <span className="hero-home-exp-badge-text text-white font-extrabold text-[10.5px] sm:text-[13.5px] uppercase tracking-wider leading-none">
@@ -342,8 +291,10 @@ export default function App() {
                   color: DARK,
                   fontSize: 'clamp(26px, 7vw, 64px)',
                   letterSpacing: '-0.035em',
-                  opacity: 1,
-                  transform: 'translateY(0)',
+                  opacity: s1StaggerVisible ? 1 : 0,
+                  transform: s1StaggerVisible ? 'translateY(0)' : 'translateY(24px)',
+                  transition: staggerTransition,
+                  transitionDelay: '0ms',
                 }}
               >
                 <span className="hero-brand-anim hero-brand-zoho">Zoho</span>{', '}
@@ -358,8 +309,10 @@ export default function App() {
                   color: DARK,
                   fontSize: 'clamp(17px, 4.5vw, 48px)',
                   letterSpacing: '-0.025em',
-                  opacity: 1,
-                  transform: 'translateY(0)',
+                  opacity: s1StaggerVisible ? 1 : 0,
+                  transform: s1StaggerVisible ? 'translateY(0)' : 'translateY(24px)',
+                  transition: staggerTransition,
+                  transitionDelay: '100ms',
                 }}
               >
                 Complexity Simplified, Growth Amplified
@@ -370,54 +323,32 @@ export default function App() {
                 className="mt-3 sm:mt-5 text-[14px] sm:text-[18px] md:text-[20px] max-w-2xl text-center leading-[1.5] sm:leading-[1.6] font-normal px-2"
                 style={{
                   color: '#1E293B',
-                  opacity: 1,
-                  transform: 'translateY(0)',
+                  opacity: s1StaggerVisible ? 1 : 0,
+                  transform: s1StaggerVisible ? 'translateY(0)' : 'translateY(24px)',
+                  transition: staggerTransition,
+                  transitionDelay: '200ms',
                 }}
               >
                 Let's make your business incredible together by uniting powerful Zoho and Salesforce architectures with performance-driven digital marketing.
               </p>
-
-              {/* Action Buttons */}
-              {isMobile ? (
-                <div className="mt-5 flex items-center justify-center gap-3 pointer-events-auto">
-                  <a
-                    href="pages/contact.html"
-                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full font-bold text-xs tracking-wider uppercase bg-[#1D3045] text-white hover:bg-black transition-all shadow-md"
-                  >
-                    <span>Get in Touch</span>
-                    <ArrowRight size={13} />
-                  </a>
-                  <button
-                    onClick={() => {
-                      const el = document.getElementById('metricsSection');
-                      if (el) el.scrollIntoView({ behavior: 'smooth' });
-                    }}
-                    className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-full font-semibold text-xs tracking-wide bg-white/90 backdrop-blur text-[#1D3045] border border-[#1D3045]/20 hover:bg-white transition-all shadow-sm"
-                    aria-label="Scroll to Achievements"
-                  >
-                    <span>Explore</span>
-                    <ArrowDown size={13} />
-                  </button>
-                </div>
-              ) : (
-                /* Bottom-right 48px circle button for desktop */
-                <button
-                  onClick={() => scrollToNext(0.42)}
-                  className="absolute bottom-8 sm:bottom-12 right-6 sm:right-8 md:right-12 w-12 h-12 rounded-full flex items-center justify-center hover:opacity-70 transition-opacity duration-300 z-30 pointer-events-auto"
-                  style={{
-                    border: '1px solid #1D304580',
-                    color: DARK,
-                    opacity: s1StaggerVisible ? 1 : 0,
-                    transform: s1StaggerVisible ? 'translateY(0)' : 'translateY(24px)',
-                    transition: staggerTransition,
-                    transitionDelay: '300ms',
-                  }}
-                  aria-label="Next Section"
-                >
-                  <ArrowRight size={18} />
-                </button>
-              )}
             </div>
+
+            {/* Bottom-right circle button to scroll to Section 2 */}
+            <button
+              onClick={() => scrollToNext(0.42)}
+              className="absolute bottom-8 sm:bottom-12 right-6 sm:right-8 md:right-12 w-12 h-12 rounded-full flex items-center justify-center hover:opacity-70 transition-opacity duration-300 z-30 pointer-events-auto"
+              style={{
+                border: '1px solid #1D304580',
+                color: DARK,
+                opacity: s1StaggerVisible ? 1 : 0,
+                transform: s1StaggerVisible ? 'translateY(0)' : 'translateY(24px)',
+                transition: staggerTransition,
+                transitionDelay: '300ms',
+              }}
+              aria-label="Next Section"
+            >
+              <ArrowRight size={18} />
+            </button>
           </section>
 
           {/* =========================================================================
