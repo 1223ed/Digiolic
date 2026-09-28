@@ -55,8 +55,9 @@
     // Start at middle real set
     let currentIndex = totalOriginal;
     let isAnimating = false;
+    let animSafetyTimer = null;
     let autoplayTimer = null;
-    const AUTOPLAY_INTERVAL = 2000; // 2.0 seconds (brisk, responsive cycle speed)
+    const AUTOPLAY_INTERVAL = 3800; // Comfortable reading interval
 
     function getStepWidth() {
       const vp = section.querySelector('#dtSliderWrap') || section.querySelector('.dt-slider-wrap');
@@ -95,6 +96,10 @@
     }
 
     function handleTransitionEnd() {
+      if (animSafetyTimer) {
+        clearTimeout(animSafetyTimer);
+        animSafetyTimer = null;
+      }
       isAnimating = false;
       // Scrolled past middle set into right clones
       if (currentIndex >= totalOriginal * 2) {
@@ -110,24 +115,30 @@
 
     track.addEventListener('transitionend', handleTransitionEnd);
 
+    function triggerMove() {
+      applyPosition(true);
+      if (animSafetyTimer) clearTimeout(animSafetyTimer);
+      // Guarantee animation lock releases even if browser suppresses transitionend
+      animSafetyTimer = setTimeout(handleTransitionEnd, 420);
+    }
+
     function nextSlide() {
       if (isAnimating) return;
       isAnimating = true;
       currentIndex++;
-      applyPosition(true);
+      triggerMove();
     }
 
     function prevSlide() {
       if (isAnimating) return;
       isAnimating = true;
       currentIndex--;
-      applyPosition(true);
+      triggerMove();
     }
 
-    function startAutoplay() {
-      if (!autoplayTimer) {
-        autoplayTimer = setInterval(nextSlide, AUTOPLAY_INTERVAL);
-      }
+    function startAutoplay(delay = AUTOPLAY_INTERVAL) {
+      stopAutoplay();
+      autoplayTimer = setInterval(nextSlide, delay);
     }
 
     function stopAutoplay() {
@@ -137,80 +148,114 @@
       }
     }
 
-    function resetAutoplay() {
+    function resetAutoplay(pauseDelay = 6000) {
       stopAutoplay();
-      startAutoplay();
+      // Allow user generous time to read before restarting autoplay
+      setTimeout(() => {
+        startAutoplay(AUTOPLAY_INTERVAL);
+      }, pauseDelay);
     }
 
-    // Button controls
-    if (nextBtn) {
-      nextBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        nextSlide();
-        resetAutoplay();
-      });
+    // Touch-optimized reliable button binder
+    function bindButton(btn, callback) {
+      if (!btn) return;
+      let lastTrigger = 0;
+
+      const handler = (e) => {
+        if (e) {
+          e.preventDefault();
+          e.stopPropagation();
+        }
+        const now = Date.now();
+        if (now - lastTrigger < 320) return; // Prevent double-trigger from touchend + click
+        lastTrigger = now;
+        callback();
+      };
+
+      btn.addEventListener('click', handler);
+      btn.addEventListener('touchend', handler, { passive: false });
     }
 
-    if (prevBtn) {
-      prevBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        prevSlide();
-        resetAutoplay();
-      });
-    }
+    bindButton(nextBtn, () => {
+      nextSlide();
+      resetAutoplay(6000);
+    });
+
+    bindButton(prevBtn, () => {
+      prevSlide();
+      resetAutoplay(6000);
+    });
 
     // Dot indicators
     dots.forEach((dot, idx) => {
-      dot.addEventListener('click', (e) => {
-        e.preventDefault();
+      bindButton(dot, () => {
         if (isAnimating) return;
         isAnimating = true;
         currentIndex = totalOriginal + idx;
-        applyPosition(true);
-        resetAutoplay();
+        triggerMove();
+        resetAutoplay(6000);
       });
     });
 
     // Pause on hover
     cardStage.addEventListener('mouseenter', stopAutoplay);
-    cardStage.addEventListener('mouseleave', startAutoplay);
+    cardStage.addEventListener('mouseleave', () => startAutoplay(AUTOPLAY_INTERVAL));
     cardStage.addEventListener('focusin', stopAutoplay);
-    cardStage.addEventListener('focusout', startAutoplay);
+    cardStage.addEventListener('focusout', () => startAutoplay(AUTOPLAY_INTERVAL));
 
     // Touch swipe gestures
     let touchStartX = 0;
+    let touchStartY = 0;
     cardStage.addEventListener('touchstart', (e) => {
+      // Do not process swipe if touching the navigation buttons or dots
+      if (e.target.closest('#dtPrevBtn, #dtNextBtn, .dt-arrow-btn, .dt-dot')) {
+        return;
+      }
       touchStartX = e.changedTouches[0].clientX;
+      touchStartY = e.changedTouches[0].clientY;
       stopAutoplay();
     }, { passive: true });
 
     cardStage.addEventListener('touchend', (e) => {
+      if (e.target.closest('#dtPrevBtn, #dtNextBtn, .dt-arrow-btn, .dt-dot')) {
+        return;
+      }
       const touchEndX = e.changedTouches[0].clientX;
+      const touchEndY = e.changedTouches[0].clientY;
       const diffX = touchStartX - touchEndX;
-      if (Math.abs(diffX) > 40) {
+      const diffY = touchStartY - touchEndY;
+      // Require clear horizontal swipe intent over vertical page scrolling
+      if (Math.abs(diffX) > 40 && Math.abs(diffX) > Math.abs(diffY * 1.5)) {
         if (diffX > 0) {
           nextSlide();
         } else {
           prevSlide();
         }
       }
-      startAutoplay();
+      resetAutoplay(5000);
     }, { passive: true });
 
     // Arrow keys navigation
     section.addEventListener('keydown', (e) => {
       if (e.key === 'ArrowRight') {
         nextSlide();
-        resetAutoplay();
+        resetAutoplay(6000);
       } else if (e.key === 'ArrowLeft') {
         prevSlide();
-        resetAutoplay();
+        resetAutoplay(6000);
       }
     });
 
     window.addEventListener('resize', () => {
       updateSlideWidths();
       applyPosition(false);
+    });
+
+    window.addEventListener('orientationchange', () => {
+      setTimeout(() => {
+        updateSlideWidths();
+        applyPosition(false);
+      }, 100);
     });
 
     // Initialize starting position at real set without animation

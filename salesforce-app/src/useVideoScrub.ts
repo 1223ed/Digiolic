@@ -35,6 +35,7 @@ export function useVideoScrub(
   const readyRef = useRef<boolean>(false);
   const revertedRef = useRef<boolean>(false);
   const paintedRef = useRef<boolean>(false);
+  const initialPaintDoneRef = useRef<boolean>(false);
   const buildingRef = useRef<boolean>(false);
   const canvasLiveRef = useRef<boolean>(false);
   const watchdogTimerRef = useRef<any>(null);
@@ -264,6 +265,7 @@ export function useVideoScrub(
               readyRef.current = true;
               buildingRef.current = false;
               setIsReady(true);
+              warmLRU(0);
               clearTimeout(watchdogTimerRef.current);
             }
           }, 300);
@@ -323,14 +325,20 @@ export function useVideoScrub(
           durationRef.current = video.duration;
           setDuration(video.duration);
         }
+        if (!initialPaintDoneRef.current && video.readyState >= 1) {
+          try {
+            video.currentTime = 0.001;
+            initialPaintDoneRef.current = true;
+          } catch {}
+        }
       };
       video.addEventListener('loadedmetadata', syncMeta);
       video.addEventListener('loadeddata', syncMeta);
       video.addEventListener('canplay', syncMeta);
-      if (video.duration > 0) syncMeta();
+      if (video.duration > 0 || video.readyState >= 1) syncMeta();
 
       // In iOS Safari, inline muted videos will not decode or paint frame 0 to the screen
-      // unless briefly kicked into playback. We prime it and immediately pause at 0
+      // unless briefly kicked into playback. We prime it and immediately pause at 0.001
       // so it never autoplays as a timeline, but frame 0 renders and seeking is enabled.
       let primed = false;
       const prime = () => {
@@ -340,7 +348,8 @@ export function useVideoScrub(
           p.then(() => {
             primed = true;
             video.pause();
-            video.currentTime = 0;
+            video.currentTime = 0.001;
+            initialPaintDoneRef.current = true;
             syncMeta();
           }).catch(() => {});
         }
@@ -407,12 +416,17 @@ export function useVideoScrub(
             }
           }
         } else {
-          // 2. Fallback: if not seeking and abs(video.currentTime - current) > 0.01, set video.currentTime = current
+          // 2. Fallback: ensure frame 0 is painted initially, and scrub as user scrolls
           const vid = videoRef.current;
           if (vid && vid.readyState >= 1) {
-            if (!vid.seeking && Math.abs(vid.currentTime - currentTimeRef.current) > 0.01) {
+            if (!initialPaintDoneRef.current) {
               try {
-                vid.currentTime = currentTimeRef.current;
+                vid.currentTime = 0.001;
+                initialPaintDoneRef.current = true;
+              } catch {}
+            } else if (!vid.seeking && Math.abs(vid.currentTime - currentTimeRef.current) > 0.01) {
+              try {
+                vid.currentTime = Math.max(0.001, currentTimeRef.current);
               } catch {}
             }
           }

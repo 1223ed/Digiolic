@@ -99,6 +99,7 @@ export default function App() {
         <video
           ref={videoRef}
           src={VIDEO_URL}
+          poster="assets/images/hf_20260821_114821_a8ca298f-be2c-4613-a4dd-51b69e16bbde.mp4.png"
           className="absolute inset-0 w-full h-full object-cover"
           muted
           playsInline

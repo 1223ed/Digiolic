@@ -825,7 +825,41 @@ textarea {
   /* Denim Testimonial Section Fluid Sizing */
   .denim-testimonial-section {
     min-height: auto !important;
-    padding: 3rem 1rem 4rem !important;
+    padding: 3rem 1.25rem 4rem !important;
+    overflow: visible !important;
+  }
+
+  .dt-main-container {
+    overflow: visible !important;
+  }
+
+  .dt-card-stage {
+    overflow: visible !important;
+  }
+
+  /* Reliable Mobile Arrow Buttons */
+  .dt-arrow-btn {
+    width: 44px !important;
+    height: 44px !important;
+    z-index: 50 !important;
+    touch-action: manipulation !important;
+    -webkit-tap-highlight-color: transparent !important;
+    pointer-events: auto !important;
+    cursor: pointer !important;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.35) !important;
+  }
+
+  .dt-arrow-btn svg {
+    width: 20px !important;
+    height: 20px !important;
+  }
+
+  .dt-arrow-prev {
+    left: -10px !important;
+  }
+
+  .dt-arrow-next {
+    right: -10px !important;
   }
 
   .dt-stripes-background {
