@@ -40,6 +40,52 @@ export function useVideoScrub(
   const canvasLiveRef = useRef<boolean>(false);
   const watchdogTimerRef = useRef<any>(null);
 
+  // Seeking queue refs for smooth video scrubbing without black frame blanking
+  const isSeekingRef = useRef<boolean>(false);
+  const pendingTimeRef = useRef<number | null>(null);
+  const lastSeekRequestTimeRef = useRef<number>(0);
+
+  // Helper to draw current video frame to canvas so canvas is live immediately
+  const drawVideoToCanvas = useCallback(() => {
+    const cvs = canvasRef.current;
+    const vid = videoRef.current;
+    if (!cvs || !vid || vid.readyState < 2) return;
+    try {
+      const ctx = cvs.getContext('2d');
+      if (ctx) {
+        ctx.drawImage(vid, 0, 0, cvs.width, cvs.height);
+        if (!canvasLiveRef.current) {
+          canvasLiveRef.current = true;
+          paintedRef.current = true;
+          setCanvasLive(true);
+        }
+      }
+    } catch {
+      // Ignored if tainted or CORS issue
+    }
+  }, []);
+
+  // Helper to execute serialized seeks safely with fastSeek support
+  const applySeek = useCallback((time: number) => {
+    const vid = videoRef.current;
+    if (!vid || vid.readyState < 1) return;
+    const dur = durationRef.current || vid.duration || 10;
+    const clamped = Math.max(0.001, Math.min(dur - 0.05, time));
+
+    isSeekingRef.current = true;
+    lastSeekRequestTimeRef.current = performance.now();
+
+    try {
+      if (typeof (vid as any).fastSeek === 'function') {
+        (vid as any).fastSeek(clamped);
+      } else {
+        vid.currentTime = clamped;
+      }
+    } catch {
+      isSeekingRef.current = false;
+    }
+  }, []);
+
   // Binary search for nearest frame by microseconds
   const findNearestIndex = useCallback((targetMicro: number): number => {
     const bank = bankRef.current;
@@ -305,7 +351,7 @@ export function useVideoScrub(
     const computeProgress = () => {
       const container = containerRef.current;
       if (!container) return 0;
-      const scrollY = window.scrollY || window.pageYOffset;
+      const scrollY = window.scrollY || window.pageYOffset || document.documentElement.scrollTop || 0;
       const maxScroll = container.offsetHeight - window.innerHeight;
       if (maxScroll <= 0) return 0;
       return Math.max(0, Math.min(1, scrollY / maxScroll));
@@ -313,6 +359,9 @@ export function useVideoScrub(
 
     // Video metadata sync & iOS Safari priming
     const video = videoRef.current;
+    let onSeekedListener: (() => void) | null = null;
+    let syncMetaListener: (() => void) | null = null;
+
     if (video) {
       video.muted = true;
       video.defaultMuted = true;
@@ -331,10 +380,30 @@ export function useVideoScrub(
             initialPaintDoneRef.current = true;
           } catch {}
         }
+        drawVideoToCanvas();
       };
+      syncMetaListener = syncMeta;
+
+      const onSeeked = () => {
+        drawVideoToCanvas();
+        if (pendingTimeRef.current !== null) {
+          const nextTime = pendingTimeRef.current;
+          pendingTimeRef.current = null;
+          if (Math.abs(video.currentTime - nextTime) > 0.02) {
+            applySeek(nextTime);
+            return;
+          }
+        }
+        isSeekingRef.current = false;
+      };
+      onSeekedListener = onSeeked;
+
       video.addEventListener('loadedmetadata', syncMeta);
       video.addEventListener('loadeddata', syncMeta);
       video.addEventListener('canplay', syncMeta);
+      video.addEventListener('seeked', onSeeked);
+      video.addEventListener('timeupdate', drawVideoToCanvas);
+
       if (video.duration > 0 || video.readyState >= 1) syncMeta();
 
       // In iOS Safari, inline muted videos will not decode or paint frame 0 to the screen
@@ -350,6 +419,7 @@ export function useVideoScrub(
             video.pause();
             video.currentTime = 0.001;
             initialPaintDoneRef.current = true;
+            drawVideoToCanvas();
             syncMeta();
           }).catch(() => {});
         }
@@ -416,7 +486,7 @@ export function useVideoScrub(
             }
           }
         } else {
-          // 2. Fallback: ensure frame 0 is painted initially, and scrub as user scrolls
+          // 2. Fallback: ensure frame 0 is painted initially, and scrub with queue
           const vid = videoRef.current;
           if (vid && vid.readyState >= 1) {
             if (!initialPaintDoneRef.current) {
@@ -424,10 +494,20 @@ export function useVideoScrub(
                 vid.currentTime = 0.001;
                 initialPaintDoneRef.current = true;
               } catch {}
-            } else if (!vid.seeking && Math.abs(vid.currentTime - currentTimeRef.current) > 0.01) {
-              try {
-                vid.currentTime = Math.max(0.001, currentTimeRef.current);
-              } catch {}
+            } else {
+              // Reset seeking lock if stalled for > 250ms
+              if (isSeekingRef.current && performance.now() - lastSeekRequestTimeRef.current > 250) {
+                isSeekingRef.current = false;
+              }
+
+              const targetTime = currentTimeRef.current;
+              if (!isSeekingRef.current) {
+                if (Math.abs(vid.currentTime - targetTime) > 0.02) {
+                  applySeek(targetTime);
+                }
+              } else {
+                pendingTimeRef.current = targetTime;
+              }
             }
           }
         }
@@ -449,8 +529,19 @@ export function useVideoScrub(
       cancelAnimationFrame(animationFrameId);
       window.removeEventListener('resize', handleResize);
       window.removeEventListener('orientationchange', handleResize);
+      if (video) {
+        if (syncMetaListener) {
+          video.removeEventListener('loadedmetadata', syncMetaListener);
+          video.removeEventListener('loadeddata', syncMetaListener);
+          video.removeEventListener('canplay', syncMetaListener);
+        }
+        if (onSeekedListener) {
+          video.removeEventListener('seeked', onSeekedListener);
+        }
+        video.removeEventListener('timeupdate', drawVideoToCanvas);
+      }
     };
-  }, [containerRef, findNearestIndex, warmLRU]);
+  }, [containerRef, findNearestIndex, warmLRU, drawVideoToCanvas, applySeek]);
 
   return {
     videoRef,

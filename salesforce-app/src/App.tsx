@@ -88,24 +88,41 @@ export default function App() {
   return (
     <div
       ref={containerRef}
-      className="relative h-[500vh] w-full"
+      className="hero-video-scroll-wrapper relative h-[500vh] w-full"
       style={{
         fontFamily: "'Helvetica Neue ME', 'Helvetica Neue', Helvetica, Arial, sans-serif",
       }}
     >
       {/* Sticky Full-Viewport Scene */}
-      <div className="sticky top-0 w-full h-screen h-[100dvh] overflow-hidden">
+      <div
+        className="hero-video-sticky-stage sticky top-0 w-full h-screen h-[100dvh] overflow-hidden"
+        style={{
+          position: 'sticky',
+          // @ts-ignore
+          WebkitPosition: '-webkit-sticky',
+          backgroundColor: '#1D3045',
+          backgroundImage: "url('assets/images/hf_20260821_114821_a8ca298f-be2c-4613-a4dd-51b69e16bbde.mp4.png')",
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+        }}
+      >
         {/* 1. Video Element (Full Cover Background, no autoplay, driven strictly by scroll) */}
         <video
           ref={videoRef}
           src={VIDEO_URL}
           poster="assets/images/hf_20260821_114821_a8ca298f-be2c-4613-a4dd-51b69e16bbde.mp4.png"
-          className="absolute inset-0 w-full h-full object-cover"
+          className="hero-bg-video absolute inset-0 w-full h-full object-cover"
+          crossOrigin="anonymous"
           muted
           playsInline
           // @ts-ignore
           webkit-playsinline="true"
           preload="auto"
+          style={{
+            objectFit: 'cover',
+            objectPosition: 'center center',
+          }}
         >
           <source src={VIDEO_URL} type="video/mp4" />
           <source
@@ -119,9 +136,13 @@ export default function App() {
           ref={canvasRef}
           width={1920}
           height={1080}
-          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-300 ${
+          className={`hero-bg-canvas absolute inset-0 w-full h-full object-cover transition-opacity duration-300 ${
             canvasLive ? 'opacity-100' : 'opacity-0'
           }`}
+          style={{
+            objectFit: 'cover',
+            objectPosition: 'center center',
+          }}
         />
 
         {/* 3. Overlay Layer (Navbar + 3 Sequential Sections, no color overlays or gradients) */}

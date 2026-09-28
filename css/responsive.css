@@ -25,8 +25,8 @@ body {
 }
 
 img,
-video,
-canvas {
+video:not(.hero-bg-video):not(#heroScrollWrapper video),
+canvas:not(.hero-bg-canvas):not(#heroScrollWrapper canvas) {
   max-width: 100% !important;
   height: auto;
 }
@@ -551,22 +551,55 @@ textarea {
   }
 
   /* Homepage Hero on Mobile: 3-Stage Sticky Cinematic Scroll (Sections 1, 2 & 3) */
-  .hero-video-scroll-wrapper {
+  .hero-video-scroll-wrapper,
+  #heroScrollWrapper {
     height: 500vh !important;
-    background-color: #DBE3EB !important;
+    min-height: 500vh !important;
+    background-color: #1D3045 !important;
+    background-image: none !important;
     position: relative !important;
     width: 100% !important;
   }
 
+  .hero-video-sticky-stage,
+  #heroScrollWrapper .hero-video-sticky-stage,
+  #heroScrollWrapper .sticky {
+    position: -webkit-sticky !important;
+    position: sticky !important;
+    top: 0 !important;
+    left: 0 !important;
+    height: 100vh !important;
+    height: 100dvh !important;
+    min-height: 100vh !important;
+    min-height: 100dvh !important;
+    max-height: 100dvh !important;
+    width: 100% !important;
+    overflow: hidden !important;
+    background-color: #1D3045 !important;
+    background-image: url('../assets/images/hf_20260821_114821_a8ca298f-be2c-4613-a4dd-51b69e16bbde.mp4.png') !important;
+    background-size: cover !important;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+    z-index: 10 !important;
+  }
+
   .hero-bg-video,
-  .hero-bg-canvas {
+  .hero-bg-canvas,
+  #heroScrollWrapper video,
+  #heroScrollWrapper canvas {
     position: absolute !important;
     top: 0 !important;
     left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
     width: 100% !important;
     height: 100% !important;
+    min-width: 100% !important;
+    min-height: 100% !important;
+    max-width: none !important;
+    max-height: none !important;
     object-fit: cover !important;
-    object-position: 30% 60% !important;
+    object-position: center center !important;
     display: block !important;
     opacity: 1 !important;
     z-index: 1 !important;
@@ -574,16 +607,9 @@ textarea {
     filter: none !important;
   }
 
-  .hero-video-sticky-stage {
-    position: sticky !important;
-    top: 0 !important;
-    left: 0 !important;
-    height: 100vh !important;
-    height: 100dvh !important;
-    width: 100% !important;
-    overflow: hidden !important;
-    background-color: #DBE3EB !important;
-    z-index: 10 !important;
+  .hero-bg-canvas,
+  #heroScrollWrapper canvas {
+    z-index: 2 !important;
   }
 
   .hero-video-ui-overlay {
