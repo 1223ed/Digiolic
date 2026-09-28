@@ -3,8 +3,7 @@ import { ArrowRight, ArrowDown, ChevronUp, X } from 'lucide-react';
 import { useVideoScrub } from '@/useVideoScrub';
 
 const DARK = '#1D3045';
-const VIDEO_URL =
-  'https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260821_114821_a8ca298f-be2c-4613-a4dd-51b69e16bbde.mp4';
+const VIDEO_URL = 'assets/videos/hf_hero_optimized.mp4';
 
 const NAV_LINKS = [
   { label: 'Home', href: 'index.html', active: true },
@@ -46,31 +45,31 @@ export default function App() {
 
   const p = scrollProgress;
 
-  // Continuous Smooth Opacities: no gaps, no dead zones
-  // Section 1: visible from start, smoothly cross-fades between 0.22 and 0.35
+  // Continuous Smooth Opacities: solid windows, smooth cross-fades, no gaps
+  // Section 1: visible from start (p = 0), holds until 0.18, smoothly cross-fades out between 0.18 and 0.32
   const s1Opacity =
-    p < 0.22 ? 1 : p < 0.35 ? Math.max(0, 1 - (p - 0.22) / 0.13) : 0;
+    p < 0.18 ? 1 : p < 0.32 ? Math.max(0, 1 - (p - 0.18) / 0.14) : 0;
 
-  // Section 2: cross-fades in between 0.22 and 0.35, holds until 0.58, fades out between 0.58 and 0.70
+  // Section 2: cross-fades in between 0.18 and 0.32, holds firmly from 0.32 to 0.60, cross-fades out between 0.60 and 0.74
   const s2Opacity =
-    p < 0.22
+    p < 0.18
       ? 0
-      : p < 0.35
-      ? (p - 0.22) / 0.13
-      : p < 0.58
+      : p < 0.32
+      ? (p - 0.18) / 0.14
+      : p < 0.60
       ? 1
-      : p < 0.70
-      ? Math.max(0, 1 - (p - 0.58) / 0.12)
+      : p < 0.74
+      ? Math.max(0, 1 - (p - 0.60) / 0.14)
       : 0;
 
-  // Section 3: cross-fades in between 0.58 and 0.70, holds until end
+  // Section 3: cross-fades in between 0.60 and 0.74, holds until 1.0
   const s3Opacity =
-    p < 0.58 ? 0 : p < 0.70 ? (p - 0.58) / 0.12 : 1;
+    p < 0.60 ? 0 : p < 0.74 ? (p - 0.60) / 0.14 : 1;
 
-  // Stagger visibility: visible when section opacity > 0.15
-  const s1StaggerVisible = s1Opacity > 0.15;
-  const s2StaggerVisible = s2Opacity > 0.15;
-  const s3StaggerVisible = s3Opacity > 0.15;
+  // Stagger visibility: visible when section opacity > 0.05
+  const s1StaggerVisible = s1Opacity > 0.05;
+  const s2StaggerVisible = s2Opacity > 0.05;
+  const s3StaggerVisible = s3Opacity > 0.05;
 
   // Color flips at p > 0.64: DARK -> white (when video enters dark mountain night scene)
   const isLight = p <= 0.64;
@@ -97,7 +96,18 @@ export default function App() {
       }}
     >
       {/* Sticky Full-Viewport Scene on both Desktop & Mobile */}
-      <div className="sticky top-0 w-full h-screen h-[100dvh] overflow-hidden">
+      <div
+        className="sticky top-0 w-full h-screen h-[100dvh] overflow-hidden"
+        style={{
+          position: 'sticky',
+          top: 0,
+          left: 0,
+          right: 0,
+          width: '100%',
+          height: '100dvh',
+          zIndex: 10,
+        }}
+      >
         {/* 1. Video Element (Full Cover Background, driven strictly by scroll) */}
         <video
           ref={videoRef}
@@ -109,22 +119,12 @@ export default function App() {
           webkit-playsinline="true"
           preload="auto"
         >
-          <source src={VIDEO_URL} type="video/mp4" />
+          <source src="assets/videos/hf_hero_optimized.mp4" type="video/mp4" />
           <source
             src="assets/videos/hf_20260821_114821_a8ca298f-be2c-4613-a4dd-51b69e16bbde.mp4"
             type="video/mp4"
           />
         </video>
-
-        {/* 2. WebCodecs Frame Bank Canvas (Full Cover, fades in when frame-bank is live) */}
-        <canvas
-          ref={canvasRef}
-          width={1920}
-          height={1080}
-          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-300 ${
-            canvasLive ? 'opacity-100' : 'opacity-0'
-          }`}
-        />
 
         {/* 3. Overlay Layer (Navbar + 3 Sequential Sections, no color overlays or gradients) */}
         <div className="absolute inset-0 pointer-events-none">
@@ -261,11 +261,10 @@ export default function App() {
             className="absolute inset-0 flex flex-col items-center justify-center text-center px-4 sm:px-8 md:px-12 pt-16 sm:pt-20 md:pt-0"
             style={{
               opacity: s1Opacity,
-              transition: 'opacity 0.1s ease-out',
               pointerEvents: s1Opacity > 0.1 ? 'auto' : 'none',
             }}
           >
-            <div className="max-w-[1400px] w-full flex flex-col items-center text-center px-1 sm:px-2">
+            <div className="max-w-[1400px] w-full flex flex-col items-center text-center px-1 sm:px-2 pb-16 md:pb-0">
               {/* Experience Badge */}
               <div
                 className="hero-home-exp-badge inline-flex items-center justify-center gap-2 px-3.5 sm:px-5 py-1.5 sm:py-2 rounded-full mb-3 sm:mb-6 select-none"
@@ -358,11 +357,10 @@ export default function App() {
             className="absolute inset-0 flex items-center justify-center px-6 sm:px-8 pt-16 sm:pt-20 md:pt-0"
             style={{
               opacity: s2Opacity,
-              transition: 'opacity 0.1s ease-out',
               pointerEvents: s2Opacity > 0.1 ? 'auto' : 'none',
             }}
           >
-            <div className="max-w-[900px] w-full text-center flex flex-col items-center">
+            <div className="max-w-[900px] w-full text-center flex flex-col items-center px-4 pb-24 md:pb-0">
               {/* Eyebrow */}
               <div
                 className="text-xs sm:text-sm font-light tracking-[0.25em] uppercase mb-4"
@@ -394,7 +392,7 @@ export default function App() {
 
               {/* Subtitle */}
               <p
-                className="mt-6 text-sm sm:text-base tracking-[0.2em] uppercase max-w-2xl text-center leading-relaxed"
+                className="mt-6 text-sm sm:text-base tracking-[0.2em] uppercase max-w-2xl text-center leading-relaxed px-2"
                 style={{
                   color: `${DARK}E6`,
                   opacity: s2StaggerVisible ? 1 : 0,
@@ -469,7 +467,6 @@ export default function App() {
             className="absolute inset-0 flex items-center justify-center md:justify-end px-6 sm:px-8 md:px-20 lg:px-32 pt-16 sm:pt-20 md:pt-0"
             style={{
               opacity: s3Opacity,
-              transition: 'opacity 0.1s ease-out',
               pointerEvents: s3Opacity > 0.1 ? 'auto' : 'none',
             }}
           >
