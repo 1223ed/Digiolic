@@ -1255,28 +1255,26 @@
       align-items: center !important;
       justify-content: center !important;
       gap: 7px !important;
-      padding: 10px 24px !important;
-      border: 1.5px solid #FFFFFF !important;
+      padding: 10px 24px !important; /* Reduced from 13px 34px */
+      border: 1.5px solid rgba(255, 255, 255, 0.8) !important;
       border-radius: 8px !important;
-      background: #FFFFFF !important;
-      color: #000000 !important;
+      background: rgba(0, 0, 0, 0.3) !important;
+      backdrop-filter: blur(12px) !important;
+      -webkit-backdrop-filter: blur(12px) !important;
+      color: #FFFFFF !important;
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
-      font-size: 0.88rem !important;
-      font-weight: 600 !important;
+      font-size: 0.88rem !important; /* Reduced from 0.98rem */
+      font-weight: 500 !important;
       text-decoration: none !important;
       letter-spacing: 0.01em !important;
       transition: all 0.24s cubic-bezier(0.16, 1, 0.3, 1) !important;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2) !important;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3) !important;
       cursor: pointer !important;
     }
 
-    .zoho-hero-ghost-btn span {
-      color: #000000 !important;
-    }
-
     .zoho-hero-ghost-btn:hover {
-      background: #F3F4F6 !important;
-      color: #000000 !important;
+      background: #FFFFFF !important;
+      color: #0F172A !important;
       border-color: #FFFFFF !important;
       transform: translateY(-2px) !important;
       box-shadow: 0 8px 24px rgba(255, 255, 255, 0.25) !important;
