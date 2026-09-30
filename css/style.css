@@ -248,8 +248,6 @@ h2,
 }
 
 /* 2.2 Reference Size (Matching Zoho's Modern Technology Stack) — up to 68px */
-.sf-section-title,
-.sf-why-choose-title,
 .dm-editorial-heading {
   font-family: var(--font-heading) !important;
   font-size: clamp(42px, 6.2vw, 68px) !important;
@@ -259,7 +257,18 @@ h2,
   color: var(--color-text-primary);
 }
 
-/* 2.3 FAQ Main Heading (Reduced by 30%) */
+/* 2.3 Salesforce Section Titles (Reference: Everything You Need to Get More From Salesforce) — clamp(38px, 5.6vw, 61px) */
+.sf-section-title,
+.sf-why-choose-title {
+  font-family: var(--font-heading) !important;
+  font-size: clamp(38px, 5.6vw, 61px) !important;
+  font-weight: 800 !important;
+  line-height: 1.16 !important;
+  letter-spacing: -0.03em !important;
+  color: var(--color-text-primary);
+}
+
+/* 2.4 FAQ Main Heading (Reduced by 30%) */
 .faq-main-heading {
   font-family: var(--font-heading) !important;
   font-size: clamp(30px, 4.3vw, 48px) !important;
@@ -291,10 +300,13 @@ h2,
     font-size: clamp(34px, 4.8vw, 43px) !important;
   }
 
-  .sf-section-title,
-  .sf-why-choose-title,
   .dm-editorial-heading {
     font-size: clamp(34px, 5.5vw, 52px) !important;
+  }
+
+  .sf-section-title,
+  .sf-why-choose-title {
+    font-size: clamp(31px, 5vw, 47px) !important;
   }
 
   .faq-main-heading {
@@ -324,10 +336,14 @@ h2,
     font-size: clamp(26px, 7.2vw, 34px) !important;
   }
 
-  .sf-section-title,
-  .sf-why-choose-title,
   .dm-editorial-heading {
     font-size: clamp(32px, 8.2vw, 46px) !important;
+    line-height: 1.18 !important;
+  }
+
+  .sf-section-title,
+  .sf-why-choose-title {
+    font-size: clamp(29px, 7.5vw, 41px) !important;
     line-height: 1.18 !important;
   }
 
@@ -787,7 +803,7 @@ input[type="button"] {
 #cloudsSection .sf-section-title,
 #cloudsSection h2.sf-section-title {
   font-family: var(--font-heading, 'Manrope', sans-serif) !important;
-  font-size: clamp(42px, 6.2vw, 68px) !important;
+  font-size: clamp(38px, 5.6vw, 61px) !important;
   font-weight: 800 !important;
   line-height: 1.16 !important;
   letter-spacing: -0.03em !important;
@@ -867,7 +883,7 @@ input[type="button"] {
 #aiSection .sf-section-title,
 #aiSection h2.sf-section-title {
   font-family: var(--font-heading, 'Manrope', sans-serif) !important;
-  font-size: clamp(42px, 6.2vw, 68px) !important;
+  font-size: clamp(38px, 5.6vw, 61px) !important;
   font-weight: 800 !important;
   line-height: 1.16 !important;
   letter-spacing: -0.03em !important;
@@ -945,7 +961,7 @@ input[type="button"] {
 #processSection .sf-section-title,
 #processSection h2.sf-section-title {
   font-family: var(--font-heading, 'Manrope', sans-serif) !important;
-  font-size: clamp(42px, 6.2vw, 68px) !important;
+  font-size: clamp(38px, 5.6vw, 61px) !important;
   font-weight: 800 !important;
   line-height: 1.16 !important;
   letter-spacing: -0.03em !important;
@@ -1004,7 +1020,7 @@ input[type="button"] {
 #whyChooseUs h2.sf-section-title {
   color: #000000 !important;
   font-family: var(--font-heading, 'Manrope', sans-serif) !important;
-  font-size: clamp(42px, 6.2vw, 68px) !important;
+  font-size: clamp(38px, 5.6vw, 61px) !important;
   font-weight: 800 !important;
   line-height: 1.16 !important;
   letter-spacing: -0.03em !important;
