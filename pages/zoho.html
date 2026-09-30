@@ -4212,13 +4212,21 @@
       width: 100% !important;
       max-width: 100% !important;
       margin: 0 !important;
-      background: #FFFFFF !important;
+      background-color: #3b0d46 !important;
+      background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+        linear-gradient(90deg, #5b0d37 0%, #7d1348 20%, #871848 45%, #6a1854 65%, #3d1768 85%, #24145c 100%) !important;
+      background-size: 44px 44px, 44px 44px, 100% 100% !important;
+      background-position: center center !important;
+      background-repeat: repeat, repeat, no-repeat !important;
       padding: clamp(4.5rem, 7vw, 6.5rem) 1.5rem !important;
-      border-top: 1px solid #E2E8F0 !important;
-      border-bottom: 1.5px solid #CBD5E1 !important;
+      border-top: 1px solid rgba(255, 255, 255, 0.12) !important;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12) !important;
       box-sizing: border-box !important;
       text-align: center !important;
       position: relative !important;
+      overflow: hidden !important;
     }
 
     .zoho-tech-container {
@@ -4227,6 +4235,8 @@
       margin: 0 auto !important;
       padding: 0 1rem !important;
       box-sizing: border-box !important;
+      position: relative !important;
+      z-index: 2 !important;
     }
 
     .zoho-tech-header {
@@ -4244,8 +4254,9 @@
       font-weight: 700 !important;
       text-transform: uppercase !important;
       letter-spacing: 0.12em !important;
-      color: #0077D4 !important;
-      background: rgba(0, 119, 212, 0.08) !important;
+      color: #38BDF8 !important;
+      background: rgba(56, 189, 248, 0.14) !important;
+      border: 1px solid rgba(56, 189, 248, 0.35) !important;
       padding: 0.45rem 1.15rem !important;
       border-radius: 9999px !important;
       margin-bottom: 1.25rem !important;
@@ -4258,15 +4269,15 @@
       font-weight: 800 !important;
       line-height: 1.22 !important;
       letter-spacing: -0.025em !important;
-      color: #0F172A !important;
+      color: #FFFFFF !important;
       margin: 0 0 1.15rem 0 !important;
       text-align: center !important;
     }
 
     .zoho-tech-blue {
       display: block !important;
-      color: #0077D4 !important;
-      background: linear-gradient(135deg, #0077D4 0%, #0284C7 50%, #38BDF8 100%) !important;
+      color: #38BDF8 !important;
+      background: linear-gradient(135deg, #60A5FA 0%, #38BDF8 50%, #C084FC 100%) !important;
       -webkit-background-clip: text !important;
       background-clip: text !important;
       -webkit-text-fill-color: transparent !important;
@@ -4276,7 +4287,7 @@
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
       font-size: clamp(15px, 1.8vw, 17px) !important;
       font-weight: 400 !important;
-      color: #64748B !important;
+      color: rgba(241, 245, 249, 0.85) !important;
       line-height: 1.65 !important;
       max-width: 680px !important;
       margin: 0 auto !important;
@@ -4294,15 +4305,15 @@
     }
 
     .zoho-tech-pill {
-      background: #FFFFFF !important;
-      border: 1.5px solid #E2E8F0 !important;
+      background: rgba(255, 255, 255, 0.95) !important;
+      border: 1.5px solid rgba(255, 255, 255, 0.8) !important;
       border-radius: 9999px !important;
       padding: 0.75rem 1.85rem !important;
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
       font-size: 1rem !important;
       font-weight: 700 !important;
-      color: #1E293B !important;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04) !important;
+      color: #0F172A !important;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.22) !important;
       transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
       cursor: default !important;
       user-select: none !important;
@@ -4310,11 +4321,11 @@
     }
 
     .zoho-tech-pill:hover {
-      border-color: #0077D4 !important;
-      color: #0077D4 !important;
-      background: #F8FAFC !important;
-      transform: translateY(-2px) !important;
-      box-shadow: 0 8px 20px rgba(0, 119, 212, 0.12) !important;
+      border-color: #38BDF8 !important;
+      color: #0284C7 !important;
+      background: #FFFFFF !important;
+      transform: translateY(-2px) scale(1.03) !important;
+      box-shadow: 0 10px 25px rgba(2, 132, 199, 0.35) !important;
     }
 
     @media (max-width: 768px) {
