@@ -759,11 +759,19 @@ input[type="button"] {
   margin-top: 6px !important;
 }
 
-/* --- 2.0 Salesforce: Services Overview & Use Cases (Reduced by 10%) --- */
+/* --- 2.0 Salesforce: Core Section Titles (Standardized to Reference clamp(38px, 5.6vw, 61px)) --- */
 #servicesOverview .sf-section-title,
 #servicesOverview h2.sf-section-title,
 #useCasesSection .sf-section-title,
-#useCasesSection h2.sf-section-title {
+#useCasesSection h2.sf-section-title,
+#cloudsSection .sf-section-title,
+#cloudsSection h2.sf-section-title,
+#aiSection .sf-section-title,
+#aiSection h2.sf-section-title,
+#processSection .sf-section-title,
+#processSection h2.sf-section-title,
+#whyChooseUs .sf-section-title,
+#whyChooseUs h2.sf-section-title {
   font-family: var(--font-heading, 'Manrope', sans-serif) !important;
   font-size: clamp(38px, 5.6vw, 61px) !important;
   font-weight: 800 !important;
@@ -775,7 +783,15 @@ input[type="button"] {
   #servicesOverview .sf-section-title,
   #servicesOverview h2.sf-section-title,
   #useCasesSection .sf-section-title,
-  #useCasesSection h2.sf-section-title {
+  #useCasesSection h2.sf-section-title,
+  #cloudsSection .sf-section-title,
+  #cloudsSection h2.sf-section-title,
+  #aiSection .sf-section-title,
+  #aiSection h2.sf-section-title,
+  #processSection .sf-section-title,
+  #processSection h2.sf-section-title,
+  #whyChooseUs .sf-section-title,
+  #whyChooseUs h2.sf-section-title {
     font-size: clamp(31px, 5vw, 47px) !important;
   }
 }
@@ -784,7 +800,15 @@ input[type="button"] {
   #servicesOverview .sf-section-title,
   #servicesOverview h2.sf-section-title,
   #useCasesSection .sf-section-title,
-  #useCasesSection h2.sf-section-title {
+  #useCasesSection h2.sf-section-title,
+  #cloudsSection .sf-section-title,
+  #cloudsSection h2.sf-section-title,
+  #aiSection .sf-section-title,
+  #aiSection h2.sf-section-title,
+  #processSection .sf-section-title,
+  #processSection h2.sf-section-title,
+  #whyChooseUs .sf-section-title,
+  #whyChooseUs h2.sf-section-title {
     font-size: clamp(29px, 7.5vw, 41px) !important;
     line-height: 1.18 !important;
   }
