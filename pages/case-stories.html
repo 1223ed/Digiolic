@@ -989,53 +989,6 @@
         position: relative !important;
         z-index: 2 !important;
       }
-      @media (max-width: 768px) {
-        .cs-clean-box-card {
-          padding: 1.5rem !important;
-          min-height: auto !important;
-        }
-        .cs-card-content {
-          max-width: 100% !important;
-          background: rgba(255, 255, 255, 0.88) !important;
-          backdrop-filter: blur(10px) !important;
-          -webkit-backdrop-filter: blur(10px) !important;
-          border-radius: 18px !important;
-          padding: 1.25rem !important;
-        }
-        .cs-clean-logo-container {
-          min-height: 70px !important;
-          width: 100% !important;
-          display: flex !important;
-          justify-content: center !important;
-          align-items: center !important;
-          text-align: center !important;
-          margin: 0 auto 1.1rem auto !important;
-        }
-        .cs-clean-logo-img {
-          margin-left: auto !important;
-          margin-right: auto !important;
-          object-position: center center !important;
-          display: block !important;
-        }
-        .cs-card-banaraswala .cs-clean-logo-img {
-          max-height: 76px !important;
-          max-width: 260px !important;
-        }
-        .cs-card-nz .cs-clean-logo-img {
-          max-height: 68px !important;
-          max-width: 235px !important;
-        }
-        .cs-card-greenworld .cs-clean-logo-img,
-        .cs-card-blume .cs-clean-logo-img,
-        .cs-card-chanakya .cs-clean-logo-img {
-          max-height: 84px !important;
-          max-width: 280px !important;
-        }
-        .cs-card-loomcrafts .cs-clean-logo-img {
-          max-height: 62px !important;
-          max-width: 220px !important;
-        }
-      }
       .cs-clean-logo-container {
         width: auto !important;
         min-height: 100px !important;
@@ -1175,6 +1128,60 @@
       .cs-btn-blume { background: linear-gradient(135deg, #4338ca 0%, #6366f1 50%, #8b5cf6 100%) !important; box-shadow: 0 8px 20px rgba(99, 102, 241, 0.35) !important; }
       .cs-btn-loomcrafts { background: linear-gradient(135deg, #9a3412 0%, #c2410c 50%, #d97706 100%) !important; box-shadow: 0 8px 20px rgba(194, 65, 12, 0.35) !important; }
       .cs-btn-chanakya { background: linear-gradient(135deg, #7f1d1d 0%, #991b1b 50%, #dc2626 100%) !important; box-shadow: 0 8px 20px rgba(153, 27, 27, 0.35) !important; }
+
+      /* Mobile Responsive Styles (Placed after desktop rules to guarantee cascade override) */
+      @media (max-width: 768px) {
+        .cs-clean-box-card {
+          padding: 1.5rem !important;
+          min-height: auto !important;
+        }
+        .cs-card-content {
+          max-width: 100% !important;
+          width: 100% !important;
+          background: rgba(255, 255, 255, 0.92) !important;
+          backdrop-filter: blur(10px) !important;
+          -webkit-backdrop-filter: blur(10px) !important;
+          border-radius: 18px !important;
+          padding: 1.25rem !important;
+          display: flex !important;
+          flex-direction: column !important;
+        }
+        .cs-clean-logo-container {
+          min-height: 70px !important;
+          width: 100% !important;
+          display: flex !important;
+          justify-content: center !important;
+          align-items: center !important;
+          align-self: center !important;
+          text-align: center !important;
+          margin: 0 auto 1.15rem auto !important;
+        }
+        .cs-clean-logo-img {
+          margin-left: auto !important;
+          margin-right: auto !important;
+          object-position: center center !important;
+          align-self: center !important;
+          display: block !important;
+        }
+        .cs-card-banaraswala .cs-clean-logo-img {
+          max-height: 76px !important;
+          max-width: 260px !important;
+        }
+        .cs-card-nz .cs-clean-logo-img {
+          max-height: 68px !important;
+          max-width: 235px !important;
+        }
+        .cs-card-greenworld .cs-clean-logo-img,
+        .cs-card-blume .cs-clean-logo-img,
+        .cs-card-chanakya .cs-clean-logo-img {
+          max-height: 84px !important;
+          max-width: 280px !important;
+        }
+        .cs-card-loomcrafts .cs-clean-logo-img {
+          max-height: 62px !important;
+          max-width: 220px !important;
+        }
+      }
 
       /* Modal bullet lists with clear bullets and bold titles */
       .cs-modal-list {
