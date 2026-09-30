@@ -1003,26 +1003,32 @@
           padding: 1.25rem !important;
         }
         .cs-clean-logo-container {
-          min-height: 68px !important;
+          min-height: 70px !important;
         }
-        .cs-card-banaraswala .cs-clean-logo-img,
-        .cs-card-nz .cs-clean-logo-img,
+        .cs-card-banaraswala .cs-clean-logo-img {
+          max-height: 76px !important;
+          max-width: 260px !important;
+        }
+        .cs-card-nz .cs-clean-logo-img {
+          max-height: 68px !important;
+          max-width: 235px !important;
+        }
         .cs-card-greenworld .cs-clean-logo-img,
         .cs-card-blume .cs-clean-logo-img,
         .cs-card-loomcrafts .cs-clean-logo-img,
         .cs-card-chanakya .cs-clean-logo-img {
-          max-height: 76px !important;
-          max-width: 260px !important;
+          max-height: 84px !important;
+          max-width: 280px !important;
         }
       }
       .cs-clean-logo-container {
         width: auto !important;
-        min-height: 90px !important;
+        min-height: 100px !important;
         height: auto !important;
         display: flex !important;
         align-items: center !important;
         justify-content: flex-start !important;
-        margin-bottom: 1rem !important;
+        margin-bottom: 0.95rem !important;
         padding: 0 !important;
         background: transparent !important;
       }
@@ -1035,15 +1041,28 @@
         object-position: left center !important;
         display: block !important;
       }
-      /* Additional 20% increase in logo size for Blume Labs, Greenworld, Banaraswala, NZ Immigration, Loom Crafts, and Chanakya */
-      .cs-card-banaraswala .cs-clean-logo-img,
-      .cs-card-nz .cs-clean-logo-img,
-      .cs-card-greenworld .cs-clean-logo-img,
-      .cs-card-blume .cs-clean-logo-img,
-      .cs-card-loomcrafts .cs-clean-logo-img,
-      .cs-card-chanakya .cs-clean-logo-img {
+      /* Banaraswala Logo */
+      .cs-card-banaraswala .cs-clean-logo-img {
         max-height: 90px !important;
         max-width: 320px !important;
+      }
+      /* NZ Immigration Logo reduced by 10% */
+      .cs-card-nz .cs-clean-logo-img {
+        max-height: 81px !important;
+        max-width: 288px !important;
+      }
+      /* 10% increased width for Greenworld, Blume Labs, Loom Crafts, and Chanakya University */
+      .cs-card-greenworld .cs-clean-logo-img,
+      .cs-card-blume .cs-clean-logo-img,
+      .cs-card-loomcrafts .cs-clean-logo-img {
+        max-height: 100px !important;
+        max-width: 320px !important;
+        width: auto !important;
+      }
+      .cs-card-chanakya .cs-clean-logo-img {
+        max-height: 99px !important;
+        max-width: 320px !important;
+        width: auto !important;
       }
       .cs-clean-location-pill {
         display: inline-flex !important;
