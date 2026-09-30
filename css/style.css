@@ -483,7 +483,7 @@ input[type="button"] {
    2) Salesforce Page:
       - Cloud Mastery / Salesforce Solutions Built Around Your Business (#cloudsSection)
       - Make Salesforce Smarter With AI (#aiSection)
-      - A Salesforce Implementation Built Around Your Business (#processSection)
+      - Salesforce Implementation Built Around Your Business (#processSection)
       - Why Businesses Choose Us (#whyChooseUs)
 
    3) Digital Marketing Page:
@@ -743,6 +743,37 @@ input[type="button"] {
   margin-top: 6px !important;
 }
 
+/* --- 2.0 Salesforce: Services Overview & Use Cases (Reduced by 10%) --- */
+#servicesOverview .sf-section-title,
+#servicesOverview h2.sf-section-title,
+#useCasesSection .sf-section-title,
+#useCasesSection h2.sf-section-title {
+  font-family: var(--font-heading, 'Manrope', sans-serif) !important;
+  font-size: clamp(38px, 5.6vw, 61px) !important;
+  font-weight: 800 !important;
+  line-height: 1.16 !important;
+  letter-spacing: -0.03em !important;
+}
+
+@media (max-width: 1024px) {
+  #servicesOverview .sf-section-title,
+  #servicesOverview h2.sf-section-title,
+  #useCasesSection .sf-section-title,
+  #useCasesSection h2.sf-section-title {
+    font-size: clamp(31px, 5vw, 47px) !important;
+  }
+}
+
+@media (max-width: 768px) {
+  #servicesOverview .sf-section-title,
+  #servicesOverview h2.sf-section-title,
+  #useCasesSection .sf-section-title,
+  #useCasesSection h2.sf-section-title {
+    font-size: clamp(29px, 7.5vw, 41px) !important;
+    line-height: 1.18 !important;
+  }
+}
+
 /* --- 2.1 Salesforce: Cloud Mastery / Salesforce Solutions Built Around Your Business --- */
 #cloudsSection .sf-eyebrow {
   font-family: 'Inter', sans-serif !important;
@@ -901,7 +932,7 @@ input[type="button"] {
   margin: 0 !important;
 }
 
-/* --- 2.3 Salesforce: A Salesforce Implementation Built Around Your Business --- */
+/* --- 2.3 Salesforce: Salesforce Implementation Built Around Your Business --- */
 #processSection .sf-eyebrow {
   font-family: 'Inter', sans-serif !important;
   font-size: 0.82rem !important;
