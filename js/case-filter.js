@@ -66,34 +66,6 @@ document.addEventListener('DOMContentLoaded', () => {
       ]
     },
 
-    'case-indiqube': {
-      company: 'IndiQube',
-      location: 'Bangalore, India',
-      products: 'Zoho CRM, Zoho Campaign, WhatsApp, Telephonic Integration',
-      description: 'Indiqube Spaces Ltd. is a provider of managed office spaces and flexible workspace solutions.',
-      challenges: [
-        '<strong>Multi-Channel Inquiry Ingestion:</strong> Managing high volumes of prospective tenant inquiries scattered across WhatsApp, telephony, and web forms without losing lead context.',
-        '<strong>Tour Booking & Follow-up Lags:</strong> Delays in tour bookings and membership follow-ups caused by manual data entry across disconnected communication channels.',
-        '<strong>Siloed Communication Histories:</strong> Inability to track agent call recordings, chat histories, and interaction notes directly inside individual CRM lead profiles.',
-        '<strong>Low Renewal Campaign Conversions:</strong> Low conversion rates on manual email campaigns for hot desk renewals and private cabin upgrade pitches.',
-        '<strong>Fragmented Member Records:</strong> Fragmented member data making it difficult to deliver personalized workspace experiences and targeted retention offers.'
-      ],
-      solution: [
-        '<strong>Centralized Inbound CRM Repository:</strong> Centralize all inbound inquiries from WhatsApp, telephony channels, and marketing campaigns directly into Zoho CRM as unified leads.',
-        '<strong>Instant Lead Routing & SLA Triggers:</strong> Automate instant lead assignment and task creation triggered immediately upon missed calls or incoming WhatsApp inquiries.',
-        '<strong>Native Cloud Telephony & WhatsApp APIs:</strong> Integrate cloud telephony and WhatsApp business APIs natively into Zoho CRM for one-click calling and unified chat logs.',
-        '<strong>Automated Behavioral Drip Sequences:</strong> Utilize Zoho Campaigns to launch automated, behavior-driven drip sequences based on user interaction history inside the CRM.',
-        '<strong>Dynamic Multi-Module Segmentation:</strong> Deploy custom multi-module workflows to segment members by space type and contract duration for precise campaign targeting.'
-      ],
-      benefits: [
-        '<strong>Accelerated Tour-to-Booking Conversions:</strong> Blazingly fast lead response times that significantly increase tour-to-booking conversion rates for prospective tenants.',
-        '<strong>Full Omnichannel Audit Trails:</strong> Complete visibility over all sales communications with automated logging of every phone call, WhatsApp chat, and campaign touchpoint.',
-        '<strong>Community Focus Over Administration:</strong> Elimination of manual data entry errors, freeing up community managers to focus on high-touch client relationships.',
-        '<strong>Proactive Member Retention:</strong> Improved member retention and lower churn rates through timely, automated renewal reminders and membership engagement campaigns.',
-        '<strong>Scalable Multi-Location Rollouts:</strong> Scalable workspace operations supported by a streamlined ecosystem capable of handling multi-location expansion effortlessly.'
-      ]
-    },
-
     'case-manu-company': {
       company: 'Pierian Service',
       location: 'Bangalore, India',
