@@ -1002,14 +1002,27 @@
           border-radius: 18px !important;
           padding: 1.25rem !important;
         }
+        .cs-clean-logo-container {
+          min-height: 58px !important;
+        }
+        .cs-card-banaraswala .cs-clean-logo-img,
+        .cs-card-nz .cs-clean-logo-img,
+        .cs-card-greenworld .cs-clean-logo-img,
+        .cs-card-blume .cs-clean-logo-img,
+        .cs-card-loomcrafts .cs-clean-logo-img,
+        .cs-card-chanakya .cs-clean-logo-img {
+          max-height: 64px !important;
+          max-width: 220px !important;
+        }
       }
       .cs-clean-logo-container {
         width: auto !important;
-        height: 68px !important;
+        min-height: 76px !important;
+        height: auto !important;
         display: flex !important;
         align-items: center !important;
         justify-content: flex-start !important;
-        margin-bottom: 1.35rem !important;
+        margin-bottom: 1.15rem !important;
         padding: 0 !important;
         background: transparent !important;
       }
@@ -1021,6 +1034,16 @@
         object-fit: contain !important;
         object-position: left center !important;
         display: block !important;
+      }
+      /* 20% increased logo size for Blume Labs, Greenworld, Banaraswala, NZ Immigration, Loom Crafts, and Chanakya */
+      .cs-card-banaraswala .cs-clean-logo-img,
+      .cs-card-nz .cs-clean-logo-img,
+      .cs-card-greenworld .cs-clean-logo-img,
+      .cs-card-blume .cs-clean-logo-img,
+      .cs-card-loomcrafts .cs-clean-logo-img,
+      .cs-card-chanakya .cs-clean-logo-img {
+        max-height: 75px !important;
+        max-width: 265px !important;
       }
       .cs-clean-location-pill {
         display: inline-flex !important;
