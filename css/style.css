@@ -224,18 +224,26 @@ h2,
 .hero-v3-title,
 .cs-spotlight-title,
 .cs-section-title,
-.sf-section-title,
-.dm-clean-header-title,
-.dm-why-choose-title,
-.dm-case-studies-title,
 .pillars-editorial-heading,
-.delivery-radial-heading,
 .trust-reviews-main-title,
 .faq-main-heading,
 .contact-pane-title,
 .dm-editorial-heading {
   font-family: var(--font-heading) !important;
   font-size: 42px !important;
+  font-weight: 700 !important;
+  line-height: 1.2 !important;
+  letter-spacing: -0.025em !important;
+  color: var(--color-text-primary);
+}
+
+/* 2.1 Headings Increased by +20% — 50px */
+.sf-section-title,
+.dm-clean-header-title,
+.dm-why-choose-title,
+.dm-case-studies-title {
+  font-family: var(--font-heading) !important;
+  font-size: 50px !important;
   font-weight: 700 !important;
   line-height: 1.2 !important;
   letter-spacing: -0.025em !important;
@@ -252,17 +260,19 @@ h2,
   .hero-v3-title,
   .cs-spotlight-title,
   .cs-section-title,
-  .sf-section-title,
-  .dm-clean-header-title,
-  .dm-why-choose-title,
-  .dm-case-studies-title,
   .pillars-editorial-heading,
-  .delivery-radial-heading,
   .trust-reviews-main-title,
   .faq-main-heading,
   .contact-pane-title,
   .dm-editorial-heading {
     font-size: clamp(28px, 4vw, 36px) !important;
+  }
+
+  .sf-section-title,
+  .dm-clean-header-title,
+  .dm-why-choose-title,
+  .dm-case-studies-title {
+    font-size: clamp(34px, 4.8vw, 43px) !important;
   }
 }
 
@@ -276,17 +286,19 @@ h2,
   .hero-v3-title,
   .cs-spotlight-title,
   .cs-section-title,
-  .sf-section-title,
-  .dm-clean-header-title,
-  .dm-why-choose-title,
-  .dm-case-studies-title,
   .pillars-editorial-heading,
-  .delivery-radial-heading,
   .trust-reviews-main-title,
   .faq-main-heading,
   .contact-pane-title,
   .dm-editorial-heading {
     font-size: clamp(22px, 6vw, 28px) !important;
+  }
+
+  .sf-section-title,
+  .dm-clean-header-title,
+  .dm-why-choose-title,
+  .dm-case-studies-title {
+    font-size: clamp(26px, 7.2vw, 34px) !important;
   }
 }
 
@@ -582,7 +594,7 @@ input[type="button"] {
 .deliver-success-section .section-header-compact .heading-xl,
 .deliver-success-section .section-header-compact h2.heading-xl {
   font-family: var(--font-heading, 'Manrope', sans-serif) !important;
-  font-size: clamp(2rem, 3.8vw, 2.75rem) !important;
+  font-size: clamp(2.4rem, 4.5vw, 3.3rem) !important;
   font-weight: 800 !important;
   line-height: 1.15 !important;
   letter-spacing: -0.025em !important;
@@ -709,7 +721,7 @@ input[type="button"] {
 #cloudsSection .sf-section-title,
 #cloudsSection h2.sf-section-title {
   font-family: var(--font-heading, 'Manrope', sans-serif) !important;
-  font-size: clamp(2rem, 3.8vw, 2.75rem) !important;
+  font-size: clamp(2.4rem, 4.5vw, 3.3rem) !important;
   font-weight: 800 !important;
   line-height: 1.2 !important;
   letter-spacing: -0.025em !important;
@@ -789,7 +801,7 @@ input[type="button"] {
 #aiSection .sf-section-title,
 #aiSection h2.sf-section-title {
   font-family: var(--font-heading, 'Manrope', sans-serif) !important;
-  font-size: clamp(2rem, 3.8vw, 2.75rem) !important;
+  font-size: clamp(2.4rem, 4.5vw, 3.3rem) !important;
   font-weight: 800 !important;
   line-height: 1.2 !important;
   color: #FFFFFF !important;
@@ -866,7 +878,7 @@ input[type="button"] {
 #processSection .sf-section-title,
 #processSection h2.sf-section-title {
   font-family: var(--font-heading, 'Manrope', sans-serif) !important;
-  font-size: clamp(2rem, 3.8vw, 2.75rem) !important;
+  font-size: clamp(2.4rem, 4.5vw, 3.3rem) !important;
   font-weight: 800 !important;
   line-height: 1.2 !important;
   letter-spacing: -0.025em !important;
@@ -925,7 +937,7 @@ input[type="button"] {
 #whyChooseUs h2.sf-section-title {
   color: #000000 !important;
   font-family: var(--font-heading, 'Manrope', sans-serif) !important;
-  font-size: clamp(38px, 4.8vw, 52px) !important;
+  font-size: clamp(46px, 5.8vw, 62px) !important;
   font-weight: 800 !important;
   line-height: 1.25 !important;
   letter-spacing: -0.03em !important;
