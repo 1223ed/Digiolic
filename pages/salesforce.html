@@ -2848,34 +2848,125 @@
     }
 
     /* ==========================================================================
-       SECTION 14: TECHNOLOGY STACK
+       SECTION 14: TECHNOLOGY STACK (IMAGE COLOR GRADIENT BACKGROUND)
        ========================================================================== */
-    .sf-tech-grid {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 1rem;
-      max-width: 980px;
-      margin: 0 auto;
+    #techStackSection {
+      width: 100% !important;
+      max-width: 100% !important;
+      margin: 0 !important;
+      background-color: #3b0d46 !important;
+      background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+        linear-gradient(90deg, #5b0d37 0%, #7d1348 20%, #871848 45%, #6a1854 65%, #3d1768 85%, #24145c 100%) !important;
+      background-size: 44px 44px, 44px 44px, 100% 100% !important;
+      background-position: center center !important;
+      background-repeat: repeat, repeat, no-repeat !important;
+      padding: clamp(4.5rem, 7vw, 6.5rem) 1.5rem !important;
+      border-top: 1px solid rgba(255, 255, 255, 0.12) !important;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12) !important;
+      box-sizing: border-box !important;
+      text-align: center !important;
+      position: relative !important;
+      overflow: hidden !important;
     }
 
-    .sf-tech-pill {
-      background: #FFFFFF;
-      border: 1.5px solid var(--sf-slate-200);
-      border-radius: 9999px;
-      padding: 0.75rem 1.75rem;
-      font-size: 1rem;
-      font-weight: 700;
-      color: var(--sf-slate-800);
-      box-shadow: var(--sf-shadow-subtle);
-      transition: all 0.25s ease;
+    #techStackSection .sf-container {
+      width: 100% !important;
+      max-width: 1100px !important;
+      margin: 0 auto !important;
+      padding: 0 1rem !important;
+      box-sizing: border-box !important;
+      position: relative !important;
+      z-index: 2 !important;
     }
 
-    .sf-tech-pill:hover {
-      border-color: var(--sf-blue-primary);
-      color: var(--sf-blue-dark);
-      background: #F8FAFC;
-      transform: translateY(-2px);
+    #techStackSection .sf-section-header {
+      max-width: 1060px !important;
+      margin: 0 auto clamp(2.5rem, 5vw, 3.5rem) auto !important;
+      text-align: center !important;
+    }
+
+    #techStackSection .sf-eyebrow {
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+      font-size: 0.8125rem !important;
+      font-weight: 700 !important;
+      text-transform: uppercase !important;
+      letter-spacing: 0.12em !important;
+      color: #38BDF8 !important;
+      background: rgba(56, 189, 248, 0.14) !important;
+      border: 1px solid rgba(56, 189, 248, 0.35) !important;
+      padding: 0.45rem 1.15rem !important;
+      border-radius: 9999px !important;
+      margin-bottom: 1.25rem !important;
+      box-sizing: border-box !important;
+    }
+
+    #techStackSection .sf-section-title {
+      color: #FFFFFF !important;
+      text-align: center !important;
+    }
+
+    #techStackSection .sf-heading-anim-text {
+      background: linear-gradient(135deg, #60A5FA 0%, #38BDF8 50%, #C084FC 100%) !important;
+      -webkit-background-clip: text !important;
+      background-clip: text !important;
+      -webkit-text-fill-color: transparent !important;
+      color: #38BDF8 !important;
+    }
+
+    #techStackSection .sf-section-subtitle {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+      font-size: clamp(16px, 1.8vw, 18.5px) !important;
+      font-weight: 400 !important;
+      color: rgba(241, 245, 249, 0.88) !important;
+      line-height: 1.65 !important;
+      max-width: 720px !important;
+      margin: 0 auto !important;
+      text-align: center !important;
+    }
+
+    #techStackSection .sf-tech-grid {
+      display: flex !important;
+      flex-wrap: wrap !important;
+      justify-content: center !important;
+      gap: 1rem !important;
+      max-width: 980px !important;
+      margin: 0 auto !important;
+      box-sizing: border-box !important;
+    }
+
+    #techStackSection .sf-tech-pill {
+      background: rgba(255, 255, 255, 0.95) !important;
+      border: 1.5px solid rgba(255, 255, 255, 0.8) !important;
+      border-radius: 9999px !important;
+      padding: 0.75rem 1.85rem !important;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+      font-size: 1rem !important;
+      font-weight: 700 !important;
+      color: #0F172A !important;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.22) !important;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+      cursor: default !important;
+      user-select: none !important;
+      white-space: nowrap !important;
+    }
+
+    #techStackSection .sf-tech-pill:hover {
+      border-color: #38BDF8 !important;
+      color: #0284C7 !important;
+      background: #FFFFFF !important;
+      transform: translateY(-2px) scale(1.03) !important;
+      box-shadow: 0 10px 25px rgba(2, 132, 199, 0.35) !important;
+    }
+
+    @media (max-width: 768px) {
+      #techStackSection {
+        padding: 4rem 1.25rem !important;
+      }
     }
 
     /* ==========================================================================
@@ -4957,7 +5048,7 @@
     <!-- ==========================================================================
          SECTION 14: TECHNOLOGY STACK
          ========================================================================== -->
-    <section class="sf-section sf-section-light" id="techStackSection">
+    <section class="sf-section" id="techStackSection" aria-label="Salesforce Enterprise Tooling and Technology Stack">
       <div class="sf-container">
         <div class="sf-section-header">
           <div class="sf-eyebrow">Enterprise Tooling</div>
