@@ -226,9 +226,7 @@ h2,
 .cs-section-title,
 .pillars-editorial-heading,
 .trust-reviews-main-title,
-.faq-main-heading,
-.contact-pane-title,
-.dm-editorial-heading {
+.contact-pane-title {
   font-family: var(--font-heading) !important;
   font-size: 42px !important;
   font-weight: 700 !important;
@@ -238,7 +236,6 @@ h2,
 }
 
 /* 2.1 Headings Increased by +20% — 50px */
-.sf-section-title,
 .dm-clean-header-title,
 .dm-why-choose-title,
 .dm-case-studies-title {
@@ -247,6 +244,19 @@ h2,
   font-weight: 700 !important;
   line-height: 1.2 !important;
   letter-spacing: -0.025em !important;
+  color: var(--color-text-primary);
+}
+
+/* 2.2 Reference Size (Matching Zoho's Modern Technology Stack) — up to 68px */
+.sf-section-title,
+.sf-why-choose-title,
+.faq-main-heading,
+.dm-editorial-heading {
+  font-family: var(--font-heading) !important;
+  font-size: clamp(42px, 6.2vw, 68px) !important;
+  font-weight: 800 !important;
+  line-height: 1.16 !important;
+  letter-spacing: -0.03em !important;
   color: var(--color-text-primary);
 }
 
@@ -262,17 +272,21 @@ h2,
   .cs-section-title,
   .pillars-editorial-heading,
   .trust-reviews-main-title,
-  .faq-main-heading,
-  .contact-pane-title,
-  .dm-editorial-heading {
+  .contact-pane-title {
     font-size: clamp(28px, 4vw, 36px) !important;
   }
 
-  .sf-section-title,
   .dm-clean-header-title,
   .dm-why-choose-title,
   .dm-case-studies-title {
     font-size: clamp(34px, 4.8vw, 43px) !important;
+  }
+
+  .sf-section-title,
+  .sf-why-choose-title,
+  .faq-main-heading,
+  .dm-editorial-heading {
+    font-size: clamp(34px, 5.5vw, 52px) !important;
   }
 }
 
@@ -288,17 +302,22 @@ h2,
   .cs-section-title,
   .pillars-editorial-heading,
   .trust-reviews-main-title,
-  .faq-main-heading,
-  .contact-pane-title,
-  .dm-editorial-heading {
+  .contact-pane-title {
     font-size: clamp(22px, 6vw, 28px) !important;
   }
 
-  .sf-section-title,
   .dm-clean-header-title,
   .dm-why-choose-title,
   .dm-case-studies-title {
     font-size: clamp(26px, 7.2vw, 34px) !important;
+  }
+
+  .sf-section-title,
+  .sf-why-choose-title,
+  .faq-main-heading,
+  .dm-editorial-heading {
+    font-size: clamp(32px, 8.2vw, 46px) !important;
+    line-height: 1.18 !important;
   }
 }
 
@@ -721,10 +740,10 @@ input[type="button"] {
 #cloudsSection .sf-section-title,
 #cloudsSection h2.sf-section-title {
   font-family: var(--font-heading, 'Manrope', sans-serif) !important;
-  font-size: clamp(2.4rem, 4.5vw, 3.3rem) !important;
+  font-size: clamp(42px, 6.2vw, 68px) !important;
   font-weight: 800 !important;
-  line-height: 1.2 !important;
-  letter-spacing: -0.025em !important;
+  line-height: 1.16 !important;
+  letter-spacing: -0.03em !important;
 }
 
 #cloudsSection .sf-section-subtitle,
@@ -801,9 +820,10 @@ input[type="button"] {
 #aiSection .sf-section-title,
 #aiSection h2.sf-section-title {
   font-family: var(--font-heading, 'Manrope', sans-serif) !important;
-  font-size: clamp(2.4rem, 4.5vw, 3.3rem) !important;
+  font-size: clamp(42px, 6.2vw, 68px) !important;
   font-weight: 800 !important;
-  line-height: 1.2 !important;
+  line-height: 1.16 !important;
+  letter-spacing: -0.03em !important;
   color: #FFFFFF !important;
 }
 
@@ -878,10 +898,10 @@ input[type="button"] {
 #processSection .sf-section-title,
 #processSection h2.sf-section-title {
   font-family: var(--font-heading, 'Manrope', sans-serif) !important;
-  font-size: clamp(2.4rem, 4.5vw, 3.3rem) !important;
+  font-size: clamp(42px, 6.2vw, 68px) !important;
   font-weight: 800 !important;
-  line-height: 1.2 !important;
-  letter-spacing: -0.025em !important;
+  line-height: 1.16 !important;
+  letter-spacing: -0.03em !important;
 }
 
 #processSection .sf-section-subtitle,
@@ -937,9 +957,9 @@ input[type="button"] {
 #whyChooseUs h2.sf-section-title {
   color: #000000 !important;
   font-family: var(--font-heading, 'Manrope', sans-serif) !important;
-  font-size: clamp(46px, 5.8vw, 62px) !important;
+  font-size: clamp(42px, 6.2vw, 68px) !important;
   font-weight: 800 !important;
-  line-height: 1.25 !important;
+  line-height: 1.16 !important;
   letter-spacing: -0.03em !important;
 }
 
