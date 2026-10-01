@@ -20,7 +20,7 @@
   <link rel="stylesheet" href="../css/style.css?v=20260920_v302">
   <link rel="stylesheet" href="../css/components.css?v=20260926_green_d_v6">
   <link rel="stylesheet" href="../css/pages.css?v=20260919_v209">
-  <link rel="stylesheet" href="../css/case-stories.css?v=20260925_image2_v999">
+  <link rel="stylesheet" href="../css/case-stories.css?v=20261001_blackbtn_v1">
   <link rel="stylesheet" href="../css/responsive.css?v=20260930_v1">
   <link rel="stylesheet" href="../css/chat-widget.css?v=20260919_v209">
 
@@ -1078,6 +1078,7 @@
         flex-shrink: 0 !important;
       }
       .cs-clean-readmore-btn {
+        background: #000000 !important;
         color: #FFFFFF !important;
         border: none !important;
         font-family: inherit !important;
@@ -1086,22 +1087,27 @@
         padding: 0.72rem 2rem !important;
         border-radius: 9999px !important;
         cursor: pointer !important;
-        transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease !important;
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25) !important;
+        transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease !important;
         display: inline-flex !important;
         align-items: center !important;
         gap: 0.5rem !important;
         text-decoration: none !important;
       }
       .cs-clean-readmore-btn:hover {
+        background: #1E293B !important;
+        color: #FFFFFF !important;
         transform: translateY(-2px) !important;
-        filter: brightness(1.08) !important;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35) !important;
       }
       .cs-clean-readmore-btn span {
+        color: #FFFFFF !important;
         font-size: 1.15rem !important;
         line-height: 1 !important;
         transition: transform 0.2s ease !important;
       }
       .cs-clean-readmore-btn:hover span {
+        color: #FFFFFF !important;
         transform: translateX(3px) !important;
       }
 
@@ -1117,17 +1123,35 @@
       .cs-card-loomcrafts { background-image: url('../assets/images/case-studies/cards/card-bg-loomcrafts.png') !important; }
       .cs-card-chanakya { background-image: url('../assets/images/case-studies/cards/card-bg-chanakya.png') !important; }
 
-      /* Action Button Themed Gradients */
-      .cs-btn-monster { background: linear-gradient(135deg, #3b0764 0%, #6b21a8 50%, #7c3aed 100%) !important; box-shadow: 0 8px 20px rgba(107, 33, 168, 0.35) !important; }
-      .cs-btn-fyx { background: linear-gradient(135deg, #0052cc 0%, #0065ff 50%, #0091ff 100%) !important; box-shadow: 0 8px 20px rgba(0, 102, 255, 0.35) !important; }
-      .cs-btn-verzeo { background: linear-gradient(135deg, #0f766e 0%, #0d9488 50%, #06b6d4 100%) !important; box-shadow: 0 8px 20px rgba(13, 148, 136, 0.35) !important; }
-      .cs-btn-banaraswala { background: linear-gradient(135deg, #c2410c 0%, #ea580c 50%, #f59e0b 100%) !important; box-shadow: 0 8px 20px rgba(234, 88, 12, 0.35) !important; }
-      .cs-btn-nz { background: linear-gradient(135deg, #0369a1 0%, #0284c7 50%, #38bdf8 100%) !important; box-shadow: 0 8px 20px rgba(2, 132, 199, 0.35) !important; }
-      .cs-btn-greenworld { background: linear-gradient(135deg, #15803d 0%, #16a34a 50%, #22c55e 100%) !important; box-shadow: 0 8px 20px rgba(22, 163, 74, 0.35) !important; }
-      .cs-btn-pierian { background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 50%, #3b82f6 100%) !important; box-shadow: 0 8px 20px rgba(30, 64, 175, 0.35) !important; }
-      .cs-btn-blume { background: linear-gradient(135deg, #4338ca 0%, #6366f1 50%, #8b5cf6 100%) !important; box-shadow: 0 8px 20px rgba(99, 102, 241, 0.35) !important; }
-      .cs-btn-loomcrafts { background: linear-gradient(135deg, #9a3412 0%, #c2410c 50%, #d97706 100%) !important; box-shadow: 0 8px 20px rgba(194, 65, 12, 0.35) !important; }
-      .cs-btn-chanakya { background: linear-gradient(135deg, #7f1d1d 0%, #991b1b 50%, #dc2626 100%) !important; box-shadow: 0 8px 20px rgba(153, 27, 27, 0.35) !important; }
+      /* Action Buttons (All Black Background, White Text) */
+      .cs-btn-monster,
+      .cs-btn-fyx,
+      .cs-btn-verzeo,
+      .cs-btn-banaraswala,
+      .cs-btn-nz,
+      .cs-btn-greenworld,
+      .cs-btn-pierian,
+      .cs-btn-blume,
+      .cs-btn-loomcrafts,
+      .cs-btn-chanakya {
+        background: #000000 !important;
+        color: #FFFFFF !important;
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25) !important;
+      }
+      .cs-btn-monster:hover,
+      .cs-btn-fyx:hover,
+      .cs-btn-verzeo:hover,
+      .cs-btn-banaraswala:hover,
+      .cs-btn-nz:hover,
+      .cs-btn-greenworld:hover,
+      .cs-btn-pierian:hover,
+      .cs-btn-blume:hover,
+      .cs-btn-loomcrafts:hover,
+      .cs-btn-chanakya:hover {
+        background: #1E293B !important;
+        color: #FFFFFF !important;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35) !important;
+      }
 
       /* Mobile Responsive Styles (Placed after desktop rules to guarantee cascade override) */
       @media (max-width: 768px) {
@@ -1305,7 +1329,7 @@
                 </span>
               </div>
 
-              <button class="cs-clean-readmore-btn cs-btn-monster js-open-case-modal" data-case-id="case-monster-india" type="button">
+              <button class="cs-clean-readmore-btn cs-btn-monster js-open-case-modal" data-case-id="case-monster-india" type="button" style="background: #000000 !important; color: #FFFFFF !important;">
                 Read More <span>&rarr;</span>
               </button>
             </div>
@@ -1341,7 +1365,7 @@
                 </span>
               </div>
 
-              <button class="cs-clean-readmore-btn cs-btn-fyx js-open-case-modal" data-case-id="case-fyx" type="button">
+              <button class="cs-clean-readmore-btn cs-btn-fyx js-open-case-modal" data-case-id="case-fyx" type="button" style="background: #000000 !important; color: #FFFFFF !important;">
                 Read More <span>&rarr;</span>
               </button>
             </div>
@@ -1377,7 +1401,7 @@
                 </span>
               </div>
 
-              <button class="cs-clean-readmore-btn cs-btn-verzeo js-open-case-modal" data-case-id="case-verzeo" type="button">
+              <button class="cs-clean-readmore-btn cs-btn-verzeo js-open-case-modal" data-case-id="case-verzeo" type="button" style="background: #000000 !important; color: #FFFFFF !important;">
                 Read More <span>&rarr;</span>
               </button>
             </div>
@@ -1413,7 +1437,7 @@
                 </span>
               </div>
 
-              <button class="cs-clean-readmore-btn cs-btn-banaraswala js-open-case-modal" data-case-id="case-banaraswala" type="button">
+              <button class="cs-clean-readmore-btn cs-btn-banaraswala js-open-case-modal" data-case-id="case-banaraswala" type="button" style="background: #000000 !important; color: #FFFFFF !important;">
                 Read More <span>&rarr;</span>
               </button>
             </div>
@@ -1453,7 +1477,7 @@
                 </span>
               </div>
 
-              <button class="cs-clean-readmore-btn cs-btn-nz js-open-case-modal" data-case-id="case-nz-immigration" type="button">
+              <button class="cs-clean-readmore-btn cs-btn-nz js-open-case-modal" data-case-id="case-nz-immigration" type="button" style="background: #000000 !important; color: #FFFFFF !important;">
                 Read More <span>&rarr;</span>
               </button>
             </div>
@@ -1489,7 +1513,7 @@
                 </span>
               </div>
 
-              <button class="cs-clean-readmore-btn cs-btn-greenworld js-open-case-modal" data-case-id="case-rahul-hr" type="button">
+              <button class="cs-clean-readmore-btn cs-btn-greenworld js-open-case-modal" data-case-id="case-rahul-hr" type="button" style="background: #000000 !important; color: #FFFFFF !important;">
                 Read More <span>&rarr;</span>
               </button>
             </div>
@@ -1521,7 +1545,7 @@
                 </span>
               </div>
 
-              <button class="cs-clean-readmore-btn cs-btn-pierian js-open-case-modal" data-case-id="case-manu-company" type="button">
+              <button class="cs-clean-readmore-btn cs-btn-pierian js-open-case-modal" data-case-id="case-manu-company" type="button" style="background: #000000 !important; color: #FFFFFF !important;">
                 Read More <span>&rarr;</span>
               </button>
             </div>
@@ -1553,7 +1577,7 @@
                 </span>
               </div>
 
-              <button class="cs-clean-readmore-btn cs-btn-blume js-open-case-modal" data-case-id="case-blume-labs" type="button">
+              <button class="cs-clean-readmore-btn cs-btn-blume js-open-case-modal" data-case-id="case-blume-labs" type="button" style="background: #000000 !important; color: #FFFFFF !important;">
                 Read More <span>&rarr;</span>
               </button>
             </div>
@@ -1597,7 +1621,7 @@
                 </span>
               </div>
 
-              <button class="cs-clean-readmore-btn cs-btn-loomcrafts js-open-case-modal" data-case-id="case-loomcrafts" type="button">
+              <button class="cs-clean-readmore-btn cs-btn-loomcrafts js-open-case-modal" data-case-id="case-loomcrafts" type="button" style="background: #000000 !important; color: #FFFFFF !important;">
                 Read More <span>&rarr;</span>
               </button>
             </div>
@@ -1625,7 +1649,7 @@
                 </span>
               </div>
 
-              <button class="cs-clean-readmore-btn cs-btn-chanakya js-open-case-modal" data-case-id="case-chanakya-university" type="button">
+              <button class="cs-clean-readmore-btn cs-btn-chanakya js-open-case-modal" data-case-id="case-chanakya-university" type="button" style="background: #000000 !important; color: #FFFFFF !important;">
                 Read More <span>&rarr;</span>
               </button>
             </div>

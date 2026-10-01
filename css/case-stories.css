@@ -1052,29 +1052,31 @@
   border-radius: 9999px;
 }
 
-/* Image 2 Style Read More Button */
+/* Image 2 Style Read More Button (Black Background, White Text) */
 .cs-clean-readmore-btn {
-  background: #3AAFA9;
+  background: #000000;
   color: #FFFFFF;
   border: none;
   font-family: var(--font-body, 'Inter', sans-serif);
   font-size: 0.98rem;
   font-weight: 600;
-  padding: 0.7rem 2.5rem;
-  border-radius: 6px;
+  padding: 0.72rem 2.2rem;
+  border-radius: 9999px;
   cursor: pointer;
   transition: all 0.25s ease;
-  box-shadow: 0 4px 12px rgba(58, 175, 169, 0.25);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: 0.5rem;
   width: auto;
 }
 
 .cs-clean-readmore-btn:hover {
-  background: #2B9B95;
+  background: #1E293B;
+  color: #FFFFFF;
   transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(43, 155, 149, 0.35);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
 }
 
 /* Modal Content Styling matching strict user prompt */
