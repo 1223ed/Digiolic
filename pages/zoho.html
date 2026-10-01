@@ -6426,19 +6426,7 @@
 
           <!-- Right Column: Contact Form (Matching Contact Us Page Design) -->
           <div class="dm-editorial-right">
-            <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 0.85rem; flex-wrap: wrap;">
-              <h2 class="contact-pane-title" style="margin: 0 !important;">Send us a message</h2>
-              <div class="test-records-bar" style="display: inline-flex; align-items: center; gap: 6px; background: #F1F5F9; padding: 4px 8px; border-radius: 8px; border: 1px dashed #CBD5E1; font-size: 12px; font-family: 'Inter', -apple-system, sans-serif;">
-                <span style="font-weight: 600; color: #475569; display: inline-flex; align-items: center; gap: 4px;">
-                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2.2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
-                  Fill Test:
-                </span>
-                <button type="button" onclick="window.fillTestRecord('zoho')" title="Fill Zoho test record" style="background: #FFFFFF; border: 1px solid #CBD5E1; border-radius: 5px; padding: 3px 8px; font-size: 11px; font-weight: 600; color: #2563EB; cursor: pointer; transition: all 0.2s;" onmouseover="this.style.background='#EFF6FF';this.style.borderColor='#93C5FD';" onmouseout="this.style.background='#FFFFFF';this.style.borderColor='#CBD5E1';">Zoho</button>
-                <button type="button" onclick="window.fillTestRecord('salesforce')" title="Fill Salesforce test record" style="background: #FFFFFF; border: 1px solid #CBD5E1; border-radius: 5px; padding: 3px 8px; font-size: 11px; font-weight: 600; color: #0284C7; cursor: pointer; transition: all 0.2s;" onmouseover="this.style.background='#F0F9FF';this.style.borderColor='#7DD3FC';" onmouseout="this.style.background='#FFFFFF';this.style.borderColor='#CBD5E1';">Salesforce</button>
-                <button type="button" onclick="window.fillTestRecord('marketing')" title="Fill Digital Marketing test record" style="background: #FFFFFF; border: 1px solid #CBD5E1; border-radius: 5px; padding: 3px 8px; font-size: 11px; font-weight: 600; color: #7C3AED; cursor: pointer; transition: all 0.2s;" onmouseover="this.style.background='#F5F3FF';this.style.borderColor='#C4B5FD';" onmouseout="this.style.background='#FFFFFF';this.style.borderColor='#CBD5E1';">Marketing</button>
-                <button type="button" onclick="window.fillTestRecord('fullsuite')" title="Fill Multi-service test record" style="background: #FFFFFF; border: 1px solid #CBD5E1; border-radius: 5px; padding: 3px 8px; font-size: 11px; font-weight: 600; color: #059669; cursor: pointer; transition: all 0.2s;" onmouseover="this.style.background='#ECFDF5';this.style.borderColor='#6EE7B7';" onmouseout="this.style.background='#FFFFFF';this.style.borderColor='#CBD5E1';">Full Suite</button>
-              </div>
-            </div>
+            <h2 class="contact-pane-title">Send us a message</h2>
 
             <div id="crmWebToEntityForm" class="crmWebToEntityForm" style="width: 100%;">
             <form class="contact-form-grid" id="webform1353623000000711081" name="WebToLeads1353623000000711081" action="https://crm.zoho.in/crm/WebToLeadForm" method="POST" onsubmit="javascript:document.charset='UTF-8'; return checkMandatory1353623000000711081()" accept-charset="UTF-8">
@@ -7030,79 +7018,6 @@
           updateContactServices();
         };
 
-        window.fillTestRecord = function (type) {
-          const key = (type || 'zoho').toLowerCase();
-          const records = {
-            zoho: {
-              name: 'Alex Rivera (Zoho Test)',
-              company: 'Apex Global Enterprises',
-              mobile: '+91 9876543210',
-              email: 'alex.rivera@apexglobal.example.com',
-              services: ['Zoho CRM', 'Zoho Books', 'Zoho Desk', 'Zoho One'],
-              description: 'Test record for Zoho CRM Web-to-Lead integration verifying end-to-end multi-app ecosystem onboarding.'
-            },
-            salesforce: {
-              name: 'Elena Rostova (Salesforce Test)',
-              company: 'Vanguard Tech Solutions',
-              mobile: '+91 9845012345',
-              email: 'elena.rostova@vanguardtech.example.com',
-              services: ['Salesfoce Developement', 'Salesforce Sales Cloud', 'Salesforce Service Cloud'],
-              description: 'Test record for Salesforce Cloud architecture and custom development picklist mapping.'
-            },
-            marketing: {
-              name: 'Rohan Sharma (Marketing Test)',
-              company: 'Nexus Hypergrowth Brands',
-              mobile: '+91 9916098765',
-              email: 'rohan.sharma@nexusbrands.example.com',
-              services: ['Performance marketing', 'Search engine optimization', 'Advertising', 'Social media management'],
-              description: 'Test record for Digital Marketing performance campaigns and organic SEO routing.'
-            },
-            fullsuite: {
-              name: 'Marcus Vance (Full Suite Test)',
-              company: 'Vance Digital Ventures',
-              mobile: '+91 9811122233',
-              email: 'marcus.vance@vanceventures.example.com',
-              services: ['Zoho CRM', 'Salesforce Sales Cloud', 'Performance marketing', 'Ai-driven marketing automation'],
-              description: 'Cross-discipline test record combining Zoho CRM, Salesforce Sales Cloud, and Performance Marketing.'
-            }
-          };
-
-          const rec = records[key] || records.zoho;
-          const form = document.getElementById('webform1353623000000711081') || document.querySelector('.crmWebToEntityForm form');
-          if (!form) return;
-
-          const nameFld = form.querySelector('[name="Last Name"]') || document.getElementById('Last_Name');
-          const compFld = form.querySelector('[name="Company"]') || document.getElementById('Company');
-          const mobFld = form.querySelector('[name="Mobile"]') || document.getElementById('Mobile');
-          const emailFld = form.querySelector('[name="Email"]') || document.getElementById('Email');
-          const descFld = form.querySelector('[name="Description"]') || document.getElementById('Description');
-          const captchaFld = form.querySelector('[name="enterdigest"]') || document.getElementById('captchaField1353623000000711081');
-
-          if (nameFld) nameFld.value = rec.name;
-          if (compFld) compFld.value = rec.company;
-          if (mobFld) mobFld.value = rec.mobile;
-          if (emailFld) emailFld.value = rec.email;
-          if (descFld) descFld.value = rec.description;
-
-          // Clear all checked options
-          options.forEach(opt => { opt.checked = false; });
-
-          // Select matching options
-          rec.services.forEach(svc => {
-            options.forEach(opt => {
-              if (opt.getAttribute('data-service-val') === svc) {
-                opt.checked = true;
-              }
-            });
-          });
-
-          updateContactServices();
-
-          if (captchaFld) {
-            captchaFld.focus();
-            captchaFld.scrollIntoView({ behavior: 'smooth', block: 'center' });
-          }
-        };
 
         trigger.addEventListener('click', (e) => {
           e.stopPropagation();
