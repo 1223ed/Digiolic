@@ -3752,6 +3752,7 @@
                   <option value="Performance marketing">Performance marketing</option>
                   <option value="Search engine optimization">Search engine optimization</option>
                   <option value="Advertising">Advertising</option>
+                  <option value="Ppc advertising">Ppc advertising</option>
                   <option value="Social media management">Social media management</option>
                   <option value="Content marketing">Content marketing</option>
                   <option value="Ai-driven marketing automation">Ai-driven marketing automation</option>
@@ -3819,6 +3820,7 @@
                     <label class="contact-option-item"><input type="checkbox" data-service-val="Performance marketing"><span>Performance Marketing &amp; CRO</span></label>
                     <label class="contact-option-item"><input type="checkbox" data-service-val="Search engine optimization"><span>Search Engine Optimization (SEO)</span></label>
                     <label class="contact-option-item"><input type="checkbox" data-service-val="Advertising"><span>Advertising &amp; Paid Media</span></label>
+                    <label class="contact-option-item"><input type="checkbox" data-service-val="Ppc advertising"><span>PPC Advertising &amp; Paid Social</span></label>
                     <label class="contact-option-item"><input type="checkbox" data-service-val="Social media management"><span>Social Media Management</span></label>
                     <label class="contact-option-item"><input type="checkbox" data-service-val="Content marketing"><span>Content Creation &amp; Strategy</span></label>
                     <label class="contact-option-item"><input type="checkbox" data-service-val="Ai-driven marketing automation"><span>AI Marketing Automation</span></label>
@@ -3896,6 +3898,8 @@
                 </button>
               </div>
 
+              <!-- Zoho CRM Web-to-Lead Analytics Script -->
+              <script id="wf_anal" src="https://crm.zohopublic.in/crm/WebFormAnalyticsServeServlet?rid=d7d0bf339420a4f91a3c797d1eda98e5fe31e6ec15278e27cfdfae79152e35c3516c83a2c93680275a6f15d31c8b970bgid63a9a566a75519b42793946398cf7cfde8b33d892c1a7a48ea7b677eaa386dbdgid6dae4ef6e17d391e56f57eb0158f165f9ef1d817e771c6e46a02bf89555b0219gid2bf80b4ac9a1305cf995c7badb5576d70c14966464f5bc2040920a9d3301c44d&tw=d03eb145d27a77711c25e5b516fad620b94087c5916d22738f1280d962effbc8&version=v2"></script>
             </form>
             </div>
           </div>
@@ -4221,73 +4225,129 @@
 
         updateContactServices();
       })();
+    });
+  </script>
 
-      // Zoho CRM Web-to-Lead Validation Script
-      function validateEmail1353623000000711081() {
-        var form = document.forms['WebToLeads1353623000000711081'] || document.forms['WebToLeads1410226000000468646'];
-        if (!form) return true;
-        var emailFld = form.querySelectorAll('[ftype=email]');
-        var i;
-        for (i = 0; i < emailFld.length; i++) {
-          var emailVal = emailFld[i].value;
-          if ((emailVal.replace(/^\s+|\s+$/g, '')).length != 0) {
-            var atpos = emailVal.indexOf('@');
-            var dotpos = emailVal.lastIndexOf('.');
-            if (atpos < 1 || dotpos < atpos + 2 || dotpos + 2 >= emailVal.length) {
-              alert('Please enter a valid email address.');
-              emailFld[i].focus();
+  <!-- Zoho CRM Web-to-Lead Validation Scripts -->
+  <script>
+    function validateEmail1353623000000711081() {
+      var form = document.forms['WebToLeads1353623000000711081'] || document.forms['WebToLeads1410226000000468646'];
+      if (!form) return true;
+      var emailFld = form.querySelectorAll('[ftype=email]');
+      var i;
+      for (i = 0; i < emailFld.length; i++) {
+        var emailVal = emailFld[i].value;
+        if ((emailVal.replace(/^\s+|\s+$/g, '')).length != 0) {
+          var atpos = emailVal.indexOf('@');
+          var dotpos = emailVal.lastIndexOf('.');
+          if (atpos < 1 || dotpos < atpos + 2 || dotpos + 2 >= emailVal.length) {
+            alert('Please enter a valid email address.');
+            emailFld[i].focus();
+            return false;
+          }
+        }
+      }
+      return true;
+    }
+
+    function checkMandatory1353623000000711081(isAjax) {
+      var mndFileds = new Array('Company', 'Last Name', 'Email', 'Mobile', 'Description', 'LEADCF1');
+      var fldLangVal = new Array('Company', 'Name', 'Email', 'Mobile', 'Description', 'Services');
+      var form = document.forms['WebToLeads1353623000000711081'] || document.forms['WebToLeads1410226000000468646'];
+      if (!form) return true;
+      for (var i = 0; i < mndFileds.length; i++) {
+        var fieldObj = form[mndFileds[i]];
+        if (fieldObj) {
+          if (((fieldObj.value).replace(/^\s+|\s+$/g, '')).length == 0) {
+            if (fieldObj.type == 'file') {
+              alert('Please select a file to upload.');
+              fieldObj.focus();
+              return false;
+            }
+            alert(fldLangVal[i] + ' cannot be empty.');
+            if (mndFileds[i] === 'LEADCF1' || mndFileds[i] === 'LEADCF2') {
+              var trigger = document.querySelector('#contactServicesMultiselect .contact-select-trigger');
+              if (trigger) trigger.focus();
+            } else {
+              fieldObj.focus();
+            }
+            return false;
+          } else if (fieldObj.nodeName == 'SELECT') {
+            if (fieldObj.selectedIndex >= 0 && fieldObj.options[fieldObj.selectedIndex].value == '-None-') {
+              alert(fldLangVal[i] + ' cannot be none.');
+              fieldObj.focus();
+              return false;
+            }
+          } else if (fieldObj.type == 'checkbox') {
+            if (fieldObj.checked == false) {
+              alert('Please accept ' + fldLangVal[i]);
+              fieldObj.focus();
               return false;
             }
           }
+          try {
+            if (fieldObj.name == 'Last Name') {
+              name = fieldObj.value;
+            }
+          } catch (e) {}
         }
-        return true;
+      }
+      if (!validateEmail1353623000000711081()) {
+        return false;
       }
 
-      window.checkMandatory1353623000000711081 = function(isAjax) {
-        var mndFileds = new Array('Company', 'Last Name', 'Email', 'Mobile', 'Description', 'LEADCF1');
-        var fldLangVal = new Array('Company', 'Name', 'Email', 'Mobile', 'Description', 'Services');
-        var form = document.forms['WebToLeads1353623000000711081'] || document.forms['WebToLeads1410226000000468646'];
-        if (!form) return true;
-        for (var i = 0; i < mndFileds.length; i++) {
-          var fieldObj = form[mndFileds[i]];
-          if (fieldObj) {
-            if (((fieldObj.value).replace(/^\s+|\s+$/g, '')).length == 0) {
-              alert(fldLangVal[i] + ' cannot be empty.');
-              if (mndFileds[i] === 'LEADCF1' || mndFileds[i] === 'LEADCF2') {
-                var trigger = document.querySelector('#contactServicesMultiselect .contact-select-trigger');
-                if (trigger) trigger.focus();
-              } else {
-                fieldObj.focus();
-              }
-              return false;
-            }
-          }
-        }
-        if (!validateEmail1353623000000711081()) {
-          return false;
-        }
+      var urlparams = new URLSearchParams(window.location.search);
+      if (urlparams.has('service') && (urlparams.get('service') === 'smarturl')) {
+        var webform = document.getElementById('webform1353623000000711081') || document.getElementById('webform1410226000000468646');
+        var service = urlparams.get('service');
+        var smarturlfield = document.createElement('input');
+        smarturlfield.setAttribute('type', 'hidden');
+        smarturlfield.setAttribute('value', service);
+        smarturlfield.setAttribute('name', 'service');
+        if (webform) webform.appendChild(smarturlfield);
+      }
+      var submitBtn = document.querySelector('.crmWebToEntityForm .formsubmit') || document.getElementById('formsubmit');
+      if (submitBtn) {
+        submitBtn.setAttribute('disabled', 'true');
+        submitBtn.textContent = 'Sending...';
+      }
+      return true;
+    }
 
-        var urlparams = new URLSearchParams(window.location.search);
-        if (urlparams.has('service') && (urlparams.get('service') === 'smarturl')) {
-          var webform = document.getElementById('webform1353623000000711081') || document.getElementById('webform1410226000000468646');
-          var service = urlparams.get('service');
-          var smarturlfield = document.createElement('input');
-          smarturlfield.setAttribute('type', 'hidden');
-          smarturlfield.setAttribute('value', service);
-          smarturlfield.setAttribute('name', 'service');
-          if (webform) webform.appendChild(smarturlfield);
+    function tooltipShow1353623000000711081(el) {
+      var tooltip = el.nextElementSibling;
+      if (!tooltip) return;
+      var tooltipDisplay = tooltip.style.display;
+      if (tooltipDisplay == 'none') {
+        var allTooltip = document.getElementsByClassName('zcwf_tooltip_over');
+        for (var i = 0; i < allTooltip.length; i++) {
+          allTooltip[i].style.display = 'none';
         }
-        var submitBtn = document.querySelector('.crmWebToEntityForm .formsubmit') || document.getElementById('formsubmit');
-        if (submitBtn) {
-          submitBtn.setAttribute('disabled', true);
-          submitBtn.textContent = 'Sending Message...';
-        }
-        return true;
-      };
+        tooltip.style.display = 'block';
+      } else {
+        tooltip.style.display = 'none';
+      }
+    }
 
-      window.validateEmail1410226000000468646 = validateEmail1353623000000711081;
-      window.checkMandatory1410226000000468646 = window.checkMandatory1353623000000711081;
-    });
+    window.validateEmail1353623000000711081 = validateEmail1353623000000711081;
+    window.checkMandatory1353623000000711081 = checkMandatory1353623000000711081;
+    window.tooltipShow1353623000000711081 = tooltipShow1353623000000711081;
+
+    // Backward compatibility aliases
+    window.validateEmail1410226000000468646 = validateEmail1353623000000711081;
+    window.checkMandatory1410226000000468646 = checkMandatory1353623000000711081;
+    window.tooltipShow1410226000000468646 = tooltipShow1353623000000711081;
+
+    _wFa_ajax_will_be_replaced = false;
+    if (typeof _wfa_fstprtcken === 'undefined') {
+      _wfa_fstprtcken = {};
+    }
+    _wfa_fstprtcken[1353623000000711081] = true;
+    _wfa_fstprtcken[1410226000000468646] = true;
+  </script>
+
+  <!-- Interactive script for Why Choose Digiolic poster cards and animations -->
+  <script>
 
     /* ==========================================================================
        RED PARTICLE CHAOS BACKGROUND ANIMATION (ACROSS ENTIRE PAGE BELOW HERO)
@@ -4450,15 +4510,6 @@
     })();
   </script>
 
-  <!-- Zoho WebForm Analytics Tracking -->
-  <script>
-    if (typeof _wfa_fstprtcken === 'undefined') {
-      _wfa_fstprtcken = {};
-    }
-    _wfa_fstprtcken[1353623000000711081] = true;
-    _wfa_fstprtcken[1410226000000468646] = true;
-  </script>
-  <script id="wf_anal" src="https://crm.zohopublic.in/crm/WebFormAnalyticsServeServlet?rid=d7d0bf339420a4f91a3c797d1eda98e5fe31e6ec15278e27cfdfae79152e35c3516c83a2c93680275a6f15d31c8b970bgid63a9a566a75519b42793946398cf7cfde8b33d892c1a7a48ea7b677eaa386dbdgid6dae4ef6e17d391e56f57eb0158f165f9ef1d817e771c6e46a02bf89555b0219gid2bf80b4ac9a1305cf995c7badb5576d70c14966464f5bc2040920a9d3301c44d&tw=d03eb145d27a77711c25e5b516fad620b94087c5916d22738f1280d962effbc8&version=v2"></script>
 
   <!-- Zoho SalesIQ Speech Bubble Prompt ("Talk with an expert") -->
   <div id="salesiq-chat-prompt" class="salesiq-chat-prompt" role="button" tabindex="0" aria-label="Talk with an expert. How can I help you today?">
