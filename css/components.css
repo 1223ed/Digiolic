@@ -1474,9 +1474,11 @@ body.case-stories-page .mainframe-mobile-link.cta-pill:hover {
    9. ZOHO SALESIQ "TALK WITH AN EXPERT" SPEECH BUBBLE PROMPT
    ========================================================================== */
 .salesiq-chat-prompt {
-  position: fixed;
-  bottom: 26px;
-  right: 92px;
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
   z-index: 999998;
   background: #FFFFFF;
   border-radius: 16px;

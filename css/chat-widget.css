@@ -4,9 +4,11 @@
    ========================================================================== */
 
 .salesiq-chat-prompt {
-  position: fixed;
-  bottom: 24px;
-  right: 88px;
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
   z-index: 2147483640;
   background: #FFFFFF;
   border-radius: 14px;
