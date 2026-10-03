@@ -288,6 +288,320 @@ document.addEventListener('DOMContentLoaded', () => {
         '<strong>Maximized Sales Productivity:</strong> Improved sales team productivity by eliminating manual data entry and streamlining lead follow-up workflows.',
         '<strong>Scalable Pan-India Growth:</strong> Scalable operational infrastructure supporting high-value custom manufacturing orders and pan-India growth.'
       ]
+    },
+
+    'case-greenworld': {
+      company: 'Greenworld Solarwares Private Limited',
+      location: 'Chhattisgarh, India',
+      products: 'Zoho People, Zoho Payroll, Zoho Recruit',
+      description: 'Greenworld Solarwares Private Limited is a leading renewable energy and solar solutions provider based in Chhattisgarh, India, managing extensive multi-departmental workforce recruitment, human resources, and monthly payroll operations.',
+      challenges: [
+        '<strong>Disconnected HR & Payroll Silos:</strong> Managing disconnected recruitment, HR, and payroll workflows across siloed systems without centralized data sharing.',
+        '<strong>Manual Candidate Transfer Redundancy:</strong> Tedious manual data entry when transferring newly hired candidates from recruitment systems into employee databases.',
+        '<strong>Attendance & Payroll Discrepancies:</strong> Complex payroll processing errors caused by manual reconciliation of attendance, leave records, and salary structures.',
+        '<strong>Opaque Workforce Metrics:</strong> Lack of visibility into hiring pipelines, time-to-hire metrics, and overall workforce administration costs.',
+        '<strong>Onboarding & Initialisation Delays:</strong> Delays in onboarding new hires and initializing their active payroll profiles smoothly.'
+      ],
+      solution: [
+        '<strong>Integrated HRMS Ecosystem:</strong> Implement an integrated ecosystem connecting Zoho Recruit, Zoho People, and Zoho Payroll into a unified platform.',
+        '<strong>Automated Candidate-to-Employee Conversion:</strong> Automate the conversion of successfully hired candidates in Zoho Recruit directly into employee profiles in Zoho People.',
+        '<strong>Direct Attendance & Leave Sync:</strong> Sync attendance, shift, and leave management data from Zoho People automatically with Zoho Payroll.',
+        '<strong>Error-Free Statutory Calculations:</strong> Configure automated payroll calculation and tax compliance rules within Zoho Payroll for error-free disbursements.',
+        '<strong>Unified Executive Dashboards:</strong> Utilize integrated dashboards across the suite to track recruitment metrics, headcount, and payroll expenditures in real time.'
+      ],
+      benefits: [
+        '<strong>Zero Administrative Redundancy:</strong> Eliminated administrative overhead and redundant manual data entry through seamless cross-application synchronization.',
+        '<strong>Rapid Onboarding Velocity:</strong> Accelerated onboarding turnarounds that instantly transition candidate hires into active, managed employees.',
+        '<strong>100% Payroll & Statutory Accuracy:</strong> 100% accuracy in payroll processing and statutory compliance through automated attendance and leave integration.',
+        '<strong>Complete Workforce Transparency:</strong> Improved visibility into workforce operations, recruitment efficiency, and monthly salary expenses.',
+        '<strong>Empowered Employee Self-Service:</strong> Enhanced employee experience via transparent self-service portals for leave tracking, attendance, and pay slip access.'
+      ]
+    },
+
+    'case-deccan-herald': {
+      company: 'Deccan Herald',
+      location: 'Bangalore, India',
+      products: 'Performance Marketing, Audience Segmentation, Data Analytics, Conversion Rate Optimization',
+      description: 'Deccan Herald is one of India\'s premier daily English-language broadsheet publications. With millions of active monthly digital readers, Deccan Herald partnered with Digiolic to supercharge digital subscriber acquisitions, slash customer acquisition costs (CAC), and optimize programmatic subscription funnels.',
+      challenges: [
+        '<strong>Sub-Optimal Lead Conversion:</strong> Rising CAC and plateauing digital subscriber acquisitions across regional readership segments.',
+        '<strong>Audience Channel Fragmentation:</strong> Inability to accurately attribute subscription conversions across print, organic search, and paid social campaigns.',
+        '<strong>Subscription Funnel Drop-off:</strong> High bounce rates at paywalls and complex subscription payment checkout flows.'
+      ],
+      solution: [
+        '<strong>Full-Funnel Paid Acquisition Re-Architecture:</strong> Deployed granular behavioral segmentation across Google Search, Display, and Meta Ads.',
+        '<strong>Conversion Rate Optimization (CRO):</strong> Redesigned subscription landing page funnels with frictionless 1-click micro-paywalls and payment integrations.',
+        '<strong>Attribution Modeling & Predictive LTV:</strong> Integrated real-time analytics to measure reader propensity and lifetime value across readership segments.'
+      ],
+      benefits: [
+        '<strong>+37% Boost in Lead Generation:</strong> Qualified digital subscriber leads surged within the first 90 days of campaign deployment.',
+        '<strong>-49% Reduction in CAC:</strong> Customer acquisition cost halved through algorithmic audience targeting and continuous funnel optimization.',
+        '<strong>High-Yield Subscriber Retention:</strong> Enhanced retention rate of yearly premium digital news subscribers.'
+      ]
+    },
+
+    'case-myntra': {
+      company: 'Myntra',
+      location: 'Bangalore, India',
+      products: 'Organic SEO Engine, High-Velocity Content Marketing, Keyword Architecture',
+      description: 'Myntra is India\'s foremost fashion and lifestyle e-commerce powerhouse. Digiolic engineered a programmatic SEO expansion and search authority architecture that catapulted thousands of high-intent search queries into top rankings, driving exponential organic traffic growth.',
+      challenges: [
+        '<strong>High-Velocity Category Indexing:</strong> Managing search ranking authority across hundreds of thousands of rapidly churning fashion SKUs.',
+        '<strong>Intense Competitive SERP Pressure:</strong> Dominating ultra-competitive seasonal keyword categories (End of Reason Sale, Festive fashion).',
+        '<strong>Crawl Budget & Technical Optimization:</strong> Navigating complex faceted navigation parameters and canonicalization at massive enterprise scale.'
+      ],
+      solution: [
+        '<strong>Programmatic SEO & Canonical Architecture:</strong> Built automated internal linking hierarchies and faceted navigation indexing rules.',
+        '<strong>Long-Tail Keyword Matrix:</strong> Deployed high-volume, high-intent seasonal style keyword clusters across women\'s, men\'s, and footwear categories.',
+        '<strong>Core Web Vitals & Accelerated Indexing:</strong> Optimized structured data markup and mobile rendering speed for instant indexing by search engine crawlers.'
+      ],
+      benefits: [
+        '<strong>10X Boost in Organic Search Traffic:</strong> Massive surge in high-intent non-brand organic discovery across primary fashion apparel keywords.',
+        '<strong>100% Increase MOM:</strong> Consistent month-over-month compounding traffic growth during peak e-commerce sales cycles.',
+        '<strong>Multi-Crore Organic Revenue Lift:</strong> Decreased reliance on high-cost paid search channels through dominant organic SERP ownership.'
+      ]
+    },
+
+    'case-flipkart': {
+      company: 'Flipkart',
+      location: 'Bangalore, India',
+      products: 'Social Media Growth Engine, Viral Video Production, Influencer Orchestration',
+      description: 'Flipkart is India\'s leading homegrown e-commerce ecosystem. Digiolic partnered with Flipkart to craft high-impact, viral social campaigns and video engagement funnels that engaged Gen-Z and millennial shoppers nationwide during Big Billion Days and festive shopping festivals.',
+      challenges: [
+        '<strong>Social Engagement Fatigue:</strong> Standing out in an oversaturated e-commerce social landscape during competitive festive sale periods.',
+        '<strong>Gen-Z Visual Content Demands:</strong> Transitioning from promotional static banners to authentic, short-form viral storytelling.',
+        '<strong>Social Commerce Direct Conversion:</strong> Bridging the gap between social engagement (Instagram Reels, YouTube Shorts) and direct app checkouts.'
+      ],
+      solution: [
+        '<strong>Interactive Social Content Frameworks:</strong> Designed engaging, dynamic carousel and short-form video campaigns showcasing exclusive product drops.',
+        '<strong>Influencer-Led Video Creative Strategy:</strong> Directed targeted creator collaborations delivering relatable lifestyle narratives tied to Flipkart app promotions.',
+        '<strong>Omnichannel Retargeting Loops:</strong> Deployed synchronized remarketing funnels converting social video viewers into in-app buyers.'
+      ],
+      benefits: [
+        '<strong>+40% Boost in Instagram Engagement:</strong> Remarkable lift in comment shares, saves, and interactive sticker participation across brand channels.',
+        '<strong>+70% Boost in YouTube Video Views:</strong> Record-breaking audience reach and watch time on high-energy campaign video launches.',
+        '<strong>Viral App Installs & Cart Velocity:</strong> Exponential surge in new user app downloads and festive shopping bag checkouts.'
+      ]
+    },
+
+    'case-via-milano': {
+      company: 'via Milano',
+      location: 'Bangalore & Hyderabad, India',
+      products: 'Local Hospitality Growth, Micro-Targeted Ad Campaigns, Automated Table Booking Engine',
+      description: 'via Milano is a premier authentic Italian fine dining restaurant brand in India. Digiolic delivered an integrated local search, visual social media, and digital booking system that dramatically increased table reservations and private dining revenue.',
+      challenges: [
+        '<strong>Weekday Dining Slowdowns:</strong> Inconsistent footfall between high-demand weekend dinner rushes and slower weekday lunch periods.',
+        '<strong>Local Search Competition:</strong> Competing against new culinary outlets in prime urban dining districts.',
+        '<strong>Table Reservation Friction:</strong> Third-party booking platforms charging heavy commissions without providing direct customer ownership.'
+      ],
+      solution: [
+        '<strong>Hyper-Local Geo-Targeted Ad Engine:</strong> Launched radius-based Google and Instagram ad campaigns reaching corporate professionals within a 5km radius.',
+        '<strong>Direct Commission-Free Reservation Funnel:</strong> Implemented seamless 1-click table booking and WhatsApp confirmation workflows.',
+        '<strong>Sensory Food Visual Storytelling:</strong> Produced high-definition gastronomic imagery and behind-the-scenes chef specials highlighting woodfired craftsmanship.'
+      ],
+      benefits: [
+        '<strong>4X Boost in Direct Table Bookings:</strong> Substantial surge in direct online dining reservations without high aggregator fees.',
+        '<strong>100% Increase in Recurring Dining Revenue:</strong> Doubled seasonal revenue through corporate dining packages, wine tastings, and event bookings.',
+        '<strong>Dominant Local Map Pack Ranking:</strong> Ranked #1 in local Google Maps searches for Italian fine dining in central metropolitan hubs.'
+      ]
+    },
+
+    'case-siemens': {
+      company: 'Siemens',
+      location: 'Global / India',
+      products: 'Enterprise CRM, Cloud Workflow Automation, Custom Analytics',
+      description: 'Siemens is a global technology pioneer in electrification, automation, and digitalization. Digiolic implemented customized CRM workflow automations and multi-tier enterprise integrations to streamline project pipeline tracking, customer interactions, and field engineering coordination.',
+      challenges: [
+        '<strong>Complex B2B Sales Cycles:</strong> Tracking multi-month industrial infrastructure contract pipelines across international cross-functional teams.',
+        '<strong>Siloed Field Service Data:</strong> Disconnected field technical service requests and customer feedback histories.',
+        '<strong>Enterprise Security & Role Compliance:</strong> Strict regulatory compliance and fine-grained data permission requirements.'
+      ],
+      solution: [
+        '<strong>Custom Enterprise Workflow Blueprints:</strong> Configured automated stage gates, risk approvals, and SLA escalations for multi-million dollar deals.',
+        '<strong>Unified Engineering & Field Service Sync:</strong> Integrated technical customer ticket logging directly into central account management views.',
+        '<strong>Role-Based Analytics Dashboards:</strong> Provided senior leadership with real-time pipeline velocity and regional performance forecasts.'
+      ],
+      benefits: [
+        '<strong>Accelerated Sales Pipeline Velocity:</strong> Reduced enterprise proposal turnaround times by 35%.',
+        '<strong>360-Degree Account Transparency:</strong> Complete historical visibility into client interactions across engineering, sales, and executive teams.',
+        '<strong>Zero Data Compliance Violations:</strong> Full adherence to strict international security and data governance standards.'
+      ]
+    },
+
+    'case-audible': {
+      company: 'Audible India',
+      location: 'Mumbai & Bangalore, India',
+      products: 'Digital Engagement Architecture, CRM Automation, Retention Funnels',
+      description: 'Audible (an Amazon company) is the leading creator and provider of premium audio storytelling. Digiolic architected customized audience engagement and automated communication workflows that increased member onboarding completion and subscription renewals.',
+      challenges: [
+        '<strong>Audio Discovery Onboarding:</strong> Guiding new trial listeners to their first listening milestone within 48 hours of signup.',
+        '<strong>Member Churn Prevention:</strong> Identifying disengaged listeners before monthly subscription renewal cycles.',
+        '<strong>Multi-Channel Notification Orchestration:</strong> Aligning email, in-app messaging, and push notifications to avoid message fatigue.'
+      ],
+      solution: [
+        '<strong>Behavior-Driven Automation Workflows:</strong> Created automated onboarding sequences triggered by real-time listening habits and genre preferences.',
+        '<strong>Predictive Churn Interventions:</strong> Configured re-engagement trigger alerts providing tailored audio recommendations to at-risk subscribers.',
+        '<strong>Lifecycle Journey Dashboards:</strong> Monitored trial-to-paid conversion rates and catalog completion metrics.'
+      ],
+      benefits: [
+        '<strong>+28% Trial-to-Paid Conversion Lift:</strong> Faster time-to-first-listen resulting in higher member retention.',
+        '<strong>Streamlined Multi-Channel Messaging:</strong> Optimized communication cadence reducing user unsubscribe rates.',
+        '<strong>Actionable Cohort Insights:</strong> Enabled marketing teams to rapidly identify trending regional language audiobooks.'
+      ]
+    },
+
+    'case-betterplace': {
+      company: 'Betterplace',
+      location: 'Bangalore, India',
+      products: 'Zoho CRM, Enterprise Cloud Integration, Automated Lead Routing',
+      description: 'Betterplace is Asia\'s largest frontline workforce management platform. Digiolic implemented scalable CRM architectures and automated lead qualification pipelines capable of handling massive enterprise hiring and workforce management inquiries.',
+      challenges: [
+        '<strong>Massive Frontline Inbound Ingestion:</strong> Processing thousands of workforce inquiries per week across logistics, facility management, and retail sectors.',
+        '<strong>Lead Routing Latency:</strong> Manual lead triage causing delays in connecting high-priority enterprise prospects with regional account directors.',
+        '<strong>Cross-Product Cross-Selling:</strong> Lack of visibility into existing client adoption across onboarding, attendance, and compliance modules.'
+      ],
+      solution: [
+        '<strong>Automated Intelligent Lead Routing:</strong> Configured rule-based auto-assignment algorithms prioritizing leads by industry tier and geography.',
+        '<strong>Cross-Department Account Hierarchy:</strong> Structured parent-child enterprise account layouts displaying multi-branch usage in a unified portal.',
+        '<strong>API Sync with Core Platforms:</strong> Connected CRM pipelines to internal workforce systems for seamless contract-to-onboarding transitions.'
+      ],
+      benefits: [
+        '<strong>Instantaneous Lead Response:</strong> High-priority enterprise lead contact time dropped from 4 hours to under 8 minutes.',
+        '<strong>+45% Improvement in Sales Follow-up Efficiency:</strong> Automated task generation eliminated dropped opportunities.',
+        '<strong>Unified Enterprise View:</strong> Leadership gained real-time visibility into customer account health and expansion potential.'
+      ]
+    },
+
+    'case-xiaomi': {
+      company: 'Xiaomi',
+      location: 'Global / India',
+      products: 'Omnichannel CRM, Retail Partner Management, Automated Service Ticketing',
+      description: 'Xiaomi is a global consumer electronics and smart manufacturing company. Digiolic optimized retail partner support networks, customer escalation flows, and CRM data pipelines to elevate post-sales partner and consumer satisfaction.',
+      challenges: [
+        '<strong>High-Density Retail Partner Inquiries:</strong> Managing thousands of authorized retail and service partner queries daily.',
+        '<strong>Warranty & Escalation Delays:</strong> Fragmented communication between physical service centers and regional warehouse supply teams.',
+        '<strong>KPI Tracking Across Centers:</strong> Inconsistent reporting on turnaround times and first-contact resolution rates.'
+      ],
+      solution: [
+        '<strong>Omnichannel Partner Support Hub:</strong> Built a centralized support desk with automated ticketing, SLA tracking, and resolution escalations.',
+        '<strong>Automated Spares & Inventory Alerts:</strong> Integrated service center requests directly into supply chain dispatch workflows.',
+        '<strong>Live Executive Service Dashboards:</strong> Implemented real-time operational monitors tracking turnaround times across nationwide service hubs.'
+      ],
+      benefits: [
+        '<strong>-40% Reduction in Ticket Resolution Time:</strong> Faster resolution of dealer inquiries and warranty claims.',
+        '<strong>100% SLA Adherence:</strong> Automated escalation triggers ensured zero unresolved high-priority partner issues.',
+        '<strong>Elevated Partner Satisfaction:</strong> Strengthened trust and operational efficiency across the retail ecosystem.'
+      ]
+    },
+
+    'case-haldirams': {
+      company: "Haldiram's",
+      location: 'Nagpur & Delhi, India',
+      products: 'Distribution CRM, FMCG Supply Chain Automation, Order Portal Integration',
+      description: "Haldiram's is India's iconic sweets and snacks FMCG manufacturer. Digiolic deployed distribution management CRM workflows and automated retailer order tracking to accelerate distributor fulfillment and enhance supply chain visibility.",
+      challenges: [
+        '<strong>Pan-India Distributor Network Disconnect:</strong> Coordinating orders and inventory updates across hundreds of regional stockists manually.',
+        '<strong>Order Processing Bottlenecks:</strong> Telephonic order taking leading to stock allocation mismatches during festive seasons.',
+        '<strong>Credit & Payment Reconciliation Gaps:</strong> Delayed visibility into distributor credit limits and outstanding receivables.'
+      ],
+      solution: [
+        '<strong>Automated Distributor Order Management:</strong> Implemented a connected distributor portal for order placement, stock checks, and status tracking.',
+        '<strong>Credit Limit & Payment Workflows:</strong> Configured automated checks on distributor credit lines before order release approvals.',
+        '<strong>Regional Performance Analytics:</strong> Created executive dashboards tracking SKU-level velocity and seasonal demand trends.'
+      ],
+      benefits: [
+        '<strong>-50% Reduction in Order Processing Time:</strong> Automated validation eliminated manual re-keying of wholesale orders.',
+        '<strong>Zero Festive Fulfillment Delays:</strong> Real-time demand forecasting prevented stockouts during major festival periods.',
+        '<strong>Transparent Distributor Relations:</strong> Enhanced distributor satisfaction through instant digital invoice access and ledger visibility.'
+      ]
+    },
+
+    'case-savaari': {
+      company: 'Savaari Car Rentals',
+      location: 'Bangalore, India',
+      products: 'Travel CRM, Dynamic Pricing Sync, Driver Allocation Automation',
+      description: "Savaari Car Rentals is India's largest outstation and chauffeur-driven car rental company. Digiolic engineered automated booking pipelines and customer journey messaging that enhanced traveler experience and repeat ride bookings.",
+      challenges: [
+        '<strong>Outstation Travel Itinerary Changes:</strong> Managing dynamic customer itinerary modifications and driver assignment updates in real time.',
+        '<strong>Post-Trip Feedback & Review Ingestion:</strong> Low capture rate of post-journey traveler reviews and loyalty enrollments.',
+        '<strong>Corporate Travel Billing Reconciliations:</strong> Manual processing of enterprise travel bills and GST invoice generation.'
+      ],
+      solution: [
+        '<strong>Automated Journey Notification Engine:</strong> Configured WhatsApp and SMS automated journey updates with driver details and live tracking.',
+        '<strong>Integrated Post-Trip Review Funnels:</strong> Triggered instant feedback prompts post-drop with automated resolution for low ratings.',
+        '<strong>Corporate Billing Portal:</strong> Automated monthly consolidated GST invoicing for corporate accounts.'
+      ],
+      benefits: [
+        '<strong>+32% Increase in Google & Tripadvisor Reviews:</strong> Rapid growth in 5-star ratings across all operating cities.',
+        '<strong>Streamlined Corporate Account Management:</strong> Cut corporate billing reconciliation cycle from 10 days to 24 hours.',
+        '<strong>Higher Customer Lifetime Value:</strong> Increased repeat leisure travel bookings through personalized seasonal destination campaigns.'
+      ]
+    },
+
+    'case-nexus-wealth': {
+      company: 'Nexus Wealth Management',
+      location: 'Mumbai, India',
+      products: 'FinTech CRM, High-Net-Worth Client Portal, Compliance & Portfolio Automation',
+      description: 'Nexus Wealth Management delivers tailored wealth advisory and asset management for High-Net-Worth Individuals (HNIs). Digiolic architected an ultra-secure CRM and investor portal ensuring seamless portfolio reporting and regulatory compliance.',
+      challenges: [
+        '<strong>Strict Confidentiality & Role Security:</strong> Managing sensitive financial portfolios with strict regulatory compliance and auditable access.',
+        '<strong>Quarterly Portfolio Reporting Delays:</strong> Manual compilation of multi-asset statements across equity, debt, and real estate.',
+        '<strong>HNI Relationship Manager Allocation:</strong> Ensuring high-touch client communication without missed relationship milestones.'
+      ],
+      solution: [
+        '<strong>Encrypted HNI CRM Architecture:</strong> Designed end-to-end encrypted client records with role-based access and full audit trail logging.',
+        '<strong>Automated Portfolio Report Generator:</strong> Integrated market feeds to automatically produce customized quarterly performance statements.',
+        '<strong>Milestone & Wealth Advisory Reminders:</strong> Set up automated advisory reviews and tax planning touchpoints for relationship managers.'
+      ],
+      benefits: [
+        '<strong>100% Regulatory & Audit Compliance:</strong> Flawless compliance reviews with full digital paper trails.',
+        '<strong>-75% Faster Report Generation:</strong> Quarterly portfolio reviews generated in minutes instead of days.',
+        '<strong>Deepened Client Trust:</strong> Elevated client satisfaction and zero client attrition through proactive advisory communication.'
+      ]
+    },
+
+    'case-melorra': {
+      company: 'Melorra',
+      location: 'Bangalore, India',
+      products: 'E-Commerce CRM, Fine Jewellery Customer Care, VIP Concierge Workflows',
+      description: 'Melorra designs lightweight, trendy fine jewellery for modern women. Digiolic built a bespoke VIP concierge and customer care workflow ecosystem that increased high-ticket jewellery conversions and customized styling appointments.',
+      challenges: [
+        '<strong>High-Value Cart Drop-off:</strong> Customers hesitating at high-value checkout points requiring human guidance on gold purity and ring sizing.',
+        '<strong>Virtual Try-On & Styling Bookings:</strong> Uncoordinated scheduling of virtual video consultations between certified gemologists and shoppers.',
+        '<strong>Post-Purchase Insurance & Certificate Queries:</strong> Repetitive inquiries about diamond certifications and hallmarking.'
+      ],
+      solution: [
+        '<strong>Omnichannel Concierge Chat Hub:</strong> Integrated live stylist chat and WhatsApp concierge directly into CRM high-intent cart abandons.',
+        '<strong>Automated Video Consultation Booking:</strong> Streamlined scheduling of 1-on-1 virtual styling sessions with automatic calendar sync.',
+        '<strong>Digital Certificate Delivery:</strong> Automated post-order dispatch of authenticated certification documents and care guidelines.'
+      ],
+      benefits: [
+        '<strong>+24% Recovery on High-Value Carts:</strong> Concierge consultations converted hesitant shoppers into verified orders.',
+        '<strong>Flawless VIP Customer Experience:</strong> Seamless video consultation journey with 98% positive shopper feedback.',
+        '<strong>Streamlined Support Overhead:</strong> Reduced certificate inquiries by 60% through proactive automated delivery.'
+      ]
+    },
+
+    'case-medall': {
+      company: 'Medall Diagnostics',
+      location: 'Chennai, India',
+      products: 'Healthcare CRM, Home Sample Collection Dispatch, Automated Report Dispatch',
+      description: 'Medall Diagnostics is South India\'s largest integrated diagnostic services network. Digiolic implemented automated patient booking, phlebotomist field dispatching, and secure test report delivery workflows.',
+      challenges: [
+        '<strong>Home Sample Collection Logistics:</strong> Coordinating thousands of daily home blood sample collection appointments across multiple metropolitan cities.',
+        '<strong>Turnaround Time & Report Delivery:</strong> Delays in transmitting diagnostic reports to patients and referring doctors.',
+        '<strong>Patient Follow-up & Preventive Packages:</strong> Inability to recommend follow-up wellness screenings to chronic care patients.'
+      ],
+      solution: [
+        '<strong>Automated Phlebotomist Field Dispatch:</strong> Integrated GPS-enabled appointment assignment matching patients with the nearest available technician.',
+        '<strong>Instant Secure Report Dispatch:</strong> Automated SMS and WhatsApp report delivery with encrypted download links upon lab verification.',
+        '<strong>Preventive Healthcare Journey Sequences:</strong> Configured automated annual health check reminders tailored to patient age and historical test categories.'
+      ],
+      benefits: [
+        '<strong>+40% Increase in On-Time Sample Collections:</strong> Optimized routing and assignment slashed patient wait times.',
+        '<strong>Zero Report Transmission Latency:</strong> 95% of routine test reports delivered to patients within minutes of laboratory sign-off.',
+        '<strong>Expanded Repeat Test Engagement:</strong> Increased annual health checkup renewals by 28% through timely reminders.'
+      ]
     }
   };
 
@@ -432,6 +746,10 @@ document.addEventListener('DOMContentLoaded', () => {
     modalBackdrop.classList.remove('is-open');
     document.body.style.overflow = '';
   }
+
+  // Globally expose modal opener for 3D sphere showcase cards
+  window.openCaseStudyModal = openModal;
+  window.caseDetailsData = caseDetailsData;
 
   // Open triggers on "Read More" buttons
   document.querySelectorAll('.js-open-case-modal').forEach(btn => {

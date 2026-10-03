@@ -23,6 +23,7 @@
   <link rel="stylesheet" href="../css/case-stories.css?v=20261001_blackbtn_v1">
   <link rel="stylesheet" href="../css/responsive.css?v=20260930_v1">
   <link rel="stylesheet" href="../css/chat-widget.css?v=20260919_v209">
+  <link rel="stylesheet" href="../css/case-3d-sphere.css?v=20261003_v1">
 
   <!-- Exact Font specified -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1291,9 +1292,450 @@
     </style>
 
     <!-- ==========================================================================
-         3. CLIENT CASE STUDIES GALLERY
+         3D CURVED SPHERE / CYLINDER CASE STUDIES SHOWCASE
+         Exact Replication of Squarespace 3D Showcase Wall:
+         - Orbiting 3-tier curved cylindrical perspective cloud of case studies
+         - Drag momentum physics + idle continuous ambient drift
+         - Hover pill badges with arrow ([Client Name] ↗)
+         - Click opens rich case study architecture & impact modal
+         - Category filtering & 3D / Grid View toggle
          ========================================================================== -->
-    <section class="cs-gallery-section" id="caseStudiesGallery">
+    <section class="cs-3d-showcase-section" id="cs3DShowcaseSection" aria-label="Interactive 3D Case Studies Showcase">
+      <div id="caseStudiesGallery" style="position: absolute; top: 0; left: 0; width: 1px; height: 1px; opacity: 0; pointer-events: none;"></div>
+
+      <!-- Top Vignette Gradient -->
+      <div class="cs-3d-vignette-top"></div>
+
+      <!-- Top Controls & Category Filters -->
+      <div class="cs-3d-top-bar">
+        <div class="cs-3d-filter-pills" role="tablist" aria-label="Filter case studies">
+          <button type="button" class="cs-3d-filter-btn is-active" data-filter="all">All (24)</button>
+          <button type="button" class="cs-3d-filter-btn" data-filter="zoho">Zoho One</button>
+          <button type="button" class="cs-3d-filter-btn" data-filter="salesforce">Salesforce</button>
+          <button type="button" class="cs-3d-filter-btn" data-filter="marketing">Digital Growth</button>
+          <button type="button" class="cs-3d-filter-btn" data-filter="cloud">Cloud Enterprise</button>
+        </div>
+        <button type="button" class="cs-3d-view-toggle" id="cs3DViewToggle" aria-label="Toggle Grid View">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/>
+          </svg>
+          <span>Grid View</span>
+        </button>
+      </div>
+
+      <!-- Center Stationary Serif Title (Squarespace Style) -->
+      <div class="cs-3d-center-brand">
+        <h2 class="cs-3d-center-title">
+          <span class="cs-3d-title-lead">Transformed with</span>
+          <span class="cs-3d-title-main">Digiolic.</span>
+        </h2>
+        <p class="cs-3d-center-sub">
+          Enterprise transformations across Zoho, Salesforce &amp; Digital Growth
+        </p>
+      </div>
+
+
+
+      <!-- 3D Transform World Container -->
+      <div class="cs-3d-world" id="cs3DWorld">
+        <div class="cs-3d-cylinder" id="cs3DCylinder">
+
+          <!-- Card 1: Monster India -->
+          <div class="cs-3d-card-item" data-case-id="case-monster-india" data-category="salesforce crm">
+            <div class="cs-3d-card-inner">
+              <img src="../assets/images/case-studies/cards/card-bg-monster.png" alt="Monster India" class="cs-3d-card-bg-img" loading="eager">
+              <div class="cs-3d-card-overlay">
+                <div class="cs-3d-card-top-bar">
+                  <span class="cs-3d-card-client-name">Monster India</span>
+                  <span class="cs-3d-card-pill-tag salesforce">Salesforce</span>
+                </div>
+                <div class="cs-3d-card-metric-badge">360° Lead Flow</div>
+              </div>
+              <div class="cs-3d-hover-pill">Monster India <span class="cs-3d-hover-pill-arrow">↗</span></div>
+            </div>
+          </div>
+
+          <!-- Card 2: Audible India -->
+          <div class="cs-3d-card-item" data-case-id="case-audible" data-category="cloud marketing">
+            <div class="cs-3d-card-inner">
+              <img src="../assets/images/company-logos/audible-india.webp" alt="Audible India" class="cs-3d-card-bg-img cs-3d-card-bg-logo" loading="eager">
+              <div class="cs-3d-card-overlay">
+                <div class="cs-3d-card-top-bar">
+                  <span class="cs-3d-card-client-name">Audible India</span>
+                  <span class="cs-3d-card-pill-tag marketing">Growth</span>
+                </div>
+                <div class="cs-3d-card-metric-badge">+28% Retention</div>
+              </div>
+              <div class="cs-3d-hover-pill">Audible India <span class="cs-3d-hover-pill-arrow">↗</span></div>
+            </div>
+          </div>
+
+          <!-- Card 3: Banaraswala Wire Mesh -->
+          <div class="cs-3d-card-item" data-case-id="case-banaraswala" data-category="zoho crm">
+            <div class="cs-3d-card-inner">
+              <img src="../assets/images/case-studies/cards/card-bg-banaraswala.png" alt="Banaraswala" class="cs-3d-card-bg-img" loading="eager">
+              <div class="cs-3d-card-overlay">
+                <div class="cs-3d-card-top-bar">
+                  <span class="cs-3d-card-client-name">Banaraswala</span>
+                  <span class="cs-3d-card-pill-tag zoho">Zoho CRM</span>
+                </div>
+                <div class="cs-3d-card-metric-badge">Pipeline Engine</div>
+              </div>
+              <div class="cs-3d-hover-pill">Banaraswala <span class="cs-3d-hover-pill-arrow">↗</span></div>
+            </div>
+          </div>
+
+          <!-- Card 4: Loom Crafts Furniture -->
+          <div class="cs-3d-card-item" data-case-id="case-loomcrafts" data-category="salesforce crm">
+            <div class="cs-3d-card-inner">
+              <img src="../assets/images/case-studies/cards/card-bg-loomcrafts.png" alt="Loom Crafts" class="cs-3d-card-bg-img" loading="eager">
+              <div class="cs-3d-card-overlay">
+                <div class="cs-3d-card-top-bar">
+                  <span class="cs-3d-card-client-name">Loom Crafts</span>
+                  <span class="cs-3d-card-pill-tag salesforce">Salesforce</span>
+                </div>
+                <div class="cs-3d-card-metric-badge">D2C Payment Hub</div>
+              </div>
+              <div class="cs-3d-hover-pill">Loom Crafts <span class="cs-3d-hover-pill-arrow">↗</span></div>
+            </div>
+          </div>
+
+          <!-- Card 5: Deccan Herald -->
+          <div class="cs-3d-card-item" data-case-id="case-deccan-herald" data-category="marketing">
+            <div class="cs-3d-card-inner">
+              <img src="../assets/images/case-study-card-1.png" alt="Deccan Herald" class="cs-3d-card-bg-img" loading="eager">
+              <div class="cs-3d-card-overlay">
+                <div class="cs-3d-card-top-bar">
+                  <span class="cs-3d-card-client-name">Deccan Herald</span>
+                  <span class="cs-3d-card-pill-tag marketing">Digital Ads</span>
+                </div>
+                <div class="cs-3d-card-metric-badge">+37% Leads · -49% CAC</div>
+              </div>
+              <div class="cs-3d-hover-pill">Deccan Herald <span class="cs-3d-hover-pill-arrow">↗</span></div>
+            </div>
+          </div>
+
+          <!-- Card 6: Greenworld Solarwares -->
+          <div class="cs-3d-card-item" data-case-id="case-greenworld" data-category="zoho cloud">
+            <div class="cs-3d-card-inner">
+              <img src="../assets/images/case-studies/cards/card-bg-greenworld.png" alt="Greenworld Solarwares" class="cs-3d-card-bg-img" loading="eager">
+              <div class="cs-3d-card-overlay">
+                <div class="cs-3d-card-top-bar">
+                  <span class="cs-3d-card-client-name">Greenworld</span>
+                  <span class="cs-3d-card-pill-tag zoho">Zoho HRMS</span>
+                </div>
+                <div class="cs-3d-card-metric-badge">100% Payroll Sync</div>
+              </div>
+              <div class="cs-3d-hover-pill">Greenworld <span class="cs-3d-hover-pill-arrow">↗</span></div>
+            </div>
+          </div>
+
+          <!-- Card 7: Betterplace -->
+          <div class="cs-3d-card-item" data-case-id="case-betterplace" data-category="zoho crm cloud">
+            <div class="cs-3d-card-inner">
+              <img src="../assets/images/company-logos/Betterplace.png" alt="Betterplace" class="cs-3d-card-bg-img cs-3d-card-bg-logo" loading="eager">
+              <div class="cs-3d-card-overlay">
+                <div class="cs-3d-card-top-bar">
+                  <span class="cs-3d-card-client-name">Betterplace</span>
+                  <span class="cs-3d-card-pill-tag zoho">Zoho One</span>
+                </div>
+                <div class="cs-3d-card-metric-badge">Instant Lead Routing</div>
+              </div>
+              <div class="cs-3d-hover-pill">Betterplace <span class="cs-3d-hover-pill-arrow">↗</span></div>
+            </div>
+          </div>
+
+          <!-- Card 8: Chanakya University -->
+          <div class="cs-3d-card-item" data-case-id="case-chanakya-university" data-category="zoho cloud">
+            <div class="cs-3d-card-inner">
+              <img src="../assets/images/case-studies/cards/card-bg-chanakya.png" alt="Chanakya University" class="cs-3d-card-bg-img" loading="eager">
+              <div class="cs-3d-card-overlay">
+                <div class="cs-3d-card-top-bar">
+                  <span class="cs-3d-card-client-name">Chanakya University</span>
+                  <span class="cs-3d-card-pill-tag zoho">Zoho Books</span>
+                </div>
+                <div class="cs-3d-card-metric-badge">Campus ERP Suite</div>
+              </div>
+              <div class="cs-3d-hover-pill">Chanakya Univ <span class="cs-3d-hover-pill-arrow">↗</span></div>
+            </div>
+          </div>
+
+          <!-- Card 9: FYX Finance -->
+          <div class="cs-3d-card-item" data-case-id="case-fyx" data-category="zoho crm">
+            <div class="cs-3d-card-inner">
+              <img src="../assets/images/case-studies/cards/card-bg-fyx.png" alt="FYX Finance" class="cs-3d-card-bg-img" loading="eager">
+              <div class="cs-3d-card-overlay">
+                <div class="cs-3d-card-top-bar">
+                  <span class="cs-3d-card-client-name">FYX Finance</span>
+                  <span class="cs-3d-card-pill-tag zoho">Zoho CRM</span>
+                </div>
+                <div class="cs-3d-card-metric-badge">End-to-End Loan Flow</div>
+              </div>
+              <div class="cs-3d-hover-pill">FYX Finance <span class="cs-3d-hover-pill-arrow">↗</span></div>
+            </div>
+          </div>
+
+          <!-- Card 10: Siemens -->
+          <div class="cs-3d-card-item" data-case-id="case-siemens" data-category="cloud enterprise">
+            <div class="cs-3d-card-inner">
+              <img src="../assets/images/company-logos/Siemens.jpeg" alt="Siemens" class="cs-3d-card-bg-img cs-3d-card-bg-logo" loading="eager">
+              <div class="cs-3d-card-overlay">
+                <div class="cs-3d-card-top-bar">
+                  <span class="cs-3d-card-client-name">Siemens</span>
+                  <span class="cs-3d-card-pill-tag cloud">Cloud ERP</span>
+                </div>
+                <div class="cs-3d-card-metric-badge">-35% Proposal Time</div>
+              </div>
+              <div class="cs-3d-hover-pill">Siemens <span class="cs-3d-hover-pill-arrow">↗</span></div>
+            </div>
+          </div>
+
+          <!-- Card 11: Verzeo Edutech -->
+          <div class="cs-3d-card-item" data-case-id="case-verzeo" data-category="zoho crm">
+            <div class="cs-3d-card-inner">
+              <img src="../assets/images/case-studies/cards/card-bg-verzeo.png" alt="Verzeo" class="cs-3d-card-bg-img" loading="eager">
+              <div class="cs-3d-card-overlay">
+                <div class="cs-3d-card-top-bar">
+                  <span class="cs-3d-card-client-name">Verzeo</span>
+                  <span class="cs-3d-card-pill-tag zoho">Zoho CRM</span>
+                </div>
+                <div class="cs-3d-card-metric-badge">Multi-Channel Ingestion</div>
+              </div>
+              <div class="cs-3d-hover-pill">Verzeo <span class="cs-3d-hover-pill-arrow">↗</span></div>
+            </div>
+          </div>
+
+          <!-- Card 12: Flipkart -->
+          <div class="cs-3d-card-item" data-case-id="case-flipkart" data-category="marketing">
+            <div class="cs-3d-card-inner">
+              <img src="../assets/images/case-study-card-3.png" alt="Flipkart" class="cs-3d-card-bg-img" loading="eager">
+              <div class="cs-3d-card-overlay">
+                <div class="cs-3d-card-top-bar">
+                  <span class="cs-3d-card-client-name">Flipkart</span>
+                  <span class="cs-3d-card-pill-tag marketing">Social Growth</span>
+                </div>
+                <div class="cs-3d-card-metric-badge">+40% IG · +70% YT</div>
+              </div>
+              <div class="cs-3d-hover-pill">Flipkart <span class="cs-3d-hover-pill-arrow">↗</span></div>
+            </div>
+          </div>
+
+          <!-- Card 13: Blume Labs -->
+          <div class="cs-3d-card-item" data-case-id="case-blume-labs" data-category="zoho cloud">
+            <div class="cs-3d-card-inner">
+              <img src="../assets/images/case-studies/cards/card-bg-blume.png" alt="Blume Labs" class="cs-3d-card-bg-img" loading="eager">
+              <div class="cs-3d-card-overlay">
+                <div class="cs-3d-card-top-bar">
+                  <span class="cs-3d-card-client-name">Blume Labs</span>
+                  <span class="cs-3d-card-pill-tag zoho">Zoho Books</span>
+                </div>
+                <div class="cs-3d-card-metric-badge">Order-to-Cash Sync</div>
+              </div>
+              <div class="cs-3d-hover-pill">Blume Labs <span class="cs-3d-hover-pill-arrow">↗</span></div>
+            </div>
+          </div>
+
+          <!-- Card 14: Xiaomi -->
+          <div class="cs-3d-card-item" data-case-id="case-xiaomi" data-category="cloud crm">
+            <div class="cs-3d-card-inner">
+              <img src="../assets/images/company-logos/Xiaomi.png" alt="Xiaomi" class="cs-3d-card-bg-img cs-3d-card-bg-logo" loading="eager">
+              <div class="cs-3d-card-overlay">
+                <div class="cs-3d-card-top-bar">
+                  <span class="cs-3d-card-client-name">Xiaomi</span>
+                  <span class="cs-3d-card-pill-tag cloud">Service Hub</span>
+                </div>
+                <div class="cs-3d-card-metric-badge">-40% Ticket Time</div>
+              </div>
+              <div class="cs-3d-hover-pill">Xiaomi <span class="cs-3d-hover-pill-arrow">↗</span></div>
+            </div>
+          </div>
+
+          <!-- Card 15: NZ Immigration -->
+          <div class="cs-3d-card-item" data-case-id="case-nz-immigration" data-category="zoho crm">
+            <div class="cs-3d-card-inner">
+              <img src="../assets/images/case-studies/cards/card-bg-nz.png" alt="NZ Immigration" class="cs-3d-card-bg-img" loading="eager">
+              <div class="cs-3d-card-overlay">
+                <div class="cs-3d-card-top-bar">
+                  <span class="cs-3d-card-client-name">NZ Immigration</span>
+                  <span class="cs-3d-card-pill-tag zoho">Zoho One</span>
+                </div>
+                <div class="cs-3d-card-metric-badge">10L+ Records Migrated</div>
+              </div>
+              <div class="cs-3d-hover-pill">NZ Immigration <span class="cs-3d-hover-pill-arrow">↗</span></div>
+            </div>
+          </div>
+
+          <!-- Card 16: Myntra -->
+          <div class="cs-3d-card-item" data-case-id="case-myntra" data-category="marketing">
+            <div class="cs-3d-card-inner">
+              <img src="../assets/images/case-study-card-2.png" alt="Myntra" class="cs-3d-card-bg-img" loading="eager">
+              <div class="cs-3d-card-overlay">
+                <div class="cs-3d-card-top-bar">
+                  <span class="cs-3d-card-client-name">Myntra</span>
+                  <span class="cs-3d-card-pill-tag marketing">SEO Engine</span>
+                </div>
+                <div class="cs-3d-card-metric-badge">10X Organic Lift</div>
+              </div>
+              <div class="cs-3d-hover-pill">Myntra <span class="cs-3d-hover-pill-arrow">↗</span></div>
+            </div>
+          </div>
+
+          <!-- Card 17: Pierian Service -->
+          <div class="cs-3d-card-item" data-case-id="case-manu-company" data-category="zoho cloud">
+            <div class="cs-3d-card-inner">
+              <img src="../assets/images/case-studies/cards/card-bg-pierian.png" alt="Pierian Service" class="cs-3d-card-bg-img" loading="eager">
+              <div class="cs-3d-card-overlay">
+                <div class="cs-3d-card-top-bar">
+                  <span class="cs-3d-card-client-name">Pierian Service</span>
+                  <span class="cs-3d-card-pill-tag zoho">Zoho Finance</span>
+                </div>
+                <div class="cs-3d-card-metric-badge">Multi-Currency Billing</div>
+              </div>
+              <div class="cs-3d-hover-pill">Pierian Service <span class="cs-3d-hover-pill-arrow">↗</span></div>
+            </div>
+          </div>
+
+          <!-- Card 18: Savaari Car Rentals -->
+          <div class="cs-3d-card-item" data-case-id="case-savaari" data-category="cloud marketing">
+            <div class="cs-3d-card-inner">
+              <img src="../assets/images/company-logos/savaari-car-rentals.jpeg" alt="Savaari Car Rentals" class="cs-3d-card-bg-img cs-3d-card-bg-logo" loading="eager">
+              <div class="cs-3d-card-overlay">
+                <div class="cs-3d-card-top-bar">
+                  <span class="cs-3d-card-client-name">Savaari</span>
+                  <span class="cs-3d-card-pill-tag cloud">Travel CRM</span>
+                </div>
+                <div class="cs-3d-card-metric-badge">+32% Reviews Lift</div>
+              </div>
+              <div class="cs-3d-hover-pill">Savaari <span class="cs-3d-hover-pill-arrow">↗</span></div>
+            </div>
+          </div>
+
+          <!-- Card 19: Rahul HR Solution -->
+          <div class="cs-3d-card-item" data-case-id="case-rahul-hr" data-category="zoho cloud">
+            <div class="cs-3d-card-inner">
+              <img src="../assets/images/company-logos/ur-health.jpeg" alt="HR Solutions" class="cs-3d-card-bg-img cs-3d-card-bg-logo" loading="eager">
+              <div class="cs-3d-card-overlay">
+                <div class="cs-3d-card-top-bar">
+                  <span class="cs-3d-card-client-name">Rahul HR</span>
+                  <span class="cs-3d-card-pill-tag zoho">Zoho People</span>
+                </div>
+                <div class="cs-3d-card-metric-badge">HRMS Architecture</div>
+              </div>
+              <div class="cs-3d-hover-pill">Rahul HR <span class="cs-3d-hover-pill-arrow">↗</span></div>
+            </div>
+          </div>
+
+          <!-- Card 20: Haldiram's -->
+          <div class="cs-3d-card-item" data-case-id="case-haldirams" data-category="cloud enterprise">
+            <div class="cs-3d-card-inner">
+              <img src="../assets/images/company-logos/haldirams.png" alt="Haldiram's" class="cs-3d-card-bg-img cs-3d-card-bg-logo" loading="eager">
+              <div class="cs-3d-card-overlay">
+                <div class="cs-3d-card-top-bar">
+                  <span class="cs-3d-card-client-name">Haldiram's</span>
+                  <span class="cs-3d-card-pill-tag cloud">Supply Chain</span>
+                </div>
+                <div class="cs-3d-card-metric-badge">-50% Order Cycles</div>
+              </div>
+              <div class="cs-3d-hover-pill">Haldiram's <span class="cs-3d-hover-pill-arrow">↗</span></div>
+            </div>
+          </div>
+
+          <!-- Card 21: via Milano -->
+          <div class="cs-3d-card-item" data-case-id="case-via-milano" data-category="marketing">
+            <div class="cs-3d-card-inner">
+              <img src="../assets/images/case-study-card-4.png" alt="via Milano" class="cs-3d-card-bg-img" loading="eager">
+              <div class="cs-3d-card-overlay">
+                <div class="cs-3d-card-top-bar">
+                  <span class="cs-3d-card-client-name">via Milano</span>
+                  <span class="cs-3d-card-pill-tag marketing">Hospitality</span>
+                </div>
+                <div class="cs-3d-card-metric-badge">4X Bookings · 2X Rev</div>
+              </div>
+              <div class="cs-3d-hover-pill">via Milano <span class="cs-3d-hover-pill-arrow">↗</span></div>
+            </div>
+          </div>
+
+          <!-- Card 22: Nexus Wealth -->
+          <div class="cs-3d-card-item" data-case-id="case-nexus-wealth" data-category="cloud enterprise">
+            <div class="cs-3d-card-inner">
+              <img src="../assets/images/company-logos/nexus-wealth-management.jpeg" alt="Nexus Wealth" class="cs-3d-card-bg-img cs-3d-card-bg-logo" loading="eager">
+              <div class="cs-3d-card-overlay">
+                <div class="cs-3d-card-top-bar">
+                  <span class="cs-3d-card-client-name">Nexus Wealth</span>
+                  <span class="cs-3d-card-pill-tag cloud">FinTech CRM</span>
+                </div>
+                <div class="cs-3d-card-metric-badge">Encrypted HNI Hub</div>
+              </div>
+              <div class="cs-3d-hover-pill">Nexus Wealth <span class="cs-3d-hover-pill-arrow">↗</span></div>
+            </div>
+          </div>
+
+          <!-- Card 23: Melorra -->
+          <div class="cs-3d-card-item" data-case-id="case-melorra" data-category="cloud marketing">
+            <div class="cs-3d-card-inner">
+              <img src="../assets/images/company-logos/Melorra.png" alt="Melorra" class="cs-3d-card-bg-img cs-3d-card-bg-logo" loading="eager">
+              <div class="cs-3d-card-overlay">
+                <div class="cs-3d-card-top-bar">
+                  <span class="cs-3d-card-client-name">Melorra</span>
+                  <span class="cs-3d-card-pill-tag marketing">VIP Concierge</span>
+                </div>
+                <div class="cs-3d-card-metric-badge">+24% Cart Recovery</div>
+              </div>
+              <div class="cs-3d-hover-pill">Melorra <span class="cs-3d-hover-pill-arrow">↗</span></div>
+            </div>
+          </div>
+
+          <!-- Card 24: Medall Diagnostics -->
+          <div class="cs-3d-card-item" data-case-id="case-medall" data-category="cloud enterprise">
+            <div class="cs-3d-card-inner">
+              <img src="../assets/images/company-logos/medall-diagnostics.jpeg" alt="Medall Diagnostics" class="cs-3d-card-bg-img cs-3d-card-bg-logo" loading="eager">
+              <div class="cs-3d-card-overlay">
+                <div class="cs-3d-card-top-bar">
+                  <span class="cs-3d-card-client-name">Medall</span>
+                  <span class="cs-3d-card-pill-tag cloud">Health CRM</span>
+                </div>
+                <div class="cs-3d-card-metric-badge">Instant Dispatch</div>
+              </div>
+              <div class="cs-3d-hover-pill">Medall <span class="cs-3d-hover-pill-arrow">↗</span></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Bottom Interactive Navigation & Drag Dock -->
+      <div class="cs-3d-bottom-dock">
+        <button type="button" class="cs-3d-dock-arrow" id="cs3DPrevBtn" aria-label="Rotate Left">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+        </button>
+        <span class="cs-3d-dock-text">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 9l-3 3 3 3M9 5l3-3 3 3M15 19l-3 3-3-3M19 9l3 3-3 3"/>
+            <line x1="2" y1="12" x2="22" y2="12"/>
+          </svg>
+          Drag horizontally to rotate · Click card to view
+        </span>
+        <button type="button" class="cs-3d-dock-arrow" id="cs3DNextBtn" aria-label="Rotate Right">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Bottom Vignette Gradient -->
+      <div class="cs-3d-vignette-bottom"></div>
+    </section>
+
+    <!-- ==========================================================================
+         GRID VIEW CONTAINER (Toggled via "Grid View" button in 3D controls)
+         ========================================================================== -->
+    <div id="csGridContainerFallback" style="display: none;">
+      <!-- ==========================================================================
+           3. CLIENT CASE STUDIES GALLERY
+           ========================================================================== -->
+      <section class="cs-gallery-section" id="caseStudiesGalleryGrid">
 
       <!-- Image 2 Design: 2-Box Column Grid for Client Case Studies -->
       <div class="cs-grid-container">
@@ -1707,6 +2149,7 @@
 
       </div>
     </section>
+    </div>
 
     <!-- ==========================================================================
          4. EDITORIAL PULL QUOTE SECTION
@@ -2065,7 +2508,8 @@
 
   <!-- JavaScript Modules -->
   <script src="../js/main.js?v=20260926_green_d_v6"></script>
-  <script src="../js/case-filter.js?v=20260930_landmark_v1"></script>
+  <script src="../js/case-filter.js?v=20261003_3d_v3"></script>
+  <script src="../js/case-3d-sphere.js?v=20261003_3d_v3"></script>
   <script src="../js/form-validation.js?v=20260912_footer_v3"></script>
 
   <!-- Zoho WebForm Analytics Tracking -->
