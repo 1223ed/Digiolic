@@ -226,6 +226,11 @@
       } else {
         exploreHeading._triggerWave();
       }
+
+      const r = triggerEl.getBoundingClientRect();
+      if (r.top <= window.innerHeight * 0.95) {
+        exploreHeading._triggerWave();
+      }
     }
 
     // -------------------------------------------------------------------------

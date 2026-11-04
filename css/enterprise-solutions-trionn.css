@@ -1023,36 +1023,43 @@ html {
    ========================================================================== */
 @media (max-width: 991px) {
   .enterprise-solutions-section {
-    height: auto;
-    padding: 70px 0;
+    height: 100vh;
+    padding: 0;
+    overflow: hidden;
   }
 
   .enterprise-sticky-wrapper {
-    position: relative;
-    height: auto;
-    overflow: visible;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
   }
 
   .enterprise-horizontal-track {
-    flex-direction: column;
-    width: 100%;
-    transform: none !important;
-    gap: 50px;
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    width: max-content;
+    gap: 0;
   }
 
   .enterprise-panel {
-    width: 100%;
-    min-width: 100%;
-    height: auto;
-    padding: 0 24px;
-    border-right: none;
-    border-bottom: 1px solid var(--trionn-border);
-    padding-bottom: 48px;
+    width: 100vw;
+    min-width: 100vw;
+    height: 100%;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: clamp(20px, 4vh, 40px) 20px;
+    border-right: 1px solid var(--trionn-border);
+    border-bottom: none;
+    flex-shrink: 0;
   }
 
   .enterprise-panel:last-child {
-    border-bottom: none;
-    padding-bottom: 0;
+    border-right: none;
   }
 
   .enterprise-col-crosshair {
@@ -1064,23 +1071,49 @@ html {
   }
 
   .enterprise-card-wrapper {
-    max-width: 100%;
-    transform: none !important;
-    opacity: 1 !important;
+    max-width: 460px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    transform: none;
+    opacity: 1;
   }
 
   .enterprise-media-box {
-    height: 320px;
+    height: clamp(200px, 30vh, 280px);
+    border-radius: 16px;
   }
 
   .enterprise-card-info {
     flex-direction: column;
     align-items: flex-start;
-    gap: 1.25rem;
+    gap: 0.85rem;
+    margin-top: 14px;
+  }
+
+  .enterprise-intro-title {
+    font-size: clamp(1.4rem, 5vw, 1.85rem);
+    margin: 0 0 6px 0;
+  }
+
+  .enterprise-intro-lead {
+    font-size: clamp(0.82rem, 2.4vw, 0.92rem);
+    line-height: 1.5;
+  }
+
+  .enterprise-features-list {
+    margin-top: 6px;
+    gap: 6px;
+  }
+
+  .enterprise-feature-pill {
+    font-size: 0.68rem;
+    padding: 4px 10px;
   }
 
   .enterprise-explore-action {
-    margin-top: 0.5rem;
+    margin-top: 0.4rem;
   }
 
   .enterprise-card-img {
@@ -1088,33 +1121,71 @@ html {
   }
 
   .enterprise-discover-panel {
-    width: 100%;
-    min-width: 100%;
-    padding: 60px 24px;
-    height: auto;
-    border-bottom: 1px solid var(--trionn-border);
+    width: 100vw;
+    min-width: 100vw;
+    height: 100%;
+    box-sizing: border-box;
+    padding: 32px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-shrink: 0;
+    border-right: 1px solid var(--trionn-border);
+    border-bottom: none;
+  }
+
+  .trionn-discover-headline {
+    font-size: clamp(1.35rem, 4.8vw, 1.85rem);
+    margin-bottom: 24px;
   }
 
   .enterprise-delivery-hero-panel {
-    width: 100%;
-    min-width: 100%;
-    padding: 60px 24px;
-    height: auto;
+    width: 100vw;
+    min-width: 100vw;
+    height: 100%;
+    box-sizing: border-box;
+    padding: clamp(32px, 5vh, 50px) 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 0;
     border-left: none;
     box-shadow: none;
   }
 
+  .enterprise-delivery-hero-content {
+    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
+    height: 100%;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+
   .trionn-hero-center {
-    margin: 32px 0;
+    margin: auto 0;
+    text-align: center;
   }
 
   .trionn-stack-line {
-    font-size: clamp(2.8rem, 11vw, 4.4rem);
+    font-size: clamp(2.4rem, 10vw, 3.8rem);
+  }
+
+  .trionn-services-lead {
+    font-size: clamp(0.86rem, 2.6vw, 0.98rem);
+    line-height: 1.55;
+    margin-top: 16px;
+    max-width: 92vw;
   }
 
   .trionn-hero-corner-link {
     position: static;
-    margin-top: 24px;
+    margin-top: 20px;
   }
 
   .trionn-delivery-flow-section {

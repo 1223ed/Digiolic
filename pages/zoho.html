@@ -43,7 +43,7 @@
   <link rel="stylesheet" href="../css/style.css?v=20260920_v302">
   <link rel="stylesheet" href="../css/components.css?v=20260926_flat_white_v4">
   <link rel="stylesheet" href="../css/pages.css?v=20260919_v209">
-  <link rel="stylesheet" href="../css/responsive.css?v=20260930_v1">
+  <link rel="stylesheet" href="../css/responsive.css?v=20261104_grid_v2">
   <link rel="stylesheet" href="../css/chat-widget.css?v=20260919_v209">
   <!-- Cinzel Font for Luxury Menu -->
   <link
@@ -53,15 +53,51 @@
   <link rel="stylesheet" href="../css/zoho-framer-hero.css?v=20261028_revert_light_v1">
   <link rel="stylesheet" href="../css/zoho-unified-dashboard.css?v=20261005_v20">
   <link rel="stylesheet" href="../css/zoho-izanami-pillars.css?v=20261013_fix_sticky_scroll_all">
-  <link rel="stylesheet" href="../css/zoho-finsight-theme.css?v=20261021_v42">
+  <link rel="stylesheet" href="../css/zoho-finsight-theme.css?v=20261104_v43">
   <link rel="stylesheet" href="../css/how-we-deliver-scroll.css?v=20261028_bg_fix_v1">
   <link rel="stylesheet" href="../css/liquid-scroll-transition.css?v=20261031_pillar_liquid_exact_v1">
   <link
     href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="../css/core-pillars-scroll.css?v=20261031_undo_wave">
-  <link rel="stylesheet" href="../css/client-character-wave.css?v=20261031_undo_wave">
+  <link rel="stylesheet" href="../css/client-character-wave.css?v=20261104_undo_wave">
   <link rel="stylesheet" href="../css/zoho-tech-stack-cinema.css">
+
+  <style id="zohoMobileDirectoryFix">
+    @media (max-width: 960px) {
+      #zohoCatNav,
+      .zoho-directory-sidebar #zohoCatNav {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 0.65rem !important;
+        padding: 0.25rem 0 1rem 0 !important;
+        width: 100% !important;
+      }
+
+      .zoho-category-pill-btn,
+      .zoho-directory-sidebar .zoho-category-pill-btn {
+        width: 100% !important;
+        box-sizing: border-box !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        text-align: center !important;
+        padding: 0.75rem 0.65rem !important;
+        font-size: 0.80rem !important;
+        font-weight: 600 !important;
+        border-radius: 10px !important;
+        margin-bottom: 0 !important;
+        white-space: normal !important;
+        line-height: 1.25 !important;
+        min-height: 48px !important;
+      }
+
+      .zoho-category-pill-btn:last-child:nth-child(odd),
+      .zoho-directory-sidebar .zoho-category-pill-btn:last-child:nth-child(odd) {
+        grid-column: span 2 !important;
+      }
+    }
+  </style>
 
   <style>
     /* ==========================================================================
@@ -2032,22 +2068,32 @@
       }
 
       #zohoCatNav {
-        display: flex !important;
-        flex-direction: row !important;
-        flex-wrap: wrap !important;
-        gap: 0.5rem !important;
-        padding: 0.25rem 0 0.85rem 0 !important;
-        justify-content: flex-start !important;
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 0.6rem !important;
+        padding: 0.25rem 0 1rem 0 !important;
+        width: 100% !important;
       }
 
       .zoho-category-pill-btn {
-        flex: 0 1 auto !important;
-        width: auto !important;
-        white-space: nowrap !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        text-align: center !important;
+        padding: 0.72rem 0.65rem !important;
+        font-size: 0.80rem !important;
+        font-weight: 600 !important;
+        border-radius: 10px !important;
         margin-bottom: 0 !important;
-        padding: 0.55rem 0.95rem !important;
-        font-size: 0.82rem !important;
-        border-radius: 9999px !important;
+        white-space: normal !important;
+        line-height: 1.25 !important;
+        min-height: 46px !important;
+      }
+
+      .zoho-category-pill-btn:last-child:nth-child(odd) {
+        grid-column: span 2 !important;
       }
 
       .zoho-directory-content {
@@ -6119,11 +6165,13 @@
           <span>ENTERPRISE SUITE DIRECTORY</span>
         </div>
         <h2 class="heading-xl ct-wave-heading" id="zohoExploreHeading"
-          style="color: #0F172A; margin: 0 0 0.85rem 0; font-size: clamp(42px, 6.2vw, 68px) !important; line-height: 1.16 !important; font-weight: 800 !important;"
+          style="color: #0F172A; margin: 0 0 0.85rem 0; font-size: clamp(24px, 5.8vw, 68px) !important; line-height: 1.18 !important; font-weight: 800 !important;"
           aria-label="Explore 50+ Zoho Applications">
           <span class="ct-wave-mask" style="display: block;">
-            <span class="ct-wave-line">Explore <span class="zoho-heading-anim-text" style="color: #1D4ED8;">50+ Zoho
-                Applications</span></span>
+            <span class="ct-wave-line" style="display: block;">Explore</span>
+          </span>
+          <span class="ct-wave-mask" style="display: block;">
+            <span class="ct-wave-line zoho-heading-anim-text" style="color: #1D4ED8; display: block; white-space: nowrap !important; word-break: keep-all !important; overflow-wrap: normal !important; font-size: clamp(20px, 5.5vw, 68px) !important;">50+ Zoho Applications</span>
           </span>
         </h2>
         <p
@@ -6139,7 +6187,7 @@
           <input type="text" id="zohoSearchInput" class="zoho-search-sidebar-box"
             placeholder="🔍 Search applications..." aria-label="Search Zoho Applications">
 
-          <nav id="zohoCatNav" style="display: flex; flex-direction: column;">
+          <nav id="zohoCatNav">
             <!-- Dynamically populated by js/zoho-products.js -->
           </nav>
         </aside>

@@ -76,7 +76,7 @@
 
       const mm = gsap.matchMedia();
 
-      mm.add('(min-width: 992px)', () => {
+      mm.add('all', () => {
         const cardWrappers = panels.map(p => p.querySelector('.enterprise-card-wrapper'));
         const images = panels.map(p => p.querySelector('.enterprise-card-img'));
 
@@ -529,8 +529,9 @@
             const pr = panelHow.getBoundingClientRect();
             const lr = heroLead.getBoundingClientRect();
             y1 = -Math.round(pr.bottom - lr.bottom) + 14;
+            if (isMobile) y1 = Math.max(-100, y1);
           } else {
-            y1 = -180;
+            y1 = isMobile ? -80 : -180;
           }
 
           const leadW = heroLead ? heroLead.offsetWidth : 580;
@@ -840,7 +841,7 @@
 
         if (k === 0) {
           triggerEl = howSection;
-          startPos = 'top 75%';
+          startPos = isMobile ? 'top 50%' : 'top 75%';
           endTriggerEl = phaseRows[0];
           endPos = 'top 45%';
         } else {
@@ -867,6 +868,19 @@
         // Immediate initial render for current scroll position
         renderBundle(bundleData, st.progress);
       }
+
+      // Guard: when user scrolls into howSection, ensure panelHowWeDeliver is dark
+      const darkGuardSt = ScrollTrigger.create({
+        trigger: howSection,
+        start: 'top 95%',
+        onEnter: () => {
+          const panelHowHero = document.getElementById('panelHowWeDeliver');
+          const whiteHero = document.getElementById('deliveryWhiteHero');
+          if (panelHowHero) panelHowHero.classList.add('is-dark');
+          if (whiteHero) whiteHero.classList.add('is-dark');
+        }
+      });
+      scrollTriggerInstances.push(darkGuardSt);
     }
 
     /**

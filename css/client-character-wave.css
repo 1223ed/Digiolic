@@ -96,3 +96,10 @@
   -webkit-text-fill-color: #1D4ED8 !important;
   display: inline-block !important;
 }
+
+#zohoExploreHeading .zoho-heading-anim-text {
+  white-space: nowrap !important;
+  word-break: keep-all !important;
+  overflow-wrap: normal !important;
+  display: inline-block !important;
+}

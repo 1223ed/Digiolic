@@ -747,6 +747,7 @@
   letter-spacing: 0.14em;
   text-transform: uppercase;
   text-decoration: none;
+  white-space: nowrap !important;
   box-shadow: none;
   filter: none;
   -webkit-filter: none;
@@ -784,10 +785,10 @@
 
   .wcu-pos-1 { top: 12%; left: 6%; }
   .wcu-pos-2 { top: 24%; left: 4%; }
-  .wcu-pos-3 { top: 78%; left: 6%; }
+  .wcu-pos-3 { top: 69%; left: 6%; }
   .wcu-pos-4 { top: 12%; right: 6%; left: auto; }
   .wcu-pos-5 { top: 24%; right: 4%; left: auto; }
-  .wcu-pos-6 { top: 78%; right: 6%; left: auto; }
+  .wcu-pos-6 { top: 76%; right: 6%; left: auto; }
 
   .wcu-detail-card-wrapper {
     left: 1rem;
@@ -825,13 +826,13 @@
     font-size: clamp(1.8rem, 8vw, 2.7rem);
   }
 
-  /* Staggered vertical distribution on mobile so left and right pills never overlap */
+  /* Staggered vertical distribution on mobile so left and right pills never overlap or hit CTA */
   .wcu-pos-1 { top: 8%; left: 4%; right: auto; }
   .wcu-pos-4 { top: 16%; right: 4%; left: auto; }
-  .wcu-pos-2 { top: 24%; left: 4%; right: auto; }
-  .wcu-pos-5 { top: 68%; right: 4%; left: auto; }
-  .wcu-pos-3 { top: 76%; left: 4%; right: auto; }
-  .wcu-pos-6 { top: 84%; right: 4%; left: auto; }
+  .wcu-pos-2 { top: 25%; left: 4%; right: auto; }
+  .wcu-pos-5 { top: 61%; right: 4%; left: auto; }
+  .wcu-pos-3 { top: 69%; left: 4%; right: auto; }
+  .wcu-pos-6 { top: 77%; right: 4%; left: auto; }
 
   .wcu-pill {
     padding: 0.42rem 0.75rem;
@@ -843,8 +844,19 @@
     display: none;
   }
 
+  .wcu-cta-container {
+    bottom: clamp(1rem, 2vh, 1.35rem) !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: auto !important;
+    max-width: 95vw !important;
+  }
+
   .wcu-cta-btn {
-    padding: 0.75rem 1.4rem;
-    font-size: 0.78rem;
+    white-space: nowrap !important;
+    padding: 0.70rem 1.3rem !important;
+    font-size: clamp(0.70rem, 3.1vw, 0.80rem) !important;
+    letter-spacing: 0.08em !important;
+    gap: 0.55rem !important;
   }
 }

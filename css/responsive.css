@@ -1116,23 +1116,34 @@ textarea {
 
   #zohoCatNav,
   .zoho-cat-nav {
-    display: flex !important;
-    flex-direction: row !important;
-    flex-wrap: wrap !important;
-    gap: 0.5rem !important;
-    padding: 0.25rem 0 0.85rem 0 !important;
-    justify-content: flex-start !important;
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 0.65rem !important;
+    padding: 0.25rem 0 1rem 0 !important;
+    width: 100% !important;
   }
 
   .zoho-category-pill-btn,
   .zoho-cat-btn {
-    white-space: nowrap !important;
-    padding: 0.55rem 0.95rem !important;
-    font-size: 0.82rem !important;
-    flex: 0 1 auto !important;
-    width: auto !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    padding: 0.72rem 0.65rem !important;
+    font-size: 0.80rem !important;
+    font-weight: 600 !important;
+    border-radius: 10px !important;
     margin-bottom: 0 !important;
-    border-radius: 9999px !important;
+    white-space: normal !important;
+    line-height: 1.25 !important;
+    min-height: 48px !important;
+  }
+
+  .zoho-category-pill-btn:last-child:nth-child(odd),
+  .zoho-cat-btn:last-child:nth-child(odd) {
+    grid-column: span 2 !important;
   }
 
   .zoho-directory-content {
