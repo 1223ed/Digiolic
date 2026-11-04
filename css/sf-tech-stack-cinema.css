@@ -494,59 +494,136 @@
    RESPONSIVE DESIGN (TABLET & MOBILE)
    -------------------------------------------------------------------------- */
 @media (max-width: 991px) {
+  .sf-tech-stack-section#techStackSection,
+  #techStackSection.sf-cinema-stack-track,
+  #techStackSection,
   .sf-cinema-stack-track {
-    height: auto;
+    min-height: 320vh !important;
+    height: 320vh !important;
   }
   .sf-cinema-stage {
-    position: relative;
-    height: auto;
-    padding: 80px 20px 70px;
+    position: sticky !important;
+    top: 0 !important;
+    height: 100vh !important;
+    width: 100% !important;
+    overflow: hidden !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    padding: clamp(16px, 3vh, 26px) 16px 0 16px !important;
+    box-sizing: border-box !important;
   }
   .sf-cinema-header-top {
-    position: relative;
-    top: auto;
-    left: auto;
-    transform: none;
-    width: 100%;
-    margin-bottom: 28px;
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    transform: none !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 0 10px 0 !important;
+    z-index: 15 !important;
+  }
+  .sf-cinema-eyebrow {
+    margin-bottom: 6px !important;
+    padding: 4px 12px !important;
+    font-size: 9px !important;
+  }
+  #techStackSection .sf-cinema-title,
+  #techStackSection h2.sf-cinema-title,
+  .sf-cinema-title {
+    font-size: clamp(22px, 5.8vw, 32px) !important;
+    line-height: 1.15 !important;
+    margin: 0 0 6px 0 !important;
+  }
+  .sf-cinema-subtitle {
+    font-size: 0.82rem !important;
+    line-height: 1.35 !important;
+    width: 100% !important;
+    margin: 0 auto !important;
   }
   .sf-cinema-content-center {
-    position: relative;
-    top: auto;
-    left: auto;
-    transform: none;
-    width: 100%;
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    transform: none !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    z-index: 12 !important;
+    margin-top: 6px !important;
   }
-  .sf-cinema-cards-layer {
-    display: none; /* Mobile switches to inline responsive cards */
+  .sf-cinema-filters {
+    gap: 6px !important;
+    margin-bottom: 8px !important;
+    justify-content: center !important;
+    flex-wrap: wrap !important;
+  }
+  .sf-cinema-filter-btn {
+    padding: 4px 10px !important;
+    font-size: 9px !important;
   }
   .sf-cinema-nav-list {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 16px 24px;
-  }
-  .sf-cinema-scroll-prompt {
-    display: none;
-  }
-}
-
-@media (max-width: 600px) {
-  .sf-cinema-nav-list {
-    grid-template-columns: 1fr;
-    gap: 14px;
-    text-align: center;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 4px 10px !important;
+    width: 100% !important;
   }
   .sf-cinema-col {
-    align-items: center;
+    display: contents !important;
   }
   .sf-cinema-item-btn {
-    width: auto;
-    justify-content: center;
+    font-size: 10px !important;
+    padding: 2px 4px !important;
+    width: auto !important;
+    justify-content: center !important;
   }
   .sf-cinema-item-btn:hover,
   .sf-cinema-item-btn.is-active {
-    transform: none;
+    transform: none !important;
   }
   .sf-cinema-item-btn::before {
-    left: -18px;
+    left: -12px !important;
+  }
+  .sf-cinema-cards-layer {
+    display: block !important;
+    position: absolute !important;
+    inset: 0 !important;
+    pointer-events: none !important;
+    z-index: 8 !important;
+    perspective: 800px !important;
+  }
+  .sf-cinema-card {
+    width: 86vw !important;
+    max-width: 340px !important;
+    min-width: 270px !important;
+    aspect-ratio: 16 / 9 !important;
+    left: 50% !important;
+    top: auto !important;
+    bottom: clamp(24px, 5.5vh, 50px) !important;
+    right: auto !important;
+    margin-left: -43vw !important;
+    border-radius: 14px !important;
+  }
+  .sf-cinema-card-overlay {
+    padding: 10px 14px 10px !important;
+    gap: 2px !important;
+  }
+  .sf-cinema-card-tag {
+    font-size: 8px !important;
+  }
+  .sf-cinema-card-title {
+    font-size: 13.5px !important;
+  }
+  .sf-cinema-card-desc {
+    font-size: 10px !important;
+    line-height: 1.25 !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+  }
+  .sf-cinema-scroll-prompt {
+    display: none !important;
   }
 }

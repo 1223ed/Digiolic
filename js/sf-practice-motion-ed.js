@@ -70,27 +70,22 @@
     }
 
     function calculateDimensions() {
-      isDesktop = window.innerWidth >= 992;
-      if (!isDesktop) return;
-
       const viewportWidth = window.innerWidth;
       const viewportHeight = window.innerHeight;
       const trackWidth = cardsTrack.scrollWidth;
 
       // Generous right breathing space for card 08 docking
-      maxTranslateX = Math.max(0, trackWidth - viewportWidth + clamp(viewportWidth * 0.08, 60, 140));
+      maxTranslateX = Math.max(0, trackWidth - viewportWidth + clamp(viewportWidth * 0.08, 30, 140));
 
       // Calculate initial peaking position for cards track:
-      // Top ~140-165px of the card should be visible peaking from the bottom edge
-      const wrapperTop = cardsWrapper.offsetTop || clamp(85, viewportHeight * 0.16, 140);
-      const peakingVisibleHeight = clamp(135, viewportHeight * 0.165, 170);
+      // Top ~110-165px of the card should be visible peaking from the bottom edge
+      const wrapperTop = cardsWrapper.offsetTop || clamp(60, viewportHeight * 0.14, 140);
+      const peakingVisibleHeight = clamp(110, viewportHeight * 0.16, 170);
       const targetCardTop = viewportHeight - peakingVisibleHeight;
       initialPeakingY = Math.max(0, targetCardTop - wrapperTop);
     }
 
     function onScroll() {
-      if (!isDesktop) return;
-
       const rect = section.getBoundingClientRect();
       const scrollableHeight = rect.height - window.innerHeight;
 
@@ -105,11 +100,6 @@
 
     // Main Animation Render Loop
     function render() {
-      if (!isDesktop) {
-        rafId = requestAnimationFrame(render);
-        return;
-      }
-
       // Physics lerp interpolation matching Webflow & Motion.ed
       currentProgress = lerp(currentProgress, targetProgress, 0.09);
 

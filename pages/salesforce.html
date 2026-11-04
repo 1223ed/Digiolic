@@ -28,11 +28,11 @@
   <!-- Cinzel Font for Luxury Menu -->
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/cinematic-menu.css?v=20261004_v4">
-  <link rel="stylesheet" href="../css/sf-tech-stack-cinema.css">
+  <link rel="stylesheet" href="../css/sf-tech-stack-cinema.css?v=20261104_cinema_mob_v1">
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800;900&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../css/sf-clouds-motion-ed.css">
-  <link rel="stylesheet" href="../css/sf-practice-motion-ed.css?v=20261102_5">
+  <link rel="stylesheet" href="../css/sf-clouds-motion-ed.css?v=20261104_mob_v1">
+  <link rel="stylesheet" href="../css/sf-practice-motion-ed.css?v=20261104_mob_v1">
   <link rel="stylesheet" href="../css/sf-usecases-stack.css?v=20261103_2">
 
   <style>
@@ -2409,15 +2409,46 @@
       }
     }
 
-    @media (max-width: 720px) {
+    @media (max-width: 991px) {
       .sf-play-grid {
-        grid-template-columns: 1fr;
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 20px !important;
+      }
+      .sf-play-col {
+        display: contents !important;
+      }
+      #sfProcessCard1 {
+        order: 1 !important;
+      }
+      #sfProcessCard2 {
+        order: 2 !important;
+      }
+      #sfProcessCard3 {
+        order: 3 !important;
+      }
+      #sfProcessCard4 {
+        order: 4 !important;
+      }
+      #sfProcessCard5 {
+        order: 5 !important;
+      }
+      #sfProcessCard6 {
+        order: 6 !important;
+      }
+      #sfProcessCard7 {
+        order: 7 !important;
+      }
+      .sf-play-lead-copy {
+        order: 8 !important;
+        margin-top: 10px !important;
+        padding: 0 10px !important;
       }
       .sf-play-title {
-        font-size: 1.8rem !important;
+        font-size: clamp(22px, 6vw, 32px) !important;
       }
       .sf-play-card-inner {
-        min-height: auto;
+        min-height: auto !important;
       }
     }
 
@@ -6697,9 +6728,9 @@
       }
     })();
   </script>
-  <script src="../js/sf-tech-stack-cinema.js"></script>
-  <script src="../js/sf-clouds-motion-ed.js"></script>
-  <script src="../js/sf-practice-motion-ed.js"></script>
+  <script src="../js/sf-tech-stack-cinema.js?v=20261104_cinema_mob_v1"></script>
+  <script src="../js/sf-clouds-motion-ed.js?v=20261104_mob_v1"></script>
+  <script src="../js/sf-practice-motion-ed.js?v=20261104_mob_v1"></script>
   <script src="../js/sf-usecases-stack.js?v=20261103_2"></script>
   <script src="../js/sf-process-motion.js?v=20261103_2"></script>
   <script src="../js/sf-celestial-particles.js?v=20261103_1"></script>

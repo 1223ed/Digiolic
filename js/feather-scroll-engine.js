@@ -565,9 +565,20 @@
 
       function getAdjustedKf(kf) {
         if (window.innerWidth < 900) {
+          if (kf === STAGE_INTERVALS[0].kf) {
+            return {
+              ...kf,
+              x: -1.75,
+              y: 0.25,
+              scale: 1.70
+            };
+          }
+          // On mobile, all slides (Pillars 1 to 5) keep the 3D feather docked on the right edge
+          // exactly as in Stage 1, framing the content with zero text overlap!
           return {
             ...kf,
-            x: kf.x < 0 ? -3.20 : 2.80,
+            x: 2.80,
+            y: 0.25,
             scale: 1.70
           };
         }

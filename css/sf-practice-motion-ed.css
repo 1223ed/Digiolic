@@ -471,69 +471,148 @@
    ========================================================================== */
 @media (max-width: 991px) {
   .sf-practice-section {
-    height: auto;
-    overflow: visible;
-    background-color: #050505;
-    background: #050505;
-    padding: 70px 0 80px 0;
+    min-height: 380vh !important;
+    height: 380vh !important;
+    position: relative !important;
+    overflow: clip !important;
+    background-color: #050505 !important;
+    background: #050505 !important;
+    padding: 0 !important;
   }
 
   .sf-practice-stage {
-    position: relative;
-    top: auto;
-    height: auto;
-    overflow: visible;
-    padding: 0 20px;
-    background-color: #050505;
-    background: #050505;
+    position: sticky !important;
+    top: 0 !important;
+    height: 100vh !important;
+    height: 100dvh !important;
+    width: 100% !important;
+    overflow: hidden !important;
+    padding: 16px 14px 24px 14px !important;
+    background-color: #050505 !important;
+    background: #050505 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    box-sizing: border-box !important;
+  }
+
+  .sf-practice-hud {
+    width: 100% !important;
+    padding: 0 4px !important;
+    margin-bottom: 0 !important;
+    z-index: 25 !important;
+  }
+
+  .sf-practice-hud-pill {
+    font-size: 0.65rem !important;
+    padding: 4px 10px !important;
+  }
+
+  .sf-practice-hud-counter {
+    font-size: 0.72rem !important;
+  }
+
+  .sf-practice-hud-btn {
+    font-size: 0.68rem !important;
+    padding: 6px 12px !important;
   }
 
   .sf-practice-hero-header {
-    position: relative;
-    top: auto;
-    left: auto;
-    transform: none !important;
-    opacity: 1 !important;
-    pointer-events: auto;
-    margin-bottom: 32px;
-    padding: 0;
+    position: absolute !important;
+    top: clamp(60px, 11vh, 90px) !important;
+    left: 0 !important;
+    width: 100% !important;
+    padding: 0 16px !important;
+    box-sizing: border-box !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    will-change: transform, opacity !important;
+    z-index: 20 !important;
   }
 
   .sf-practice-hero-title {
-    font-size: clamp(28px, 6vw, 42px);
+    font-size: clamp(22px, 6vw, 32px) !important;
+    line-height: 1.15 !important;
+    letter-spacing: -0.02em !important;
+    margin-bottom: 6px !important;
+  }
+
+  .sf-practice-hero-desc {
+    font-size: 12.5px !important;
+    line-height: 1.4 !important;
+    max-width: 92% !important;
+    margin: 0 auto !important;
+    opacity: 0.8 !important;
   }
 
   .sf-practice-cards-wrapper {
-    margin-top: 0;
-    height: auto;
-    overflow-x: auto;
-    overflow-y: hidden;
-    -webkit-overflow-scrolling: touch;
-    scroll-snap-type: x mandatory;
-    padding-bottom: 24px;
-    transform: none !important;
-    opacity: 1 !important;
-    pointer-events: auto;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    overflow: hidden !important;
+    z-index: 22 !important;
+    will-change: transform !important;
+    pointer-events: none !important;
+    margin-top: 0 !important;
+    padding-bottom: 0 !important;
   }
 
   .sf-practice-cards-track {
-    transform: none !important;
-    padding: 0 10px;
-    gap: 16px;
-    height: auto;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 14px !important;
+    padding: 0 16px !important;
+    will-change: transform !important;
+    pointer-events: auto !important;
+    height: auto !important;
   }
 
   .sf-pbox-card {
-    scroll-snap-align: center;
-    width: 82vw;
-    min-width: 82vw;
-    height: auto;
-    min-height: 460px;
-    transform: none !important;
+    flex-shrink: 0 !important;
+    width: 84vw !important;
+    max-width: 330px !important;
+    min-width: 275px !important;
+    height: clamp(380px, 56vh, 460px) !important;
+    border-radius: 20px !important;
+    padding: 20px 18px !important;
+    box-sizing: border-box !important;
+  }
+
+  .sf-pbox-title {
+    font-size: 1.25rem !important;
+    margin-bottom: 8px !important;
+  }
+
+  .sf-pbox-desc {
+    font-size: 12px !important;
+    line-height: 1.4 !important;
+    margin-bottom: 12px !important;
+  }
+
+  .sf-pbox-pills {
+    gap: 6px !important;
+  }
+
+  .sf-pbox-pill {
+    font-size: 10.5px !important;
+    padding: 3px 8px !important;
   }
 
   .sf-practice-scrub-bar {
-    display: none;
+    display: flex !important;
+    position: absolute !important;
+    bottom: 16px !important;
+    left: 20px !important;
+    right: 20px !important;
+    width: calc(100% - 40px) !important;
+    z-index: 26 !important;
   }
 }
 

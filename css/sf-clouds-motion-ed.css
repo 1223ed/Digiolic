@@ -1110,6 +1110,9 @@
 
 /* Responsive adjustments */
 @media (max-width: 992px) {
+  .sf-motion-hud {
+    display: none !important;
+  }
   .sf-motion-intro-title {
     font-size: clamp(38px, 5.2vw, 56px) !important;
     line-height: 1.10 !important;
