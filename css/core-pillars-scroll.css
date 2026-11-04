@@ -626,12 +626,36 @@
 
 /* Mobile & Tablet Optimizations */
 @media (max-width: 900px) {
+  .mai-pillar-intro-stage {
+    padding: 0 1.25rem !important;
+    justify-content: center !important;
+    align-items: flex-start !important;
+  }
+  .feather-intro-editorial-wrap {
+    padding-left: clamp(1rem, 3.5vw, 1.75rem) !important;
+    padding-right: 1rem !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+  }
+  .feather-intro-index-tag {
+    font-size: 11px !important;
+    letter-spacing: 0.14em !important;
+    margin-bottom: 0.85rem !important;
+  }
+  .feather-intro-headline {
+    font-size: clamp(1.75rem, 6.8vw, 2.45rem) !important;
+    line-height: 1.12 !important;
+  }
+  .feather-intro-headline span {
+    white-space: normal !important;
+  }
   .feather-slide-split {
     display: flex !important;
     flex-direction: column !important;
-    justify-content: flex-end !important;
-    padding: 1.5rem !important;
-    padding-bottom: 5.5rem !important;
+    justify-content: flex-start !important;
+    padding: clamp(3rem, 8.5vh, 4.8rem) 1.25rem 4.5rem 1.25rem !important;
+    box-sizing: border-box !important;
   }
   .feather-slide-split.is-content-left .feather-slide-content,
   .feather-slide-split.is-content-right .feather-slide-content {
@@ -642,14 +666,29 @@
     display: none !important;
   }
   .feather-slide-heading {
-    font-size: clamp(28px, 6vw, 42px) !important;
+    font-size: clamp(22px, 5.5vw, 32px) !important;
+    line-height: 1.15 !important;
+    margin-bottom: 12px !important;
+  }
+  .feather-slide-heading span {
+    display: block !important;
   }
   .feather-paragraph {
-    font-size: 13.5px !important;
+    font-size: 13px !important;
     line-height: 1.5 !important;
+    margin-bottom: 10px !important;
+  }
+  .feather-chips-row {
+    margin-top: 14px !important;
+    gap: 8px !important;
+    flex-wrap: wrap !important;
+  }
+  .feather-chip {
+    font-size: 11px !important;
+    padding: 4px 10px !important;
   }
   .feather-bottom-controls {
-    padding: 0 1.5rem !important;
+    padding: 0 1.25rem !important;
     bottom: 16px !important;
   }
   .feather-bottom-tag {

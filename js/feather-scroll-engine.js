@@ -563,9 +563,20 @@
       const numStages = STAGE_INTERVALS.length;
       let targetKf = null;
 
+      function getAdjustedKf(kf) {
+        if (window.innerWidth < 900) {
+          return {
+            ...kf,
+            x: kf.x < 0 ? -3.20 : 2.80,
+            scale: 1.70
+          };
+        }
+        return kf;
+      }
+
       if (p <= STAGE_INTERVALS[0].restEnd) {
         // Intro resting
-        targetKf = STAGE_INTERVALS[0].kf;
+        targetKf = getAdjustedKf(STAGE_INTERVALS[0].kf);
         targetTransform.x = targetKf.x;
         targetTransform.y = targetKf.y;
         targetTransform.z = targetKf.z;
@@ -576,7 +587,7 @@
         targetTransform.isWhite = targetKf.isWhite;
       } else if (p >= STAGE_INTERVALS[numStages - 1].restStart) {
         // Last slide resting right up to 1.00 (Point 4: Never disappears!)
-        targetKf = STAGE_INTERVALS[numStages - 1].kf;
+        targetKf = getAdjustedKf(STAGE_INTERVALS[numStages - 1].kf);
         targetTransform.x = targetKf.x;
         targetTransform.y = targetKf.y;
         targetTransform.z = targetKf.z;
@@ -591,14 +602,15 @@
           const cur = STAGE_INTERVALS[i];
           if (p >= cur.restStart && p <= cur.restEnd) {
             // Perfectly settled on this slide
-            targetTransform.x = cur.kf.x;
-            targetTransform.y = cur.kf.y;
-            targetTransform.z = cur.kf.z;
-            targetTransform.rx = cur.kf.rx;
-            targetTransform.ry = cur.kf.ry;
-            targetTransform.rz = cur.kf.rz;
-            targetTransform.scale = cur.kf.scale;
-            targetTransform.isWhite = cur.kf.isWhite;
+            const curKf = getAdjustedKf(cur.kf);
+            targetTransform.x = curKf.x;
+            targetTransform.y = curKf.y;
+            targetTransform.z = curKf.z;
+            targetTransform.rx = curKf.rx;
+            targetTransform.ry = curKf.ry;
+            targetTransform.rz = curKf.rz;
+            targetTransform.scale = curKf.scale;
+            targetTransform.isWhite = curKf.isWhite;
             break;
           }
 
@@ -606,6 +618,8 @@
             const next = STAGE_INTERVALS[i + 1];
             if (p > cur.restEnd && p < next.restStart) {
               // In transition between stage i and stage i+1
+              const curKf = getAdjustedKf(cur.kf);
+              const nextKf = getAdjustedKf(next.kf);
               const t = (p - cur.restEnd) / (next.restStart - cur.restEnd);
               const clampedT = Math.max(0, Math.min(1, t));
               // Quintic smootherstep curve: 6t^5 - 15t^4 + 10t^3 for zero-jerk luxury glide
@@ -613,15 +627,15 @@
 
               // Smooth 3D aerodynamic glide curve (User Requirement 2: smooth animation between all pages)
               const arc = Math.sin(clampedT * Math.PI);
-              targetTransform.x = cur.kf.x + (next.kf.x - cur.kf.x) * ep;
+              targetTransform.x = curKf.x + (nextKf.x - curKf.x) * ep;
               targetTransform.y = 0.25; // Locked vertically - zero up/down floating! (User Requirement 1)
-              targetTransform.z = cur.kf.z - arc * 0.45; // Subtle luxury depth swoop
-              targetTransform.rx = cur.kf.rx;
-              const travelDir = next.kf.x > cur.kf.x ? 1 : -1;
-              targetTransform.ry = cur.kf.ry + travelDir * arc * 0.25;
-              targetTransform.rz = cur.kf.rz - travelDir * arc * 0.15;
-              targetTransform.scale = cur.kf.scale;
-              targetTransform.isWhite = ep > 0.50 ? next.kf.isWhite : cur.kf.isWhite;
+              targetTransform.z = curKf.z - arc * 0.45; // Subtle luxury depth swoop
+              targetTransform.rx = curKf.rx;
+              const travelDir = nextKf.x > curKf.x ? 1 : -1;
+              targetTransform.ry = curKf.ry + travelDir * arc * 0.25;
+              targetTransform.rz = curKf.rz - travelDir * arc * 0.15;
+              targetTransform.scale = curKf.scale;
+              targetTransform.isWhite = ep > 0.50 ? nextKf.isWhite : curKf.isWhite;
               break;
             }
           }
