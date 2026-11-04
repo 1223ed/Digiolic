@@ -60,6 +60,12 @@
     }
 
     function render() {
+      if (window.innerWidth < 992) {
+        header.style.transform = 'none';
+        header.style.opacity = '1';
+        rafId = requestAnimationFrame(render);
+        return;
+      }
       // Physics lerp interpolation matching Webflow & Motion.ed
       currentProgress = lerp(currentProgress, targetProgress, 0.12);
 

@@ -20,7 +20,7 @@
   <meta http-equiv="Expires" content="0">
 
   <!-- Core & Component CSS -->
-  <link rel="stylesheet" href="../css/style.css?v=20260930_v6">
+  <link rel="stylesheet" href="../css/style.css?v=20261104_mob_v2">
   <link rel="stylesheet" href="../css/components.css?v=20260930_v6">
   <link rel="stylesheet" href="../css/pages.css?v=20260930_v6">
   <link rel="stylesheet" href="../css/responsive.css?v=20260930_v6">
@@ -31,9 +31,9 @@
   <link rel="stylesheet" href="../css/sf-tech-stack-cinema.css?v=20261104_cinema_mob_v1">
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800;900&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../css/sf-clouds-motion-ed.css?v=20261104_mob_v1">
-  <link rel="stylesheet" href="../css/sf-practice-motion-ed.css?v=20261104_mob_v1">
-  <link rel="stylesheet" href="../css/sf-usecases-stack.css?v=20261103_2">
+  <link rel="stylesheet" href="../css/sf-clouds-motion-ed.css?v=20261104_mob_v2">
+  <link rel="stylesheet" href="../css/sf-practice-motion-ed.css?v=20261104_mob_v2">
+  <link rel="stylesheet" href="../css/sf-usecases-stack.css?v=20261104_mob_v2">
 
   <style>
     html {
@@ -359,7 +359,7 @@
       text-align: center !important;
     }
 
-    /* REDUCED BY 10%: WHAT CAN SALESFORCE DO FOR YOUR BUSINESS & SALESFORCE IMPLEMENTATION */
+    /* WHAT CAN SALESFORCE DO FOR YOUR BUSINESS & SALESFORCE IMPLEMENTATION */
     #useCasesSection .sf-section-title,
     #useCasesSection h2.sf-section-title,
     #useCasesSection .sf-qude-title-line,
@@ -370,7 +370,7 @@
       font-weight: 800 !important;
       line-height: 1.05 !important;
       letter-spacing: -0.035em !important;
-      text-transform: uppercase !important;
+      text-transform: none !important;
       color: #FFFFFF !important;
       margin: 0 auto clamp(16px, 2.5vh, 24px) auto !important;
       text-align: center !important;
@@ -2161,7 +2161,7 @@
       font-weight: 800 !important;
       line-height: 1.05 !important;
       letter-spacing: -0.035em !important;
-      text-transform: uppercase !important;
+      text-transform: none !important;
       color: #FFFFFF !important;
       margin: 0 !important;
       display: flex !important;
@@ -2698,12 +2698,17 @@
     @media (max-width: 991px) {
       .zoho-faq-split-wrapper {
         flex-direction: column !important;
-        gap: 40px !important;
+        gap: 20px !important;
       }
 
       .faq-header-wrap {
         max-width: 100% !important;
         width: 100% !important;
+        margin-bottom: 0 !important;
+      }
+
+      .faq-header-wrap .faq-sub-desc {
+        margin-bottom: 0 !important;
       }
 
       .zoho-faq-dark-container {
@@ -2715,6 +2720,14 @@
       .faq-header-wrap .faq-main-heading {
         font-size: 32px !important;
         line-height: 38.4px !important;
+      }
+
+      /* Disable departure animations on mobile for the 3 key monumental headlines */
+      #servicesOverview .sf-practice-hero-header,
+      #useCasesSection #sfQudeIntro,
+      #processSection #sfProcessHeaderWrap {
+        transform: none !important;
+        opacity: 1 !important;
       }
     }
 
@@ -4878,8 +4891,8 @@
         <!-- Monumental Centered Headline (Matches "IMPLEMENTATION EXAMPLES" in video) -->
         <div class="sf-practice-hero-header">
           <h2 class="sf-practice-hero-title">
-            <span class="sf-hero-line"><span class="sf-text-blue">EVERYTHING</span> YOU NEED</span>
-            <span class="sf-hero-line">TO GET MORE FROM <span class="sf-text-blue">SALESFORCE</span></span>
+            <span class="sf-hero-line"><span class="sf-text-blue">Everything</span> you need</span>
+            <span class="sf-hero-line">to get more from <span class="sf-text-blue">Salesforce</span></span>
           </h2>
           <p class="sf-practice-hero-desc">From high-level architectural advisory to sub-second automations and managed operations.</p>
         </div>
@@ -5265,10 +5278,10 @@
             <div class="sf-qude-pill-badge" id="sfQudePillBadge">MEASURABLE OUTCOMES</div>
 
             <!-- Monumental Architectural Centered Typography with Overflow Wave Masks -->
-            <div class="sf-qude-monumental-title" aria-label="WHAT CAN SALESFORCE DO FOR YOUR BUSINESS?">
-              <h2 class="sf-practice-hero-title sf-qude-title-line" id="sfQudeTitleLine" style="font-family: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important; font-size: clamp(43px, 5.0vw, 74px) !important; font-weight: 800 !important; letter-spacing: -0.035em !important; line-height: 1.05 !important; text-transform: uppercase !important; color: #FFFFFF !important; margin: 0 auto clamp(16px, 2.5vh, 24px) auto !important; text-align: center !important;">
-                <span class="sf-hero-line">WHAT CAN <span class="sf-qude-highlight" style="color: #00A1E0 !important; text-shadow: none !important;">SALESFORCE</span> DO</span>
-                <span class="sf-hero-line">FOR YOUR BUSINESS?</span>
+            <div class="sf-qude-monumental-title" aria-label="What can Salesforce do for your business?">
+              <h2 class="sf-practice-hero-title sf-qude-title-line" id="sfQudeTitleLine" style="font-family: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important; font-size: clamp(43px, 5.0vw, 74px) !important; font-weight: 800 !important; letter-spacing: -0.035em !important; line-height: 1.05 !important; text-transform: none !important; color: #FFFFFF !important; margin: 0 auto clamp(16px, 2.5vh, 24px) auto !important; text-align: center !important;">
+                <span class="sf-hero-line">What can <span class="sf-qude-highlight" style="color: #00A1E0 !important; text-shadow: none !important;">Salesforce</span> do</span>
+                <span class="sf-hero-line">for your business?</span>
               </h2>
             </div>
 
@@ -5501,8 +5514,8 @@
               <span>PROVEN METHODOLOGY</span>
             </div>
             <h2 class="sf-play-title">
-              <span class="sf-hero-line"><span class="sf-text-blue">SALESFORCE</span> IMPLEMENTATION</span>
-              <span class="sf-hero-line">BUILT AROUND YOUR BUSINESS</span>
+              <span class="sf-hero-line"><span class="sf-text-blue">Salesforce</span> implementation</span>
+              <span class="sf-hero-line">built around your business</span>
             </h2>
           </div>
         </div>
@@ -6729,10 +6742,10 @@
     })();
   </script>
   <script src="../js/sf-tech-stack-cinema.js?v=20261104_cinema_mob_v1"></script>
-  <script src="../js/sf-clouds-motion-ed.js?v=20261104_mob_v1"></script>
-  <script src="../js/sf-practice-motion-ed.js?v=20261104_mob_v1"></script>
-  <script src="../js/sf-usecases-stack.js?v=20261103_2"></script>
-  <script src="../js/sf-process-motion.js?v=20261103_2"></script>
+  <script src="../js/sf-clouds-motion-ed.js?v=20261104_mob_v2"></script>
+  <script src="../js/sf-practice-motion-ed.js?v=20261104_mob_v2"></script>
+  <script src="../js/sf-usecases-stack.js?v=20261104_mob_v2"></script>
+  <script src="../js/sf-process-motion.js?v=20261104_mob_v2"></script>
   <script src="../js/sf-celestial-particles.js?v=20261103_1"></script>
 </body>
 </html>

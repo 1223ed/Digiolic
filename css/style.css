@@ -3733,16 +3733,13 @@ input[type="button"] {
   transform: rotate(0deg);
 }
 
-@media (max-width: 640px) {
-  .floating-scroll-nav {
-    right: 18px;
-    bottom: 84px;
-    width: 40px;
-    height: 40px;
-  }
-  .floating-scroll-nav .scroll-nav-icon {
-    width: 18px;
-    height: 18px;
+@media (max-width: 991px) {
+  .floating-scroll-nav,
+  #floatingScrollNav {
+    display: none !important;
+    pointer-events: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
   }
 }
 

@@ -158,7 +158,7 @@
   font-weight: 800 !important;
   letter-spacing: -0.035em !important;
   line-height: 1.05 !important;
-  text-transform: uppercase !important;
+  text-transform: none !important;
   color: #FFFFFF !important;
   display: flex !important;
   flex-direction: column !important;
@@ -528,7 +528,8 @@
     flex-direction: column !important;
     align-items: center !important;
     text-align: center !important;
-    will-change: transform, opacity !important;
+    transform: none !important;
+    opacity: 1 !important;
     z-index: 20 !important;
   }
 

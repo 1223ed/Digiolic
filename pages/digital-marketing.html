@@ -18,7 +18,7 @@
   <meta http-equiv="Expires" content="0">
 
   <!-- Core & Component CSS -->
-  <link rel="stylesheet" href="../css/style.css?v=20260920_v302">
+  <link rel="stylesheet" href="../css/style.css?v=20261104_mob_v2">
   <link rel="stylesheet" href="../css/components.css?v=20260926_flat_white_v4">
   <link rel="stylesheet" href="../css/pages.css?v=20260919_v209">
   <link rel="stylesheet" href="../css/responsive.css?v=20260930_v1">
@@ -1499,7 +1499,7 @@
       }
       .dm-std-foreground {
         margin-top: 0 !important;
-        padding-bottom: 100px !important;
+        padding-bottom: 24px !important;
       }
       .dm-std-grid {
         grid-template-columns: 1fr !important;
@@ -1846,46 +1846,123 @@
 
     /* Responsive adjustments */
     @media (max-width: 900px) {
-      .delivery-success-section.pillars-spatial-track {
+      /* Five Pillars Hero Intro: Remove massive black gap */
+      .ct-master-section.fph-standalone-hero {
         height: auto !important;
+        min-height: auto !important;
+        padding: 36px 18px 24px !important;
+        margin: 0 !important;
       }
-      .pillars-pinned-stage {
+      .fph-standalone-hero .ct-master-sticky {
         position: relative !important;
         height: auto !important;
-        min-height: 100vh !important;
-        padding: 4rem 1.5rem !important;
-      }
-      .pillars-column-divider {
-        display: none !important;
-      }
-      .pillars-sculpture-container {
-        display: none !important;
-      }
-      .pillars-horizontal-track {
-        position: relative !important;
-        height: auto !important;
-        display: flex !important;
-        flex-direction: column !important;
-        transform: none !important;
-        gap: 1.5rem !important;
-        pointer-events: auto !important;
-      }
-      .pillars-track-column {
-        width: 100% !important;
-        min-width: 100% !important;
-        max-width: 100% !important;
-        height: auto !important;
+        min-height: auto !important;
+        top: auto !important;
         padding: 0 !important;
       }
-      .pillars-track-column.pillars-col-spacer {
+      .fph-standalone-hero .ct-hero-stage {
+        position: relative !important;
+        inset: auto !important;
+        height: auto !important;
+        padding: 0 !important;
+        pointer-events: auto !important;
+      }
+      .fph-standalone-hero .ct-counter-badge {
         display: none !important;
+      }
+
+      /* Five Pillars Spatial Scroll: Match desktop 3D animation on mobile */
+      .delivery-success-section.pillars-spatial-track {
+        height: 380vh !important;
+        position: relative !important;
+      }
+      .pillars-pinned-stage {
+        position: sticky !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100vw !important;
+        height: 100vh !important;
+        height: 100dvh !important;
+        overflow: hidden !important;
+        display: flex !important;
+        padding: 0 !important;
+        background: inherit !important;
+        z-index: 10 !important;
+      }
+      .pillars-column-divider {
+        display: block !important;
+      }
+      .pillars-sculpture-container {
+        display: flex !important;
+        position: absolute !important;
+        top: 50% !important;
+        left: 50% !important;
+        transform: translate(-50%, -50%) !important;
+        width: min(72vw, 300px) !important;
+        height: min(72vw, 300px) !important;
+        z-index: 5 !important;
+        opacity: 0.8 !important;
+        pointer-events: none !important;
+      }
+      .pillars-horizontal-track {
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
+        height: 100vh !important;
+        height: 100dvh !important;
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: stretch !important;
+        z-index: 10 !important;
+        will-change: transform !important;
+        pointer-events: none !important;
+      }
+      .pillars-track-column {
+        width: 86vw !important;
+        min-width: 86vw !important;
+        max-width: 86vw !important;
+        height: 100vh !important;
+        height: 100dvh !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        padding: 0 16px !important;
+        box-sizing: border-box !important;
+        flex-shrink: 0 !important;
+        pointer-events: none !important;
+      }
+      .pillars-track-column.pillars-col-bottom {
+        justify-content: flex-end !important;
+        padding-bottom: clamp(28px, 6vh, 52px) !important;
+      }
+      .pillars-track-column.pillars-col-top {
+        justify-content: flex-start !important;
+        padding-top: clamp(28px, 6vh, 52px) !important;
+      }
+      .pillars-track-column.pillars-col-spacer {
+        width: 12vw !important;
+        min-width: 12vw !important;
+        max-width: 12vw !important;
+        display: block !important;
       }
       .pillars-glass-card {
         position: relative !important;
         width: 100% !important;
-        max-width: 100% !important;
+        max-width: 330px !important;
+        min-height: auto !important;
+        padding: 20px 18px !important;
+        border-radius: 14px !important;
         transform: none !important;
         opacity: 1 !important;
+        pointer-events: auto !important;
+      }
+      .pillars-card-title {
+        font-size: 1.15rem !important;
+        margin-bottom: 8px !important;
+      }
+      .pillars-card-desc {
+        font-size: 0.86rem !important;
+        line-height: 1.45 !important;
       }
     }
 
@@ -3326,17 +3403,23 @@
 
     @media (max-width: 991px) {
       .dm-faq-section {
-        padding: 70px 20px !important;
+        padding: 48px 20px !important;
       }
       .dm-faq-section .zoho-faq-split-wrapper {
         flex-direction: column !important;
-        gap: 40px !important;
+        gap: 20px !important;
         align-items: center !important;
       }
       .dm-faq-section .faq-header-wrap,
       .dm-faq-section .zoho-faq-dark-container {
         max-width: 100% !important;
         width: 100% !important;
+      }
+      .dm-faq-section .faq-header-wrap {
+        margin-bottom: 0 !important;
+      }
+      .dm-faq-section .faq-sub-desc {
+        margin-bottom: 0 !important;
       }
       .dm-faq-section .faq-main-heading {
         font-size: 32px !important;
@@ -5382,10 +5465,6 @@
 
       let ticking = false;
       function updateSpatialPillars() {
-        if (window.innerWidth <= 900) {
-          track.style.transform = 'none';
-          return;
-        }
 
         const rect = section.getBoundingClientRect();
         const vh = window.innerHeight;
