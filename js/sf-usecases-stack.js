@@ -68,20 +68,16 @@
       // ------------------------------------------------------------------------
       const introEl = document.getElementById('sfQudeIntro');
       if (introEl) {
-        if (window.innerWidth < 992) {
-          introEl.style.transform = 'none';
-          introEl.style.opacity = '1';
-        } else {
-          const riseProgress = clamp(progress / 0.18, 0, 1);
-          const easedHeader = riseProgress < 0.5 
-            ? 4 * riseProgress * riseProgress * riseProgress 
-            : 1 - Math.pow(-2 * riseProgress + 2, 3) / 2;
-          const headerY = -easedHeader * 340;
-          const headerOpacity = clamp(1 - easedHeader * 1.35, 0, 1);
+        const riseProgress = clamp(progress / 0.18, 0, 1);
+        const easedHeader = riseProgress < 0.5 
+          ? 4 * riseProgress * riseProgress * riseProgress 
+          : 1 - Math.pow(-2 * riseProgress + 2, 3) / 2;
+        const exitDist = window.innerWidth < 992 ? 300 : 340;
+        const headerY = -easedHeader * exitDist;
+        const headerOpacity = clamp(1 - easedHeader * 1.5, 0, 1);
 
-          introEl.style.transform = `translate3d(0, ${headerY.toFixed(2)}px, 0)`;
-          introEl.style.opacity = headerOpacity.toFixed(3);
-        }
+        introEl.style.transform = `translate3d(0, ${headerY.toFixed(2)}px, 0)`;
+        introEl.style.opacity = headerOpacity.toFixed(3);
       }
 
       // Smooth vertical centering of cards deck as headline departs

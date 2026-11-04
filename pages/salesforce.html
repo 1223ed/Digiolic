@@ -31,9 +31,9 @@
   <link rel="stylesheet" href="../css/sf-tech-stack-cinema.css?v=20261104_cinema_mob_v1">
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800;900&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../css/sf-clouds-motion-ed.css?v=20261104_mob_v2">
-  <link rel="stylesheet" href="../css/sf-practice-motion-ed.css?v=20261104_mob_v2">
-  <link rel="stylesheet" href="../css/sf-usecases-stack.css?v=20261104_mob_v2">
+  <link rel="stylesheet" href="../css/sf-clouds-motion-ed.css?v=20261104_mob_v3">
+  <link rel="stylesheet" href="../css/sf-practice-motion-ed.css?v=20261104_mob_v3">
+  <link rel="stylesheet" href="../css/sf-usecases-stack.css?v=20261104_mob_v3">
 
   <style>
     html {
@@ -2696,15 +2696,23 @@
     }
 
     @media (max-width: 991px) {
+      .zoho-faq-section {
+        padding: 48px 20px 60px !important;
+      }
+
       .zoho-faq-split-wrapper {
         flex-direction: column !important;
-        gap: 20px !important;
+        gap: 16px !important;
       }
 
       .faq-header-wrap {
+        flex: none !important;
         max-width: 100% !important;
         width: 100% !important;
+        height: auto !important;
+        min-height: auto !important;
         margin-bottom: 0 !important;
+        gap: 12px !important;
       }
 
       .faq-header-wrap .faq-sub-desc {
@@ -2714,20 +2722,12 @@
       .zoho-faq-dark-container {
         max-width: 100% !important;
         width: 100% !important;
-        padding: 24px 20px 32px !important;
+        padding: 20px 16px 24px !important;
       }
 
       .faq-header-wrap .faq-main-heading {
-        font-size: 32px !important;
-        line-height: 38.4px !important;
-      }
-
-      /* Disable departure animations on mobile for the 3 key monumental headlines */
-      #servicesOverview .sf-practice-hero-header,
-      #useCasesSection #sfQudeIntro,
-      #processSection #sfProcessHeaderWrap {
-        transform: none !important;
-        opacity: 1 !important;
+        font-size: clamp(24px, 6vw, 32px) !important;
+        line-height: 1.2 !important;
       }
     }
 
@@ -6742,10 +6742,10 @@
     })();
   </script>
   <script src="../js/sf-tech-stack-cinema.js?v=20261104_cinema_mob_v1"></script>
-  <script src="../js/sf-clouds-motion-ed.js?v=20261104_mob_v2"></script>
-  <script src="../js/sf-practice-motion-ed.js?v=20261104_mob_v2"></script>
-  <script src="../js/sf-usecases-stack.js?v=20261104_mob_v2"></script>
-  <script src="../js/sf-process-motion.js?v=20261104_mob_v2"></script>
+  <script src="../js/sf-clouds-motion-ed.js?v=20261104_mob_v3"></script>
+  <script src="../js/sf-practice-motion-ed.js?v=20261104_mob_v3"></script>
+  <script src="../js/sf-usecases-stack.js?v=20261104_mob_v3"></script>
+  <script src="../js/sf-process-motion.js?v=20261104_mob_v3"></script>
   <script src="../js/sf-celestial-particles.js?v=20261103_1"></script>
 </body>
 </html>

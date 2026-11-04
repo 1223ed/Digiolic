@@ -111,18 +111,13 @@
       const easedRise = easeOutCubic(riseProgress);
       const easedHeader = easeInOutCubic(riseProgress);
 
-      // Headline translates UP and exits off top of screen on desktop only
-      if (window.innerWidth < 992) {
-        heroHeader.style.transform = 'none';
-        heroHeader.style.opacity = '1';
-      } else {
-        const wrapperTop = cardsWrapper.offsetTop || 120;
-        const headerExitDistance = wrapperTop + 380;
-        const headerY = -easedHeader * headerExitDistance;
-        const headerOpacity = clamp(1 - easedHeader * 1.35, 0, 1);
-        heroHeader.style.transform = `translate3d(0, ${headerY.toFixed(2)}px, 0)`;
-        heroHeader.style.opacity = headerOpacity.toFixed(3);
-      }
+      // Headline translates UP and exits off top of screen smoothly
+      const isMobile = window.innerWidth < 992;
+      const headerExitDistance = isMobile ? 320 : ((cardsWrapper.offsetTop || 120) + 380);
+      const headerY = -easedHeader * headerExitDistance;
+      const headerOpacity = clamp(1 - easedHeader * 1.5, 0, 1);
+      heroHeader.style.transform = `translate3d(0, ${headerY.toFixed(2)}px, 0)`;
+      heroHeader.style.opacity = headerOpacity.toFixed(3);
 
       // Cards track rises up from peaking position to vertical center
       const currentCardY = lerp(initialPeakingY, 0, easedRise);

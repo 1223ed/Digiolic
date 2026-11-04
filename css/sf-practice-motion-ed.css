@@ -528,8 +528,8 @@
     flex-direction: column !important;
     align-items: center !important;
     text-align: center !important;
-    transform: none !important;
-    opacity: 1 !important;
+    will-change: transform, opacity !important;
+    pointer-events: none !important;
     z-index: 20 !important;
   }
 
