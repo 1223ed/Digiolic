@@ -1,0 +1,13 @@
+const T = typeof window !== 'undefined' ? window.THREE : {};
+export default T;
+export const BufferAttribute = T.BufferAttribute;
+export const BufferGeometry = T.BufferGeometry;
+export const Color = T.Color;
+export const ColorManagement = T.ColorManagement;
+export const FileLoader = T.FileLoader;
+export const Loader = T.Loader;
+export const LinearSRGBColorSpace = T.LinearSRGBColorSpace;
+export const SRGBColorSpace = T.SRGBColorSpace;
+export const InterleavedBuffer = T.InterleavedBuffer;
+export const InterleavedBufferAttribute = T.InterleavedBufferAttribute;
+export const LoaderUtils = T.LoaderUtils;

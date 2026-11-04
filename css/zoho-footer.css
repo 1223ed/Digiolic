@@ -1,0 +1,358 @@
+/* ==========================================================================
+   FINSIGHT COLOR GRADIENT SHADES & LIGHTING FOR ORIGINAL FOOTER
+   Identical to Zoho Enterprise & About Us page footer
+   ========================================================================== */
+.site-footer.finsight-theme-footer {
+  position: relative !important;
+  overflow: hidden !important;
+  background-color: #010204 !important;
+  background-image: radial-gradient(ellipse 90% 65% at 50% 100%, rgba(0, 123, 227, 0.22) 0%, rgba(0, 123, 227, 0.06) 45%, rgba(1, 2, 4, 0) 80%) !important;
+  border-top: none !important;
+  border-bottom: none !important;
+  border: none !important;
+  padding: 80px 24px 36px 24px !important;
+  font-family: "Be Vietnam Pro", -apple-system, BlinkMacSystemFont, sans-serif !important;
+  color: #FFFFFF !important;
+  box-sizing: border-box !important;
+  width: 100% !important;
+}
+
+/* Ambient Blue Blur Glow (Abstract from FinSight) */
+.site-footer.finsight-theme-footer .finsight-footer-abstract {
+  position: absolute !important;
+  bottom: -220px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  width: 1470px !important;
+  max-width: 130vw !important;
+  height: 320px !important;
+  border-radius: 100% !important;
+  background: rgb(0, 123, 227) !important;
+  filter: blur(267px) !important;
+  -webkit-filter: blur(267px) !important;
+  opacity: 0.95 !important;
+  pointer-events: none !important;
+  z-index: 1 !important;
+}
+
+.site-footer.finsight-theme-footer .container-home-compact {
+  position: relative !important;
+  z-index: 2 !important;
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+  padding: 0 !important;
+  width: 100% !important;
+}
+
+/* 4-Column Grid */
+.site-footer.finsight-theme-footer .footer-grid {
+  display: grid !important;
+  grid-template-columns: 1.4fr 1fr 1fr 1.5fr !important;
+  gap: 40px !important;
+  align-items: flex-start !important;
+  margin-bottom: 50px !important;
+}
+
+/* Brand Column */
+.site-footer.finsight-theme-footer .footer-brand-col {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 20px !important;
+  max-width: 340px !important;
+}
+
+.site-footer.finsight-theme-footer .brand-logo img {
+  height: 34px !important;
+  width: auto !important;
+  display: block !important;
+  filter: brightness(1) !important;
+}
+
+.site-footer.finsight-theme-footer .footer-brand-col p {
+  color: rgba(255, 255, 255, 0.72) !important;
+  font-family: "Be Vietnam Pro", sans-serif !important;
+  font-size: 15px !important;
+  font-weight: 300 !important;
+  line-height: 1.65 !important;
+  margin: 0 !important;
+}
+
+/* Headings */
+.site-footer.finsight-theme-footer .footer-heading {
+  color: #FFFFFF !important;
+  font-family: "Be Vietnam Pro", sans-serif !important;
+  font-size: 17px !important;
+  font-weight: 500 !important;
+  letter-spacing: -0.01em !important;
+  margin: 0 0 20px 0 !important;
+}
+
+/* Links */
+.site-footer.finsight-theme-footer .footer-links {
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 12px !important;
+}
+
+.site-footer.finsight-theme-footer .footer-link {
+  color: rgba(255, 255, 255, 0.68) !important;
+  font-family: "Be Vietnam Pro", sans-serif !important;
+  font-size: 15px !important;
+  font-weight: 300 !important;
+  text-decoration: none !important;
+  transition: color 0.2s ease, transform 0.2s ease !important;
+  display: inline-block !important;
+}
+
+.site-footer.finsight-theme-footer .footer-link:hover {
+  color: #007BE3 !important;
+  transform: translateX(2px) !important;
+}
+
+/* Contact Items */
+.site-footer.finsight-theme-footer .footer-contact-item {
+  display: flex !important;
+  align-items: flex-start !important;
+  gap: 12px !important;
+  margin-bottom: 16px !important;
+}
+
+.site-footer.finsight-theme-footer .footer-contact-item svg {
+  color: #007BE3 !important;
+  flex-shrink: 0 !important;
+  margin-top: 3px !important;
+}
+
+.site-footer.finsight-theme-footer .footer-contact-item span {
+  display: block !important;
+  font-size: 12px !important;
+  font-weight: 400 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.06em !important;
+  color: rgba(255, 255, 255, 0.5) !important;
+  margin-bottom: 2px !important;
+  font-family: "Be Vietnam Pro", sans-serif !important;
+}
+
+.site-footer.finsight-theme-footer .footer-contact-item a.footer-link {
+  color: #FFFFFF !important;
+  font-weight: 400 !important;
+  font-size: 15px !important;
+}
+
+.site-footer.finsight-theme-footer .footer-contact-item a.footer-link:hover {
+  color: #007BE3 !important;
+}
+
+/* Subscribe Column */
+.site-footer.finsight-theme-footer .footer-subscribe-col {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 14px !important;
+}
+
+/* Social Icons */
+.site-footer.finsight-theme-footer .footer-social-row {
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  margin-bottom: 4px !important;
+}
+
+.site-footer.finsight-theme-footer .footer-social-icon-btn {
+  width: 36px !important;
+  height: 36px !important;
+  border-radius: 50% !important;
+  background: rgba(255, 255, 255, 0.06) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease !important;
+  text-decoration: none !important;
+}
+
+.site-footer.finsight-theme-footer .footer-social-icon-btn:hover {
+  background: rgba(0, 123, 227, 0.18) !important;
+  border-color: rgba(0, 123, 227, 0.45) !important;
+  transform: translateY(-2px) !important;
+}
+
+.site-footer.finsight-theme-footer .footer-social-icon-btn svg {
+  display: block !important;
+}
+
+.site-footer.finsight-theme-footer .footer-subscribe-title {
+  color: #FFFFFF !important;
+  font-family: "Be Vietnam Pro", sans-serif !important;
+  font-size: 18px !important;
+  font-weight: 500 !important;
+  letter-spacing: -0.01em !important;
+  margin: 0 !important;
+}
+
+.site-footer.finsight-theme-footer .footer-subscribe-subtitle {
+  color: rgba(255, 255, 255, 0.62) !important;
+  font-family: "Be Vietnam Pro", sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 300 !important;
+  line-height: 1.5 !important;
+  margin: 0 !important;
+}
+
+/* Glass Pill Subscribe Form */
+.site-footer.finsight-theme-footer .footer-subscribe-pill-form {
+  display: flex !important;
+  align-items: center !important;
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  border-radius: 58px !important;
+  padding: 4px 4px 4px 18px !important;
+  position: relative !important;
+  box-sizing: border-box !important;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+.site-footer.finsight-theme-footer .footer-subscribe-pill-form:focus-within {
+  border-color: rgba(0, 123, 227, 0.5) !important;
+  box-shadow: 0 0 20px rgba(0, 123, 227, 0.2) !important;
+}
+
+.site-footer.finsight-theme-footer .footer-subscribe-input {
+  flex: 1 !important;
+  background: transparent !important;
+  border: none !important;
+  outline: none !important;
+  color: #FFFFFF !important;
+  font-family: "Be Vietnam Pro", sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 300 !important;
+  padding: 8px 0 !important;
+  min-width: 0 !important;
+}
+
+.site-footer.finsight-theme-footer .footer-subscribe-input::placeholder {
+  color: rgba(255, 255, 255, 0.45) !important;
+}
+
+.site-footer.finsight-theme-footer .footer-subscribe-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  background: #4F4FF1 !important;
+  color: #FFFFFF !important;
+  border: none !important;
+  border-radius: 58px !important;
+  padding: 10px 20px !important;
+  font-family: "Be Vietnam Pro", sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  cursor: pointer !important;
+  box-shadow: 0 4px 18px rgba(79, 79, 241, 0.45) !important;
+  transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease !important;
+  flex-shrink: 0 !important;
+}
+
+.site-footer.finsight-theme-footer .footer-subscribe-btn:hover {
+  background: #4343e8 !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 6px 24px rgba(79, 79, 241, 0.6) !important;
+}
+
+/* Bottom Bar */
+.site-footer.finsight-theme-footer .footer-bottom {
+  border-top: none !important;
+  padding-top: 24px !important;
+  text-align: center !important;
+  color: rgba(255, 255, 255, 0.5) !important;
+  font-family: "Be Vietnam Pro", sans-serif !important;
+  font-size: 13.5px !important;
+  font-weight: 300 !important;
+}
+
+/* Responsive Grid */
+@media (max-width: 1024px) {
+  .site-footer.finsight-theme-footer .footer-grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 36px !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .site-footer.finsight-theme-footer .footer-grid {
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+  }
+  .site-footer.finsight-theme-footer {
+    padding: 60px 20px 28px 20px !important;
+  }
+}
+
+/* Circular Audio Toggle Button in Navbar (Exact match to Zoho page) */
+.nav-sound-control {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.12);
+  color: #FFFFFF;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+  transition: background-color 0.25s ease, transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), color 0.25s ease;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  flex-shrink: 0;
+  outline: none;
+}
+
+.nav-sound-control:hover {
+  transform: scale(1.08);
+  background: rgba(255, 255, 255, 0.22);
+}
+
+.nav-sound-control:active {
+  transform: scale(0.95);
+}
+
+.nav-sound-control .sound-icon {
+  width: 18px;
+  height: 18px;
+  display: block;
+  pointer-events: none;
+}
+
+.nav-sound-control.is-playing .sound-icon-playing {
+  display: block;
+}
+.nav-sound-control.is-playing .sound-icon-paused {
+  display: none;
+}
+.nav-sound-control.is-paused .sound-icon-playing {
+  display: none;
+}
+.nav-sound-control.is-paused .sound-icon-paused {
+  display: block;
+}
+
+/* Subtle sound wave pulse animation when playing */
+.nav-sound-control.is-playing .sound-wave-1 {
+  animation: soundArcPulse 1.2s infinite ease-in-out;
+}
+.nav-sound-control.is-playing .sound-wave-2 {
+  animation: soundArcPulse 1.2s infinite 0.2s ease-in-out;
+}
+
+@keyframes soundArcPulse {
+  0%, 100% {
+    opacity: 0.45;
+  }
+  50% {
+    opacity: 1;
+  }
+}

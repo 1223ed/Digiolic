@@ -1,851 +1,336 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Salesforce Multi-Cloud Architecture & Apex Engineering | Digiolic</title>
-  <meta name="description" content="Scale Sales Cloud, Service Cloud, and Experience Cloud with bulletproof architecture. Custom Apex trigger frameworks, Flow automations, and MuleSoft integrations.">
-  
-  <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
-
-  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-  <meta http-equiv="Pragma" content="no-cache">
-  <meta http-equiv="Expires" content="0">
-
-  <!-- Core & Component CSS -->
-  <link rel="stylesheet" href="../css/style.css?v=20260919_v102">
-  <link rel="stylesheet" href="../css/components.css?v=20260919_v102">
-  <link rel="stylesheet" href="../css/pages.css?v=20260919_v102">
-  <link rel="stylesheet" href="../css/responsive.css?v=20260919_v102">
-
-  <style>
-    /* ==========================================================================
-       IMAGE 1 MOBILE NAVIGATION DRAWER SPECIFICATION (EXACT REPLICATION)
-       ========================================================================== */
-    .mainframe-mobile-overlay,
-    .mobile-nav-drawer,
-    #mainframeMobileOverlay,
-    #mobileNavDrawer {
-      position: fixed !important;
-      inset: 0 !important;
-      top: 0 !important;
-      left: 0 !important;
-      right: 0 !important;
-      bottom: 0 !important;
-      width: 100vw !important;
-      height: 100vh !important;
-      height: 100dvh !important;
-      background-color: #1D3145 !important;
-      background: #1D3145 !important;
-      z-index: 999999 !important;
-      display: flex !important;
-      flex-direction: column !important;
-      justify-content: flex-start !important;
-      align-items: flex-start !important;
-      padding: 2.5rem 2.25rem 3rem 2.25rem !important;
-      box-sizing: border-box !important;
-      overflow-y: auto !important;
-      -webkit-overflow-scrolling: touch !important;
-      opacity: 0 !important;
-      visibility: hidden !important;
-      pointer-events: none !important;
-      transform: translateY(-8px) !important;
-      transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.3s ease !important;
-    }
-
-    .mainframe-mobile-overlay.is-open,
-    .mobile-nav-drawer.is-open,
-    #mainframeMobileOverlay.is-open,
-    #mobileNavDrawer.is-open {
-      opacity: 1 !important;
-      visibility: visible !important;
-      pointer-events: auto !important;
-      transform: translateY(0) !important;
-    }
-
-    @media (min-width: 860px) {
-      .mainframe-mobile-overlay,
-      .mobile-nav-drawer,
-      #mainframeMobileOverlay,
-      #mobileNavDrawer {
-        display: none !important;
-      }
-    }
-
-    .mainframe-mobile-top,
-    .mobile-nav-top {
-      display: flex !important;
-      align-items: center !important;
-      justify-content: space-between !important;
-      width: 100% !important;
-      margin-bottom: 3.5rem !important;
-      padding: 0 !important;
-    }
-
-    .mainframe-mobile-logo-link,
-    .mobile-nav-logo-link {
-      display: flex !important;
-      align-items: center !important;
-      text-decoration: none !important;
-    }
-
-    .mobile-nav-logo {
-      height: 34px !important;
-      width: auto !important;
-      filter: brightness(0) invert(1) !important;
-      display: block !important;
-    }
-
-    .mobile-nav-close,
-    .mainframe-mobile-close {
-      background: transparent !important;
-      border: none !important;
-      color: #FFFFFF !important;
-      cursor: pointer !important;
-      padding: 6px !important;
-      display: flex !important;
-      align-items: center !important;
-      justify-content: center !important;
-      outline: none !important;
-      line-height: 1 !important;
-      opacity: 0.9 !important;
-    }
-
-    .mainframe-mobile-links,
-    .mainframe-mobile-nav,
-    .mobile-nav-list {
-      display: flex !important;
-      flex-direction: column !important;
-      align-items: flex-start !important;
-      gap: 1.75rem !important;
-      width: 100% !important;
-      padding: 0 !important;
-      margin: 0 !important;
-    }
-
-    .mainframe-mobile-link,
-    .mobile-nav-link {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
-      font-size: 1.5rem !important;
-      line-height: 1.3 !important;
-      font-weight: 400 !important;
-      color: rgba(255, 255, 255, 0.7) !important;
-      display: block !important;
-      width: auto !important;
-      max-width: 100% !important;
-      padding: 0.25rem 0 !important;
-      border: none !important;
-      border-bottom: none !important;
-      text-decoration: none !important;
-      box-sizing: border-box !important;
-      transition: color 0.2s ease !important;
-      text-align: left !important;
-      letter-spacing: -0.01em !important;
-    }
-
-    .mainframe-mobile-link:hover,
-    .mainframe-mobile-link.active,
-    .mobile-nav-link:hover,
-    .mobile-nav-link.active {
-      color: #FFFFFF !important;
-      font-weight: 500 !important;
-      border: none !important;
-      border-bottom: none !important;
-      padding-left: 0 !important;
-      transform: none !important;
-    }
-
-    .mainframe-mobile-link span:last-child:not(:first-child),
-    .mobile-nav-link span:last-child:not(:first-child) {
-      display: none !important;
-    }
-
-    .mainframe-mobile-link.cta-pill,
-    .mainframe-mobile-link.cta-underlined,
-    .mobile-nav-link.cta-pill,
-    .mobile-nav-footer .btn {
-      display: inline-flex !important;
-      align-items: center !important;
-      justify-content: center !important;
-      width: fit-content !important;
-      margin-top: 1.75rem !important;
-      background-color: #FFFFFF !important;
-      background: #FFFFFF !important;
-      color: #1D3145 !important;
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
-      font-size: 1rem !important;
-      font-weight: 600 !important;
-      border-radius: 9999px !important;
-      padding: 0.85rem 2.25rem !important;
-      border: none !important;
-      text-decoration: none !important;
-      text-align: center !important;
-      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12) !important;
-      transition: background-color 0.2s ease, transform 0.2s ease !important;
-    }
-
-    .mainframe-mobile-link.cta-pill:hover,
-    .mainframe-mobile-link.cta-underlined:hover,
-    .mobile-nav-link.cta-pill:hover,
-    .mobile-nav-footer .btn:hover {
-      background: rgba(255, 255, 255, 0.94) !important;
-      color: #1D3145 !important;
-      transform: translateY(-1px) !important;
-    }
-
-    .mobile-nav-footer,
-    .mobile-contact-info {
-      border: none !important;
-      padding: 0 !important;
-      margin: 0 !important;
-    }
-    /* Absolute Navbar at Top Only — Never Floats or Sticks When Scrolled */
-    .mainframe-navbar,
-    .hero-video-navbar,
-    #mainframeNavbar,
-    #heroNavbar {
-      position: absolute !important;
-      top: 0 !important;
-      left: 0 !important;
-      right: 0 !important;
-      width: 100% !important;
-      z-index: 1000 !important;
-    }
-    .mainframe-navbar.is-scrolled,
-    .hero-video-navbar.is-scrolled,
-    .mainframe-navbar.is-light-page.is-scrolled,
-    .hero-video-navbar.is-light.is-scrolled,
-    #mainframeNavbar.is-scrolled,
-    #heroNavbar.is-scrolled {
-      opacity: 0 !important;
-      visibility: hidden !important;
-      pointer-events: none !important;
-      display: none !important;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NATASCHA VAVRINA — Director Portfolio</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        darkbg: '#0a0a0a',
+                    },
+                    fontFamily: {
+                        serif: ['Cinzel', 'Playfair Display', 'serif'],
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['Space Mono', 'monospace']
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            background-color: #050505;
+            color: #f3f4f6;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0a0a0a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #262626;
+            border-radius: 3px;
+        }
+        .cinematic-title {
+            font-family: 'Cinzel', serif;
+            letter-spacing: 0.25em;
+        }
+        .project-item {
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+        .project-item:hover {
+            color: #ffffff;
+            transform: translateX(4px);
+        }
+        /* Glassmorphism preview box */
+        .preview-card {
+            transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1), transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), filter 0.4s ease;
+        }
+    </style>
 </head>
-<body>
+<body class="bg-darkbg text-zinc-100 min-h-screen flex flex-col justify-between selection:bg-zinc-800 selection:text-zinc-100">
 
-  <!-- Topbar Navigation -->
-  <header class="mainframe-navbar" id="mainframeNavbar">
-    <!-- Left: Digiolic Brand Logo -->
-    <a href="../index.html" class="mainframe-logo-wrap" aria-label="Digiolic Home">
-      <img src="../assets/images/digiolic-logo-dark.png" alt="Digiolic" class="brand-logo-img" width="96" height="34" style="height: 34px !important; width: auto !important; max-height: 34px !important; display: block;">
-    </a>
+    <!-- Top Navigation / Header -->
+    <header class="w-full pt-8 pb-6 px-6 md:px-12 flex flex-col items-center border-b border-zinc-900 relative z-20 bg-darkbg/80 backdrop-blur-md sticky top-0">
+        <!-- Subtitle / Location -->
+        <span class="text-[10px] md:text-xs uppercase tracking-[0.3em] text-zinc-500 mb-2 font-mono">NATASCHA VAVRINA</span>
+        
+        <!-- Main Director Logo/Title -->
+        <h1 class="cinematic-title text-3xl md:text-5xl lg:text-6xl font-bold tracking-widest text-white mb-6 text-center">
+            SOFIA
+        </h1>
 
-    <!-- Center: Desktop Nav Links -->
-    <nav class="mainframe-desktop-nav" aria-label="Primary Navigation">
-      <a href="../index.html" class="mainframe-nav-link">Home</a>
-      <a href="zoho.html" class="mainframe-nav-link">Zoho</a>
-      <a href="salesforce.html" class="mainframe-nav-link active">Salesforce</a>
-      <a href="digital-marketing.html" class="mainframe-nav-link">Digital Marketing</a>
-      <a href="case-stories.html" class="mainframe-nav-link">Case Stories</a>
-    </nav>
+        <!-- Director Works button (Left side absolute on desktop) -->
+        <div class="hidden lg:block absolute left-12 top-10">
+            <button onclick="openShowreelModal()" class="border border-zinc-700 hover:border-zinc-400 px-5 py-2.5 rounded-full text-xs uppercase tracking-[0.2em] transition-all duration-300 hover:bg-zinc-800/50 flex items-center gap-2 group">
+                <i data-lucide="play" class="w-3.5 h-3.5 fill-current text-zinc-400 group-hover:text-white transition-colors"></i>
+                Director Works
+            </button>
+        </div>
 
-    <!-- Right: Desktop CTA Pill Button -->
-    <a href="contact.html" class="mainframe-desktop-cta">Contact Us</a>
+        <!-- DOP Works button (Right side absolute on desktop) -->
+        <div class="hidden lg:block absolute right-12 top-10">
+            <button onclick="openDopModal()" class="border border-zinc-700 hover:border-zinc-400 px-5 py-2.5 rounded-full text-xs uppercase tracking-[0.2em] transition-all duration-300 hover:bg-zinc-800/50 flex items-center gap-2 group">
+                <i data-lucide="film" class="w-3.5 h-3.5 text-zinc-400 group-hover:text-white transition-colors"></i>
+                DOP Works
+            </button>
+        </div>
 
-    <!-- Mobile Hamburger Button -->
-    <button class="mainframe-hamburger-btn" id="mainframeMenuBtn" aria-label="Toggle Menu" aria-expanded="false">
-      <span class="mainframe-bar"></span>
-      <span class="mainframe-bar"></span>
-      <span class="mainframe-bar"></span>
-    </button>
-  </header>
+        <!-- Mobile top actions -->
+        <div class="flex lg:hidden gap-3 mb-6">
+            <button onclick="openShowreelModal()" class="border border-zinc-700 px-4 py-2 rounded-full text-[11px] uppercase tracking-wider bg-zinc-900/60">Director Works</button>
+            <button onclick="openDopModal()" class="border border-zinc-700 px-4 py-2 rounded-full text-[11px] uppercase tracking-wider bg-zinc-900/60">DOP Works</button>
+        </div>
 
-  <!-- Fullscreen Mobile Navigation Drawer (Image 1 Design) -->
-  <div class="mobile-nav-drawer" id="mobileNavDrawer" role="dialog" aria-modal="true" aria-label="Mobile Navigation">
-    <div class="mobile-nav-top">
-      <a href="../index.html" class="mobile-nav-logo-link" aria-label="Digiolic Home">
-        <img src="../assets/images/digiolic-logo-dark.png" alt="Digiolic" class="mobile-nav-logo">
-      </a>
-      <button class="mobile-nav-close" id="sfOrigCloseBtn" aria-label="Close Menu" onclick="document.getElementById('mobileNavDrawer').classList.remove('is-open'); document.getElementById('mainframeMenuBtn').classList.remove('is-active'); document.body.style.overflow='';">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <line x1="18" y1="6" x2="6" y2="18"></line>
-          <line x1="6" y1="6" x2="18" y2="18"></line>
-        </svg>
-      </button>
+        <!-- Category Filter Tabs -->
+        <nav class="flex flex-wrap justify-center gap-3 md:gap-6 text-xs md:text-sm uppercase tracking-[0.2em] font-mono">
+            <button onclick="filterCategory('all')" id="btn-all" class="category-btn text-white pb-1 border-b border-white transition-all">ALL</button>
+            <button onclick="filterCategory('fiction')" id="btn-fiction" class="category-btn text-zinc-500 hover:text-zinc-300 pb-1 border-b border-transparent transition-all">FICTION</button>
+            <button onclick="filterCategory('commercial')" id="btn-commercial" class="category-btn text-zinc-500 hover:text-zinc-300 pb-1 border-b border-transparent transition-all">COMMERCIAL</button>
+            <button onclick="filterCategory('music')" id="btn-music" class="category-btn text-zinc-500 hover:text-zinc-300 pb-1 border-b border-transparent transition-all">MUSIC VIDEO</button>
+            <button onclick="filterCategory('dance')" id="btn-dance" class="category-btn text-zinc-500 hover:text-zinc-300 pb-1 border-b border-transparent transition-all">DANCE</button>
+            <button onclick="filterCategory('documentary')" id="btn-documentary" class="category-btn text-zinc-500 hover:text-zinc-300 pb-1 border-b border-transparent transition-all">DOCUMENTARY</button>
+        </nav>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="flex-grow relative max-w-7xl mx-auto w-full px-6 md:px-12 py-12 flex flex-col lg:flex-row justify-between items-start gap-12 z-10">
+        
+        <!-- Project Titles Columns -->
+        <div id="projects-container" class="w-full lg:w-3/5 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 md:gap-12">
+            <!-- Dynamically populated via JavaScript -->
+        </div>
+
+        <!-- Floating Interactive Preview Card (Center/Dynamic) -->
+        <div class="w-full lg:w-2/5 flex justify-center items-center lg:sticky lg:top-32 min-h-[350px]">
+            <div id="preview-wrapper" class="relative w-full max-w-[380px] aspect-[4/3] rounded-lg overflow-hidden border border-zinc-800 bg-zinc-950 shadow-2xl preview-card opacity-0 scale-95 blur-sm">
+                <img id="preview-img" src="https://placehold.co/800x600/111/eee?text=Select+Project" alt="Project Preview" class="w-full h-full object-cover transition-transform duration-700 hover:scale-105">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex flex-col justify-end p-5">
+                    <span id="preview-category" class="text-[10px] font-mono uppercase tracking-widest text-zinc-400 mb-1">DIRECTOR'S REEL</span>
+                    <h3 id="preview-title" class="text-white font-serif text-lg tracking-wider">Hover over a title</h3>
+                    <p id="preview-year" class="text-xs text-zinc-500 font-mono mt-0.5">2026</p>
+                </div>
+            </div>
+            <!-- Empty state helper for desktop -->
+            <div id="preview-placeholder" class="absolute text-center text-zinc-600 font-mono text-xs tracking-widest pointer-events-none transition-opacity duration-300">
+                [ EXPLORE REEL ARCHIVE ]
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="w-full py-8 px-6 md:px-12 border-t border-zinc-900 flex flex-col sm:flex-row items-center justify-between text-xs tracking-[0.2em] font-mono text-zinc-500 uppercase z-20 gap-4">
+        <div class="flex gap-6">
+            <button onclick="scrollToTop()" class="hover:text-white transition-colors">ABOUT</button>
+            <button onclick="openContactModal()" class="hover:text-white transition-colors">CONTACT</button>
+        </div>
+        <div>
+            <span>© 2026 NATASCHA VAVRINA</span>
+        </div>
+        <div class="flex gap-6">
+            <a href="#" class="hover:text-white transition-colors">VIMEO</a>
+            <a href="#" class="hover:text-white transition-colors">INSTAGRAM</a>
+            <a href="#" class="hover:text-white transition-colors">EMAIL</a>
+        </div>
+    </footer>
+
+    <!-- Video Modal (Showreel) -->
+    <div id="videoModal" class="fixed inset-0 bg-black/95 z-50 hidden flex flex-col items-center justify-center p-4 backdrop-blur-md">
+        <button onclick="closeVideoModal()" class="absolute top-6 right-6 text-zinc-400 hover:text-white p-2">
+            <i data-lucide="x" class="w-8 h-8"></i>
+        </button>
+        <div class="w-full max-w-4xl aspect-video bg-zinc-900 rounded-xl overflow-hidden border border-zinc-800 shadow-2xl relative flex items-center justify-center">
+            <div class="absolute inset-0 bg-zinc-950 flex flex-col items-center justify-center text-center p-6">
+                <i data-lucide="play-circle" class="w-16 h-16 text-zinc-600 mb-4 animate-pulse"></i>
+                <h3 class="text-xl font-serif tracking-widest text-white mb-2">DIRECTOR SHOWREEL 2026</h3>
+                <p class="text-xs text-zinc-500 font-mono max-w-md">Cinematic reel featuring selected fiction, commercial, and music video works.</p>
+                <div class="mt-6 flex gap-4">
+                    <button onclick="closeVideoModal()" class="border border-zinc-700 px-6 py-2 rounded-full text-xs uppercase tracking-widest hover:bg-white hover:text-black transition-all">Close Player</button>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="mobile-nav-list">
-      <a href="../index.html" class="mobile-nav-link">Home</a>
-      <a href="zoho.html" class="mobile-nav-link">Zoho</a>
-      <a href="salesforce.html" class="mobile-nav-link active">Salesforce</a>
-      <a href="digital-marketing.html" class="mobile-nav-link">Digital Marketing</a>
-      <a href="case-stories.html" class="mobile-nav-link">Case Studies</a>
-      <a href="contact.html" class="mobile-nav-link cta-pill">Contact Us</a>
+
+    <!-- Contact / Info Modal -->
+    <div id="infoModal" class="fixed inset-0 bg-black/90 z-50 hidden flex items-center justify-center p-4 backdrop-blur-md">
+        <div class="bg-zinc-950 border border-zinc-800 p-8 rounded-2xl max-w-md w-full relative shadow-2xl">
+            <button onclick="closeInfoModal()" class="absolute top-4 right-4 text-zinc-400 hover:text-white">
+                <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+            <h3 class="cinematic-title text-xl text-white mb-4">NATASCHA VAVRINA</h3>
+            <p class="text-sm text-zinc-400 font-sans leading-relaxed mb-6">
+                Award-winning film director and cinematographer based between Zurich and Los Angeles. Specializing in atmospheric fiction, high-end commercial spots, and narrative music videos.
+            </p>
+            <div class="space-y-3 text-xs font-mono text-zinc-300 border-t border-zinc-900 pt-4">
+                <p><span class="text-zinc-500">REPRESENTATION (GLOBAL):</span><br>Independent Director's Bureau</p>
+                <p><span class="text-zinc-500">DIRECT INQUIRIES:</span><br>contact@nataschavavrina.com</p>
+            </div>
+            <button onclick="closeInfoModal()" class="w-full mt-6 bg-zinc-900 hover:bg-zinc-800 text-white text-xs uppercase tracking-widest py-3 rounded-lg border border-zinc-800 transition-colors">Close Window</button>
+        </div>
     </div>
-  </div>
 
-  <main id="mainContent">
+    <!-- JavaScript Application Logic -->
+    <script>
+        // Project Dataset with high-end cinematic placeholders and categories
+        const projects = [
+            { id: 1, title: "LAST NIGHT", category: "fiction", year: "2026", image: "https://images.unsplash.com/photo-1485846234645-a62644f84728?q=80&w=800&auto=format&fit=crop" },
+            { id: 2, title: "UN MONDE PARFAIT", category: "fiction", year: "2025", image: "https://images.unsplash.com/photo-1536440136628-849c177e76a1?q=80&w=800&auto=format&fit=crop" },
+            { id: 3, title: "MACH KESS FUSS", category: "fiction", year: "2025", image: "https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?q=80&w=800&auto=format&fit=crop" },
+            { id: 4, title: "ANNA DONGMU", category: "fiction", year: "2024", image: "https://images.unsplash.com/photo-1579783902614-a3fb3927b675?q=80&w=800&auto=format&fit=crop" },
+            { id: 5, title: "GAZE", category: "fiction", year: "2024", image: "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?q=80&w=800&auto=format&fit=crop" },
+            { id: 6, title: "MIGROS VISTA", category: "commercial", year: "2026", image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=800&auto=format&fit=crop" },
+            { id: 7, title: "A POST SUMMER SOLITARY REVERIE", category: "fiction", year: "2025", image: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=800&auto=format&fit=crop" },
+            { id: 8, title: "OF A RAVE", category: "music", year: "2024", image: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?q=80&w=800&auto=format&fit=crop" },
+            { id: 9, title: "JUMBO BRANDING", category: "commercial", year: "2026", image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=800&auto=format&fit=crop" },
+            { id: 10, title: "MOTHERS", category: "fiction", year: "2025", image: "https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=800&auto=format&fit=crop" },
+            { id: 11, title: "MISSES ALKOHOLAB", category: "music", year: "2025", image: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?q=80&w=800&auto=format&fit=crop" },
+            { id: 12, title: "BELGIEN BENICO", category: "commercial", year: "2024", image: "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?q=80&w=800&auto=format&fit=crop" },
+            { id: 13, title: "NIGHTBELL", category: "music", year: "2026", image: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=800&auto=format&fit=crop" },
+            { id: 14, title: "ZUM COIFFEUR", category: "commercial", year: "2025", image: "https://images.unsplash.com/photo-1560066984-138dadb4c035?q=80&w=800&auto=format&fit=crop" },
+            { id: 15, title: "AFTERHOUR", category: "music", year: "2024", image: "https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?q=80&w=800&auto=format&fit=crop" },
+            { id: 16, title: "SHOT IN PARADISE", category: "fiction", year: "2025", image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=800&auto=format&fit=crop" },
+            { id: 17, title: "NEMO", category: "music", year: "2026", image: "https://images.unsplash.com/photo-1498038432885-c6f3f1b912ee?q=80&w=800&auto=format&fit=crop" },
+            { id: 18, title: "ECHO", category: "music", year: "2025", image: "https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?q=80&w=800&auto=format&fit=crop" },
+            { id: 19, title: "ELYSIUM", category: "fiction", year: "2025", image: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=800&auto=format&fit=crop" },
+            { id: 20, title: "ZIK", category: "music", year: "2024", image: "https://images.unsplash.com/photo-1469488865564-c2de10f69f96?q=80&w=800&auto=format&fit=crop" },
+            { id: 21, title: "ETAT DE VAUD", category: "commercial", year: "2026", image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=800&auto=format&fit=crop" },
+            { id: 22, title: "FRANS", category: "dance", year: "2025", image: "https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?q=80&w=800&auto=format&fit=crop" },
+            { id: 23, title: "HUNGER", category: "documentary", year: "2024", image: "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?q=80&w=800&auto=format&fit=crop" },
+            { id: 24, title: "FUCK THEM", category: "fiction", year: "2026", image: "https://images.unsplash.com/photo-1536440136628-849c177e76a1?q=80&w=800&auto=format&fit=crop" }
+        ];
 
-    <!-- ==========================================================================
-         PAGE HERO BANNER
-         ========================================================================== -->
-    <section class="page-hero">
-      <div class="container">
-        
-        <div class="breadcrumbs">
-          <a href="../index.html">Home</a>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
-          <a href="salesforce.html">Services</a>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
-          <span>Salesforce Practice</span>
-        </div>
+        let activeCategory = 'all';
 
-        <div style="max-width: 860px;">
-          <span class="badge-eyebrow">
-            <span class="badge-dot"></span> Enterprise Multi-Cloud Practice
-          </span>
-          <h1 class="heading-display" style="margin-top: 0.5rem; margin-bottom: 1.25rem;">
-            Salesforce Engineering Built for <span class="text-gradient">Scale & Speed</span>.
-          </h1>
-          <p class="lead" style="margin-bottom: 2rem;">
-            We architect robust Salesforce solutions: Sales Cloud pipeline optimization, Service Cloud contact centers, Experience Cloud portals, bulkified Apex frameworks, and sub-second Flow automations.
-          </p>
+        // Render project list grouped in columns
+        function renderProjects(category = 'all') {
+            const container = document.getElementById('projects-container');
+            container.innerHTML = '';
 
-          <div class="flex items-center gap-md" style="flex-wrap: wrap;">
-            <a href="#contactSection" class="btn btn-primary btn-lg">Book a Salesforce Architecture Audit</a>
-            <a href="#cloudsSection" class="btn btn-secondary btn-lg">Explore Multi-Cloud Solutions</a>
-          </div>
-        </div>
+            const filtered = category === 'all' 
+                ? projects 
+                : projects.filter(p => p.category === category);
 
-      </div>
-    </section>
+            // Split into 3 columns for balanced multi-column layout
+            const cols = [[], [], []];
+            filtered.forEach((project, index) => {
+                cols[index % 3].push(project);
+            });
 
-    <!-- ==========================================================================
-         METRICS BANNER
-         ========================================================================== -->
-    <section class="section-padding-sm" style="border-bottom: 1px solid var(--color-card-border); background: var(--color-bg);">
-      <div class="container">
-        <div class="grid grid-4">
-          <div class="stat-card">
-            <div class="stat-number" data-count="98" data-suffix="%">0%</div>
-            <div class="stat-label">Apex Test Coverage</div>
-            <div class="stat-desc">Strict CI/CD quality benchmarks</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-number" data-count="340" data-prefix="+" data-suffix="%">0%</div>
-            <div class="stat-label">Pipeline Velocity</div>
-            <div class="stat-desc">Accelerated deal closing speed</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-number" data-count="52" data-prefix="-" data-suffix="%">0%</div>
-            <div class="stat-label">Case Resolution Time</div>
-            <div class="stat-desc">Service Cloud omni-channel automation</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-number" data-count="100" data-suffix="%">0%</div>
-            <div class="stat-label">Governor Limits Safety</div>
-            <div class="stat-desc">Bulkified code with zero SOQL limit errors</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ==========================================================================
-         CORE MULTI-CLOUD PILLARS
-         ========================================================================== -->
-    <section class="section-padding" id="cloudsSection">
-      <div class="container">
-        
-        <div class="section-header text-center reveal-on-scroll">
-          <span class="badge-eyebrow">
-            <span class="badge-dot"></span> Multi-Cloud Mastery
-          </span>
-          <h2 class="heading-xl">Enterprise Salesforce Capabilities</h2>
-          <p class="lead" style="max-width: 700px; margin: 0 auto;">
-            Engineered to handle high transaction volumes, complex permissions, and seamless enterprise integrations.
-          </p>
-        </div>
-
-        <div class="grid grid-3">
-          
-          <!-- Cloud 1 -->
-          <div class="card reveal-on-scroll stagger-1">
-            <div class="card-top-accent"></div>
-            <div class="card-icon">
-              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path></svg>
-            </div>
-            <h3 class="card-title">Sales Cloud & Revenue Ops</h3>
-            <p class="card-text">
-              Transform rep productivity with streamlined opportunity stages, automated quote generation (CPQ), territory management, and revenue forecasting.
-            </p>
-            <ul class="card-feature-list">
-              <li class="card-feature-item">
-                <svg width="18" height="18" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-                <span>Automated Lead Distribution & Scoring</span>
-              </li>
-              <li class="card-feature-item">
-                <svg width="18" height="18" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-                <span>CPQ & Contract Lifecycle Automation</span>
-              </li>
-            </ul>
-          </div>
-
-          <!-- Cloud 2 -->
-          <div class="card reveal-on-scroll stagger-2">
-            <div class="card-top-accent"></div>
-            <div class="card-icon">
-              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
-            </div>
-            <h3 class="card-title">Service Cloud & Omni-Channel</h3>
-            <p class="card-text">
-              Supercharge support teams with intelligent case routing, automated milestone escalations, customer knowledge bases, and CTI telephony integration.
-            </p>
-            <ul class="card-feature-list">
-              <li class="card-feature-item">
-                <svg width="18" height="18" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-                <span>Omni-Channel Routing & Queue Optimization</span>
-              </li>
-              <li class="card-feature-item">
-                <svg width="18" height="18" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-                <span>Entitlement & Milestone SLA Engines</span>
-              </li>
-            </ul>
-          </div>
-
-          <!-- Cloud 3 -->
-          <div class="card reveal-on-scroll stagger-3">
-            <div class="card-top-accent"></div>
-            <div class="card-icon">
-              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
-            </div>
-            <h3 class="card-title">Experience Cloud Portals</h3>
-            <p class="card-text">
-              Build high-converting branded customer and partner communities powered by Lightning Web Components (LWC) with strict role-based data visibility.
-            </p>
-            <ul class="card-feature-list">
-              <li class="card-feature-item">
-                <svg width="18" height="18" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-                <span>Custom LWC Component Development</span>
-              </li>
-              <li class="card-feature-item">
-                <svg width="18" height="18" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-                <span>Partner Lead Sharing & Deal Registration</span>
-              </li>
-            </ul>
-          </div>
-
-          <!-- Cloud 4 -->
-          <div class="card reveal-on-scroll stagger-1">
-            <div class="card-top-accent"></div>
-            <div class="card-icon">
-              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
-            </div>
-            <h3 class="card-title" id="apex">Apex Trigger Frameworks & Flow</h3>
-            <p class="card-text">
-              Eliminate recursive triggers, batch bottlenecks, and sluggish record saves. We implement industry-standard trigger handlers and asynchronous Queueable logic.
-            </p>
-            <ul class="card-feature-list">
-              <li class="card-feature-item">
-                <svg width="18" height="18" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-                <span>One-Trigger-Per-Object Architecture</span>
-              </li>
-              <li class="card-feature-item">
-                <svg width="18" height="18" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-                <span>Sub-Second Record-Triggered Flows</span>
-              </li>
-            </ul>
-          </div>
-
-          <!-- Cloud 5 -->
-          <div class="card reveal-on-scroll stagger-2">
-            <div class="card-top-accent"></div>
-            <div class="card-icon">
-              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg>
-            </div>
-            <h3 class="card-title">MuleSoft & REST Integrations</h3>
-            <p class="card-text">
-              Bridge Salesforce with SAP, NetSuite, Oracle, Stripe, and internal microservices using secure OAuth 2.0, event-driven Named Credentials, and Platform Events.
-            </p>
-            <ul class="card-feature-list">
-              <li class="card-feature-item">
-                <svg width="18" height="18" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-                <span>Bi-Directional ERP & Financial Sync</span>
-              </li>
-              <li class="card-feature-item">
-                <svg width="18" height="18" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-                <span>Real-Time Platform Event Messaging</span>
-              </li>
-            </ul>
-          </div>
-
-          <!-- Cloud 6 -->
-          <div class="card reveal-on-scroll stagger-3">
-            <div class="card-top-accent"></div>
-            <div class="card-icon">
-              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
-            </div>
-            <h3 class="card-title">Technical Debt & Org Audit</h3>
-            <p class="card-text">
-              Comprehensive architectural health check: identifying inactive automation rules, unused metadata, SOQL query inefficiencies, and security permission gaps.
-            </p>
-            <ul class="card-feature-list">
-              <li class="card-feature-item">
-                <svg width="18" height="18" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-                <span>Governor Limits Margin Optimization</span>
-              </li>
-              <li class="card-feature-item">
-                <svg width="18" height="18" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-                <span>Metadata Clean-Up & Org Consolidation</span>
-              </li>
-            </ul>
-          </div>
-
-        </div>
-
-      </div>
-    </section>
-
-    <!-- ==========================================================================
-         FAQS SECTION
-         ========================================================================== -->
-    <section class="section-padding" style="background: var(--color-bg-alt); border-top: 1px solid var(--color-card-border);">
-      <div class="container">
-        
-        <div class="section-header text-center reveal-on-scroll">
-          <span class="badge-eyebrow">
-            <span class="badge-dot"></span> Common Inquiries
-          </span>
-          <h2 class="heading-xl">Salesforce Implementation FAQs</h2>
-        </div>
-
-        <div class="faq-list reveal-on-scroll stagger-1">
-          
-          <div class="faq-item is-open">
-            <button class="faq-question-btn">
-              <span>How do you prevent Apex code from hitting Salesforce Governor Limits?</span>
-              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
-            </button>
-            <div class="faq-answer">
-              <p>
-                We enforce strict architectural standards: bulkifying all SOQL and DML operations outside of loops, leveraging static Maps for indexed lookups, utilizing Queueable Apex for heavy callouts, and structuring triggers into single-handler frameworks.
-              </p>
-            </div>
-          </div>
-
-          <div class="faq-item">
-            <button class="faq-question-btn">
-              <span>Do you build custom Lightning Web Components (LWC)?</span>
-              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
-            </button>
-            <div class="faq-answer">
-              <p>
-                Yes. We build responsive, accessible LWCs conforming to modern web standards, complete with wire adapters, Shadow DOM encapsulation, and lightning-fast rendering speeds on desktop and the Salesforce mobile app.
-              </p>
-            </div>
-          </div>
-
-          <div class="faq-item">
-            <button class="faq-question-btn">
-              <span>Can Digiolic rescue an underperforming or stalled Salesforce org?</span>
-              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
-            </button>
-            <div class="faq-answer">
-              <p>
-                Yes. Many of our enterprise clients engage us for "Org Rescue" projects. We conduct a 10-day comprehensive audit of your data model, security settings, workflows, and code base, followed by a phased remediation sprint to restore performance and team confidence.
-              </p>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-    </section>
-
-    <!-- ==========================================================================
-         CONSULTATION BOOKING & CONTACT FORM
-         ========================================================================== -->
-    <section class="section-padding" id="contactSection">
-      <div class="container">
-        
-        <div class="section-header text-center reveal-on-scroll">
-          <span class="badge-eyebrow">
-            <span class="badge-dot"></span> Get Started
-          </span>
-          <h2 class="heading-xl">Schedule Your Salesforce Architecture Discovery</h2>
-          <p class="lead" style="max-width: 680px; margin: 0 auto;">
-            Speak directly with a Certified Salesforce Technical Architect to review your roadmap.
-          </p>
-        </div>
-
-        <div class="grid grid-2 items-center gap-xl">
-          
-          <div class="booking-widget-card reveal-on-scroll stagger-1">
-            <span class="badge-eyebrow" style="font-size: 0.75rem; margin-bottom: 0.5rem;">Direct Scheduler</span>
-            <h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 0.5rem;">Book a Salesforce Consultation</h3>
-            <p class="body-sm" style="margin-bottom: 1.25rem;">
-              Let's discuss how Digiolic can scale your Salesforce environment.
-            </p>
-
-            <div>
-              <label class="form-label">Selected Focus</label>
-              <div class="booking-chip-group">
-                <span class="booking-chip selected" data-service="Salesforce">Sales Cloud</span>
-                <span class="booking-chip" data-service="Salesforce">Service Cloud</span>
-                <span class="booking-chip" data-service="Custom Development">Apex & LWC</span>
-                <span class="booking-chip" data-service="CRM Automation">Org Audit</span>
-              </div>
-            </div>
-
-            <div>
-              <label class="form-label">Select Time Slot</label>
-              <div class="booking-time-grid">
-                <div class="booking-slot selected">10:00 AM</div>
-                <div class="booking-slot">01:30 PM</div>
-                <div class="booking-slot">04:00 PM</div>
-                <div class="booking-slot">06:00 PM</div>
-              </div>
-            </div>
-
-            <div style="margin-top: 1.75rem;">
-              <button class="btn btn-primary btn-lg js-book-consultation-btn" style="width: 100%;">
-                Book a Consultation <span class="btn-icon-arrow"><svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M6 3l5 5-5 5V3z"/></svg></span>
-              </button>
-            </div>
-          </div>
-
-          <div class="card reveal-on-scroll stagger-2" id="contactForm">
-            
-            <h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 0.5rem;">Inquire About Salesforce Services</h3>
-            
-            <form class="js-contact-form" id="webform1410226000000468646" name="WebToLeads1410226000000468646" action="https://crm.zoho.in/crm/WebToLeadForm" method="POST" accept-charset="UTF-8" novalidate>
-
-              <!-- Zoho CRM Web-to-Lead Required Configuration -->
-              <input type="text" style="display:none;" name="xnQsjsdp" value="c21a8864d1af47b90e5bfc4e0a2717ea5f31f976d9710e9220c81fe0ed4e42c6">
-              <input type="hidden" name="zc_gad" id="zc_gad" value="">
-              <input type="text" style="display:none;" name="xmIwtLD" value="b44495b3edc37127e42f79b9b469201c67577cf0cb31de6103fe5f1bc62eaf5f567f604de99f9635f753509630bced51">
-              <input type="text" style="display:none;" name="actionType" value="TGVhZHM=">
-              <input type="text" style="display:none;" name="returnURL" value="null">
-              <input type="text" style="display:none;" name="aG9uZXlwb3Q" value="">
-
-              <div class="form-fields-wrapper">
+            cols.forEach((colProjects, colIndex) => {
+                const colDiv = document.createElement('div');
+                colDiv.className = 'flex flex-col space-y-4';
                 
-                <div class="grid grid-2" style="gap: 1rem;">
-                  <div class="form-group">
-                    <label class="form-label" for="fullName">Full Name <span class="required-star">*</span></label>
-                    <input type="text" id="fullName" name="Last Name" class="form-input" placeholder="David Miller" maxlength="80" required>
-                  </div>
-                  <div class="form-group">
-                    <label class="form-label" for="workEmail">Work Email <span class="required-star">*</span></label>
-                    <input type="email" id="workEmail" name="Email" ftype="email" class="form-input" placeholder="david@enterprise.com" maxlength="100" required>
-                  </div>
-                </div>
+                colProjects.forEach(project => {
+                    const item = document.createElement('div');
+                    item.className = 'project-item cursor-pointer text-xs md:text-sm font-mono tracking-wider text-zinc-400 py-1 transition-all';
+                    item.innerHTML = `• ${project.title}`;
+                    
+                    // Hover events for interactive preview scaling & focus
+                    item.addEventListener('mouseenter', () => showPreview(project));
+                    item.addEventListener('mouseleave', () => hidePreview());
+                    
+                    // Touch support for mobile tap
+                    item.addEventListener('click', () => {
+                        showPreview(project);
+                        // Optional: open project detail or spotlight
+                    });
 
-                <div class="grid grid-2" style="gap: 1rem;">
-                  <div class="form-group">
-                    <label class="form-label" for="phoneNumber">Phone Number <span class="required-star">*</span></label>
-                    <input type="tel" id="phoneNumber" name="Phone" class="form-input" placeholder="+1 (555) 987-6543" maxlength="30" required>
-                  </div>
-                  <div class="form-group">
-                    <label class="form-label" for="companyName">Company Name <span class="required-star">*</span></label>
-                    <input type="text" id="companyName" name="Company" class="form-input" placeholder="Apex Logistics Corp" required>
-                  </div>
-                </div>
+                    colDiv.appendChild(item);
+                });
 
-                <div class="form-group">
-                  <label class="form-label" for="service">Service Focus <span class="required-star">*</span></label>
-                  <select id="service" name="LEADCF2" class="form-select" required>
-                    <option value="Salesfoce Developement" selected>Salesforce Development &amp; Architecture</option>
-                    <option value="Zoho One">Zoho One &amp; CRM Integration</option>
-                    <option value="Ai-driven marketing automation">AI Automation &amp; Deluge/Apex Workflows</option>
-                    <option value="Performance marketing">Performance Marketing &amp; CRO</option>
-                  </select>
-                </div>
+                container.appendChild(colDiv);
+            });
+        }
 
-                <div class="form-group">
-                  <label class="form-label" for="projectDetails">Project Details <span class="required-star">*</span></label>
-                  <textarea id="projectDetails" name="LEADCF1" class="form-textarea" placeholder="Describe your Salesforce cloud requirements, user count, and timeline..." required></textarea>
-                </div>
+        // Show preview card with smooth fade-in and focus effect
+        function showPreview(project) {
+            const wrapper = document.getElementById('preview-wrapper');
+            const img = document.getElementById('preview-img');
+            const title = document.getElementById('preview-title');
+            const category = document.getElementById('preview-category');
+            const year = document.getElementById('preview-year');
+            const placeholder = document.getElementById('preview-placeholder');
 
-              </div>
+            img.src = project.image;
+            title.textContent = project.title;
+            category.textContent = project.category.toUpperCase();
+            year.textContent = project.year;
 
-              <button type="submit" class="btn btn-primary btn-lg js-submit-btn" style="width: 100%;">
-                <span class="btn-spinner"></span>
-                <span class="btn-text">Submit Salesforce Inquiry</span>
-              </button>
+            // Remove blur and scale up smoothly
+            wrapper.classList.remove('opacity-0', 'scale-95', 'blur-sm');
+            wrapper.classList.add('opacity-100', 'scale-100', 'blur-0');
+            placeholder.style.opacity = '0';
+        }
 
-              <div class="form-success-banner">
-                <div class="form-success-icon">
-                  <svg width="24" height="24" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-                </div>
-                <h4 style="font-size: 1.35rem; font-weight: 700; color: #065F46; margin-bottom: 0.5rem;">Thank you!</h4>
-                <p style="color: #047857; font-weight: 600; margin-bottom: 0.75rem;">
-                  Your Salesforce inquiry has been submitted successfully to our team.
-                </p>
-                <p style="font-size: 0.85rem; color: #065F46; line-height: 1.5; margin-bottom: 1.25rem;">
-                  Our certified Salesforce Technical Architect will review your scope and contact you within 24 hours.
-                </p>
-                <button type="button" class="btn btn-secondary btn-sm js-reset-form">
-                  Submit Another Inquiry
-                </button>
-              </div>
+        // Hide preview card smoothly
+        function hidePreview() {
+            // Optional: Keep last preview or gentle fade back if desired
+            // Keeping active preview until another is hovered creates a wonderful director reel portfolio UX as seen in reference.
+        }
 
-            </form>
+        // Filter category logic
+        function filterCategory(cat) {
+            activeCategory = cat;
+            
+            // Update button styles
+            document.querySelectorAll('.category-btn').forEach(btn => {
+                btn.classList.remove('text-white', 'border-white');
+                btn.classList.add('text-zinc-500', 'border-transparent');
+            });
+            const activeBtn = document.getElementById(`btn-${cat}`);
+            if (activeBtn) {
+                activeBtn.classList.remove('text-zinc-500', 'border-transparent');
+                activeBtn.classList.add('text-white', 'border-white');
+            }
 
-          </div>
+            renderProjects(cat);
+        }
 
-        </div>
+        // Modal triggers
+        function openShowreelModal() {
+            document.getElementById('videoModal').classList.remove('hidden');
+        }
+        function closeVideoModal() {
+            document.getElementById('videoModal').classList.add('hidden');
+        }
+        function openDopModal() {
+            openShowreelModal(); // Re-use video modal with DOP reel title in full implementation
+        }
+        function openContactModal() {
+            document.getElementById('infoModal').classList.remove('hidden');
+        }
+        function closeInfoModal() {
+            document.getElementById('infoModal').classList.add('hidden');
+        }
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            openContactModal();
+        }
 
-      </div>
-    </section>
+        // Initializer
+        window.onload = function() {
+            renderProjects('all');
+            lucide.createIcons();
 
-  </main>
-
-  <!-- ==========================================================================
-       SITE FOOTER
-       ========================================================================== -->
-  <footer class="site-footer">
-    <div class="container-home-compact">
-
-      <div class="footer-grid">
-
-        <!-- 1) Digiolic Brand (Left side) -->
-        <div class="footer-brand-col">
-          <a href="../index.html" class="brand-logo" aria-label="Digiolic Home">
-            <img src="../assets/images/digiolic-logo.png" alt="Digiolic" height="34">
-          </a>
-          <p>
-            Architecting next-generation enterprise business systems. Unified Zoho One, Salesforce Cloud, and performance growth marketing.
-          </p>
-
-        </div>
-
-        <!-- 2) Services (After Digiolic) -->
-        <div>
-          <h4 class="footer-heading">Services</h4>
-          <ul class="footer-links">
-            <li><a href="zoho.html" class="footer-link">Zoho Enterprise</a></li>
-            <li><a href="salesforce.html" class="footer-link">Salesforce Cloud</a></li>
-            <li><a href="digital-marketing.html" class="footer-link">Digital Marketing</a></li>
-            <li><a href="case-stories.html" class="footer-link">Case Stories</a></li>
-          </ul>
-        </div>
-
-        <!-- 3) Contact (After Services) -->
-        <div>
-          <h4 class="footer-heading">Contact</h4>
-          <div class="footer-contact-item">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-            </svg>
-            <div>
-              <span style="display: block; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; color: #64748B; margin-bottom: 2px;">Mobile</span>
-              <a href="tel:+919665530071" class="footer-link" style="color: #F8FAFC; font-weight: 500;">+91 9665530071</a>
-            </div>
-          </div>
-          <div class="footer-contact-item">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-              <polyline points="22,6 12,13 2,6"></polyline>
-            </svg>
-            <div>
-              <span style="display: block; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; color: #64748B; margin-bottom: 2px;">Email id</span>
-              <a href="mailto:info@digiolic.com" class="footer-link" style="color: #F8FAFC; font-weight: 500;">info@digiolic.com</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- 4) Subscribe Now (After Contact, RIGHT SIDE) -->
-        <div class="footer-subscribe-col">
-          <!-- Social Icons Row (Facebook, LinkedIn, Instagram, YouTube) -->
-          <div class="footer-social-row">
-            <a href="https://www.facebook.com/digiolic" target="_blank" rel="noopener noreferrer" class="footer-social-icon-btn" aria-label="Facebook">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="#1877F2"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-            </a>
-            <a href="https://www.linkedin.com/company/digiolic/" target="_blank" rel="noopener noreferrer" class="footer-social-icon-btn" aria-label="LinkedIn">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="#0A66C2"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-            </a>
-            <a href="https://www.instagram.com/digiolic?stkn=MWhmamRsMnB0M3ZlOQ==" target="_blank" rel="noopener noreferrer" class="footer-social-icon-btn" aria-label="Instagram">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="#0F172A"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-            </a>
-            <a href="https://youtube.com/@digiolic5977?si=L4YyP_snrB2UKgS3" target="_blank" rel="noopener noreferrer" class="footer-social-icon-btn" aria-label="YouTube">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="#0284C7"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-            </a>
-          </div>
-
-          <!-- Title -->
-          <h3 class="footer-subscribe-title">Subscribe Now</h3>
-
-          <!-- Zoho Campaigns Web-Optin Form -->
-          <div name="signupFormContainer" style="width: 100%; max-width: 380px;">
-            <input type="hidden" id="signupTmplName" value="quick_form_2">
-            <input type="hidden" value="0" id="recapThemeOptin">
-            <input type="hidden" id="orgNameFull" value="Digiolic">
-            <div id="sf3z58df09f8f9745c325b2e255ad73b0dfaee3e5aa3f3d8a8750b9faa5cd925d880" data-type="signupform">
-              <div id="customForm">
-                <form method="POST" id="zcampaignOptinForm" action="https://rxodjw-zgp4.maillist-manage.in/weboptin.zc" target="_zcSignup" class="footer-subscribe-pill-form">
-                  <div id="errorMsgDiv" style="display: none; position: absolute; bottom: calc(100% + 8px); left: 0; background-color: #FEF2F2; padding: 6px 12px; color: #DC2626; font-size: 12px; border: 1px solid #FECACA; border-radius: 6px; white-space: nowrap; z-index: 10; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">Please enter a valid email address.</div>
-                  <input type="email" placeholder="Your mail here" changeitem="SIGNUP_FORM_FIELD" name="CONTACT_EMAIL" id="EMBED_FORM_EMAIL_LABEL" class="footer-subscribe-input" required aria-label="Your mail here">
-                  <input type="text" style="display:none;" placeholder="Name" changeitem="SIGNUP_FORM_FIELD" name="LASTNAME" id="LASTNAME">
-                  <button type="button" name="SIGNUP_SUBMIT_BUTTON" id="zcWebOptin" class="footer-subscribe-btn" aria-label="Submit email subscription">
-                    <span>Submit</span>
-                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                      <line x1="5" y1="12" x2="19" y2="12"></line>
-                      <polyline points="12 5 19 12 12 19"></polyline>
-                    </svg>
-                  </button>
-                  <input type="hidden" id="fieldBorder" value="">
-                  <input type="hidden" id="submitType" name="submitType" value="optinCustomView">
-                  <input type="hidden" id="emailReportId" name="emailReportId" value="">
-                  <input type="hidden" id="formType" name="formType" value="QuickForm">
-                  <input type="hidden" name="zx" id="cmpZuid" value="1dfb196f57">
-                  <input type="hidden" name="zcvers" value="2.0">
-                  <input type="hidden" name="oldListIds" id="allCheckedListIds" value="">
-                  <input type="hidden" id="mode" name="mode" value="OptinCreateView">
-                  <input type="hidden" id="zcld" name="zcld" value="152a1e1638a799c9">
-                  <input type="hidden" id="zctd" name="zctd" value="152a1e1638a645f9">
-                  <input type="hidden" id="document_domain" value="">
-                  <input type="hidden" id="zc_Url" value="rxodjw-zgp4.maillist-manage.in">
-                  <input type="hidden" id="new_optin_response_in" value="0">
-                  <input type="hidden" id="duplicate_optin_response_in" value="0">
-                  <input type="hidden" name="zc_trackCode" id="zc_trackCode" value="ZCFORMVIEW">
-                  <input type="hidden" id="zc_formIx" name="zc_formIx" value="3z58df09f8f9745c325b2e255ad73b0dfaee3e5aa3f3d8a8750b9faa5cd925d880">
-                  <input type="hidden" id="viewFrom" value="URL_ACTION">
-                  <span style="display: none" id="dt_CONTACT_EMAIL">1,true,6,Contact Email,2</span>
-                  <span style="display: none" id="dt_FIRSTNAME">1,false,1,First Name,2</span>
-                  <span style="display: none" id="dt_LASTNAME">1,false,1,Last Name,2</span>
-                </form>
-                <img src="https://rxodjw-zgp4.maillist-manage.in/images/spacer.gif" id="refImage" onload="if(typeof referenceSetter==='function'){referenceSetter(this);}" style="display:none;">
-              </div>
-            </div>
-            <input type="hidden" id="signupFormType" value="QuickForm_Horizontal">
-          </div>
-        </div>
-
-      </div>
-
-      <!-- Bottom Bar -->
-      <div class="footer-bottom">
-        <div>
-          &copy; 2026 Digiolic All rights reserved.
-        </div>
-      </div>
-
-    </div>
-  </footer>
-
-  <script src="../js/main.js?v=20260906_v5"></script>
-  <script src="../js/form-validation.js?v=20260906_v17"></script>
-  <script>window.$zoho=window.$zoho || {};$zoho.salesiq=$zoho.salesiq||{ready:function(){}}</script><script id="zsiqscript" src="https://salesiq.zohopublic.in/widget?wc=siq51b6684c41df0e1af121afffdc0463aaf6467321cd38613932f63091f4465c11" defer></script>
-
-
-  <!-- Zoho Campaigns Web-Optin Script -->
-  <script type="text/javascript" src="https://rxodjw-zgp4.maillist-manage.in/js/optin.min.js" onload="setupSF('sf3z58df09f8f9745c325b2e255ad73b0dfaee3e5aa3f3d8a8750b9faa5cd925d880','ZCFORMVIEW',false,'light',false,'0')"></script>
-  <script type="text/javascript">
-    function runOnFormSubmit_sf3z58df09f8f9745c325b2e255ad73b0dfaee3e5aa3f3d8a8750b9faa5cd925d880(th){
-      /*Before submit event trigger*/
-    };
-  </script>
-
-  <!-- Zoho Campaigns Optin Overlay & Success Popup -->
-  <div id="zcOptinOverLay" oncontextmenu="return false" style="display:none;text-align: center; background-color: rgb(0, 0, 0); opacity: 0.5; z-index: 10000; position: fixed; inset: 0; width: 100%; height: 100%;"></div>
-  <div id="zcOptinSuccessPopup" style="display:none;z-index: 10001;max-width: 600px; width: 90%; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: #FFFFFF; border: 1px solid #E6E6E6; border-radius: 16px; box-shadow: 0 10px 40px rgba(0,0,0,0.3); padding: 35px; box-sizing: border-box;">
-    <span style="position: absolute; top: 12px; right: 14px; z-index: 10002; cursor: pointer;" id="closeSuccess" onclick="document.getElementById('zcOptinSuccessPopup').style.display='none'; document.getElementById('zcOptinOverLay').style.display='none';">
-      <img src="https://rxodjw-zgp4.maillist-manage.in/images/videoclose.png" alt="Close" width="20" height="20">
-    </span>
-    <div id="zcOptinSuccessPanel"></div>
-  </div>
+            // Automatically preview the first item on load for instant visual feedback
+            if(projects.length > 0) {
+                showPreview(projects[0]);
+            }
+        };
+    </script>
 </body>
 </html>

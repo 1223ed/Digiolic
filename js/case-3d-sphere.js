@@ -1,146 +1,183 @@
 /**
  * ==========================================================================
- * DIGIOLIC CASE STUDIES — 3D CURVED CYLINDER SPHERE SHOWCASE
- * Exact replication of the Squarespace 3D Curved Showcase Wall:
- * - 3-tier curved cylindrical / spherical card cloud in 3D perspective
- * - 60fps GPU-accelerated CSS 3D transforms
+ * DIGIOLIC CASE STUDIES — 3D CONCAVE DOME SHOWCASE
+ * Exact replication of the iconic Squarespace 3D Curved Showcase Wall:
+ * - 3-tier concave spherical/cylindrical amphitheater dome curved toward camera
+ * - Pure black canvas with stationary serif center typography ("Transformed with Digiolic.")
+ * - Center slot in middle row is kept open to perfectly frame the typography
+ * - Top row cards tilt downward toward center (-13.5deg)
+ * - Bottom row cards tilt upward toward center (+13.5deg)
+ * - Side cards curve forward and angle inward facing the viewer
+ * - Strictly the 10 client companies (Monster India, FYX Finance, Verzeo,
+ *   Banaraswala, NZ Immigration, Greenworld, Pierian, Blume Labs, Loom Crafts,
+ *   Chanakya University)
+ * - 60fps GPU-accelerated CSS 3D translate3d transforms
  * - Interactive pointer & touch drag orbit with momentum physics
- * - Ambient continuous idle drift
- * - Floating hover pill badges with arrow ("Client Name ↗")
- * - Case study modal click trigger
- * - Category filter tabs & Left/Right navigation orbit buttons
+ * - Ambient continuous idle drift & hover elevation with white pill badge
+ * - Case study modal click trigger & Category filter tabs
  * ==========================================================================
  */
 
 (function () {
   'use strict';
 
-  document.addEventListener('DOMContentLoaded', init3DShowcase);
+  document.addEventListener('DOMContentLoaded', init3DConcaveDome);
 
-  function init3DShowcase() {
+  function init3DConcaveDome() {
     const section = document.getElementById('cs3DShowcaseSection');
     const cylinder = document.getElementById('cs3DCylinder');
     if (!section || !cylinder) return;
 
-    const cards = Array.from(cylinder.querySelectorAll('.cs-3d-card-item'));
-    if (cards.length === 0) return;
+    // Base cards defined in HTML
+    const baseCards = Array.from(cylinder.querySelectorAll('.cs-3d-card-item'));
+    if (baseCards.length === 0) return;
 
-    // --- 3D GEOMETRY CONFIGURATION ---
-    const TOTAL_COLUMNS = 8;
-    const ANGLE_STEP = 360 / TOTAL_COLUMNS; // 45 deg per column
+    // Reset cylinder transform so cards position relative to 3D world origin
+    cylinder.style.transform = 'none';
 
-    function getCylinderRadius() {
-      const w = window.innerWidth;
-      if (w < 768) return 460;
-      if (w < 1024) return 600;
-      if (w < 1440) return 780;
-      return 850;
-    }
+    // Dynamic columns around 360 deg based on card count
+    const TOTAL_COLS = baseCards.length;
+    const ANGLE_STEP = 360 / TOTAL_COLS;
 
-    function getRowConfig() {
-      const w = window.innerWidth;
-      const yOffset = w < 768 ? 172 : (w < 1024 ? 208 : 242);
-      return [
-        { y: -yOffset, tiltX: -6 }, // Top Row (tilted slightly down)
-        { y: 0, tiltX: 0 },         // Middle Row (straight eye-level)
-        { y: yOffset, tiltX: 6 }    // Bottom Row (tilted slightly up)
-      ];
-    }
+    // Clone cards to populate a dense 3 rows x TOTAL_COLS dome
+    // Row -1: Top, Row 0: Middle, Row 1: Bottom
+    cylinder.innerHTML = '';
+    const allCards = [];
 
-    let radius = getCylinderRadius();
-    let rowConfig = getRowConfig();
-
-    // Position cards initially around cylinder
-    function layoutCards() {
-      radius = getCylinderRadius();
-      rowConfig = getRowConfig();
-
-      cards.forEach((card, idx) => {
-        const col = idx % TOTAL_COLUMNS;
-        const row = Math.floor(idx / TOTAL_COLUMNS) % 3;
-        // Stagger middle row by 22.5 deg so center visual window is open for branding
-        const rowAngleOffset = (row === 1) ? (ANGLE_STEP / 2) : 0;
-        const angle = (col * ANGLE_STEP) + rowAngleOffset;
-        const cfg = rowConfig[row] || { y: 0, tiltX: 0 };
+    for (let row = -1; row <= 1; row++) {
+      for (let col = 0; col < TOTAL_COLS; col++) {
+        // Offset clients per row to create visual variety across columns
+        const offset = (row === -1) ? 4 : (row === 0 ? 0 : 7);
+        const baseIndex = (col + offset) % baseCards.length;
+        const card = baseCards[baseIndex].cloneNode(true);
 
         card.dataset.col = col;
         card.dataset.row = row;
-        card.dataset.angle = angle;
-        card.dataset.y = cfg.y;
-        card.dataset.tiltX = cfg.tiltX;
+        card.dataset.baseAngle = col * ANGLE_STEP;
 
-        applyCardTransform(card, false);
-      });
+        cylinder.appendChild(card);
+        allCards.push(card);
+      }
     }
 
-    function applyCardTransform(card, isHovered) {
-      const angle = parseFloat(card.dataset.angle);
-      const y = parseFloat(card.dataset.y);
-      const tiltX = parseFloat(card.dataset.tiltX);
-      const currentRadius = isHovered ? (radius + 40) : radius;
-      const scale = isHovered ? 1.08 : 1.0;
-
-      card.style.transform = `rotateY(${angle}deg) translateY(${y}px) translateZ(${currentRadius}px) rotateX(${tiltX}deg) scale(${scale})`;
-      card.style.zIndex = isHovered ? '999' : '10';
+    // --- RESPONSIVE DOME GEOMETRY CONFIGURATION ---
+    function getDomeConfig() {
+      const w = window.innerWidth;
+      if (w < 768) {
+        return { R: 480, rowH: 138, pitch: 11.5, curveK: 0.75 };
+      }
+      if (w < 1024) {
+        return { R: 640, rowH: 165, pitch: 12, curveK: 0.78 };
+      }
+      if (w < 1440) {
+        return { R: 780, rowH: 195, pitch: 12.5, curveK: 0.82 };
+      }
+      return { R: 820, rowH: 202, pitch: 12.5, curveK: 0.82 };
     }
 
-    layoutCards();
+    let cfg = getDomeConfig();
     window.addEventListener('resize', () => {
-      layoutCards();
+      cfg = getDomeConfig();
     }, { passive: true });
 
     // --- PHYSICS & MOMENTUM DRAG ENGINE ---
     let rotY = 0;
-    let rotX = 0;
     let targetRotY = 0;
-    let targetRotX = 0;
     let velY = 0;
-    let velX = 0;
 
     let isPointerDown = false;
     let startX = 0;
-    let startY = 0;
     let lastX = 0;
-    let lastY = 0;
     let hasDragged = false;
     const DRAG_THRESHOLD = 6; // px
 
-    let isHoveringCard = false;
+    let isAnyHovered = false;
+    let activeFilter = 'all';
+
+    // Renders the concave amphitheater dome based on current rotation angle
+    function renderDome(currentRotY) {
+      for (let i = 0; i < allCards.length; i++) {
+        const card = allCards[i];
+        const baseAngle = parseFloat(card.dataset.baseAngle);
+        const row = parseInt(card.dataset.row, 10);
+
+        let alpha = ((baseAngle + currentRotY + 180) % 360) - 180;
+        if (alpha < -180) alpha += 360;
+
+        // Visibility cull: hide cards outside front viewing arc (-95 deg to +95 deg)
+        if (Math.abs(alpha) > 95) {
+          card.style.opacity = '0';
+          card.style.pointerEvents = 'none';
+          continue;
+        }
+
+        // Center cutout: middle row card directly behind center text is hidden
+        if (row === 0 && Math.abs(alpha) < 22) {
+          card.style.opacity = '0';
+          card.style.pointerEvents = 'none';
+          continue;
+        }
+
+        // Concave 3D Geometry
+        const alphaRad = alpha * (Math.PI / 180);
+        const x = cfg.R * Math.sin(alphaRad);
+        // Concave depth: center has z=0, sides curve forward towards the camera (z > 0)
+        let z = cfg.R * (1 - Math.cos(alphaRad)) * cfg.curveK;
+        const y = row * cfg.rowH;
+
+        // Card Orientation: faces inward toward the viewer & center
+        const rotCardY = -alpha * 0.88;
+        const rotCardX = row * cfg.pitch;
+
+        const isHovered = card.classList.contains('is-hovered');
+        if (isHovered) {
+          z += 42;
+        }
+        const scale = isHovered ? 1.06 : 1.0;
+
+        // Smooth edge fade
+        let opacity = 1;
+        if (Math.abs(alpha) > 65) {
+          opacity = 1 - ((Math.abs(alpha) - 65) / 30);
+        }
+
+        if (card.classList.contains('is-dimmed')) {
+          opacity *= 0.2;
+        }
+
+        card.style.transform = `translate3d(${x.toFixed(1)}px, ${y.toFixed(1)}px, ${z.toFixed(1)}px) rotateY(${rotCardY.toFixed(1)}deg) rotateX(${rotCardX.toFixed(1)}deg) scale(${scale})`;
+        card.style.opacity = Math.max(0, opacity).toFixed(2);
+        card.style.pointerEvents = 'auto';
+        card.style.zIndex = isHovered ? 9999 : Math.round(z + 100);
+      }
+    }
 
     // Animation frame loop
     function updatePhysics() {
       if (!isPointerDown) {
         // Continuous gentle auto-orbit when not interacting
-        if (!isHoveringCard) {
-          targetRotY += 0.045;
+        if (!isAnyHovered) {
+          targetRotY += 0.026;
         }
 
         // Apply friction to velocity
-        velY *= 0.93;
-        velX *= 0.93;
-
+        velY *= 0.94;
         targetRotY += velY;
-        targetRotX += velX;
-
-        // Clamp vertical tilt to subtle range (-10deg to +10deg)
-        targetRotX = Math.max(-10, Math.min(10, targetRotX));
       }
 
       // Smooth lerp easing
       rotY += (targetRotY - rotY) * 0.12;
-      rotX += (targetRotX - rotX) * 0.12;
 
-      // Update cylinder transform
-      cylinder.style.transform = `rotateX(${-rotX}deg) rotateY(${rotY}deg)`;
+      renderDome(rotY);
 
       requestAnimationFrame(updatePhysics);
     }
 
     requestAnimationFrame(updatePhysics);
 
-    // --- POINTER / MOUSE HANDLERS ---
+    // --- POINTER / MOUSE DRAG HANDLERS ---
     section.addEventListener('pointerdown', (e) => {
-      // Don't drag if clicking buttons
+      // Don't drag if clicking controls or buttons
       if (e.target.closest('button') || e.target.closest('.cs-3d-filter-pills') || e.target.closest('.cs-3d-view-toggle')) {
         return;
       }
@@ -148,11 +185,8 @@
       isPointerDown = true;
       hasDragged = false;
       startX = e.clientX;
-      startY = e.clientY;
       lastX = e.clientX;
-      lastY = e.clientY;
       velY = 0;
-      velX = 0;
 
       section.classList.add('is-dragging');
     });
@@ -161,26 +195,17 @@
       if (!isPointerDown) return;
 
       const dx = e.clientX - lastX;
-      const dy = e.clientY - lastY;
-      const totalDist = Math.hypot(e.clientX - startX, e.clientY - startY);
+      const totalDist = Math.abs(e.clientX - startX);
 
       if (totalDist > DRAG_THRESHOLD) {
         hasDragged = true;
       }
 
-      // Sensitivity tuning
-      const sensitivityX = 0.28;
-      const sensitivityY = 0.18;
-
+      const sensitivityX = 0.26;
       targetRotY += dx * sensitivityX;
-      targetRotX -= dy * sensitivityY;
-      targetRotX = Math.max(-10, Math.min(10, targetRotX));
-
       velY = dx * sensitivityX;
-      velX = -dy * sensitivityY;
 
       lastX = e.clientX;
-      lastY = e.clientY;
     });
 
     window.addEventListener('pointerup', () => {
@@ -196,15 +221,15 @@
     });
 
     // --- CARD HOVER & CLICK ACTIONS ---
-    cards.forEach((card) => {
+    allCards.forEach((card) => {
       card.addEventListener('mouseenter', () => {
-        isHoveringCard = true;
-        applyCardTransform(card, true);
+        isAnyHovered = true;
+        card.classList.add('is-hovered');
       });
 
       card.addEventListener('mouseleave', () => {
-        isHoveringCard = false;
-        applyCardTransform(card, false);
+        isAnyHovered = false;
+        card.classList.remove('is-hovered');
       });
 
       card.addEventListener('click', (e) => {
@@ -216,7 +241,6 @@
 
         const caseId = card.getAttribute('data-case-id');
         if (caseId) {
-          // Open case study modal
           openCaseStudyModal(caseId);
         }
       });
@@ -224,11 +248,12 @@
 
     // --- MODAL TRIGGER HELPER ---
     function openCaseStudyModal(caseId) {
+      if (caseId === 'case-greenworld') caseId = 'case-rahul-hr';
+      if (caseId === 'case-pierian') caseId = 'case-manu-company';
       if (typeof window.openCaseStudyModal === 'function') {
         window.openCaseStudyModal(caseId);
         return;
       }
-      // Fallback: Find corresponding button or trigger modal directly
       const modalBtn = document.querySelector(`.js-open-case-modal[data-case-id="${caseId}"]`);
       if (modalBtn) {
         modalBtn.click();
@@ -244,14 +269,14 @@
     if (prevBtn) {
       prevBtn.addEventListener('click', (e) => {
         e.stopPropagation();
-        targetRotY += ANGLE_STEP; // Orbit counter-clockwise
+        targetRotY += ANGLE_STEP; // Orbit to next column
       });
     }
 
     if (nextBtn) {
       nextBtn.addEventListener('click', (e) => {
         e.stopPropagation();
-        targetRotY -= ANGLE_STEP; // Orbit clockwise
+        targetRotY -= ANGLE_STEP; // Orbit to previous column
       });
     }
 
@@ -263,15 +288,15 @@
         filterBtns.forEach(b => b.classList.remove('is-active'));
         btn.classList.add('is-active');
 
-        const filter = btn.getAttribute('data-filter') || 'all';
-        applyCategoryFilter(filter);
+        activeFilter = btn.getAttribute('data-filter') || 'all';
+        applyCategoryFilter(activeFilter);
       });
     });
 
     function applyCategoryFilter(filter) {
-      let firstMatchedCard = null;
+      let firstMatchedAngle = null;
 
-      cards.forEach((card) => {
+      allCards.forEach((card) => {
         const cat = card.getAttribute('data-category') || '';
         const isMatch = filter === 'all' || cat.includes(filter);
 
@@ -282,8 +307,9 @@
           } else {
             card.classList.remove('is-matched');
           }
-          if (!firstMatchedCard) {
-            firstMatchedCard = card;
+
+          if (firstMatchedAngle === null && parseInt(card.dataset.row, 10) === 0) {
+            firstMatchedAngle = parseFloat(card.dataset.baseAngle);
           }
         } else {
           card.classList.add('is-dimmed');
@@ -291,48 +317,14 @@
         }
       });
 
-      // Smoothly orbit to face the first matching card
-      if (firstMatchedCard && filter !== 'all') {
-        const angle = parseFloat(firstMatchedCard.dataset.angle);
-        // We want this card's angle to face 0deg (front):
-        // (angle + targetRotY) % 360 == 0 => targetRotY = -angle
+      // Smoothly orbit so a matching card is placed prominently
+      if (firstMatchedAngle !== null && filter !== 'all') {
+        // Position card at approximately +36 deg (right beside center text)
+        const targetAngle = 36;
         const currentRot = targetRotY % 360;
-        const diff = ((-angle - currentRot + 540) % 360) - 180;
+        const diff = ((-firstMatchedAngle + targetAngle - currentRot + 540) % 360) - 180;
         targetRotY += diff;
       }
-    }
-
-    // --- 3D VS GRID VIEW TOGGLE ---
-    const viewToggleBtn = document.getElementById('cs3DViewToggle');
-    const gridContainer = document.getElementById('csGridContainerFallback');
-
-    if (viewToggleBtn && gridContainer) {
-      let isGridView = false;
-      viewToggleBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        isGridView = !isGridView;
-
-        if (isGridView) {
-          section.style.display = 'none';
-          gridContainer.style.display = 'block';
-          viewToggleBtn.innerHTML = `
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/>
-            </svg>
-            <span>3D Sphere View</span>
-          `;
-        } else {
-          section.style.display = 'flex';
-          gridContainer.style.display = 'none';
-          viewToggleBtn.innerHTML = `
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/>
-            </svg>
-            <span>Grid View</span>
-          `;
-          layoutCards();
-        }
-      });
     }
   }
 })();

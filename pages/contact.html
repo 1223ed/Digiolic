@@ -19,1031 +19,229 @@
   <link rel="stylesheet" href="../css/pages.css?v=20260920_v302">
   <link rel="stylesheet" href="../css/responsive.css?v=20260930_v1">
   <link rel="stylesheet" href="../css/chat-widget.css?v=20260920_v302">
+  <link rel="stylesheet" href="../css/cinematic-menu.css?v=20261004_v5">
+  
+  <!-- Trionn Luxury Contact Page CSS -->
+  <link rel="stylesheet" href="../css/contact-trionn.css?v=20261025_hanging_loop_v1">
 
-  <!-- Exact Font specified -->
+  <!-- Typography: Manrope, Plus Jakarta Sans, Inter, Be Vietnam Pro -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Comic+Neue:ital,wght@0,400;0,700;1,700&family=Inter:ital,opsz,wght@0,14..32,300..900;1,14..32,300..900&family=Manrope:wght@400;500;600;700;800&family=Montserrat:wght@800;900&family=Outfit:wght@400;600;700;800&family=Patrick+Hand&family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
-
-  <style>
-    /* ==========================================================================
-       IMAGE 1 MOBILE NAVIGATION DRAWER SPECIFICATION (EXACT REPLICATION)
-       ========================================================================== */
-    .mainframe-mobile-overlay,
-    .mobile-nav-drawer,
-    #mainframeMobileOverlay,
-    #mobileNavDrawer {
-      position: fixed !important;
-      inset: 0 !important;
-      top: 0 !important;
-      left: 0 !important;
-      right: 0 !important;
-      bottom: 0 !important;
-      width: 100vw !important;
-      height: 100vh !important;
-      height: 100dvh !important;
-      background-color: #1D3145 !important;
-      background: #1D3145 !important;
-      z-index: 999999 !important;
-      display: flex !important;
-      flex-direction: column !important;
-      justify-content: flex-start !important;
-      align-items: flex-start !important;
-      padding: 2.5rem 2.25rem 3rem 2.25rem !important;
-      box-sizing: border-box !important;
-      overflow-y: auto !important;
-      -webkit-overflow-scrolling: touch !important;
-      opacity: 0 !important;
-      visibility: hidden !important;
-      pointer-events: none !important;
-      transform: translateY(-8px) !important;
-      transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.3s ease !important;
-    }
-
-    .mainframe-mobile-overlay.is-open,
-    .mobile-nav-drawer.is-open,
-    #mainframeMobileOverlay.is-open,
-    #mobileNavDrawer.is-open {
-      opacity: 1 !important;
-      visibility: visible !important;
-      pointer-events: auto !important;
-      transform: translateY(0) !important;
-    }
-
-    @media (min-width: 860px) {
-      .mainframe-mobile-overlay,
-      .mobile-nav-drawer,
-      #mainframeMobileOverlay,
-      #mobileNavDrawer {
-        display: none !important;
-      }
-    }
-
-    .mainframe-mobile-top,
-    .mobile-nav-top {
-      display: flex !important;
-      align-items: center !important;
-      justify-content: space-between !important;
-      width: 100% !important;
-      margin-bottom: 3.5rem !important;
-      padding: 0 !important;
-    }
-
-    .mainframe-mobile-logo-link,
-    .mobile-nav-logo-link {
-      display: flex !important;
-      align-items: center !important;
-      text-decoration: none !important;
-    }
-
-    .mobile-nav-logo {
-      height: 34px !important;
-      width: auto !important;
-      filter: none !important;
-      -webkit-filter: none !important;
-      display: block !important;
-    }
-
-    .mobile-nav-close,
-    .mainframe-mobile-close {
-      background: transparent !important;
-      border: none !important;
-      color: #FFFFFF !important;
-      cursor: pointer !important;
-      padding: 6px !important;
-      display: flex !important;
-      align-items: center !important;
-      justify-content: center !important;
-      outline: none !important;
-      line-height: 1 !important;
-      opacity: 0.9 !important;
-    }
-
-    .mainframe-mobile-links,
-    .mainframe-mobile-nav,
-    .mobile-nav-list {
-      display: flex !important;
-      flex-direction: column !important;
-      align-items: flex-start !important;
-      gap: 1.75rem !important;
-      width: 100% !important;
-      padding: 0 !important;
-      margin: 0 !important;
-    }
-
-    .mainframe-mobile-link,
-    .mobile-nav-link {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
-      font-size: 1.5rem !important;
-      line-height: 1.3 !important;
-      font-weight: 400 !important;
-      color: rgba(255, 255, 255, 0.7) !important;
-      display: block !important;
-      width: auto !important;
-      max-width: 100% !important;
-      padding: 0.25rem 0 !important;
-      border: none !important;
-      border-bottom: none !important;
-      text-decoration: none !important;
-      box-sizing: border-box !important;
-      transition: color 0.2s ease !important;
-      text-align: left !important;
-      letter-spacing: -0.01em !important;
-    }
-
-    /* Hide Contact Us button completely on Contact page */
-    .mainframe-desktop-cta,
-    .mobile-nav-link.cta-pill,
-    .mainframe-mobile-link.cta-pill {
-      display: none !important;
-    }
-
-    .mainframe-mobile-link:hover,
-    .mainframe-mobile-link.active,
-    .mobile-nav-link:hover,
-    .mobile-nav-link.active {
-      color: #FFFFFF !important;
-      font-weight: 500 !important;
-      border: none !important;
-      border-bottom: none !important;
-      padding-left: 0 !important;
-      transform: none !important;
-    }
-
-    .mainframe-mobile-link span:last-child:not(:first-child),
-    .mobile-nav-link span:last-child:not(:first-child) {
-      display: none !important;
-    }
-
-    .mainframe-mobile-link.cta-pill,
-    .mainframe-mobile-link.cta-underlined,
-    .mobile-nav-link.cta-pill,
-    .mobile-nav-footer .btn {
-      display: inline-flex !important;
-      align-items: center !important;
-      justify-content: center !important;
-      width: fit-content !important;
-      margin-top: 1.75rem !important;
-      background-color: #FFFFFF !important;
-      background: #FFFFFF !important;
-      color: #1D3145 !important;
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
-      font-size: 1rem !important;
-      font-weight: 600 !important;
-      border-radius: 9999px !important;
-      padding: 0.85rem 2.25rem !important;
-      border: none !important;
-      text-decoration: none !important;
-      text-align: center !important;
-      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12) !important;
-      transition: background-color 0.2s ease, transform 0.2s ease !important;
-    }
-
-    .mainframe-mobile-link.cta-pill:hover,
-    .mainframe-mobile-link.cta-underlined:hover,
-    .mobile-nav-link.cta-pill:hover,
-    .mobile-nav-footer .btn:hover {
-      background: rgba(255, 255, 255, 0.94) !important;
-      color: #1D3145 !important;
-      transform: translateY(-1px) !important;
-    }
-
-    .mobile-nav-footer,
-    .mobile-contact-info {
-      border: none !important;
-      padding: 0 !important;
-      margin: 0 !important;
-    }
-    .mainframe-navbar,
-    .hero-video-navbar,
-    #mainframeNavbar,
-    #heroNavbar {
-      position: absolute !important;
-      top: 0 !important;
-      left: 0 !important;
-      right: 0 !important;
-      width: 100% !important;
-      z-index: 1000 !important;
-      padding: 1.5rem 1.75rem !important;
-      min-height: 84px !important;
-      box-sizing: border-box !important;
-    }
-    @media (min-width: 768px) {
-      .mainframe-navbar,
-      .hero-video-navbar,
-      #mainframeNavbar,
-      #heroNavbar {
-        padding: 1.75rem 3rem !important;
-        min-height: 96px !important;
-      }
-    }
-    @media (min-width: 1280px) {
-      .mainframe-navbar,
-      .hero-video-navbar,
-      #mainframeNavbar,
-      #heroNavbar {
-        padding: 2rem 4.5rem !important;
-        min-height: 104px !important;
-      }
-    }
-    .mainframe-navbar.is-scrolled,
-    .hero-video-navbar.is-scrolled,
-    #mainframeNavbar.is-scrolled,
-    #heroNavbar.is-scrolled {
-      opacity: 0 !important;
-      visibility: hidden !important;
-      pointer-events: none !important;
-      display: none !important;
-    }
-
-    /* ==========================================================================
-       CENTERED DESKTOP NAVIGATION TABS (MATCHING ZOHO PAGE POSITIONING & STYLE)
-       ========================================================================== */
-    @media (min-width: 860px) {
-      .mainframe-desktop-nav,
-      body.contact-page .mainframe-desktop-nav {
-        position: absolute !important;
-        left: 50% !important;
-        top: 50% !important;
-        transform: translate(-50%, -50%) !important;
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        gap: clamp(1.5rem, 2.4vw, 2.75rem) !important;
-        z-index: 102 !important;
-      }
-    }
-
-    .mainframe-nav-link,
-    body.contact-page .mainframe-nav-link {
-      position: relative !important;
-      color: #FFFFFF !important;
-      font-size: 0.95rem !important;
-      font-weight: 600 !important;
-      text-decoration: none !important;
-      transition: color 0.25s ease !important;
-      letter-spacing: 0.01em !important;
-      padding: 0.35rem 0 !important;
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
-      text-shadow: none !important;
-      filter: none !important;
-    }
-
-    /* Keyframes matching Home page tab section animation */
-    @keyframes navTabFadeDown {
-      0% {
-        opacity: 0;
-        transform: translateY(-12px);
-      }
-      100% {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @keyframes navIndicatorGrow {
-      0% {
-        transform: scaleX(0);
-        opacity: 0;
-      }
-      100% {
-        transform: scaleX(1);
-        opacity: 1;
-      }
-    }
-
-    .mainframe-desktop-nav .mainframe-nav-link,
-    body.contact-page .mainframe-desktop-nav .mainframe-nav-link {
-      animation: navTabFadeDown 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
-    }
-    .mainframe-desktop-nav .mainframe-nav-link:nth-child(1),
-    body.contact-page .mainframe-desktop-nav .mainframe-nav-link:nth-child(1) { animation-delay: 100ms; }
-    .mainframe-desktop-nav .mainframe-nav-link:nth-child(2),
-    body.contact-page .mainframe-desktop-nav .mainframe-nav-link:nth-child(2) { animation-delay: 160ms; }
-    .mainframe-desktop-nav .mainframe-nav-link:nth-child(3),
-    body.contact-page .mainframe-desktop-nav .mainframe-nav-link:nth-child(3) { animation-delay: 220ms; }
-    .mainframe-desktop-nav .mainframe-nav-link:nth-child(4),
-    body.contact-page .mainframe-desktop-nav .mainframe-nav-link:nth-child(4) { animation-delay: 280ms; }
-    .mainframe-desktop-nav .mainframe-nav-link:nth-child(5),
-    body.contact-page .mainframe-desktop-nav .mainframe-nav-link:nth-child(5) { animation-delay: 340ms; }
-
-    .mainframe-nav-link:hover,
-    body.contact-page .mainframe-nav-link:hover {
-      color: #FFFFFF !important;
-      opacity: 0.8 !important;
-    }
-
-    /* ==========================================================================
-       HERO BANNER (MATCHING REFERENCE DESIGN: CORPORATE BLUE WITH IMAGE OVERLAY)
-       ========================================================================== */
-    .contact-hero-banner {
-      position: relative;
-      background: url('../assets/images/contact_hero_bg.jpg') center 30% / cover no-repeat;
-      padding: 165px 1.5rem 185px 1.5rem;
-      text-align: center;
-      color: #FFFFFF;
-      overflow: hidden;
-    }
-
-    .contact-hero-banner::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, rgba(10, 25, 60, 0.76) 0%, rgba(26, 54, 138, 0.84) 55%, rgba(15, 23, 42, 0.88) 100%);
-      z-index: 1;
-    }
-
-    .contact-hero-inner {
-      position: relative;
-      z-index: 2;
-      max-width: 780px;
-      margin: 0 auto;
-    }
-
-    .contact-hero-title {
-      font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif !important;
-      font-size: 64px !important;
-      font-weight: 800 !important;
-      color: #FFFFFF;
-      margin: 0 0 0.85rem 0;
-      letter-spacing: -0.03em !important;
-      line-height: 1.1 !important;
-    }
-
-    @media (max-width: 1024px) {
-      .contact-hero-title {
-        font-size: clamp(34px, 5.5vw, 56px) !important;
-      }
-    }
-
-    @media (max-width: 640px) {
-      .contact-hero-title {
-        font-size: clamp(28px, 8vw, 38px) !important;
-      }
-    }
-
-    .contact-hero-subtitle {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
-      font-size: 17px !important;
-      font-weight: 400 !important;
-      color: rgba(255, 255, 255, 0.9);
-      line-height: 1.65 !important;
-      max-width: 620px;
-      margin: 0 auto;
-    }
-
-    /* ==========================================================================
-       FLOATING 2-COLUMN CONTACT CARD (MATCHING REFERENCE DESIGN)
-       ========================================================================== */
-    .contact-card-section {
-      position: relative;
-      z-index: 10;
-      padding: 0 1.5rem 4.5rem 1.5rem;
-      margin-top: -125px; /* Overlaps hero banner */
-      background: linear-gradient(180deg, transparent 0%, var(--color-bg, #FAFAFC) 125px, var(--color-bg, #FAFAFC) 100%);
-    }
-
-    .contact-main-card {
-      max-width: 1120px;
-      margin: 0 auto;
-      background: #FFFFFF;
-      border-radius: 20px;
-      box-shadow: 0 25px 70px -15px rgba(15, 23, 42, 0.12), 0 4px 24px rgba(0, 0, 0, 0.04);
-      border: 1px solid rgba(226, 232, 240, 0.9);
-      display: grid;
-      grid-template-columns: 0.8fr 1.2fr;
-      overflow: hidden;
-      box-sizing: border-box;
-    }
-
-    @media (max-width: 960px) {
-      .contact-hero-banner {
-        padding: 175px 1.5rem 160px 1.5rem !important;
-      }
-      .contact-card-section {
-        margin-top: -95px !important;
-        padding: 0 1rem 3.5rem 1rem !important;
-      }
-      .contact-main-card {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    /* --------------------------------------------------------------------------
-       LEFT COLUMN: GET IN TOUCH
-       -------------------------------------------------------------------------- */
-    .contact-left-pane {
-      padding: clamp(2rem, 3.2vw, 3.25rem);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      border-right: 1px solid #F1F5F9;
-      background: #FFFFFF;
-      box-sizing: border-box;
-    }
-
-    @media (max-width: 960px) {
-      .contact-left-pane {
-        border-right: none;
-        border-bottom: 1px solid #F1F5F9;
-        padding: 2rem 1.5rem;
-      }
-    }
-
-    .contact-pane-title {
-      font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif !important;
-      font-size: 42px !important;
-      font-weight: 700 !important;
-      color: #0F172A;
-      margin: 0 0 0.5rem 0;
-      letter-spacing: -0.02em;
-      line-height: 1.2 !important;
-    }
-
-    @media (max-width: 1024px) {
-      .contact-pane-title {
-        font-size: clamp(28px, 4vw, 36px) !important;
-      }
-    }
-
-    .contact-pane-desc {
-      font-family: 'Inter', -apple-system, sans-serif !important;
-      font-size: 17px !important;
-      font-weight: 400 !important;
-      color: #64748B;
-      line-height: 1.65 !important;
-      margin: 0 0 2rem 0;
-    }
-
-    .contact-info-list {
-      display: flex;
-      flex-direction: column;
-      gap: 1.65rem;
-      margin-bottom: 2.2rem;
-    }
-
-    .contact-info-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 1.1rem;
-    }
-
-    .contact-icon-badge {
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      background: #2563EB;
-      color: #FFFFFF;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      box-shadow: 0 6px 16px rgba(37, 99, 235, 0.25);
-    }
-
-    .contact-icon-badge svg {
-      width: 20px;
-      height: 20px;
-    }
-
-    .contact-item-label {
-      font-family: 'Inter', -apple-system, sans-serif;
-      font-size: 0.95rem;
-      font-weight: 700;
-      color: #0F172A;
-      margin: 0 0 0.25rem 0;
-    }
-
-    .contact-item-text {
-      font-family: 'Inter', -apple-system, sans-serif;
-      font-size: 0.85rem;
-      color: #64748B;
-      line-height: 1.5;
-      margin: 0;
-    }
-
-    .contact-social-block {
-      margin-top: auto;
-      padding-top: 1.25rem;
-    }
-
-    .contact-social-title {
-      font-family: 'Inter', -apple-system, sans-serif;
-      font-size: 0.88rem;
-      font-weight: 700;
-      color: #0F172A;
-      margin: 0 0 0.85rem 0;
-    }
-
-    .contact-social-icons {
-      display: flex;
-      gap: 0.75rem;
-      align-items: center;
-    }
-
-    .contact-social-btn {
-      width: 38px;
-      height: 38px;
-      border-radius: 50%;
-      background: #2563EB;
-      color: #FFFFFF;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-decoration: none;
-      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-      box-shadow: 0 4px 10px rgba(37, 99, 235, 0.2);
-    }
-
-    .contact-social-btn:hover {
-      background: #1D4ED8;
-      transform: translateY(-2px);
-      box-shadow: 0 8px 18px rgba(37, 99, 235, 0.35);
-    }
-
-    .contact-social-btn svg {
-      width: 17px;
-      height: 17px;
-      fill: currentColor;
-    }
-
-    /* --------------------------------------------------------------------------
-       RIGHT COLUMN: SEND US A MESSAGE (ZOHO CRM WEB-TO-LEAD FORM)
-       -------------------------------------------------------------------------- */
-    .contact-right-pane {
-      padding: clamp(2rem, 3.2vw, 3.25rem);
-      display: flex;
-      flex-direction: column;
-      background: #FFFFFF;
-      box-sizing: border-box;
-    }
-
-    @media (max-width: 960px) {
-      .contact-right-pane {
-        padding: 2rem 1.5rem;
-      }
-    }
-
-    .contact-form-grid {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      margin-top: 1.15rem;
-      width: 100%;
-    }
-
-    .contact-form-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
-    }
-
-    @media (max-width: 640px) {
-      .contact-form-row {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    .contact-field-wrap {
-      display: flex;
-      flex-direction: column;
-      gap: 0.35rem;
-      position: relative;
-    }
-
-    .contact-field-label {
-      font-family: 'Inter', -apple-system, sans-serif;
-      font-size: 0.82rem;
-      font-weight: 600;
-      color: #334155;
-      letter-spacing: 0.01em;
-    }
-
-    .contact-field-label .req {
-      color: #EF4444;
-      font-weight: 700;
-    }
-
-    .contact-field-input,
-    .contact-field-textarea {
-      width: 100%;
-      background: #F8FAFC;
-      border: 1px solid #E2E8F0;
-      border-radius: 8px;
-      padding: 0.68rem 0.95rem;
-      font-family: 'Inter', -apple-system, sans-serif;
-      font-size: 0.9rem;
-      color: #0F172A;
-      outline: none;
-      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-      box-sizing: border-box;
-    }
-
-    .contact-field-input:focus,
-    .contact-field-textarea:focus {
-      background: #FFFFFF;
-      border-color: #2563EB;
-      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
-    }
-
-    .contact-field-input::placeholder,
-    .contact-field-textarea::placeholder {
-      color: #94A3B8;
-      font-size: 0.88rem;
-    }
-
-    .contact-field-textarea {
-      min-height: 100px;
-      resize: vertical;
-    }
-
-    /* Multi-Select Field for Subject / Services */
-    .contact-multiselect {
-      position: relative;
-      width: 100%;
-    }
-
-    .contact-select-trigger {
-      width: 100%;
-      background: #F8FAFC;
-      border: 1px solid #E2E8F0;
-      border-radius: 8px;
-      padding: 0.68rem 0.95rem;
-      font-family: 'Inter', -apple-system, sans-serif;
-      font-size: 0.9rem;
-      color: #0F172A;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      cursor: pointer;
-      user-select: none;
-      min-height: 44px;
-      box-sizing: border-box;
-      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    .contact-select-trigger:focus,
-    .contact-multiselect.open .contact-select-trigger {
-      background: #FFFFFF;
-      border-color: #2563EB;
-      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
-    }
-
-    .contact-trigger-text {
-      color: #94A3B8;
-      font-size: 0.88rem;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
-    .contact-trigger-text.has-selection {
-      color: #0F172A;
-      font-weight: 600;
-    }
-
-    .contact-select-arrow {
-      color: #64748B;
-      transition: transform 0.25s ease;
-      flex-shrink: 0;
-    }
-
-    .contact-multiselect.open .contact-select-arrow {
-      transform: rotate(180deg);
-    }
-
-    .contact-options-panel {
-      position: absolute;
-      top: calc(100% + 5px);
-      left: 0;
-      right: 0;
-      background: #FFFFFF;
-      border: 1px solid #E2E8F0;
-      border-radius: 10px;
-      box-shadow: 0 16px 36px rgba(15, 23, 42, 0.14);
-      max-height: 230px;
-      overflow-y: auto;
-      padding: 0.5rem;
-      z-index: 50;
-      display: none;
-    }
-
-    .contact-multiselect.open .contact-options-panel {
-      display: block;
-      animation: fadeInDropdown 0.2s ease forwards;
-    }
-
-    .contact-option-item {
-      display: flex;
-      align-items: center;
-      gap: 0.65rem;
-      padding: 0.45rem 0.65rem;
-      border-radius: 6px;
-      cursor: pointer;
-      font-size: 0.86rem;
-      color: #1E293B;
-      transition: background 0.15s ease, color 0.15s ease;
-    }
-
-    .contact-option-item:hover {
-      background: #EFF6FF;
-      color: #2563EB;
-    }
-
-    .contact-option-item input[type="checkbox"] {
-      accent-color: #2563EB;
-      width: 15px;
-      height: 15px;
-      cursor: pointer;
-    }
-
-    .contact-chips-wrap {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-      margin-top: 0.45rem;
-    }
-
-    .contact-chip {
-      background: #EFF6FF;
-      border: 1px solid #BFDBFE;
-      border-radius: 9999px;
-      padding: 0.2rem 0.65rem;
-      font-size: 0.76rem;
-      font-weight: 500;
-      color: #1D4ED8;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-    }
-
-    .contact-chip-remove {
-      cursor: pointer;
-      font-weight: 700;
-      font-size: 0.85rem;
-      color: #3B82F6;
-    }
-
-    .contact-chip-remove:hover {
-      color: #1D4ED8;
-    }
-
-    /* Submit Button (Matching Blue Send Button from Reference) */
-    .contact-send-btn {
-      width: 100%;
-      background: #2563EB;
-      color: #FFFFFF;
-      border: none;
-      border-radius: 8px;
-      padding: 0.88rem 1.5rem;
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
-      font-size: 15px !important;
-      font-weight: 600 !important;
-      letter-spacing: -0.01em;
-      cursor: pointer;
-      margin-top: 0.5rem;
-      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-      box-shadow: 0 4px 18px rgba(37, 99, 235, 0.28);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .contact-send-btn:hover {
-      background: #1D4ED8;
-      transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(37, 99, 235, 0.38);
-    }
-
-    .contact-send-btn:active {
-      transform: translateY(0);
-      box-shadow: 0 2px 8px rgba(37, 99, 235, 0.25);
-    }
-
-    /* ==========================================================================
-       INTERACTIVE FULL-WIDTH GOOGLE MAP SECTION (MATCHING REFERENCE IMAGE)
-       ========================================================================== */
-    .contact-map-section {
-      width: 100%;
-      height: 440px;
-      position: relative;
-      overflow: hidden;
-      border-top: 1px solid #E2E8F0;
-      border-bottom: 1px solid #E2E8F0;
-      background: #E2E8F0;
-    }
-
-    .contact-map-iframe {
-      width: 100%;
-      height: 100%;
-      border: 0;
-      display: block;
-    }
-
-    @media (max-width: 768px) {
-      .contact-map-section {
-        height: 340px;
-      }
-    }
-
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Inter:ital,opsz,wght@0,14..32,300..900;1,14..32,300..900&family=Manrope:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
 </head>
 <body class="contact-page">
 
-  <!-- Topbar Navigation (Dark Hero Mode: White Logo and Crisp Navigation) -->
+  <!-- Topbar Navigation -->
   <header class="mainframe-navbar" id="mainframeNavbar">
-    <!-- Left: Digiolic Brand Logo -->
+    <!-- Left: Digiolic Brand Logo (D in Green) -->
     <a href="../index.html" class="mainframe-logo-wrap" aria-label="Digiolic Home">
-      <img src="../assets/images/digiolic-logo.png?v=20260927_green_d" alt="Digiolic" class="brand-logo-img" width="96" height="34" style="height: 34px !important; width: auto !important; max-height: 34px !important; display: block; filter: none !important; -webkit-filter: none !important;">
+      <img src="../assets/images/digiolic-logo-dark.png?v=20261019_green_d" alt="Digiolic" class="brand-logo-img brand-logo-dark" width="96" height="34" style="height: 34px !important; width: auto !important; max-height: 34px !important; display: block;">
+      <img src="../assets/images/digiolic-logo.png?v=20261019_green_d" alt="Digiolic" class="brand-logo-img brand-logo-white" width="96" height="34" style="height: 34px !important; width: auto !important; max-height: 34px !important; display: none;">
     </a>
 
-    <!-- Center: Desktop Nav Links -->
-    <nav class="mainframe-desktop-nav" aria-label="Primary Navigation">
-      <a href="../index.html" class="mainframe-nav-link">Home</a>
-      <a href="zoho.html" class="mainframe-nav-link">Zoho</a>
-      <a href="salesforce.html" class="mainframe-nav-link">Salesforce</a>
-      <a href="digital-marketing.html" class="mainframe-nav-link">Digital Marketing</a>
-      <a href="case-stories.html" class="mainframe-nav-link">Case Studies</a>
-    </nav>
-
-    <!-- Right: Desktop CTA Pill Button (Removed for Contact page) -->
-
-    <!-- Mobile Hamburger Button -->
-    <button class="mainframe-hamburger-btn" id="mainframeMenuBtn" aria-label="Toggle Menu" aria-expanded="false">
-      <span class="mainframe-bar"></span>
-      <span class="mainframe-bar"></span>
-      <span class="mainframe-bar"></span>
-    </button>
-  </header>
-
-  <!-- Fullscreen Mobile Navigation Drawer (Image 1 Design) -->
-  <div class="mobile-nav-drawer" id="mobileNavDrawer" role="dialog" aria-modal="true" aria-label="Mobile Navigation">
-    <div class="mobile-nav-top">
-      <a href="../index.html" class="mobile-nav-logo-link" aria-label="Digiolic Home">
-        <img src="../assets/images/digiolic-logo.png?v=20260927_green_d" alt="Digiolic" class="mobile-nav-logo" style="filter: none !important; -webkit-filter: none !important;">
-      </a>
-      <button class="mobile-nav-close" id="contactNavCloseBtn" aria-label="Close Menu" onclick="document.getElementById('mobileNavDrawer').classList.remove('is-open'); document.getElementById('mainframeMenuBtn').classList.remove('is-active'); document.body.style.overflow='';">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <line x1="18" y1="6" x2="6" y2="18"></line>
-          <line x1="6" y1="6" x2="18" y2="18"></line>
+    <!-- Right: Sound Controller + Menu Trigger with Ring Icon -->
+    <div class="mainframe-nav-actions" style="margin-left: auto; display: flex; align-items: center; gap: 0.75rem;">
+      <button type="button" class="nav-sound-control is-playing" id="contactAudioToggleBtn" aria-label="Play or pause background song" title="Pause Song" aria-pressed="true" tabindex="0">
+        <!-- Playing state: Speaker with Sound Waves -->
+        <svg class="sound-icon sound-icon-playing" viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+          <path d="M11 5L6 9H2v6h4l5 4V5z"/>
+          <path class="sound-wave-1" d="M15.54 8.46a5 5 0 0 1 0 7.07" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <path class="sound-wave-2" d="M19.07 4.93a10 10 0 0 1 0 14.14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <!-- Paused state: Speaker Muted -->
+        <svg class="sound-icon sound-icon-paused" viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+          <path d="M11 5L6 9H2v6h4l5 4V5z"/>
+          <line x1="23" y1="9" x2="17" y2="15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <line x1="17" y1="9" x2="23" y2="15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
         </svg>
       </button>
+
+      <button class="cinematic-menu-trigger" id="cinematicMenuOpenBtn" aria-label="Open Navigation Menu">
+        <span class="menu-trigger-text">Menu</span>
+        <span class="menu-trigger-circle"></span>
+      </button>
     </div>
-    <div class="mobile-nav-list">
-      <a href="../index.html" class="mobile-nav-link">Home</a>
-      <a href="zoho.html" class="mobile-nav-link">Zoho</a>
-      <a href="salesforce.html" class="mobile-nav-link">Salesforce</a>
-      <a href="digital-marketing.html" class="mobile-nav-link">Digital Marketing</a>
-      <a href="case-stories.html" class="mobile-nav-link">Case Studies</a>
-      <a href="contact.html" class="mobile-nav-link cta-pill" onclick="document.getElementById('mobileNavDrawer').classList.remove('is-open'); document.getElementById('mainframeMenuBtn').classList.remove('is-active'); document.body.style.overflow='';">Contact Us</a>
+  </header>
+
+  <!-- Contact Background Song: name-story.mp3 (Same audio as Zoho and About Us pages) -->
+  <audio id="contactStoryAudio" preload="auto" loop playsinline autoplay>
+    <source src="../assets/audio/name-story.mp3" type="audio/mp3">
+    <source src="../js/name-story.mp3" type="audio/mp3">
+  </audio>
+
+  <!-- Cinematic Editorial Menu Overlay -->
+  <div class="cinematic-menu-overlay" id="cinematicMenuOverlay" role="dialog" aria-modal="true" aria-label="Navigation Menu">
+    <div class="cinematic-menu-backdrop" id="cinematicMenuBackdrop" aria-label="Close menu by clicking background"></div>
+    <div class="cinematic-menu-panel" id="cinematicMenuPanel">
+      <div class="cinematic-smoke-edge" id="cinematicSmokeEdge" aria-hidden="true">
+        <canvas class="cinematic-smoke-canvas" id="cinematicSmokeCanvas" width="580" height="1384"></canvas>
+        <video class="cinematic-smoke-video-src" id="cinematicSmokeVideoSrc" loop muted playsinline preload="auto" style="display: none;">
+          <source src="../assets/videos/smoke-loop-crop.mp4" type="video/mp4">
+        </video>
+      </div>
+
+      <div class="cinematic-panel-top">
+        <button class="cinematic-menu-close" id="cinematicMenuCloseBtn" aria-label="Close Navigation Menu">
+          <span class="close-trigger-text">Close</span>
+          <span class="close-trigger-circle">
+            <span class="close-inner-dot"></span>
+          </span>
+        </button>
+      </div>
+
+      <nav class="cinematic-nav-center" aria-label="Editorial Menu Navigation">
+        <ul class="cinematic-nav-list">
+          <li class="cinematic-nav-item" style="--item-index: 0">
+            <a href="../index.html" class="cinematic-nav-link" data-title="HOME">HOME</a>
+          </li>
+          <li class="cinematic-nav-item" style="--item-index: 1">
+            <a href="about-us.html" class="cinematic-nav-link" data-title="ABOUT US">ABOUT US</a>
+          </li>
+          <li class="cinematic-nav-item" style="--item-index: 2">
+            <a href="zoho.html" class="cinematic-nav-link" data-title="ZOHO">ZOHO</a>
+          </li>
+          <li class="cinematic-nav-item" style="--item-index: 3">
+            <a href="salesforce.html" class="cinematic-nav-link" data-title="SALESFORCE">SALESFORCE</a>
+          </li>
+          <li class="cinematic-nav-item" style="--item-index: 4">
+            <a href="digital-marketing.html" class="cinematic-nav-link" data-title="DIGITAL MARKETING">DIGITAL MARKETING</a>
+          </li>
+          <li class="cinematic-nav-item" style="--item-index: 5">
+            <a href="case-stories.html" class="cinematic-nav-link" data-title="CASE STUDIES">CASE STUDIES</a>
+          </li>
+          <li class="cinematic-nav-item" style="--item-index: 6">
+            <a href="contact.html" class="cinematic-nav-link active" data-title="CONTACT US">CONTACT US</a>
+          </li>
+        </ul>
+      </nav>
     </div>
   </div>
 
   <main id="mainContent">
 
     <!-- ==========================================================================
-         SECTION 1: HERO BANNER (CORPORATE DEEP BLUE OVERLAY WITH OFFICE IMAGE)
+         SECTION 1: HERO BANNER (LIGHT GREY #D2D2D2 + HANGING LION CENTERPIECE)
          ========================================================================== -->
-    <section class="contact-hero-banner" id="contactHero">
-      <div class="contact-hero-inner">
-        <h1 class="contact-hero-title">Contact us</h1>
-        <p class="contact-hero-subtitle">
-          Digiolic is ready to provide the right solution according to your needs
+    <section id="contact-banner-section">
+      <!-- Hero Centerpiece Video (Zoho, Salesforce, Digital Marketing) -->
+      <div class="banner-video-container" id="bannerVideoContainer">
+        <video class="banner-lion-video banner-video-primary" id="bannerHeroVideoA" autoplay muted playsinline preload="auto">
+          <source src="../assets/videos/contact-hero-video.mp4" type="video/mp4">
+        </video>
+        <video class="banner-lion-video banner-video-secondary is-standby" id="bannerHeroVideoB" muted playsinline preload="auto" aria-hidden="true">
+          <source src="../assets/videos/contact-hero-video.mp4" type="video/mp4">
+        </video>
+      </div>
+
+      <!-- Banner Typography -->
+      <div class="banner-text-content">
+        <h1 class="banner-headline">Let's build the fantastic process.</h1>
+        <p class="banner-subtext">
+          Digiolic is ready to provide the right solution according to your needs.<br>
+          We collaborate with teams who value clarity, craft, and long-term thinking.
         </p>
+      </div>
+
+      <!-- Scroll Indicator Button -->
+      <div class="banner-scroll-action" id="bannerScrollDownBtn" role="button" aria-label="Scroll to contact form" tabindex="0">
+        <svg class="banner-scroll-svg" viewBox="0 0 18 18" fill="none">
+          <circle cx="9" cy="9" r="8.2" stroke="currentColor" stroke-width="1"></circle>
+          <path d="M9 4.8v8.4m0 0l-3.2-3.2m3.2 3.2l3.2-3.2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+      </div>
+
+
+      <!-- Venetian Blinds 5-Stripe Transition Container -->
+      <div class="stripes-container" id="stripesContainer" aria-hidden="true">
+        <div class="stripe-item"></div>
+        <div class="stripe-item"></div>
+        <div class="stripe-item"></div>
+        <div class="stripe-item"></div>
+        <div class="stripe-item"></div>
       </div>
     </section>
 
     <!-- ==========================================================================
-         SECTION 2: FLOATING 2-COLUMN CONTACT CARD (MATCHING REFERENCE DESIGN)
+         SECTION 2: CONTACT FORM SECTION (DEEP DARK #040508 + SMOKE VIDEO BACKDROP)
          ========================================================================== -->
-    <section class="contact-card-section" id="contactSection">
-      <div class="contact-main-card" id="contactFormCard">
-        
-        <!-- Left Column: Get in touch -->
-        <div class="contact-left-pane">
-          <div>
-            <h2 class="contact-pane-title">Get in touch</h2>
-            <p class="contact-pane-desc">
-              Connect directly with our senior cloud architects and strategists. We are ready to help you optimize and scale your enterprise systems.
-            </p>
+    <section id="contact-forms-section">
+      <!-- Form Video Backdrop -->
+      <div class="forms-video-backdrop">
+        <video class="forms-bg-video" autoplay muted loop playsinline preload="auto">
+          <source src="../assets/videos/form-background-video.mp4" type="video/mp4">
+        </video>
+        <div class="forms-video-overlay"></div>
+      </div>
 
-            <div class="contact-info-list">
-              <!-- Item 1: Office Location -->
-              <div class="contact-info-item">
-                <div class="contact-icon-badge" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                    <circle cx="12" cy="10" r="3"></circle>
-                  </svg>
-                </div>
-                <div>
-                  <h3 class="contact-item-label">Office Location</h3>
-                  <p class="contact-item-text">
-                    BHIVE Premium HSR, Bangalore<br>
-                    Karnataka, India
-                  </p>
-                </div>
-              </div>
-
-              <!-- Item 2: Email Us -->
-              <div class="contact-info-item">
-                <div class="contact-icon-badge" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                    <polyline points="22,6 12,13 2,6"></polyline>
-                  </svg>
-                </div>
-                <div>
-                  <h3 class="contact-item-label">Email Us</h3>
-                  <p class="contact-item-text">
-                    <a href="mailto:info@digiolic.com" style="color: inherit; text-decoration: none; font-weight: 500;">info@digiolic.com</a>
-                  </p>
-                </div>
-              </div>
-
-              <!-- Item 3: Call Us -->
-              <div class="contact-info-item">
-                <div class="contact-icon-badge" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-                  </svg>
-                </div>
-                <div>
-                  <h3 class="contact-item-label">Call Us</h3>
-                  <p class="contact-item-text">
-                    <a href="tel:+918971660217" style="color: inherit; text-decoration: none; font-weight: 500;">+91 89716 60217</a><br>
-                    Mon - Fri, 9:00 AM - 6:00 PM IST
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Social Media Block -->
-          <div class="contact-social-block">
-            <h4 class="contact-social-title">Follow our social media</h4>
-            <div class="contact-social-icons">
-              <a href="https://www.facebook.com/digiolic" target="_blank" rel="noopener noreferrer" class="contact-social-btn" aria-label="Facebook">
-                <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-              </a>
-              <a href="https://www.instagram.com/digiolic?stkn=MWhmamRsMnB0M3ZlOQ==" target="_blank" rel="noopener noreferrer" class="contact-social-btn" aria-label="Instagram">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-              </a>
-              <a href="https://www.linkedin.com/company/digiolic/" target="_blank" rel="noopener noreferrer" class="contact-social-btn" aria-label="LinkedIn">
-                <svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
-              </a>
-              <a href="https://youtube.com/@digiolic5977?si=L4YyP_snrB2UKgS3" target="_blank" rel="noopener noreferrer" class="contact-social-btn" aria-label="YouTube">
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-              </a>
-            </div>
-          </div>
+      <div class="forms-container-inner">
+        <!-- Form Header -->
+        <div class="forms-heading-block">
+          <span class="forms-eyebrow">A SHORT CONVERSATION IS OFTEN THE BEST PLACE TO BEGIN.</span>
+          <h2 class="forms-title">Let's work together</h2>
+          <p class="forms-subtitle">
+            We'd love to hear about your project. We usually reply within one business day.
+          </p>
         </div>
 
-        <!-- Right Column: Send us a message (Zoho CRM Web-to-Lead Form) -->
-        <div class="contact-right-pane">
-          <h2 class="contact-pane-title">Send us a message</h2>
+        <!-- Preserved Zoho CRM Web-to-Lead Form Code -->
+        <div id="crmWebToEntityForm" class="crmWebToEntityForm" style="width: 100%;">
+          <form class="trionn-contact-form" id="webform1353623000000711081" name="WebToLeads1353623000000711081" action="https://crm.zoho.in/crm/WebToLeadForm" method="POST" onsubmit="javascript:document.charset='UTF-8'; return checkMandatory1353623000000711081()" accept-charset="UTF-8">
+            
+            <!-- Zoho CRM Web-to-Lead Configuration Tokens -->
+            <input type="text" style="display:none;" name="xnQsjsdp" value="2e487a3c0ff6fd4d79a558f95be466cbb40a55fb9208e9e076d8694f2512d99f">
+            <input type="hidden" name="zc_gad" id="zc_gad" value="">
+            <input type="text" style="display:none;" name="xmIwtLD" value="c7d190d05df7e2311efa856299060097f6a301802a98bc00b6b00fbfae0f9cee7e24d455a1b96321724d6728fe106a58">
+            <input type="text" style="display:none;" name="actionType" value="TGVhZHM=">
+            <input type="text" style="display:none;" name="returnURL" value="null">
+            <input type="text" style="display:none;" name="aG9uZXlwb3Q" value="">
 
-          <div id="crmWebToEntityForm" class="crmWebToEntityForm" style="width: 100%;">
-            <form class="contact-form-grid" id="webform1353623000000711081" name="WebToLeads1353623000000711081" action="https://crm.zoho.in/crm/WebToLeadForm" method="POST" onsubmit="javascript:document.charset='UTF-8'; return checkMandatory1353623000000711081()" accept-charset="UTF-8">
-              
-              <!-- Zoho CRM Web-to-Lead Configuration Tokens -->
-              <input type="text" style="display:none;" name="xnQsjsdp" value="2e487a3c0ff6fd4d79a558f95be466cbb40a55fb9208e9e076d8694f2512d99f">
-              <input type="hidden" name="zc_gad" id="zc_gad" value="">
-              <input type="text" style="display:none;" name="xmIwtLD" value="c7d190d05df7e2311efa856299060097f6a301802a98bc00b6b00fbfae0f9cee7e24d455a1b96321724d6728fe106a58">
-              <input type="text" style="display:none;" name="actionType" value="TGVhZHM=">
-              <input type="text" style="display:none;" name="returnURL" value="null">
-              <input type="text" style="display:none;" name="aG9uZXlwb3Q" value="">
-
-              <!-- Row 1: Name & Company (2 Columns) -->
-              <div class="contact-form-row">
-                <div class="contact-field-wrap">
-                  <label for="Last_Name" class="contact-field-label">Name <span class="req">*</span></label>
-                  <input type="text" id="Last_Name" name="Last Name" class="contact-field-input" placeholder="Name" maxlength="80" aria-required="true" required>
+            <div class="trionn-form-grid">
+              <!-- Field 1: Name -->
+              <div class="form-field-group">
+                <div class="form-badge-bar">
+                  <label for="Last_Name" class="form-input-badge">Name *</label>
+                  <span class="form-error-badge">Enter your name</span>
                 </div>
-                <div class="contact-field-wrap">
-                  <label for="Company" class="contact-field-label">Company <span class="req">*</span></label>
-                  <input type="text" id="Company" name="Company" class="contact-field-input" placeholder="Company" maxlength="200" aria-required="true" required>
-                </div>
+                <input type="text" id="Last_Name" name="Last Name" class="trionn-input" placeholder="Name *" maxlength="80" aria-required="true" required>
               </div>
 
-              <!-- Row 2: Mobile & Email (2 Columns) -->
-              <div class="contact-form-row">
-                <div class="contact-field-wrap">
-                  <label for="Mobile" class="contact-field-label">Mobile <span class="req">*</span></label>
-                  <input type="text" id="Mobile" name="Mobile" class="contact-field-input" placeholder="Mobile" maxlength="30" aria-required="true" required>
+              <!-- Field 2: Company -->
+              <div class="form-field-group">
+                <div class="form-badge-bar">
+                  <label for="Company" class="form-input-badge">Company *</label>
                 </div>
-                <div class="contact-field-wrap">
-                  <label for="Email" class="contact-field-label">Email <span class="req">*</span></label>
-                  <input type="text" ftype="email" autocomplete="false" id="Email" name="Email" class="contact-field-input" placeholder="Email" maxlength="100" aria-required="true" required>
-                </div>
+                <input type="text" id="Company" name="Company" class="trionn-input" placeholder="Company *" maxlength="200" aria-required="true" required>
               </div>
 
-              <!-- Row 3: Subject / Service (Full Width Multi-Select) -->
-              <div class="contact-field-wrap">
-                <label for="LEADCF1" class="contact-field-label">Subject / Service <span class="req">*</span></label>
-                
-                <!-- Native multi-select for Zoho submission -->
+              <!-- Field 3: Mobile -->
+              <div class="form-field-group">
+                <div class="form-badge-bar">
+                  <label for="Mobile" class="form-input-badge">Mobile *</label>
+                </div>
+                <input type="text" id="Mobile" name="Mobile" class="trionn-input" placeholder="Mobile *" maxlength="30" aria-required="true" required>
+              </div>
+
+              <!-- Field 4: Email -->
+              <div class="form-field-group">
+                <div class="form-badge-bar">
+                  <label for="Email" class="form-input-badge">Email *</label>
+                  <span class="form-error-badge">Enter a valid email</span>
+                </div>
+                <input type="text" ftype="email" autocomplete="false" id="Email" name="Email" class="trionn-input" placeholder="Email *" maxlength="100" aria-required="true" required>
+              </div>
+
+              <!-- Field 5: Subject / Service (Full Width Multi-Select matching Salesforce code) -->
+              <div class="form-field-group form-col-span-2">
+                <div class="form-badge-bar">
+                  <label for="LEADCF1" class="form-input-badge">Subject / Service *</label>
+                  <span class="form-error-badge">Select a service</span>
+                </div>
+
+                <!-- Native multi-select matching Zoho CRM Web-to-Lead configuration -->
                 <select class="zcwf_col_fld_slt" role="combobox" aria-expanded="false" aria-haspopup="listbox" id="LEADCF1" aria-required="true" aria-label="LEADCF1" name="LEADCF1" multiple style="display:none;">
+                  <option value="Salesfoce Developement">Salesfoce Developement</option>
+                  <option value="Salesforce Sales Cloud">Salesforce Sales Cloud</option>
+                  <option value="Salesforce Service Cloud">Salesforce Service Cloud</option>
                   <option value="Zoho CRM">Zoho CRM</option>
                   <option value="Zoho CRM Plus">Zoho CRM Plus</option>
                   <option value="Bigin">Bigin</option>
@@ -1080,124 +278,136 @@
                   <option value="Zoho One">Zoho One</option>
                   <option value="Zoho Creator">Zoho Creator</option>
                   <option value="Zoho Flow">Zoho Flow</option>
+                  <option value="Social media management">Social media management</option>
+                  <option value="Advertising">Advertising</option>
+                  <option value="Email marketing">Email marketing</option>
                   <option value="Performance marketing">Performance marketing</option>
                   <option value="Search engine optimization">Search engine optimization</option>
-                  <option value="Advertising">Advertising</option>
-                  <option value="Social media management">Social media management</option>
-                  <option value="Content marketing">Content marketing</option>
-                  <option value="Ai-driven marketing automation">Ai-driven marketing automation</option>
                   <option value="Influencer marketing">Influencer marketing</option>
                   <option value="Branding">Branding</option>
-                  <option value="Email marketing">Email marketing</option>
                   <option value="Digital strategy creation">Digital strategy creation</option>
-                  <option value="Salesfoce Developement">Salesfoce Developement</option>
-                  <option value="Salesforce Sales Cloud">Salesforce Sales Cloud</option>
-                  <option value="Salesforce Service Cloud">Salesforce Service Cloud</option>
+                  <option value="Content marketing">Content marketing</option>
+                  <option value="Ai-driven marketing automation">Ai-driven marketing automation</option>
                 </select>
 
-                <!-- Custom Multi-Select Dropdown UI -->
-                <div class="contact-multiselect" id="contactServicesMultiselect">
-                  <div class="contact-select-trigger" tabindex="0" role="combobox" aria-expanded="false" aria-haspopup="listbox">
-                    <span class="contact-trigger-text" id="contactServicesTriggerText">Select your service</span>
-                    <svg class="contact-select-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                <!-- Custom Select Dropdown UI (Trionn Luxury Design) -->
+                <div class="trionn-select-wrap" id="trionnServicesSelect">
+                  <div class="trionn-select-trigger" tabindex="0" role="combobox" aria-expanded="false" aria-haspopup="listbox">
+                    <span class="trionn-select-text" id="trionnSelectTriggerText">Select a service</span>
+                    <svg class="trionn-select-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
                   </div>
 
-                  <div class="contact-options-panel" role="listbox">
-                    <div style="padding: 6px 12px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: #64748B; background: #F8FAFC;">Zoho Applications</div>
-                    <label class="contact-option-item"><input type="checkbox" data-service-val="Zoho CRM"><span>Zoho CRM</span></label>
-                    <label class="contact-option-item"><input type="checkbox" data-service-val="Zoho CRM Plus"><span>Zoho CRM Plus</span></label>
-                    <label class="contact-option-item"><input type="checkbox" data-service-val="Bigin"><span>Bigin</span></label>
-                    <label class="contact-option-item"><input type="checkbox" data-service-val="Zoho One"><span>Zoho One</span></label>
-                    <label class="contact-option-item"><input type="checkbox" data-service-val="Zoho Creator"><span>Zoho Creator</span></label>
-                    <label class="contact-option-item"><input type="checkbox" data-service-val="Zoho Flow"><span>Zoho Flow</span></label>
-                    <label class="contact-option-item"><input type="checkbox" data-service-val="Zoho Books"><span>Zoho Books</span></label>
-                    <label class="contact-option-item"><input type="checkbox" data-service-val="Zoho Invoice"><span>Zoho Invoice</span></label>
-                    <label class="contact-option-item"><input type="checkbox" data-service-val="Zoho Expense"><span>Zoho Expense</span></label>
-                    <label class="contact-option-item"><input type="checkbox" data-service-val="Zoho Inventory"><span>Zoho Inventory</span></label>
-                    <label class="contact-option-item"><input type="checkbox" data-service-val="Zoho Checkout"><span>Zoho Checkout</span></label>
-                    <label class="contact-option-item"><input type="checkbox" data-service-val="Zoho Desk"><span>Zoho Desk</span></label>
-                    <label class="contact-option-item"><input type="checkbox" data-service-val="Zoho Assist"><span>Zoho Assist</span></label>
-                    <label class="contact-option-item"><input type="checkbox" data-service-val="Zoho Lens"><span>Zoho Lens</span></label>
-                    <label class="contact-option-item"><input type="checkbox" data-service-val="Zoho SalesIQ"><span>Zoho SalesIQ</span></label>
-                    <label class="contact-option-item"><input type="checkbox" data-service-val="Zoho Marketing Automation"><span>Zoho Marketing Automation</span></label>
-                    <label class="contact-option-item"><input type="checkbox" data-service-val="Zoho Social"><span>Zoho Social</span></label>
-                    <label class="contact-option-item"><input type="checkbox" data-service-val="Zoho Campaigns"><span>Zoho Campaigns</span></label>
-                    <label class="contact-option-item"><input type="checkbox" data-service-val="Zoho Forms"><span>Zoho Forms</span></label>
-                    <label class="contact-option-item"><input type="checkbox" data-service-val="Zoho Sign"><span>Zoho Sign</span></label>
-                    <label class="contact-option-item"><input type="checkbox" data-service-val="Zoho Bookings"><span>Zoho Bookings</span></label>
-                    <label class="contact-option-item"><input type="checkbox" data-service-val="Zoho Backstage"><span>Zoho Backstage</span></label>
-                    <label class="contact-option-item"><input type="checkbox" data-service-val="Zoho People"><span>Zoho People</span></label>
-                    <label class="contact-option-item"><input type="checkbox" data-service-val="Zoho People Plus"><span>Zoho People Plus</span></label>
-                    <label class="contact-option-item"><input type="checkbox" data-service-val="Zoho Recruit"><span>Zoho Recruit</span></label>
-                    <label class="contact-option-item"><input type="checkbox" data-service-val="Zoho Payroll"><span>Zoho Payroll</span></label>
-                    <label class="contact-option-item"><input type="checkbox" data-service-val="Zoho Mail"><span>Zoho Mail</span></label>
-                    <label class="contact-option-item"><input type="checkbox" data-service-val="Zoho Cliq"><span>Zoho Cliq</span></label>
-                    <label class="contact-option-item"><input type="checkbox" data-service-val="Zoho WorkDrive"><span>Zoho WorkDrive</span></label>
-                    <label class="contact-option-item"><input type="checkbox" data-service-val="Zoho Projects"><span>Zoho Projects</span></label>
-                    <label class="contact-option-item"><input type="checkbox" data-service-val="Zoho Meeting"><span>Zoho Meeting</span></label>
-                    <label class="contact-option-item"><input type="checkbox" data-service-val="Zoho Writer"><span>Zoho Writer</span></label>
-                    <label class="contact-option-item"><input type="checkbox" data-service-val="Zoho Sheet"><span>Zoho Sheet</span></label>
-                    <label class="contact-option-item"><input type="checkbox" data-service-val="Zoho Show"><span>Zoho Show</span></label>
-                    <label class="contact-option-item"><input type="checkbox" data-service-val="Zoho Analytics"><span>Zoho Analytics</span></label>
-                    <label class="contact-option-item"><input type="checkbox" data-service-val="Zoho DataPrep"><span>Zoho DataPrep</span></label>
+                  <div class="trionn-options-menu" role="listbox">
+                    <div class="trionn-opt-group-label" style="color: #60A5FA;">Salesforce Solutions</div>
+                    <label class="trionn-opt-item"><input type="checkbox" data-service-val="Salesfoce Developement"><span>Salesforce Development &amp; Consulting</span></label>
+                    <label class="trionn-opt-item"><input type="checkbox" data-service-val="Salesforce Sales Cloud"><span>Salesforce Sales Cloud</span></label>
+                    <label class="trionn-opt-item"><input type="checkbox" data-service-val="Salesforce Service Cloud"><span>Salesforce Service Cloud</span></label>
 
-                    <div style="padding: 6px 12px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: #64748B; background: #F8FAFC;">Digital Marketing &amp; Strategy</div>
-                    <label class="contact-option-item"><input type="checkbox" data-service-val="Performance marketing"><span>Performance marketing</span></label>
-                    <label class="contact-option-item"><input type="checkbox" data-service-val="Search engine optimization"><span>Search engine optimization</span></label>
-                    <label class="contact-option-item"><input type="checkbox" data-service-val="Advertising"><span>Advertising</span></label>
-                    <label class="contact-option-item"><input type="checkbox" data-service-val="Social media management"><span>Social media management</span></label>
-                    <label class="contact-option-item"><input type="checkbox" data-service-val="Content marketing"><span>Content marketing</span></label>
-                    <label class="contact-option-item"><input type="checkbox" data-service-val="Ai-driven marketing automation"><span>Ai-driven marketing automation</span></label>
-                    <label class="contact-option-item"><input type="checkbox" data-service-val="Influencer marketing"><span>Influencer marketing</span></label>
-                    <label class="contact-option-item"><input type="checkbox" data-service-val="Branding"><span>Branding</span></label>
-                    <label class="contact-option-item"><input type="checkbox" data-service-val="Email marketing"><span>Email marketing</span></label>
-                    <label class="contact-option-item"><input type="checkbox" data-service-val="Digital strategy creation"><span>Digital strategy creation</span></label>
+                    <div class="trionn-opt-group-label">Zoho Applications</div>
+                    <label class="trionn-opt-item"><input type="checkbox" data-service-val="Zoho CRM"><span>Zoho CRM</span></label>
+                    <label class="trionn-opt-item"><input type="checkbox" data-service-val="Zoho CRM Plus"><span>Zoho CRM Plus</span></label>
+                    <label class="trionn-opt-item"><input type="checkbox" data-service-val="Bigin"><span>Bigin</span></label>
+                    <label class="trionn-opt-item"><input type="checkbox" data-service-val="Zoho One"><span>Zoho One</span></label>
+                    <label class="trionn-opt-item"><input type="checkbox" data-service-val="Zoho Creator"><span>Zoho Creator</span></label>
+                    <label class="trionn-opt-item"><input type="checkbox" data-service-val="Zoho Flow"><span>Zoho Flow</span></label>
+                    <label class="trionn-opt-item"><input type="checkbox" data-service-val="Zoho Books"><span>Zoho Books</span></label>
+                    <label class="trionn-opt-item"><input type="checkbox" data-service-val="Zoho Invoice"><span>Zoho Invoice</span></label>
+                    <label class="trionn-opt-item"><input type="checkbox" data-service-val="Zoho Expense"><span>Zoho Expense</span></label>
+                    <label class="trionn-opt-item"><input type="checkbox" data-service-val="Zoho Inventory"><span>Zoho Inventory</span></label>
+                    <label class="trionn-opt-item"><input type="checkbox" data-service-val="Zoho Desk"><span>Zoho Desk</span></label>
+                    <label class="trionn-opt-item"><input type="checkbox" data-service-val="Zoho SalesIQ"><span>Zoho SalesIQ</span></label>
+                    <label class="trionn-opt-item"><input type="checkbox" data-service-val="Zoho Analytics"><span>Zoho Analytics</span></label>
 
-                    <div style="padding: 6px 12px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: #64748B; background: #F8FAFC;">Salesforce Development</div>
-                    <label class="contact-option-item"><input type="checkbox" data-service-val="Salesfoce Developement"><span>Salesforce Development &amp; Consulting</span></label>
-                    <label class="contact-option-item"><input type="checkbox" data-service-val="Salesforce Sales Cloud"><span>Salesforce Sales Cloud</span></label>
-                    <label class="contact-option-item"><input type="checkbox" data-service-val="Salesforce Service Cloud"><span>Salesforce Service Cloud</span></label>
+                    <div class="trionn-opt-group-label">Digital Marketing &amp; Strategy</div>
+                    <label class="trionn-opt-item"><input type="checkbox" data-service-val="Performance marketing"><span>Performance marketing</span></label>
+                    <label class="trionn-opt-item"><input type="checkbox" data-service-val="Search engine optimization"><span>Search engine optimization</span></label>
+                    <label class="trionn-opt-item"><input type="checkbox" data-service-val="Advertising"><span>Advertising</span></label>
+                    <label class="trionn-opt-item"><input type="checkbox" data-service-val="Social media management"><span>Social media management</span></label>
+                    <label class="trionn-opt-item"><input type="checkbox" data-service-val="Ai-driven marketing automation"><span>AI-driven marketing automation</span></label>
+                    <label class="trionn-opt-item"><input type="checkbox" data-service-val="Branding"><span>Branding</span></label>
+                    <label class="trionn-opt-item"><input type="checkbox" data-service-val="Email marketing"><span>Email marketing</span></label>
+                    <label class="trionn-opt-item"><input type="checkbox" data-service-val="Digital strategy creation"><span>Digital strategy creation</span></label>
+                    <label class="trionn-opt-item"><input type="checkbox" data-service-val="Content marketing"><span>Content marketing</span></label>
+                    <label class="trionn-opt-item"><input type="checkbox" data-service-val="Influencer marketing"><span>Influencer marketing</span></label>
                   </div>
                 </div>
 
-                <div class="contact-chips-wrap" id="contactSelectedChips"></div>
+                <div class="trionn-chips-display" id="trionnSelectedChips"></div>
               </div>
 
-              <!-- Row 4: Description (Full Width) -->
-              <div class="contact-field-wrap">
-                <label for="Description" class="contact-field-label">Description <span class="req">*</span></label>
-                <textarea id="Description" name="Description" class="contact-field-textarea" placeholder="Description" rows="4" aria-multiline="true" aria-required="true" required></textarea>
-              </div>
-
-              <!-- Row 5: Captcha Verification -->
-              <div class="contact-form-row">
-                <div class="contact-field-wrap">
-                  <label for="captchaField1353623000000711081" id="reCaptchaField" class="contact-field-label">Enter Captcha <span class="req">*</span></label>
-                  <input type="text" id="captchaField1353623000000711081" aria-labelledby="reCaptchaField" aria-valuemax="10" maxlength="10" name="enterdigest" class="contact-field-input" placeholder="Enter captcha code" required>
-                  <div id="captchaErr1353623000000711081" aria-live="polite" style="font-size: 12px; color: #EF4444; visibility: hidden; margin-top: 4px;"></div>
+              <!-- Field 6: Description (Full Width) -->
+              <div class="form-field-group form-col-span-2">
+                <div class="form-badge-bar">
+                  <label for="Description" class="form-input-badge">Description *</label>
                 </div>
-                <div class="contact-field-wrap" style="justify-content: flex-end;">
-                  <div style="display: flex; align-items: center; gap: 10px; min-height: 42px; margin-bottom: 2px;">
-                    <img id="imgid1353623000000711081" src="https://crm.zoho.in/crm/CaptchaServlet?formId=c7d190d05df7e2311efa856299060097f6a301802a98bc00b6b00fbfae0f9cee7e24d455a1b96321724d6728fe106a58&grpid=2e487a3c0ff6fd4d79a558f95be466cbb40a55fb9208e9e076d8694f2512d99f" alt="Captcha" style="border-radius: 8px; border: 1px solid #E2E8F0; background: #FFFFFF; height: 42px; box-sizing: border-box;">
-                    <a href="javascript:;" onclick="reloadImg1353623000000711081();" style="display: inline-flex; align-items: center; gap: 6px; font-family: 'Inter', -apple-system, sans-serif; font-size: 13px; font-weight: 600; color: #2563EB; text-decoration: none; cursor: pointer; padding: 10px 14px; background: #EFF6FF; border: 1px solid #DBEAFE; border-radius: 8px; transition: all 0.2s;" onmouseover="this.style.background='#DBEAFE'" onmouseout="this.style.background='#EFF6FF'">
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
-                      Reload
-                    </a>
+                <textarea id="Description" name="Description" class="trionn-textarea" placeholder="Describe your goals, requirements, clouds, or business needs... *" rows="4" aria-multiline="true" aria-required="true" required></textarea>
+              </div>
+
+              <!-- Field 7: Captcha Verification & Submit Inquiry Button in Same Line -->
+              <div class="form-field-group form-col-span-2 form-captcha-submit-group">
+                <div class="trionn-captcha-submit-row">
+                  <div class="trionn-captcha-left-block">
+                    <input type="text" id="captchaField1353623000000711081" aria-labelledby="reCaptchaField" maxlength="10" name="enterdigest" class="trionn-input trionn-captcha-code-input" placeholder="Enter captcha code *" required>
+                    
+                    <div class="trionn-captcha-img-wrap">
+                      <img id="imgid1353623000000711081" src="https://crm.zoho.in/crm/CaptchaServlet?formId=c7d190d05df7e2311efa856299060097f6a301802a98bc00b6b00fbfae0f9cee7e24d455a1b96321724d6728fe106a58&grpid=2e487a3c0ff6fd4d79a558f95be466cbb40a55fb9208e9e076d8694f2512d99f" alt="Captcha" class="trionn-captcha-img">
+                      <a href="javascript:;" onclick="reloadImg1353623000000711081();" class="trionn-captcha-reload" title="Reload captcha">
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
+                        Reload
+                      </a>
+                    </div>
+                  </div>
+
+                  <!-- Submit Button with Underline & Arrow Animation (Inline with Captcha) -->
+                  <div class="trionn-submit-wrap">
+                    <button type="submit" id="formsubmit" class="trionn-submit-btn formsubmit" role="button" aria-label="Send Inquiry">
+                      <span>SEND INQUIRY</span>
+                      <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                      </svg>
+                      <span class="btn-underline"></span>
+                    </button>
                   </div>
                 </div>
+                <div id="captchaErr1353623000000711081" aria-live="polite" style="font-size: 12px; color: #FF6B50; visibility: hidden; margin-top: 6px;"></div>
               </div>
 
-              <!-- Row 6: Full-Width Blue Send Button -->
-              <div>
-                <button type="submit" id="formsubmit" class="contact-send-btn formsubmit" role="button" value="Send" aria-label="Send Message" title="Send Message">
-                  Send
-                </button>
-              </div>
+            </div>
 
-              <!-- Zoho CRM Analytics Script -->
-              <script id="wf_anal" src="https://crm.zohopublic.in/crm/WebFormAnalyticsServeServlet?rid=f9e0b39d8ca7e2eb148c4c91c36555954dcb8d1b5dadbd49cda2c602da0e7772405f4bb7c02648531dfc1a05c63cbf17gidb6c617e8c73e2f94b3d352dfbf5824f1840255a175f22a3128c1efe7cc0a77b5gid283227293b4b7e23a29bc3f79cb0ffdfb785ed213cf33f04de0d1b4fd4136acbgidffd1ada594547c4238a08294b39b7ed47a25f67ee473b34bc8fd1a9ed617cca8&tw=34a697096648e60826ecb3980004bfe46388a6ac8726f64cf277c96332762d9d&version=v2"></script>
-            </form>
-            <iframe name="captchaFrame" style="display:none;"></iframe>
+            <!-- Zoho CRM Analytics Script -->
+            <script id="wf_anal" src="https://crm.zohopublic.in/crm/WebFormAnalyticsServeServlet?rid=f9e0b39d8ca7e2eb148c4c91c36555954dcb8d1b5dadbd49cda2c602da0e7772405f4bb7c02648531dfc1a05c63cbf17gidb6c617e8c73e2f94b3d352dfbf5824f1840255a175f22a3128c1efe7cc0a77b5gid283227293b4b7e23a29bc3f79cb0ffdfb785ed213cf33f04de0d1b4fd4136acbgidffd1ada594547c4238a08294b39b7ed47a25f67ee473b34bc8fd1a9ed617cca8&tw=34a697096648e60826ecb3980004bfe46388a6ac8726f64cf277c96332762d9d&version=v2"></script>
+          </form>
+          <iframe name="captchaFrame" style="display:none;"></iframe>
+        </div>
+
+        <!-- Single-Column Location & Contact Mobile Block (Above Map, Covered by Video) -->
+        <div class="contact-location-info-bar">
+          <div class="location-info-item">
+            <div class="location-icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+            </div>
+            <div class="location-content">
+              <span class="location-label">Location Address</span>
+              <p class="location-text">Digiolic Solutions, BHIVE Premium HSR, Bangalore, Karnataka, India</p>
+            </div>
+          </div>
+
+          <div class="location-info-item">
+            <div class="location-icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+              </svg>
+            </div>
+            <div class="location-content">
+              <span class="location-label">Contact Mobile</span>
+              <p class="location-text">
+                <a href="tel:+919665530071" class="location-link">+91 96655 30071</a>
+              </p>
+            </div>
           </div>
         </div>
 
@@ -1205,7 +415,7 @@
     </section>
 
     <!-- ==========================================================================
-         SECTION 3: INTERACTIVE FULL-WIDTH GOOGLE MAP (BHIVE PREMIUM HSR, BANGALORE)
+         SECTION 3: FULL-WIDTH INTERACTIVE GOOGLE MAP (MATCHING DESIGN REFERENCE)
          ========================================================================== -->
     <section class="contact-map-section" id="contactMapSection" aria-label="Digiolic Bangalore Office Location Map">
       <iframe 
@@ -1221,9 +431,12 @@
   </main>
 
   <!-- ==========================================================================
-       FOOTER
+       SITE FOOTER (IDENTICAL TO ZOHO ENTERPRISE PAGE FOOTER)
        ========================================================================== -->
-  <footer class="site-footer">
+  <footer class="site-footer finsight-theme-footer" id="zohoFooter" aria-label="Digiolic Site Footer">
+    <!-- Ambient Blue Radiant Glow (Abstract from FinSight) -->
+    <div class="finsight-footer-abstract" aria-hidden="true"></div>
+
     <div class="container-home-compact">
 
       <div class="footer-grid">
@@ -1236,7 +449,6 @@
           <p>
             Architecting next-generation enterprise business systems. Unified Zoho One, Salesforce Cloud, and performance growth marketing.
           </p>
-
         </div>
 
         <!-- 2) Services (After Digiolic) -->
@@ -1258,8 +470,8 @@
               <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
             </svg>
             <div>
-              <span style="display: block; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; color: #64748B; margin-bottom: 2px;">Mobile</span>
-              <a href="tel:+919665530071" class="footer-link" style="color: #F8FAFC; font-weight: 500;">+91 9665530071</a>
+              <span>Mobile</span>
+              <a href="tel:+919665530071" class="footer-link">+91 9665530071</a>
             </div>
           </div>
           <div class="footer-contact-item">
@@ -1268,8 +480,8 @@
               <polyline points="22,6 12,13 2,6"></polyline>
             </svg>
             <div>
-              <span style="display: block; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; color: #64748B; margin-bottom: 2px;">Email id</span>
-              <a href="mailto:info@digiolic.com" class="footer-link" style="color: #F8FAFC; font-weight: 500;">info@digiolic.com</a>
+              <span>Email id</span>
+              <a href="mailto:info@digiolic.com" class="footer-link">info@digiolic.com</a>
             </div>
           </div>
         </div>
@@ -1285,7 +497,18 @@
               <svg width="16" height="16" viewBox="0 0 24 24" fill="#0A66C2"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
             </a>
             <a href="https://www.instagram.com/digiolic?stkn=MWhmamRsMnB0M3ZlOQ==" target="_blank" rel="noopener noreferrer" class="footer-social-icon-btn" aria-label="Instagram">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="#0F172A"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24">
+                <defs>
+                  <linearGradient id="igIconGradContact" x1="0%" y1="100%" x2="100%" y2="0%">
+                    <stop offset="0%" stop-color="#f09433"/>
+                    <stop offset="25%" stop-color="#e6683c"/>
+                    <stop offset="50%" stop-color="#dc2743"/>
+                    <stop offset="75%" stop-color="#cc2366"/>
+                    <stop offset="100%" stop-color="#bc1888"/>
+                  </linearGradient>
+                </defs>
+                <path fill="url(#igIconGradContact)" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+              </svg>
             </a>
             <a href="https://youtube.com/@digiolic5977?si=L4YyP_snrB2UKgS3" target="_blank" rel="noopener noreferrer" class="footer-social-icon-btn" aria-label="YouTube">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="#0284C7"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
@@ -1357,9 +580,14 @@
     </div>
   </footer>
 
+  <!-- Scripts: Main, GSAP, ScrollTrigger, Contact Controller -->
   <script src="../js/main.js?v=20260920_v302"></script>
+  <script src="../js/gsap.min.js"></script>
+  <script src="../js/ScrollTrigger.min.js"></script>
+  <script src="../js/contact-trionn.js?v=20261025_audio_v2"></script>
+  <script src="../js/cinematic-menu.js?v=20261004_v5"></script>
 
-  <!-- Zoho CRM Web-to-Lead Validation Scripts -->
+  <!-- Zoho CRM Web-to-Lead Validation Scripts (Preserved 100%) -->
   <script>
     function reloadImg1353623000000711081() {
       var captcha = document.getElementById('imgid1353623000000711081');
@@ -1376,7 +604,7 @@
       var submitBtn = document.querySelector('.crmWebToEntityForm .formsubmit') || document.getElementById('formsubmit');
       if (submitBtn) {
         submitBtn.removeAttribute('disabled');
-        submitBtn.textContent = 'Send';
+        submitBtn.querySelector('span').textContent = 'SEND INQUIRY';
       }
       reloadImg1353623000000711081();
       window.removeEventListener('focus', historyBack1353623000000711081);
@@ -1418,7 +646,7 @@
             }
             alert(fldLangVal[i] + ' cannot be empty.');
             if (mndFileds[i] === 'LEADCF1' || mndFileds[i] === 'LEADCF2') {
-              var trigger = document.querySelector('#contactServicesMultiselect .contact-select-trigger');
+              var trigger = document.querySelector('#trionnServicesSelect .trionn-select-trigger');
               if (trigger) trigger.focus();
             } else {
               fieldObj.focus();
@@ -1466,7 +694,8 @@
       var submitBtn = document.querySelector('.crmWebToEntityForm .formsubmit') || document.getElementById('formsubmit');
       if (submitBtn) {
         submitBtn.setAttribute('disabled', 'true');
-        submitBtn.textContent = 'Sending...';
+        var span = submitBtn.querySelector('span');
+        if (span) span.textContent = 'SENDING...';
       }
       if (!isAjax) {
         window.addEventListener('focus', historyBack1353623000000711081);
@@ -1490,107 +719,12 @@
     _wfa_fstprtcken[1410226000000468646] = true;
   </script>
 
-  <!-- Interactive Multi-Select for Contact Page -->
-  <script>
-    (function () {
-      const contactMs = document.getElementById('contactServicesMultiselect');
-      const nativeSelect = document.getElementById('LEADCF1') || document.getElementById('LEADCF2');
-      if (!contactMs || !nativeSelect) return;
-
-      const trigger = contactMs.querySelector('.contact-select-trigger');
-      const triggerText = document.getElementById('contactServicesTriggerText');
-      const options = contactMs.querySelectorAll('.contact-option-item input[type="checkbox"]');
-      const chipsWrap = document.getElementById('contactSelectedChips');
-
-      function updateContactServices() {
-        const selected = [];
-        // Clear native selection
-        Array.from(nativeSelect.options).forEach(opt => opt.selected = false);
-
-        options.forEach(opt => {
-          if (opt.checked) {
-            const val = opt.getAttribute('data-service-val');
-            selected.push(val);
-            // Match in native select
-            Array.from(nativeSelect.options).forEach(nativeOpt => {
-              if (nativeOpt.value.toLowerCase() === val.toLowerCase()) {
-                nativeOpt.selected = true;
-              }
-            });
-          }
-        });
-
-        chipsWrap.innerHTML = '';
-        if (selected.length === 0) {
-          triggerText.textContent = 'Select your service';
-          triggerText.classList.remove('has-selection');
-        } else {
-          triggerText.textContent = `${selected.length} service${selected.length > 1 ? 's' : ''} selected`;
-          triggerText.classList.add('has-selection');
-
-          selected.forEach(svc => {
-            const chip = document.createElement('span');
-            chip.className = 'contact-chip';
-            chip.innerHTML = `${svc} <span class="contact-chip-remove" data-val="${svc}">&times;</span>`;
-            chipsWrap.appendChild(chip);
-          });
-        }
-      }
-
-      window.selectContactService = function(val) {
-        options.forEach(opt => {
-          if (opt.getAttribute('data-service-val') === val) {
-            opt.checked = true;
-          }
-        });
-        updateContactServices();
-      };
-
-
-      trigger.addEventListener('click', (e) => {
-        e.stopPropagation();
-        contactMs.classList.toggle('open');
-        trigger.setAttribute('aria-expanded', contactMs.classList.contains('open'));
-      });
-
-      document.addEventListener('click', (e) => {
-        if (!contactMs.contains(e.target)) {
-          contactMs.classList.remove('open');
-          trigger.setAttribute('aria-expanded', 'false');
-        }
-      });
-
-      options.forEach(opt => {
-        opt.addEventListener('change', updateContactServices);
-      });
-
-      chipsWrap.addEventListener('click', (e) => {
-        if (e.target.classList.contains('contact-chip-remove')) {
-          const val = e.target.getAttribute('data-val');
-          options.forEach(opt => {
-            if (opt.getAttribute('data-service-val') === val) opt.checked = false;
-          });
-          updateContactServices();
-        }
-      });
-
-      updateContactServices();
-    })();
-  </script>
-
-  <!-- Zoho WebForm Analytics Tracking -->
-  <script>
-    if (typeof _wfa_fstprtcken === 'undefined') {
-      _wfa_fstprtcken = {};
-    }
-    _wfa_fstprtcken[1410226000000468646] = true;
-  </script>
-
-  <script>window.$zoho=window.$zoho || {};$zoho.salesiq=$zoho.salesiq||{ready:function(){}}</script><script id="zsiqscript" src="https://salesiq.zohopublic.in/widget?wc=siq51b6684c41df0e1af121afffdc0463aaf6467321cd38613932f63091f4465c11" defer></script>
+  <!-- Zoho SalesIQ Widget -->
+  <script>window.$zoho=window.$zoho || {};$zoho.salesiq=$zoho.salesiq||{ready:function(){}}</script>
+  <script id="zsiqscript" src="https://salesiq.zohopublic.in/widget?wc=siq51b6684c41df0e1af121afffdc0463aaf6467321cd38613932f63091f4465c11" defer></script>
 
   <!-- Zoho Campaigns Web-Optin Script -->
   <script type="text/javascript">
-    // Safe shim for browser popup blockers so Zoho optin.min.js never crashes
     (function() {
       var _origOpen = window.open;
       window.open = function() {
@@ -1599,13 +733,8 @@
           if (w) return w;
         } catch (e) {}
         return {
-          document: {
-            body: { innerHTML: '' },
-            write: function() {},
-            close: function() {}
-          },
-          focus: function() {},
-          close: function() {},
+          document: { body: { innerHTML: '' }, write: function() {}, close: function() {} },
+          focus: function() {}, close: function() {},
           window: { history: { pushState: function() {} } }
         };
       };
@@ -1613,21 +742,10 @@
   </script>
   <script type="text/javascript" src="https://rxodjw-zgp4.maillist-manage.in/js/optin.min.js" onload="setupSF('sf3z58df09f8f9745c325b2e255ad73b0dfaee3e5aa3f3d8a8750b9faa5cd925d880','ZCFORMVIEW',false,'light',false,'0')"></script>
   <script type="text/javascript">
-    function runOnFormSubmit_sf3z58df09f8f9745c325b2e255ad73b0dfaee3e5aa3f3d8a8750b9faa5cd925d880(th){
-      /*Before submit event trigger*/
-    };
+    function runOnFormSubmit_sf3z58df09f8f9745c325b2e255ad73b0dfaee3e5aa3f3d8a8750b9faa5cd925d880(th){};
   </script>
 
-  <!-- Zoho Campaigns Optin Overlay & Success Popup -->
-  <div id="zcOptinOverLay" oncontextmenu="return false" style="display:none;text-align: center; background-color: rgb(0, 0, 0); opacity: 0.5; z-index: 10000; position: fixed; inset: 0; width: 100%; height: 100%;"></div>
-  <div id="zcOptinSuccessPopup" style="display:none;z-index: 10001;max-width: 600px; width: 90%; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: #FFFFFF; border: 1px solid #E6E6E6; border-radius: 16px; box-shadow: 0 10px 40px rgba(0,0,0,0.3); padding: 35px; box-sizing: border-box;">
-    <span style="position: absolute; top: 12px; right: 14px; z-index: 10002; cursor: pointer;" id="closeSuccess" onclick="document.getElementById('zcOptinSuccessPopup').style.display='none'; document.getElementById('zcOptinOverLay').style.display='none';">
-      <img src="https://rxodjw-zgp4.maillist-manage.in/images/videoclose.png" alt="Close" width="20" height="20">
-    </span>
-    <div id="zcOptinSuccessPanel"></div>
-  </div>
-
-  <!-- Floating Scroll Up/Down Navigation Button (Above Live Chat Widget) -->
+  <!-- Floating Scroll Up/Down Navigation Button -->
   <button type="button" id="floatingScrollNav" class="floating-scroll-nav is-down" aria-label="Scroll down" title="Scroll down">
     <svg class="scroll-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
       <polyline points="18 15 12 9 6 15"></polyline>

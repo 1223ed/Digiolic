@@ -1,0 +1,985 @@
+/* ==========================================================================
+   DIGIOLIC ENTERPRISE ARCHITECTURE — FEATHER 3D SCROLL SYSTEM
+   Inspired by composites.archi Awwwards-winning feather choreography & design
+   ========================================================================== */
+
+:root {
+  --feather-bg: #020204;
+  --feather-text-dark: #121316;
+  --feather-text-muted: #6B6964;
+  --feather-accent-amber: #f59e0b;
+}
+
+/* Outer Section: Tall container pinned by ScrollTrigger */
+.mai-pillars-scroll-section {
+  position: relative;
+  width: 100% !important;
+  height: 100vh !important;
+  min-height: 100vh !important;
+  background-color: #000000 !important;
+  background: #000000 !important;
+  color: var(--feather-text-dark, #121316) !important;
+  overflow: hidden !important;
+  z-index: 10 !important;
+  box-sizing: border-box !important;
+}
+
+/* Sticky Viewport Container */
+.mai-pillars-sticky-viewport {
+  position: relative !important;
+  width: 100% !important;
+  height: 100vh !important;
+  height: 100dvh !important;
+  overflow: hidden !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background-color: #000000 !important;
+  background: #000000 !important;
+  z-index: 10 !important;
+  box-sizing: border-box !important;
+}
+
+/* --------------------------------------------------------------------------
+   SECTION 6: ENTERPRISE TOOLING / BUILT WITH ZOHO'S MODERN TECHNOLOGY STACK
+   Dedicated full-viewport section with 11 floating 3D cards & central beam CTA
+   -------------------------------------------------------------------------- */
+.zoho-tech-stack-section {
+  position: relative !important;
+  width: 100% !important;
+  min-height: 100vh !important;
+  background: #010204 !important;
+  background-color: #010204 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  overflow: hidden !important;
+  perspective: 1400px !important;
+  z-index: 20 !important;
+  box-sizing: border-box !important;
+  padding: 5rem 1.5rem !important;
+}
+
+.zoho-tech-stack-section .zoho-tech-container,
+.zoho-tech-stack-stage .zoho-tech-container {
+  width: 100% !important;
+  max-width: 1600px !important;
+  margin: 0 auto !important;
+  padding: 0 1.5rem !important;
+  position: relative !important;
+  transform-style: preserve-3d !important;
+  z-index: 2 !important;
+}
+
+.zoho-tech-stack-section .zoho-3d-scene-wrap,
+.zoho-tech-stack-stage .zoho-3d-scene-wrap {
+  position: relative !important;
+  width: 100% !important;
+  min-height: 720px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transform-style: preserve-3d !important;
+}
+
+/* --------------------------------------------------------------------------
+   STAGE 0: SECTION INTRO (Identical to composites.archi slide [02])
+   Large White Feather on Left, Headline & Editorial Body on Right
+   -------------------------------------------------------------------------- */
+.mai-pillar-intro-stage {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  justify-content: center !important;
+  padding: 0 clamp(2rem, 5vw, 6rem) !important;
+  z-index: 10 !important;
+  background: transparent !important;
+  will-change: transform, opacity, clip-path !important;
+  pointer-events: auto !important;
+  box-sizing: border-box !important;
+}
+
+.feather-intro-editorial-wrap {
+  width: 100% !important;
+  max-width: 1420px !important;
+  margin: 0 auto !important;
+  display: flex !important;
+  flex-direction: column !important;
+  padding-left: clamp(2rem, 42vw, 48vw) !important; /* Allocates left column for hero 3D feather */
+  box-sizing: border-box !important;
+  z-index: 5 !important;
+}
+
+.feather-intro-header-block {
+  display: flex !important;
+  flex-direction: column !important;
+  margin-bottom: clamp(1.2rem, 2.5vh, 2.2rem) !important;
+}
+
+.feather-intro-index-tag {
+  font-family: 'SF Mono', 'Fira Code', 'Roboto Mono', monospace !important;
+  font-size: clamp(12px, 1vw, 15px) !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.18em !important;
+  color: rgba(255, 255, 255, 0.48) !important;
+  margin-bottom: clamp(0.75rem, 1.6vh, 1.4rem) !important;
+  text-transform: uppercase !important;
+}
+
+.feather-intro-headline {
+  font-family: 'Manrope', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+  font-size: clamp(2.5rem, 4.6vw, 5.2rem) !important;
+  font-weight: 800 !important;
+  line-height: 1.04 !important;
+  letter-spacing: -0.04em !important;
+  text-transform: uppercase !important;
+  margin: 0 !important;
+}
+
+.feather-intro-headline span {
+  display: block !important;
+  white-space: nowrap !important;
+}
+
+.feather-headline-muted {
+  color: rgba(255, 255, 255, 0.42) !important;
+  font-weight: 700 !important;
+}
+
+.feather-headline-bright {
+  color: #FFFFFF !important;
+  font-weight: 800 !important;
+  text-shadow: 0 0 32px rgba(255, 255, 255, 0.2) !important;
+}
+
+.feather-intro-editorial-body {
+  max-width: 500px !important;
+  margin-left: auto !important; /* Right aligned offset matching composites.archi */
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 1.25rem !important;
+  padding-top: clamp(0.5rem, 1vh, 1.2rem) !important;
+}
+
+.feather-editorial-p {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+  font-size: clamp(0.92rem, 1.1vw, 1.05rem) !important;
+  line-height: 1.68 !important;
+  color: rgba(255, 255, 255, 0.68) !important;
+  margin: 0 !important;
+  font-weight: 400 !important;
+}
+
+.mai-pillar-scroll-indicator {
+  position: absolute !important;
+  bottom: clamp(20px, 3.5vh, 40px) !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  color: rgba(255, 255, 255, 0.6) !important;
+  font-family: 'Inter', -apple-system, sans-serif !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.12em !important;
+  text-transform: uppercase !important;
+  cursor: pointer !important;
+  transition: all 0.25s ease !important;
+  padding: 8px 18px !important;
+  border-radius: 999px !important;
+  background: rgba(255, 255, 255, 0.06) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  backdrop-filter: blur(8px) !important;
+  user-select: none !important;
+  z-index: 12 !important;
+}
+
+.mai-pillar-scroll-indicator:hover {
+  background: rgba(255, 255, 255, 0.14) !important;
+  color: #FFFFFF !important;
+  transform: translateX(-50%) translateY(2px) !important;
+}
+
+.mai-scroll-mouse-icon {
+  width: 16px !important;
+  height: 24px !important;
+  border: 1.5px solid currentColor !important;
+  border-radius: 8px !important;
+  display: inline-flex !important;
+  justify-content: center !important;
+  padding-top: 4px !important;
+  box-sizing: border-box !important;
+}
+
+.mai-scroll-wheel-dot {
+  width: 2.5px !important;
+  height: 5px !important;
+  background: currentColor !important;
+  border-radius: 2px !important;
+  animation: maiWheel 1.8s ease-in-out infinite !important;
+}
+
+@keyframes maiWheel {
+  0% { transform: translateY(0); opacity: 1; }
+  60% { transform: translateY(6px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 0; }
+}
+
+/* --------------------------------------------------------------------------
+   FEATHER 3D WEBGL STAGE & CAD CONSTRUCTION GRID
+   -------------------------------------------------------------------------- */
+.feather-webgl-canvas-container {
+  position: absolute !important;
+  inset: 0 !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  z-index: 4 !important;
+  pointer-events: none !important;
+  overflow: hidden !important;
+}
+
+#featherWebglCanvas {
+  width: 100% !important;
+  height: 100% !important;
+  display: block !important;
+}
+
+/* Architectural CAD Line Grid (Hidden on Stage 0 Intro, displayed across pillar pages) */
+.feather-cad-grid {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  display: block !important;
+  pointer-events: none !important;
+  z-index: 5 !important;
+  overflow: hidden !important;
+  transition: opacity 0.4s ease, color 0.4s ease !important;
+}
+
+/* Hidden on Stage 0 Intro "FIVE PILLARS ENGINEERED FOR SCALE & RESILIENCE" */
+.mai-pillars-sticky-viewport.is-intro-active .feather-cad-grid {
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+}
+
+.feather-cad-grid svg {
+  width: 100% !important;
+  height: 100% !important;
+  display: block !important;
+}
+
+.feather-cad-side {
+  transition: opacity 0.35s cubic-bezier(0.25, 1, 0.5, 1) !important;
+  will-change: opacity !important;
+}
+
+/* --------------------------------------------------------------------------
+   THE 6 PILLAR STAGES: TWO-COLUMN EDITORIAL SPLIT LAYOUT
+   -------------------------------------------------------------------------- */
+.mai-pillar-slides-wrap {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  z-index: 15 !important;
+  pointer-events: none !important;
+}
+
+.mai-pillar-slide {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  box-sizing: border-box !important;
+}
+
+.feather-slide-split {
+  display: grid !important;
+  grid-template-columns: 1.15fr 0.85fr !important;
+  align-items: center !important;
+  width: 100% !important;
+  max-width: 1440px !important;
+  height: 100% !important;
+  margin: 0 auto !important;
+  padding: 0 clamp(30px, 6vw, 100px) !important;
+  box-sizing: border-box !important;
+  position: relative !important;
+  pointer-events: none !important;
+}
+
+.feather-slide-content {
+  pointer-events: auto !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  will-change: transform, opacity !important;
+}
+
+/* Left layout (Pillars 1, 3, 5): Content on Left, 3D Feather on Right */
+.feather-slide-split.is-content-left {
+  grid-template-columns: 1.15fr 0.85fr !important;
+}
+.feather-slide-split.is-content-left .feather-slide-content {
+  grid-column: 1 !important;
+  text-align: left !important;
+  max-width: 620px !important;
+}
+.feather-slide-split.is-content-left .feather-stage-spacer {
+  grid-column: 2 !important;
+  pointer-events: none !important;
+}
+
+/* Right layout (Pillars 2, 4): 3D Feather on Left, Content on Right */
+.feather-slide-split.is-content-right {
+  grid-template-columns: 0.85fr 1.15fr !important;
+}
+.feather-slide-split.is-content-right .feather-stage-spacer {
+  grid-column: 1 !important;
+  pointer-events: none !important;
+}
+.feather-slide-split.is-content-right .feather-slide-content {
+  grid-column: 2 !important;
+  text-align: left !important;
+  max-width: 620px !important;
+  margin-left: auto !important;
+}
+
+/* --------------------------------------------------------------------------
+   TYPOGRAPHY & ACCENTS (Exact Match to Video Frames 0.5s & 24.0s)
+   -------------------------------------------------------------------------- */
+
+/* Architectural Monospace Index Badge [ 01 ] */
+.feather-index-badge {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  font-family: 'SF Mono', 'Fira Code', 'Roboto Mono', monospace !important;
+  font-size: clamp(12px, 0.95vw, 14px) !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.2em !important;
+  text-transform: uppercase !important;
+  color: #f59e0b !important;
+  margin-bottom: clamp(16px, 2.2vh, 26px) !important;
+  transition: color 0.4s ease !important;
+}
+
+.feather-index-badge span:last-child {
+  color: rgba(255, 255, 255, 0.75) !important;
+}
+
+.feather-index-badge .feather-badge-accent {
+  width: 8px !important;
+  height: 8px !important;
+  background: #f59e0b !important; /* Golden architectural marker */
+  display: inline-block !important;
+  border-radius: 1px !important;
+  box-shadow: 0 0 10px rgba(245, 158, 11, 0.5) !important;
+}
+
+.mai-pillars-sticky-viewport.is-dark-slide .feather-index-badge,
+.mai-pillars-sticky-viewport .feather-index-badge {
+  color: #f59e0b !important;
+}
+
+/* Dual-Tone Bold Editorial Headline */
+.feather-slide-heading {
+  font-family: 'Cabinet Grotesk', 'Inter', -apple-system, sans-serif !important;
+  font-size: clamp(38px, 4.8vw, 72px) !important;
+  font-weight: 900 !important;
+  line-height: 0.98 !important;
+  letter-spacing: -0.04em !important;
+  text-transform: uppercase !important;
+  margin: 0 0 clamp(18px, 2.6vh, 32px) 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.feather-heading-muted {
+  color: rgba(255, 255, 255, 0.52) !important;
+  font-weight: 700 !important;
+  display: block !important;
+  transition: color 0.4s ease !important;
+}
+
+.feather-heading-bold {
+  color: #FFFFFF !important;
+  font-weight: 900 !important;
+  display: block !important;
+  transition: color 0.4s ease !important;
+  text-shadow: 0 2px 28px rgba(255, 255, 255, 0.15) !important;
+}
+
+.mai-pillars-sticky-viewport.is-dark-slide .feather-heading-muted,
+.mai-pillars-sticky-viewport .feather-heading-muted {
+  color: rgba(255, 255, 255, 0.52) !important;
+}
+
+.mai-pillars-sticky-viewport.is-dark-slide .feather-heading-bold,
+.mai-pillars-sticky-viewport .feather-heading-bold {
+  color: #FFFFFF !important;
+  text-shadow: 0 2px 28px rgba(255, 255, 255, 0.15) !important;
+}
+
+/* Two-Paragraph Body Copy */
+.feather-paragraphs-wrap {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: clamp(12px, 1.6vh, 18px) !important;
+  margin-bottom: clamp(20px, 3vh, 34px) !important;
+}
+
+.feather-paragraph {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+  font-size: clamp(14.5px, 1.15vw, 16.5px) !important;
+  line-height: 1.68 !important;
+  color: rgba(255, 255, 255, 0.82) !important;
+  margin: 0 !important;
+  transition: color 0.4s ease !important;
+}
+
+.mai-pillars-sticky-viewport.is-dark-slide .feather-paragraph,
+.mai-pillars-sticky-viewport .feather-paragraph {
+  color: rgba(255, 255, 255, 0.82) !important;
+}
+
+/* Technical Capabilities Pills / Chips */
+.feather-chips-row {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 10px !important;
+}
+
+.feather-chip {
+  display: inline-flex !important;
+  align-items: center !important;
+  font-family: 'Inter', -apple-system, sans-serif !important;
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.04em !important;
+  padding: 6px 15px !important;
+  border-radius: 999px !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+  border: 1px solid rgba(255, 255, 255, 0.18) !important;
+  color: rgba(255, 255, 255, 0.9) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+  transition: all 0.25s ease !important;
+}
+
+.feather-chip:hover {
+  background: rgba(255, 255, 255, 0.18) !important;
+  border-color: rgba(255, 255, 255, 0.35) !important;
+  color: #FFFFFF !important;
+  transform: translateY(-1px) !important;
+}
+
+.mai-pillars-sticky-viewport.is-dark-slide .feather-chip,
+.mai-pillars-sticky-viewport .feather-chip {
+  background: rgba(255, 255, 255, 0.08) !important;
+  border-color: rgba(255, 255, 255, 0.18) !important;
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
+.mai-pillars-sticky-viewport.is-dark-slide .feather-chip:hover,
+.mai-pillars-sticky-viewport .feather-chip:hover {
+  background: rgba(255, 255, 255, 0.18) !important;
+  border-color: rgba(255, 255, 255, 0.35) !important;
+}
+
+/* --------------------------------------------------------------------------
+   MINIMALIST BOTTOM CONTROL BAR (Matching Video frame 0.5s & 24.0s)
+   -------------------------------------------------------------------------- */
+.feather-bottom-controls {
+  position: absolute !important;
+  bottom: clamp(20px, 3.2vh, 40px) !important;
+  left: 0 !important;
+  right: 0 !important;
+  width: 100% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  padding: 0 clamp(30px, 6vw, 100px) !important;
+  box-sizing: border-box !important;
+  z-index: 20 !important;
+  pointer-events: none !important;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease, visibility 0.4s ease !important;
+}
+
+.feather-bottom-controls > * {
+  pointer-events: auto !important;
+}
+
+/* Live Progress Counter: [ 01 / 06 ] */
+.feather-progress-counter {
+  font-family: 'SF Mono', 'Fira Code', monospace !important;
+  font-size: 13.5px !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.18em !important;
+  color: rgba(255, 255, 255, 0.75) !important;
+  transition: color 0.4s ease !important;
+}
+
+.mai-pillars-sticky-viewport.is-dark-slide .feather-progress-counter,
+.mai-pillars-sticky-viewport .feather-progress-counter {
+  color: rgba(255, 255, 255, 0.75) !important;
+}
+
+/* Minimalist SKIP Button (Matching Video) */
+.feather-skip-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  font-family: 'Inter', -apple-system, sans-serif !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.22em !important;
+  text-transform: uppercase !important;
+  color: rgba(255, 255, 255, 0.75) !important;
+  background: rgba(255, 255, 255, 0.06) !important;
+  border: 1px solid rgba(255, 255, 255, 0.16) !important;
+  border-radius: 999px !important;
+  padding: 8px 18px !important;
+  cursor: pointer !important;
+  transition: all 0.25s ease !important;
+  outline: none !important;
+}
+
+.feather-skip-btn:hover {
+  color: #FFFFFF !important;
+  background: rgba(255, 255, 255, 0.14) !important;
+  border-color: rgba(255, 255, 255, 0.3) !important;
+  transform: translateY(-1px) !important;
+}
+
+.mai-pillars-sticky-viewport.is-dark-slide .feather-skip-btn,
+.mai-pillars-sticky-viewport .feather-skip-btn {
+  color: rgba(255, 255, 255, 0.75) !important;
+}
+
+/* Right Tag: SCROLL TO EXPLORE */
+.feather-bottom-tag {
+  font-family: 'SF Mono', 'Fira Code', monospace !important;
+  font-size: 11px !important;
+  letter-spacing: 0.15em !important;
+  text-transform: uppercase !important;
+  color: #6B6862 !important;
+  transition: color 0.4s ease !important;
+}
+
+.mai-pillars-sticky-viewport.is-dark-slide .feather-bottom-tag {
+  color: rgba(255, 255, 255, 0.5) !important;
+}
+
+/* Side Navigation Indicator Dots */
+.mai-pillar-nav-dots {
+  position: absolute !important;
+  right: clamp(16px, 2.5vw, 36px) !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 12px !important;
+  z-index: 25 !important;
+}
+
+.mai-nav-dot {
+  width: 7px !important;
+  height: 7px !important;
+  border-radius: 50% !important;
+  background: rgba(0, 0, 0, 0.2) !important;
+  border: none !important;
+  padding: 0 !important;
+  cursor: pointer !important;
+  transition: all 0.25s ease !important;
+}
+
+.mai-nav-dot.is-active {
+  background: #f59e0b !important;
+  transform: scale(1.5) !important;
+  box-shadow: 0 0 10px rgba(245, 158, 11, 0.5) !important;
+}
+
+.mai-pillars-sticky-viewport.is-dark-slide .mai-nav-dot {
+  background: rgba(255, 255, 255, 0.25) !important;
+}
+
+.mai-pillars-sticky-viewport.is-dark-slide .mai-nav-dot.is-active {
+  background: #f59e0b !important;
+}
+
+/* Mobile & Tablet Optimizations */
+@media (max-width: 900px) {
+  .feather-slide-split {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-end !important;
+    padding: 1.5rem !important;
+    padding-bottom: 5.5rem !important;
+  }
+  .feather-slide-split.is-content-left .feather-slide-content,
+  .feather-slide-split.is-content-right .feather-slide-content {
+    max-width: 100% !important;
+    margin: 0 !important;
+  }
+  .feather-stage-spacer {
+    display: none !important;
+  }
+  .feather-slide-heading {
+    font-size: clamp(28px, 6vw, 42px) !important;
+  }
+  .feather-paragraph {
+    font-size: 13.5px !important;
+    line-height: 1.5 !important;
+  }
+  .feather-bottom-controls {
+    padding: 0 1.5rem !important;
+    bottom: 16px !important;
+  }
+  .feather-bottom-tag {
+    display: none !important;
+  }
+  .mai-pillar-nav-dots {
+    display: none !important;
+  }
+}
+
+
+
+
+
+/* ==========================================================================
+   STAGE 0: BUILT WITH ZOHO'S MODERN TECHNOLOGY STACK (COMPOSITES.ARCHI SLIDE 1)
+   Light stone background (#ceccc7), 3D Black Feather on Right, Left Editorial
+   ========================================================================== */
+.feather-tech-stack-stage {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  justify-content: center !important;
+  padding: 0 clamp(2rem, 5vw, 6rem) !important;
+  z-index: 10 !important;
+  background: transparent !important;
+  will-change: transform, opacity !important;
+  pointer-events: auto !important;
+  box-sizing: border-box !important;
+}
+
+.feather-tech-editorial-wrap {
+  width: 100% !important;
+  max-width: 1420px !important;
+  margin: 0 auto !important;
+  display: flex !important;
+  flex-direction: column !important;
+  padding-right: clamp(2rem, 42vw, 48vw) !important; /* Allocates right column for 3D black feather */
+  box-sizing: border-box !important;
+  z-index: 5 !important;
+}
+
+.feather-tech-tag {
+  font-family: 'SF Mono', 'Fira Code', 'Roboto Mono', monospace !important;
+  font-size: clamp(12px, 1vw, 15px) !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.18em !important;
+  color: #d97706 !important;
+  margin-bottom: clamp(0.75rem, 1.6vh, 1.4rem) !important;
+  text-transform: uppercase !important;
+}
+
+.feather-tech-headline {
+  font-family: 'Manrope', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+  font-size: clamp(2.5rem, 4.6vw, 5.2rem) !important;
+  font-weight: 800 !important;
+  line-height: 1.02 !important;
+  letter-spacing: -0.04em !important;
+  text-transform: uppercase !important;
+  margin: 0 0 clamp(1rem, 2vh, 1.8rem) 0 !important;
+}
+
+.feather-headline-dark {
+  color: #121316 !important;
+  font-weight: 900 !important;
+}
+
+.feather-tech-editorial-body {
+  max-width: 540px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 1.25rem !important;
+}
+
+/* --------------------------------------------------------------------------
+   LIQUID CANOPY WAVE OVERLAY (Sweeps up from bottom during 0.07 <= p <= 0.16)
+   -------------------------------------------------------------------------- */
+.feather-liquid-canopy-layer {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  z-index: 8 !important;
+  pointer-events: none !important;
+  will-change: transform !important;
+  transform: translate3d(0, 105%, 0);
+}
+
+.feather-canopy-crest-img {
+  position: absolute !important;
+  top: -300px !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 320px !important;
+  background-image: url('../assets/feather/feather-canopy-wave.png') !important;
+  background-repeat: no-repeat !important;
+  background-position: bottom center !important;
+  background-size: 100% 100% !important;
+}
+
+.feather-canopy-solid-fill {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  background: #0a0b0e !important;
+}
+
+/* --------------------------------------------------------------------------
+   THE 5 PILLARS DEFY DESIGN (COMPOSITES.ARCHI DEFY GRAVITY WITH ELEGANCE)
+   Light stone (#ceccc7), 3D Black Feather on Left, Orange Square + Stacked Words on Right
+   -------------------------------------------------------------------------- */
+.feather-slide-split.is-defy-split {
+  display: grid !important;
+  grid-template-columns: 0.9fr 1.1fr !important;
+  align-items: center !important;
+  width: 100% !important;
+  max-width: 1440px !important;
+  height: 100% !important;
+  margin: 0 auto !important;
+  padding: 0 clamp(30px, 6vw, 100px) !important;
+  box-sizing: border-box !important;
+  position: relative !important;
+  pointer-events: none !important;
+}
+
+.feather-slide-split.is-defy-split .feather-stage-spacer {
+  grid-column: 1 !important;
+  pointer-events: none !important;
+}
+
+.feather-defy-content {
+  grid-column: 2 !important;
+  text-align: left !important;
+  max-width: 640px !important;
+  margin-left: auto !important;
+  pointer-events: auto !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  will-change: transform, opacity !important;
+}
+
+.feather-defy-tag-row {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  margin-bottom: clamp(14px, 2.2vh, 24px) !important;
+}
+
+.feather-defy-accent-square {
+  width: 9px !important;
+  height: 9px !important;
+  background: #f59e0b !important;
+  border-radius: 1px !important;
+  box-shadow: 0 0 10px rgba(245, 158, 11, 0.6) !important;
+  display: inline-block !important;
+  flex-shrink: 0 !important;
+}
+
+.feather-defy-tag {
+  font-family: 'SF Mono', 'Fira Code', 'Roboto Mono', monospace !important;
+  font-size: clamp(12px, 0.95vw, 14px) !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.2em !important;
+  text-transform: uppercase !important;
+  color: #52504b !important;
+}
+
+.feather-defy-heading {
+  font-family: 'Cabinet Grotesk', 'Inter', -apple-system, sans-serif !important;
+  font-size: clamp(42px, 5.2vw, 76px) !important;
+  font-weight: 900 !important;
+  line-height: 0.95 !important;
+  letter-spacing: -0.04em !important;
+  text-transform: uppercase !important;
+  margin: 0 0 clamp(18px, 2.6vh, 32px) 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.defy-word-bold {
+  color: #121316 !important;
+  font-weight: 900 !important;
+  display: block !important;
+}
+
+.defy-word-muted {
+  color: #92908a !important;
+  font-weight: 700 !important;
+  display: block !important;
+}
+
+/* --------------------------------------------------------------------------
+   THEME CLASSES (LIGHT GREY #cec9c9 FROM IMAGE 2 VS OBSIDIAN DARK #0a0b0e)
+   -------------------------------------------------------------------------- */
+.mai-pillars-sticky-viewport.is-light-theme {
+  --feather-bg: #cec9c9 !important;
+  background-color: #cec9c9 !important;
+  color: #121316 !important;
+}
+
+.mai-pillars-sticky-viewport.is-light-theme .feather-intro-headline .feather-headline-bright,
+.mai-pillars-sticky-viewport.is-light-theme .feather-heading-bold {
+  color: #121316 !important;
+  text-shadow: none !important;
+}
+
+.mai-pillars-sticky-viewport.is-light-theme .feather-intro-headline .feather-headline-muted,
+.mai-pillars-sticky-viewport.is-light-theme .feather-heading-muted {
+  color: #4b4844 !important;
+}
+
+.mai-pillars-sticky-viewport.is-light-theme .feather-intro-index-tag {
+  color: #b45309 !important;
+}
+
+.mai-pillars-sticky-viewport.is-light-theme .feather-index-badge {
+  color: #b45309 !important;
+}
+
+.mai-pillars-sticky-viewport.is-light-theme .feather-index-badge span:last-child {
+  color: #1e1d1b !important;
+}
+
+.mai-pillars-sticky-viewport.is-light-theme .feather-editorial-p,
+.mai-pillars-sticky-viewport.is-light-theme .feather-paragraph {
+  color: #2b2926 !important;
+}
+
+.mai-pillars-sticky-viewport.is-light-theme .mai-pillar-scroll-indicator {
+  color: #242220 !important;
+  background: rgba(0, 0, 0, 0.06) !important;
+  border: 1px solid rgba(0, 0, 0, 0.16) !important;
+}
+
+.mai-pillars-sticky-viewport.is-light-theme .mai-pillar-scroll-indicator:hover {
+  background: rgba(0, 0, 0, 0.12) !important;
+  color: #000000 !important;
+}
+
+.mai-pillars-sticky-viewport.is-light-theme .mai-scroll-mouse-icon {
+  border-color: rgba(0, 0, 0, 0.35) !important;
+}
+
+.mai-pillars-sticky-viewport.is-light-theme .mai-scroll-wheel-dot {
+  background: #121316 !important;
+}
+
+.mai-pillars-sticky-viewport.is-light-theme .feather-chip {
+  background: rgba(0, 0, 0, 0.06) !important;
+  border-color: rgba(0, 0, 0, 0.16) !important;
+  color: #1a1917 !important;
+  font-weight: 500 !important;
+}
+
+.mai-pillars-sticky-viewport.is-light-theme .feather-chip:hover {
+  background: rgba(0, 0, 0, 0.13) !important;
+  border-color: rgba(0, 0, 0, 0.3) !important;
+  color: #000000 !important;
+}
+
+.mai-pillars-sticky-viewport.is-light-theme .feather-progress-counter {
+  color: #121316 !important;
+}
+
+.mai-pillars-sticky-viewport.is-light-theme .feather-skip-btn {
+  color: #121316 !important;
+  background: rgba(0, 0, 0, 0.06) !important;
+  border-color: rgba(0, 0, 0, 0.18) !important;
+}
+
+.mai-pillars-sticky-viewport.is-light-theme .feather-skip-btn:hover {
+  background: rgba(0, 0, 0, 0.14) !important;
+  border-color: rgba(0, 0, 0, 0.3) !important;
+}
+
+.mai-pillars-sticky-viewport.is-light-theme .feather-bottom-tag {
+  color: #615e58 !important;
+}
+
+.mai-pillars-sticky-viewport.is-light-theme:not(.is-intro-active) .feather-cad-grid {
+  color: #1a1c22 !important;
+  opacity: 0.45 !important;
+}
+
+.mai-pillars-sticky-viewport.is-light-theme .mai-nav-dot {
+  background: rgba(0, 0, 0, 0.22) !important;
+}
+
+.mai-pillars-sticky-viewport.is-light-theme .mai-nav-dot.is-active {
+  background: #d97706 !important;
+}
+
+.mai-pillars-sticky-viewport.is-dark-theme,
+.mai-pillars-sticky-viewport.is-dark-slide {
+  --feather-bg: #0a0b0e !important;
+  background-color: #0a0b0e !important;
+  color: #FFFFFF !important;
+}
+
+.mai-pillars-sticky-viewport.is-dark-theme .feather-cad-grid,
+.mai-pillars-sticky-viewport.is-dark-slide .feather-cad-grid {
+  color: #FFFFFF !important;
+  opacity: 0.28 !important;
+}
+
+.mai-pillars-sticky-viewport.is-dark-theme .feather-progress-counter {
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+
+.mai-pillars-sticky-viewport.is-dark-theme .feather-skip-btn {
+  color: #FFFFFF !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+  border-color: rgba(255, 255, 255, 0.22) !important;
+}
+
+.mai-pillars-sticky-viewport.is-dark-theme .feather-bottom-tag {
+  color: rgba(255, 255, 255, 0.5) !important;
+}
+
+.mai-pillars-sticky-viewport.is-dark-theme .mai-nav-dot {
+  background: rgba(255, 255, 255, 0.25) !important;
+}
+
+.mai-pillars-sticky-viewport.is-dark-theme .mai-nav-dot.is-active {
+  background: #f59e0b !important;
+}

@@ -1,0 +1,234 @@
+/* ==========================================================================
+   CLIENT CHALLENGES & SOLUTIONS (MERCHANT SERVICES COMPARISON)
+   - High-contrast editorial serif typography
+   - Hand-drawn doodle underline and oval lasso loop accents
+   - 2-column comparative layout with organic center divider
+   ========================================================================== */
+
+.challenges-solutions-section {
+  width: 100%;
+  background: linear-gradient(
+    180deg,
+    #000000 0%,
+    #000000 5%,
+    #ffffff 5%,
+    #ffffff 95%,
+    #000000 95%,
+    #000000 100%
+  ) !important;
+  color: #111111 !important;
+  padding: clamp(80px, 9vw, 140px) clamp(24px, 5vw, 80px) !important;
+  box-sizing: border-box !important;
+  position: relative !important;
+  z-index: 10 !important;
+  overflow: hidden !important;
+  font-family: 'Playfair Display', Georgia, 'Times New Roman', serif !important;
+  -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale !important;
+}
+
+.cs-container {
+  max-width: 1320px;
+  margin: 0 auto;
+}
+
+/* Editorial Headline (Image 2) */
+.cs-header {
+  text-align: center;
+  margin-bottom: clamp(60px, 8vw, 100px);
+}
+
+.cs-main-heading {
+  font-family: 'Playfair Display', Georgia, serif !important;
+  font-size: clamp(28px, 3.6vw, 46px) !important;
+  font-weight: 400 !important;
+  line-height: 1.32 !important;
+  color: #111111 !important;
+  letter-spacing: -0.015em !important;
+  max-width: 1100px !important;
+  margin: 0 auto !important;
+}
+
+.cs-heading-accent {
+  font-style: normal !important;
+  color: #111111 !important;
+  display: inline-block !important;
+  margin-top: 4px !important;
+}
+
+/* Two-Column Comparison Grid (Image 1) */
+.cs-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 70px minmax(0, 1fr);
+  align-items: stretch;
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+.cs-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.cs-col-challenges {
+  padding-right: clamp(16px, 3vw, 40px);
+}
+
+.cs-col-solutions {
+  padding-left: clamp(16px, 3vw, 40px);
+}
+
+/* Column Titles with Hand-Drawn Marker Doodles */
+.cs-title-box {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 96px;
+  margin-bottom: clamp(40px, 5vw, 64px);
+  text-align: center;
+  width: 100%;
+}
+
+.cs-title-text {
+  font-family: 'Playfair Display', Georgia, serif !important;
+  font-size: clamp(30px, 3.2vw, 42px) !important;
+  font-weight: 400 !important;
+  color: #111111 !important;
+  letter-spacing: -0.01em !important;
+  position: relative !important;
+  z-index: 2 !important;
+  white-space: nowrap !important;
+}
+
+/* Hand-Drawn Underline under "Your challenges" */
+.cs-underline-wrap {
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cs-underline-svg {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 106%;
+  height: 20px;
+  pointer-events: none;
+  overflow: visible;
+  margin-top: 4px;
+}
+
+/* Hand-Drawn Oval Loop around "Our Solutions" */
+.cs-oval-wrap {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 44px;
+}
+
+.cs-oval-svg {
+  position: absolute;
+  inset: -6px -22px -6px -22px;
+  width: calc(100% + 44px);
+  height: calc(100% + 12px);
+  pointer-events: none;
+  overflow: visible;
+}
+
+/* Center Vertical Divider Line */
+.cs-divider {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  width: 70px;
+  position: relative;
+}
+
+.cs-divider-svg {
+  width: 8px;
+  height: 100%;
+  min-height: 420px;
+  overflow: visible;
+}
+
+/* List Items */
+.cs-list {
+  list-style: none !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: clamp(24px, 3.2vw, 36px) !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.cs-item {
+  display: flex !important;
+  align-items: flex-start !important;
+  gap: clamp(16px, 2vw, 26px) !important;
+  font-family: 'Playfair Display', Georgia, serif !important;
+  font-size: clamp(18px, 1.45vw, 22px) !important;
+  line-height: 1.42 !important;
+  color: #1a1a1a !important;
+  font-weight: 400 !important;
+  letter-spacing: -0.005em !important;
+}
+
+.cs-icon-box {
+  flex-shrink: 0;
+  width: 24px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1px;
+}
+
+.cs-icon-svg {
+  width: 21px;
+  height: 21px;
+  stroke: #111111 !important;
+  fill: none !important;
+  stroke-linecap: round !important;
+  stroke-linejoin: round !important;
+}
+
+.cs-icon-cross {
+  stroke-width: 2.2 !important;
+}
+
+.cs-icon-check {
+  stroke-width: 2.4 !important;
+}
+
+/* Responsive Behavior */
+@media (max-width: 960px) {
+  .cs-grid {
+    grid-template-columns: 1fr !important;
+    gap: 60px !important;
+  }
+
+  .cs-col-challenges {
+    padding-right: 0 !important;
+  }
+
+  .cs-col-solutions {
+    padding-left: 0 !important;
+  }
+
+  .cs-divider {
+    display: none !important;
+  }
+
+  .cs-title-box {
+    margin-bottom: 32px !important;
+  }
+
+  .cs-main-heading {
+    font-size: 24px !important;
+  }
+}

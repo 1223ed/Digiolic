@@ -1,0 +1,98 @@
+/**
+ * ============================================================================
+ * DIGIOLIC — CLIENT CHARACTER WAVE ANIMATION SYSTEM
+ * Replicating exact architectural text character wave emergence from
+ * Client Testimonials (#clientTestimonialsSection) & Why Choose Digiolic
+ * ============================================================================
+ */
+
+/* Line Overflow Mask: holds characters hidden below the baseline until triggered */
+.ct-wave-mask {
+  overflow: hidden !important;
+  display: block !important;
+  line-height: inherit;
+  padding: 0.04em 0;
+  vertical-align: top;
+}
+
+.ct-wave-mask-inline {
+  overflow: hidden !important;
+  display: inline-block !important;
+  vertical-align: top;
+  line-height: inherit;
+  padding: 0.04em 0;
+}
+
+.ct-wave-line {
+  display: block;
+  line-height: inherit;
+}
+
+/* Individual character split for silky upward wave emergence */
+.ct-wave-char {
+  display: inline-block !important;
+  transform: translate3d(0, 115%, 0);
+  opacity: 0;
+  will-change: transform, opacity;
+  transition: transform 0.68s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.68s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.ct-wave-char.space {
+  display: inline-block !important;
+  width: 0.28em;
+}
+
+/* Active State: Characters glide up into place */
+.ct-wave-active .ct-wave-char,
+.is-wave-revealed .ct-wave-char {
+  transform: translate3d(0, 0, 0) !important;
+  opacity: 1 !important;
+}
+
+/* Monumental Architectural Watermark (About Us Page "DIGIOLIC") */
+.vv-monumental-watermark {
+  width: 100%;
+  text-align: center;
+  pointer-events: none;
+  user-select: none;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  line-height: 0;
+  margin-top: clamp(20px, 3.5vw, 40px);
+}
+
+.ct-monumental-line {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 800;
+  font-size: clamp(3.8rem, 13.5vw, 12.5rem);
+  line-height: 0.85;
+  letter-spacing: -0.035em;
+  text-transform: uppercase;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.28) 0%, rgba(255, 255, 255, 0.18) 50%, rgba(255, 255, 255, 0.06) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  text-shadow: none;
+}
+
+/* Preserve watermark gradient across split characters */
+.ct-monumental-line .ct-wave-char {
+  background: inherit;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Ensure blue accent in Explore 50+ Zoho Applications is vibrant and solid */
+.zoho-heading-anim-text .ct-wave-char,
+#zohoExploreHeading .zoho-heading-anim-text .ct-wave-char {
+  color: #1D4ED8 !important;
+  -webkit-text-fill-color: #1D4ED8 !important;
+  display: inline-block !important;
+}

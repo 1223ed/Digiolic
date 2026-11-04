@@ -20,8 +20,9 @@ export default function App() {
     containerRef
   );
 
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [navEntered, setNavEntered] = useState(false);
+  const [isAudioPlaying, setIsAudioPlaying] = useState(true);
+  const userPausedRef = useRef(false);
 
   // Entrance animation for navbar items after 200ms
   useEffect(() => {
@@ -31,17 +32,65 @@ export default function App() {
     return () => clearTimeout(timer);
   }, []);
 
-  // Lock body scroll when mobile menu is open
+  // Audio initialization and gesture unlock (identical to Zoho page)
   useEffect(() => {
-    if (mobileMenuOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
+    let audio = document.getElementById('zohoStoryAudio') as HTMLAudioElement | null;
+    if (!audio) {
+      audio = document.createElement('audio');
+      audio.id = 'zohoStoryAudio';
+      audio.preload = 'auto';
+      audio.loop = true;
+      audio.src = 'assets/audio/name-story.mp3';
+      document.body.appendChild(audio);
     }
-    return () => {
-      document.body.style.overflow = '';
+    audio.volume = 0.85;
+
+    const onPlay = () => setIsAudioPlaying(true);
+    const onPause = () => {
+      if (userPausedRef.current) {
+        setIsAudioPlaying(false);
+      }
     };
-  }, [mobileMenuOpen]);
+    audio.addEventListener('play', onPlay);
+    audio.addEventListener('pause', onPause);
+
+    // Initial play attempt
+    const p = audio.play();
+    if (p !== undefined) {
+      p.then(() => setIsAudioPlaying(true)).catch(() => {
+        // Autoplay caught by browser policy; wait for gesture
+      });
+    }
+
+    const unlockEvents = ['pointerdown', 'mousedown', 'click', 'touchstart', 'touchend', 'scroll', 'wheel', 'keydown', 'mousemove'];
+    const unlock = () => {
+      if (audio && audio.paused && !userPausedRef.current) {
+        audio.play().then(() => setIsAudioPlaying(true)).catch(() => {});
+      }
+      unlockEvents.forEach((evt) => window.removeEventListener(evt, unlock));
+    };
+    unlockEvents.forEach((evt) => window.addEventListener(evt, unlock, { passive: true }));
+
+    return () => {
+      audio?.removeEventListener('play', onPlay);
+      audio?.removeEventListener('pause', onPause);
+      unlockEvents.forEach((evt) => window.removeEventListener(evt, unlock));
+    };
+  }, []);
+
+  const toggleAudio = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    const audio = document.getElementById('zohoStoryAudio') as HTMLAudioElement | null;
+    if (!audio) return;
+    if (!audio.paused || isAudioPlaying) {
+      userPausedRef.current = true;
+      audio.pause();
+      setIsAudioPlaying(false);
+    } else {
+      userPausedRef.current = false;
+      audio.play().then(() => setIsAudioPlaying(true)).catch(() => {});
+    }
+  };
 
   const p = scrollProgress;
 
@@ -170,86 +219,107 @@ export default function App() {
               </div>
             </a>
 
-            {/* Center: Navigation Tabs (Desktop md+) */}
-            <nav className="hidden md:flex items-center gap-7 lg:gap-10">
-              {NAV_LINKS.map((link, idx) => (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  className={`relative text-[14px] sm:text-[15px] transition-all duration-300 hover:opacity-80 ${
-                    link.active ? 'font-bold' : 'font-medium'
-                  }`}
-                  style={{
-                    color: link.active
-                      ? isLight
-                        ? '#000000'
-                        : '#FFFFFF'
-                      : isLight
-                      ? '#1E293B'
-                      : 'rgba(255, 255, 255, 0.9)',
-                    opacity: navEntered ? 1 : 0,
-                    transform: navEntered ? 'translateY(0)' : 'translateY(-12px)',
-                    transition:
-                      'color 500ms ease, opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1)',
-                    transitionDelay: `${idx * 80 + 100}ms`,
-                  }}
-                >
-                  {link.label}
-                  {link.active && (
-                    <span
-                      className="absolute -bottom-2.5 left-0 w-full h-[2.5px] rounded-full transition-colors duration-500"
-                      style={{ backgroundColor: isLight ? '#000000' : '#FFFFFF' }}
-                    />
-                  )}
-                </a>
-              ))}
-            </nav>
-
-            {/* Right: Contact Us Button + Mobile Hamburger */}
+            {/* Right: Sound Controller + Menu Trigger with Ring Icon */}
             <div
-              className="flex items-center gap-4"
+              className="flex items-center gap-3 sm:gap-4 ml-auto"
               style={{
                 opacity: navEntered ? 1 : 0,
                 transform: navEntered ? 'translateY(0)' : 'translateY(-12px)',
                 transition:
                   'opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1)',
-                transitionDelay: '400ms',
+                transitionDelay: '300ms',
               }}
             >
-              {/* Contact Us Pill Button */}
-              <a
-                href="pages/contact.html"
-                className="btn-nav-contact-pill inline-flex items-center justify-center px-6 py-2.5 rounded-full text-sm font-bold transition-all duration-300 shadow-md hover:scale-[1.02] hover:shadow-lg"
+              {/* Circular Audio Toggle Button (Exact match to Zoho page) */}
+              <button
+                type="button"
+                className={`nav-sound-control ${isAudioPlaying ? 'is-playing' : 'is-paused'}`}
+                id="zohoAudioToggleBtn"
+                onClick={toggleAudio}
+                aria-label="Play or pause background song"
+                title={isAudioPlaying ? 'Pause Song' : 'Play Song'}
+                aria-pressed={isAudioPlaying ? 'true' : 'false'}
+                tabIndex={0}
                 style={{
-                  backgroundColor: '#000000',
-                  color: '#FFFFFF',
-                  fontWeight: 700,
-                  boxShadow: '0 2px 10px rgba(0, 0, 0, 0.25)',
+                  color: navColor,
+                  background: isLight ? 'rgba(29, 48, 69, 0.12)' : 'rgba(255, 255, 255, 0.16)',
                   transition:
-                    'background-color 500ms ease, color 500ms ease, transform 0.3s ease, box-shadow 0.3s ease',
+                    'background-color 0.25s ease, color 500ms ease, transform 0.25s cubic-bezier(0.16, 1, 0.3, 1)',
                 }}
               >
-                Contact Us
-              </a>
+                {/* Playing state: Speaker with Sound Waves */}
+                <svg
+                  className="sound-icon sound-icon-playing"
+                  viewBox="0 0 24 24"
+                  width="18"
+                  height="18"
+                  fill="currentColor"
+                >
+                  <path d="M11 5L6 9H2v6h4l5 4V5z" />
+                  <path
+                    className="sound-wave-1"
+                    d="M15.54 8.46a5 5 0 0 1 0 7.07"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                  />
+                  <path
+                    className="sound-wave-2"
+                    d="M19.07 4.93a10 10 0 0 1 0 14.14"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                  />
+                </svg>
+                {/* Paused state: Speaker Muted */}
+                <svg
+                  className="sound-icon sound-icon-paused"
+                  viewBox="0 0 24 24"
+                  width="18"
+                  height="18"
+                  fill="currentColor"
+                >
+                  <path d="M11 5L6 9H2v6h4l5 4V5z" />
+                  <line
+                    x1="23"
+                    y1="9"
+                    x2="17"
+                    y2="15"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                  />
+                  <line
+                    x1="17"
+                    y1="9"
+                    x2="23"
+                    y2="15"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                  />
+                </svg>
+              </button>
 
-              {/* Mobile <md: Hamburger (3 bars: 24x2, 24x2, 16x2, gap 5px) */}
               <button
-                onClick={() => setMobileMenuOpen(true)}
-                className="md:hidden flex flex-col justify-center items-start gap-[5px] w-8 h-8 focus:outline-none ml-1 cursor-pointer"
-                aria-label="Open Mobile Menu"
+                type="button"
+                id="cinematicMenuOpenBtn"
+                onClick={() => {
+                  if (typeof (window as any).openCinematicMenu === 'function') {
+                    (window as any).openCinematicMenu();
+                  }
+                }}
+                className="cinematic-menu-trigger"
+                style={{
+                  color: navColor,
+                  transition: 'color 500ms ease, opacity 0.25s ease, transform 0.25s ease',
+                }}
+                aria-label="Open Navigation Menu"
               >
-                <span
-                  className="w-6 h-[2px] rounded transition-colors duration-500"
-                  style={{ backgroundColor: navColor }}
-                />
-                <span
-                  className="w-6 h-[2px] rounded transition-colors duration-500"
-                  style={{ backgroundColor: navColor }}
-                />
-                <span
-                  className="w-4 h-[2px] rounded transition-colors duration-500"
-                  style={{ backgroundColor: navColor }}
-                />
+                <span className="menu-trigger-text">Menu</span>
+                <span className="menu-trigger-circle"></span>
               </button>
             </div>
           </header>
@@ -535,84 +605,6 @@ export default function App() {
         </div>
       </div>
 
-      {/* =========================================================================
-          MOBILE MENU OVERLAY (fixed inset-0 z-[100], background DARK)
-          ========================================================================= */}
-      <div
-        className={`fixed inset-0 z-[100] transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] flex flex-col justify-between ${
-          mobileMenuOpen
-            ? 'opacity-100 visible pointer-events-auto'
-            : 'opacity-0 invisible pointer-events-none'
-        }`}
-        style={{ backgroundColor: DARK }}
-      >
-        {/* Inner Panel Animated Wrapper */}
-        <div
-          className={`w-full h-full flex flex-col justify-between transition-transform duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] ${
-            mobileMenuOpen ? 'translate-y-0' : '-translate-y-8'
-          }`}
-        >
-          {/* Top Row: Digiolic Logo and Close Button (40px circle border-white/30) */}
-          <div className="w-full flex items-center justify-between px-6 sm:px-8 pt-8 sm:pt-12">
-            <img
-              src="assets/images/digiolic-logo.png?v=20260927_green_d"
-              alt="Digiolic"
-              className="h-8 w-auto object-contain"
-              style={{ filter: 'none' }}
-            />
-            <button
-              onClick={() => setMobileMenuOpen(false)}
-              className="w-10 h-10 rounded-full border border-white/30 flex items-center justify-center text-white hover:border-white transition-colors focus:outline-none"
-              aria-label="Close Mobile Menu"
-            >
-              <X size={18} />
-            </button>
-          </div>
-
-          {/* Links Centered Vertically */}
-          <nav className="flex flex-col items-start px-8 sm:px-12 py-3 gap-6">
-            {NAV_LINKS.map((link, idx) => (
-              <a
-                key={link.label}
-                href={link.href}
-                onClick={() => setMobileMenuOpen(false)}
-                className={`text-2xl sm:text-3xl font-light tracking-wide uppercase transition-all duration-300 ${
-                  link.active ? 'text-white' : 'text-white/60 hover:text-white'
-                } ${
-                  mobileMenuOpen
-                    ? 'opacity-100 translate-y-0'
-                    : 'opacity-0 translate-y-5'
-                }`}
-                style={{
-                  transitionDelay: `${idx * 60}ms`,
-                }}
-              >
-                {link.label}
-              </a>
-            ))}
-            <a
-              href="pages/contact.html"
-              onClick={() => setMobileMenuOpen(false)}
-              className="mt-4 inline-flex items-center justify-center w-fit px-7 py-2.5 rounded-full text-sm font-bold transition-all duration-300 shadow-md bg-black text-white hover:bg-slate-800"
-              style={{
-                backgroundColor: '#000000',
-                color: '#FFFFFF',
-                border: '1px solid rgba(255, 255, 255, 0.25)',
-              }}
-            >
-              Contact Us
-            </a>
-          </nav>
-
-          {/* Footer: NEWS and CONTACT */}
-          <div className="flex items-center justify-between text-xs tracking-[0.2em] uppercase text-white/60 px-8 sm:px-12 pb-10">
-            <span>Digiolic Enterprise Cloud</span>
-            <a href="pages/contact.html" className="hover:text-white transition-colors">
-              Contact
-            </a>
-          </div>
-        </div>
-      </div>
     </div>
   );
 }

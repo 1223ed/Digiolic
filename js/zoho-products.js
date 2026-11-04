@@ -760,31 +760,43 @@
 
           return `
             <div class="zoho-rect-card" data-product-name="${fullDisplayName}">
-              
-              <!-- Brand Header with Official Product Logo -->
-              ${brandHeaderHtml}
 
-              <!-- Headline matching image -->
-              <h3 class="zoho-card-headline">${prod.headline}</h3>
+              <!-- Glowing Orbiting Border Beam -->
+              <div class="zoho-card-border-beam" aria-hidden="true"></div>
 
-              <!-- Description paragraph matching image -->
-              <p class="zoho-card-desc">${prod.desc}</p>
-              
-              <!-- Action CTA: Contact Us (Smooth scroll to Contact section on Zoho page) -->
-              <div class="zoho-card-footer">
-                <a href="#zohoFaqContactSection" class="zoho-card-cta-link js-product-contact-btn" data-product="${fullDisplayName}">
-                  <span>Contact Us</span>
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 4px;">
-                    <line x1="5" y1="12" x2="19" y2="12"></line>
-                    <polyline points="12 5 19 12 12 19"></polyline>
-                  </svg>
-                </a>
+              <!-- Inner Obsidian Surface (Reveals 1.5px glowing border channel) -->
+              <div class="zoho-card-inner-surface" aria-hidden="true"></div>
+
+              <!-- Inner Card Content Stack -->
+              <div class="zoho-card-content">
+                <!-- Brand Header with Official Product Logo -->
+                ${brandHeaderHtml}
+
+                <!-- Headline matching image -->
+                <h3 class="zoho-card-headline">${prod.headline}</h3>
+
+                <!-- Description paragraph matching image -->
+                <p class="zoho-card-desc">${prod.desc}</p>
+                
+                <!-- Action CTA: Contact Us (Redirect directly to Contact Us page) -->
+                <div class="zoho-card-footer">
+                  <a href="contact.html?service=${encodeURIComponent(fullDisplayName)}" class="zoho-card-cta-link js-product-contact-btn" data-product="${fullDisplayName}">
+                    <span>Contact Us</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 4px;">
+                      <line x1="5" y1="12" x2="19" y2="12"></line>
+                      <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                  </a>
+                </div>
               </div>
 
             </div>
           `;
         })
         .join('');
+
+      // Initialize Matrix & Glowing Border Engine for all cards in current view
+      initCardMatrixEffects(prodGridContainer);
 
       // Fallback for any image load error
       prodGridContainer.querySelectorAll('.zoho-card-brand-logo-img').forEach((img) => {
@@ -807,25 +819,17 @@
         btn.addEventListener('click', (e) => {
           e.preventDefault();
           const prodName = btn.getAttribute('data-product') || 'Zoho';
-          const targetSec = document.getElementById('zohoFaqContactSection');
-          if (targetSec) {
-            targetSec.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            
-            // Pre-fill message and select suite
-            const msgInput = document.getElementById('LEADCF1') || document.getElementById('contactMessage');
-            if (msgInput) {
-              msgInput.value = `I am interested in implementing / integrating ${prodName}.`;
-            }
-            if (window.selectZohoService) {
-              window.selectZohoService(prodName);
-            }
-            const nameInput = document.getElementById('Company') || document.getElementById('Last_Name') || document.getElementById('contactName');
-            if (nameInput) {
-              setTimeout(() => nameInput.focus(), 650);
-            }
-          }
+          window.location.href = `contact.html?service=${encodeURIComponent(prodName)}`;
         });
       });
+    }
+
+    /**
+     * Dot Matrix Canvas effect removed per user design request
+     */
+    function initCardMatrixEffects(container) {
+      // Background dot matrix removed per user request for clean dark obsidian card background
+      return;
     }
 
     if (searchInput) {

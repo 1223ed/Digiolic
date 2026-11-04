@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" width="100%" height="100%">
+<defs>
+  <linearGradient id="wireGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="#111111" stop-opacity="0.75"/>
+    <stop offset="100%" stop-color="#444444" stop-opacity="0.45"/>
+  </linearGradient>
+</defs>
+  <circle cx="262.7" cy="500.0" r="39.2" fill="none" stroke="url(#wireGrad)" stroke-width="1.2" />
+  <circle cx="266.5" cy="500.0" r="53.4" fill="none" stroke="url(#wireGrad)" stroke-width="1.2" />
+  <circle cx="271.1" cy="500.0" r="67.7" fill="none" stroke="url(#wireGrad)" stroke-width="1.2" />
+  <circle cx="276.1" cy="500.0" r="81.9" fill="none" stroke="url(#wireGrad)" stroke-width="1.2" />
+  <circle cx="281.5" cy="500.0" r="96.1" fill="none" stroke="url(#wireGrad)" stroke-width="1.2" />
+  <circle cx="287.2" cy="500.0" r="110.3" fill="none" stroke="url(#wireGrad)" stroke-width="1.2" />
+  <circle cx="293.3" cy="500.0" r="124.5" fill="none" stroke="url(#wireGrad)" stroke-width="1.2" />
+  <circle cx="299.6" cy="500.0" r="138.8" fill="none" stroke="url(#wireGrad)" stroke-width="1.2" />
+  <circle cx="306.1" cy="500.0" r="153.0" fill="none" stroke="url(#wireGrad)" stroke-width="1.2" />
+  <circle cx="312.9" cy="500.0" r="167.2" fill="none" stroke="url(#wireGrad)" stroke-width="1.2" />
+  <circle cx="319.9" cy="500.0" r="181.4" fill="none" stroke="url(#wireGrad)" stroke-width="1.2" />
+  <circle cx="327.1" cy="500.0" r="195.6" fill="none" stroke="url(#wireGrad)" stroke-width="1.2" />
+  <circle cx="334.4" cy="500.0" r="209.8" fill="none" stroke="url(#wireGrad)" stroke-width="1.2" />
+  <circle cx="341.9" cy="500.0" r="224.1" fill="none" stroke="url(#wireGrad)" stroke-width="1.2" />
+  <circle cx="349.6" cy="500.0" r="238.3" fill="none" stroke="url(#wireGrad)" stroke-width="1.2" />
+  <circle cx="357.5" cy="500.0" r="252.5" fill="none" stroke="url(#wireGrad)" stroke-width="1.2" />
+  <circle cx="365.5" cy="500.0" r="266.7" fill="none" stroke="url(#wireGrad)" stroke-width="1.2" />
+  <circle cx="373.6" cy="500.0" r="280.9" fill="none" stroke="url(#wireGrad)" stroke-width="1.2" />
+  <circle cx="381.9" cy="500.0" r="295.2" fill="none" stroke="url(#wireGrad)" stroke-width="1.2" />
+  <circle cx="390.3" cy="500.0" r="309.4" fill="none" stroke="url(#wireGrad)" stroke-width="1.2" />
+  <circle cx="398.8" cy="500.0" r="323.6" fill="none" stroke="url(#wireGrad)" stroke-width="1.2" />
+  <circle cx="407.5" cy="500.0" r="337.8" fill="none" stroke="url(#wireGrad)" stroke-width="1.2" />
+  <circle cx="416.2" cy="500.0" r="352.0" fill="none" stroke="url(#wireGrad)" stroke-width="3.5" />
+  <circle cx="425.1" cy="500.0" r="366.2" fill="none" stroke="url(#wireGrad)" stroke-width="1.2" />
+  <circle cx="434.1" cy="500.0" r="380.5" fill="none" stroke="url(#wireGrad)" stroke-width="1.8" />
+  <circle cx="443.2" cy="500.0" r="394.7" fill="none" stroke="url(#wireGrad)" stroke-width="1.8" />
+  <circle cx="452.4" cy="500.0" r="408.9" fill="none" stroke="url(#wireGrad)" stroke-width="1.8" />
+  <circle cx="461.8" cy="500.0" r="423.1" fill="none" stroke="url(#wireGrad)" stroke-width="1.8" />
+  <circle cx="471.2" cy="500.0" r="437.3" fill="none" stroke="url(#wireGrad)" stroke-width="1.8" />
+  <circle cx="480.7" cy="500.0" r="451.6" fill="none" stroke="url(#wireGrad)" stroke-width="1.8" />
+  <circle cx="490.3" cy="500.0" r="465.8" fill="none" stroke="url(#wireGrad)" stroke-width="1.8" />
+  <circle cx="500.0" cy="500.0" r="480.0" fill="none" stroke="url(#wireGrad)" stroke-width="1.8" />
+</svg>

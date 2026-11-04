@@ -1,0 +1,773 @@
+/* ==========================================================================
+   SALESFORCE COMPREHENSIVE PRACTICE - MOTION.ED SCROLL ENGINE
+   1:1 Faithful Recreation of Motion.ed Implementation Examples
+   Reference: Screen Recording 2026-11-02 at 5.21.59 PM.mov
+   - Soft Periwinkle Canvas (#C0C9E6)
+   - Monumental Centered Headline Pinned & Docked on Scroll
+   - Horizontal Scrubbing Rounded Rectangle Cards
+   - Zoho Applications & Features Card Typography & Capsule Pills
+   - 100% Text-Only Architecture (No Images)
+   ========================================================================== */
+
+/* Outer Scroll Track Container */
+.sf-practice-section {
+  position: relative;
+  z-index: 50;
+  width: 100%;
+  height: 520vh; /* Generous runway for silky, unhurried scroll feel */
+  background-color: #050505;
+  background: #050505;
+  border: none !important;
+  outline: none !important;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow: clip;
+  contain: paint;
+}
+
+/* 100vh Sticky Stage */
+.sf-practice-stage {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  background-color: #050505;
+  background: #050505;
+  border: none !important;
+  outline: none !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  overflow: hidden;
+  box-sizing: border-box;
+  padding: clamp(18px, 3vh, 36px) clamp(24px, 4vw, 64px) clamp(16px, 2.5vh, 28px);
+  z-index: 10;
+}
+
+/* Top Editorial HUD Bar */
+.sf-practice-hud {
+  width: 100%;
+  max-width: 1440px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0;
+  flex-shrink: 0;
+  z-index: 25;
+}
+
+.sf-practice-hud-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.sf-practice-hud-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-family: 'Space Mono', Menlo, monospace;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #FFFFFF;
+}
+
+.sf-practice-hud-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #00A1E0;
+  box-shadow: 0 0 10px #00A1E0;
+}
+
+.sf-practice-hud-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.sf-practice-hud-counter {
+  font-family: 'Space Mono', Menlo, monospace;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.10em;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.sf-practice-hud-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #FFFFFF;
+  color: #050505;
+  text-decoration: none;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.76rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 8px 18px;
+  border-radius: 999px;
+  transition: transform 0.25s ease, background-color 0.25s ease, color 0.25s ease;
+}
+
+.sf-practice-hud-btn:hover {
+  background: #00A1E0;
+  color: #FFFFFF;
+  transform: translateY(-1px);
+}
+
+/* ==========================================================================
+   MONUMENTAL HEADLINE (1:1 with "IMPLEMENTATION EXAMPLES")
+   Positioned in the upper region matching user Image 3 blueprint.
+   Font: Clean, modern sans-serif with regular/medium weight (400-500) matching Image 2.
+   ========================================================================== */
+.sf-practice-hero-header {
+  position: absolute;
+  top: clamp(75px, 11vh, 125px);
+  left: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0 clamp(20px, 4vw, 60px);
+  box-sizing: border-box;
+  transform-origin: center top;
+  will-change: transform, opacity;
+  pointer-events: none;
+  z-index: 20;
+}
+
+.sf-practice-hero-title {
+  margin: 0;
+  padding: 0;
+  font-family: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  font-size: clamp(48px, 5.6vw, 82px) !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.035em !important;
+  line-height: 1.05 !important;
+  text-transform: uppercase !important;
+  color: #FFFFFF !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+@media (max-width: 1024px) {
+  .sf-practice-hero-title {
+    font-size: clamp(38px, 5.2vw, 56px) !important;
+    line-height: 1.10 !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .sf-practice-hero-title {
+    font-size: clamp(28px, 7vw, 40px) !important;
+    line-height: 1.15 !important;
+  }
+}
+
+.sf-practice-hero-title .sf-hero-line {
+  display: block;
+  white-space: normal;
+  text-align: center;
+}
+
+.sf-practice-hero-title .sf-text-blue {
+  color: #00A1E0 !important;
+  text-shadow: 0 0 35px rgba(0, 161, 224, 0.4);
+}
+
+.sf-practice-hero-desc {
+  margin: clamp(14px, 1.8vh, 20px) auto 0 auto;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(0.95rem, 1.1vw, 1.15rem);
+  line-height: 1.5;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.72);
+  max-width: 860px;
+  text-align: center;
+}
+
+/* ==========================================================================
+   HORIZONTAL CARDS TRACK
+   Peeks up from bottom on entrance matching user Image 3 blueprint.
+   Rises to vertical center as headline scrolls out, then scrubs horizontally.
+   ========================================================================== */
+.sf-practice-cards-wrapper {
+  position: absolute;
+  top: clamp(85px, 16vh, 140px);
+  left: 0;
+  width: 100%;
+  height: clamp(480px, 63vh, 580px);
+  display: flex;
+  align-items: center;
+  overflow: visible;
+  box-sizing: border-box;
+  will-change: transform;
+  z-index: 10;
+  pointer-events: auto;
+  opacity: 1;
+}
+
+.sf-practice-cards-track {
+  display: flex;
+  align-items: stretch;
+  gap: clamp(20px, 2.4vw, 36px);
+  padding-left: clamp(32px, 6vw, 90px);
+  padding-right: clamp(40px, 8vw, 120px);
+  height: 100%;
+  width: max-content;
+  will-change: transform;
+  box-sizing: border-box;
+}
+
+/* ==========================================================================
+   RECTANGLE BOX CARDS
+   Frame-by-frame match to Motion.ed & TRIONN Zoho Practice Cards
+   - Rounded 24px corners
+   - Crisp 1.5px dark outline border
+   - Pure typography (NO images)
+   - Category tag pill, numeric index, title, description, pills list, and action
+   ========================================================================== */
+.sf-pbox-card {
+  position: relative;
+  width: clamp(350px, 27vw, 420px);
+  min-width: clamp(350px, 27vw, 420px);
+  height: 100%;
+  background: #FFFFFF;
+  border: 1.5px solid #08080B;
+  border-radius: 24px;
+  box-shadow: 0 20px 40px -15px rgba(15, 23, 42, 0.10), 0 4px 10px rgba(0, 0, 0, 0.03);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: clamp(22px, 2.4vw, 32px);
+  box-sizing: border-box;
+  transform-style: preserve-3d;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.25s ease;
+  user-select: none;
+  overflow: hidden;
+}
+
+.sf-pbox-card:hover {
+  border-color: #00A1E0;
+  box-shadow: 0 30px 60px -15px rgba(0, 161, 224, 0.25), 0 10px 24px rgba(0, 0, 0, 0.08);
+}
+
+/* Card Inset Frame Crosshair Corner (+) TRIONN style */
+.sf-pbox-card::before {
+  content: '+';
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  font-family: 'Inter', monospace;
+  font-size: 13px;
+  font-weight: 300;
+  color: #94A3B8;
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+/* Card Header: Tag Pill on left, Number on right */
+.sf-pbox-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: clamp(10px, 1.4vh, 16px);
+  flex-shrink: 0;
+}
+
+.sf-pbox-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-family: 'Space Mono', Menlo, monospace;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #08080B;
+  background: rgba(8, 8, 11, 0.05);
+  border: 1px solid rgba(8, 8, 11, 0.12);
+  padding: 5px 12px;
+  border-radius: 6px;
+}
+
+.sf-pbox-tag-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #00A1E0;
+  box-shadow: 0 0 6px rgba(0, 161, 224, 0.8);
+}
+
+.sf-pbox-num {
+  font-family: 'Space Grotesk', 'Outfit', sans-serif;
+  font-size: clamp(1.7rem, 2.2vw, 2.3rem);
+  font-weight: 800;
+  line-height: 1;
+  color: #08080B;
+  letter-spacing: -0.04em;
+  margin-right: 18px; /* space away from top corner crosshair */
+}
+
+/* Card Body */
+.sf-pbox-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  overflow: hidden;
+}
+
+.sf-pbox-title {
+  margin: 0 0 clamp(8px, 1.1vh, 12px) 0;
+  font-family: 'Space Grotesk', 'Outfit', 'Inter', sans-serif;
+  font-size: clamp(1.5rem, 1.85vw, 1.95rem);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+  color: #08080B;
+  flex-shrink: 0;
+}
+
+.sf-pbox-desc {
+  margin: 0 0 clamp(10px, 1.4vh, 16px) 0;
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(0.96rem, 1.05vw, 1.10rem);
+  line-height: 1.55;
+  color: #475569;
+  font-weight: 400;
+  flex-shrink: 0;
+}
+
+/* Callout Quote for Integration (Card 4) */
+.sf-pbox-quote {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 600;
+  font-style: italic;
+  color: #00A1E0;
+  background: rgba(0, 161, 224, 0.08);
+  border-left: 3px solid #00A1E0;
+  padding: 6px 12px;
+  border-radius: 0 6px 6px 0;
+  margin-bottom: 12px;
+  flex-shrink: 0;
+}
+
+/* Core Capabilities Pills */
+.sf-pbox-capabilities {
+  margin-top: auto;
+  margin-bottom: clamp(10px, 1.4vh, 16px);
+  overflow: hidden;
+}
+
+.sf-pbox-cap-label {
+  display: block;
+  font-family: 'Space Mono', Menlo, monospace;
+  font-size: 0.70rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #94A3B8;
+  margin-bottom: 7px;
+}
+
+.sf-pbox-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sf-pbox-pill {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.76rem;
+  font-weight: 500;
+  line-height: 1.25;
+  color: #1E293B;
+  background: #F1F5F9;
+  border: 1px solid #E2E8F0;
+  padding: 4px 10px;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.sf-pbox-card:hover .sf-pbox-pill {
+  background: #FFFFFF;
+  border-color: #CBD5E1;
+}
+
+/* Bottom Action Row (View / Explore Practice) */
+.sf-pbox-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: clamp(10px, 1.3vh, 14px);
+  border-top: 1px solid rgba(8, 8, 11, 0.08);
+  flex-shrink: 0;
+}
+
+.sf-pbox-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Space Mono', Menlo, monospace;
+  font-size: 0.80rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #08080B;
+  text-decoration: none;
+  transition: letter-spacing 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              color 0.25s ease;
+}
+
+.sf-pbox-arrow {
+  display: inline-block;
+  font-size: 1.15rem;
+  line-height: 1;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.sf-pbox-card:hover .sf-pbox-action {
+  letter-spacing: 0.20em;
+  color: #00A1E0;
+}
+
+.sf-pbox-card:hover .sf-pbox-arrow {
+  transform: translateX(6px);
+}
+
+/* Bottom Progress Scrub Indicator Bar (Clean canvas matching video) */
+.sf-practice-scrub-bar {
+  display: none;
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN (Tablets & Mobile)
+   Smooth swipeable horizontal row when touch-based screen < 992px
+   ========================================================================== */
+@media (max-width: 991px) {
+  .sf-practice-section {
+    height: auto;
+    overflow: visible;
+    background-color: #050505;
+    background: #050505;
+    padding: 70px 0 80px 0;
+  }
+
+  .sf-practice-stage {
+    position: relative;
+    top: auto;
+    height: auto;
+    overflow: visible;
+    padding: 0 20px;
+    background-color: #050505;
+    background: #050505;
+  }
+
+  .sf-practice-hero-header {
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none !important;
+    opacity: 1 !important;
+    pointer-events: auto;
+    margin-bottom: 32px;
+    padding: 0;
+  }
+
+  .sf-practice-hero-title {
+    font-size: clamp(28px, 6vw, 42px);
+  }
+
+  .sf-practice-cards-wrapper {
+    margin-top: 0;
+    height: auto;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 24px;
+    transform: none !important;
+    opacity: 1 !important;
+    pointer-events: auto;
+  }
+
+  .sf-practice-cards-track {
+    transform: none !important;
+    padding: 0 10px;
+    gap: 16px;
+    height: auto;
+  }
+
+  .sf-pbox-card {
+    scroll-snap-align: center;
+    width: 82vw;
+    min-width: 82vw;
+    height: auto;
+    min-height: 460px;
+    transform: none !important;
+  }
+
+  .sf-practice-scrub-bar {
+    display: none;
+  }
+}
+
+/* ==========================================================================
+   ATMOSPHERIC CELESTIAL BACKGROUND (Constellation Dots & Micro-Grid)
+   Identical to Client Testimonials Section
+   ========================================================================== */
+.sf-bg-atmosphere {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.sf-bg-grid-lines {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.028) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.028) 1px, transparent 1px);
+  background-size: 80px 80px;
+  opacity: 0.65;
+  mask-image: radial-gradient(circle at 50% 50%, black 50%, transparent 90%);
+  -webkit-mask-image: radial-gradient(circle at 50% 50%, black 50%, transparent 90%);
+}
+
+.sf-celestial-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 2;
+  opacity: 0.65;
+}
+
+/* ==========================================================================
+   IMAGE 2: INDIVIDUAL LIGHT COLORWAYS FOR PRACTICE RECTANGLE BOX CARDS
+   Each card receives a distinct, harmonious light pastel background tint
+   with matching tag pill accents, numeric index hues, and hover illumination
+   ========================================================================== */
+
+/* Card 1: Soft Ice Cyan Tint (Strategy) */
+.sf-pbox-card[data-index="1"],
+.sf-pbox-card:nth-child(1) {
+  background: #F0F8FF !important;
+  border-color: #BAE6FD !important;
+}
+.sf-pbox-card[data-index="1"]:hover,
+.sf-pbox-card:nth-child(1):hover {
+  border-color: #0284C7 !important;
+  box-shadow: 0 30px 60px -15px rgba(2, 132, 199, 0.28), 0 10px 24px rgba(0, 0, 0, 0.08) !important;
+}
+.sf-pbox-card[data-index="1"] .sf-pbox-tag {
+  background: rgba(2, 132, 199, 0.08) !important;
+  border-color: rgba(2, 132, 199, 0.25) !important;
+  color: #0369A1 !important;
+}
+.sf-pbox-card[data-index="1"] .sf-pbox-tag-dot {
+  background-color: #0284C7 !important;
+  box-shadow: 0 0 6px rgba(2, 132, 199, 0.8) !important;
+}
+.sf-pbox-card[data-index="1"] .sf-pbox-num {
+  color: #0284C7 !important;
+}
+
+/* Card 2: Soft Mint Sage Tint (Development) */
+.sf-pbox-card[data-index="2"],
+.sf-pbox-card:nth-child(2) {
+  background: #F0FDF4 !important;
+  border-color: #BBF7D0 !important;
+}
+.sf-pbox-card[data-index="2"]:hover,
+.sf-pbox-card:nth-child(2):hover {
+  border-color: #16A34A !important;
+  box-shadow: 0 30px 60px -15px rgba(22, 163, 74, 0.28), 0 10px 24px rgba(0, 0, 0, 0.08) !important;
+}
+.sf-pbox-card[data-index="2"] .sf-pbox-tag {
+  background: rgba(22, 163, 74, 0.08) !important;
+  border-color: rgba(22, 163, 74, 0.25) !important;
+  color: #15803D !important;
+}
+.sf-pbox-card[data-index="2"] .sf-pbox-tag-dot {
+  background-color: #16A34A !important;
+  box-shadow: 0 0 6px rgba(22, 163, 74, 0.8) !important;
+}
+.sf-pbox-card[data-index="2"] .sf-pbox-num {
+  color: #16A34A !important;
+}
+
+/* Card 3: Soft Lavender Lilac Tint (Integration) */
+.sf-pbox-card[data-index="3"],
+.sf-pbox-card:nth-child(3) {
+  background: #F5F3FF !important;
+  border-color: #DDD6FE !important;
+}
+.sf-pbox-card[data-index="3"]:hover,
+.sf-pbox-card:nth-child(3):hover {
+  border-color: #7C3AED !important;
+  box-shadow: 0 30px 60px -15px rgba(124, 58, 237, 0.28), 0 10px 24px rgba(0, 0, 0, 0.08) !important;
+}
+.sf-pbox-card[data-index="3"] .sf-pbox-tag {
+  background: rgba(124, 58, 237, 0.08) !important;
+  border-color: rgba(124, 58, 237, 0.25) !important;
+  color: #6D28D9 !important;
+}
+.sf-pbox-card[data-index="3"] .sf-pbox-tag-dot {
+  background-color: #7C3AED !important;
+  box-shadow: 0 0 6px rgba(124, 58, 237, 0.8) !important;
+}
+.sf-pbox-card[data-index="3"] .sf-pbox-num {
+  color: #7C3AED !important;
+}
+
+/* Card 4: Soft Sky Azure Tint (Automation) */
+.sf-pbox-card[data-index="4"],
+.sf-pbox-card:nth-child(4) {
+  background: #EFF6FF !important;
+  border-color: #BFDBFE !important;
+}
+.sf-pbox-card[data-index="4"]:hover,
+.sf-pbox-card:nth-child(4):hover {
+  border-color: #2563EB !important;
+  box-shadow: 0 30px 60px -15px rgba(37, 99, 235, 0.28), 0 10px 24px rgba(0, 0, 0, 0.08) !important;
+}
+.sf-pbox-card[data-index="4"] .sf-pbox-tag {
+  background: rgba(37, 99, 235, 0.08) !important;
+  border-color: rgba(37, 99, 235, 0.25) !important;
+  color: #1D4ED8 !important;
+}
+.sf-pbox-card[data-index="4"] .sf-pbox-tag-dot {
+  background-color: #2563EB !important;
+  box-shadow: 0 0 6px rgba(37, 99, 235, 0.8) !important;
+}
+.sf-pbox-card[data-index="4"] .sf-pbox-num {
+  color: #2563EB !important;
+}
+
+/* Card 5: Soft Peach Amber Tint (Data) */
+.sf-pbox-card[data-index="5"],
+.sf-pbox-card:nth-child(5) {
+  background: #FFFBEB !important;
+  border-color: #FDE68A !important;
+}
+.sf-pbox-card[data-index="5"]:hover,
+.sf-pbox-card:nth-child(5):hover {
+  border-color: #D97706 !important;
+  box-shadow: 0 30px 60px -15px rgba(217, 119, 6, 0.28), 0 10px 24px rgba(0, 0, 0, 0.08) !important;
+}
+.sf-pbox-card[data-index="5"] .sf-pbox-tag {
+  background: rgba(217, 119, 6, 0.08) !important;
+  border-color: rgba(217, 119, 6, 0.25) !important;
+  color: #B45309 !important;
+}
+.sf-pbox-card[data-index="5"] .sf-pbox-tag-dot {
+  background-color: #D97706 !important;
+  box-shadow: 0 0 6px rgba(217, 119, 6, 0.8) !important;
+}
+.sf-pbox-card[data-index="5"] .sf-pbox-num {
+  color: #D97706 !important;
+}
+
+/* Card 6: Soft Rose Blush Tint (Support) */
+.sf-pbox-card[data-index="6"],
+.sf-pbox-card:nth-child(6) {
+  background: #FFF1F2 !important;
+  border-color: #FECDD3 !important;
+}
+.sf-pbox-card[data-index="6"]:hover,
+.sf-pbox-card:nth-child(6):hover {
+  border-color: #E11D48 !important;
+  box-shadow: 0 30px 60px -15px rgba(225, 29, 72, 0.28), 0 10px 24px rgba(0, 0, 0, 0.08) !important;
+}
+.sf-pbox-card[data-index="6"] .sf-pbox-tag {
+  background: rgba(225, 29, 72, 0.08) !important;
+  border-color: rgba(225, 29, 72, 0.25) !important;
+  color: #BE123C !important;
+}
+.sf-pbox-card[data-index="6"] .sf-pbox-tag-dot {
+  background-color: #E11D48 !important;
+  box-shadow: 0 0 6px rgba(225, 29, 72, 0.8) !important;
+}
+.sf-pbox-card[data-index="6"] .sf-pbox-num {
+  color: #E11D48 !important;
+}
+
+/* Card 7: Soft Emerald Seafoam Tint (Health Check) */
+.sf-pbox-card[data-index="7"],
+.sf-pbox-card:nth-child(7) {
+  background: #ECFDF5 !important;
+  border-color: #A7F3D0 !important;
+}
+.sf-pbox-card[data-index="7"]:hover,
+.sf-pbox-card:nth-child(7):hover {
+  border-color: #059669 !important;
+  box-shadow: 0 30px 60px -15px rgba(5, 150, 105, 0.28), 0 10px 24px rgba(0, 0, 0, 0.08) !important;
+}
+.sf-pbox-card[data-index="7"] .sf-pbox-tag {
+  background: rgba(5, 150, 105, 0.08) !important;
+  border-color: rgba(5, 150, 105, 0.25) !important;
+  color: #047857 !important;
+}
+.sf-pbox-card[data-index="7"] .sf-pbox-tag-dot {
+  background-color: #059669 !important;
+  box-shadow: 0 0 6px rgba(5, 150, 105, 0.8) !important;
+}
+.sf-pbox-card[data-index="7"] .sf-pbox-num {
+  color: #059669 !important;
+}
+
+/* Card 8: Soft Periwinkle Slate Tint (AppExchange) */
+.sf-pbox-card[data-index="8"],
+.sf-pbox-card:nth-child(8) {
+  background: #EEF2FF !important;
+  border-color: #C7D2FE !important;
+}
+.sf-pbox-card[data-index="8"]:hover,
+.sf-pbox-card:nth-child(8):hover {
+  border-color: #4F46E5 !important;
+  box-shadow: 0 30px 60px -15px rgba(79, 70, 229, 0.28), 0 10px 24px rgba(0, 0, 0, 0.08) !important;
+}
+.sf-pbox-card[data-index="8"] .sf-pbox-tag {
+  background: rgba(79, 70, 229, 0.08) !important;
+  border-color: rgba(79, 70, 229, 0.25) !important;
+  color: #4338CA !important;
+}
+.sf-pbox-card[data-index="8"] .sf-pbox-tag-dot {
+  background-color: #4F46E5 !important;
+  box-shadow: 0 0 6px rgba(79, 70, 229, 0.8) !important;
+}
+.sf-pbox-card[data-index="8"] .sf-pbox-num {
+  color: #4F46E5 !important;
+}
+

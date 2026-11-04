@@ -1,0 +1,2442 @@
+/* ==========================================================================
+   FINSIGHT DESIGN SYSTEM FOR ZOHO ENTERPRISE SOLUTIONS PAGE
+   Based on exact analysis of https://finsight.framer.ai/
+   - Deep Obsidian Canvas: #010204 / #030405
+   - Primary Accent: Electric Indigo #4F4FF1 (rgb(79, 79, 241))
+   - Secondary Accent: Cyan / Electric Blue #007BE3 / #38BDF8
+   - Typography: 'Be Vietnam Pro' (editorial light 300, regular 400, 500, 600)
+   - Secondary/Metrics Font: 'Space Grotesk'
+   - Frosted Glass Pills (border-radius: 58px with radial gradient)
+   - Luminous Action Buttons: #4F4FF1 with 110px pill radius & circular arrow
+   - Dark Surface Cards: #0E0B0E / #0C101B with 1px rgba(255,255,255,0.08)
+   - White Showcase Container: #FFFFFF with 44px border-radius
+   ========================================================================== */
+
+:root {
+  --fs-bg: #010204;
+  --fs-bg-elevated: #06080E;
+  --fs-bg-card: #0E0B0E;
+  --fs-bg-card-subtle: #0C101B;
+  --fs-bg-card-navy: #0B132B;
+  --fs-accent-indigo: #4F4FF1;
+  --fs-accent-indigo-hover: #3E3EE0;
+  --fs-accent-indigo-glow: rgba(79, 79, 241, 0.45);
+  --fs-accent-cyan: #007BE3;
+  --fs-accent-cyan-light: #38BDF8;
+  --fs-accent-cyan-glow: rgba(56, 189, 248, 0.35);
+  --fs-border-glass: rgba(255, 255, 255, 0.08);
+  --fs-border-glass-bright: rgba(255, 255, 255, 0.16);
+  --fs-text-white: #FFFFFF;
+  --fs-text-muted: rgba(255, 255, 255, 0.68);
+  --fs-text-subtle: rgba(255, 255, 255, 0.45);
+  --fs-font-main: 'Be Vietnam Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --fs-font-mono: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* ==========================================================================
+   GLOBAL BASE & TYPOGRAPHY
+   ========================================================================== */
+html, body {
+  background-color: var(--fs-bg) !important;
+}
+
+body.zoho-blue-theme,
+body.zoho-blue-theme main,
+.zoho-content-wrapper {
+  background-color: var(--fs-bg) !important;
+  color: var(--fs-text-white) !important;
+  font-family: var(--fs-font-main) !important;
+  -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale !important;
+}
+
+body.zoho-blue-theme h1,
+body.zoho-blue-theme h2,
+body.zoho-blue-theme h3,
+body.zoho-blue-theme h4,
+body.zoho-blue-theme h5,
+body.zoho-blue-theme h6,
+body.zoho-blue-theme p,
+body.zoho-blue-theme span,
+body.zoho-blue-theme a,
+body.zoho-blue-theme button,
+body.zoho-blue-theme input,
+body.zoho-blue-theme select,
+body.zoho-blue-theme textarea {
+  font-family: var(--fs-font-main) !important;
+}
+
+/* ==========================================================================
+   SECTION 1: HERO SECTION (#zohoHero)
+   Exact FinSight Ambient Glow & Boxes Backdrop Hierarchy
+   ========================================================================== */
+.zoho-framer-hero#zohoHero,
+.zoho-framer-hero {
+  background-color: var(--fs-bg) !important;
+  position: relative !important;
+  overflow: clip !important;
+}
+
+.zoho-framer-hero .hero-abstracts-wrap {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  overflow: clip !important;
+  pointer-events: none !important;
+  z-index: 0 !important;
+  user-select: none !important;
+}
+
+.zoho-framer-hero .hero-glow-layer {
+  position: absolute !important;
+  top: -24px !important;
+  right: -142px !important;
+  bottom: -10px !important;
+  left: -96px !important;
+  width: 1708px !important;
+  max-width: 150vw !important;
+  height: 795px !important;
+  overflow: clip !important;
+  pointer-events: none !important;
+  z-index: 0 !important;
+  mask: radial-gradient(61% 83% at 24.3% 8.1%, rgb(0, 0, 0) 0%, rgba(0, 0, 0, 0) 100%) !important;
+  -webkit-mask: radial-gradient(61% 83% at 24.3% 8.1%, rgb(0, 0, 0) 0%, rgba(0, 0, 0, 0) 100%) !important;
+}
+
+.zoho-framer-hero .hero-glow-layer img {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center !important;
+}
+
+.zoho-framer-hero .hero-boxes-layer {
+  position: absolute !important;
+  top: 0px !important;
+  right: 0px !important;
+  bottom: 0px !important;
+  left: 0px !important;
+  width: 100% !important;
+  height: 100% !important;
+  overflow: clip !important;
+  pointer-events: none !important;
+  z-index: 1 !important;
+  mask: linear-gradient(rgb(0, 0, 0) 63.8514%, rgba(0, 0, 0, 0) 100%) !important;
+  -webkit-mask: linear-gradient(rgb(0, 0, 0) 63.8514%, rgba(0, 0, 0, 0) 100%) !important;
+}
+
+.zoho-framer-hero .hero-boxes-layer img {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center !important;
+}
+
+/* Frosted Glass Pill Badge */
+.zoho-framer-badge {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: 58px !important;
+  background: radial-gradient(62% 100% at 47.9% -12.3%, rgba(212, 212, 212, 0.35) 0%, rgba(217, 217, 217, 0.04) 100%) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.16) !important;
+  color: #FFFFFF !important;
+  font-family: var(--fs-font-main) !important;
+  font-size: 13.5px !important;
+  font-weight: 500 !important;
+  padding: 7px 22px !important;
+  letter-spacing: -0.01em !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4) !important;
+  margin-bottom: 24px !important;
+}
+
+/* Editorial Heading: FinSight 300 Light Weight */
+.zoho-framer-content {
+  max-width: 1320px !important;
+  width: 100% !important;
+}
+
+.zoho-framer-heading {
+  font-family: var(--fs-font-main) !important;
+  font-size: clamp(32px, 4.4vw, 64px) !important;
+  font-weight: 300 !important;
+  line-height: 1.15 !important;
+  letter-spacing: -0.03em !important;
+  color: #FFFFFF !important;
+  max-width: 1260px !important;
+  width: 100% !important;
+  margin: 0 auto 20px auto !important;
+}
+
+.zoho-framer-heading-line1 {
+  display: block !important;
+  font-weight: 300 !important;
+  letter-spacing: -0.03em !important;
+  color: #FFFFFF !important;
+  white-space: nowrap !important;
+}
+
+.zoho-framer-heading-line2,
+.zoho-framer-heading-accent {
+  display: block !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.03em !important;
+  color: #FFFFFF !important;
+}
+
+@media (max-width: 768px) {
+  .zoho-framer-heading {
+    font-size: clamp(22px, 5.8vw, 36px) !important;
+    max-width: 100% !important;
+  }
+  .zoho-framer-heading-line1 {
+    white-space: normal !important;
+    text-wrap: balance !important;
+  }
+}
+
+.zoho-framer-desc {
+  font-family: var(--fs-font-main) !important;
+  font-size: 17px !important;
+  font-weight: 400 !important;
+  line-height: 1.65 !important;
+  color: var(--fs-text-muted) !important;
+  max-width: 660px !important;
+  margin: 0 auto 28px auto !important;
+  letter-spacing: -0.01em !important;
+}
+
+/* Action Cluster Buttons */
+#heroBookConsultationBtn.zoho-framer-cta-btn {
+  background: var(--fs-accent-indigo) !important;
+  color: #FFFFFF !important;
+  border-radius: 110px !important;
+  padding: 12px 28px !important;
+  font-family: var(--fs-font-main) !important;
+  font-weight: 500 !important;
+  font-size: 15px !important;
+  border: none !important;
+  box-shadow: 0 4px 24px var(--fs-accent-indigo-glow) !important;
+  transition: transform 0.25s ease, box-shadow 0.25s ease !important;
+}
+
+#heroBookConsultationBtn.zoho-framer-cta-btn:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 32px rgba(79, 79, 241, 0.6) !important;
+}
+
+#heroBookConsultationBtn .zoho-cta-arrow-circle {
+  background: #FFFFFF !important;
+  color: var(--fs-accent-indigo) !important;
+}
+
+#heroBookConsultationBtn .zoho-cta-arrow-circle svg {
+  stroke: var(--fs-accent-indigo) !important;
+}
+
+/* Secondary Button: Frosted Glass Pill */
+#heroExploreProductsBtn.zoho-framer-cta-btn {
+  background: rgba(255, 255, 255, 0.08) !important;
+  color: #FFFFFF !important;
+  border: 1px solid rgba(255, 255, 255, 0.16) !important;
+  border-radius: 110px !important;
+  padding: 12px 28px !important;
+  font-family: var(--fs-font-main) !important;
+  font-weight: 500 !important;
+  font-size: 15px !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  box-shadow: none !important;
+  transition: all 0.25s ease !important;
+}
+
+#heroExploreProductsBtn.zoho-framer-cta-btn:hover {
+  background: rgba(255, 255, 255, 0.14) !important;
+  border-color: rgba(255, 255, 255, 0.3) !important;
+  transform: translateY(-2px) !important;
+}
+
+#heroExploreProductsBtn .zoho-cta-arrow-circle {
+  background: rgba(255, 255, 255, 0.16) !important;
+  color: #FFFFFF !important;
+}
+
+#heroExploreProductsBtn .zoho-cta-arrow-circle svg {
+  stroke: #FFFFFF !important;
+}
+
+/* ==========================================================================
+   SECTION 2: KEY METRICS & TRUSTED CLIENTS (#metricsSection)
+   ========================================================================== */
+.home-metrics-clients-section#metricsSection {
+  background: var(--fs-bg) !important;
+  border-top: none !important;
+  border-bottom: none !important;
+  border: none !important;
+  padding: 4rem 1.5rem !important;
+}
+
+.home-mc-divider {
+  background: var(--fs-border-glass) !important;
+}
+
+.home-mc-num {
+  font-family: var(--fs-font-mono) !important;
+  font-size: clamp(2.4rem, 3.8vw, 3.5rem) !important;
+  font-weight: 700 !important;
+  color: var(--fs-accent-indigo) !important;
+  letter-spacing: -0.02em !important;
+  text-shadow: 0 0 32px rgba(79, 79, 241, 0.35) !important;
+}
+
+.home-mc-label {
+  font-family: var(--fs-font-main) !important;
+  color: #FFFFFF !important;
+  font-size: 15px !important;
+  font-weight: 600 !important;
+  letter-spacing: -0.01em !important;
+}
+
+.home-mc-sub {
+  font-family: var(--fs-font-main) !important;
+  color: var(--fs-text-subtle) !important;
+  font-size: 13px !important;
+}
+
+.home-mc-trusted-title {
+  font-family: var(--fs-font-mono) !important;
+  color: rgba(255, 255, 255, 0.65) !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.15em !important;
+  text-transform: uppercase !important;
+}
+
+/* FinSight Brand Partner Logo Carousel (Clean White Capsules for 100% Brand & Name Visibility) */
+.home-mc-marquee-wrap {
+  position: relative !important;
+  overflow: hidden !important;
+  width: 100% !important;
+}
+
+.home-mc-marquee-wrap::before,
+.home-mc-marquee-wrap::after {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  width: 60px !important;
+  height: 100% !important;
+  z-index: 2 !important;
+  pointer-events: none !important;
+}
+
+.home-mc-marquee-wrap::before {
+  left: 0 !important;
+  background: linear-gradient(to right, var(--fs-bg, #000000), rgba(0, 0, 0, 0)) !important;
+}
+
+.home-mc-marquee-wrap::after {
+  right: 0 !important;
+  background: linear-gradient(to left, var(--fs-bg, #000000), rgba(0, 0, 0, 0)) !important;
+}
+
+.home-mc-marquee-track {
+  display: flex !important;
+  align-items: center !important;
+  gap: 1.25rem !important;
+  white-space: nowrap !important;
+  width: max-content !important;
+  padding: 0.35rem 0 !important;
+}
+
+.home-mc-logo-item {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: #FFFFFF !important;
+  border-radius: 8px !important;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.35) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  min-width: 115px !important;
+  max-width: 150px !important;
+  height: 40px !important;
+  padding: 0.3rem 0.75rem !important;
+  box-sizing: border-box !important;
+  flex-shrink: 0 !important;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease !important;
+}
+
+.home-mc-logo-item:hover {
+  transform: scale(1.06) translateY(-2px) !important;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.55) !important;
+}
+
+.home-mc-logo-img {
+  height: 24px !important;
+  max-height: 24px !important;
+  width: auto !important;
+  max-width: 100% !important;
+  object-fit: contain !important;
+  display: block !important;
+  filter: none !important;
+  opacity: 1 !important;
+  user-select: none !important;
+  -webkit-user-drag: none !important;
+}
+
+/* ==========================================================================
+   SECTION 3: ZOHO ALL-PRODUCTS DIRECTORY (#allProductsSection)
+   ========================================================================== */
+.zoho-directory-section#allProductsSection,
+.zoho-directory-section {
+  position: relative !important;
+  background: var(--fs-bg, #010204) !important;
+  padding: 5rem 1.5rem !important;
+  border-top: none !important;
+  border-bottom: none !important;
+  border: none !important;
+}
+
+#allProductsSection .section-eyebrow {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  padding: 6px 18px !important;
+  border-radius: 58px !important;
+  background: radial-gradient(62% 100% at 47.9% -12.3%, rgba(212, 212, 212, 0.32) 0%, rgba(217, 217, 217, 0.04) 100%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.16) !important;
+  backdrop-filter: blur(16px) !important;
+  color: #FFFFFF !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.08em !important;
+}
+
+#allProductsSection .section-eyebrow .pulse-dot {
+  background: var(--fs-accent-cyan-light) !important;
+  box-shadow: 0 0 10px var(--fs-accent-cyan-light) !important;
+}
+
+#allProductsSection .heading-xl {
+  font-family: var(--fs-font-main) !important;
+  font-size: clamp(34px, 4.5vw, 56px) !important;
+  font-weight: 300 !important;
+  line-height: 1.18 !important;
+  letter-spacing: -0.03em !important;
+  color: #FFFFFF !important;
+}
+
+#allProductsSection .heading-xl span,
+#allProductsSection .heading-xl span.zoho-heading-anim-text {
+  color: var(--fs-accent-cyan-light) !important;
+  font-weight: 400 !important;
+}
+
+#allProductsSection p {
+  color: var(--fs-text-muted) !important;
+  font-family: var(--fs-font-main) !important;
+  font-size: 16px !important;
+  line-height: 1.65 !important;
+}
+
+/* Category header row */
+.zoho-cat-main-title#currentCatTitle {
+  color: #FFFFFF !important;
+  font-family: var(--fs-font-main) !important;
+  font-weight: 400 !important;
+  font-size: 24px !important;
+  letter-spacing: -0.02em !important;
+}
+
+.zoho-cat-count-badge#currentCatCountBadge {
+  background: rgba(79, 79, 241, 0.16) !important;
+  border: 1px solid rgba(79, 79, 241, 0.35) !important;
+  color: var(--fs-accent-cyan-light) !important;
+  border-radius: 58px !important;
+  font-family: var(--fs-font-mono) !important;
+  font-size: 12.5px !important;
+  font-weight: 600 !important;
+  padding: 4px 14px !important;
+}
+
+/* Sidebar Navigation Tabs */
+.zoho-directory-sidebar {
+  background: var(--fs-bg-card) !important;
+  border: 1px solid var(--fs-border-glass) !important;
+  border-radius: 20px !important;
+  padding: 1.25rem !important;
+  box-shadow: 0 10px 32px rgba(0, 0, 0, 0.4) !important;
+}
+
+.zoho-search-sidebar-box#zohoSearchInput {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  border-radius: 12px !important;
+  color: #FFFFFF !important;
+  font-family: var(--fs-font-main) !important;
+  font-size: 14px !important;
+  padding: 12px 16px !important;
+  margin-bottom: 1rem !important;
+}
+
+.zoho-search-sidebar-box#zohoSearchInput:focus {
+  border-color: var(--fs-accent-indigo) !important;
+  box-shadow: 0 0 0 3px rgba(79, 79, 241, 0.25) !important;
+  outline: none !important;
+}
+
+.zoho-category-pill-btn {
+  background: rgba(255, 255, 255, 0.04) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  color: rgba(255, 255, 255, 0.72) !important;
+  font-family: var(--fs-font-main) !important;
+  font-weight: 500 !important;
+  font-size: 14px !important;
+  border-radius: 12px !important;
+  padding: 10px 16px !important;
+  transition: all 0.2s ease !important;
+  text-align: left !important;
+  margin-bottom: 6px !important;
+  cursor: pointer !important;
+}
+
+.zoho-category-pill-btn:hover {
+  background: rgba(255, 255, 255, 0.08) !important;
+  color: #FFFFFF !important;
+  border-color: rgba(255, 255, 255, 0.18) !important;
+}
+
+.zoho-category-pill-btn.active {
+  background: var(--fs-accent-indigo) !important;
+  color: #FFFFFF !important;
+  font-weight: 600 !important;
+  border-color: transparent !important;
+  box-shadow: 0 4px 18px var(--fs-accent-indigo-glow) !important;
+}
+
+/* FinSight Dark Cards for Products with Neon Border Beam */
+#allProductsSection .zoho-rect-card,
+.zoho-rect-card {
+  background: #050508 !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-radius: 18px !important;
+  padding: 1.35rem 1.3rem 1.15rem 1.3rem !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6) !important;
+  color: #FFFFFF !important;
+  position: relative !important;
+  overflow: hidden !important;
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), 
+              border-color 0.28s ease, 
+              box-shadow 0.28s ease !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+}
+
+#allProductsSection .zoho-rect-card:hover,
+.zoho-rect-card:hover,
+#allProductsSection .zoho-rect-card.is-hovered,
+.zoho-rect-card.is-hovered {
+  background: #050508 !important;
+  transform: translateY(-4px) !important;
+  border-color: rgba(0, 229, 255, 0.3) !important;
+  box-shadow: 0 20px 45px -8px rgba(0, 0, 0, 0.85), 0 0 35px rgba(0, 229, 255, 0.2) !important;
+}
+
+#allProductsSection .zoho-card-brand-header.zoho-has-brand-img,
+.zoho-card-brand-header.zoho-has-brand-img {
+  background: #FFFFFF !important;
+  border-radius: 10px !important;
+  padding: 6px 14px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  width: fit-content !important;
+  max-width: 100% !important;
+  min-height: 44px !important;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.25) !important;
+  margin-bottom: 1rem !important;
+}
+
+#allProductsSection .zoho-card-brand-header.zoho-has-brand-img .zoho-card-brand-prefix,
+.zoho-card-brand-header.zoho-has-brand-img .zoho-card-brand-prefix {
+  color: #64748B !important;
+  font-size: 13.5px !important;
+  font-weight: 500 !important;
+}
+
+#allProductsSection .zoho-card-brand-header.zoho-has-brand-img .zoho-card-brand-name,
+.zoho-card-brand-header.zoho-has-brand-img .zoho-card-brand-name {
+  color: #0F172A !important;
+  font-size: 15px !important;
+  font-weight: 700 !important;
+}
+
+#allProductsSection .zoho-card-brand-logo-img,
+.zoho-card-brand-logo-img {
+  height: 30px !important;
+  max-height: 34px !important;
+  max-width: 195px !important;
+  width: auto !important;
+  display: block !important;
+  object-fit: contain !important;
+  object-position: left center !important;
+  filter: none !important;
+  opacity: 1 !important;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+#allProductsSection .zoho-rect-card:hover .zoho-card-brand-logo-img,
+.zoho-rect-card:hover .zoho-card-brand-logo-img {
+  filter: none !important;
+  opacity: 1 !important;
+  transform: scale(1.04) !important;
+}
+
+.zoho-card-headline {
+  color: #FFFFFF !important;
+  font-family: var(--fs-font-main) !important;
+  font-weight: 600 !important;
+  font-size: 17px !important;
+  line-height: 1.35 !important;
+  margin: 12px 0 8px 0 !important;
+}
+
+.zoho-card-desc {
+  color: var(--fs-text-muted) !important;
+  font-family: var(--fs-font-main) !important;
+  font-weight: 400 !important;
+  font-size: 14px !important;
+  line-height: 1.55 !important;
+}
+
+.zoho-card-brand-prefix {
+  color: rgba(255, 255, 255, 0.5) !important;
+  font-family: var(--fs-font-main) !important;
+}
+
+.zoho-card-brand-name {
+  color: #FFFFFF !important;
+  font-family: var(--fs-font-main) !important;
+  font-weight: 600 !important;
+}
+
+.zoho-card-cta-link {
+  color: var(--fs-accent-cyan-light) !important;
+  font-family: var(--fs-font-main) !important;
+  font-weight: 500 !important;
+  font-size: 14px !important;
+  text-decoration: none !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 4px !important;
+  transition: transform 0.2s ease, color 0.2s ease !important;
+}
+
+.zoho-card-cta-link:hover {
+  color: #FFFFFF !important;
+  transform: translateX(3px) !important;
+}
+
+/* ==========================================================================
+   SECTION 4: UNIFIED DASHBOARD SHOWCASE (#zohoUnifiedDashboardSection)
+   Exact Preserved Showcase with FinSight 44px White Showcase Container
+   ========================================================================== */
+.zoho-unified-dashboard-section {
+  background-color: var(--fs-bg) !important;
+}
+
+.zud-container {
+  background: #FFFFFF !important;
+  border-radius: 36px !important;
+  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.65) !important;
+}
+
+.zud-title {
+  font-family: 'Be Vietnam Pro', var(--fs-font-main) !important;
+  font-weight: 300 !important;
+  letter-spacing: -0.04em !important;
+  color: #000000 !important;
+}
+
+.zud-subtitle {
+  font-family: 'Be Vietnam Pro', var(--fs-font-main) !important;
+  color: #252525 !important;
+  font-weight: 300 !important;
+}
+
+/* ==========================================================================
+   SECTION 5: CORE PILLARS SECTION (#corePillarsSection)
+   ========================================================================== */
+.zoho-izanami-section {
+  background-color: var(--fs-bg) !important;
+}
+
+.izanami-intro-heading {
+  font-family: var(--fs-font-main) !important;
+  font-weight: 300 !important;
+  letter-spacing: -0.03em !important;
+  color: #FFFFFF !important;
+}
+
+.izanami-slide-card {
+  background: var(--fs-bg-card) !important;
+  border: 1px solid var(--fs-border-glass) !important;
+  border-radius: 24px !important;
+}
+
+/* ==========================================================================
+   SECTION 6: HOW DO WE DELIVER SUCCESS? (#deliverySection)
+   FinSight Obsidian Atmosphere + Sleek Dark Stage Cards
+   ========================================================================== */
+.delivery-success-section#deliverySection {
+  background: var(--fs-bg) !important;
+  padding: 5rem 1.5rem !important;
+  border-top: none !important;
+  border-bottom: none !important;
+  border: none !important;
+}
+
+.delivery-radial-eyebrow {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  padding: 6px 18px !important;
+  border-radius: 58px !important;
+  background: radial-gradient(62% 100% at 47.9% -12.3%, rgba(212, 212, 212, 0.32) 0%, rgba(217, 217, 217, 0.04) 100%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.16) !important;
+  color: #FFFFFF !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.08em !important;
+  margin-bottom: 16px !important;
+}
+
+#deliverySection.delivery-success-section h2,
+#deliverySection .delivery-radial-heading,
+.delivery-success-section .delivery-radial-heading,
+.delivery-success-section h2,
+.delivery-radial-heading {
+  font-family: var(--fs-font-main) !important;
+  font-weight: 300 !important;
+  letter-spacing: -0.03em !important;
+  color: #FFFFFF !important;
+  font-size: clamp(34px, 4.5vw, 56px) !important;
+  line-height: 1.15 !important;
+}
+
+.delivery-radial-heading .heading-blue-accent {
+  color: var(--fs-accent-cyan-light) !important;
+  font-weight: 400 !important;
+}
+
+#deliverySection.delivery-success-section p,
+#deliverySection .delivery-radial-desc,
+.delivery-success-section p,
+.delivery-radial-desc {
+  color: var(--fs-text-muted) !important;
+  font-family: var(--fs-font-main) !important;
+  font-size: 16px !important;
+  line-height: 1.6 !important;
+}
+
+.delivery-radial-cta {
+  background: var(--fs-accent-indigo) !important;
+  color: #FFFFFF !important;
+  border-radius: 110px !important;
+  padding: 12px 28px !important;
+  font-family: var(--fs-font-main) !important;
+  font-weight: 500 !important;
+  font-size: 15px !important;
+  box-shadow: 0 4px 20px var(--fs-accent-indigo-glow) !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  text-decoration: none !important;
+  transition: all 0.25s ease !important;
+}
+
+.delivery-radial-cta:hover {
+  background: var(--fs-accent-indigo-hover) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 30px rgba(79, 79, 241, 0.6) !important;
+}
+
+/* 5-Stage Stage Cards matching FinSight 3-step dark cards (No Overlap) */
+.delivery-desktop-radial {
+  height: 980px !important;
+}
+
+.delivery-radial-card {
+  background: var(--fs-bg-card) !important;
+  border: 1px solid var(--fs-border-glass) !important;
+  border-radius: 18px !important;
+  padding: 16px 20px !important;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.5) !important;
+  color: #FFFFFF !important;
+}
+
+.delivery-radial-card-header {
+  margin-bottom: 4px !important;
+}
+
+.delivery-radial-card-title {
+  color: #FFFFFF !important;
+  font-family: var(--fs-font-main) !important;
+  font-weight: 600 !important;
+  font-size: 17px !important;
+}
+
+.delivery-radial-card-badge {
+  background: rgba(79, 79, 241, 0.16) !important;
+  border: 1px solid rgba(79, 79, 241, 0.35) !important;
+  color: var(--fs-accent-cyan-light) !important;
+  border-radius: 58px !important;
+  font-family: var(--fs-font-mono) !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  padding: 3px 10px !important;
+}
+
+.delivery-radial-card-sub {
+  color: var(--fs-accent-cyan-light) !important;
+  font-family: var(--fs-font-main) !important;
+  font-weight: 500 !important;
+  font-size: 13px !important;
+  margin-bottom: 8px !important;
+}
+
+.delivery-radial-card-list {
+  gap: 0.35rem !important;
+}
+
+.delivery-radial-card-list li {
+  color: rgba(255, 255, 255, 0.78) !important;
+  font-family: var(--fs-font-main) !important;
+  font-size: 12.5px !important;
+  line-height: 1.35 !important;
+}
+
+.delivery-radial-card-list svg {
+  stroke: var(--fs-accent-cyan-light) !important;
+}
+
+.delivery-radial-card.rad-step-1 {
+  left: 3% !important;
+  top: 10% !important;
+  width: 275px !important;
+}
+
+.delivery-radial-card.rad-step-2 {
+  left: 35% !important;
+  top: 0px !important;
+  width: 260px !important;
+}
+
+.delivery-radial-card.rad-step-3 {
+  left: 65% !important;
+  top: 10% !important;
+  width: 285px !important;
+}
+
+.delivery-radial-card.rad-step-4 {
+  left: 71% !important;
+  top: 39% !important;
+  width: 290px !important;
+}
+
+.delivery-radial-card.rad-step-5 {
+  left: 65% !important;
+  top: 68% !important;
+  width: 290px !important;
+}
+
+.delivery-radial-header {
+  bottom: 6% !important;
+}
+
+/* ==========================================================================
+   SECTION 7: ENTERPRISE TOOLING / TECH STACK (#zohoTechStackSection)
+   Managed by css/zoho-tech-stack-cinema.css (Awwwards 3D Spatial Z-Tunnel)
+   ========================================================================== */
+.zoho-tech-stack-section#zohoTechStackSection {
+  background: #010204 !important;
+  background-color: #010204 !important;
+  background-image: none !important;
+  padding: 0 !important;
+  border: none !important;
+  position: relative !important;
+  width: 100% !important;
+  min-height: 350vh !important;
+  height: 350vh !important;
+  display: block !important;
+  z-index: 20 !important;
+}
+
+.zoho-tech-stack-stage {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  padding: clamp(2rem, 2.5vw, 3rem) 1.5rem !important;
+  border-top: none !important;
+  border-bottom: none !important;
+  border: none !important;
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  overflow: hidden !important;
+  perspective: 1400px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-sizing: border-box !important;
+}
+
+/* Background removed per User Requirement 3: "remove the backgroud from the buils with zoiho modern techonology stack" */
+.zoho-tech-starfield-bg {
+  display: none !important;
+}
+
+.zoho-tech-starfield-bg::before {
+  content: '' !important;
+  position: absolute !important;
+  inset: 0 !important;
+  background: radial-gradient(circle at 50% 50%, rgba(2, 2, 4, 0.05) 0%, rgba(2, 2, 4, 0.45) 75%, #020204 100%) !important;
+  pointer-events: none !important;
+}
+
+.zoho-tech-starfield-bg::after {
+  content: '' !important;
+  position: absolute !important;
+  inset: 0 !important;
+  background: linear-gradient(180deg, #020204 0%, transparent 12%, transparent 85%, #020204 100%) !important;
+  pointer-events: none !important;
+}
+
+.zoho-tech-container {
+  width: 100% !important;
+  max-width: 1600px !important;
+  margin: 0 auto !important;
+  padding: 0 1.5rem !important;
+  position: relative !important;
+  transform-style: preserve-3d !important;
+  z-index: 2 !important;
+}
+
+/* 3D Scene Wrapper (Height reduced by 20% from 880px to 700px) */
+.zoho-3d-scene-wrap {
+  position: relative !important;
+  width: 100% !important;
+  min-height: 700px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transform-style: preserve-3d !important;
+}
+
+/* Center Core Content */
+.zoho-tech-center-core {
+  position: relative !important;
+  z-index: 20 !important;
+  max-width: 980px !important;
+  margin: 0 auto !important;
+  text-align: center !important;
+  transform: translate3d(var(--core-x, 0px), var(--core-y, 0px), 25px) !important;
+  transition: transform 0.15s ease-out !important;
+  pointer-events: auto !important;
+}
+
+
+
+.zoho-tech-eyebrow {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  padding: 6px 18px !important;
+  border-radius: 58px !important;
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid rgba(255, 255, 255, 0.14) !important;
+  color: #FFFFFF !important;
+  font-family: var(--fs-font-mono, 'JetBrains Mono', monospace) !important;
+  font-size: 11.5px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.14em !important;
+  text-transform: uppercase !important;
+  margin-bottom: 16px !important;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.3) !important;
+}
+
+.zoho-tech-pulse-dot {
+  width: 6px !important;
+  height: 6px !important;
+  border-radius: 50% !important;
+  background: #38BDF8 !important;
+  box-shadow: 0 0 10px #38BDF8 !important;
+  animation: zoho-dot-blink 2s ease-in-out infinite !important;
+}
+
+@keyframes zoho-dot-blink {
+  0%, 100% { opacity: 0.4; transform: scale(0.8); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+.zoho-tech-title {
+  font-family: var(--fs-font-main, 'Inter', sans-serif) !important;
+  font-weight: 300 !important;
+  font-size: clamp(30px, 3.8vw, 50px) !important;
+  letter-spacing: -0.035em !important;
+  line-height: 1.2 !important;
+  color: #FFFFFF !important;
+  margin: 0 auto 16px auto !important;
+  max-width: 920px !important;
+}
+
+.zoho-tech-title .zoho-tech-blue {
+  color: #38BDF8 !important;
+  font-weight: 600 !important;
+  display: block !important;
+  margin-top: 6px !important;
+  background: linear-gradient(135deg, #FFFFFF 0%, #38BDF8 50%, #818CF8 100%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+.zoho-tech-subtitle {
+  color: rgba(255, 255, 255, 0.65) !important;
+  font-family: var(--fs-font-main, 'Inter', sans-serif) !important;
+  font-size: clamp(14.5px, 1.3vw, 17px) !important;
+  max-width: 620px !important;
+  margin: 0 auto 26px auto !important;
+  line-height: 1.6 !important;
+}
+
+/* Enterprise Architecture Button - Matches "Book a Consultation" (Indigo #4F4FF1) */
+.zoho-tech-beam-btn {
+  display: inline-flex !important;
+  position: relative !important;
+  padding: 0 !important;
+  border-radius: 9999px !important;
+  background: transparent !important;
+  overflow: visible !important;
+  text-decoration: none !important;
+  box-shadow: none !important;
+  cursor: pointer !important;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.zoho-tech-beam-btn::before {
+  display: none !important;
+  content: none !important;
+  animation: none !important;
+}
+
+.zoho-tech-beam-btn:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: none !important;
+}
+
+.zoho-tech-beam-btn-inner {
+  position: relative !important;
+  z-index: 1 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  padding: 0.75rem 1.85rem !important;
+  border-radius: 9999px !important;
+  background: var(--fs-accent-indigo, #4F4FF1) !important;
+  border: none !important;
+  color: #FFFFFF !important;
+  font-family: var(--fs-font-main, 'Inter', sans-serif) !important;
+  font-size: 0.875rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.05em !important;
+  box-shadow: 0 4px 24px var(--fs-accent-indigo-glow, rgba(79, 79, 241, 0.45)) !important;
+  transition: background 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease !important;
+}
+
+.zoho-tech-beam-btn:hover .zoho-tech-beam-btn-inner {
+  background: var(--fs-accent-indigo-hover, #3E3EE0) !important;
+  box-shadow: 0 8px 32px rgba(79, 79, 241, 0.6) !important;
+}
+
+.zoho-tech-beam-btn .zoho-cta-arrow-circle {
+  width: 26px !important;
+  height: 26px !important;
+  border-radius: 50% !important;
+  background: #FFFFFF !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2) !important;
+  transition: transform 0.25s ease !important;
+}
+
+.zoho-tech-beam-btn:hover .zoho-cta-arrow-circle {
+  transform: translateX(3px) !important;
+}
+
+.zoho-tech-beam-btn .zoho-cta-arrow-circle svg {
+  width: 13px !important;
+  height: 13px !important;
+  stroke: var(--fs-accent-indigo, #4F4FF1) !important;
+}
+
+/* ==========================================================================
+   3D FLOATING ITEMS SYSTEM (API, WEBHOOK, CLICKSCRIPT, DELUGE, HTML, CSS, JAVASCRIPT, PYTHON, NODE JS)
+   ========================================================================== */
+.zoho-3d-float-item {
+  position: absolute !important;
+  z-index: 10 !important;
+  transform-style: preserve-3d !important;
+  will-change: transform !important;
+  pointer-events: auto !important;
+  user-select: none !important;
+  transform: translate3d(var(--px-x, 0px), var(--px-y, 0px), 0) rotateX(var(--px-rx, 0deg)) rotateY(var(--px-ry, 0deg)) !important;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.zoho-3d-inner {
+  transform-style: preserve-3d !important;
+  display: block !important;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.zoho-3d-float-item:hover .zoho-3d-inner {
+  transform: scale(1.08) translateZ(45px) !important;
+}
+
+/* 3D Glass Cards Styling - Luminous Crystal Glass */
+.zoho-3d-glass-card {
+  backdrop-filter: blur(24px) !important;
+  -webkit-backdrop-filter: blur(24px) !important;
+  border-radius: 20px !important;
+  box-shadow: 
+    0 22px 55px rgba(0, 0, 0, 0.85),
+    inset 0 1.5px 1.5px rgba(255, 255, 255, 0.35),
+    inset 0 -1px 1px rgba(0, 0, 0, 0.5) !important;
+  padding: 14px 18px !important;
+  color: #FFFFFF !important;
+  position: relative !important;
+  box-sizing: border-box !important;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.zoho-3d-float-item:hover .zoho-3d-glass-card {
+  box-shadow: 
+    0 28px 70px rgba(0, 0, 0, 0.95),
+    inset 0 2px 2px rgba(255, 255, 255, 0.5) !important;
+}
+
+/* 3D Glass Pill Capsules - Ultra-Crisp Frosted Acrylic (No glowing light haloes) */
+.zoho-3d-glass-pill {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  background: linear-gradient(135deg, rgba(28, 30, 42, 0.92) 0%, rgba(14, 16, 24, 0.96) 100%) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.25) !important;
+  border-radius: 9999px !important;
+  padding: 8px 18px !important;
+  color: #FFFFFF !important;
+  box-shadow: 
+    0 14px 35px rgba(0, 0, 0, 0.65),
+    inset 0 1.5px 1px rgba(255, 255, 255, 0.35) !important;
+  white-space: nowrap !important;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.zoho-3d-float-item:hover .zoho-3d-glass-pill {
+  background: linear-gradient(135deg, rgba(38, 42, 58, 0.96) 0%, rgba(20, 24, 36, 0.98) 100%) !important;
+  border-color: rgba(255, 255, 255, 0.45) !important;
+  box-shadow: 
+    0 20px 45px rgba(0, 0, 0, 0.8),
+    inset 0 2px 2px rgba(255, 255, 255, 0.5) !important;
+}
+
+/* Specific Pill Color Border Personalities (Clean crisp edges, no neon blur) */
+.zoho-glow-cadence {
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.65), inset 0 1.5px 1px rgba(255, 255, 255, 0.35) !important;
+  border-color: rgba(192, 132, 252, 0.5) !important;
+}
+.zoho-glow-deluge {
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.65), inset 0 1.5px 1px rgba(255, 255, 255, 0.35) !important;
+  border-color: rgba(251, 191, 36, 0.5) !important;
+}
+.zoho-glow-html {
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.65), inset 0 1.5px 1px rgba(255, 255, 255, 0.35) !important;
+  border-color: rgba(249, 115, 22, 0.5) !important;
+}
+.zoho-glow-webhook {
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.65), inset 0 1.5px 1px rgba(255, 255, 255, 0.35) !important;
+  border-color: rgba(56, 189, 248, 0.5) !important;
+}
+.zoho-glow-clientscript {
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.65), inset 0 1.5px 1px rgba(255, 255, 255, 0.35) !important;
+  border-color: rgba(129, 140, 248, 0.5) !important;
+}
+.zoho-glow-javascript {
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.65), inset 0 1.5px 1px rgba(255, 255, 255, 0.35) !important;
+  border-color: rgba(245, 158, 11, 0.5) !important;
+}
+.zoho-glow-css {
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.65), inset 0 1.5px 1px rgba(255, 255, 255, 0.35) !important;
+  border-color: rgba(244, 114, 182, 0.5) !important;
+}
+.zoho-glow-workflow {
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.65), inset 0 1.5px 1px rgba(255, 255, 255, 0.35) !important;
+  border-color: rgba(56, 189, 248, 0.5) !important;
+}
+
+/* Pill Labels & Badges */
+.zoho-3d-pill-title {
+  font-family: var(--fs-font-main, 'Inter', sans-serif) !important;
+  font-size: 13.5px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.05em !important;
+  color: #FFFFFF !important;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6) !important;
+}
+
+.zoho-3d-pill-sub {
+  font-family: var(--fs-font-mono, monospace) !important;
+  font-size: 10.5px !important;
+  color: #CBD5E1 !important;
+  letter-spacing: 0.04em !important;
+  font-weight: 500 !important;
+}
+
+.zoho-3d-corner-badge {
+  position: absolute !important;
+  top: -10px !important;
+  right: -10px !important;
+  background: rgba(56, 189, 248, 0.25) !important;
+  border: 1.5px solid rgba(56, 189, 248, 0.6) !important;
+  backdrop-filter: blur(10px) !important;
+  border-radius: 9999px !important;
+  padding: 3px 10px !important;
+  font-size: 10px !important;
+  font-weight: 700 !important;
+  font-family: var(--fs-font-mono, monospace) !important;
+  color: #38BDF8 !important;
+  letter-spacing: 0.07em !important;
+  text-transform: uppercase !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3), 0 0 15px rgba(56, 189, 248, 0.35) !important;
+}
+
+/* Tech Card Internals */
+.zoho-3d-card-header {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  margin-bottom: 6px !important;
+}
+
+.zoho-3d-card-tag {
+  font-family: var(--fs-font-mono, monospace) !important;
+  font-size: 10px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.12em !important;
+  color: #38BDF8 !important;
+  text-transform: uppercase !important;
+}
+
+.zoho-3d-card-title {
+  font-family: var(--fs-font-main, 'Inter', sans-serif) !important;
+  font-size: 18px !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.01em !important;
+  color: #FFFFFF !important;
+  margin: 0 0 4px 0 !important;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5) !important;
+}
+
+.zoho-3d-card-desc {
+  font-family: var(--fs-font-main, 'Inter', sans-serif) !important;
+  font-size: 11.5px !important;
+  color: #CBD5E1 !important;
+  line-height: 1.4 !important;
+  margin: 0 0 7px 0 !important;
+}
+
+.zoho-3d-code-box {
+  background: rgba(8, 12, 24, 0.85) !important;
+  border: 1px solid rgba(56, 189, 248, 0.4) !important;
+  border-radius: 7px !important;
+  padding: 4px 8px !important;
+  font-family: var(--fs-font-mono, 'JetBrains Mono', monospace) !important;
+  font-size: 11px !important;
+  color: #38BDF8 !important;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.4), 0 0 12px rgba(56, 189, 248, 0.2) !important;
+}
+
+/* ==========================================================================
+   CARD GRADIENTS PER USER SPECIFICATION
+   1. NODE JS: ORANGE AND BLACK GRADIENT
+   2. CLIENT SCRIPT: LIGHT GREEN AND BROWN GRADIENT
+   3. API: BLUE AND BLACK GRADIENT
+   4. PYTHON: LIGHT GREEN AND EMERALD OBSIDIAN GRADIENT
+   ========================================================================== */
+
+/* 1. NODE JS: ORANGE AND BLACK GRADIENT */
+.zoho-card-nodejs {
+  background: linear-gradient(135deg, 
+    #EA580C 0%, 
+    #F97316 26%, 
+    #C2410C 52%, 
+    #1F0C04 78%, 
+    #050508 100%
+  ) !important;
+  border: 1.5px solid rgba(251, 146, 60, 0.5) !important;
+  box-shadow: 
+    0 24px 60px rgba(0, 0, 0, 0.85),
+    inset 0 1.5px 1.5px rgba(255, 255, 255, 0.4),
+    inset 0 -1.5px 1.5px rgba(0, 0, 0, 0.5) !important;
+}
+.zoho-3d-float-item:hover .zoho-card-nodejs {
+  border-color: rgba(251, 146, 60, 0.8) !important;
+  background: linear-gradient(135deg, 
+    #F97316 0%, 
+    #FB923C 28%, 
+    #EA580C 55%, 
+    #2A1005 82%, 
+    #08080C 100%
+  ) !important;
+  box-shadow: 0 30px 75px rgba(0, 0, 0, 0.95), inset 0 2px 2px rgba(255, 255, 255, 0.55) !important;
+}
+.zoho-badge-nodejs {
+  background: rgba(0, 0, 0, 0.7) !important;
+  border: 1.5px solid rgba(251, 146, 60, 0.6) !important;
+  color: #FED7AA !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6) !important;
+}
+.zoho-tag-nodejs {
+  color: #FED7AA !important;
+  font-weight: 700 !important;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8) !important;
+}
+.zoho-code-nodejs {
+  background: rgba(0, 0, 0, 0.72) !important;
+  border: 1px solid rgba(251, 146, 60, 0.35) !important;
+  color: #FDBA74 !important;
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.6) !important;
+}
+
+/* 2. CLIENT SCRIPT: AMBER GOLD TO CHARCOAL GRADIENT (#ba8b02 → #181818) */
+.zoho-card-clientscript,
+.zoho-card-orange {
+  background: linear-gradient(135deg, #ba8b02 0%, #181818 100%) !important;
+  border: 1.5px solid rgba(186, 139, 2, 0.55) !important;
+  box-shadow: 
+    0 24px 60px rgba(0, 0, 0, 0.85),
+    0 0 25px rgba(186, 139, 2, 0.25),
+    inset 0 1.5px 1.5px rgba(255, 255, 255, 0.4),
+    inset 0 -1.5px 1.5px rgba(0, 0, 0, 0.5) !important;
+}
+.zoho-3d-float-item:hover .zoho-card-clientscript,
+.zoho-3d-float-item:hover .zoho-card-orange {
+  border-color: rgba(220, 168, 10, 0.85) !important;
+  background: linear-gradient(135deg, #d49e03 0%, #222222 100%) !important;
+  box-shadow: 0 30px 75px rgba(0, 0, 0, 0.95), 0 0 35px rgba(186, 139, 2, 0.45), inset 0 2px 2px rgba(255, 255, 255, 0.55) !important;
+}
+.zoho-badge-clientscript,
+.zoho-badge-orange {
+  background: rgba(0, 0, 0, 0.72) !important;
+  border: 1.5px solid rgba(186, 139, 2, 0.6) !important;
+  color: #FDE68A !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6) !important;
+}
+.zoho-tag-clientscript,
+.zoho-tag-orange {
+  color: #FDE68A !important;
+  font-weight: 700 !important;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8) !important;
+}
+.zoho-code-clientscript,
+.zoho-code-orange {
+  background: rgba(0, 0, 0, 0.72) !important;
+  border: 1px solid rgba(186, 139, 2, 0.4) !important;
+  color: #FCD34D !important;
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.6) !important;
+}
+
+/* 3. API: BLUE AND BLACK GRADIENT */
+.zoho-card-api,
+.zoho-card-black {
+  background: linear-gradient(135deg, 
+    #0284C7 0%, 
+    #0EA5E9 22%, 
+    #0369A1 48%, 
+    #0F244A 74%, 
+    #040812 90%, 
+    #020408 100%
+  ) !important;
+  border: 1.5px solid rgba(56, 189, 248, 0.5) !important;
+  box-shadow: 
+    0 24px 60px rgba(0, 0, 0, 0.85),
+    inset 0 1.5px 1.5px rgba(255, 255, 255, 0.35),
+    inset 0 -1.5px 1.5px rgba(0, 0, 0, 0.5) !important;
+}
+.zoho-3d-float-item:hover .zoho-card-api,
+.zoho-3d-float-item:hover .zoho-card-black {
+  border-color: rgba(56, 189, 248, 0.8) !important;
+  background: linear-gradient(135deg, 
+    #0EA5E9 0%, 
+    #38BDF8 24%, 
+    #0284C7 50%, 
+    #163266 76%, 
+    #050A18 92%, 
+    #02040A 100%
+  ) !important;
+  box-shadow: 0 30px 75px rgba(0, 0, 0, 0.95), inset 0 2px 2px rgba(255, 255, 255, 0.5) !important;
+}
+.zoho-badge-api,
+.zoho-badge-black {
+  background: rgba(0, 0, 0, 0.7) !important;
+  border: 1.5px solid rgba(56, 189, 248, 0.6) !important;
+  color: #BAE6FD !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6) !important;
+}
+.zoho-tag-api,
+.zoho-tag-black {
+  color: #BAE6FD !important;
+  font-weight: 700 !important;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8) !important;
+}
+.zoho-code-api,
+.zoho-code-black {
+  background: rgba(0, 0, 0, 0.72) !important;
+  border: 1px solid rgba(56, 189, 248, 0.35) !important;
+  color: #7DD3FC !important;
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.6) !important;
+}
+
+/* 4. PYTHON: LIGHT GREEN AND EMERALD OBSIDIAN GRADIENT */
+.zoho-card-python,
+.zoho-card-lightgreen {
+  background: linear-gradient(135deg, 
+    #059669 0%, 
+    #10B981 24%, 
+    #047857 48%, 
+    #064E3B 72%, 
+    #031B14 90%, 
+    #020805 100%
+  ) !important;
+  border: 1.5px solid rgba(52, 211, 153, 0.45) !important;
+  box-shadow: 
+    0 24px 60px rgba(0, 0, 0, 0.85),
+    inset 0 1.5px 1.5px rgba(255, 255, 255, 0.4),
+    inset 0 -1.5px 1.5px rgba(0, 0, 0, 0.5) !important;
+}
+.zoho-3d-float-item:hover .zoho-card-python,
+.zoho-3d-float-item:hover .zoho-card-lightgreen {
+  border-color: rgba(52, 211, 153, 0.75) !important;
+  background: linear-gradient(135deg, 
+    #10B981 0%, 
+    #34D399 26%, 
+    #059669 52%, 
+    #065F46 76%, 
+    #04221A 92%, 
+    #030B07 100%
+  ) !important;
+  box-shadow: 0 30px 75px rgba(0, 0, 0, 0.95), inset 0 2px 2px rgba(255, 255, 255, 0.55) !important;
+}
+.zoho-badge-python,
+.zoho-badge-lightgreen {
+  background: rgba(0, 0, 0, 0.7) !important;
+  border: 1.5px solid rgba(52, 211, 153, 0.6) !important;
+  color: #A7F3D0 !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6) !important;
+}
+.zoho-tag-python,
+.zoho-tag-lightgreen {
+  color: #A7F3D0 !important;
+  font-weight: 700 !important;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8) !important;
+}
+.zoho-code-python,
+.zoho-code-lightgreen {
+  background: rgba(0, 0, 0, 0.72) !important;
+  border: 1px solid rgba(52, 211, 153, 0.35) !important;
+  color: #6EE7B7 !important;
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.6) !important;
+}
+
+/* Ambient Glowing Orbs Removed per user request ("REMOVE THIOS LOIGHT EFFECT") */
+.zoho-3d-ambient-orb {
+  display: none !important;
+}
+
+/* UI Swatch Card (HTML & CSS - modeled after Blueprint AI "Aa" palette card) */
+.zoho-3d-swatches {
+  display: flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  margin-top: 8px !important;
+}
+
+.zoho-3d-swatch {
+  width: 22px !important;
+  height: 14px !important;
+  border-radius: 4px !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4) !important;
+}
+.zoho-3d-swatch.c1 { background: #38BDF8; }
+.zoho-3d-swatch.c2 { background: #6366F1; }
+.zoho-3d-swatch.c3 { background: #10B981; }
+
+/* ==========================================================================
+   INDIVIDUAL POSITIONING & IDLE 3D FLOATING ANIMATIONS
+   Exact 11 Items matching shader_test_p0.png:
+   Left / Top-Left: API, PYTHON, DELUGE, HTML, NODE JS
+   Right / Top-Right: CADENCE, WEBHOOK, CLIENT SCRIPT, JAVASCRIPT, CSS, WORKFLOW
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   LEFT & TOP-LEFT ITEMS (5): API, PYTHON, DELUGE, HTML, NODE JS
+   -------------------------------------------------------------------------- */
+
+/* 1. API: Top-Center-Left 3D Glass Card */
+.zoho-item-api {
+  top: 7% !important;
+  left: 21% !important;
+}
+.zoho-item-api .zoho-3d-inner {
+  width: 220px !important;
+  transform: rotateX(10deg) rotateY(-16deg) rotateZ(3deg) !important;
+  animation: zoho-float-api 8.5s ease-in-out infinite !important;
+}
+@keyframes zoho-float-api {
+  0%, 100% { transform: translate3d(0, 0, 0) rotateX(10deg) rotateY(-16deg) rotateZ(3deg); }
+  50% { transform: translate3d(8px, -16px, 24px) rotateX(15deg) rotateY(-22deg) rotateZ(6deg); }
+}
+
+/* 2. PYTHON: Upper-Left 3D Glass Card (Emerald Green) */
+.zoho-item-python {
+  top: 24% !important;
+  left: 5% !important;
+}
+.zoho-item-python .zoho-3d-inner {
+  width: 230px !important;
+  transform: rotateX(10deg) rotateY(-18deg) rotateZ(2deg) !important;
+  animation: zoho-float-python 9.2s ease-in-out infinite -2.5s !important;
+}
+@keyframes zoho-float-python {
+  0%, 100% { transform: translate3d(0, 0, 0) rotateX(10deg) rotateY(-18deg) rotateZ(2deg); }
+  50% { transform: translate3d(8px, -16px, 26px) rotateX(14deg) rotateY(-22deg) rotateZ(5deg); }
+}
+
+.zoho-card-python .zoho-badge-python {
+  right: auto !important;
+  left: 14px !important;
+  top: -11px !important;
+}
+
+.zoho-badge-python-ai {
+  position: absolute !important;
+  top: -11px !important;
+  right: 14px !important;
+  left: auto !important;
+  background: rgba(0, 0, 0, 0.72) !important;
+  border: 1.5px solid rgba(52, 211, 153, 0.6) !important;
+  color: #A7F3D0 !important;
+  border-radius: 9999px !important;
+  padding: 3px 10px !important;
+  font-size: 10px !important;
+  font-weight: 700 !important;
+  font-family: var(--fs-font-mono, monospace) !important;
+  letter-spacing: 0.07em !important;
+  text-transform: uppercase !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6) !important;
+  z-index: 10 !important;
+}
+
+/* 3. DELUGE: Mid-Left 3D Floating Pill */
+.zoho-item-deluge {
+  top: 47% !important;
+  left: 6% !important;
+}
+.zoho-item-deluge .zoho-3d-inner {
+  transform: rotateX(8deg) rotateY(-16deg) rotateZ(-10deg) !important;
+  animation: zoho-float-deluge 7.8s ease-in-out infinite -1.2s !important;
+}
+@keyframes zoho-float-deluge {
+  0%, 100% { transform: translate3d(0, 0, 0) rotateX(8deg) rotateY(-16deg) rotateZ(-10deg); }
+  50% { transform: translate3d(8px, -14px, 20px) rotateX(12deg) rotateY(-20deg) rotateZ(-14deg); }
+}
+
+/* 4. HTML: Lower-Left 3D Floating Pill */
+.zoho-item-html {
+  top: 68% !important;
+  left: 5% !important;
+}
+.zoho-item-html .zoho-3d-inner {
+  transform: rotateX(-6deg) rotateY(-14deg) rotateZ(6deg) !important;
+  animation: zoho-float-html 8.4s ease-in-out infinite -3.2s !important;
+}
+@keyframes zoho-float-html {
+  0%, 100% { transform: translate3d(0, 0, 0) rotateX(-6deg) rotateY(-14deg) rotateZ(6deg); }
+  50% { transform: translate3d(8px, -14px, 22px) rotateX(-10deg) rotateY(-18deg) rotateZ(9deg); }
+}
+
+/* 5. NODE JS: Bottom-Left 3D Glass Card (Orange & Black Gradient) */
+.zoho-item-nodejs {
+  bottom: 7% !important;
+  left: 20% !important;
+}
+.zoho-item-nodejs .zoho-3d-inner {
+  width: 235px !important;
+  transform: rotateX(-8deg) rotateY(14deg) rotateZ(2deg) !important;
+  animation: zoho-float-nodejs 10s ease-in-out infinite -4s !important;
+}
+@keyframes zoho-float-nodejs {
+  0%, 100% { transform: translate3d(0, 0, 0) rotateX(-8deg) rotateY(14deg) rotateZ(2deg); }
+  50% { transform: translate3d(8px, -18px, 28px) rotateX(-12deg) rotateY(18deg) rotateZ(4deg); }
+}
+
+/* --------------------------------------------------------------------------
+   RIGHT & TOP-RIGHT ITEMS (6): CADENCE, WEBHOOK, CLIENT SCRIPT, JAVASCRIPT, CSS, WORKFLOW
+   -------------------------------------------------------------------------- */
+
+/* 6. CADENCE: Top-Center-Right 3D Floating Pill */
+.zoho-item-cadence {
+  top: 10% !important;
+  right: 22% !important;
+}
+.zoho-item-cadence .zoho-3d-inner {
+  transform: rotateX(10deg) rotateY(16deg) rotateZ(-8deg) !important;
+  animation: zoho-float-cadence 8.6s ease-in-out infinite -2.2s !important;
+}
+@keyframes zoho-float-cadence {
+  0%, 100% { transform: translate3d(0, 0, 0) rotateX(10deg) rotateY(16deg) rotateZ(-8deg); }
+  50% { transform: translate3d(-8px, -16px, 22px) rotateX(14deg) rotateY(20deg) rotateZ(-11deg); }
+}
+
+/* 7. WEBHOOK: Upper-Right 3D Floating Pill */
+.zoho-item-webhook {
+  top: 18% !important;
+  right: 6% !important;
+}
+.zoho-item-webhook .zoho-3d-inner {
+  transform: rotateX(10deg) rotateY(18deg) rotateZ(-10deg) !important;
+  animation: zoho-float-webhook 8.2s ease-in-out infinite -1.5s !important;
+}
+@keyframes zoho-float-webhook {
+  0%, 100% { transform: translate3d(0, 0, 0) rotateX(10deg) rotateY(18deg) rotateZ(-10deg); }
+  50% { transform: translate3d(-8px, -14px, 20px) rotateX(14deg) rotateY(22deg) rotateZ(-13deg); }
+}
+
+/* 8. CLIENT SCRIPT: Mid-Right 3D Glass Card (Amber Gold to Charcoal Gradient) */
+.zoho-item-clientscript,
+.zoho-item-clickscript {
+  top: 33% !important;
+  right: 5.5% !important;
+}
+.zoho-item-clientscript .zoho-3d-inner,
+.zoho-item-clickscript .zoho-3d-inner {
+  width: 235px !important;
+  transform: rotateX(10deg) rotateY(18deg) rotateZ(-8deg) !important;
+  animation: zoho-float-clientscript 8.8s ease-in-out infinite -3s !important;
+}
+@keyframes zoho-float-clientscript {
+  0%, 100% { transform: translate3d(0, 0, 0) rotateX(10deg) rotateY(18deg) rotateZ(-8deg); }
+  50% { transform: translate3d(-8px, -16px, 24px) rotateX(14deg) rotateY(22deg) rotateZ(-12deg); }
+}
+
+/* 9. JAVASCRIPT: Mid-Lower-Right 3D Floating Pill */
+.zoho-item-javascript {
+  top: 56% !important;
+  right: 6% !important;
+}
+.zoho-item-javascript .zoho-3d-inner {
+  transform: rotateX(8deg) rotateY(16deg) rotateZ(-10deg) !important;
+  animation: zoho-float-javascript 9.4s ease-in-out infinite -4.2s !important;
+}
+@keyframes zoho-float-javascript {
+  0%, 100% { transform: translate3d(0, 0, 0) rotateX(8deg) rotateY(16deg) rotateZ(-10deg); }
+  50% { transform: translate3d(-8px, -16px, 24px) rotateX(12deg) rotateY(20deg) rotateZ(-14deg); }
+}
+
+/* 10. CSS: Lower-Right 3D Floating Pill */
+.zoho-item-css {
+  top: 72% !important;
+  right: 6.5% !important;
+}
+.zoho-item-css .zoho-3d-inner {
+  transform: rotateX(-6deg) rotateY(14deg) rotateZ(-6deg) !important;
+  animation: zoho-float-css 8.9s ease-in-out infinite -2s !important;
+}
+@keyframes zoho-float-css {
+  0%, 100% { transform: translate3d(0, 0, 0) rotateX(-6deg) rotateY(14deg) rotateZ(-6deg); }
+  50% { transform: translate3d(-8px, -16px, 22px) rotateX(-10deg) rotateY(18deg) rotateZ(-9deg); }
+}
+
+/* 11. WORKFLOW: Bottom-Right 3D Floating Pill */
+.zoho-item-workflow {
+  bottom: 7% !important;
+  right: 26% !important;
+}
+.zoho-item-workflow .zoho-3d-inner {
+  transform: rotateX(-6deg) rotateY(-12deg) rotateZ(4deg) !important;
+  animation: zoho-float-workflow 9.2s ease-in-out infinite -3.8s !important;
+}
+@keyframes zoho-float-workflow {
+  0%, 100% { transform: translate3d(0, 0, 0) rotateX(-6deg) rotateY(-12deg) rotateZ(4deg); }
+  50% { transform: translate3d(-6px, -16px, 22px) rotateX(-10deg) rotateY(-16deg) rotateZ(7deg); }
+}
+
+/* Mobile & Tablet Responsive Architecture */
+@media (max-width: 1080px) {
+  .zoho-3d-scene-wrap {
+    min-height: auto !important;
+    flex-direction: column !important;
+    gap: 3rem !important;
+  }
+  .zoho-tech-center-core {
+    position: static !important;
+    transform: none !important;
+    margin-bottom: 2rem !important;
+  }
+  .zoho-3d-float-item {
+    position: static !important;
+    transform: none !important;
+    margin: 0 auto !important;
+  }
+  .zoho-3d-inner {
+    transform: none !important;
+    animation: none !important;
+    width: 100% !important;
+    max-width: 320px !important;
+  }
+  .zoho-3d-mobile-grid {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 1.25rem !important;
+    width: 100% !important;
+  }
+  .zoho-3d-ambient-orb {
+    display: none !important;
+  }
+}
+
+/* ==========================================================================
+   SECTION 8: CONTACT SECTION (#zohoFaqContactSection)
+   ========================================================================== */
+.dm-contact-editorial-section#zohoFaqContactSection {
+  background: var(--fs-bg) !important;
+  padding: 5rem 1.5rem !important;
+  border-top: none !important;
+  border-bottom: none !important;
+  border: none !important;
+}
+
+.dm-editorial-eyebrow {
+  color: var(--fs-accent-cyan-light) !important;
+  font-family: var(--fs-font-mono) !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.14em !important;
+}
+
+.dm-editorial-heading {
+  font-family: var(--fs-font-main) !important;
+  font-size: clamp(34px, 4.2vw, 54px) !important;
+  font-weight: 300 !important;
+  letter-spacing: -0.03em !important;
+  color: #FFFFFF !important;
+  line-height: 1.15 !important;
+}
+
+.dm-editorial-heading .dm-heading-light {
+  color: #FFFFFF !important;
+  font-weight: 300 !important;
+  letter-spacing: -0.03em !important;
+}
+
+.dm-editorial-heading .dm-heading-blue {
+  color: var(--fs-accent-cyan-light) !important;
+  font-weight: 400 !important;
+}
+
+.dm-editorial-subtext {
+  color: var(--fs-text-muted) !important;
+  font-family: var(--fs-font-main) !important;
+  font-size: 16px !important;
+}
+
+/* Contact Form Card */
+.dm-editorial-right {
+  background: var(--fs-bg-card) !important;
+  border: 1px solid var(--fs-border-glass) !important;
+  border-radius: 24px !important;
+  padding: 40px !important;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.5) !important;
+}
+
+.contact-pane-title {
+  color: #FFFFFF !important;
+  font-family: var(--fs-font-main) !important;
+  font-size: 24px !important;
+  font-weight: 500 !important;
+  margin-bottom: 24px !important;
+}
+
+.contact-field-label {
+  color: rgba(255, 255, 255, 0.85) !important;
+  font-family: var(--fs-font-main) !important;
+  font-size: 13.5px !important;
+  font-weight: 500 !important;
+}
+
+.contact-field-input,
+.contact-field-wrap input,
+.contact-field-wrap select,
+.contact-field-wrap textarea {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  border-radius: 12px !important;
+  color: #FFFFFF !important;
+  font-family: var(--fs-font-main) !important;
+  padding: 12px 16px !important;
+  font-size: 14.5px !important;
+}
+
+.contact-field-input:focus,
+.contact-field-wrap input:focus,
+.contact-field-wrap select:focus,
+.contact-field-wrap textarea:focus {
+  border-color: var(--fs-accent-indigo) !important;
+  box-shadow: 0 0 0 3px rgba(79, 79, 241, 0.25) !important;
+  outline: none !important;
+}
+
+/* Multi-select and custom dropdown in contact form */
+.contact-select-trigger,
+#zohoFaqContactSection .contact-select-trigger,
+.ms-choice {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  border-radius: 12px !important;
+  height: 48px !important;
+  line-height: 48px !important;
+  color: #FFFFFF !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  padding: 0 16px !important;
+  cursor: pointer !important;
+}
+
+.contact-trigger-text,
+#zohoFaqContactSection .contact-trigger-text,
+.ms-choice > span {
+  color: rgba(255, 255, 255, 0.85) !important;
+  font-family: var(--fs-font-main) !important;
+  font-size: 14.5px !important;
+}
+
+.contact-select-arrow,
+#zohoFaqContactSection .contact-select-arrow {
+  stroke: rgba(255, 255, 255, 0.6) !important;
+}
+
+.contact-select-dropdown,
+#zohoFaqContactSection .contact-select-dropdown,
+.ms-drop {
+  background: var(--fs-bg-card) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  color: #FFFFFF !important;
+  border-radius: 12px !important;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6) !important;
+}
+
+.contact-select-option,
+#zohoFaqContactSection .contact-select-option,
+.ms-drop ul > li {
+  color: rgba(255, 255, 255, 0.85) !important;
+  font-family: var(--fs-font-main) !important;
+}
+
+.contact-select-option:hover,
+.contact-select-option.is-selected,
+.ms-drop ul > li:hover {
+  background: rgba(79, 79, 241, 0.2) !important;
+  color: #FFFFFF !important;
+}
+
+/* Submit Button */
+.contact-form-submit-btn,
+.contact-submit-btn,
+#formsubmit {
+  background: var(--fs-accent-indigo) !important;
+  color: #FFFFFF !important;
+  border-radius: 110px !important;
+  padding: 14px 34px !important;
+  font-family: var(--fs-font-main) !important;
+  font-weight: 600 !important;
+  font-size: 15.5px !important;
+  border: none !important;
+  box-shadow: 0 4px 24px var(--fs-accent-indigo-glow) !important;
+  cursor: pointer !important;
+  transition: all 0.25s ease !important;
+}
+
+.contact-form-submit-btn:hover,
+.contact-submit-btn:hover,
+#formsubmit:hover {
+  background: var(--fs-accent-indigo-hover) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 32px rgba(79, 79, 241, 0.6) !important;
+}
+
+/* ==========================================================================
+   SECTION 9: FAQ SECTION (#zohoFaqSection)
+   Exact FinSight Deep Cyan/Blue Gradient FAQ Card
+   ========================================================================== */
+.zoho-faq-section#zohoFaqSection,
+.zoho-faq-section {
+  position: relative !important;
+  z-index: 20 !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  background: #030405 !important;
+  background-color: #030405 !important;
+  border: none !important;
+  padding: 100px 30px !important;
+  overflow: hidden !important;
+  box-sizing: border-box !important;
+  font-family: "Be Vietnam Pro", sans-serif !important;
+}
+
+.zoho-faq-section .faq-abstracts-wrap {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  overflow: hidden !important;
+  pointer-events: none !important;
+  z-index: 0 !important;
+  user-select: none !important;
+  transform: scaleY(-1) !important;
+  transform-origin: center center !important;
+}
+
+.zoho-faq-section .faq-glow-layer {
+  position: absolute !important;
+  top: -24px !important;
+  right: -142px !important;
+  bottom: -10px !important;
+  left: -96px !important;
+  width: 1708px !important;
+  max-width: 150vw !important;
+  height: 744px !important;
+  overflow: hidden !important;
+  pointer-events: none !important;
+  z-index: 0 !important;
+  mask: radial-gradient(100% 75% at 34.3% 30.3%, rgb(0, 0, 0) 0%, rgba(0, 0, 0, 0) 71.0058%) !important;
+  -webkit-mask: radial-gradient(100% 75% at 34.3% 30.3%, rgb(0, 0, 0) 0%, rgba(0, 0, 0, 0) 71.0058%) !important;
+}
+
+.zoho-faq-section .faq-glow-layer img {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center !important;
+}
+
+.zoho-faq-section .faq-boxes-layer {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  overflow: hidden !important;
+  pointer-events: none !important;
+  z-index: 1 !important;
+  mask: radial-gradient(100% 75% at 34.3% 30.3%, rgb(0, 0, 0) 0%, rgba(0, 0, 0, 0) 71.0058%) !important;
+  -webkit-mask: radial-gradient(100% 75% at 34.3% 30.3%, rgb(0, 0, 0) 0%, rgba(0, 0, 0, 0) 71.0058%) !important;
+}
+
+.zoho-faq-section .faq-boxes-layer img {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center !important;
+}
+
+.zoho-faq-split-wrapper {
+  position: relative !important;
+  z-index: 2 !important;
+  width: 100% !important;
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: center !important;
+  align-items: flex-start !important;
+  gap: 60px !important;
+  box-sizing: border-box !important;
+}
+
+.faq-header-wrap {
+  flex: 1 1 500px !important;
+  max-width: 538px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  justify-content: flex-start !important;
+  gap: 16px !important;
+  box-sizing: border-box !important;
+}
+
+.faq-main-heading {
+  font-family: "Be Vietnam Pro", sans-serif !important;
+  font-size: 42px !important;
+  font-weight: 300 !important;
+  font-style: normal !important;
+  line-height: 50.4px !important;
+  letter-spacing: -1.68px !important;
+  color: #FFFFFF !important;
+  margin: 0 !important;
+  text-align: left !important;
+}
+
+.faq-sub-desc {
+  font-family: "Be Vietnam Pro", sans-serif !important;
+  font-size: 18px !important;
+  font-weight: 300 !important;
+  font-style: normal !important;
+  line-height: 25.2px !important;
+  letter-spacing: normal !important;
+  color: #D6D6D6 !important;
+  margin: 0 !important;
+  text-align: left !important;
+}
+
+/* FinSight Accordion Card Box */
+.zoho-faq-dark-container {
+  flex: 1 1 560px !important;
+  max-width: 602px !important;
+  width: 100% !important;
+  background: linear-gradient(180deg, rgb(6, 78, 126) 0%, rgba(79, 79, 241, 0.5) 50.3607%, rgb(6, 78, 126) 100%) !important;
+  border-radius: 20px !important;
+  padding: 32px 32px 36px !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  box-shadow: 0 20px 60px rgba(6, 78, 126, 0.28) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  box-sizing: border-box !important;
+}
+
+.zoho-faq-dark-container .faq-item {
+  border-bottom: 1.5px solid rgba(235, 235, 235, 0.25) !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.zoho-faq-dark-container .faq-item:last-child {
+  border-bottom: none !important;
+}
+
+.zoho-faq-dark-container .faq-question-btn {
+  color: #FFFFFF !important;
+  font-family: "Be Vietnam Pro", sans-serif !important;
+  font-size: 20px !important;
+  font-weight: 500 !important;
+  line-height: 24px !important;
+  padding: 16px 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  width: 100% !important;
+  background: transparent !important;
+  border: none !important;
+  cursor: pointer !important;
+  text-align: left !important;
+}
+
+.zoho-faq-dark-container .faq-q-text {
+  color: #FFFFFF !important;
+  font-family: "Be Vietnam Pro", sans-serif !important;
+  font-size: 20px !important;
+  font-weight: 500 !important;
+  line-height: 24px !important;
+}
+
+.zoho-faq-dark-container .faq-toggle-icon {
+  width: 16px !important;
+  height: 17px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex-shrink: 0 !important;
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.zoho-faq-dark-container .faq-toggle-icon svg {
+  width: 16px !important;
+  height: 17px !important;
+  display: block !important;
+}
+
+.zoho-faq-dark-container .faq-answer-pane {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.38s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease;
+  opacity: 0;
+}
+
+.zoho-faq-dark-container .faq-item.active .faq-answer-pane,
+.zoho-faq-dark-container .faq-item.is-open .faq-answer-pane {
+  max-height: 280px;
+  opacity: 1;
+}
+
+.zoho-faq-dark-container .faq-answer-inner {
+  color: #FFFFFF !important;
+  font-family: "Be Vietnam Pro", sans-serif !important;
+  font-size: 16px !important;
+  font-weight: 300 !important;
+  line-height: 1.5 !important;
+  padding-bottom: 20px !important;
+}
+
+
+
+/* ==========================================================================
+   FOOTER (.site-footer & .finsight-theme-footer)
+   Deep Obsidian with Ambient Blue Gradient Glow & FinSight Typography
+   ========================================================================== */
+.site-footer,
+.site-footer.finsight-theme-footer {
+  position: relative !important;
+  overflow: hidden !important;
+  background-color: #010204 !important;
+  background-image: radial-gradient(ellipse 90% 65% at 50% 100%, rgba(0, 123, 227, 0.22) 0%, rgba(0, 123, 227, 0.06) 45%, rgba(1, 2, 4, 0) 80%) !important;
+  border-top: none !important;
+  border-bottom: none !important;
+  border: none !important;
+  padding: 80px 24px 36px 24px !important;
+  font-family: var(--fs-font-main, 'Be Vietnam Pro', sans-serif) !important;
+  color: #FFFFFF !important;
+  box-sizing: border-box !important;
+  width: 100% !important;
+}
+
+.finsight-footer-abstract {
+  position: absolute !important;
+  bottom: -220px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  width: 1470px !important;
+  max-width: 130vw !important;
+  height: 320px !important;
+  border-radius: 100% !important;
+  background: rgb(0, 123, 227) !important;
+  filter: blur(267px) !important;
+  -webkit-filter: blur(267px) !important;
+  opacity: 0.95 !important;
+  pointer-events: none !important;
+  z-index: 1 !important;
+}
+
+.site-footer.finsight-theme-footer .container-home-compact {
+  position: relative !important;
+  z-index: 2 !important;
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+  padding: 0 !important;
+  width: 100% !important;
+}
+
+.site-footer.finsight-theme-footer .footer-grid {
+  display: grid !important;
+  grid-template-columns: 1.4fr 1fr 1fr 1.5fr !important;
+  gap: 40px !important;
+  align-items: flex-start !important;
+  margin-bottom: 50px !important;
+}
+
+.site-footer.finsight-theme-footer .footer-brand-col {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 20px !important;
+  max-width: 340px !important;
+}
+
+.site-footer.finsight-theme-footer .brand-logo img {
+  height: 34px !important;
+  width: auto !important;
+  display: block !important;
+  filter: brightness(1) !important;
+}
+
+.site-footer.finsight-theme-footer .footer-brand-col p {
+  color: rgba(255, 255, 255, 0.72) !important;
+  font-family: "Be Vietnam Pro", sans-serif !important;
+  font-size: 15px !important;
+  font-weight: 300 !important;
+  line-height: 1.65 !important;
+  margin: 0 !important;
+}
+
+.site-footer.finsight-theme-footer .footer-heading {
+  color: #FFFFFF !important;
+  font-family: "Be Vietnam Pro", sans-serif !important;
+  font-size: 17px !important;
+  font-weight: 500 !important;
+  letter-spacing: -0.01em !important;
+  margin: 0 0 20px 0 !important;
+}
+
+.site-footer.finsight-theme-footer .footer-links {
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 12px !important;
+}
+
+.site-footer.finsight-theme-footer .footer-link {
+  color: rgba(255, 255, 255, 0.68) !important;
+  font-family: "Be Vietnam Pro", sans-serif !important;
+  font-size: 15px !important;
+  font-weight: 300 !important;
+  text-decoration: none !important;
+  transition: color 0.2s ease, transform 0.2s ease !important;
+  display: inline-block !important;
+}
+
+.site-footer.finsight-theme-footer .footer-link:hover {
+  color: #007BE3 !important;
+  transform: translateX(2px) !important;
+}
+
+.site-footer.finsight-theme-footer .footer-contact-item {
+  display: flex !important;
+  align-items: flex-start !important;
+  gap: 12px !important;
+  margin-bottom: 16px !important;
+}
+
+.site-footer.finsight-theme-footer .footer-contact-item svg {
+  color: #007BE3 !important;
+  flex-shrink: 0 !important;
+  margin-top: 3px !important;
+}
+
+.site-footer.finsight-theme-footer .footer-contact-item span {
+  display: block !important;
+  font-size: 12px !important;
+  font-weight: 400 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.06em !important;
+  color: rgba(255, 255, 255, 0.5) !important;
+  margin-bottom: 2px !important;
+  font-family: "Be Vietnam Pro", sans-serif !important;
+}
+
+.site-footer.finsight-theme-footer .footer-contact-item a.footer-link {
+  color: #FFFFFF !important;
+  font-weight: 400 !important;
+  font-size: 15px !important;
+}
+
+.site-footer.finsight-theme-footer .footer-contact-item a.footer-link:hover {
+  color: #007BE3 !important;
+}
+
+.site-footer.finsight-theme-footer .footer-subscribe-col {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 14px !important;
+}
+
+.site-footer.finsight-theme-footer .footer-social-row {
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  margin-bottom: 4px !important;
+}
+
+.site-footer.finsight-theme-footer .footer-social-icon-btn {
+  width: 36px !important;
+  height: 36px !important;
+  border-radius: 50% !important;
+  background: rgba(255, 255, 255, 0.06) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease !important;
+  text-decoration: none !important;
+}
+
+.site-footer.finsight-theme-footer .footer-social-icon-btn:hover {
+  background: rgba(0, 123, 227, 0.18) !important;
+  border-color: rgba(0, 123, 227, 0.45) !important;
+  transform: translateY(-2px) !important;
+}
+
+.site-footer.finsight-theme-footer .footer-social-icon-btn svg {
+  display: block !important;
+}
+
+.site-footer.finsight-theme-footer .footer-subscribe-title {
+  color: #FFFFFF !important;
+  font-family: "Be Vietnam Pro", sans-serif !important;
+  font-size: 18px !important;
+  font-weight: 500 !important;
+  letter-spacing: -0.01em !important;
+  margin: 0 !important;
+}
+
+.site-footer.finsight-theme-footer .footer-subscribe-subtitle {
+  color: rgba(255, 255, 255, 0.62) !important;
+  font-family: "Be Vietnam Pro", sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 300 !important;
+  line-height: 1.5 !important;
+  margin: 0 !important;
+}
+
+.site-footer.finsight-theme-footer .footer-subscribe-pill-form {
+  display: flex !important;
+  align-items: center !important;
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  border-radius: 58px !important;
+  padding: 4px 4px 4px 18px !important;
+  position: relative !important;
+  box-sizing: border-box !important;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+.site-footer.finsight-theme-footer .footer-subscribe-pill-form:focus-within {
+  border-color: rgba(0, 123, 227, 0.5) !important;
+  box-shadow: 0 0 20px rgba(0, 123, 227, 0.2) !important;
+}
+
+.site-footer.finsight-theme-footer .footer-subscribe-input {
+  flex: 1 !important;
+  background: transparent !important;
+  border: none !important;
+  outline: none !important;
+  color: #FFFFFF !important;
+  font-family: "Be Vietnam Pro", sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 300 !important;
+  padding: 8px 0 !important;
+  min-width: 0 !important;
+}
+
+.site-footer.finsight-theme-footer .footer-subscribe-input::placeholder {
+  color: rgba(255, 255, 255, 0.45) !important;
+}
+
+.site-footer.finsight-theme-footer .footer-subscribe-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  background: #4F4FF1 !important;
+  color: #FFFFFF !important;
+  border: none !important;
+  border-radius: 58px !important;
+  padding: 10px 20px !important;
+  font-family: "Be Vietnam Pro", sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  cursor: pointer !important;
+  box-shadow: 0 4px 18px rgba(79, 79, 241, 0.45) !important;
+  transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease !important;
+  flex-shrink: 0 !important;
+}
+
+.site-footer.finsight-theme-footer .footer-subscribe-btn:hover {
+  background: #4343e8 !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 6px 24px rgba(79, 79, 241, 0.6) !important;
+}
+
+.site-footer.finsight-theme-footer .footer-bottom {
+  border-top: none !important;
+  padding-top: 24px !important;
+  text-align: center !important;
+  color: rgba(255, 255, 255, 0.5) !important;
+  font-family: "Be Vietnam Pro", sans-serif !important;
+  font-size: 13.5px !important;
+  font-weight: 300 !important;
+}
+
+@media (max-width: 1024px) {
+  .site-footer.finsight-theme-footer .footer-grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 36px !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .site-footer.finsight-theme-footer .footer-grid {
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+  }
+  .site-footer.finsight-theme-footer {
+    padding: 60px 20px 28px 20px !important;
+  }
+}
+
+/* ==========================================================================
+   HEADER / NAVBAR ON ZOHO PAGE (Seamless Floating Navbar - No Gap)
+   ========================================================================== */
+.mainframe-navbar {
+  background: transparent !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border-bottom: none !important;
+  box-shadow: none !important;
+}
+
+.menu-trigger-text {
+  font-family: var(--fs-font-main) !important;
+  color: #FFFFFF !important;
+  font-weight: 500 !important;
+}
+
+/* ==========================================================================
+   GLOBAL SECTION SEAMLESS FLOW: REMOVE ALL SECTION DIVISIONS & BORDER LINES
+   ========================================================================== */
+body.zoho-blue-theme section,
+body.zoho-blue-theme footer,
+body.zoho-blue-theme .zoho-framer-hero,
+body.zoho-blue-theme .home-metrics-clients-section,
+body.zoho-blue-theme .zoho-directory-section,
+body.zoho-blue-theme .zoho-unified-dashboard-section,
+body.zoho-blue-theme .zoho-izanami-section,
+body.zoho-blue-theme .izanami-slide,
+body.zoho-blue-theme .hscroll-delivery-section,
+body.zoho-blue-theme .delivery-success-section,
+body.zoho-blue-theme .zoho-tech-stack-section,
+body.zoho-blue-theme .mai-pillars-scroll-section,
+body.zoho-blue-theme .zoho-faq-section,
+body.zoho-blue-theme .site-footer {
+  border-top: none !important;
+  border-bottom: none !important;
+  border-left: none !important;
+  border-right: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+}

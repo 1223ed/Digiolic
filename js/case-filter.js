@@ -67,10 +67,10 @@ document.addEventListener('DOMContentLoaded', () => {
     },
 
     'case-manu-company': {
-      company: 'Pierian Service',
+      company: 'Pierian Technologies',
       location: 'Bangalore, India',
       products: 'Zoho Books, Zoho Invoice',
-      description: 'Pierian Service is a global business and financial consulting firm based in Bangalore, India, managing multi-currency global transactions, recurring service billing, and enterprise financial compliance.',
+      description: 'Pierian Technologies is a global business and financial consulting firm based in Bangalore, India, managing multi-currency global transactions, recurring service billing, and enterprise financial compliance.',
       challenges: [
         '<strong>Multi-Currency Compliance Silos:</strong> Managing manual multi-currency billing and complex financial compliance without a unified system.',
         '<strong>Delayed Invoicing & Collection Cycles:</strong> Delayed invoicing cycles and slow collections causing cash flow bottlenecks.',
@@ -605,6 +605,45 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
+  // Logos mapping for all case study brands
+  const caseStudyLogos = {
+    'case-nz-immigration': '../assets/images/case-studies/nz-immigration.png',
+    'case-blume-labs': '../assets/images/case-studies/blume-labs.png',
+    'case-manu-company': '../assets/images/case-studies/pierian.png',
+    'case-pierian': '../assets/images/case-studies/pierian.png',
+    'case-fyx': '../assets/images/case-studies/fyx.png',
+    'case-chanakya-university': '../assets/images/case-studies/chanakya-university.png',
+    'case-rahul-hr': '../assets/images/case-studies/greenworld.png',
+    'case-greenworld': '../assets/images/case-studies/greenworld.png',
+    'case-monster-india': '../assets/images/case-studies/monster-india.png',
+    'case-verzeo': '../assets/images/case-studies/verzeo.png',
+    'case-banaraswala': '../assets/images/case-studies/banaraswala.png',
+    'case-loomcrafts': '../assets/images/case-studies/loomcrafts.png',
+    'case-deccan-herald': '../assets/images/client-deccanherald-trans.png',
+    'case-myntra': '../assets/images/clients-grid/myntra.png',
+    'case-flipkart': '../assets/images/clients-grid/flipkart.png',
+    'case-via-milano': '../assets/images/clients-grid/via-milano.png',
+    'case-siemens': '../assets/images/clients-grid/siemens.png',
+    'case-audible': '../assets/images/clients-grid/audible.png',
+    'case-betterplace': '../assets/images/clients-grid/betterplace-1.png',
+    'case-xiaomi': '../assets/images/clients-grid/xiaomi-mi.png',
+    'case-haldirams': '../assets/images/clients-grid/haldirams.png',
+    'case-savaari': '../assets/images/clients-grid/savaari.png',
+    'case-nexus-wealth': '../assets/images/clients-grid/nexus.png',
+    'case-melorra': '../assets/images/clients-grid/melorra.png',
+    'case-medall': '../assets/images/clients-grid/medall.png'
+  };
+
+  // Populate logo paths into caseDetailsData
+  Object.keys(caseDetailsData).forEach(key => {
+    if (caseStudyLogos[key]) {
+      caseDetailsData[key].logo = caseStudyLogos[key];
+    }
+  });
+
+  // Alias for Pierian Technologies so both IDs resolve to same case details
+  caseDetailsData['case-pierian'] = caseDetailsData['case-manu-company'];
+
   // ---------------------------------------------------------------------------
   // 2. FILTER & SEARCH CONTROLLER
   // ---------------------------------------------------------------------------
@@ -692,18 +731,35 @@ document.addEventListener('DOMContentLoaded', () => {
   const modalLocation = document.getElementById('csModalLocation');
   const modalProducts = document.getElementById('csModalProducts');
   const modalTitle = document.getElementById('csModalTitle');
+  const modalLogo = document.getElementById('csModalLogo');
+  const modalLogoWrap = document.getElementById('csModalLogoWrap');
   const modalOverview = document.getElementById('csModalOverview');
   const modalChallenge = document.getElementById('csModalChallenge');
   const modalSolution = document.getElementById('csModalSolution');
   const modalBenefits = document.getElementById('csModalBenefits');
 
   function openModal(caseKey) {
-    const data = caseDetailsData[caseKey];
+    const rawKey = caseKey;
+    if (caseKey === 'case-greenworld') caseKey = 'case-rahul-hr';
+    if (caseKey === 'case-pierian') caseKey = 'case-manu-company';
+    const data = caseDetailsData[caseKey] || caseDetailsData[rawKey];
     if (!data || !modalBackdrop) return;
 
     if (modalTitle) modalTitle.textContent = data.company;
     if (modalLocation) modalLocation.textContent = `📍 Location: ${data.location}`;
     if (modalProducts) modalProducts.textContent = data.products;
+
+    // Company Logo
+    const logoSrc = data.logo || caseStudyLogos[caseKey] || caseStudyLogos[rawKey];
+    if (modalLogo && modalLogoWrap) {
+      if (logoSrc) {
+        modalLogo.src = logoSrc;
+        modalLogo.alt = `${data.company} Logo`;
+        modalLogoWrap.style.display = 'inline-flex';
+      } else {
+        modalLogoWrap.style.display = 'none';
+      }
+    }
     
     // Top: Company description
     if (modalOverview) {
@@ -757,6 +813,26 @@ document.addEventListener('DOMContentLoaded', () => {
       e.preventDefault();
       const caseKey = btn.getAttribute('data-case-id');
       if (caseKey) openModal(caseKey);
+    });
+  });
+
+  // Open triggers on Digital Marketing Case Study Cards
+  document.querySelectorAll('.dm-case-study-card').forEach(card => {
+    card.addEventListener('click', (e) => {
+      e.preventDefault();
+      const studyKey = card.getAttribute('data-study');
+      if (studyKey) {
+        openModal(`case-${studyKey}`);
+      }
+    });
+    card.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        const studyKey = card.getAttribute('data-study');
+        if (studyKey) {
+          openModal(`case-${studyKey}`);
+        }
+      }
     });
   });
 

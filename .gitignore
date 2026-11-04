@@ -23,3 +23,12 @@ yarn-error.log*
 # Temporary / Scratch
 scratch/
 .system_generated/
+**/*.mov
+*.mov
+**/*.bak*
+*.bak*
+test_*.png
+verify_*.png
+undo_*.png
+zoho_dashboard_section.png
+zoho_hero_updated.png

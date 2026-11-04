@@ -1,0 +1,431 @@
+/* ==========================================================================
+   DIGIOLIC EDITORIAL CINEMATIC MENU STYLES
+   Exact reproduction of luxury editorial smoke wipe menu from Screen Recording
+   40% Website Page View (Left) | 60% Black Editorial Menu (Right)
+   ========================================================================== */
+
+/* Menu Trigger in Navbar (Normal State) */
+.cinematic-menu-trigger {
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 18px;
+  border-radius: 9999px;
+  transition: opacity 0.25s ease, transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.25s;
+  z-index: 100;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.cinematic-menu-trigger:hover {
+  opacity: 0.9;
+  transform: scale(1.03);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.cinematic-menu-trigger:active {
+  transform: scale(0.97);
+}
+
+.menu-trigger-text {
+  display: inline-block;
+  color: inherit;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+}
+
+.menu-trigger-circle {
+  width: 14px;
+  height: 14px;
+  border: 1.5px solid currentColor;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  opacity: 0.85;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease;
+}
+
+.cinematic-menu-trigger:hover .menu-trigger-circle {
+  transform: scale(1.2);
+  opacity: 1;
+}
+
+/* ==========================================================================
+   FULLSCREEN EDITORIAL MENU OVERLAY & BACKDROP
+   The Case Studies page remains 100% visible and crisp on the left 32-35%!
+   ========================================================================== */
+.cinematic-menu-overlay {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  height: 100dvh;
+  z-index: 9999999 !important;
+  display: block;
+  overflow: hidden;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.35s ease, visibility 0.4s ease;
+}
+
+.cinematic-menu-overlay.is-active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.cinematic-menu-overlay.is-closing {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: none;
+}
+
+/* Left Clickable Backdrop: Click outside black panel to close */
+.cinematic-menu-backdrop {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.001);
+  cursor: pointer;
+  z-index: 1;
+  pointer-events: auto;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Hide floating site elements and completely lock scrollbars when overlay is active */
+html:has(.cinematic-menu-overlay.is-active),
+body:has(.cinematic-menu-overlay.is-active) {
+  overflow: hidden !important;
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+}
+
+html:has(.cinematic-menu-overlay.is-active)::-webkit-scrollbar,
+body:has(.cinematic-menu-overlay.is-active)::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+body:has(.cinematic-menu-overlay.is-active) #floatingScrollNav,
+body:has(.cinematic-menu-overlay.is-active) .siq_clb,
+body:has(.cinematic-menu-overlay.is-active) #zsiq_float {
+  opacity: 0 !important;
+  pointer-events: none !important;
+  visibility: hidden !important;
+}
+
+/* ==========================================================================
+   RIGHT BLACK MENU PANEL (35-75 Proportion: ~32-35% Website | ~65-70% Menu)
+   Wipes in from right to left with live animated churning smoke
+   ========================================================================== */
+.cinematic-menu-panel {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 68vw; /* 35-75 proportion: ~32-35% website view, ~68% black menu panel */
+  height: 100%;
+  height: 100vh;
+  height: 100dvh;
+  background-color: #000000;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transform: translate3d(100%, 0, 0);
+  transition: transform 0.72s cubic-bezier(0.77, 0, 0.175, 1);
+  will-change: transform;
+  box-shadow: -35px 0 85px rgba(0, 0, 0, 0.95), 10px 0 0 10px #000000;
+  outline: 10px solid #000000;
+  overflow: visible;
+}
+
+.cinematic-menu-overlay.is-active .cinematic-menu-panel {
+  transform: translate3d(0, 0, 0);
+}
+
+.cinematic-menu-overlay.is-closing .cinematic-menu-panel {
+  transform: translate3d(100%, 0, 0);
+  transition: transform 0.62s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+/* ==========================================================================
+   LEADING ORGANIC SMOKE EDGE & WEBGL SMOKE CANVAS
+   Continuous live animated billowing black smoke along the 40/60 boundary
+   ========================================================================== */
+.cinematic-smoke-edge {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 320px;
+  height: 100%;
+  transform: translate3d(-98%, 0, 0);
+  pointer-events: none;
+  background-image: url('../assets/images/cinematic-smoke-edge.png');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  z-index: 5;
+  filter: drop-shadow(-12px 0 20px rgba(0, 0, 0, 0.85));
+  will-change: transform;
+  overflow: visible;
+}
+
+/* Secondary depth mist behind the plume */
+.cinematic-smoke-edge::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 150px;
+  height: 100%;
+  background: linear-gradient(to right, transparent, rgba(0, 0, 0, 0.5) 40%, rgba(0, 0, 0, 0.95) 85%, #000000 100%);
+  filter: blur(14px);
+  pointer-events: none;
+}
+
+/* The Live WebGL Canvas rendering the churning smoke loop from video */
+.cinematic-smoke-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  pointer-events: none;
+  z-index: 6;
+  opacity: 1;
+}
+
+/* ==========================================================================
+   TOP RIGHT: CLOSE BUTTON INSIDE PANEL
+   ========================================================================== */
+.cinematic-panel-top {
+  position: absolute;
+  top: 28px;
+  right: 48px;
+  z-index: 70;
+  pointer-events: auto;
+}
+
+.cinematic-menu-close {
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 20px;
+  border-radius: 9999px;
+  transition: opacity 0.25s ease, transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.25s;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  pointer-events: auto;
+  position: relative;
+  z-index: 80;
+}
+
+.cinematic-menu-close:hover {
+  opacity: 0.9;
+  transform: scale(1.03);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.close-trigger-text {
+  color: #ffffff;
+  font-weight: 400;
+}
+
+.close-trigger-circle {
+  width: 14px;
+  height: 14px;
+  border: 1.5px solid rgba(255, 255, 255, 0.85);
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  box-sizing: border-box;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s;
+}
+
+.close-inner-dot {
+  width: 4px;
+  height: 4px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  display: block;
+}
+
+.cinematic-menu-close:hover .close-trigger-circle {
+  transform: scale(1.2);
+  border-color: #ffffff;
+}
+
+/* ==========================================================================
+   CENTER EDITORIAL NAVIGATION
+   Centered at 50vw (exact screen midpoint) with refined editorial font size
+   ========================================================================== */
+.cinematic-nav-center {
+  position: absolute;
+  top: 50%;
+  right: 50vw;
+  transform: translate(50%, -50%);
+  z-index: 30;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+  width: auto;
+  user-select: none;
+  white-space: nowrap;
+}
+
+.cinematic-nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(12px, 2.0vh, 18px);
+  width: auto;
+}
+
+.cinematic-nav-item {
+  margin: 0;
+  padding: 0;
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: calc(0.2s + var(--item-index, 0) * 0.055s);
+  width: auto;
+}
+
+.cinematic-menu-overlay.is-active .cinematic-nav-item {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.cinematic-menu-overlay.is-closing .cinematic-nav-item {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.cinematic-nav-link {
+  font-family: 'Cinzel', 'Instrument Serif', 'Playfair Display', Georgia, serif;
+  font-size: clamp(1.15rem, 1.65vw, 1.85rem);
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.88);
+  text-decoration: none;
+  display: inline-block;
+  position: relative;
+  line-height: 1.25;
+  text-transform: uppercase;
+  white-space: nowrap;
+  transition: color 0.3s ease,
+              letter-spacing 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              text-shadow 0.3s ease;
+}
+
+.cinematic-nav-link:hover {
+  color: #ffffff;
+  letter-spacing: 0.11em;
+  transform: scale(1.035);
+  text-shadow: 0 0 24px rgba(255, 255, 255, 0.4);
+}
+
+.cinematic-nav-link.active {
+  color: #ffffff;
+}
+
+/* White active underline removed per user request */
+.cinematic-nav-link.active::after {
+  display: none !important;
+  content: none !important;
+}
+
+/* Custom trailing cursor removed per user request */
+.cinematic-cursor-circle {
+  display: none !important;
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN (Tablets & Mobile)
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .cinematic-menu-panel {
+    width: 72vw;
+  }
+  .cinematic-panel-top {
+    right: 32px;
+  }
+}
+
+@media (max-width: 860px) {
+  .cinematic-menu-panel {
+    width: 100vw;
+    width: 100%;
+  }
+  .cinematic-smoke-edge {
+    width: 160px;
+  }
+  .cinematic-panel-top {
+    top: 24px;
+    right: 24px;
+  }
+  .cinematic-nav-center {
+    position: absolute;
+    top: 50%;
+    right: 50vw;
+    transform: translate(50%, -50%);
+    padding: 0 16px;
+    width: auto;
+    max-width: 90vw;
+  }
+  .cinematic-nav-list {
+    gap: clamp(12px, 2.2vh, 18px);
+  }
+  .cinematic-nav-link {
+    font-size: clamp(1.15rem, 4.4vw, 1.45rem);
+    letter-spacing: 0.06em;
+    white-space: nowrap;
+  }
+  .cinematic-cursor-circle {
+    display: none !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .cinematic-menu-panel {
+    width: 100vw;
+  }
+  .cinematic-smoke-edge {
+    width: 110px;
+  }
+  .cinematic-nav-link {
+    font-size: clamp(1.05rem, 4.2vw, 1.35rem);
+    letter-spacing: 0.05em;
+  }
+}

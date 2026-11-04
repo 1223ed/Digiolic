@@ -1,0 +1,53 @@
+/* ==========================================================================
+   WEEVOLVEIT ORGANIC LIQUID INK SCROLL TRANSITION
+   Pure SVG Displacement Map & Fractal Noise Fluid Animation
+   - Pinned across bottom 100vh of Zoho People in #corePillarsSection
+   - Seamlessly rises on scroll down to cover Zoho People with organic liquid droplets
+   - Reverses smoothly on scroll up to unveil Zoho People
+   - Zero jumps, zero synthetic particles, zero blank pages, 60/120 FPS
+   ========================================================================== */
+
+/* Ink Transition Viewport Wrapper */
+.ink-transition-wrap {
+  position: absolute !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  width: 100% !important;
+  height: 100vh !important;
+  z-index: 60 !important;
+  overflow: hidden !important;
+  pointer-events: none !important;
+}
+
+/* 300px Padded Boundary Box for SVG Displacement Filter */
+.ink-transition-filtered {
+  position: absolute !important;
+  top: -300px !important;
+  left: -300px !important;
+  right: -300px !important;
+  bottom: -300px !important;
+  filter: url(#ink-edge) !important;
+  will-change: transform !important;
+}
+
+/* Scalable Solid White Ink Sheet (Delivery Section) */
+.ink-transition-rect {
+  position: absolute !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  background: #FFFFFF !important;
+  transform-origin: center bottom !important;
+  will-change: transform !important;
+  transform: scale(1, 0);
+}
+
+/* Scalable Solid Stone Grey Ink Sheet (Pillars Section Stage 0 #cec9c9) */
+.ink-transition-rect.is-pillar-ink,
+#pillarInkTransitionRect {
+  background: #cec9c9 !important;
+}
+
+

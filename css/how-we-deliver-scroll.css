@@ -1,0 +1,568 @@
+
+/* ==========================================================================
+   DIGIOLIC — HOW DO WE DELIVER SUCCESS?
+   Horizontal Scroll Methodology Experience
+   Exact Replication of Video Reference (Start-to-End Animation & Interactions)
+   - Sticky pinned viewport with smooth horizontal translation
+   - Seamless color morph: Pure White -> Slate Gray -> Midnight Obsidian
+   - Giant watermark numerals with subtle parallax depth
+   - Interactive bottom step timeline with letter badges (D, D, I, T, L)
+   - Multi-directional scroll: Vertical scroll, Horizontal trackpad, Touch swipe, Drag, Click & Keys
+   ========================================================================== */
+
+:root {
+  --hscroll-accent: #EC4899; /* Vibrant magenta pink from reference */
+  --hscroll-blue: #2563EB;
+  --hscroll-light-bg: #FFFFFF;
+  --hscroll-light-text: #0F172A;
+  --hscroll-light-sub: #475569;
+  --hscroll-light-muted: rgba(15, 23, 42, 0.45);
+  --hscroll-light-line: rgba(15, 23, 42, 0.12);
+  --hscroll-light-watermark: rgba(15, 23, 42, 0.05);
+
+  --hscroll-dark-bg: #010204;
+  --hscroll-dark-text: #FFFFFF;
+  --hscroll-dark-sub: #CBD5E1;
+  --hscroll-dark-muted: rgba(255, 255, 255, 0.45);
+  --hscroll-dark-line: rgba(255, 255, 255, 0.14);
+  --hscroll-dark-watermark: rgba(255, 255, 255, 0.06);
+}
+
+/* Outer Scroll Distance Container */
+#deliverySection.hscroll-delivery-section,
+.hscroll-delivery-section {
+  position: relative !important;
+  width: 100% !important;
+  height: 520vh !important; /* Smooth scroll duration for Intro + 5 Phases */
+  background: #010204 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+  z-index: 10 !important;
+  box-sizing: border-box !important;
+}
+
+/* Pinned Sticky Viewport (100vh locked to screen) */
+.hscroll-sticky-viewport {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  min-height: 600px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  user-select: none;
+  touch-action: pan-y;
+  cursor: grab;
+}
+
+.hscroll-sticky-viewport.is-dragging {
+  cursor: grabbing;
+}
+
+/* Dynamic Background Morph Layer */
+.hscroll-bg-morph {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  background-color: #FFFFFF;
+  transition: background-color 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* Subtle Dark Grid Dot Pattern for Final Dark Phase */
+.hscroll-bg-dots {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  opacity: 0;
+  background-image: radial-gradient(circle at 1.5px 1.5px, rgba(255, 255, 255, 0.12) 1.5px, transparent 1.5px);
+  background-size: 36px 36px;
+  transition: opacity 0.35s ease;
+}
+
+/* Horizontal Slides Track */
+.hscroll-track {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 100%;
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+  pointer-events: auto;
+}
+
+/* Individual Slide */
+.hscroll-slide {
+  position: relative;
+  flex-shrink: 0;
+  width: 100vw;
+  height: 100vh;
+  min-height: 600px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0 14vw;
+  overflow: hidden;
+}
+
+/* ==========================================================================
+   SLIDE 0: INTRO SCREEN (Matching "The 5 method." in Reference Video)
+   ========================================================================== */
+.hscroll-slide-intro {
+  text-align: center;
+  justify-content: center;
+  padding: 0 8vw;
+}
+
+.hscroll-intro-content {
+  position: relative;
+  z-index: 10;
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 3.5rem;
+}
+
+#deliverySection .hscroll-eyebrow-tag,
+.hscroll-eyebrow-tag {
+  font-family: 'JetBrains Mono', 'Space Mono', 'SF Mono', 'Roboto Mono', Menlo, Monaco, Consolas, monospace !important;
+  font-size: clamp(11.5px, 0.95vw, 13px) !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.24em !important;
+  text-transform: uppercase !important;
+  color: var(--hscroll-light-muted) !important;
+  margin-bottom: 2rem !important;
+  transition: color 0.3s ease;
+}
+
+#deliverySection .hscroll-intro-title,
+#deliverySection h2.hscroll-intro-title,
+.hscroll-intro-title {
+  font-family: 'Space Grotesk', 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif !important;
+  font-size: clamp(3.8rem, 7.2vw, 6.8rem) !important;
+  font-weight: 900 !important;
+  line-height: 1.05 !important;
+  letter-spacing: -0.04em !important;
+  color: var(--hscroll-light-text) !important;
+  margin: 0 0 1.8rem 0 !important;
+  transition: color 0.3s ease;
+}
+
+#deliverySection .hscroll-intro-desc,
+#deliverySection p.hscroll-intro-desc,
+.hscroll-intro-desc {
+  font-family: 'JetBrains Mono', 'Space Mono', 'SF Mono', 'Roboto Mono', Menlo, Monaco, Consolas, monospace !important;
+  font-size: clamp(13.5px, 1.05vw, 15.5px) !important;
+  font-weight: 400 !important;
+  line-height: 1.75 !important;
+  color: var(--hscroll-light-sub) !important;
+  max-width: 740px !important;
+  margin: 0 0 2.4rem 0 !important;
+  transition: color 0.3s ease;
+}
+
+#deliverySection .hscroll-intro-phases,
+.hscroll-intro-phases {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px 16px;
+  font-family: 'JetBrains Mono', 'Space Mono', 'SF Mono', 'Roboto Mono', Menlo, Monaco, Consolas, monospace !important;
+  font-size: clamp(11px, 0.9vw, 12.5px) !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.22em !important;
+  text-transform: uppercase !important;
+  color: var(--hscroll-light-muted) !important;
+  transition: color 0.3s ease;
+}
+
+.hscroll-phase-sep {
+  opacity: 0.4;
+}
+
+.hscroll-phase-last {
+  color: var(--hscroll-accent) !important;
+  font-weight: 800 !important;
+}
+
+/* ==========================================================================
+   SLIDES 1 TO 5: THE METHODOLOGY STAGES (Matching Video Slides 01 - 05)
+   ========================================================================== */
+.hscroll-card-inner {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 900px;
+  margin-left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  padding-bottom: 3.5rem;
+}
+
+/* Giant Background Watermark Number (01, 02, 03, 04, 05) - Aligned Behind Title */
+#deliverySection .hscroll-watermark-num,
+.hscroll-watermark-num {
+  position: absolute !important;
+  top: 46% !important;
+  left: 14vw !important;
+  transform: translateY(-50%) !important;
+  font-family: 'Space Grotesk', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+  font-size: clamp(18rem, 30vw, 34rem) !important;
+  font-weight: 900 !important;
+  line-height: 0.8 !important;
+  letter-spacing: -0.06em !important;
+  color: var(--hscroll-light-watermark) !important;
+  pointer-events: none !important;
+  user-select: none !important;
+  z-index: 2 !important;
+  transition: color 0.3s ease, transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1) !important;
+  will-change: transform, color;
+}
+
+/* Stage Eyebrow - Hidden to Match Reference Video Exactly */
+#deliverySection .hscroll-step-eyebrow,
+.hscroll-step-eyebrow {
+  display: none !important;
+}
+
+/* Stage Main Display Title - EXACT MATCH TO USER SCREENSHOT */
+#deliverySection .hscroll-step-title,
+#deliverySection h3.hscroll-step-title,
+.hscroll-step-title {
+  font-family: 'Space Grotesk', 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif !important;
+  font-size: clamp(3.4rem, 5.2vw, 5.4rem) !important;
+  font-weight: 900 !important;
+  line-height: 1.0 !important;
+  letter-spacing: -0.04em !important;
+  color: var(--hscroll-light-text) !important;
+  margin: 0 0 1.2rem 0 !important;
+  transition: color 0.3s ease;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+}
+
+.hscroll-title-period {
+  color: currentColor !important;
+}
+
+/* Vibrant Accent Dot on Final Phase ("Launch." matching "Evolve." in video) */
+.hscroll-dot-accent {
+  color: var(--hscroll-accent) !important;
+  display: inline-block !important;
+  margin-left: 2px !important;
+}
+
+/* Subtle Hairline Rule Beneath Title (Exact 100px hairline divider in screenshot) */
+#deliverySection .hscroll-step-rule,
+.hscroll-step-rule {
+  width: 110px !important;
+  max-width: 110px !important;
+  height: 1px !important;
+  background-color: var(--hscroll-light-line) !important;
+  margin: 0 0 1.5rem 0 !important;
+  transition: background-color 0.3s ease;
+}
+
+/* Punchy Lead Subtitle - MONOSPACED MATCHING USER SCREENSHOT */
+#deliverySection .hscroll-step-lead,
+#deliverySection p.hscroll-step-lead,
+.hscroll-step-lead {
+  font-family: 'JetBrains Mono', 'Space Mono', 'SF Mono', 'Roboto Mono', Menlo, Monaco, Consolas, monospace !important;
+  font-size: clamp(15px, 1.15vw, 17.5px) !important;
+  font-weight: 400 !important;
+  line-height: 1.5 !important;
+  letter-spacing: -0.01em !important;
+  color: var(--hscroll-light-text) !important;
+  max-width: 660px !important;
+  margin: 0 0 1.6rem 0 !important;
+  transition: color 0.3s ease;
+}
+
+/* Em-Dash Bullet List - MONOSPACED MATCHING USER SCREENSHOT */
+#deliverySection .hscroll-step-list,
+.hscroll-step-list {
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 12px !important;
+  max-width: 680px !important;
+}
+
+#deliverySection .hscroll-step-list li,
+.hscroll-step-list li {
+  display: flex !important;
+  align-items: baseline !important;
+  gap: 12px !important;
+  font-family: 'JetBrains Mono', 'Space Mono', 'SF Mono', 'Roboto Mono', Menlo, Monaco, Consolas, monospace !important;
+  font-size: clamp(13px, 0.95vw, 14.5px) !important;
+  font-weight: 400 !important;
+  line-height: 1.85 !important;
+  letter-spacing: 0.005em !important;
+  color: var(--hscroll-light-sub) !important;
+  transition: color 0.3s ease;
+}
+
+#deliverySection .hscroll-dash,
+.hscroll-dash {
+  color: var(--hscroll-light-muted) !important;
+  font-weight: 400 !important;
+  flex-shrink: 0 !important;
+  margin-right: 2px !important;
+  transition: color 0.3s ease;
+}
+
+/* ==========================================================================
+   INTERACTIVE BOTTOM TIMELINE NAVIGATION (MATCHING REFERENCE EXACTLY)
+   ========================================================================== */
+.hscroll-bottom-nav {
+  position: absolute;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 30;
+  pointer-events: auto;
+  user-select: none;
+}
+
+.hscroll-nav-track {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: clamp(340px, 46vw, 560px);
+  padding: 0 10px;
+  box-sizing: border-box;
+}
+
+/* Background Connecting Line */
+.hscroll-nav-line-bg {
+  position: absolute;
+  top: 17px;
+  left: 28px;
+  right: 28px;
+  height: 2px;
+  background-color: var(--hscroll-light-line);
+  z-index: 1;
+  transition: background-color 0.3s ease;
+}
+
+/* Active Fill Line Driven by Scroll Progress */
+.hscroll-nav-line-fill {
+  position: absolute;
+  top: 17px;
+  left: 28px;
+  width: 0%;
+  height: 2px;
+  background-color: var(--hscroll-light-text);
+  z-index: 2;
+  transition: width 0.15s ease-out, background-color 0.3s ease;
+}
+
+/* Individual Timeline Step Node Button */
+.hscroll-nav-node {
+  position: relative;
+  z-index: 5;
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  outline: none;
+  transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.hscroll-nav-node:hover {
+  transform: scale(1.12);
+}
+
+/* Node Circular Badge / Dot */
+.hscroll-node-badge {
+  position: relative;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Space Grotesk', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 15px;
+  font-weight: 800;
+  line-height: 1;
+  color: transparent; /* Letter is transparent when inactive */
+  transition: color 0.25s ease, background-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* Inactive Node Dot */
+.hscroll-nav-node .hscroll-node-badge::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--hscroll-light-muted);
+  transition: all 0.25s ease;
+}
+
+/* Inactive 5th Node (Launch): Vibrant magenta pink dot matching video */
+.hscroll-nav-node.node-last .hscroll-node-badge::before {
+  background-color: var(--hscroll-accent);
+}
+
+/* Active / Visited Node State: Letter appears, dot disappears, background halo masks the line */
+.hscroll-nav-node.is-active .hscroll-node-badge,
+.hscroll-nav-node.is-visited .hscroll-node-badge {
+  color: var(--hscroll-light-text);
+  background-color: var(--hscroll-current-bg, #FFFFFF);
+  box-shadow: 0 0 0 6px var(--hscroll-current-bg, #FFFFFF);
+}
+
+.hscroll-nav-node.is-active .hscroll-node-badge::before,
+.hscroll-nav-node.is-visited .hscroll-node-badge::before {
+  display: none;
+}
+
+/* Step Label Below Node */
+.hscroll-node-label {
+  position: absolute;
+  top: 36px;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, monospace, sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--hscroll-light-muted);
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateY(-4px);
+  transition: opacity 0.25s ease, transform 0.25s ease, color 0.3s ease;
+  pointer-events: none;
+}
+
+.hscroll-nav-node.is-active .hscroll-node-label,
+.hscroll-nav-node.is-visited .hscroll-node-label {
+  opacity: 0.8;
+  transform: translateY(0);
+  color: var(--hscroll-light-text);
+}
+
+/* Final Step Node ("L" / LAUNCH) Accent Color */
+.hscroll-nav-node.node-last.is-active .hscroll-node-badge,
+.hscroll-nav-node.node-last.is-visited .hscroll-node-badge {
+  color: var(--hscroll-accent) !important;
+}
+
+.hscroll-nav-node.node-last.is-active .hscroll-node-label,
+.hscroll-nav-node.node-last.is-visited .hscroll-node-label {
+  color: var(--hscroll-accent) !important;
+  opacity: 1;
+}
+
+/* ==========================================================================
+   DYNAMIC THEME STATES (LIGHT -> SLATE -> OBSIDIAN)
+   ========================================================================== */
+
+/* State: Slate Gray Transition (Midway through Step 4) */
+.hscroll-sticky-viewport.theme-slate {
+  --hscroll-light-text: #FFFFFF;
+  --hscroll-light-sub: #E2E8F0;
+  --hscroll-light-muted: rgba(255, 255, 255, 0.55);
+  --hscroll-light-line: rgba(255, 255, 255, 0.18);
+  --hscroll-light-watermark: rgba(255, 255, 255, 0.08);
+}
+
+/* State: Dark Black Obsidian (Step 5) */
+.hscroll-sticky-viewport.theme-dark {
+  --hscroll-light-text: #FFFFFF;
+  --hscroll-light-sub: #CBD5E1;
+  --hscroll-light-muted: rgba(255, 255, 255, 0.45);
+  --hscroll-light-line: rgba(255, 255, 255, 0.14);
+  --hscroll-light-watermark: rgba(255, 255, 255, 0.07);
+}
+
+.hscroll-sticky-viewport.theme-dark .hscroll-bg-dots {
+  opacity: 0.8;
+}
+
+/* ==========================================================================
+   RESPONSIVE OPTIMIZATIONS (< 1024px & Mobile)
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .hscroll-slide {
+    padding: 0 6vw;
+  }
+  .hscroll-watermark-num {
+    font-size: clamp(12rem, 24vw, 18rem);
+    left: -2vw;
+  }
+  .hscroll-card-inner {
+    margin-left: 2vw;
+    max-width: 620px;
+  }
+  .hscroll-bottom-nav {
+    bottom: 22px;
+  }
+  .hscroll-nav-track {
+    width: 85vw;
+  }
+}
+
+@media (max-width: 768px) {
+  .hscroll-delivery-section {
+    height: 480vh;
+  }
+  .hscroll-intro-title {
+    font-size: clamp(2.4rem, 8.5vw, 3.8rem);
+  }
+  .hscroll-step-title {
+    font-size: clamp(2.6rem, 8.8vw, 4.2rem);
+  }
+  .hscroll-step-lead {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 1.4rem;
+  }
+  .hscroll-watermark-num {
+    font-size: 11rem;
+    left: -10px;
+    top: 40%;
+  }
+  .hscroll-card-inner {
+    margin-left: 0;
+    padding-bottom: 5rem;
+  }
+  .hscroll-step-list li {
+    font-size: 0.9rem;
+  }
+  .hscroll-node-label {
+    display: none; /* Hide text labels on mobile to avoid overlap */
+  }
+  .hscroll-nav-track {
+    width: 80vw;
+  }
+}

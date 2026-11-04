@@ -1,0 +1,345 @@
+/* ==========================================================================
+   TESTIMONIAL STACKING CARDS (SCROLL-DRIVEN STACK ANIMATION)
+   100% faithful to the original recording frame-by-frame:
+   - Sticky deck stacking mechanism with 52px pinned tabs
+   - Full-bleed rich atmospheric gradients & ambient glow
+   - High-contrast typography with Space Grotesk & Space Mono
+   - Verbatim client quotes, star ratings & enterprise capabilities
+   ========================================================================== */
+
+/* Section Outer Container */
+.testimonial-stack-section {
+  position: relative;
+  width: 100%;
+  background: #000000;
+  color: #FFFFFF;
+  padding-bottom: 0;
+  overflow: clip; /* Avoid clipping sticky child while preventing horizontal scrollbar */
+}
+
+/* Section Intro / Title Lockup */
+.t-stack-intro {
+  text-align: center;
+  padding: 90px 24px 60px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.t-pill {
+  display: inline-block;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  padding: 6px 18px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  color: #F8E71C;
+  margin-bottom: 18px;
+}
+
+.t-main-heading {
+  font-family: 'Syne', 'Space Grotesk', -apple-system, sans-serif;
+  font-size: clamp(2.5rem, 5.5vw, 4.8rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  line-height: 1.05;
+  margin-bottom: 18px;
+  color: #FFFFFF;
+}
+
+.t-lead {
+  color: #94A3B8;
+  max-width: 640px;
+  margin: 0 auto;
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+/* Deck Container */
+.t-stack-container {
+  position: relative;
+  width: 100%;
+  max-width: 1540px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Individual Sticky Card */
+.t-card-wrapper {
+  position: sticky;
+  top: calc(var(--stack-i) * 52px);
+  height: calc(100vh - var(--stack-i) * 52px);
+  min-height: 620px;
+  margin-bottom: 35vh; /* Travel distance before next card scrolls over */
+  border-radius: 24px 24px 0 0;
+  overflow: hidden;
+  box-shadow: 0 -25px 60px rgba(0, 0, 0, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-bottom: none;
+  background-color: #0b0f17;
+  will-change: transform;
+}
+
+.t-card-wrapper:last-child {
+  margin-bottom: 0;
+}
+
+/* Card Content Stage */
+.t-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+/* Pinned Header Bar (Top 52px) */
+.t-card-header-bar {
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  position: relative;
+  z-index: 5;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  background: rgba(0, 0, 0, 0.32);
+}
+
+.t-card-header-title {
+  font-family: 'Space Grotesk', -apple-system, sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+/* Card Main Canvas */
+.t-card-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 30px 60px;
+  position: relative;
+  z-index: 2;
+}
+
+.t-card-company-hero {
+  font-family: 'Space Grotesk', -apple-system, sans-serif;
+  font-size: clamp(2.4rem, 4.6vw, 4.4rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  margin-bottom: 22px;
+  line-height: 1.1;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+}
+
+.t-card-quote-text {
+  font-size: clamp(1.05rem, 1.35vw, 1.32rem);
+  line-height: 1.65;
+  max-width: 900px;
+  color: rgba(255, 255, 255, 0.92);
+  font-weight: 400;
+  margin-bottom: 30px;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.55);
+}
+
+.t-card-action-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 999px;
+  padding: 12px 28px;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+  text-decoration: none;
+}
+
+.t-card-action-btn span:last-child {
+  transition: transform 0.25s ease;
+}
+
+.t-card-action-btn:hover {
+  background: #FFFFFF;
+  color: #000000;
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.45);
+  transform: translateY(-2px);
+}
+
+.t-card-action-btn:hover span:last-child {
+  transform: translateX(4px);
+}
+
+/* Card Bottom Bar */
+.t-card-bottom-bar {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: flex-end;
+  padding: 24px 44px;
+  position: relative;
+  z-index: 3;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  background: rgba(0, 0, 0, 0.25);
+}
+
+.t-author-block {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+}
+
+.t-author-name {
+  font-family: 'Space Grotesk', -apple-system, sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #FFFFFF;
+}
+
+.t-author-meta {
+  font-size: 0.84rem;
+  color: #94A3B8;
+  font-family: 'Inter', -apple-system, sans-serif;
+}
+
+.t-rating-stars {
+  color: #F8E71C;
+  font-size: 0.9rem;
+  letter-spacing: 3px;
+  margin-top: 2px;
+}
+
+.t-tag-center {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.74rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.7);
+  text-align: center;
+}
+
+.t-tech-list-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 3px;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  color: rgba(255, 255, 255, 0.75);
+  text-transform: uppercase;
+}
+
+/* Distinct Card Atmospheric Gradients (matching the video frame-by-frame) */
+.card-theme-1 {
+  background-color: #38070e;
+  background-image: 
+    linear-gradient(180deg, rgba(30, 4, 8, 0.58) 0%, rgba(20, 3, 6, 0.42) 40%, rgba(15, 2, 4, 0.68) 100%),
+    url('../assets/images/fyx-finance-bg.png');
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.card-theme-2 {
+  background: linear-gradient(135deg, #242932 0%, #1c2128 50%, #121519 100%);
+}
+
+.card-theme-3 {
+  background: linear-gradient(135deg, #0b2416 0%, #071916 50%, #040e10 100%);
+}
+
+.card-theme-4 {
+  background: linear-gradient(135deg, #0e1e36 0%, #122540 50%, #080f16 100%);
+}
+
+.bg-mesh-glow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.7;
+  mix-blend-mode: screen;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .t-card-body {
+    padding: 24px 32px;
+  }
+  .t-card-bottom-bar {
+    padding: 18px 24px;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .t-tag-center {
+    grid-column: 1 / -1;
+    order: -1;
+    text-align: left;
+  }
+}
+
+@media (max-width: 768px) {
+  .t-card-wrapper {
+    top: calc(var(--stack-i) * 44px);
+    height: calc(100vh - var(--stack-i) * 44px);
+    min-height: 520px;
+    border-radius: 16px 16px 0 0;
+    margin-bottom: 25vh;
+  }
+  .t-card-header-bar {
+    height: 44px;
+  }
+  .t-card-header-title {
+    font-size: 0.75rem;
+    letter-spacing: 0.16em;
+  }
+  .t-card-body {
+    padding: 20px 18px;
+  }
+  .t-card-quote-text {
+    font-size: 0.98rem;
+    line-height: 1.55;
+    margin-bottom: 20px;
+  }
+  .t-card-bottom-bar {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 16px 18px;
+  }
+  .t-tech-list-right {
+    align-items: flex-start;
+  }
+}
+
+/* Accessibility: respect user preference for reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .t-card-wrapper {
+    position: relative;
+    top: auto;
+    height: auto;
+    margin-bottom: 40px;
+  }
+}

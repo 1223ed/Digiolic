@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#01061a">
+  <title>Vexel — Your next customer starts with a hello.</title>
+  <style>
+    @font-face {
+      font-family: 'Google Sans';
+      font-style: normal;
+      font-weight: 400;
+      font-display: block;
+      src: url('assets/google-sans-400.woff2') format('woff2');
+    }
+    @font-face {
+      font-family: 'Google Sans';
+      font-style: normal;
+      font-weight: 500;
+      font-display: block;
+      src: url('assets/google-sans-500.woff2') format('woff2');
+    }
+
+    :root {
+      --u: min(100vh / 800, max(100vw / 1280, min(100vw / 640, 0.75px)));
+      --u: min(100dvh / 800, max(100vw / 1280, min(100vw / 640, 0.75px)));
+      --ink: #ffffff;
+      --nav: rgba(238, 242, 255, 0.9);
+      --subhead: rgba(226, 233, 255, 0.74);
+      --link: rgba(212, 236, 255, 0.77);
+      --hairline: rgba(255, 255, 255, 0.19);
+      --button-bg: #ffffff;
+      --button-ink: #0a0a0a;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :focus {
+      outline: none;
+    }
+
+    :focus-visible {
+      outline: 2px solid #7fd4ff;
+      outline-offset: 4px;
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+      height: 100dvh;
+      overflow: hidden;
+      background-color: #01061a;
+      background: #01061a linear-gradient(to right, #00061a 0%, #01071b 22%, #01071a 45%, #010718 62%, #010614 80%, #020511 100%);
+      color: var(--ink);
+      font-family: "Google Sans", "Product Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: geometricPrecision;
+      font-kerning: normal;
+    }
+
+    .hero-screen {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+      height: 100dvh;
+      overflow: hidden;
+    }
+
+    /* Masthead */
+    .masthead {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      padding-top: calc(env(safe-area-inset-top, 0px) + calc(40.5 * var(--u)));
+      flex-shrink: 0;
+      z-index: 10;
+    }
+
+    .wordmark {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      transform: translateX(calc(-0.5 * var(--u)));
+      line-height: 0;
+    }
+
+    .wordmark svg {
+      height: max(calc(23.5 * var(--u)), 17px);
+      width: auto;
+      fill: #ffffff;
+      display: block;
+    }
+
+    .hairline {
+      width: max(calc(284 * var(--u)), 252px);
+      height: 1px;
+      background: var(--hairline);
+      margin-top: calc(24 * var(--u));
+      transform-origin: center;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: max(calc(284 * var(--u)), 252px);
+      margin-top: calc(17.4 * var(--u));
+      padding-left: calc(8.9 * var(--u));
+      padding-right: calc(8.9 * var(--u));
+    }
+
+    .nav-link {
+      font-size: max(calc(15 * var(--u)), 13px);
+      letter-spacing: -0.033em;
+      color: var(--nav);
+      text-decoration: none;
+      transition: color 0.2s ease;
+      white-space: nowrap;
+      display: inline-block;
+    }
+
+    .nav-link:hover {
+      color: #ffffff;
+    }
+
+    /* Gap */
+    .hero-gap {
+      flex: 82.98 1 0px;
+      min-height: calc(24 * var(--u));
+      pointer-events: none;
+    }
+
+    /* Copy */
+    .copy {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      z-index: 10;
+      flex-shrink: 0;
+      position: relative;
+    }
+
+    .headline {
+      font-weight: 400;
+      font-size: max(calc(68 * var(--u)), 34px);
+      line-height: 0.9559;
+      letter-spacing: -0.0279em;
+      white-space: nowrap;
+      color: var(--ink);
+    }
+
+    .headline .l {
+      display: block;
+      overflow: hidden;
+    }
+
+    .headline .l.l2 {
+      letter-spacing: -0.0294em;
+      transform: translateX(calc(2.6 * var(--u)));
+    }
+
+    .headline .li {
+      display: inline-block;
+      will-change: transform;
+    }
+
+    .subhead {
+      font-size: max(calc(21 * var(--u)), 15px);
+      letter-spacing: -0.005em;
+      margin-top: calc(18.98 * var(--u));
+      color: var(--subhead);
+      text-wrap: balance;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: max(calc(216 * var(--u)), 196px);
+      height: max(calc(46 * var(--u)), 44px);
+      border-radius: max(calc(4.5 * var(--u)), 4px);
+      font-weight: 500;
+      font-size: max(calc(17 * var(--u)), 15px);
+      letter-spacing: -0.0265em;
+      margin-top: calc(25.64 * var(--u));
+      background-color: var(--button-bg);
+      color: var(--button-ink);
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+    }
+
+    .button:hover {
+      background-color: #e8eef7;
+      box-shadow: 0 0 0 calc(4 * var(--u)) rgba(120, 200, 255, 0.12);
+    }
+
+    .button:focus-visible {
+      outline: 2px solid #7fd4ff;
+      outline-offset: 3px;
+    }
+
+    .discover-link {
+      display: inline-flex;
+      align-items: center;
+      font-size: max(calc(14.8 * var(--u)), 13px);
+      letter-spacing: -0.051em;
+      margin-top: calc(20.55 * var(--u));
+      color: var(--link);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .discover-link:hover {
+      color: #ffffff;
+    }
+
+    .discover-link .arrow {
+      width: 0.68em;
+      height: 0.85em;
+      margin-left: 0.35em;
+      stroke: currentColor;
+      stroke-width: 1.45;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      fill: none;
+      display: inline-block;
+      vertical-align: middle;
+      transition: transform 0.2s ease;
+    }
+
+    .discover-link:hover .arrow {
+      transform: translateY(0.12em);
+    }
+
+    /* Video field */
+    .video-field {
+      flex: 318.68 1 0px;
+      min-height: calc(160 * var(--u));
+      position: relative;
+      width: 100%;
+      container-type: size;
+      overflow: hidden;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .video-field video {
+      position: absolute;
+      left: 50%;
+      top: calc(-36.4 * var(--u));
+      transform: translate(-50%, -50.463%);
+      width: auto;
+      pointer-events: none;
+      height: max(60vw, 105vh);
+      height: max(calc(100cqw * 971 / 1619), calc((100cqh + 36.4 * var(--u)) / 0.49537 + 1px));
+      -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 4%);
+      mask-image: linear-gradient(to bottom, transparent 0%, black 4%);
+    }
+
+    /* Intro Initial State */
+    .intro .wordmark,
+    .intro .nav-item,
+    .intro .subhead,
+    .intro .button,
+    .intro .discover-link {
+      opacity: 0;
+    }
+
+    .intro .hairline {
+      transform: scaleX(0);
+    }
+
+    .intro .headline .l {
+      overflow: hidden;
+    }
+
+    .intro .headline .li {
+      transform: translateY(104%);
+    }
+
+    /* Tablet, 600px to 1099.98px wide and at least 541px tall */
+    @media (min-width: 600px) and (max-width: 1099.98px) and (min-height: 541px) {
+      :root {
+        --u: min(100vh / 800, 1px, max(100vw / 1280, 100vh / 1190, 0.86px));
+        --u: min(100dvh / 800, 1px, max(100vw / 1280, 100dvh / 1190, 0.86px));
+      }
+      .video-field {
+        max-height: 48vh;
+        max-height: 48dvh;
+      }
+      .nav-link {
+        padding: 14px 8px;
+        margin: -14px -8px;
+      }
+      .discover-link {
+        padding: 12px 10px;
+        margin-top: calc(20.55 * var(--u) - 12px);
+        margin-bottom: -12px;
+        margin-left: -10px;
+        margin-right: -10px;
+      }
+    }
+
+    /* Portrait under 600px */
+    @media (max-width: 599.98px) {
+      :root {
+        --u: min(100vh / 800, max(100vw / 1280, min(100vw / 640, 0.75px)));
+        --u: min(100svh / 800, max(100vw / 1280, min(100vw / 640, 0.75px)));
+      }
+      .hero-screen {
+        padding-left: 24px;
+        padding-right: 24px;
+      }
+      .headline {
+        white-space: nowrap;
+        font-size: max(26px, min(calc(68 * var(--u)), calc((100vw - 48px) / 8.235)));
+      }
+      .headline .l {
+        white-space: nowrap;
+      }
+      .subhead {
+        font-size: max(16px, min(calc(21 * var(--u)), 3.345vw));
+        line-height: 1.25;
+        overflow-wrap: break-word;
+      }
+      .hairline {
+        width: min(max(calc(284 * var(--u)), 252px), calc(100vw - 32px));
+      }
+      .nav {
+        width: min(max(calc(284 * var(--u)), 252px), calc(100vw - 32px));
+      }
+      .video-field {
+        max-height: 48vh;
+        max-height: 48svh;
+      }
+      .nav-link {
+        padding: 14px 8px;
+        margin: -14px -8px;
+      }
+      .discover-link {
+        padding: 12px 10px;
+        margin-top: calc(20.55 * var(--u) - 12px);
+        margin-bottom: -12px;
+        margin-left: -10px;
+        margin-right: -10px;
+      }
+    }
+
+    /* Landscape shorter than 540px */
+    @media (orientation: landscape) and (max-height: 539.98px) {
+      .wordmark svg {
+        height: max(calc(23.5 * var(--u)), 13px);
+      }
+      .hairline {
+        width: max(calc(284 * var(--u)), 210px);
+      }
+      .nav {
+        width: max(calc(284 * var(--u)), 210px);
+      }
+      .nav-link {
+        font-size: max(calc(15 * var(--u)), 11px);
+      }
+      .hero-gap {
+        min-height: calc(14 * var(--u));
+      }
+      .headline {
+        font-size: max(calc(68 * var(--u)), 28px);
+      }
+      .subhead {
+        font-size: max(calc(21 * var(--u)), 12px);
+      }
+      .button {
+        width: max(calc(216 * var(--u)), 150px);
+        height: max(calc(46 * var(--u)), 34px);
+        font-size: max(calc(17 * var(--u)), 12.5px);
+      }
+      .discover-link {
+        font-size: max(calc(14.8 * var(--u)), 11px);
+      }
+      .video-field {
+        min-height: calc(120 * var(--u));
+      }
+    }
+
+    /* Coarse pointer in short landscape */
+    @media (orientation: landscape) and (max-height: 539.98px) and (pointer: coarse) {
+      .nav-link {
+        padding: 14px 8px;
+        margin: -14px -8px;
+      }
+      .discover-link {
+        padding: 12px 10px;
+        margin-top: calc(20.55 * var(--u) - 12px);
+        margin-bottom: -12px;
+        margin-left: -10px;
+        margin-right: -10px;
+      }
+    }
+
+    /* At 359px and below, outside portrait block, allow headline to wrap at 30px */
+    @media (max-width: 359.98px) {
+      .headline {
+        white-space: normal;
+        font-size: 30px;
+      }
+      .headline .l {
+        white-space: normal;
+      }
+    }
+
+    /* Reduced Motion */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        transition: none !important;
+        animation: none !important;
+      }
+      .intro .wordmark,
+      .intro .nav-item,
+      .intro .subhead,
+      .intro .button,
+      .intro .discover-link {
+        opacity: 1 !important;
+      }
+      .intro .hairline {
+        transform: scaleX(1) !important;
+      }
+      .intro .headline .li {
+        transform: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="hero-screen">
+    <!-- Masthead, centered -->
+    <header class="masthead">
+      <a href="#" class="wordmark" aria-label="Vexel home">
+        <svg viewBox="588 40.5 103.5 23.5" aria-hidden="true">
+          <path d="M588.6 40.8H594.9L601.4 56.6L606.5 40.8H612.6L604.2 63.5H597.8Z" />
+          <path d="M612.8 40.8H630.5V45.2H619.2V49.8H628.3V54.4H619.2V58.9H631.5V63.5H612.8Z" />
+          <path d="M631.3 40.8H637.9L642.5 47.4L646.5 40.8H653.1L646.4 52L653.6 63.5H647.1L642.5 56.4L638.3 63.5H631.4L638.8 52Z" />
+          <path d="M653.6 40.8H669.6V63.5H653.6V58.9H664.3V54.4H657V49.8H664.3V45.2H653.6Z" />
+          <path d="M672.4 40.8H677.6V58.9H690.5V63.5H672.4Z" />
+        </svg>
+      </a>
+      <div class="hairline" aria-hidden="true"></div>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="#platform" class="nav-item nav-link">Platform</a>
+        <a href="#company" class="nav-item nav-link">Company</a>
+        <a href="#contact" class="nav-item nav-link">Contact</a>
+      </nav>
+    </header>
+
+    <!-- Flexible gap -->
+    <div class="hero-gap" aria-hidden="true"></div>
+
+    <!-- Copy, centered -->
+    <section class="copy" aria-label="Introduction">
+      <h1 class="headline">
+        <span class="l"><span class="li">Your next customer</span></span>
+        <span class="l l2"><span class="li">starts with a hello.</span></span>
+      </h1>
+      <p class="subhead">Make&nbsp;the&nbsp;first&nbsp;move. We’ll&nbsp;help&nbsp;with&nbsp;what&nbsp;follows.</p>
+      <a href="#contact" class="button">Start a conversation</a>
+      <a href="#platform" class="discover-link">
+        <span>Discover the platform</span>
+        <svg class="arrow" viewBox="0 0 11 12.6" aria-hidden="true">
+          <path d="M5.5 .4V12M1 7.5L5.5 12L10 7.5" />
+        </svg>
+      </a>
+    </section>
+
+    <!-- Background video field -->
+    <div class="video-field" aria-hidden="true">
+      <video autoplay muted loop playsinline tabindex="-1" aria-hidden="true">
+        <source src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20261005_182549_18378239-da8f-48a7-9666-d6e0a6a88561.mp4" type="video/mp4">
+      </video>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const hasWAAPI = typeof Element !== 'undefined' && typeof Element.prototype.animate === 'function';
+
+      if (prefersReducedMotion || !hasWAAPI || !window.matchMedia) {
+        document.documentElement.setAttribute('data-intro', 'done');
+        return;
+      }
+
+      // Add class "intro" immediately
+      document.documentElement.classList.add('intro');
+
+      let entranceStarted = false;
+      const fallbackTimer = setTimeout(() => {
+        if (!entranceStarted) {
+          document.documentElement.classList.remove('intro');
+          document.documentElement.setAttribute('data-intro', 'done');
+        }
+      }, 3500);
+
+      const video = document.querySelector('.video-field video');
+      const fontReady = document.fonts ? document.fonts.ready : Promise.resolve();
+
+      const videoReady = new Promise((resolve) => {
+        if (!video || video.readyState >= 2) {
+          resolve();
+        } else {
+          video.addEventListener('loadeddata', () => resolve(), { once: true });
+          video.addEventListener('error', () => resolve(), { once: true });
+        }
+      });
+
+      const timeoutLimit = new Promise((resolve) => setTimeout(resolve, 900));
+
+      Promise.race([Promise.all([fontReady, videoReady]), timeoutLimit]).then(startEntrance);
+
+      function startEntrance() {
+        if (entranceStarted) return;
+        entranceStarted = true;
+        clearTimeout(fallbackTimer);
+
+        const wordmark = document.querySelector('.wordmark');
+        const hairline = document.querySelector('.hairline');
+        const navItems = Array.from(document.querySelectorAll('.nav-item'));
+        const headlineLines = Array.from(document.querySelectorAll('.headline .li'));
+        const subhead = document.querySelector('.subhead');
+        const button = document.querySelector('.button');
+        const discoverLink = document.querySelector('.discover-link');
+        const arrow = document.querySelector('.discover-link .arrow');
+
+        // Distances scale with k, the logo height divided by 23.5, clamped from 0.65 to 1.
+        const logoHeight = wordmark ? wordmark.getBoundingClientRect().height : 23.5;
+        const k = Math.min(1, Math.max(0.65, logoHeight / 23.5));
+
+        const animations = [];
+
+        // Wordmark: from opacity 0 and translateY(-6k px), delay 60ms, 900ms, cubic-bezier(0.22, 1, 0.36, 1)
+        if (wordmark) {
+          animations.push(wordmark.animate([
+            { opacity: 0, transform: `translate(calc(-0.5 * var(--u)), ${-6 * k}px)` },
+            { opacity: 1, transform: 'translate(calc(-0.5 * var(--u)), 0px)' }
+          ], {
+            delay: 60,
+            duration: 900,
+            easing: 'cubic-bezier(0.22, 1, 0.36, 1)',
+            fill: 'both'
+          }));
+        }
+
+        // Hairline: scaleX 0 to 1, delay 180ms, 1000ms, cubic-bezier(0.7, 0, 0.2, 1)
+        if (hairline) {
+          animations.push(hairline.animate([
+            { transform: 'scaleX(0)' },
+            { transform: 'scaleX(1)' }
+          ], {
+            delay: 180,
+            duration: 1000,
+            easing: 'cubic-bezier(0.7, 0, 0.2, 1)',
+            fill: 'both'
+          }));
+        }
+
+        // Nav: center link first at 420ms, then outer links at 490ms. Each from opacity 0 and translateY(-4k px), 700ms, quint
+        if (navItems.length === 3) {
+          // outer: 0 and 2 at 490ms; center: 1 at 420ms
+          navItems.forEach((item, index) => {
+            const delay = index === 1 ? 420 : 490;
+            animations.push(item.animate([
+              { opacity: 0, transform: `translateY(${-4 * k}px)` },
+              { opacity: 1, transform: 'translateY(0px)' }
+            ], {
+              delay: delay,
+              duration: 700,
+              easing: 'cubic-bezier(0.22, 1, 0.36, 1)',
+              fill: 'both'
+            }));
+          });
+        }
+
+        // Headline lines rise from translateY(104%) to none, 1100ms, cubic-bezier(0.16, 1, 0.3, 1). Line 1: 200ms, Line 2: 290ms
+        headlineLines.forEach((line, index) => {
+          const delay = index === 0 ? 200 : 290;
+          animations.push(line.animate([
+            { transform: 'translateY(104%)' },
+            { transform: 'none' }
+          ], {
+            delay: delay,
+            duration: 1100,
+            easing: 'cubic-bezier(0.16, 1, 0.3, 1)',
+            fill: 'both'
+          }));
+        });
+
+        // Subhead rises 10k px, delay 700ms, 850ms, quint
+        if (subhead) {
+          animations.push(subhead.animate([
+            { opacity: 0, transform: `translateY(${10 * k}px)` },
+            { opacity: 1, transform: 'translateY(0px)' }
+          ], {
+            delay: 700,
+            duration: 850,
+            easing: 'cubic-bezier(0.22, 1, 0.36, 1)',
+            fill: 'both'
+          }));
+        }
+
+        // Button rises 12k px from scale 0.975, delay 860ms, 900ms, expo
+        if (button) {
+          animations.push(button.animate([
+            { opacity: 0, transform: `translateY(${12 * k}px) scale(0.975)` },
+            { opacity: 1, transform: 'translateY(0px) scale(1)' }
+          ], {
+            delay: 860,
+            duration: 900,
+            easing: 'cubic-bezier(0.16, 1, 0.3, 1)',
+            fill: 'both'
+          }));
+        }
+
+        // Discover link rises 6k px, delay 1040ms, 700ms, quint
+        if (discoverLink) {
+          animations.push(discoverLink.animate([
+            { opacity: 0, transform: `translateY(${6 * k}px)` },
+            { opacity: 1, transform: 'translateY(0px)' }
+          ], {
+            delay: 1040,
+            duration: 700,
+            easing: 'cubic-bezier(0.22, 1, 0.36, 1)',
+            fill: 'both'
+          }));
+        }
+
+        // Arrow starts 5k px above and settles, delay 1120ms, 820ms, expo
+        if (arrow) {
+          animations.push(arrow.animate([
+            { opacity: 0, transform: `translateY(${-5 * k}px)` },
+            { opacity: 1, transform: 'translateY(0px)' }
+          ], {
+            delay: 1120,
+            duration: 820,
+            easing: 'cubic-bezier(0.16, 1, 0.3, 1)',
+            fill: 'both'
+          }));
+        }
+
+        // When every animation finishes, remove intro, cancel the animations, and if focus is not inside the page, toggle page display none for one reflow
+        Promise.all(animations.map(a => a.finished)).then(() => {
+          document.documentElement.classList.remove('intro');
+          animations.forEach(a => a.cancel());
+
+          const activeEl = document.activeElement;
+          const focusIsInside = activeEl && activeEl !== document.body && activeEl !== document.documentElement;
+
+          if (!focusIsInside) {
+            document.body.style.display = 'none';
+            void document.body.offsetHeight;
+            document.body.style.display = '';
+          }
+
+          document.documentElement.setAttribute('data-intro', 'done');
+        }).catch(() => {
+          document.documentElement.classList.remove('intro');
+          document.documentElement.setAttribute('data-intro', 'done');
+        });
+      }
+    })();
+  </script>
+</body>
+</html>

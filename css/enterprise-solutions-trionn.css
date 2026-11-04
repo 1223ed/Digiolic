@@ -1,0 +1,1185 @@
+/* ==========================================================================
+   ENTERPRISE SOLUTIONS BUILT FOR COMPOUND GROWTH
+   Faithful 1:1 recreation of TRIONN horizontal pinned scroll showcase
+   References:
+   - Screen Recording 2026-10-26 at 8.08.44 PM.mov (original video)
+   - Exactly 6 pages / columns total:
+     1. Column 1: Enterprise Solutions Built for Compound Growth (Intro)
+     2. Column 2: Enterprise Zoho Practice Card
+     3. Column 3: Salesforce Engineering Practice Card
+     4. Column 4: Digital Marketing Practice Card
+     5. Column 5: How Do We Deliver Success? (In place of AI DESIGN DEVELOPMENT BRANDING)
+     6. Column 6: How Do We Deliver Success Components (Full 5-step framework)
+   - Signature TRIONN Hairline Dividers with delicate centered '+' Crosshair
+   - Parabolic rising card entrance with smooth scale expansion
+   - Monumental editorial typography & high-contrast crisp aesthetics
+   ========================================================================== */
+
+:root {
+  --trionn-bg: #F8F9FA;
+  --trionn-bg-card: #FFFFFF;
+  --trionn-border: rgba(18, 19, 22, 0.08);
+  --trionn-border-strong: rgba(18, 19, 22, 0.15);
+  --trionn-text-headline: #121316;
+  --trionn-text-body: #5A6270;
+  --trionn-text-muted: #64748B;
+  --trionn-accent: #E85D04;
+  --trionn-accent-purple: #7C3AED;
+  --trionn-accent-green: #10B981;
+}
+
+/* Ensure synchronous coordinate calculation for GSAP ScrollTrigger */
+html {
+  scroll-behavior: auto !important;
+}
+
+/* Outer Section Container: Pinned natively by GSAP ScrollTrigger at 100vh */
+.enterprise-solutions-section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  background-color: var(--trionn-bg);
+  background: linear-gradient(180deg, #FBFBFB 0%, #F4F5F7 100%);
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow: hidden;
+  isolation: isolate;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  border-top: 1px solid var(--trionn-border);
+  border-bottom: none;
+}
+
+/* Pinned Viewport Wrapper (100% of pinned section) */
+.enterprise-sticky-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  box-sizing: border-box;
+}
+
+/* Horizontal Scrolling Track containing all 6 panels */
+.enterprise-horizontal-track {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  width: max-content;
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+  box-sizing: border-box;
+}
+
+/* ==========================================================================
+   PANELS (50vw standard columns with clean vertical hairline dividers)
+   ========================================================================== */
+.enterprise-panel {
+  width: 50vw;
+  min-width: 50vw;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: clamp(28px, 4.5vw, 64px);
+  position: relative;
+  flex-shrink: 0;
+  border-right: 1px solid var(--trionn-border);
+}
+
+/* Last panel has no right border */
+.enterprise-panel:last-child {
+  border-right: none;
+}
+
+/* TRIONN Signature '+' Crosshair Marker in the center of vertical border */
+.enterprise-col-crosshair {
+  position: absolute;
+  right: -7px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: 'Inter', -apple-system, sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  color: #94A3B8;
+  line-height: 1;
+  pointer-events: none;
+  z-index: 10;
+  user-select: none;
+}
+
+/* ==========================================================================
+   PANEL 0: INTRO PANEL (Left 50vw)
+   ========================================================================== */
+.enterprise-intro-panel {
+  background-color: transparent;
+}
+
+.enterprise-intro-content {
+  width: 100%;
+  max-width: 560px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+/* Eyebrow Badge */
+.enterprise-badge-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-family: 'Space Mono', 'SF Mono', Menlo, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--trionn-text-muted);
+  margin-bottom: clamp(1rem, 2vh, 1.6rem);
+}
+
+.enterprise-badge-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--trionn-accent-green);
+  display: inline-block;
+  box-shadow: 0 0 10px rgba(16, 185, 129, 0.4);
+}
+
+/* Monumental Editorial Headline matching TRIONN */
+.enterprise-headline {
+  margin: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: clamp(2.4rem, 4.2vw, 4.2rem);
+  font-weight: 500;
+  line-height: 1.08;
+  letter-spacing: -0.035em;
+  color: var(--trionn-text-headline);
+  text-transform: none;
+}
+
+.enterprise-headline span.highlight {
+  color: var(--trionn-accent);
+  display: inline-block;
+}
+
+/* Lead Paragraph */
+.enterprise-lead {
+  margin: clamp(1.2rem, 2vh, 1.8rem) 0 0 0;
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(0.95rem, 1.1vw, 1.08rem);
+  line-height: 1.62;
+  color: #5A6270;
+  max-width: 480px;
+  font-weight: 400;
+}
+
+/* View All Practices Action Link */
+.enterprise-all-link {
+  margin-top: clamp(1.8rem, 3vh, 2.8rem);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.76rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--trionn-text-headline);
+  text-decoration: none;
+  padding-bottom: 4px;
+  border-bottom: 1.5px solid var(--trionn-text-headline);
+  transition: letter-spacing 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.35s ease,
+              color 0.35s ease;
+}
+
+.enterprise-all-link .enterprise-arrow {
+  display: inline-block;
+  font-size: 1.05rem;
+  line-height: 1;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.enterprise-all-link:hover {
+  letter-spacing: 0.22em;
+  color: var(--trionn-accent);
+  border-bottom-color: var(--trionn-accent);
+}
+
+.enterprise-all-link:hover .enterprise-arrow {
+  transform: translateX(6px);
+}
+
+/* ==========================================================================
+   PRACTICE CARDS (Cards 1, 2, 3: Panels 1, 2, 3)
+   ========================================================================== */
+.enterprise-card-wrapper {
+  width: 100%;
+  max-width: clamp(540px, 44vw, 760px);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  will-change: transform, opacity;
+  transform-origin: center center;
+}
+
+/* Large Rounded Media Box (Monumental TRIONN Proportions) */
+.enterprise-media-box {
+  position: relative;
+  width: 100%;
+  height: clamp(340px, 48vh, 520px);
+  border-radius: 20px;
+  overflow: hidden;
+  background-color: var(--trionn-bg-card);
+  border: 1px solid var(--trionn-border);
+  box-shadow: 0 20px 50px rgba(18, 19, 22, 0.06), 0 2px 10px rgba(18, 19, 22, 0.03);
+  cursor: pointer;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.4s ease;
+}
+
+.enterprise-media-box:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 32px 80px rgba(18, 19, 22, 0.12), 0 6px 18px rgba(18, 19, 22, 0.05);
+  border-color: rgba(232, 93, 4, 0.25);
+}
+
+/* Inset Architectural Frame (Matches reference video Alex card) */
+.enterprise-inset-frame {
+  position: absolute;
+  inset: clamp(14px, 1.8vw, 20px);
+  border: 1px solid rgba(18, 19, 22, 0.07);
+  border-radius: 13px;
+  pointer-events: none;
+  z-index: 2;
+  transition: border-color 0.4s ease;
+}
+
+.enterprise-media-box:hover .enterprise-inset-frame {
+  border-color: rgba(232, 93, 4, 0.3);
+}
+
+/* Card Image inside media box with scroll parallax & hover zoom */
+.enterprise-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: clamp(24px, 3.5vw, 44px);
+  display: block;
+  transform: scale(1.03) translate3d(var(--shift-x, 0px), 0, 0);
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+  background: transparent;
+}
+
+.enterprise-media-box:hover .enterprise-card-img {
+  transform: scale(1.1) translate3d(var(--shift-x, 0px), 0, 0);
+}
+
+/* Card Info Row Underneath the Image */
+.enterprise-card-info {
+  margin-top: clamp(18px, 2.4vh, 26px);
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 1.5rem;
+}
+
+/* Left details column */
+.enterprise-card-details {
+  flex: 1;
+  max-width: 440px;
+}
+
+.enterprise-card-title {
+  margin: 0;
+  font-family: 'Inter', -apple-system, sans-serif;
+  font-size: clamp(1.4rem, 1.8vw, 1.75rem);
+  font-weight: 500;
+  letter-spacing: -0.025em;
+  color: var(--trionn-text-headline);
+  line-height: 1.25;
+}
+
+.enterprise-card-desc {
+  margin: 0.5rem 0 0.85rem 0;
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(0.9rem, 0.98vw, 1rem);
+  line-height: 1.58;
+  color: #5A6270;
+  font-weight: 400;
+}
+
+/* Bullet list of high-impact practice capabilities */
+.enterprise-feature-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin: 0.5rem 0 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.enterprise-feature-pill {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--trionn-text-muted);
+  background: rgba(18, 19, 22, 0.04);
+  border: 1px solid rgba(18, 19, 22, 0.08);
+  padding: 3px 8px;
+  border-radius: 4px;
+}
+
+/* Right Interactive Explore Link (Exact recreation of TRIONN) */
+.enterprise-explore-action {
+  flex-shrink: 0;
+  margin-bottom: 4px;
+}
+
+.enterprise-explore-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.76rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--trionn-text-headline);
+  text-decoration: none;
+  padding-bottom: 4px;
+  border-bottom: 1.5px solid var(--trionn-text-headline);
+  white-space: nowrap;
+  transition: letter-spacing 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              color 0.35s ease,
+              border-color 0.35s ease;
+}
+
+.enterprise-explore-link .enterprise-arrow {
+  display: inline-block;
+  font-size: 1.05rem;
+  line-height: 1;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.enterprise-card-wrapper:hover .enterprise-explore-link,
+.enterprise-explore-link:hover {
+  letter-spacing: 0.22em; /* Iconic TRIONN expanded letter-spacing on hover */
+  color: var(--trionn-accent);
+  border-bottom-color: var(--trionn-accent);
+}
+
+.enterprise-card-wrapper:hover .enterprise-explore-link .enterprise-arrow,
+.enterprise-explore-link:hover .enterprise-arrow {
+  transform: translateX(6px);
+}
+
+/* ==========================================================================
+   PANEL 4: DISCOVER COMPLETE COLLECTION BRIDGE PANEL (50vw)
+   Direct 1:1 match with TRIONN Frame 0 / Frame 03 / Frame 05
+   "Discover our complete collection of digital experiences, brands, and platforms.
+    VIEW ALL PROJECTS →"
+   ========================================================================== */
+.enterprise-discover-panel {
+  width: 50vw;
+  min-width: 50vw;
+  height: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(32px, 5vw, 64px);
+  background-color: var(--trionn-bg);
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+
+.trionn-discover-content {
+  width: 100%;
+  max-width: clamp(380px, 32vw, 480px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  will-change: transform, opacity;
+}
+
+.trionn-discover-headline {
+  margin: 0 0 clamp(24px, 3.8vh, 38px) 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: clamp(1.45rem, 2.1vw, 2.2rem);
+  font-weight: 450;
+  line-height: 1.32;
+  letter-spacing: -0.025em;
+  color: #121316;
+  text-align: center;
+}
+
+.trionn-discover-link {
+  font-family: 'Space Mono', 'SF Mono', Menlo, monospace;
+  font-size: clamp(0.74rem, 0.82vw, 0.82rem);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #121316;
+  text-decoration: none;
+  padding-bottom: 4px;
+  border-bottom: 1.5px solid #121316;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  transition: letter-spacing 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              color 0.35s ease,
+              border-color 0.35s ease;
+}
+
+.trionn-discover-link:hover {
+  letter-spacing: 0.22em;
+  color: var(--trionn-accent);
+  border-bottom-color: var(--trionn-accent);
+}
+
+.trionn-discover-link .enterprise-arrow {
+  display: inline-block;
+  font-size: 1.05rem;
+  line-height: 1;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.trionn-discover-link:hover .enterprise-arrow {
+  transform: translateX(6px);
+}
+
+/* ==========================================================================
+   PANEL 5: SHUTTER PAGE TRANSITION & MONUMENTAL HOW DO WE DELIVER HERO
+   Distinct pure white curtain sweeping horizontally with hairline divider
+   and architectural shutter depth, replacing vertical scroll / page reloads.
+   ========================================================================== */
+.enterprise-delivery-hero-panel {
+  width: 100vw;
+  min-width: 100vw;
+  height: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0; /* Padding is inside hero-content to maintain full 100vw shutter canvas */
+  background-color: #FFFFFF; /* Pure White Shutter Canvas, converts to dark on scroll */
+  border-left: 1px solid var(--trionn-border);
+  box-shadow: -25px 0 60px rgba(18, 19, 22, 0.05); /* Architectural Shutter Depth */
+  box-sizing: border-box;
+  overflow: hidden; /* Clips stationary content as shutter sweeps across */
+  z-index: 5;
+  flex-shrink: 0;
+  transition: border-color 0.3s ease;
+}
+
+.enterprise-delivery-hero-panel.is-dark {
+  background-color: #000000;
+  border-left-color: rgba(255, 255, 255, 0.05);
+}
+
+.enterprise-delivery-hero-panel .enterprise-col-crosshair {
+  left: -7px;
+  right: auto;
+  z-index: 10;
+}
+
+.enterprise-delivery-hero-content {
+  width: 100vw;
+  min-width: 100vw;
+  max-width: 100vw;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: clamp(36px, 4.5vh, 60px) clamp(32px, 5vw, 64px);
+  position: relative;
+  box-sizing: border-box;
+  will-change: transform, background-color;
+}
+
+.enterprise-delivery-hero-content.is-dark {
+  background-color: #000000;
+}
+
+.enterprise-delivery-hero-panel.is-dark .trionn-stack-line:not(.highlight-word),
+.enterprise-delivery-hero-content.is-dark .trionn-stack-line:not(.highlight-word) {
+  color: #FFFFFF;
+}
+
+.enterprise-delivery-hero-panel.is-dark .trionn-services-lead,
+.enterprise-delivery-hero-content.is-dark .trionn-services-lead {
+  color: #94A3B8;
+}
+
+.enterprise-delivery-hero-panel.is-dark .trionn-eyebrow-caps,
+.enterprise-delivery-hero-content.is-dark .trionn-eyebrow-caps {
+  color: #C084FC;
+}
+
+.enterprise-delivery-hero-panel.is-dark .trionn-services-pill-text,
+.enterprise-delivery-hero-content.is-dark .trionn-services-pill-text {
+  color: #A78BFA;
+}
+
+.enterprise-delivery-hero-panel.is-dark .trionn-hero-corner-link,
+.enterprise-delivery-hero-content.is-dark .trionn-hero-corner-link {
+  color: #FFFFFF;
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+/* TRIONN Top Eyebrow matching Frame 14 (OUR SERVICES -> OUR METHODOLOGY) */
+.trionn-hero-top {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: clamp(8px, 1.5vh, 16px);
+  will-change: opacity, transform;
+}
+
+.trionn-eyebrow-caps {
+  font-family: 'Space Mono', 'SF Mono', Menlo, monospace;
+  font-size: clamp(0.72rem, 0.82vw, 0.85rem);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--trionn-text-muted);
+  font-weight: 500;
+}
+
+/* TRIONN Centered Monumental Stack + Lead */
+.trionn-hero-center {
+  width: 100%;
+  max-width: 900px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin: auto 0;
+  will-change: transform, opacity;
+}
+
+/* Monumental Stacked Typography (Exact match to TRIONN AI DESIGN DEVELOPMENT BRANDING) */
+.trionn-services-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  line-height: 0.90;
+}
+
+.trionn-stack-line {
+  font-family: 'Outfit', 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: clamp(3.8rem, 7.5vw, 8.8rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  color: #121316;
+  margin: 0;
+  padding: 0;
+  will-change: transform, opacity;
+  display: block;
+}
+
+.trionn-stack-line.highlight-word {
+  color: var(--trionn-accent);
+}
+
+.trionn-services-lead {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(1rem, 1.15vw, 1.18rem);
+  line-height: 1.62;
+  color: #5A6270;
+  max-width: 580px;
+  margin: clamp(18px, 2.4vh, 28px) auto 0;
+  text-align: center;
+  font-weight: 400;
+  will-change: transform, opacity;
+}
+
+/* TRIONN Bottom Centered Accent text matching Frame 14 */
+.trionn-hero-bottom {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: clamp(8px, 1.5vh, 16px);
+  will-change: opacity, transform;
+}
+
+.trionn-services-pill-text {
+  font-family: 'Space Mono', monospace;
+  font-size: clamp(0.7rem, 0.76vw, 0.8rem);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #64748B;
+  font-weight: 500;
+}
+
+/* TRIONN Bottom Right Corner Link matching Frame 14 */
+.trionn-hero-corner-link {
+  position: absolute;
+  right: clamp(32px, 5vw, 64px);
+  bottom: clamp(28px, 4.5vh, 48px);
+  z-index: 15;
+  will-change: transform, opacity;
+}
+
+/* ==========================================================================
+   THE 5-PHASE DELIVERY FRAMEWORK (TRIONN VERTICAL DARK SHOWCASE)
+   1:1 Faithful Recreation of TRIONN Video Screen Recording 2026-10-26 at 10.58.10 PM
+   and Reference Image 1 (hairline celestial filament curves with glowing terminal dots).
+   The entire page scrolls vertically through the 5 delivery phases.
+   ========================================================================== */
+.trionn-delivery-flow-section {
+  position: relative;
+  width: 100%;
+  background-color: #000000;
+  color-scheme: dark;
+  padding: clamp(60px, 8vh, 120px) 0 clamp(120px, 16vh, 200px);
+  box-sizing: border-box;
+  overflow: visible; /* Allows celestial filaments to reach red circle anchors above */
+  isolation: isolate;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  border-top: none;
+  border-bottom: none;
+}
+
+/* Deep Atmospheric Background Glow & Geometric Technical Grid */
+.dark-stage-bg-atmosphere {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to bottom, black 0%, black 82%, transparent 100%);
+  mask-image: linear-gradient(to bottom, black 0%, black 82%, transparent 100%);
+}
+
+.dark-stage-radial-glow {
+  display: none !important;
+}
+
+.dark-stage-grid-lines {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+  background-size: 80px 80px;
+  opacity: 0.55;
+  mask-image: radial-gradient(circle at 50% 40%, black 50%, transparent 90%);
+  -webkit-mask-image: radial-gradient(circle at 50% 40%, black 50%, transparent 90%);
+}
+
+/* Floating Celestial Stardust Particles Canvas (Subtle 3D Depth & Parallax) */
+.celestial-particles-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.90;
+}
+
+/* Top Section Header */
+.trionn-flow-header {
+  position: relative;
+  z-index: 4;
+  text-align: center;
+  max-width: 860px;
+  margin: 0 auto clamp(60px, 8vh, 100px);
+  padding: 0 24px;
+}
+
+.dark-stage-eyebrow {
+  display: inline-block;
+  font-family: 'Space Mono', monospace;
+  font-size: clamp(0.70rem, 0.8vw, 0.85rem);
+  font-weight: 700;
+  letter-spacing: 0.20em;
+  color: #C084FC;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.dark-stage-title {
+  font-family: 'Syne', -apple-system, sans-serif;
+  font-size: clamp(2.2rem, 3.6vw, 4.0rem);
+  font-weight: 800;
+  color: #FFFFFF;
+  letter-spacing: -0.035em;
+  margin: 0 0 16px 0;
+  text-transform: uppercase;
+  line-height: 1.08;
+}
+
+.dark-stage-desc {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(0.92rem, 1.05vw, 1.12rem);
+  line-height: 1.62;
+  color: #94A3B8;
+  margin: 0 auto;
+  max-width: 680px;
+}
+
+/* Celestial Filaments SVG Canvas (positioned BEHIND cards so lines emerge from back of boxes) */
+.trionn-celestial-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 2;
+  overflow: visible;
+}
+
+.celestial-wire-bundle {
+  will-change: opacity;
+}
+
+.celestial-wire {
+  fill: none;
+  stroke-linecap: round;
+  will-change: stroke-dashoffset;
+  filter: drop-shadow(0 0 1px rgba(255, 255, 255, 0.25));
+}
+
+.travelling-dot {
+  pointer-events: none;
+  will-change: transform, opacity;
+  filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.85));
+}
+
+.bundle-target-dot {
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.bundle-arrival-spark {
+  pointer-events: none;
+  will-change: transform, opacity;
+  filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.9));
+  transition: opacity 0.22s ease, transform 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.bundle-start-dot {
+  pointer-events: none;
+}
+
+.celestial-terminal-dot {
+  fill: #FFFFFF;
+}
+
+/* Staggered Vertical Phases Container */
+.trionn-phases-flow-container {
+  position: relative;
+  z-index: 6;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 clamp(24px, 5vw, 70px);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(180px, 26vh, 320px); /* Generous runway matching TRIONN video */
+}
+
+.trionn-phase-row {
+  display: flex;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.trionn-phase-row.phase-align-left {
+  justify-content: flex-start;
+  padding-left: 0;
+}
+
+.trionn-phase-row.phase-align-right {
+  justify-content: flex-end;
+  padding-right: 0;
+}
+
+/* Phase Card Component - Reduced Image Size for Sleeker Layout */
+.trionn-phase-card {
+  width: 100%;
+  max-width: clamp(400px, 32vw, 490px);
+  position: relative;
+  z-index: 6;
+  will-change: transform, opacity;
+  box-sizing: border-box;
+  transform-origin: top center;
+  transition: filter 0.35s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .trionn-phase-card {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .celestial-wire-bundle {
+    opacity: 0.6 !important;
+  }
+}
+
+/* Floating Node Badges Removed to Match TRIONN Reference (Image 3 & 4) */
+.dark-card-node-badge {
+  display: none !important;
+}
+
+/* Phase Card Media (Image on Top - Sleek, Compact Dimensions) */
+.phase-card-media {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  background: #000000;
+  border: none;
+  box-shadow: 
+    0 25px 60px -15px rgba(0, 0, 0, 0.95),
+    0 0 40px -10px rgba(0, 0, 0, 0.80);
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.45s ease;
+  cursor: pointer;
+  /* Organic radial mask dissolving the outer perimeter into pure void */
+  -webkit-mask-image: radial-gradient(ellipse 98% 95% at 50% 50%, black 72%, rgba(0, 0, 0, 0.80) 86%, transparent 100%);
+  mask-image: radial-gradient(ellipse 98% 95% at 50% 50%, black 72%, rgba(0, 0, 0, 0.80) 86%, transparent 100%);
+}
+
+/* Multi-stage atmospheric gradient overlay that melts all 4 image borders into #000000 */
+.phase-card-media::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  background: 
+    radial-gradient(ellipse 92% 88% at 50% 50%, transparent 42%, rgba(0, 0, 0, 0.35) 65%, rgba(0, 0, 0, 0.82) 84%, #000000 98%),
+    linear-gradient(to right, #000000 0%, rgba(0, 0, 0, 0.65) 3%, transparent 14%, transparent 86%, rgba(0, 0, 0, 0.65) 97%, #000000 100%),
+    linear-gradient(to bottom, #000000 0%, rgba(0, 0, 0, 0.55) 3%, transparent 14%, transparent 86%, rgba(0, 0, 0, 0.70) 97%, #000000 100%);
+  transition: opacity 0.45s ease;
+}
+
+.trionn-phase-card:hover .phase-card-media {
+  transform: translateY(-6px);
+  box-shadow: 
+    0 35px 80px -15px rgba(0, 0, 0, 0.98),
+    0 0 50px -5px rgba(0, 0, 0, 0.90);
+}
+
+.trionn-phase-card:hover .phase-card-media::after {
+  opacity: 0.88;
+}
+
+.phase-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1), filter 0.45s ease;
+}
+
+.trionn-phase-card:hover .phase-card-img {
+  transform: scale(1.035);
+}
+
+/* Floating Glassmorphism Badge inside Media Box */
+.phase-media-badge {
+  position: absolute;
+  top: 14px;
+  left: 16px;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: #F8FAFC;
+  background: rgba(10, 12, 18, 0.72);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 999px;
+  padding: 5px 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.45);
+}
+
+.phase-media-badge::before {
+  content: '';
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #38BDF8;
+  box-shadow: 0 0 8px #38BDF8;
+}
+
+/* Card Information Block (Below the Image, compact & elegant) */
+.phase-card-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  margin-top: 16px;
+  padding: 0 4px;
+  box-sizing: border-box;
+}
+
+.phase-card-details {
+  flex: 1 1 auto;
+}
+
+.dark-card-title {
+  font-family: 'Syne', 'Inter', sans-serif;
+  font-size: clamp(1.28rem, 1.55vw, 1.7rem);
+  font-weight: 700;
+  color: #FFFFFF;
+  letter-spacing: -0.025em;
+  margin: 0 0 6px 0;
+  line-height: 1.18;
+}
+
+.dark-card-desc {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(0.82rem, 0.88vw, 0.90rem);
+  line-height: 1.56;
+  color: #94A3B8;
+  margin: 0;
+  max-width: 440px;
+}
+
+.dark-card-action {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #CBD5E1;
+  text-transform: uppercase;
+  margin-top: 4px;
+  cursor: pointer;
+  transition: color 0.3s ease, gap 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.dark-card-arrow {
+  display: inline-block;
+  font-size: 0.90rem;
+  line-height: 1;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.trionn-phase-card:hover .dark-card-action {
+  color: #FFFFFF;
+  gap: 12px;
+}
+
+.trionn-phase-card:hover .dark-card-arrow {
+  transform: translateX(4px);
+}
+
+/* Fallback for any legacy .dark-card-body */
+.dark-card-body {
+  background: #0C0D12;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: 22px;
+  padding: clamp(22px, 2.5vw, 32px);
+  box-shadow: 
+    0 25px 60px -10px rgba(0, 0, 0, 0.85),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.4s ease,
+              border-color 0.4s ease;
+}
+
+/* ==========================================================================
+   RESPONSIVE LAYOUT (Tablets & Mobile Viewports)
+   ========================================================================== */
+@media (max-width: 991px) {
+  .enterprise-solutions-section {
+    height: auto;
+    padding: 70px 0;
+  }
+
+  .enterprise-sticky-wrapper {
+    position: relative;
+    height: auto;
+    overflow: visible;
+  }
+
+  .enterprise-horizontal-track {
+    flex-direction: column;
+    width: 100%;
+    transform: none !important;
+    gap: 50px;
+  }
+
+  .enterprise-panel {
+    width: 100%;
+    min-width: 100%;
+    height: auto;
+    padding: 0 24px;
+    border-right: none;
+    border-bottom: 1px solid var(--trionn-border);
+    padding-bottom: 48px;
+  }
+
+  .enterprise-panel:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .enterprise-col-crosshair {
+    display: none;
+  }
+
+  .enterprise-intro-content {
+    max-width: 100%;
+  }
+
+  .enterprise-card-wrapper {
+    max-width: 100%;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+
+  .enterprise-media-box {
+    height: 320px;
+  }
+
+  .enterprise-card-info {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.25rem;
+  }
+
+  .enterprise-explore-action {
+    margin-top: 0.5rem;
+  }
+
+  .enterprise-card-img {
+    transform: none !important;
+  }
+
+  .enterprise-discover-panel {
+    width: 100%;
+    min-width: 100%;
+    padding: 60px 24px;
+    height: auto;
+    border-bottom: 1px solid var(--trionn-border);
+  }
+
+  .enterprise-delivery-hero-panel {
+    width: 100%;
+    min-width: 100%;
+    padding: 60px 24px;
+    height: auto;
+    border-left: none;
+    box-shadow: none;
+  }
+
+  .trionn-hero-center {
+    margin: 32px 0;
+  }
+
+  .trionn-stack-line {
+    font-size: clamp(2.8rem, 11vw, 4.4rem);
+  }
+
+  .trionn-hero-corner-link {
+    position: static;
+    margin-top: 24px;
+  }
+
+  .trionn-delivery-flow-section {
+    padding: 70px 0 100px;
+  }
+
+  .trionn-phases-flow-container {
+    gap: 48px;
+    padding: 0 20px;
+  }
+
+  .trionn-phase-row.phase-align-left,
+  .trionn-phase-row.phase-align-right {
+    justify-content: center;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .trionn-phase-card {
+    max-width: 100%;
+  }
+
+  .phase-card-info {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .trionn-celestial-canvas {
+    opacity: 0.25;
+  }
+}
+
+/* ==========================================================================
+   CROSS-DOCUMENT HORIZONTAL VIEW TRANSITIONS (Modern Web Guidance)
+   Smoothly moving horizontally between sections or pages instead of a 
+   traditional vertical scroll or instant page reload.
+   ========================================================================== */
+@media (prefers-reduced-motion: no-preference) {
+  @view-transition {
+    navigation: auto;
+  }
+
+  ::view-transition-old(root) {
+    animation: 0.45s cubic-bezier(0.16, 1, 0.3, 1) both slide-out-to-left;
+  }
+
+  ::view-transition-new(root) {
+    animation: 0.45s cubic-bezier(0.16, 1, 0.3, 1) both slide-in-from-right;
+  }
+
+  @keyframes slide-out-to-left {
+    to {
+      transform: translateX(-15%);
+      opacity: 0;
+    }
+  }
+
+  @keyframes slide-in-from-right {
+    from {
+      transform: translateX(100%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+}
+

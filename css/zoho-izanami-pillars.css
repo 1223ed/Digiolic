@@ -1,0 +1,685 @@
+/* ==========================================================================
+   IZANAMI EDITORIAL SCROLL STACK SHOWCASE (MATCHING USER VIDEO EXACTLY)
+   Luxury, Awwwards-winning sticky scroll storytelling for Core Enterprise Pillars:
+   - Deep obsidian background (#070707)
+   - Left pinned vertical category label ("ENTERPRISE CAPABILITIES")
+   - Pinned/sticky slide sequence (01 to 06)
+   - Left column:
+       * Large index number ("01", "02", ...)
+       * Title in high-fashion editorial serif (Instrument Serif / Playfair Display)
+       * Light poetic subtitle
+       * Editorial description paragraph
+       * Interactive animated link ("—— View Architecture")
+   - Right column:
+       * Framed portrait photography (3:4 aspect ratio)
+   - Sticky scroll mechanics: Each slide sticks at top:0 while the next slide
+     smoothly glides up over it on scroll, exactly matching the reference video!
+   ========================================================================== */
+
+.zoho-izanami-section {
+  position: relative !important;
+  width: 100% !important;
+  background-color: #060606 !important;
+  color: #FFFFFF !important;
+  overflow: visible !important;
+  z-index: 20 !important;
+}
+
+/* Subtle editorial section intro */
+.izanami-section-intro {
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 100px 3rem 50px 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  border-bottom: none !important;
+}
+
+.izanami-intro-left {
+  max-width: 600px;
+}
+
+.izanami-intro-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Inter', -apple-system, sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #D4AF37;
+  margin-bottom: 14px;
+}
+
+.izanami-intro-tag svg {
+  width: 12px;
+  height: 12px;
+}
+
+.izanami-intro-heading {
+  font-family: 'Instrument Serif', 'Playfair Display', Georgia, serif;
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-weight: 400;
+  line-height: 1.15;
+  color: #FFFFFF;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.izanami-intro-right p {
+  font-family: 'Inter', -apple-system, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.5);
+  max-width: 380px;
+  margin: 0;
+}
+
+/* Sticky Slides Stack Container */
+.izanami-stack-container {
+  position: relative;
+  width: 100%;
+}
+
+/* Pinned Vertical Side Rail */
+.izanami-side-rail {
+  position: fixed;
+  left: 28px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 50;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.izanami-side-rail.is-visible {
+  opacity: 1;
+}
+
+.izanami-rail-text {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  font-family: 'Inter', -apple-system, sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.4);
+  font-weight: 500;
+}
+
+/* Individual Sticky Slide (Matches Video Exactly) */
+.izanami-slide {
+  position: sticky !important;
+  top: 0 !important;
+  min-height: 100vh !important;
+  height: 100vh !important;
+  width: 100% !important;
+  background-color: #070707 !important;
+  border-top: none !important;
+  border-bottom: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 0 4rem !important;
+  box-sizing: border-box !important;
+  overflow: hidden !important;
+}
+
+/* Custom Slide Background Gradients & Stacking Z-Indexes (Izanami Sticky Scroll) */
+#pillarSlide01,
+.izanami-slide:nth-child(1) {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 1 !important;
+  background: linear-gradient(180deg, #000000 0%, #152331 100%) !important;
+  overflow: hidden !important;
+}
+#pillarSlide02,
+.izanami-slide:nth-child(2) {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 2 !important;
+  background: linear-gradient(135deg, #2c3e50 0%, #4ca1af 100%) !important;
+  overflow: hidden !important;
+}
+#pillarSlide03,
+.izanami-slide:nth-child(3) {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 3 !important;
+  background: linear-gradient(135deg, #304352 0%, #d7d2cc 100%) !important;
+  overflow: hidden !important;
+}
+#pillarSlide04,
+.izanami-slide:nth-child(4) {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 4 !important;
+  background: linear-gradient(135deg, #1e130c 0%, #9a8478 100%) !important;
+  overflow: hidden !important;
+}
+#pillarSlide05,
+.izanami-slide:nth-child(5) {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 5 !important;
+  background: linear-gradient(135deg, #2774ae 0%, #002e5d 50%, #002e5d 100%) !important;
+  box-shadow: none !important;
+  overflow: hidden !important;
+}
+
+/* Ensure inner content is elevated above the pattern and ambient glows */
+.izanami-slide .izanami-slide-inner {
+  position: relative !important;
+  z-index: 2 !important;
+}
+
+/* Full micro-dot pattern across all places on ALL Izanami slides (Zoho One, CRM, Creator, Books, People) */
+.izanami-slide::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.16) 1.2px, transparent 1.2px) !important;
+  background-size: 24px 24px !important;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 1;
+  animation: zohoPatternDrift 20s linear infinite !important;
+  will-change: background-position;
+}
+
+/* Moving ambient depth glow behind visual card across all slides */
+.izanami-slide::after {
+  content: '';
+  position: absolute;
+  top: 22%;
+  right: 12%;
+  width: 440px;
+  height: 380px;
+  pointer-events: none;
+  z-index: 0;
+  filter: blur(40px);
+  animation: zohoGlowUndulate 11s ease-in-out infinite alternate !important;
+  will-change: transform, opacity;
+}
+
+/* Tailored atmospheric glows per product slide */
+#pillarSlide01::after,
+.izanami-slide:nth-child(1)::after {
+  background: radial-gradient(ellipse at center, rgba(37, 99, 235, 0.20) 0%, rgba(21, 35, 49, 0) 70%) !important;
+}
+#pillarSlide02::after,
+.izanami-slide:nth-child(2)::after {
+  background: radial-gradient(ellipse at center, rgba(225, 29, 72, 0.22) 0%, rgba(44, 62, 80, 0) 70%) !important;
+}
+#pillarSlide03::after,
+.izanami-slide:nth-child(3)::after {
+  background: radial-gradient(ellipse at center, rgba(99, 102, 241, 0.22) 0%, rgba(48, 67, 82, 0) 70%) !important;
+}
+#pillarSlide04::after,
+.izanami-slide:nth-child(4)::after {
+  background: radial-gradient(ellipse at center, rgba(245, 158, 11, 0.22) 0%, rgba(30, 19, 12, 0) 70%) !important;
+}
+#pillarSlide05::after,
+.izanami-slide:nth-child(5)::after {
+  background: radial-gradient(ellipse at center, rgba(13, 148, 136, 0.22) 0%, rgba(0, 46, 93, 0) 70%) !important;
+}
+
+/* ==========================================================================
+   MOVING ANIMATIONS FOR ALL PRODUCT SLIDES (ONE, CRM, CREATOR, BOOKS, PEOPLE)
+   ========================================================================== */
+
+/* 1. Continuous Micro-Dot Pattern Drift */
+@keyframes zohoPatternDrift {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 48px 48px;
+  }
+}
+
+/* 2. Undulating Ambient Glow */
+@keyframes zohoGlowUndulate {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.65;
+  }
+  50% {
+    transform: translate(-30px, 20px) scale(1.18);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(25px, -15px) scale(0.96);
+    opacity: 0.75;
+  }
+}
+
+/* 3. Floating Dashboard Mockup Frame across all slides */
+.izanami-slide .izanami-portrait-frame {
+  animation: zohoFrameLevitate 6s ease-in-out infinite !important;
+  will-change: transform;
+}
+
+@keyframes zohoFrameLevitate {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+/* 4. Top-Left Floating Badge Levitation across all slides */
+.izanami-slide .izanami-float-card-tl {
+  animation: zohoFloatCardMove 4.5s ease-in-out infinite !important;
+  will-change: transform;
+}
+
+@keyframes zohoFloatCardMove {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-9px);
+  }
+}
+
+/* 5. Bottom-Right Floating Pill Counter-Levitation across all slides */
+.izanami-slide .izanami-float-pill-br {
+  animation: zohoFloatPillMove 4.2s ease-in-out infinite 0.6s !important;
+  will-change: transform;
+}
+
+@keyframes zohoFloatPillMove {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(8px);
+  }
+}
+
+/* 6. Active Live-Status Radar Pulse on Indicator Dot across all slides */
+.izanami-slide .izanami-pill-dot {
+  position: relative !important;
+}
+
+.izanami-slide .izanami-pill-dot::after {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  border: 1.5px solid #3B82F6;
+  animation: zohoRadarPulse 2s cubic-bezier(0.2, 0.8, 0.2, 1) infinite !important;
+  pointer-events: none;
+}
+
+#pillarSlide01 .izanami-pill-dot::after { border-color: #3B82F6 !important; }
+#pillarSlide02 .izanami-pill-dot::after { border-color: #E11D48 !important; }
+#pillarSlide03 .izanami-pill-dot::after { border-color: #6366F1 !important; }
+#pillarSlide04 .izanami-pill-dot::after { border-color: #FB7185 !important; }
+#pillarSlide05 .izanami-pill-dot::after { border-color: #0D9488 !important; }
+
+@keyframes zohoRadarPulse {
+  0% {
+    transform: scale(0.7);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(2.4);
+    opacity: 0;
+  }
+}
+/* Slide Inner Split: 40% Text / 60% Visual */
+.izanami-slide-inner {
+  width: 100%;
+  max-width: 1540px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 4fr) minmax(0, 6fr);
+  align-items: center;
+  gap: 3.5rem;
+  padding: 2rem 0;
+  box-sizing: border-box;
+}
+
+/* Left Column: Editorial Information (40%) */
+.izanami-info-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+}
+
+/* Large Pillar Number */
+.izanami-slide-number {
+  font-family: 'Instrument Serif', 'Playfair Display', Georgia, serif;
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.45);
+  margin-bottom: 1.4rem;
+  letter-spacing: -0.01em;
+  line-height: 1;
+}
+
+/* Editorial Title */
+.izanami-slide-title {
+  font-family: 'Instrument Serif', 'Playfair Display', Georgia, serif !important;
+  font-size: clamp(2.4rem, 3.6vw, 3.8rem) !important;
+  font-weight: 400 !important;
+  line-height: 1.1 !important;
+  letter-spacing: -0.02em !important;
+  color: #FFFFFF !important;
+  margin: 0 0 1rem 0 !important;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.35);
+}
+
+/* Subtitle */
+.izanami-slide-sub {
+  font-family: 'Playfair Display', Georgia, serif !important;
+  font-style: italic !important;
+  font-size: clamp(1.1rem, 1.45vw, 1.35rem) !important;
+  font-weight: 400 !important;
+  line-height: 1.35 !important;
+  color: rgba(255, 255, 255, 0.9) !important;
+  margin: 0 0 1.4rem 0 !important;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+}
+
+/* Description paragraph */
+.izanami-slide-desc {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+  font-size: clamp(0.92rem, 1.05vw, 1.02rem) !important;
+  line-height: 1.8 !important;
+  color: rgba(255, 255, 255, 0.82) !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  font-weight: 350 !important;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.25);
+}
+
+/* Interactive link (matching "—— View School" in reference video - hidden when removed) */
+.izanami-action-link {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 14px !important;
+  text-decoration: none !important;
+  color: #FFFFFF !important;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  letter-spacing: 0.04em !important;
+  transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1) !important;
+  cursor: pointer !important;
+}
+
+.izanami-link-rule {
+  display: inline-block;
+  width: 44px;
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.45);
+  transition: width 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), background-color 0.35s ease;
+}
+
+.izanami-action-link:hover .izanami-link-rule {
+  width: 72px;
+  background-color: #FFFFFF;
+}
+
+.izanami-action-link:hover {
+  color: #D4AF37 !important;
+}
+
+/* Right Column: Framed Portrait Photography / Dashboard Showcase (60%) */
+.izanami-visual-col {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.izanami-portrait-frame {
+  position: relative;
+  width: 100%;
+  max-width: 905px; /* 10% increase as requested */
+  aspect-ratio: 16 / 10.5;
+  border-radius: 20px;
+  overflow: visible;
+  box-shadow: 0 30px 80px -15px rgba(0, 0, 0, 0.5) !important;
+  background: transparent !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.izanami-portrait-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top left;
+  display: block;
+  border-radius: 18px;
+  -webkit-mask-image: none !important;
+  mask-image: none !important;
+  box-shadow: 0 25px 60px -12px rgba(0, 0, 0, 0.45);
+  transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.izanami-portrait-frame:hover .izanami-portrait-img {
+  transform: scale(1.02);
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .izanami-slide-inner {
+    gap: 3rem;
+    padding: 2rem 1.5rem;
+  }
+  .izanami-slide {
+    padding: 0 2rem !important;
+  }
+}
+
+@media (max-width: 820px) {
+  .izanami-slide {
+    height: auto !important;
+    min-height: auto !important;
+    position: relative !important;
+    top: auto !important;
+    padding: 70px 1.5rem !important;
+  }
+  .izanami-slide-inner {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  .izanami-visual-col {
+    order: -1;
+  }
+  .izanami-portrait-frame {
+    max-width: 100%;
+    aspect-ratio: 16 / 10.5;
+  }
+  .izanami-side-rail {
+    display: none !important;
+  }
+}
+
+/* ==========================================================================
+   IZANAMI FLOATING BADGES (MATCHING USER REFERENCE SPECIFICATION)
+   - Crisp, static floating cards & pill badges (No animations, no light glow)
+   - Top-left card with product icon, bold title, and themed subtitle
+   - Bottom-right pill with status dot, lightning icon, and capability tag
+   ========================================================================== */
+
+.izanami-float-card-tl {
+  position: absolute;
+  top: -56px;
+  left: -8px;
+  z-index: 15;
+  background: #FFFFFF;
+  border-radius: 16px;
+  padding: 10px 18px 10px 14px;
+  box-shadow: 0 14px 34px -4px rgba(0, 0, 0, 0.22), 0 3px 8px rgba(0, 0, 0, 0.08);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  pointer-events: auto;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.izanami-card-icon-wrap {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: #FFFFFF;
+}
+
+.izanami-card-icon-wrap svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+
+.izanami-card-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  text-align: left;
+}
+
+.izanami-card-title {
+  font-family: 'Inter', -apple-system, sans-serif;
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #0F172A;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+
+.izanami-card-subtitle {
+  font-family: 'Inter', -apple-system, sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+/* Bottom-Right Floating Pill */
+.izanami-float-pill-br {
+  position: absolute;
+  bottom: -14px;
+  right: 20px;
+  z-index: 15;
+  background: #FFFFFF;
+  border-radius: 50px;
+  padding: 8px 18px;
+  box-shadow: 0 10px 26px -3px rgba(0, 0, 0, 0.22), 0 2px 6px rgba(0, 0, 0, 0.08);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  pointer-events: auto;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.izanami-pill-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.izanami-pill-bolt {
+  font-size: 13px;
+  line-height: 1;
+  color: #F59E0B;
+}
+
+.izanami-pill-text {
+  font-family: 'Inter', -apple-system, sans-serif;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: #0F172A;
+  line-height: 1;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+
+/* Responsive Scaling for Floating Badges */
+@media (max-width: 1024px) {
+  .izanami-float-card-tl {
+    top: -42px;
+    left: 0px;
+    padding: 8px 14px 8px 10px;
+    gap: 10px;
+  }
+  .izanami-card-icon-wrap {
+    width: 32px;
+    height: 32px;
+  }
+  .izanami-card-icon-wrap svg {
+    width: 16px;
+    height: 16px;
+  }
+  .izanami-card-title {
+    font-size: 12px;
+  }
+  .izanami-card-subtitle {
+    font-size: 10px;
+  }
+  .izanami-float-pill-br {
+    bottom: -10px;
+    right: 12px;
+    padding: 6px 14px;
+  }
+  .izanami-pill-text {
+    font-size: 11.5px;
+  }
+}
+
+@media (max-width: 640px) {
+  .izanami-float-card-tl {
+    top: -36px;
+    left: 0px;
+    padding: 6px 10px;
+    gap: 8px;
+    border-radius: 12px;
+  }
+  .izanami-card-icon-wrap {
+    width: 26px;
+    height: 26px;
+  }
+  .izanami-card-icon-wrap svg {
+    width: 13px;
+    height: 13px;
+  }
+  .izanami-card-title {
+    font-size: 11px;
+  }
+  .izanami-card-subtitle {
+    font-size: 9.5px;
+  }
+  .izanami-float-pill-br {
+    bottom: -8px;
+    right: 8px;
+    padding: 5px 12px;
+    gap: 6px;
+  }
+  .izanami-pill-text {
+    font-size: 10.5px;
+  }
+}

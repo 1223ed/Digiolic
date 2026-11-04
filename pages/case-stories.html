@@ -24,11 +24,13 @@
   <link rel="stylesheet" href="../css/responsive.css?v=20260930_v1">
   <link rel="stylesheet" href="../css/chat-widget.css?v=20260919_v209">
   <link rel="stylesheet" href="../css/case-3d-sphere.css?v=20261003_v1">
+  <link rel="stylesheet" href="../css/zoho-footer.css?v=20261103_1">
 
   <!-- Exact Font specified -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Anton&family=Comic+Neue:ital,wght@0,400;0,700;1,700&family=Inter:ital,opsz,wght@0,14..32,300..900;1,14..32,300..900&family=Manrope:wght@400;500;600;700;800&family=Montserrat:wght@800;900&family=Outfit:wght@400;600;700;800&family=Patrick+Hand&family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=Anton&family=Comic+Neue:ital,wght@0,400;0,700;1,700&family=Inter:ital,opsz,wght@0,14..32,300..900;1,14..32,300..900&family=Manrope:wght@400;500;600;700;800&family=Montserrat:wght@800;900&family=Outfit:wght@400;600;700;800&family=Patrick+Hand&family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/cinematic-menu.css?v=20261004_v3">
 
   <style>
     /* ==========================================================================
@@ -218,24 +220,19 @@
       margin: 0 !important;
     }
     /* ==========================================================================
-       CINEMATIC VIDEO HERO SECTION THEME (Velorah Spec)
+       CINEMATIC VIDEO HERO SECTION (Wanderful Spec & Aesthetics)
        ========================================================================== */
-    :root {
-      --font-display: 'Instrument Serif', serif;
-      --font-body: 'Inter', sans-serif;
-      --background: 201 100% 13%; /* deep navy blue */
-      --foreground: 0 0% 100%; /* white */
-      --muted-foreground: 240 4% 66%; /* muted gray */
-      --primary: 0 0% 100%;
-      --primary-foreground: 0 0% 4%;
-      --secondary: 0 0% 10%;
-      --muted: 0 0% 10%;
-      --accent: 0 0% 10%;
-      --border: 0 0% 18%;
-      --input: 0 0% 18%;
+    @import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Barlow:wght@300;400;500;600&family=Inter:wght@300;400;500;600;700&display=swap');
+
+    @font-face {
+      font-family: 'Dirtyline';
+      src: url('https://fonts.cdnfonts.com/s/15011/Dirtyline36DaysofType.woff') format('woff');
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
     }
 
-    /* Liquid Glass Effect (CSS class .liquid-glass) */
+    /* Liquid Glass Effect */
     .liquid-glass {
       background: rgba(255, 255, 255, 0.01) !important;
       background-blend-mode: luminosity !important;
@@ -253,89 +250,127 @@
       border-radius: inherit !important;
       padding: 1.4px !important;
       background: linear-gradient(180deg,
-        rgba(255,255,255,0.45) 0%, rgba(255,255,255,0.15) 20%,
-        rgba(255,255,255,0) 40%, rgba(255,255,255,0) 60%,
-        rgba(255,255,255,0.15) 80%, rgba(255,255,255,0.45) 100%) !important;
+        rgba(255, 255, 255, 0.45) 0%,
+        rgba(255, 255, 255, 0.15) 20%,
+        rgba(255, 255, 255, 0.40) 40%,
+        rgba(255, 255, 255, 0.60) 60%,
+        rgba(255, 255, 255, 0.15) 80%,
+        rgba(255, 255, 255, 0.45) 100%) !important;
       -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0) !important;
       -webkit-mask-composite: xor !important;
       mask-composite: exclude !important;
       pointer-events: none !important;
     }
 
-    /* Animations (CSS keyframes + classes) */
-    @keyframes fade-rise {
-      from { opacity: 0; transform: translateY(24px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    .animate-fade-rise { animation: fade-rise 0.8s ease-out both !important; }
-    .animate-fade-rise-delay { animation: fade-rise 0.8s ease-out 0.2s both !important; }
-    .animate-fade-rise-delay-2 { animation: fade-rise 0.8s ease-out 0.4s both !important; }
-
-    .text-foreground {
-      color: hsl(var(--foreground)) !important;
-    }
-    .text-muted-foreground {
-      color: hsl(var(--muted-foreground)) !important;
-    }
-
-    /* Fullscreen Video Hero Wrapper */
-    .velorah-hero-wrapper {
+    /* Hero Wrapper (Pure Black Background) */
+    .wanderful-hero-wrapper {
       position: relative !important;
       width: 100% !important;
       min-height: 100vh !important;
       min-height: 100dvh !important;
+      background: #000000 !important;
+      color: #FFFFFF !important;
       overflow: hidden !important;
-      background-color: hsl(var(--background)) !important;
       display: flex !important;
       flex-direction: column !important;
       justify-content: space-between !important;
       align-items: stretch !important;
       box-sizing: border-box !important;
+      font-family: 'Barlow', sans-serif !important;
     }
 
-    .velorah-bg-video {
+    /* Fixed/Absolute Full-Viewport Video Layer (z-0) */
+    .wanderful-video-bg-wrap {
+      position: absolute !important;
+      inset: 0 !important;
+      width: 100% !important;
+      height: 100% !important;
+      overflow: hidden !important;
+      pointer-events: none !important;
+      z-index: 0 !important;
+      background: #000000 !important;
+    }
+
+    .wanderful-bg-video {
       position: absolute !important;
       inset: 0 !important;
       width: 100% !important;
       height: 100% !important;
       object-fit: cover !important;
+      transform: scale(1.08) !important;
+      transform-origin: center !important;
+      will-change: transform !important;
       z-index: 0 !important;
-      pointer-events: none !important;
-      background-color: hsl(var(--background)) !important;
     }
 
-    /* Navigation Bar: relative z-10, flex row, justify-between, px-8 py-6, max-w-7xl mx-auto */
-    .velorah-navbar {
-      position: relative !important;
-      z-index: 10 !important;
+    .wanderful-video-overlay {
+      position: absolute !important;
+      inset: 0 !important;
+      background: rgba(0, 0, 0, 0.48) !important;
+      backdrop-filter: blur(1px) !important;
+      -webkit-backdrop-filter: blur(1px) !important;
+      z-index: 1 !important;
+    }
+
+    /* ==========================================================================
+       TOPBAR NAVIGATION (MATCHING SALESFORCE / SCREENSHOT EXACT SPEC)
+       ========================================================================== */
+    .mainframe-navbar {
+      position: absolute !important;
+      top: 0 !important;
+      left: 0 !important;
+      right: 0 !important;
+      width: 100% !important;
+      z-index: 1000 !important;
       display: flex !important;
-      flex-direction: row !important;
       align-items: center !important;
       justify-content: space-between !important;
       padding: 1.5rem 2rem !important;
-      max-width: 80rem !important;
-      width: 100% !important;
-      margin: 0 auto !important;
-      box-sizing: border-box !important;
+      min-height: 84px !important;
       background: transparent !important;
-      border: none !important;
+      backdrop-filter: none !important;
+      -webkit-backdrop-filter: none !important;
+      border-bottom: none !important;
       box-shadow: none !important;
+      box-sizing: border-box !important;
+      max-width: 1440px !important;
+      margin: 0 auto !important;
     }
 
-    .velorah-logo-wrap {
+    @media (min-width: 768px) {
+      .mainframe-navbar {
+        padding: 1.75rem 3.5rem !important;
+        min-height: 96px !important;
+      }
+    }
+
+    @media (min-width: 1280px) {
+      .mainframe-navbar {
+        padding: 2rem 4.5rem !important;
+        min-height: 104px !important;
+      }
+    }
+
+    .mainframe-logo-wrap {
       display: flex !important;
       align-items: center !important;
       text-decoration: none !important;
+      z-index: 102 !important;
     }
 
-    .velorah-logo-wrap .brand-logo-img {
+    .mainframe-logo-wrap .brand-logo-img {
       height: 34px !important;
-      width: auto !important;
       max-height: 34px !important;
+      width: auto !important;
       display: block !important;
+      transition: opacity 0.2s ease !important;
     }
 
-    /* Keyframes matching Home page tab section animation */
+    .mainframe-logo-wrap:hover .brand-logo-img {
+      opacity: 0.85 !important;
+    }
+
+    /* Keyframes matching Home & Salesforce tab section animation */
     @keyframes navTabFadeDown {
       0% {
         opacity: 0;
@@ -358,8 +393,7 @@
       }
     }
 
-    .mainframe-desktop-nav,
-    .velorah-desktop-nav {
+    .mainframe-desktop-nav {
       display: none !important;
       align-items: center !important;
       justify-content: center !important;
@@ -369,14 +403,12 @@
     }
 
     @media (min-width: 860px) {
-      .mainframe-desktop-nav,
-      .velorah-desktop-nav {
+      .mainframe-desktop-nav {
         display: flex !important;
       }
     }
 
-    .mainframe-nav-link,
-    .velorah-nav-link {
+    .mainframe-nav-link {
       position: relative !important;
       color: #FFFFFF !important;
       font-size: 15px !important;
@@ -390,38 +422,28 @@
       filter: none !important;
     }
 
-    /* Same animation as Home page tab section */
-    .mainframe-desktop-nav .mainframe-nav-link,
-    .velorah-desktop-nav .velorah-nav-link {
+    .mainframe-desktop-nav .mainframe-nav-link {
       animation: navTabFadeDown 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
     }
-    .mainframe-desktop-nav .mainframe-nav-link:nth-child(1),
-    .velorah-desktop-nav .velorah-nav-link:nth-child(1) { animation-delay: 100ms; }
-    .mainframe-desktop-nav .mainframe-nav-link:nth-child(2),
-    .velorah-desktop-nav .velorah-nav-link:nth-child(2) { animation-delay: 160ms; }
-    .mainframe-desktop-nav .mainframe-nav-link:nth-child(3),
-    .velorah-desktop-nav .velorah-nav-link:nth-child(3) { animation-delay: 220ms; }
-    .mainframe-desktop-nav .mainframe-nav-link:nth-child(4),
-    .velorah-desktop-nav .velorah-nav-link:nth-child(4) { animation-delay: 280ms; }
-    .mainframe-desktop-nav .mainframe-nav-link:nth-child(5),
-    .velorah-desktop-nav .velorah-nav-link:nth-child(5) { animation-delay: 340ms; }
+    .mainframe-desktop-nav .mainframe-nav-link:nth-child(1) { animation-delay: 100ms; }
+    .mainframe-desktop-nav .mainframe-nav-link:nth-child(2) { animation-delay: 160ms; }
+    .mainframe-desktop-nav .mainframe-nav-link:nth-child(3) { animation-delay: 220ms; }
+    .mainframe-desktop-nav .mainframe-nav-link:nth-child(4) { animation-delay: 280ms; }
+    .mainframe-desktop-nav .mainframe-nav-link:nth-child(5) { animation-delay: 340ms; }
 
-    .mainframe-nav-link:hover,
-    .velorah-nav-link:hover {
+    .mainframe-nav-link:hover {
       color: #FFFFFF !important;
       opacity: 0.8 !important;
       text-shadow: none !important;
     }
 
-    .mainframe-nav-link.active,
-    .velorah-nav-link.active {
+    .mainframe-nav-link.active {
       color: #FFFFFF !important;
       font-weight: 700 !important;
       text-shadow: none !important;
     }
 
-    .mainframe-nav-link.active::after,
-    .velorah-nav-link.active::after {
+    .mainframe-nav-link.active::after {
       content: '' !important;
       position: absolute !important;
       bottom: -10px !important;
@@ -436,71 +458,66 @@
       animation: navIndicatorGrow 0.4s cubic-bezier(0.16, 1, 0.3, 1) 340ms forwards !important;
     }
 
-    .velorah-nav-actions {
+    .mainframe-nav-actions {
       display: flex !important;
       align-items: center !important;
       gap: 1rem !important;
+      z-index: 102 !important;
     }
 
-    /* Contact Us Box: White Background, Black Text */
-    .velorah-nav-cta,
+    /* Contact Us Pill: Pure White Background, Black Text */
     .mainframe-desktop-cta {
-      display: inline-flex !important;
+      display: none !important;
       align-items: center !important;
       justify-content: center !important;
-      border-radius: 9999px !important;
-      height: 42px !important;
-      padding: 0 1.65rem !important;
-      font-family: var(--font-body), 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
-      font-size: 15px !important;
-      font-weight: 600 !important;
       background: #FFFFFF !important;
       background-color: #FFFFFF !important;
       color: #000000 !important;
-      text-decoration: none !important;
-      cursor: pointer !important;
-      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25) !important;
-      transition: transform 0.25s ease, background-color 0.25s ease, box-shadow 0.25s ease !important;
       border: none !important;
+      border-radius: 9999px !important;
+      padding: 0.65rem 1.65rem !important;
+      font-weight: 600 !important;
+      font-size: 0.9rem !important;
+      text-decoration: none !important;
+      transition: transform 0.25s ease, background-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease !important;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2) !important;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
     }
 
-    .velorah-nav-cta::before {
-      display: none !important;
+    @media (min-width: 860px) {
+      .mainframe-desktop-cta {
+        display: inline-flex !important;
+      }
     }
 
-    .velorah-nav-cta:hover,
     .mainframe-desktop-cta:hover {
-      background: #FFFFFF !important;
-      background-color: #FFFFFF !important;
+      transform: translateY(-2px) !important;
+      background: #F8FAFC !important;
+      background-color: #F8FAFC !important;
       color: #000000 !important;
-      transform: translateY(-2px) scale(1.03) !important;
-      box-shadow: 0 6px 20px rgba(255, 255, 255, 0.45) !important;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2) !important;
     }
 
-    .velorah-hamburger {
+    .mainframe-hamburger-btn {
       display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      justify-content: center !important;
+      gap: 5px !important;
       background: transparent !important;
       border: none !important;
       cursor: pointer !important;
-      padding: 8px !important;
-      min-width: 44px !important;
-      min-height: 44px !important;
-      align-items: center !important;
-      justify-content: center !important;
-      flex-direction: column !important;
-      gap: 5px !important;
-      touch-action: manipulation !important;
-      -webkit-tap-highlight-color: transparent !important;
-      z-index: 100005 !important;
+      padding: 0.5rem !important;
+      z-index: 102 !important;
     }
 
-    @media (min-width: 768px) {
-      .velorah-hamburger {
+    @media (min-width: 860px) {
+      .mainframe-hamburger-btn {
         display: none !important;
       }
     }
 
-    .velorah-hamburger .mainframe-bar {
+    .mainframe-hamburger-btn .mainframe-bar {
       background-color: #FFFFFF !important;
       width: 22px !important;
       height: 2px !important;
@@ -509,217 +526,333 @@
       transition: transform 0.2s ease, opacity 0.2s ease !important;
     }
 
-    /* Hero Section: relative z-10, flex column, centered, text-center, px-6 pt-32 pb-40 py-[90px] */
-    .velorah-hero-section {
+    /* Hero Content (z-20, Centered) */
+    .wanderful-hero-content {
       position: relative !important;
-      z-index: 10 !important;
+      z-index: 20 !important;
       flex: 1 !important;
       display: flex !important;
       flex-direction: column !important;
       align-items: center !important;
       justify-content: center !important;
       text-align: center !important;
-      padding: clamp(2.5rem, 6vh, 4.5rem) 1.5rem clamp(3rem, 8vh, 6rem) 1.5rem !important;
+      padding: clamp(6.5rem, 14vh, 9rem) 1.5rem clamp(2.5rem, 6vh, 4rem) 1.5rem !important;
       max-width: 80rem !important;
       width: 100% !important;
       margin: auto auto !important;
       box-sizing: border-box !important;
     }
 
-    /* Main Heading: Matches Salesforce Hero Typography & Animation */
-    .dp-main-heading,
-    .velorah-heading {
-      font-size: 64px !important;
-      font-weight: 800 !important;
+    /* Fade-in Animation */
+    @keyframes wanderfulFadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(24px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Circular Audio Toggle Button in Navbar (same design as Zoho & Salesforce page) */
+    .nav-sound-control {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      border: none;
+      background: rgba(255, 255, 255, 0.12);
+      color: #FFFFFF;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      padding: 0;
+      transition: background-color 0.25s ease, transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), color 0.25s ease;
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
+      flex-shrink: 0;
+      outline: none;
+    }
+
+    .nav-sound-control:hover {
+      transform: scale(1.08);
+      background: rgba(255, 255, 255, 0.22);
+    }
+
+    .nav-sound-control:active {
+      transform: scale(0.95);
+    }
+
+    .nav-sound-control .sound-icon {
+      width: 18px;
+      height: 18px;
+      display: block;
+      pointer-events: none;
+    }
+
+    .nav-sound-control.is-playing .sound-icon-playing {
+      display: block;
+    }
+
+    .nav-sound-control.is-playing .sound-icon-paused {
+      display: none;
+    }
+
+    .nav-sound-control.is-paused .sound-icon-playing {
+      display: none;
+    }
+
+    .nav-sound-control.is-paused .sound-icon-paused {
+      display: block;
+    }
+
+    .nav-sound-control.is-playing .sound-wave-1 {
+      animation: soundArcPulse 1.2s infinite ease-in-out;
+    }
+
+    .nav-sound-control.is-playing .sound-wave-2 {
+      animation: soundArcPulse 1.2s infinite 0.2s ease-in-out;
+    }
+
+    @keyframes soundArcPulse {
+      0%, 100% { opacity: 0.45; }
+      50% { opacity: 1; }
+    }
+
+    /* Hero Headline: Manrope 800, 1:1 match to "Turn Salesforce Into Your Business Growth Engine" */
+    .wanderful-headline {
+      font-family: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
       line-height: 1.25 !important;
       letter-spacing: -0.035em !important;
       margin: 0 auto !important;
       max-width: 1120px !important;
-      color: #FFFFFF !important;
-      font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif !important;
-      overflow: visible !important;
       text-align: center !important;
+      font-weight: 800 !important;
+      overflow: visible !important;
+      animation: wanderfulFadeIn 1s cubic-bezier(0.16, 1, 0.3, 1) both !important;
     }
 
-    .dp-heading-line1 {
+    .wanderful-headline-line1 {
       display: block !important;
       color: #FFFFFF !important;
       font-weight: 800 !important;
       font-size: 76px !important;
       font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif !important;
       line-height: 1.25 !important;
-      padding-bottom: 0.12em !important;
-      margin-bottom: -0.12em !important;
+      padding-bottom: 0.12em;
+      margin-bottom: -0.12em;
       overflow: visible !important;
     }
 
-    .dp-heading-line2 {
+    .wanderful-headline-line2 {
       display: block !important;
-      margin-top: 0.2em !important;
+      margin-top: 0.2em;
+      color: rgba(255, 255, 255, 0.55) !important;
       font-size: 64px !important;
       font-weight: 800 !important;
       font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif !important;
       line-height: 1.25 !important;
-      padding-bottom: 0.2em !important;
-      margin-bottom: -0.2em !important;
+      padding-bottom: 0.2em;
+      margin-bottom: -0.2em;
       overflow: visible !important;
-    }
-
-    /* ShinyText Component with continuous 3s left-to-right sweep matching Salesforce */
-    @keyframes dp-shiny-sweep {
-      0% {
-        background-position: 100% 0%;
-      }
-      100% {
-        background-position: -100% 0%;
-      }
-    }
-
-    .dp-shiny-text {
-      display: inline-block !important;
-      background-image: linear-gradient(100deg, #64CEFB 0%, #64CEFB 30%, #ffffff 50%, #64CEFB 70%, #64CEFB 100%) !important;
-      background-size: 250% 100% !important;
-      -webkit-background-clip: text !important;
-      background-clip: text !important;
-      -webkit-text-fill-color: transparent !important;
-      color: transparent !important;
-      animation: dp-shiny-sweep 3s linear infinite !important;
-      font-weight: 800 !important;
-      line-height: 1.25 !important;
-      padding-bottom: 0.22em !important;
-      margin-bottom: -0.22em !important;
-      overflow: visible !important;
-      vertical-align: top !important;
     }
 
     @media (max-width: 1024px) {
-      .dp-main-heading,
-      .velorah-heading,
-      .dp-heading-line2 {
-        font-size: clamp(34px, 5.5vw, 56px) !important;
+      .wanderful-headline {
+        line-height: 1.2 !important;
       }
-      .dp-heading-line1 {
+      .wanderful-headline-line1 {
         font-size: clamp(40px, 6.5vw, 68px) !important;
       }
-    }
-
-    @media (max-width: 767px) {
-      .velorah-navbar {
-        padding: 1.25rem 1.5rem !important;
-      }
-      .velorah-nav-cta {
-        display: none !important;
-      }
-      .velorah-hero-section {
-        padding: 2.5rem 1.25rem 3.5rem 1.25rem !important;
-      }
-      .dp-main-heading,
-      .velorah-heading,
-      .dp-heading-line1,
-      .dp-heading-line2 {
-        font-size: clamp(28px, 8vw, 38px) !important;
-      }
-      .velorah-subtext {
-        font-size: 0.9375rem !important;
-        line-height: 1.55 !important;
-        margin-top: 1.25rem !important;
-      }
-      .velorah-cta-container {
-        margin-top: 1.75rem !important;
-      }
-      .velorah-hero-cta {
-        padding: 0.875rem 2.25rem !important;
-        font-size: 0.9375rem !important;
+      .wanderful-headline-line2 {
+        font-size: clamp(34px, 5.5vw, 56px) !important;
       }
     }
 
-    .velorah-subtext {
-      font-family: var(--font-body), 'Inter', sans-serif !important;
-      color: rgba(226, 232, 240, 0.88) !important;
-      font-size: clamp(0.95rem, 1.2vw, 1.125rem) !important;
-      max-width: 44rem !important;
-      margin: 1.5rem auto 0 auto !important;
-      line-height: 1.625 !important;
-      text-align: center !important;
-      font-weight: 400 !important;
-      text-wrap: pretty !important;
-      text-shadow: 0 1px 12px rgba(0, 0, 0, 0.6) !important;
+    /* Trusted by Industry Leaders: +30% font size & red highlight */
+    .cs-clients-header .cs-section-title {
+      font-family: var(--font-display, 'Outfit', sans-serif) !important;
+      font-size: clamp(2.4rem, 4.2vw, 3.25rem) !important;
+      font-weight: 800 !important;
+      line-height: 1.2 !important;
+      color: #FFFFFF !important;
+      letter-spacing: -0.02em !important;
+      margin-bottom: 1rem !important;
     }
 
-    .velorah-cta-container {
-      margin-top: 2.25rem !important;
+    .cs-clients-header .cs-section-title .cs-title-red {
+      color: #FF3B30 !important;
+      text-shadow: 0 0 25px rgba(255, 59, 48, 0.35);
+    }
+
+    /* Bottom Block: Paragraph + Button + Security Row */
+    .wanderful-bottom-block {
       display: flex !important;
-      justify-content: center !important;
+      flex-direction: column !important;
       align-items: center !important;
+      gap: 1.6rem !important;
+      margin-top: 2.25rem !important;
+      animation: wanderfulFadeIn 1s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both !important;
     }
 
-    /* Explore Case Studies Box: White Background, Black Text */
-    .velorah-hero-cta {
+    .wanderful-paragraph {
+      max-width: 620px !important;
+      font-size: 15px !important;
+      line-height: 1.65 !important;
+      text-align: center !important;
+      font-family: 'Barlow', sans-serif !important;
+      font-weight: 400 !important;
+      margin: 0 auto !important;
+      text-wrap: pretty !important;
+    }
+
+    .wanderful-text-white {
+      color: #FFFFFF !important;
+    }
+
+    .wanderful-text-muted {
+      color: rgba(255, 255, 255, 0.55) !important;
+    }
+
+    /* Primary Button: White BG, Black Text, Pill, Hover Glow & Scale */
+    .wanderful-button {
+      background: #FFFFFF !important;
+      color: #000000 !important;
+      font-family: 'Inter', sans-serif !important;
+      font-size: 15px !important;
+      font-weight: 500 !important;
+      border-radius: 9999px !important;
+      padding: 0.875rem 2.25rem !important;
+      text-decoration: none !important;
       display: inline-flex !important;
       align-items: center !important;
       justify-content: center !important;
-      gap: 0.75rem !important;
-      border-radius: 9999px !important;
-      padding: 1.125rem 3.25rem !important;
-      font-family: var(--font-body), 'Inter', sans-serif !important;
-      font-size: 1rem !important;
-      font-weight: 600 !important;
-      background: #FFFFFF !important;
-      background-color: #FFFFFF !important;
-      color: #000000 !important;
-      text-decoration: none !important;
       cursor: pointer !important;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35) !important;
-      transition: transform 0.25s ease, background-color 0.25s ease, box-shadow 0.25s ease !important;
       border: none !important;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.35) !important;
+      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+                  box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+                  background-color 0.2s ease !important;
     }
 
-    .velorah-hero-cta::before {
-      display: none !important;
-    }
-
-    .velorah-hero-cta:hover {
+    .wanderful-button:hover {
+      transform: scale(1.03) !important;
+      box-shadow: 0 0 32px 4px rgba(255, 255, 255, 0.2) !important;
       background: #FFFFFF !important;
-      background-color: #FFFFFF !important;
-      color: #000000 !important;
-      transform: translateY(-2px) scale(1.03) !important;
-      box-shadow: 0 8px 25px rgba(255, 255, 255, 0.4) !important;
-    }
-
-    .velorah-hero-cta span {
       color: #000000 !important;
     }
 
-    .velorah-hero-cta .arw {
+    .wanderful-button:active {
+      transform: scale(0.97) !important;
+    }
+
+    .wanderful-button span {
+      color: #000000 !important;
+    }
+
+    /* Security Row: Lock Icon + Uppercase Note */
+    .wanderful-security-row {
+      display: flex !important;
+      align-items: center !important;
+      gap: 0.45rem !important;
+      font-family: 'Inter', sans-serif !important;
+      font-size: 11px !important;
+      font-weight: 500 !important;
+      letter-spacing: 0.14em !important;
+      text-transform: uppercase !important;
+      color: rgba(255, 255, 255, 0.7) !important;
+    }
+
+    .wanderful-lock-icon {
       width: 13px !important;
-      height: 11px !important;
-      flex: 0 0 auto !important;
-      display: block !important;
-      color: #000000 !important;
-      stroke: #000000 !important;
-      transition: transform 0.2s ease !important;
+      height: 13px !important;
+      stroke-width: 1.5 !important;
+      color: rgba(255, 255, 255, 0.7) !important;
+      flex-shrink: 0 !important;
     }
 
-    .velorah-hero-cta:hover .arw {
-      transform: translateX(3px) !important;
+    /* Mobile Responsive Overrides */
+    @media (max-width: 767px) {
+      .mainframe-navbar {
+        padding: 1.25rem 1.5rem !important;
+        min-height: 70px !important;
+      }
+      .wanderful-hero-content {
+        padding: 5.5rem 1.25rem 3rem 1.25rem !important;
+      }
+      .wanderful-headline {
+        font-size: clamp(30px, 8.2vw, 42px) !important;
+      }
+      .wanderful-bottom-block {
+        margin-top: 1.75rem !important;
+        gap: 1.35rem !important;
+      }
+      .wanderful-paragraph {
+        font-size: 14px !important;
+        line-height: 1.55 !important;
+        padding: 0 0.5rem !important;
+      }
+      .wanderful-button {
+        padding: 0.8rem 1.85rem !important;
+        font-size: 14px !important;
+      }
+      .wanderful-security-row {
+        font-size: 10px !important;
+        letter-spacing: 0.1em !important;
+        text-align: center !important;
+        justify-content: center !important;
+      }
     }
 
-    /* Trust bar: pure white background as previous */
+    /* Trust bar: Black in theme hero page */
     .cs-trust-bar {
-      background: #FFFFFF !important;
-      background-color: #FFFFFF !important;
-      border-bottom: 1px solid #E2E8F0 !important;
-      padding: 2.25rem 0 !important;
+      background: #000000 !important;
+      background-color: #000000 !important;
+      border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+      padding: 2.25rem 0 2.5rem 0 !important;
       overflow: hidden !important;
+      position: relative !important;
     }
     .cs-trust-label {
-      color: #64748B !important;
+      color: rgba(255, 255, 255, 0.55) !important;
+      font-family: 'Inter', sans-serif !important;
+      font-size: 0.76rem !important;
+      font-weight: 700 !important;
+      letter-spacing: 0.16em !important;
+      text-transform: uppercase !important;
+      text-align: center !important;
+      margin-bottom: 1.6rem !important;
     }
     .cs-marquee-wrapper::before {
-      background: linear-gradient(to right, #FFFFFF, rgba(255, 255, 255, 0)) !important;
+      background: linear-gradient(to right, #000000 0%, rgba(0, 0, 0, 0) 100%) !important;
     }
     .cs-marquee-wrapper::after {
-      background: linear-gradient(to left, #FFFFFF, rgba(255, 255, 255, 0)) !important;
+      background: linear-gradient(to left, #000000 0%, rgba(0, 0, 0, 0) 100%) !important;
+    }
+    .cs-marquee-logo-item {
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      background: #FFFFFF !important;
+      border-radius: 10px !important;
+      padding: 0.4rem 1rem !important;
+      height: 48px !important;
+      min-width: 100px !important;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4) !important;
+      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease !important;
+    }
+    .cs-marquee-logo-item:hover {
+      transform: translateY(-2px) scale(1.03) !important;
+      box-shadow: 0 8px 20px rgba(255, 255, 255, 0.12) !important;
+    }
+    .cs-marquee-logo-img {
+      height: 30px !important;
+      width: auto !important;
+      max-width: 105px !important;
+      object-fit: contain !important;
+      display: block !important;
     }
   </style>
   <link rel="stylesheet" href="../css/responsive.css?v=20260930_v1">
@@ -788,112 +921,191 @@
     };
   </script>
 
-  <!-- Fullscreen Mobile Navigation Drawer (Exact Image 1 Replication) -->
-  <div class="mobile-nav-drawer mainframe-mobile-overlay" id="mobileNavDrawer" role="dialog" aria-modal="true" aria-label="Mobile Navigation">
-    <div class="mobile-nav-top">
-      <a href="../index.html" class="mobile-nav-logo-link" aria-label="Digiolic Home">
-        <img src="../assets/images/digiolic-logo.png?v=20260927_green_d" alt="Digiolic" class="mobile-nav-logo" style="filter: none !important; -webkit-filter: none !important;">
-      </a>
-      <button class="mobile-nav-close" id="caseStoriesCloseBtn" aria-label="Close Menu" onclick="window.closeDigiolicMobileMenu(event);">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <line x1="18" y1="6" x2="6" y2="18"></line>
-          <line x1="6" y1="6" x2="18" y2="18"></line>
-        </svg>
-      </button>
-    </div>
-    <div class="mobile-nav-list">
-      <a href="../index.html" class="mobile-nav-link" onclick="window.closeDigiolicMobileMenu(event);">Home</a>
-      <a href="zoho.html" class="mobile-nav-link" onclick="window.closeDigiolicMobileMenu(event);">Zoho</a>
-      <a href="salesforce.html" class="mobile-nav-link" onclick="window.closeDigiolicMobileMenu(event);">Salesforce</a>
-      <a href="digital-marketing.html" class="mobile-nav-link" onclick="window.closeDigiolicMobileMenu(event);">Digital Marketing</a>
-      <a href="case-stories.html" class="mobile-nav-link" onclick="window.closeDigiolicMobileMenu(event);">Case Studies</a>
-      <a href="contact.html" class="mobile-nav-link cta-pill" onclick="window.closeDigiolicMobileMenu(event);">Contact Us</a>
+  <!-- ==========================================================================
+       CINEMATIC EDITORIAL MENU OVERLAY
+       Reveals underlying Case Studies page on left, black panel wipes from right
+       ========================================================================== -->
+  <div class="cinematic-menu-overlay" id="cinematicMenuOverlay" role="dialog" aria-modal="true" aria-label="Navigation Menu">
+    <!-- Clickable Backdrop (left area revealing Case Studies page) -->
+    <div class="cinematic-menu-backdrop" id="cinematicMenuBackdrop" aria-label="Close menu by clicking background"></div>
+
+    <!-- Right Black Menu Panel with Leading Smoke Edge -->
+    <div class="cinematic-menu-panel" id="cinematicMenuPanel">
+      <!-- Leading Organic Billowing Smoke Edge with live WebGL Canvas animation -->
+      <div class="cinematic-smoke-edge" id="cinematicSmokeEdge" aria-hidden="true">
+        <canvas class="cinematic-smoke-canvas" id="cinematicSmokeCanvas" width="580" height="1384"></canvas>
+        <video class="cinematic-smoke-video-src" id="cinematicSmokeVideoSrc" loop muted playsinline preload="auto" style="display: none;">
+          <source src="../assets/videos/smoke-loop-crop.mp4" type="video/mp4">
+        </video>
+      </div>
+
+      <!-- Top Header inside Panel: Close Button -->
+      <div class="cinematic-panel-top">
+        <button class="cinematic-menu-close" id="cinematicMenuCloseBtn" aria-label="Close Navigation Menu">
+          <span class="close-trigger-text">Close</span>
+          <span class="close-trigger-circle">
+            <span class="close-inner-dot"></span>
+          </span>
+        </button>
+      </div>
+
+      <!-- Center Editorial Display Navigation -->
+      <nav class="cinematic-nav-center" aria-label="Editorial Menu Navigation">
+        <ul class="cinematic-nav-list">
+          <li class="cinematic-nav-item" style="--item-index: 0">
+            <a href="../index.html" class="cinematic-nav-link" data-title="HOME">HOME</a>
+          </li>
+          <li class="cinematic-nav-item" style="--item-index: 1">
+            <a href="about-us.html" class="cinematic-nav-link" data-title="ABOUT US">ABOUT US</a>
+          </li>
+          <li class="cinematic-nav-item" style="--item-index: 2">
+            <a href="zoho.html" class="cinematic-nav-link" data-title="ZOHO">ZOHO</a>
+          </li>
+          <li class="cinematic-nav-item" style="--item-index: 3">
+            <a href="salesforce.html" class="cinematic-nav-link" data-title="SALESFORCE">SALESFORCE</a>
+          </li>
+          <li class="cinematic-nav-item" style="--item-index: 4">
+            <a href="digital-marketing.html" class="cinematic-nav-link" data-title="DIGITAL MARKETING">DIGITAL MARKETING</a>
+          </li>
+          <li class="cinematic-nav-item" style="--item-index: 5">
+            <a href="case-stories.html" class="cinematic-nav-link active" data-title="CASE STUDIES">CASE STUDIES</a>
+          </li>
+          <li class="cinematic-nav-item" style="--item-index: 6">
+            <a href="contact.html" class="cinematic-nav-link" data-title="CONTACT US">CONTACT US</a>
+          </li>
+        </ul>
+      </nav>
+
     </div>
   </div>
 
   <main id="mainContent">
 
     <!-- ==========================================================================
-         CINEMATIC VIDEO HERO SECTION (Velorah Architecture with Digiolic Content)
+         CINEMATIC VIDEO HERO SECTION (Wanderful Design with Digiolic Content)
          ========================================================================== -->
-    <section class="velorah-hero-wrapper" id="csHeroSection">
-      <!-- Fullscreen Looping Background Video -->
-      <video class="velorah-bg-video" autoplay loop muted playsinline preload="auto" disablepictureinpicture aria-hidden="true">
-        <source src="../assets/videos/hf_20260314_131748_f2ca2a28-fed7-44c8-b9a9-bd9acdd5ec31.mp4" type="video/mp4">
-        <source src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260314_131748_f2ca2a28-fed7-44c8-b9a9-bd9acdd5ec31.mp4" type="video/mp4">
-      </video>
+    <section class="wanderful-hero-wrapper" id="csHeroSection" aria-label="Digiolic Case Studies Hero">
+      <!-- Fullscreen Looping Parallax Video Background -->
+      <div class="wanderful-video-bg-wrap">
+        <video class="wanderful-bg-video" autoplay loop muted playsinline preload="auto" disablepictureinpicture aria-hidden="true">
+          <source src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260510_060007_60275ce7-030c-4668-a160-8f364ec537d3.mp4" type="video/mp4">
+        </video>
+        <div class="wanderful-video-overlay"></div>
+      </div>
 
-      <!-- Glassmorphic Top Navigation Bar -->
-      <header class="velorah-navbar" id="mainframeNavbar" role="banner">
+      <!-- Top Navigation Bar (Matching Screen Recording Design) -->
+      <header class="mainframe-navbar" id="mainframeNavbar" role="banner">
         <!-- Logo -->
-        <a href="../index.html" class="velorah-logo-wrap" aria-label="Digiolic Home">
+        <a href="../index.html" class="mainframe-logo-wrap" aria-label="Digiolic Home">
           <img src="../assets/images/digiolic-logo.png?v=20260927_green_d" alt="Digiolic" class="brand-logo-img" width="96" height="34"
             style="height: 34px !important; width: auto !important; max-height: 34px !important; display: block; filter: none !important; -webkit-filter: none !important;">
         </a>
 
-        <!-- Desktop Nav Links -->
-        <nav class="mainframe-desktop-nav velorah-desktop-nav" aria-label="Primary Navigation">
-          <a href="../index.html" class="mainframe-nav-link velorah-nav-link">Home</a>
-          <a href="zoho.html" class="mainframe-nav-link velorah-nav-link">Zoho</a>
-          <a href="salesforce.html" class="mainframe-nav-link velorah-nav-link">Salesforce</a>
-          <a href="digital-marketing.html" class="mainframe-nav-link velorah-nav-link">Digital Marketing</a>
-          <a href="case-stories.html" class="mainframe-nav-link velorah-nav-link active">Case Studies</a>
-        </nav>
-
-        <!-- Right: CTA Button & Mobile Trigger -->
-        <div class="velorah-nav-actions">
-          <a href="contact.html" class="velorah-nav-cta mainframe-desktop-cta">Contact Us</a>
-          <button class="velorah-hamburger mainframe-hamburger-btn" id="mainframeMenuBtn" aria-label="Toggle Menu" aria-expanded="false" onclick="window.toggleDigiolicMobileMenu(event);">
-            <span class="mainframe-bar"></span>
-            <span class="mainframe-bar"></span>
-            <span class="mainframe-bar"></span>
+        <!-- Right: Sound Controller + Menu Trigger with Ring Icon -->
+        <div class="mainframe-nav-actions" style="margin-left: auto; display: flex; align-items: center; gap: 0.75rem;">
+          <button type="button" class="nav-sound-control is-playing" id="caseStoriesAudioToggleBtn"
+            aria-label="Play or pause background song" title="Pause Song" aria-pressed="true" tabindex="0">
+            <!-- Playing state: Speaker with Sound Waves -->
+            <svg class="sound-icon sound-icon-playing" viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+              <path d="M11 5L6 9H2v6h4l5 4V5z" />
+              <path class="sound-wave-1" d="M15.54 8.46a5 5 0 0 1 0 7.07" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" />
+              <path class="sound-wave-2" d="M19.07 4.93a10 10 0 0 1 0 14.14" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" />
+            </svg>
+            <!-- Paused state: Speaker Muted -->
+            <svg class="sound-icon sound-icon-paused" viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+              <path d="M11 5L6 9H2v6h4l5 4V5z" />
+              <line x1="23" y1="9" x2="17" y2="15" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+              <line x1="17" y1="9" x2="23" y2="15" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            </svg>
+          </button>
+          <button class="cinematic-menu-trigger" id="cinematicMenuOpenBtn" aria-label="Open Navigation Menu">
+            <span class="menu-trigger-text">Menu</span>
+            <span class="menu-trigger-circle"></span>
           </button>
         </div>
       </header>
 
+      <!-- Case Stories Background Song: name-story.mp3 (Same audio as Zoho & Salesforce page) -->
+      <audio id="caseStoriesStoryAudio" preload="auto" loop playsinline autoplay>
+        <source src="../assets/audio/name-story.mp3" type="audio/mp3">
+        <source src="../js/name-story.mp3" type="audio/mp3">
+      </audio>
+
       <!-- Centered Cinematic Hero Content -->
-      <div class="velorah-hero-section">
-        <h1 class="dp-main-heading velorah-heading animate-fade-rise">
-          <span class="dp-heading-line1">Architectural Engineering That</span>
-          <span class="dp-heading-line2">
-            <span class="dp-shiny-text">Compounds Revenue.</span>
-          </span>
+      <div class="wanderful-hero-content">
+        <!-- Two-line headline with Inter font -->
+        <h1 class="wanderful-headline">
+          <span class="wanderful-headline-line1">Architectural Engineering That</span>
+          <span class="wanderful-headline-line2">Compounds Revenue.</span>
         </h1>
 
-        <p class="velorah-subtext animate-fade-rise-delay">
-          Explore how Digiolic partners with forward-thinking enterprises to replace software patchwork with
-          battle-tested cloud architectures, streamline multi-app operations, and generate verifiable commercial
-          returns across Zoho One, Salesforce Cloud, and digital performance funnels.
-        </p>
+        <!-- Bottom Block: Paragraph + CTA Pill + Lock Security Badge -->
+        <div class="wanderful-bottom-block">
+          <p class="wanderful-paragraph">
+            <span class="wanderful-text-white">Explore how Digiolic partners with forward-thinking enterprises to replace software patchwork with battle-tested cloud architectures —</span>
+            <span class="wanderful-text-muted"> streamlining multi-app operations and generating verifiable commercial returns across Zoho One, Salesforce Cloud, and digital performance funnels.</span>
+          </p>
 
-        <div class="velorah-cta-container">
-          <a href="#caseStudiesGallery" class="velorah-hero-cta animate-fade-rise-delay-2">
+          <a href="#caseStudiesGallery" class="wanderful-button" aria-label="Explore Case Studies">
             <span>Explore Case Studies</span>
-            <svg class="arw" viewBox="0 0 12 10" fill="none" aria-hidden="true">
-              <path d="M0.8 5h10M7.1 1.4 10.9 5l-3.8 3.6" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
           </a>
         </div>
       </div>
 
-      <!-- Autoplay Safeguard Script -->
+      <!-- Video Autoplay, PlaybackRate 1.25, and Parallax Script -->
       <script>
         (function() {
-          var vid = document.querySelector('.velorah-bg-video');
-          if (!vid) return;
-          vid.muted = true;
-          var p = vid.play();
+          var video = document.querySelector('.wanderful-bg-video');
+          if (!video) return;
+
+          function setPlayback() {
+            try { video.playbackRate = 1.25; } catch (e) {}
+          }
+          setPlayback();
+          video.addEventListener('loadedmetadata', setPlayback);
+          video.addEventListener('play', setPlayback);
+
+          // Autoplay unlock
+          video.muted = true;
+          var p = video.play();
           if (p && typeof p.catch === 'function') {
             p.catch(function() {
-              var onUserTouch = function() {
-                vid.play();
-                document.removeEventListener('touchstart', onUserTouch);
-                document.removeEventListener('click', onUserTouch);
+              var unlock = function() {
+                video.play();
+                setPlayback();
+                document.removeEventListener('touchstart', unlock);
+                document.removeEventListener('click', unlock);
               };
-              document.addEventListener('touchstart', onUserTouch, { once: true, passive: true });
-              document.addEventListener('click', onUserTouch, { once: true, passive: true });
+              document.addEventListener('touchstart', unlock, { once: true, passive: true });
+              document.addEventListener('click', unlock, { once: true, passive: true });
             });
           }
+
+          // GSAP-style mouse parallax:
+          // listen to mousemove, compute targetX/Y = ((clientX - cx)/cx) * 20, lerp currentX/Y += (target - current) * 0.06
+          var targetX = 0, targetY = 0;
+          var currentX = 0, currentY = 0;
+          var isMouseActive = false;
+
+          window.addEventListener('mousemove', function(e) {
+            isMouseActive = true;
+            var cx = window.innerWidth / 2;
+            var cy = window.innerHeight / 2;
+            targetX = ((e.clientX - cx) / cx) * 20;
+            targetY = ((e.clientY - cy) / cy) * 20;
+          }, { passive: true });
+
+          function renderParallax() {
+            if (isMouseActive) {
+              currentX += (targetX - currentX) * 0.06;
+              currentY += (targetY - currentY) * 0.06;
+              video.style.transform = 'translate3d(' + currentX.toFixed(2) + 'px, ' + currentY.toFixed(2) + 'px, 0) scale(1.08)';
+            }
+            requestAnimationFrame(renderParallax);
+          }
+          requestAnimationFrame(renderParallax);
         })();
       </script>
     </section>
@@ -939,273 +1151,236 @@
       </div>
     </section>
 
-    <!-- Inlined styles for Image 2 Clean 2-Box Layout to prevent any browser caching delays -->
+    <!-- Inlined styles for Modal and Showcase -->
     <style>
-      .cs-clean-gallery-grid {
-        display: grid !important;
-        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-        gap: 2.25rem !important;
-        max-width: 1140px !important;
-        margin: 0 auto !important;
-        padding: 0 1.25rem !important;
+      /* =====================================================================
+         PRISTINE WHITE THEME FOR MODAL
+         ===================================================================== */
+      .cs-modal-backdrop {
+        background: rgba(15, 23, 42, 0.70) !important;
+        backdrop-filter: blur(14px) !important;
+        -webkit-backdrop-filter: blur(14px) !important;
       }
-      @media (max-width: 960px) {
-        .cs-clean-gallery-grid {
-          grid-template-columns: 1fr !important;
-          max-width: 620px !important;
-          gap: 2rem !important;
-        }
-      }
-      .cs-clean-box-card {
-        background-color: #FFFFFF !important;
-        background-size: cover !important;
-        background-position: right top !important;
-        background-repeat: no-repeat !important;
-        border: 1px solid rgba(226, 232, 240, 0.9) !important;
+
+      .cs-modal-container {
+        background: #FFFFFF !important;
+        border: 1px solid rgba(0, 0, 0, 0.1) !important;
+        box-shadow: 0 30px 80px -10px rgba(0, 0, 0, 0.45), 0 10px 30px rgba(0, 0, 0, 0.15) !important;
+        color: #0F172A !important;
         border-radius: 24px !important;
-        padding: 2.2rem 2.2rem 2rem 2.2rem !important;
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: flex-start !important;
-        text-align: left !important;
-        justify-content: space-between !important;
-        min-height: 380px !important;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05) !important;
-        transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease !important;
-        position: relative !important;
-        overflow: hidden !important;
       }
-      .cs-clean-box-card:hover {
-        transform: translateY(-6px) !important;
-        box-shadow: 0 20px 45px -10px rgba(15, 23, 42, 0.12) !important;
-        border-color: rgba(203, 213, 225, 1) !important;
+
+      .cs-modal-container::-webkit-scrollbar {
+        width: 8px;
       }
-      .cs-card-content {
-        width: 100% !important;
-        max-width: 58% !important;
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: flex-start !important;
-        text-align: left !important;
-        position: relative !important;
-        z-index: 2 !important;
+      .cs-modal-container::-webkit-scrollbar-track {
+        background: #F8FAFC;
+        border-radius: 8px;
       }
-      .cs-clean-logo-container {
-        width: auto !important;
-        min-height: 100px !important;
-        height: auto !important;
+      .cs-modal-container::-webkit-scrollbar-thumb {
+        background: #CBD5E1;
+        border-radius: 8px;
+      }
+      .cs-modal-container::-webkit-scrollbar-thumb:hover {
+        background: #94A3B8;
+      }
+
+      .cs-modal-close-btn {
+        background: #F1F5F9 !important;
+        border: 1px solid #E2E8F0 !important;
+        color: #0F172A !important;
+      }
+      .cs-modal-close-btn:hover {
+        background: #000000 !important;
+        color: #FFFFFF !important;
+        border-color: #000000 !important;
+        transform: rotate(90deg) scale(1.05) !important;
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25) !important;
+      }
+
+      .cs-modal-header {
+        margin-bottom: 1.5rem !important;
+        padding-bottom: 1.15rem !important;
+        border-bottom: 1px solid #E2E8F0 !important;
+      }
+
+      .cs-modal-header-meta {
         display: flex !important;
         align-items: center !important;
-        justify-content: flex-start !important;
-        margin-bottom: 0.95rem !important;
-        padding: 0 !important;
-        background: transparent !important;
+        gap: 0.65rem !important;
+        margin-bottom: 0.65rem !important;
+        flex-wrap: wrap !important;
       }
-      .cs-clean-logo-img {
-        max-height: 66px !important;
-        max-width: 230px !important;
+
+      .cs-modal-location-tag,
+      #csModalLocation {
+        background: #F1F5F9 !important;
+        border: 1px solid #E2E8F0 !important;
+        color: #334155 !important;
+        font-weight: 700 !important;
+        font-size: 0.80rem !important;
+        padding: 0.32rem 0.85rem !important;
+        border-radius: 9999px !important;
+        letter-spacing: 0.02em !important;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04) !important;
+        display: inline-flex !important;
+        align-items: center !important;
+      }
+
+      .cs-modal-products-tag,
+      #csModalProducts {
+        background: #000000 !important;
+        border: 1px solid #000000 !important;
+        color: #FFFFFF !important;
+        font-weight: 800 !important;
+        font-size: 0.80rem !important;
+        padding: 0.32rem 0.85rem !important;
+        border-radius: 9999px !important;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2) !important;
+        display: inline-flex !important;
+        align-items: center !important;
+      }
+
+      .cs-modal-title-row {
+        display: flex !important;
+        align-items: center !important;
+        gap: 1.15rem !important;
+        margin-top: 0.65rem !important;
+        flex-wrap: wrap !important;
+      }
+
+      .cs-modal-logo-wrap {
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        background: #FFFFFF !important;
+        border: 1px solid #E2E8F0 !important;
+        border-radius: 12px !important;
+        padding: 6px 12px !important;
+        height: 56px !important;
+        max-width: 170px !important;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04) !important;
+        flex-shrink: 0 !important;
+      }
+
+      .cs-modal-logo-img {
+        max-height: 42px !important;
+        max-width: 142px !important;
         width: auto !important;
         height: auto !important;
         object-fit: contain !important;
-        object-position: left center !important;
         display: block !important;
       }
-      /* Banaraswala Logo */
-      .cs-card-banaraswala .cs-clean-logo-img {
-        max-height: 90px !important;
-        max-width: 320px !important;
+
+      @media (max-width: 640px) {
+        .cs-modal-title-row {
+          flex-direction: column !important;
+          align-items: flex-start !important;
+          gap: 0.65rem !important;
+        }
       }
-      /* NZ Immigration Logo reduced by 10% */
-      .cs-card-nz .cs-clean-logo-img {
-        max-height: 81px !important;
-        max-width: 288px !important;
+
+      .cs-modal-title,
+      #csModalTitle {
+        font-family: var(--font-display, 'Outfit', 'Playfair Display', Georgia, serif) !important;
+        font-size: clamp(2rem, 3.5vw, 2.6rem) !important;
+        font-weight: 800 !important;
+        color: #0F172A !important;
+        line-height: 1.2 !important;
+        margin: 0 !important;
+        letter-spacing: -0.015em !important;
+        text-shadow: none !important;
       }
-      /* 10% increased width for Greenworld, Blume Labs, and Chanakya University */
-      .cs-card-greenworld .cs-clean-logo-img,
-      .cs-card-blume .cs-clean-logo-img {
-        max-height: 100px !important;
-        max-width: 320px !important;
-        width: auto !important;
-      }
-      .cs-card-chanakya .cs-clean-logo-img {
-        max-height: 99px !important;
-        max-width: 320px !important;
-        width: auto !important;
-      }
-      /* Loom Crafts Luxury Badge Logo (+10% size) */
-      .cs-card-loomcrafts .cs-clean-logo-img {
-        max-height: 75px !important;
-        max-width: 265px !important;
-        width: auto !important;
-      }
-      .cs-clean-location-pill {
-        display: inline-flex !important;
-        align-items: center !important;
-        gap: 0.45rem !important;
-        font-size: 0.88rem !important;
-        color: #475569 !important;
+
+      .cs-modal-desc-box {
         background: #F8FAFC !important;
         border: 1px solid #E2E8F0 !important;
-        padding: 0.35rem 0.95rem !important;
-        border-radius: 9999px !important;
-        margin-bottom: 1.15rem !important;
-        box-shadow: 0 1px 3px rgba(0,0,0,0.02) !important;
+        border-radius: 14px !important;
+        padding: 1.25rem 1.5rem !important;
+        margin-bottom: 1.75rem !important;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03) !important;
       }
-      .cs-clean-location-pill strong {
-        color: #0F172A !important;
-        font-weight: 700 !important;
-      }
-      .cs-clean-products-tags {
-        display: flex !important;
-        flex-wrap: wrap !important;
-        gap: 0.5rem !important;
-        justify-content: flex-start !important;
-        margin-bottom: 1.6rem !important;
-      }
-      .cs-clean-product-tag {
-        display: inline-flex !important;
-        align-items: center !important;
-        gap: 0.45rem !important;
+
+      .cs-modal-overview-label {
         font-size: 0.82rem !important;
-        font-weight: 600 !important;
-        color: #334155 !important;
-        background: #F1F5F9 !important;
-        border: 1px solid #E2E8F0 !important;
-        padding: 0.35rem 0.85rem !important;
-        border-radius: 9999px !important;
-        transition: background-color 0.2s ease, border-color 0.2s ease !important;
+        font-weight: 800 !important;
+        color: #475569 !important;
+        text-transform: uppercase !important;
+        letter-spacing: 0.08em !important;
+        margin: 0 0 0.5rem 0 !important;
       }
-      .cs-clean-product-tag svg {
+
+      .cs-modal-desc-text,
+      #csModalOverview {
+        color: #334155 !important;
+        font-size: 1.02rem !important;
+        line-height: 1.72 !important;
+        margin: 0 !important;
+      }
+
+      .cs-modal-section-card {
+        background: #FFFFFF !important;
+        border: 1px solid #E2E8F0 !important;
+        border-radius: 14px !important;
+        padding: 1.35rem 1.5rem !important;
+        margin-bottom: 1.5rem !important;
+        box-shadow: 0 3px 12px rgba(0, 0, 0, 0.04) !important;
+      }
+
+      .cs-modal-section-card.challenges {
+        border-left: 4px solid #EF4444 !important;
+      }
+
+      .cs-modal-section-card.solution {
+        border-left: 4px solid #10B981 !important;
+      }
+
+      .cs-modal-section-card.benefits {
+        border-left: 4px solid #0EA5E9 !important;
+      }
+
+      .cs-modal-section-heading,
+      .cs-modal-section-heading.challenges,
+      .cs-modal-section-heading.solution,
+      .cs-modal-section-heading.benefits {
+        font-family: var(--font-display, 'Outfit', sans-serif) !important;
+        font-size: clamp(1.42rem, 2.4vw, 1.65rem) !important;
+        font-weight: 800 !important;
+        color: #0F172A !important;
+        margin: 0 0 1rem 0 !important;
+        display: flex !important;
+        align-items: center !important;
+        gap: 0.65rem !important;
+        letter-spacing: -0.015em !important;
+        line-height: 1.25 !important;
+      }
+
+      .cs-modal-section-heading.challenges svg {
+        width: 22px !important;
+        height: 22px !important;
+        color: #EF4444 !important;
+        stroke: #EF4444 !important;
         flex-shrink: 0 !important;
       }
-      .cs-clean-readmore-btn {
-        background: #000000 !important;
-        color: #FFFFFF !important;
-        border: none !important;
-        font-family: inherit !important;
-        font-size: 0.92rem !important;
-        font-weight: 600 !important;
-        padding: 0.72rem 2rem !important;
-        border-radius: 9999px !important;
-        cursor: pointer !important;
-        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25) !important;
-        transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease !important;
-        display: inline-flex !important;
-        align-items: center !important;
-        gap: 0.5rem !important;
-        text-decoration: none !important;
-      }
-      .cs-clean-readmore-btn:hover {
-        background: #1E293B !important;
-        color: #FFFFFF !important;
-        transform: translateY(-2px) !important;
-        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35) !important;
-      }
-      .cs-clean-readmore-btn span {
-        color: #FFFFFF !important;
-        font-size: 1.15rem !important;
-        line-height: 1 !important;
-        transition: transform 0.2s ease !important;
-      }
-      .cs-clean-readmore-btn:hover span {
-        color: #FFFFFF !important;
-        transform: translateX(3px) !important;
+
+      .cs-modal-section-heading.solution svg {
+        width: 22px !important;
+        height: 22px !important;
+        color: #10B981 !important;
+        stroke: #10B981 !important;
+        flex-shrink: 0 !important;
       }
 
-      /* Card Backgrounds with Custom Wave Art */
-      .cs-card-monster { background-image: url('../assets/images/case-studies/cards/card-bg-monster.png') !important; }
-      .cs-card-fyx { background-image: url('../assets/images/case-studies/cards/card-bg-fyx.png') !important; }
-      .cs-card-verzeo { background-image: url('../assets/images/case-studies/cards/card-bg-verzeo.png') !important; }
-      .cs-card-banaraswala { background-image: url('../assets/images/case-studies/cards/card-bg-banaraswala.png') !important; }
-      .cs-card-nz { background-image: url('../assets/images/case-studies/cards/card-bg-nz.png') !important; }
-      .cs-card-greenworld { background-image: url('../assets/images/case-studies/cards/card-bg-greenworld.png') !important; }
-      .cs-card-pierian { background-image: url('../assets/images/case-studies/cards/card-bg-pierian.png') !important; }
-      .cs-card-blume { background-image: url('../assets/images/case-studies/cards/card-bg-blume.png') !important; }
-      .cs-card-loomcrafts { background-image: url('../assets/images/case-studies/cards/card-bg-loomcrafts.png') !important; }
-      .cs-card-chanakya { background-image: url('../assets/images/case-studies/cards/card-bg-chanakya.png') !important; }
-
-      /* Action Buttons (All Black Background, White Text) */
-      .cs-btn-monster,
-      .cs-btn-fyx,
-      .cs-btn-verzeo,
-      .cs-btn-banaraswala,
-      .cs-btn-nz,
-      .cs-btn-greenworld,
-      .cs-btn-pierian,
-      .cs-btn-blume,
-      .cs-btn-loomcrafts,
-      .cs-btn-chanakya {
-        background: #000000 !important;
-        color: #FFFFFF !important;
-        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25) !important;
-      }
-      .cs-btn-monster:hover,
-      .cs-btn-fyx:hover,
-      .cs-btn-verzeo:hover,
-      .cs-btn-banaraswala:hover,
-      .cs-btn-nz:hover,
-      .cs-btn-greenworld:hover,
-      .cs-btn-pierian:hover,
-      .cs-btn-blume:hover,
-      .cs-btn-loomcrafts:hover,
-      .cs-btn-chanakya:hover {
-        background: #1E293B !important;
-        color: #FFFFFF !important;
-        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35) !important;
+      .cs-modal-section-heading.benefits svg {
+        width: 22px !important;
+        height: 22px !important;
+        color: #0EA5E9 !important;
+        stroke: #0EA5E9 !important;
+        flex-shrink: 0 !important;
       }
 
-      /* Mobile Responsive Styles (Placed after desktop rules to guarantee cascade override) */
-      @media (max-width: 768px) {
-        .cs-clean-box-card {
-          padding: 1.5rem !important;
-          min-height: auto !important;
-        }
-        .cs-card-content {
-          max-width: 100% !important;
-          width: 100% !important;
-          background: rgba(255, 255, 255, 0.92) !important;
-          backdrop-filter: blur(10px) !important;
-          -webkit-backdrop-filter: blur(10px) !important;
-          border-radius: 18px !important;
-          padding: 1.25rem !important;
-          display: flex !important;
-          flex-direction: column !important;
-        }
-        .cs-clean-logo-container {
-          min-height: 70px !important;
-          width: 100% !important;
-          display: flex !important;
-          justify-content: center !important;
-          align-items: center !important;
-          align-self: center !important;
-          text-align: center !important;
-          margin: 0 auto 1.15rem auto !important;
-        }
-        .cs-clean-logo-img {
-          margin-left: auto !important;
-          margin-right: auto !important;
-          object-position: center center !important;
-          align-self: center !important;
-          display: block !important;
-        }
-        .cs-card-banaraswala .cs-clean-logo-img {
-          max-height: 76px !important;
-          max-width: 260px !important;
-        }
-        .cs-card-nz .cs-clean-logo-img {
-          max-height: 68px !important;
-          max-width: 235px !important;
-        }
-        .cs-card-greenworld .cs-clean-logo-img,
-        .cs-card-blume .cs-clean-logo-img,
-        .cs-card-chanakya .cs-clean-logo-img {
-          max-height: 84px !important;
-          max-width: 280px !important;
-        }
-        .cs-card-loomcrafts .cs-clean-logo-img {
-          max-height: 62px !important;
-          max-width: 220px !important;
-        }
+      .cs-modal-section-heading span {
+        color: #0F172A !important;
       }
 
       /* Modal bullet lists with clear bullets and bold titles */
@@ -1221,73 +1396,12 @@
         display: list-item !important;
         list-style-type: disc !important;
         font-size: 0.96rem !important;
-        line-height: 1.6 !important;
-        color: #1E293B !important;
+        line-height: 1.68 !important;
+        color: #475569 !important;
       }
       .cs-modal-list li strong {
         color: #0F172A !important;
-        font-weight: 700 !important;
-      }
-
-      /* Digital Marketing 4 Green Square Cards (Below Rahul) */
-      .dm-case-studies-section {
-        background: #FFFFFF !important;
-        border-top: none !important;
-        border-bottom: none !important;
-        color: #0F172A !important;
-        padding: 1.5rem 0 4.5rem 0 !important;
-        position: relative !important;
-        overflow: hidden !important;
-      }
-
-      .dm-case-studies-grid {
-        display: grid !important;
-        grid-template-columns: repeat(4, 1fr) !important;
-        gap: clamp(1rem, 1.8vw, 1.75rem) !important;
-        max-width: 1080px !important;
-        margin: 0 auto !important;
-        align-items: stretch !important;
-      }
-
-      .dm-case-study-card {
-        position: relative !important;
-        border-radius: 12px !important;
-        overflow: hidden !important;
-        background: #87C442 !important;
-        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08) !important;
-        transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-                    box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
-        cursor: pointer !important;
-      }
-
-      .dm-case-study-card:hover {
-        transform: translateY(-6px) scale(1.02) !important;
-        box-shadow: 0 18px 36px -6px rgba(135, 196, 66, 0.45) !important;
-      }
-
-      .dm-case-study-img {
-        width: 100% !important;
-        height: 100% !important;
-        aspect-ratio: 1 / 1 !important;
-        object-fit: cover !important;
-        display: block !important;
-        user-select: none !important;
-      }
-
-      @media (max-width: 992px) {
-        .dm-case-studies-grid {
-          grid-template-columns: repeat(2, 1fr) !important;
-          max-width: 580px !important;
-          gap: 1.5rem !important;
-        }
-      }
-
-      @media (max-width: 540px) {
-        .dm-case-studies-grid {
-          grid-template-columns: 1fr !important;
-          max-width: 320px !important;
-          gap: 1.25rem !important;
-        }
+        font-weight: 750 !important;
       }
     </style>
 
@@ -1309,397 +1423,344 @@
       <!-- Top Controls & Category Filters -->
       <div class="cs-3d-top-bar">
         <div class="cs-3d-filter-pills" role="tablist" aria-label="Filter case studies">
-          <button type="button" class="cs-3d-filter-btn is-active" data-filter="all">All (24)</button>
-          <button type="button" class="cs-3d-filter-btn" data-filter="zoho">Zoho One</button>
-          <button type="button" class="cs-3d-filter-btn" data-filter="salesforce">Salesforce</button>
-          <button type="button" class="cs-3d-filter-btn" data-filter="marketing">Digital Growth</button>
-          <button type="button" class="cs-3d-filter-btn" data-filter="cloud">Cloud Enterprise</button>
+          <button type="button" class="cs-3d-filter-btn is-active" data-filter="all">All (14)</button>
+          <button type="button" class="cs-3d-filter-btn" data-filter="zoho">Zoho (6)</button>
+          <button type="button" class="cs-3d-filter-btn" data-filter="salesforce">Salesforce (4)</button>
+          <button type="button" class="cs-3d-filter-btn" data-filter="digital-marketing">Digital Marketing (4)</button>
         </div>
-        <button type="button" class="cs-3d-view-toggle" id="cs3DViewToggle" aria-label="Toggle Grid View">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/>
-          </svg>
-          <span>Grid View</span>
-        </button>
       </div>
 
-      <!-- Center Stationary Serif Title (Squarespace Style) -->
+      <!-- Center Stationary Title -->
       <div class="cs-3d-center-brand">
         <h2 class="cs-3d-center-title">
-          <span class="cs-3d-title-lead">Transformed with</span>
-          <span class="cs-3d-title-main">Digiolic.</span>
+          <span class="cs-3d-title-main">CASE STUDY</span>
         </h2>
-        <p class="cs-3d-center-sub">
-          Enterprise transformations across Zoho, Salesforce &amp; Digital Growth
-        </p>
       </div>
-
-
 
       <!-- 3D Transform World Container -->
       <div class="cs-3d-world" id="cs3DWorld">
         <div class="cs-3d-cylinder" id="cs3DCylinder">
-
-          <!-- Card 1: Monster India -->
+          <!-- Card 1: Monster India (Salesforce) -->
           <div class="cs-3d-card-item" data-case-id="case-monster-india" data-category="salesforce crm">
             <div class="cs-3d-card-inner">
-              <img src="../assets/images/case-studies/cards/card-bg-monster.png" alt="Monster India" class="cs-3d-card-bg-img" loading="eager">
+              <img src="../assets/images/case-studies/landmarks/india-gate.jpg" alt="Monster India" class="cs-3d-card-bg-img" loading="eager">
               <div class="cs-3d-card-overlay">
                 <div class="cs-3d-card-top-bar">
                   <span class="cs-3d-card-client-name">Monster India</span>
-                  <span class="cs-3d-card-pill-tag salesforce">Salesforce</span>
+                  <span class="cs-3d-card-pill-tag salesforce">Salesforce CRM</span>
                 </div>
-                <div class="cs-3d-card-metric-badge">360° Lead Flow</div>
+                <div class="cs-3d-card-bottom-bar">
+                  <span class="cs-3d-card-location">
+                    <svg class="cs-3d-card-loc-icon" viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                      <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                    India
+                  </span>
+                </div>
               </div>
               <div class="cs-3d-hover-pill">Monster India <span class="cs-3d-hover-pill-arrow">↗</span></div>
             </div>
           </div>
 
-          <!-- Card 2: Audible India -->
-          <div class="cs-3d-card-item" data-case-id="case-audible" data-category="cloud marketing">
-            <div class="cs-3d-card-inner">
-              <img src="../assets/images/company-logos/audible-india.webp" alt="Audible India" class="cs-3d-card-bg-img cs-3d-card-bg-logo" loading="eager">
-              <div class="cs-3d-card-overlay">
-                <div class="cs-3d-card-top-bar">
-                  <span class="cs-3d-card-client-name">Audible India</span>
-                  <span class="cs-3d-card-pill-tag marketing">Growth</span>
-                </div>
-                <div class="cs-3d-card-metric-badge">+28% Retention</div>
-              </div>
-              <div class="cs-3d-hover-pill">Audible India <span class="cs-3d-hover-pill-arrow">↗</span></div>
-            </div>
-          </div>
-
-          <!-- Card 3: Banaraswala Wire Mesh -->
-          <div class="cs-3d-card-item" data-case-id="case-banaraswala" data-category="zoho crm">
-            <div class="cs-3d-card-inner">
-              <img src="../assets/images/case-studies/cards/card-bg-banaraswala.png" alt="Banaraswala" class="cs-3d-card-bg-img" loading="eager">
-              <div class="cs-3d-card-overlay">
-                <div class="cs-3d-card-top-bar">
-                  <span class="cs-3d-card-client-name">Banaraswala</span>
-                  <span class="cs-3d-card-pill-tag zoho">Zoho CRM</span>
-                </div>
-                <div class="cs-3d-card-metric-badge">Pipeline Engine</div>
-              </div>
-              <div class="cs-3d-hover-pill">Banaraswala <span class="cs-3d-hover-pill-arrow">↗</span></div>
-            </div>
-          </div>
-
-          <!-- Card 4: Loom Crafts Furniture -->
-          <div class="cs-3d-card-item" data-case-id="case-loomcrafts" data-category="salesforce crm">
-            <div class="cs-3d-card-inner">
-              <img src="../assets/images/case-studies/cards/card-bg-loomcrafts.png" alt="Loom Crafts" class="cs-3d-card-bg-img" loading="eager">
-              <div class="cs-3d-card-overlay">
-                <div class="cs-3d-card-top-bar">
-                  <span class="cs-3d-card-client-name">Loom Crafts</span>
-                  <span class="cs-3d-card-pill-tag salesforce">Salesforce</span>
-                </div>
-                <div class="cs-3d-card-metric-badge">D2C Payment Hub</div>
-              </div>
-              <div class="cs-3d-hover-pill">Loom Crafts <span class="cs-3d-hover-pill-arrow">↗</span></div>
-            </div>
-          </div>
-
-          <!-- Card 5: Deccan Herald -->
-          <div class="cs-3d-card-item" data-case-id="case-deccan-herald" data-category="marketing">
-            <div class="cs-3d-card-inner">
-              <img src="../assets/images/case-study-card-1.png" alt="Deccan Herald" class="cs-3d-card-bg-img" loading="eager">
-              <div class="cs-3d-card-overlay">
-                <div class="cs-3d-card-top-bar">
-                  <span class="cs-3d-card-client-name">Deccan Herald</span>
-                  <span class="cs-3d-card-pill-tag marketing">Digital Ads</span>
-                </div>
-                <div class="cs-3d-card-metric-badge">+37% Leads · -49% CAC</div>
-              </div>
-              <div class="cs-3d-hover-pill">Deccan Herald <span class="cs-3d-hover-pill-arrow">↗</span></div>
-            </div>
-          </div>
-
-          <!-- Card 6: Greenworld Solarwares -->
-          <div class="cs-3d-card-item" data-case-id="case-greenworld" data-category="zoho cloud">
-            <div class="cs-3d-card-inner">
-              <img src="../assets/images/case-studies/cards/card-bg-greenworld.png" alt="Greenworld Solarwares" class="cs-3d-card-bg-img" loading="eager">
-              <div class="cs-3d-card-overlay">
-                <div class="cs-3d-card-top-bar">
-                  <span class="cs-3d-card-client-name">Greenworld</span>
-                  <span class="cs-3d-card-pill-tag zoho">Zoho HRMS</span>
-                </div>
-                <div class="cs-3d-card-metric-badge">100% Payroll Sync</div>
-              </div>
-              <div class="cs-3d-hover-pill">Greenworld <span class="cs-3d-hover-pill-arrow">↗</span></div>
-            </div>
-          </div>
-
-          <!-- Card 7: Betterplace -->
-          <div class="cs-3d-card-item" data-case-id="case-betterplace" data-category="zoho crm cloud">
-            <div class="cs-3d-card-inner">
-              <img src="../assets/images/company-logos/Betterplace.png" alt="Betterplace" class="cs-3d-card-bg-img cs-3d-card-bg-logo" loading="eager">
-              <div class="cs-3d-card-overlay">
-                <div class="cs-3d-card-top-bar">
-                  <span class="cs-3d-card-client-name">Betterplace</span>
-                  <span class="cs-3d-card-pill-tag zoho">Zoho One</span>
-                </div>
-                <div class="cs-3d-card-metric-badge">Instant Lead Routing</div>
-              </div>
-              <div class="cs-3d-hover-pill">Betterplace <span class="cs-3d-hover-pill-arrow">↗</span></div>
-            </div>
-          </div>
-
-          <!-- Card 8: Chanakya University -->
-          <div class="cs-3d-card-item" data-case-id="case-chanakya-university" data-category="zoho cloud">
-            <div class="cs-3d-card-inner">
-              <img src="../assets/images/case-studies/cards/card-bg-chanakya.png" alt="Chanakya University" class="cs-3d-card-bg-img" loading="eager">
-              <div class="cs-3d-card-overlay">
-                <div class="cs-3d-card-top-bar">
-                  <span class="cs-3d-card-client-name">Chanakya University</span>
-                  <span class="cs-3d-card-pill-tag zoho">Zoho Books</span>
-                </div>
-                <div class="cs-3d-card-metric-badge">Campus ERP Suite</div>
-              </div>
-              <div class="cs-3d-hover-pill">Chanakya Univ <span class="cs-3d-hover-pill-arrow">↗</span></div>
-            </div>
-          </div>
-
-          <!-- Card 9: FYX Finance -->
+          <!-- Card 2: FYX Finance (Zoho) -->
           <div class="cs-3d-card-item" data-case-id="case-fyx" data-category="zoho crm">
             <div class="cs-3d-card-inner">
-              <img src="../assets/images/case-studies/cards/card-bg-fyx.png" alt="FYX Finance" class="cs-3d-card-bg-img" loading="eager">
+              <img src="../assets/images/case-studies/landmarks/sydney-opera.jpg" alt="FYX Finance" class="cs-3d-card-bg-img" loading="eager">
               <div class="cs-3d-card-overlay">
                 <div class="cs-3d-card-top-bar">
                   <span class="cs-3d-card-client-name">FYX Finance</span>
                   <span class="cs-3d-card-pill-tag zoho">Zoho CRM</span>
                 </div>
-                <div class="cs-3d-card-metric-badge">End-to-End Loan Flow</div>
+                <div class="cs-3d-card-bottom-bar">
+                  <span class="cs-3d-card-location">
+                    <svg class="cs-3d-card-loc-icon" viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                      <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                    Australia
+                  </span>
+                </div>
               </div>
               <div class="cs-3d-hover-pill">FYX Finance <span class="cs-3d-hover-pill-arrow">↗</span></div>
             </div>
           </div>
 
-          <!-- Card 10: Siemens -->
-          <div class="cs-3d-card-item" data-case-id="case-siemens" data-category="cloud enterprise">
+          <!-- Card 3: Verzeo Technologies (Salesforce) -->
+          <div class="cs-3d-card-item" data-case-id="case-verzeo" data-category="salesforce crm">
             <div class="cs-3d-card-inner">
-              <img src="../assets/images/company-logos/Siemens.jpeg" alt="Siemens" class="cs-3d-card-bg-img cs-3d-card-bg-logo" loading="eager">
+              <img src="../assets/images/case-studies/landmarks/bangalore-vidhana.jpg" alt="Verzeo Technologies" class="cs-3d-card-bg-img" loading="eager">
               <div class="cs-3d-card-overlay">
                 <div class="cs-3d-card-top-bar">
-                  <span class="cs-3d-card-client-name">Siemens</span>
-                  <span class="cs-3d-card-pill-tag cloud">Cloud ERP</span>
+                  <span class="cs-3d-card-client-name">Verzeo Technologies</span>
+                  <span class="cs-3d-card-pill-tag salesforce">Salesforce CRM</span>
                 </div>
-                <div class="cs-3d-card-metric-badge">-35% Proposal Time</div>
+                <div class="cs-3d-card-bottom-bar">
+                  <span class="cs-3d-card-location">
+                    <svg class="cs-3d-card-loc-icon" viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                      <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                    Bangalore, India
+                  </span>
+                </div>
               </div>
-              <div class="cs-3d-hover-pill">Siemens <span class="cs-3d-hover-pill-arrow">↗</span></div>
+              <div class="cs-3d-hover-pill">Verzeo Technologies <span class="cs-3d-hover-pill-arrow">↗</span></div>
             </div>
           </div>
 
-          <!-- Card 11: Verzeo Edutech -->
-          <div class="cs-3d-card-item" data-case-id="case-verzeo" data-category="zoho crm">
+          <!-- Card 4: Banaraswala (Salesforce) -->
+          <div class="cs-3d-card-item" data-case-id="case-banaraswala" data-category="salesforce crm">
             <div class="cs-3d-card-inner">
-              <img src="../assets/images/case-studies/cards/card-bg-verzeo.png" alt="Verzeo" class="cs-3d-card-bg-img" loading="eager">
+              <img src="../assets/images/case-studies/landmarks/delhi-qutub.jpg" alt="Banaraswala" class="cs-3d-card-bg-img" loading="eager">
               <div class="cs-3d-card-overlay">
                 <div class="cs-3d-card-top-bar">
-                  <span class="cs-3d-card-client-name">Verzeo</span>
-                  <span class="cs-3d-card-pill-tag zoho">Zoho CRM</span>
+                  <span class="cs-3d-card-client-name">Banaraswala</span>
+                  <span class="cs-3d-card-pill-tag salesforce">Salesforce CRM</span>
                 </div>
-                <div class="cs-3d-card-metric-badge">Multi-Channel Ingestion</div>
+                <div class="cs-3d-card-bottom-bar">
+                  <span class="cs-3d-card-location">
+                    <svg class="cs-3d-card-loc-icon" viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                      <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                    Delhi, India
+                  </span>
+                </div>
               </div>
-              <div class="cs-3d-hover-pill">Verzeo <span class="cs-3d-hover-pill-arrow">↗</span></div>
+              <div class="cs-3d-hover-pill">Banaraswala <span class="cs-3d-hover-pill-arrow">↗</span></div>
             </div>
           </div>
 
-          <!-- Card 12: Flipkart -->
-          <div class="cs-3d-card-item" data-case-id="case-flipkart" data-category="marketing">
-            <div class="cs-3d-card-inner">
-              <img src="../assets/images/case-study-card-3.png" alt="Flipkart" class="cs-3d-card-bg-img" loading="eager">
-              <div class="cs-3d-card-overlay">
-                <div class="cs-3d-card-top-bar">
-                  <span class="cs-3d-card-client-name">Flipkart</span>
-                  <span class="cs-3d-card-pill-tag marketing">Social Growth</span>
-                </div>
-                <div class="cs-3d-card-metric-badge">+40% IG · +70% YT</div>
-              </div>
-              <div class="cs-3d-hover-pill">Flipkart <span class="cs-3d-hover-pill-arrow">↗</span></div>
-            </div>
-          </div>
-
-          <!-- Card 13: Blume Labs -->
-          <div class="cs-3d-card-item" data-case-id="case-blume-labs" data-category="zoho cloud">
-            <div class="cs-3d-card-inner">
-              <img src="../assets/images/case-studies/cards/card-bg-blume.png" alt="Blume Labs" class="cs-3d-card-bg-img" loading="eager">
-              <div class="cs-3d-card-overlay">
-                <div class="cs-3d-card-top-bar">
-                  <span class="cs-3d-card-client-name">Blume Labs</span>
-                  <span class="cs-3d-card-pill-tag zoho">Zoho Books</span>
-                </div>
-                <div class="cs-3d-card-metric-badge">Order-to-Cash Sync</div>
-              </div>
-              <div class="cs-3d-hover-pill">Blume Labs <span class="cs-3d-hover-pill-arrow">↗</span></div>
-            </div>
-          </div>
-
-          <!-- Card 14: Xiaomi -->
-          <div class="cs-3d-card-item" data-case-id="case-xiaomi" data-category="cloud crm">
-            <div class="cs-3d-card-inner">
-              <img src="../assets/images/company-logos/Xiaomi.png" alt="Xiaomi" class="cs-3d-card-bg-img cs-3d-card-bg-logo" loading="eager">
-              <div class="cs-3d-card-overlay">
-                <div class="cs-3d-card-top-bar">
-                  <span class="cs-3d-card-client-name">Xiaomi</span>
-                  <span class="cs-3d-card-pill-tag cloud">Service Hub</span>
-                </div>
-                <div class="cs-3d-card-metric-badge">-40% Ticket Time</div>
-              </div>
-              <div class="cs-3d-hover-pill">Xiaomi <span class="cs-3d-hover-pill-arrow">↗</span></div>
-            </div>
-          </div>
-
-          <!-- Card 15: NZ Immigration -->
+          <!-- Card 5: NZ Immigration (Zoho) -->
           <div class="cs-3d-card-item" data-case-id="case-nz-immigration" data-category="zoho crm">
             <div class="cs-3d-card-inner">
-              <img src="../assets/images/case-studies/cards/card-bg-nz.png" alt="NZ Immigration" class="cs-3d-card-bg-img" loading="eager">
+              <img src="../assets/images/case-studies/landmarks/new-zealand.jpg" alt="NZ Immigration" class="cs-3d-card-bg-img" loading="eager">
               <div class="cs-3d-card-overlay">
                 <div class="cs-3d-card-top-bar">
                   <span class="cs-3d-card-client-name">NZ Immigration</span>
-                  <span class="cs-3d-card-pill-tag zoho">Zoho One</span>
+                  <span class="cs-3d-card-pill-tag zoho">Zoho Suite</span>
                 </div>
-                <div class="cs-3d-card-metric-badge">10L+ Records Migrated</div>
+                <div class="cs-3d-card-bottom-bar">
+                  <span class="cs-3d-card-location">
+                    <svg class="cs-3d-card-loc-icon" viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                      <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                    New Zealand
+                  </span>
+                </div>
               </div>
               <div class="cs-3d-hover-pill">NZ Immigration <span class="cs-3d-hover-pill-arrow">↗</span></div>
             </div>
           </div>
 
-          <!-- Card 16: Myntra -->
-          <div class="cs-3d-card-item" data-case-id="case-myntra" data-category="marketing">
+          <!-- Card 6: Greenworld Solarwares (Zoho) -->
+          <div class="cs-3d-card-item" data-case-id="case-greenworld" data-category="zoho hr">
             <div class="cs-3d-card-inner">
-              <img src="../assets/images/case-study-card-2.png" alt="Myntra" class="cs-3d-card-bg-img" loading="eager">
+              <img src="../assets/images/case-studies/landmarks/solar-energy.jpg" alt="Greenworld Solarwares" class="cs-3d-card-bg-img" loading="eager">
+              <div class="cs-3d-card-overlay">
+                <div class="cs-3d-card-top-bar">
+                  <span class="cs-3d-card-client-name">Greenworld Solarwares</span>
+                  <span class="cs-3d-card-pill-tag zoho">Zoho People</span>
+                </div>
+                <div class="cs-3d-card-bottom-bar">
+                  <span class="cs-3d-card-location">
+                    <svg class="cs-3d-card-loc-icon" viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                      <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                    Chhattisgarh, India
+                  </span>
+                </div>
+              </div>
+              <div class="cs-3d-hover-pill">Greenworld Solarwares <span class="cs-3d-hover-pill-arrow">↗</span></div>
+            </div>
+          </div>
+
+          <!-- Card 7: Pierian Technologies (Zoho) -->
+          <div class="cs-3d-card-item" data-case-id="case-pierian" data-category="zoho finance">
+            <div class="cs-3d-card-inner">
+              <img src="../assets/images/case-studies/landmarks/bangalore-finance.jpg" alt="Pierian Technologies" class="cs-3d-card-bg-img" loading="eager">
+              <div class="cs-3d-card-overlay">
+                <div class="cs-3d-card-top-bar">
+                  <span class="cs-3d-card-client-name">Pierian Technologies</span>
+                  <span class="cs-3d-card-pill-tag zoho">Zoho Books</span>
+                </div>
+                <div class="cs-3d-card-bottom-bar">
+                  <span class="cs-3d-card-location">
+                    <svg class="cs-3d-card-loc-icon" viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                      <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                    Bangalore, India
+                  </span>
+                </div>
+              </div>
+              <div class="cs-3d-hover-pill">Pierian Technologies <span class="cs-3d-hover-pill-arrow">↗</span></div>
+            </div>
+          </div>
+
+          <!-- Card 8: Blume Labs (Zoho) -->
+          <div class="cs-3d-card-item" data-case-id="case-blume-labs" data-category="zoho finance crm">
+            <div class="cs-3d-card-inner">
+              <img src="../assets/images/case-studies/landmarks/blume-tech.jpg" alt="Blume Labs" class="cs-3d-card-bg-img" loading="eager">
+              <div class="cs-3d-card-overlay">
+                <div class="cs-3d-card-top-bar">
+                  <span class="cs-3d-card-client-name">Blume Labs</span>
+                  <span class="cs-3d-card-pill-tag zoho">Zoho One</span>
+                </div>
+                <div class="cs-3d-card-bottom-bar">
+                  <span class="cs-3d-card-location">
+                    <svg class="cs-3d-card-loc-icon" viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                      <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                    Bangalore, India
+                  </span>
+                </div>
+              </div>
+              <div class="cs-3d-hover-pill">Blume Labs <span class="cs-3d-hover-pill-arrow">↗</span></div>
+            </div>
+          </div>
+
+          <!-- Card 9: Loom Crafts (Salesforce) -->
+          <div class="cs-3d-card-item" data-case-id="case-loomcrafts" data-category="salesforce crm">
+            <div class="cs-3d-card-inner">
+              <img src="../assets/images/case-studies/landmarks/agra-taj.jpg" alt="Loom Crafts" class="cs-3d-card-bg-img" loading="eager">
+              <div class="cs-3d-card-overlay">
+                <div class="cs-3d-card-top-bar">
+                  <span class="cs-3d-card-client-name">Loom Crafts</span>
+                  <span class="cs-3d-card-pill-tag salesforce">Salesforce CRM</span>
+                </div>
+                <div class="cs-3d-card-bottom-bar">
+                  <span class="cs-3d-card-location">
+                    <svg class="cs-3d-card-loc-icon" viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                      <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                    Uttar Pradesh, India
+                  </span>
+                </div>
+              </div>
+              <div class="cs-3d-hover-pill">Loom Crafts <span class="cs-3d-hover-pill-arrow">↗</span></div>
+            </div>
+          </div>
+
+          <!-- Card 10: Chanakya University (Zoho) -->
+          <div class="cs-3d-card-item" data-case-id="case-chanakya-university" data-category="zoho crm">
+            <div class="cs-3d-card-inner">
+              <img src="../assets/images/case-studies/landmarks/chanakya-univ.jpg" alt="Chanakya University" class="cs-3d-card-bg-img" loading="eager">
+              <div class="cs-3d-card-overlay">
+                <div class="cs-3d-card-top-bar">
+                  <span class="cs-3d-card-client-name">Chanakya University</span>
+                  <span class="cs-3d-card-pill-tag zoho">Zoho CRM</span>
+                </div>
+                <div class="cs-3d-card-bottom-bar">
+                  <span class="cs-3d-card-location">
+                    <svg class="cs-3d-card-loc-icon" viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                      <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                    Bangalore, India
+                  </span>
+                </div>
+              </div>
+              <div class="cs-3d-hover-pill">Chanakya University <span class="cs-3d-hover-pill-arrow">↗</span></div>
+            </div>
+          </div>
+
+          <!-- Card 11: Deccan Herald (Digital Marketing) -->
+          <div class="cs-3d-card-item" data-case-id="case-deccan-herald" data-category="digital-marketing marketing">
+            <div class="cs-3d-card-inner">
+              <img src="../assets/images/case-studies/landmarks/deccan-herald.jpg" alt="Deccan Herald" class="cs-3d-card-bg-img" loading="eager">
+              <div class="cs-3d-card-overlay">
+                <div class="cs-3d-card-top-bar">
+                  <span class="cs-3d-card-client-name">Deccan Herald</span>
+                  <span class="cs-3d-card-pill-tag marketing">Digital Marketing</span>
+                </div>
+                <div class="cs-3d-card-bottom-bar">
+                  <span class="cs-3d-card-location">
+                    <svg class="cs-3d-card-loc-icon" viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                      <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                    Bangalore, India
+                  </span>
+                </div>
+              </div>
+              <div class="cs-3d-hover-pill">Deccan Herald <span class="cs-3d-hover-pill-arrow">↗</span></div>
+            </div>
+          </div>
+
+          <!-- Card 12: Myntra (Digital Marketing) -->
+          <div class="cs-3d-card-item" data-case-id="case-myntra" data-category="digital-marketing marketing">
+            <div class="cs-3d-card-inner">
+              <img src="../assets/images/case-studies/landmarks/myntra-campus.jpg" alt="Myntra" class="cs-3d-card-bg-img" loading="eager">
               <div class="cs-3d-card-overlay">
                 <div class="cs-3d-card-top-bar">
                   <span class="cs-3d-card-client-name">Myntra</span>
-                  <span class="cs-3d-card-pill-tag marketing">SEO Engine</span>
+                  <span class="cs-3d-card-pill-tag marketing">Digital Marketing</span>
                 </div>
-                <div class="cs-3d-card-metric-badge">10X Organic Lift</div>
+                <div class="cs-3d-card-bottom-bar">
+                  <span class="cs-3d-card-location">
+                    <svg class="cs-3d-card-loc-icon" viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                      <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                    Bangalore, India
+                  </span>
+                </div>
               </div>
               <div class="cs-3d-hover-pill">Myntra <span class="cs-3d-hover-pill-arrow">↗</span></div>
             </div>
           </div>
 
-          <!-- Card 17: Pierian Service -->
-          <div class="cs-3d-card-item" data-case-id="case-manu-company" data-category="zoho cloud">
+          <!-- Card 13: Flipkart (Digital Marketing) -->
+          <div class="cs-3d-card-item" data-case-id="case-flipkart" data-category="digital-marketing marketing">
             <div class="cs-3d-card-inner">
-              <img src="../assets/images/case-studies/cards/card-bg-pierian.png" alt="Pierian Service" class="cs-3d-card-bg-img" loading="eager">
+              <img src="../assets/images/case-studies/landmarks/flipkart-hub.jpg" alt="Flipkart" class="cs-3d-card-bg-img" loading="eager">
               <div class="cs-3d-card-overlay">
                 <div class="cs-3d-card-top-bar">
-                  <span class="cs-3d-card-client-name">Pierian Service</span>
-                  <span class="cs-3d-card-pill-tag zoho">Zoho Finance</span>
+                  <span class="cs-3d-card-client-name">Flipkart</span>
+                  <span class="cs-3d-card-pill-tag marketing">Digital Marketing</span>
                 </div>
-                <div class="cs-3d-card-metric-badge">Multi-Currency Billing</div>
+                <div class="cs-3d-card-bottom-bar">
+                  <span class="cs-3d-card-location">
+                    <svg class="cs-3d-card-loc-icon" viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                      <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                    Bangalore, India
+                  </span>
+                </div>
               </div>
-              <div class="cs-3d-hover-pill">Pierian Service <span class="cs-3d-hover-pill-arrow">↗</span></div>
+              <div class="cs-3d-hover-pill">Flipkart <span class="cs-3d-hover-pill-arrow">↗</span></div>
             </div>
           </div>
 
-          <!-- Card 18: Savaari Car Rentals -->
-          <div class="cs-3d-card-item" data-case-id="case-savaari" data-category="cloud marketing">
+          <!-- Card 14: via Milano (Digital Marketing) -->
+          <div class="cs-3d-card-item" data-case-id="case-via-milano" data-category="digital-marketing marketing">
             <div class="cs-3d-card-inner">
-              <img src="../assets/images/company-logos/savaari-car-rentals.jpeg" alt="Savaari Car Rentals" class="cs-3d-card-bg-img cs-3d-card-bg-logo" loading="eager">
-              <div class="cs-3d-card-overlay">
-                <div class="cs-3d-card-top-bar">
-                  <span class="cs-3d-card-client-name">Savaari</span>
-                  <span class="cs-3d-card-pill-tag cloud">Travel CRM</span>
-                </div>
-                <div class="cs-3d-card-metric-badge">+32% Reviews Lift</div>
-              </div>
-              <div class="cs-3d-hover-pill">Savaari <span class="cs-3d-hover-pill-arrow">↗</span></div>
-            </div>
-          </div>
-
-          <!-- Card 19: Rahul HR Solution -->
-          <div class="cs-3d-card-item" data-case-id="case-rahul-hr" data-category="zoho cloud">
-            <div class="cs-3d-card-inner">
-              <img src="../assets/images/company-logos/ur-health.jpeg" alt="HR Solutions" class="cs-3d-card-bg-img cs-3d-card-bg-logo" loading="eager">
-              <div class="cs-3d-card-overlay">
-                <div class="cs-3d-card-top-bar">
-                  <span class="cs-3d-card-client-name">Rahul HR</span>
-                  <span class="cs-3d-card-pill-tag zoho">Zoho People</span>
-                </div>
-                <div class="cs-3d-card-metric-badge">HRMS Architecture</div>
-              </div>
-              <div class="cs-3d-hover-pill">Rahul HR <span class="cs-3d-hover-pill-arrow">↗</span></div>
-            </div>
-          </div>
-
-          <!-- Card 20: Haldiram's -->
-          <div class="cs-3d-card-item" data-case-id="case-haldirams" data-category="cloud enterprise">
-            <div class="cs-3d-card-inner">
-              <img src="../assets/images/company-logos/haldirams.png" alt="Haldiram's" class="cs-3d-card-bg-img cs-3d-card-bg-logo" loading="eager">
-              <div class="cs-3d-card-overlay">
-                <div class="cs-3d-card-top-bar">
-                  <span class="cs-3d-card-client-name">Haldiram's</span>
-                  <span class="cs-3d-card-pill-tag cloud">Supply Chain</span>
-                </div>
-                <div class="cs-3d-card-metric-badge">-50% Order Cycles</div>
-              </div>
-              <div class="cs-3d-hover-pill">Haldiram's <span class="cs-3d-hover-pill-arrow">↗</span></div>
-            </div>
-          </div>
-
-          <!-- Card 21: via Milano -->
-          <div class="cs-3d-card-item" data-case-id="case-via-milano" data-category="marketing">
-            <div class="cs-3d-card-inner">
-              <img src="../assets/images/case-study-card-4.png" alt="via Milano" class="cs-3d-card-bg-img" loading="eager">
+              <img src="../assets/images/case-studies/landmarks/via-milano.jpg" alt="via Milano" class="cs-3d-card-bg-img" loading="eager">
               <div class="cs-3d-card-overlay">
                 <div class="cs-3d-card-top-bar">
                   <span class="cs-3d-card-client-name">via Milano</span>
-                  <span class="cs-3d-card-pill-tag marketing">Hospitality</span>
+                  <span class="cs-3d-card-pill-tag marketing">Digital Marketing</span>
                 </div>
-                <div class="cs-3d-card-metric-badge">4X Bookings · 2X Rev</div>
+                <div class="cs-3d-card-bottom-bar">
+                  <span class="cs-3d-card-location">
+                    <svg class="cs-3d-card-loc-icon" viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                      <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                    Bangalore, India
+                  </span>
+                </div>
               </div>
               <div class="cs-3d-hover-pill">via Milano <span class="cs-3d-hover-pill-arrow">↗</span></div>
             </div>
           </div>
-
-          <!-- Card 22: Nexus Wealth -->
-          <div class="cs-3d-card-item" data-case-id="case-nexus-wealth" data-category="cloud enterprise">
-            <div class="cs-3d-card-inner">
-              <img src="../assets/images/company-logos/nexus-wealth-management.jpeg" alt="Nexus Wealth" class="cs-3d-card-bg-img cs-3d-card-bg-logo" loading="eager">
-              <div class="cs-3d-card-overlay">
-                <div class="cs-3d-card-top-bar">
-                  <span class="cs-3d-card-client-name">Nexus Wealth</span>
-                  <span class="cs-3d-card-pill-tag cloud">FinTech CRM</span>
-                </div>
-                <div class="cs-3d-card-metric-badge">Encrypted HNI Hub</div>
-              </div>
-              <div class="cs-3d-hover-pill">Nexus Wealth <span class="cs-3d-hover-pill-arrow">↗</span></div>
-            </div>
-          </div>
-
-          <!-- Card 23: Melorra -->
-          <div class="cs-3d-card-item" data-case-id="case-melorra" data-category="cloud marketing">
-            <div class="cs-3d-card-inner">
-              <img src="../assets/images/company-logos/Melorra.png" alt="Melorra" class="cs-3d-card-bg-img cs-3d-card-bg-logo" loading="eager">
-              <div class="cs-3d-card-overlay">
-                <div class="cs-3d-card-top-bar">
-                  <span class="cs-3d-card-client-name">Melorra</span>
-                  <span class="cs-3d-card-pill-tag marketing">VIP Concierge</span>
-                </div>
-                <div class="cs-3d-card-metric-badge">+24% Cart Recovery</div>
-              </div>
-              <div class="cs-3d-hover-pill">Melorra <span class="cs-3d-hover-pill-arrow">↗</span></div>
-            </div>
-          </div>
-
-          <!-- Card 24: Medall Diagnostics -->
-          <div class="cs-3d-card-item" data-case-id="case-medall" data-category="cloud enterprise">
-            <div class="cs-3d-card-inner">
-              <img src="../assets/images/company-logos/medall-diagnostics.jpeg" alt="Medall Diagnostics" class="cs-3d-card-bg-img cs-3d-card-bg-logo" loading="eager">
-              <div class="cs-3d-card-overlay">
-                <div class="cs-3d-card-top-bar">
-                  <span class="cs-3d-card-client-name">Medall</span>
-                  <span class="cs-3d-card-pill-tag cloud">Health CRM</span>
-                </div>
-                <div class="cs-3d-card-metric-badge">Instant Dispatch</div>
-              </div>
-              <div class="cs-3d-hover-pill">Medall <span class="cs-3d-hover-pill-arrow">↗</span></div>
-            </div>
-          </div>
-
         </div>
       </div>
 
@@ -1727,429 +1788,6 @@
       <!-- Bottom Vignette Gradient -->
       <div class="cs-3d-vignette-bottom"></div>
     </section>
-
-    <!-- ==========================================================================
-         GRID VIEW CONTAINER (Toggled via "Grid View" button in 3D controls)
-         ========================================================================== -->
-    <div id="csGridContainerFallback" style="display: none;">
-      <!-- ==========================================================================
-           3. CLIENT CASE STUDIES GALLERY
-           ========================================================================== -->
-      <section class="cs-gallery-section" id="caseStudiesGalleryGrid">
-
-      <!-- Image 2 Design: 2-Box Column Grid for Client Case Studies -->
-      <div class="cs-grid-container">
-        <div class="cs-clean-gallery-grid">
-
-          <!-- 1: Monster India -->
-          <article class="cs-clean-box-card cs-card-monster" data-category="crm salesforce">
-            <div class="cs-card-content">
-              <div class="cs-clean-logo-container">
-                <img src="../assets/images/case-studies/monster-india.png" alt="Monster.com Logo" class="cs-clean-logo-img" style="border-radius: 12px;">
-              </div>
-
-              <div class="cs-clean-location-pill">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#EF4444" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                  <circle cx="12" cy="10" r="3"></circle>
-                </svg>
-                <span>Location: <strong>India</strong></span>
-              </div>
-
-              <div class="cs-clean-products-tags">
-                <span class="cs-clean-product-tag">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#6B21A8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/></svg>
-                  Salesforce CRM
-                </span>
-                <span class="cs-clean-product-tag">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#6B21A8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-                  Razorpay
-                </span>
-                <span class="cs-clean-product-tag">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#6B21A8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
-                  Google Matrix API
-                </span>
-              </div>
-
-              <button class="cs-clean-readmore-btn cs-btn-monster js-open-case-modal" data-case-id="case-monster-india" type="button" style="background: #000000 !important; color: #FFFFFF !important;">
-                Read More <span>&rarr;</span>
-              </button>
-            </div>
-          </article>
-
-          <!-- 2: FYX Finance -->
-          <article class="cs-clean-box-card cs-card-fyx" data-category="crm zoho">
-            <div class="cs-card-content">
-              <div class="cs-clean-logo-container">
-                <img src="../assets/images/case-studies/fyx.png" alt="FYX Finance Logo" class="cs-clean-logo-img">
-              </div>
-
-              <div class="cs-clean-location-pill">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#EF4444" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                  <circle cx="12" cy="10" r="3"></circle>
-                </svg>
-                <span>Location: <strong>Australia</strong></span>
-              </div>
-
-              <div class="cs-clean-products-tags">
-                <span class="cs-clean-product-tag">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0065FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/></svg>
-                  Zoho CRM
-                </span>
-                <span class="cs-clean-product-tag">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0065FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-                  Zoho Sign
-                </span>
-                <span class="cs-clean-product-tag">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0065FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-                  Zoho Form
-                </span>
-              </div>
-
-              <button class="cs-clean-readmore-btn cs-btn-fyx js-open-case-modal" data-case-id="case-fyx" type="button" style="background: #000000 !important; color: #FFFFFF !important;">
-                Read More <span>&rarr;</span>
-              </button>
-            </div>
-          </article>
-
-          <!-- 3: Verzeo Tech -->
-          <article class="cs-clean-box-card cs-card-verzeo" data-category="crm salesforce">
-            <div class="cs-card-content">
-              <div class="cs-clean-logo-container">
-                <img src="../assets/images/case-studies/verzeo.png" alt="Verzeo Tech Logo" class="cs-clean-logo-img" style="border-radius: 8px;">
-              </div>
-
-              <div class="cs-clean-location-pill">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#EF4444" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                  <circle cx="12" cy="10" r="3"></circle>
-                </svg>
-                <span>Location: <strong>Bangalore, India</strong></span>
-              </div>
-
-              <div class="cs-clean-products-tags">
-                <span class="cs-clean-product-tag">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0D9488" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/></svg>
-                  Salesforce CRM
-                </span>
-                <span class="cs-clean-product-tag">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0D9488" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-                  WhatsApp
-                </span>
-                <span class="cs-clean-product-tag">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0D9488" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"/><line x1="9" y1="3" x2="9" y2="18"/><line x1="15" y1="6" x2="15" y2="21"/></svg>
-                  Google Maps API
-                </span>
-              </div>
-
-              <button class="cs-clean-readmore-btn cs-btn-verzeo js-open-case-modal" data-case-id="case-verzeo" type="button" style="background: #000000 !important; color: #FFFFFF !important;">
-                Read More <span>&rarr;</span>
-              </button>
-            </div>
-          </article>
-
-          <!-- 4: Banaraswala -->
-          <article class="cs-clean-box-card cs-card-banaraswala" data-category="crm salesforce">
-            <div class="cs-card-content">
-              <div class="cs-clean-logo-container">
-                <img src="../assets/images/case-studies/banaraswala.png" alt="Banaraswala Logo" class="cs-clean-logo-img">
-              </div>
-
-              <div class="cs-clean-location-pill">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#EF4444" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                  <circle cx="12" cy="10" r="3"></circle>
-                </svg>
-                <span>Location: <strong>Delhi, India</strong></span>
-              </div>
-
-              <div class="cs-clean-products-tags">
-                <span class="cs-clean-product-tag">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#EA580C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/></svg>
-                  Salesforce CRM
-                </span>
-                <span class="cs-clean-product-tag">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#EA580C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 0 1 10 10c0 5.523-4.477 10-10 10a9.96 9.96 0 0 1-4.587-1.11L2 22l1.11-5.413A9.96 9.96 0 0 1 2 12C2 6.477 6.477 2 12 2z"/></svg>
-                  Facebook Chatbot
-                </span>
-                <span class="cs-clean-product-tag">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#EA580C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-                  SMS Integration
-                </span>
-              </div>
-
-              <button class="cs-clean-readmore-btn cs-btn-banaraswala js-open-case-modal" data-case-id="case-banaraswala" type="button" style="background: #000000 !important; color: #FFFFFF !important;">
-                Read More <span>&rarr;</span>
-              </button>
-            </div>
-          </article>
-
-          <!-- 5: NZ Immigration -->
-          <article class="cs-clean-box-card cs-card-nz" data-category="crm zoho">
-            <div class="cs-card-content">
-              <div class="cs-clean-logo-container">
-                <img src="../assets/images/case-studies/nz-immigration.png" alt="NZ Immigration Logo" class="cs-clean-logo-img">
-              </div>
-
-              <div class="cs-clean-location-pill">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#EF4444" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                  <circle cx="12" cy="10" r="3"></circle>
-                </svg>
-                <span>Location: <strong>New Zealand</strong></span>
-              </div>
-
-              <div class="cs-clean-products-tags">
-                <span class="cs-clean-product-tag">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0284C7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/></svg>
-                  Zoho CRM
-                </span>
-                <span class="cs-clean-product-tag">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0284C7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-                  Zoho Form
-                </span>
-                <span class="cs-clean-product-tag">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0284C7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
-                  Zoho Social
-                </span>
-                <span class="cs-clean-product-tag">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0284C7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
-                  Zoho Workdrive
-                </span>
-              </div>
-
-              <button class="cs-clean-readmore-btn cs-btn-nz js-open-case-modal" data-case-id="case-nz-immigration" type="button" style="background: #000000 !important; color: #FFFFFF !important;">
-                Read More <span>&rarr;</span>
-              </button>
-            </div>
-          </article>
-
-          <!-- 6: Greenworld Solarwares -->
-          <article class="cs-clean-box-card cs-card-greenworld" data-category="hr zoho">
-            <div class="cs-card-content">
-              <div class="cs-clean-logo-container">
-                <img src="../assets/images/case-studies/greenworld.png" alt="Greenworld Solarwares Private Limited Logo" class="cs-clean-logo-img">
-              </div>
-
-              <div class="cs-clean-location-pill">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#EF4444" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                  <circle cx="12" cy="10" r="3"></circle>
-                </svg>
-                <span>Location: <strong>Chhattisgarh, India</strong></span>
-              </div>
-
-              <div class="cs-clean-products-tags">
-                <span class="cs-clean-product-tag">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-                  Zoho People
-                </span>
-                <span class="cs-clean-product-tag">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
-                  Zoho Payroll
-                </span>
-                <span class="cs-clean-product-tag">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><polyline points="16 11 18 13 22 9"/></svg>
-                  Zoho Recruit
-                </span>
-              </div>
-
-              <button class="cs-clean-readmore-btn cs-btn-greenworld js-open-case-modal" data-case-id="case-rahul-hr" type="button" style="background: #000000 !important; color: #FFFFFF !important;">
-                Read More <span>&rarr;</span>
-              </button>
-            </div>
-          </article>
-
-          <!-- 7: Pierian Service -->
-          <article class="cs-clean-box-card cs-card-pierian" data-category="finance zoho">
-            <div class="cs-card-content">
-              <div class="cs-clean-logo-container">
-                <img src="../assets/images/case-studies/pierian.png" alt="Pierian Service Logo" class="cs-clean-logo-img" style="border-radius: 8px;">
-              </div>
-
-              <div class="cs-clean-location-pill">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#EF4444" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                  <circle cx="12" cy="10" r="3"></circle>
-                </svg>
-                <span>Location: <strong>Bangalore, India</strong></span>
-              </div>
-
-              <div class="cs-clean-products-tags">
-                <span class="cs-clean-product-tag">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1E40AF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
-                  Zoho Books
-                </span>
-                <span class="cs-clean-product-tag">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1E40AF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-                  Zoho Invoice
-                </span>
-              </div>
-
-              <button class="cs-clean-readmore-btn cs-btn-pierian js-open-case-modal" data-case-id="case-manu-company" type="button" style="background: #000000 !important; color: #FFFFFF !important;">
-                Read More <span>&rarr;</span>
-              </button>
-            </div>
-          </article>
-
-          <!-- 8: Blume Labs -->
-          <article class="cs-clean-box-card cs-card-blume" data-category="finance zoho">
-            <div class="cs-card-content">
-              <div class="cs-clean-logo-container">
-                <img src="../assets/images/case-studies/blume-labs.png" alt="Blume Labs Logo" class="cs-clean-logo-img">
-              </div>
-
-              <div class="cs-clean-location-pill">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#EF4444" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                  <circle cx="12" cy="10" r="3"></circle>
-                </svg>
-                <span>Location: <strong>Bangalore, India</strong></span>
-              </div>
-
-              <div class="cs-clean-products-tags">
-                <span class="cs-clean-product-tag">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#6366F1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/></svg>
-                  Zoho CRM
-                </span>
-                <span class="cs-clean-product-tag">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#6366F1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
-                  Zoho Books
-                </span>
-              </div>
-
-              <button class="cs-clean-readmore-btn cs-btn-blume js-open-case-modal" data-case-id="case-blume-labs" type="button" style="background: #000000 !important; color: #FFFFFF !important;">
-                Read More <span>&rarr;</span>
-              </button>
-            </div>
-          </article>
-
-          <!-- 9: Loom Craft -->
-          <article class="cs-clean-box-card cs-card-loomcrafts" data-category="crm salesforce">
-            <div class="cs-card-content">
-              <div class="cs-clean-logo-container">
-                <img src="../assets/images/case-studies/loomcrafts.png" alt="Loom Craft Logo" class="cs-clean-logo-img" style="border-radius: 10px;">
-              </div>
-
-              <div class="cs-clean-location-pill">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#EF4444" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                  <circle cx="12" cy="10" r="3"></circle>
-                </svg>
-                <span>Location: <strong>Uttar Pradesh, India</strong></span>
-              </div>
-
-              <div class="cs-clean-products-tags">
-                <span class="cs-clean-product-tag">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/></svg>
-                  Salesforce CRM
-                </span>
-                <span class="cs-clean-product-tag">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-                  Razorpay
-                </span>
-                <span class="cs-clean-product-tag">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-                  WhatsApp
-                </span>
-                <span class="cs-clean-product-tag">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 0 1 10 10c0 5.523-4.477 10-10 10a9.96 9.96 0 0 1-4.587-1.11L2 22l1.11-5.413A9.96 9.96 0 0 1 2 12C2 6.477 6.477 2 12 2z"/></svg>
-                  Facebook Chatbot
-                </span>
-                <span class="cs-clean-product-tag">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-                  SMS
-                </span>
-              </div>
-
-              <button class="cs-clean-readmore-btn cs-btn-loomcrafts js-open-case-modal" data-case-id="case-loomcrafts" type="button" style="background: #000000 !important; color: #FFFFFF !important;">
-                Read More <span>&rarr;</span>
-              </button>
-            </div>
-          </article>
-
-          <!-- 10: Chanakya University -->
-          <article class="cs-clean-box-card cs-card-chanakya" data-category="crm zoho">
-            <div class="cs-card-content">
-              <div class="cs-clean-logo-container">
-                <img src="../assets/images/case-studies/chanakya-university.png" alt="Chanakya University Logo" class="cs-clean-logo-img">
-              </div>
-
-              <div class="cs-clean-location-pill">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#EF4444" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                  <circle cx="12" cy="10" r="3"></circle>
-                </svg>
-                <span>Location: <strong>Bangalore, India</strong></span>
-              </div>
-
-              <div class="cs-clean-products-tags">
-                <span class="cs-clean-product-tag">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#991B1B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/></svg>
-                  Zoho CRM
-                </span>
-              </div>
-
-              <button class="cs-clean-readmore-btn cs-btn-chanakya js-open-case-modal" data-case-id="case-chanakya-university" type="button" style="background: #000000 !important; color: #FFFFFF !important;">
-                Read More <span>&rarr;</span>
-              </button>
-            </div>
-          </article>
-
-        </div>
-      </div>
-
-    </section>
-
-    <!-- ==========================================================================
-         DIGITAL MARKETING CASE STUDIES SECTION (4 SQUARE GREEN CARDS)
-         ========================================================================== -->
-    <section class="dm-case-studies-section" id="dmCaseStudiesSection">
-      <div class="container" style="max-width: 1080px; margin: 0 auto; padding: 0 1.5rem;">
-        <div class="dm-case-studies-grid">
-          
-          <!-- Card 1: Deccan Herald -->
-          <div class="dm-case-study-card" data-study="deccan-herald">
-            <img 
-              src="../assets/images/case-study-card-1.png" 
-              alt="Deccan Herald Case Study - News & Publication: 37% Boost in Lead Generation, 49% Reduction in CAC" 
-              class="dm-case-study-img" 
-              loading="lazy">
-          </div>
-
-          <!-- Card 2: Myntra -->
-          <div class="dm-case-study-card" data-study="myntra">
-            <img 
-              src="../assets/images/case-study-card-2.png" 
-              alt="Myntra Case Study - E-Commerce: 10X Boost in Organic traffic, 100% Increase MOM" 
-              class="dm-case-study-img" 
-              loading="lazy">
-          </div>
-
-          <!-- Card 3: Flipkart -->
-          <div class="dm-case-study-card" data-study="flipkart">
-            <img 
-              src="../assets/images/case-study-card-3.png" 
-              alt="Flipkart Case Study - E-Commerce: 40% Boost in IG Engagement, 70% Boost in YT Views" 
-              class="dm-case-study-img" 
-              loading="lazy">
-          </div>
-
-          <!-- Card 4: via Milano -->
-          <div class="dm-case-study-card" data-study="via-milano">
-            <img 
-              src="../assets/images/case-study-card-4.png" 
-              alt="via Milano Case Study - E-Commerce: 4X Boost in Table Booking, 100% Increase Revenue" 
-              class="dm-case-study-img" 
-              loading="lazy">
-          </div>
-
-        </div>
-
-      </div>
-    </section>
-    </div>
 
     <!-- ==========================================================================
          4. EDITORIAL PULL QUOTE SECTION
@@ -2182,7 +1820,7 @@
       <div class="cs-clients-container">
         <div class="cs-clients-header">
           <span class="cs-eyebrow">ENTERPRISE CLIENT ECOSYSTEM</span>
-          <h2 class="cs-section-title">Trusted by Industry Leaders</h2>
+          <h2 class="cs-section-title">Trusted by <span class="cs-title-red" style="color: #FF3B30 !important;">Industry Leaders</span></h2>
           <p class="cs-section-subtitle">
             Partnering with world-class enterprises, high-velocity disruptors, and category leaders to build scalable revenue architecture.
           </p>
@@ -2305,19 +1943,24 @@
       </button>
 
       <!-- Modal Header -->
-      <div class="cs-modal-header" style="margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 1px solid #E2E8F0;">
-        <div style="display: flex; align-items: center; gap: 0.65rem; margin-bottom: 0.5rem; flex-wrap: wrap;">
-          <span class="cs-tag-domain zoho" id="csModalLocation">📍 Location: New Zealand</span>
-          <span style="font-size: 0.82rem; font-weight: 700; color: #0D9488; background: #F0FDFA; border: 1px solid #CCFBF1; padding: 0.3rem 0.75rem; border-radius: 9999px;" id="csModalProducts">Zoho Products</span>
+      <div class="cs-modal-header">
+        <div class="cs-modal-header-meta">
+          <span class="cs-modal-location-tag" id="csModalLocation">📍 Location: New Zealand</span>
+          <span class="cs-modal-products-tag" id="csModalProducts">Zoho Products</span>
         </div>
-        <h2 class="cs-modal-title" id="csModalTitle" style="font-size: 1.85rem; font-weight: 800; color: #0F172A; margin: 0;">
-          Company Name
-        </h2>
+        <div class="cs-modal-title-row">
+          <div class="cs-modal-logo-wrap" id="csModalLogoWrap">
+            <img id="csModalLogo" src="" alt="Company Logo" class="cs-modal-logo-img">
+          </div>
+          <h2 class="cs-modal-title" id="csModalTitle">
+            Company Name
+          </h2>
+        </div>
       </div>
 
       <!-- Description of the Company (At Top) -->
       <div class="cs-modal-desc-box">
-        <h4 style="font-size: 0.8rem; font-weight: 800; color: #64748B; text-transform: uppercase; letter-spacing: 0.08em; margin: 0 0 0.5rem 0;">
+        <h4 class="cs-modal-overview-label">
           Company Overview
         </h4>
         <p id="csModalOverview" class="cs-modal-desc-text">
@@ -2328,7 +1971,7 @@
       <!-- 1) Key Challenges -->
       <div class="cs-modal-section-card challenges">
         <h3 class="cs-modal-section-heading challenges">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
             <circle cx="12" cy="12" r="10"></circle>
             <line x1="12" y1="8" x2="12" y2="12"></line>
             <line x1="12" y1="16" x2="12.01" y2="16"></line>
@@ -2343,7 +1986,7 @@
       <!-- 2) Solution -->
       <div class="cs-modal-section-card solution">
         <h3 class="cs-modal-section-heading solution">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
             <polyline points="20 6 9 17 4 12"></polyline>
           </svg>
           <span>Solution</span>
@@ -2356,7 +1999,7 @@
       <!-- 3) Business Benefits -->
       <div class="cs-modal-section-card benefits">
         <h3 class="cs-modal-section-heading benefits">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
             <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
           </svg>
           <span>Business Benefits</span>
@@ -2370,9 +2013,12 @@
   </div>
 
   <!-- ==========================================================================
-       SITE FOOTER
+       SITE FOOTER (Exact Match to Zoho Enterprise & About Us Page)
        ========================================================================== -->
-  <footer class="site-footer">
+  <footer class="site-footer finsight-theme-footer" id="zohoFooter" aria-label="Digiolic Site Footer">
+    <!-- Ambient Blue Radiant Glow (Abstract from FinSight) -->
+    <div class="finsight-footer-abstract" aria-hidden="true"></div>
+
     <div class="container-home-compact">
 
       <div class="footer-grid">
@@ -2385,7 +2031,6 @@
           <p>
             Architecting next-generation enterprise business systems. Unified Zoho One, Salesforce Cloud, and performance growth marketing.
           </p>
-
         </div>
 
         <!-- 2) Services (After Digiolic) -->
@@ -2407,8 +2052,8 @@
               <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
             </svg>
             <div>
-              <span style="display: block; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; color: #64748B; margin-bottom: 2px;">Mobile</span>
-              <a href="tel:+919665530071" class="footer-link" style="color: #F8FAFC; font-weight: 500;">+91 9665530071</a>
+              <span>Mobile</span>
+              <a href="tel:+919665530071" class="footer-link">+91 9665530071</a>
             </div>
           </div>
           <div class="footer-contact-item">
@@ -2417,8 +2062,8 @@
               <polyline points="22,6 12,13 2,6"></polyline>
             </svg>
             <div>
-              <span style="display: block; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; color: #64748B; margin-bottom: 2px;">Email id</span>
-              <a href="mailto:info@digiolic.com" class="footer-link" style="color: #F8FAFC; font-weight: 500;">info@digiolic.com</a>
+              <span>Email id</span>
+              <a href="mailto:info@digiolic.com" class="footer-link">info@digiolic.com</a>
             </div>
           </div>
         </div>
@@ -2570,5 +2215,117 @@
     </svg>
   </button>
   <script src="../js/scroll-nav.js?v=20260920_v302"></script>
+  <script src="../js/cinematic-menu.js?v=20261004_v2"></script>
+
+  <!-- Case Stories Audio Controller -->
+  <script>
+    (function () {
+      function initCaseStoriesAudio() {
+        const audio = document.getElementById('caseStoriesStoryAudio');
+        const toggleBtn = document.getElementById('caseStoriesAudioToggleBtn');
+        if (!audio || !toggleBtn) return;
+
+        let userManuallyPaused = false;
+        let isPlaying = true;
+        let gestureUnlocked = false;
+        audio.volume = 0.85;
+
+        function updateUI(active) {
+          if (active) {
+            toggleBtn.classList.add('is-playing');
+            toggleBtn.classList.remove('is-paused');
+            toggleBtn.setAttribute('aria-pressed', 'true');
+            toggleBtn.setAttribute('title', 'Pause Song');
+          } else {
+            toggleBtn.classList.remove('is-playing');
+            toggleBtn.classList.add('is-paused');
+            toggleBtn.setAttribute('aria-pressed', 'false');
+            toggleBtn.setAttribute('title', 'Play Song');
+          }
+        }
+
+        function startAudio() {
+          isPlaying = true;
+          updateUI(true);
+          const playPromise = audio.play();
+          if (playPromise !== undefined) {
+            playPromise
+              .then(() => {
+                isPlaying = true;
+                updateUI(true);
+              })
+              .catch(() => {
+                if (!userManuallyPaused) {
+                  updateUI(true);
+                }
+              });
+          } else {
+            updateUI(true);
+          }
+        }
+
+        function stopAudio() {
+          if (!audio.paused) {
+            audio.pause();
+          }
+          isPlaying = false;
+          updateUI(false);
+        }
+
+        audio.addEventListener('play', () => {
+          isPlaying = true;
+          updateUI(true);
+        });
+        audio.addEventListener('pause', () => {
+          if (userManuallyPaused) {
+            isPlaying = false;
+            updateUI(false);
+          }
+        });
+
+        // Toggle button click: manual Play / Pause
+        toggleBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          gestureUnlocked = true;
+          if (!audio.paused || isPlaying) {
+            userManuallyPaused = true;
+            stopAudio();
+          } else {
+            userManuallyPaused = false;
+            startAudio();
+          }
+        });
+
+        // Attempt initial playback immediately on load
+        startAudio();
+
+        // Gesture unlock on any user movement / gesture / click / scroll / keydown
+        const unlockEvents = ['pointerdown', 'mousedown', 'click', 'touchstart', 'touchend', 'scroll', 'wheel', 'keydown', 'mousemove'];
+        function unlockAutoplayOnGesture() {
+          if (gestureUnlocked) return;
+          if (userManuallyPaused) return;
+
+          if (audio.paused) {
+            const p = audio.play();
+            if (p !== undefined) {
+              p.then(() => {
+                gestureUnlocked = true;
+                unlockEvents.forEach(evt => window.removeEventListener(evt, unlockAutoplayOnGesture));
+                updateUI(true);
+              }).catch(() => {});
+            }
+          }
+        }
+
+        unlockEvents.forEach(evt => window.addEventListener(evt, unlockAutoplayOnGesture, { passive: true }));
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initCaseStoriesAudio);
+      } else {
+        initCaseStoriesAudio();
+      }
+    })();
+  </script>
 </body>
 </html>

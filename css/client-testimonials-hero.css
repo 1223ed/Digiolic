@@ -1,0 +1,248 @@
+/* ==========================================================================
+   CLIENT TESTIMONIALS HERO (FULL-PAGE MONUMENTAL SPATIAL STAGE)
+   Exact architectural typography & scroll wave animation as Why Choose Digiolic
+   ========================================================================== */
+
+/* Outer Scroll Track Container for Pinned Scrubbing */
+.ct-interactive-section {
+  position: relative;
+  width: 100%;
+  height: 200vh; /* Delivers silky, controlled scroll scrub distance */
+  background: linear-gradient(180deg, #00073d 0%, #00052e 35%, #000211 70%, #000000 100%) !important;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow: visible;
+  isolation: isolate;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Pinned Sticky Viewport (100vh locked to viewport while scrubbing) */
+.ct-sticky-wrapper {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(180deg, #00073d 0%, #00052e 35%, #000211 70%, #000000 100%) !important;
+  isolation: isolate;
+  box-sizing: border-box;
+}
+
+/* Background grid & subtle orbital lines */
+.ct-bg-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.8;
+}
+
+.ct-bg-grid {
+  width: 100%;
+  max-width: 1600px;
+  height: 100%;
+  max-height: 960px;
+}
+
+/* Technical Corner Markings (Identical to Why Choose Digiolic) */
+.ct-corner-mark {
+  position: absolute;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.16em;
+  color: rgba(255, 255, 255, 0.35);
+  text-transform: uppercase;
+  user-select: none;
+  pointer-events: none;
+  z-index: 4;
+}
+
+.ct-corner-tl {
+  top: clamp(20px, 3vh, 36px);
+  left: clamp(24px, 3vw, 48px);
+  border-top: 1px solid rgba(255, 255, 255, 0.16);
+  border-left: 1px solid rgba(255, 255, 255, 0.16);
+  padding: 6px 0 0 8px;
+}
+
+.ct-corner-tr {
+  top: clamp(20px, 3vh, 36px);
+  right: clamp(24px, 3vw, 48px);
+  border-top: 1px solid rgba(255, 255, 255, 0.16);
+  border-right: 1px solid rgba(255, 255, 255, 0.16);
+  padding: 6px 8px 0 0;
+}
+
+.ct-corner-bl {
+  bottom: clamp(20px, 3vh, 36px);
+  left: clamp(24px, 3vw, 48px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+  border-left: 1px solid rgba(255, 255, 255, 0.16);
+  padding: 0 0 6px 8px;
+}
+
+.ct-corner-br {
+  bottom: clamp(20px, 3vh, 36px);
+  right: clamp(24px, 3vw, 48px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+  border-right: 1px solid rgba(255, 255, 255, 0.16);
+  padding: 0 8px 6px 0;
+}
+
+/* Stage container holding the title, pill, description & scroll indicator */
+.ct-stage-container {
+  position: relative;
+  width: 100%;
+  max-width: 1600px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  z-index: 3;
+  padding: 0 24px;
+  box-sizing: border-box;
+}
+
+/* Badge Pill Above Title */
+.ct-pill-badge {
+  display: inline-block;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  padding: 6px 18px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: #F8E71C;
+  margin-bottom: 24px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  will-change: transform, opacity;
+}
+
+/* Monumental Center Title with Overflow Wave Masks (Same as Why Choose Digiolic) */
+.ct-hero-title {
+  text-align: center;
+  user-select: none;
+  pointer-events: none;
+  perspective: 1200px;
+  transform-style: preserve-3d;
+  will-change: transform, opacity;
+  margin-bottom: 24px;
+}
+
+.ct-title-mask {
+  overflow: hidden;
+  display: block;
+  line-height: 0.90;
+  padding: 0.05em 0;
+}
+
+.ct-title-line {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Montserrat', 'Outfit', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: clamp(3.6rem, 7.8vw, 8.5rem);
+  font-weight: 900;
+  line-height: 0.90;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  text-shadow: 0 4px 30px rgba(0, 0, 0, 0.7);
+  white-space: nowrap;
+}
+
+/* Individual character split for silky upward wave entrance (Same as Why Choose Digiolic) */
+.ct-char {
+  display: inline-block;
+  transform: translateY(115%);
+  opacity: 0;
+  will-change: transform, opacity;
+  transition: transform 0.1s linear, opacity 0.1s linear;
+}
+
+.ct-char.space {
+  width: 0.28em;
+}
+
+/* Subtitle Lead Description */
+.ct-lead-desc {
+  color: #94A3B8;
+  max-width: 680px;
+  margin: 0 auto 36px;
+  font-size: clamp(1rem, 1.3vw, 1.2rem);
+  line-height: 1.6;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  will-change: transform, opacity;
+}
+
+/* Scroll Down Indicator at Bottom of Pinned Stage */
+.ct-scroll-prompt {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.6);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.ct-scroll-prompt svg {
+  animation: ctBounce 1.8s ease-in-out infinite;
+}
+
+@keyframes ctBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(4px); }
+}
+
+/* When active during scroll scrub */
+.ct-visible {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .ct-interactive-section {
+    height: 160vh;
+  }
+  .ct-title-line {
+    font-size: clamp(2.2rem, 8.5vw, 4.2rem);
+  }
+  .ct-corner-mark {
+    font-size: 0.55rem;
+  }
+  .ct-lead-desc {
+    font-size: 0.92rem;
+    padding: 0 16px;
+    margin-bottom: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .ct-title-line {
+    font-size: clamp(1.75rem, 8.2vw, 2.6rem);
+  }
+}

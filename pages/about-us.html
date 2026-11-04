@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>About Our Studio | Digiolic — Enterprise Systems & Growth Architecture</title>
+  <meta name="description"
+    content="Digiolic is an enterprise technology and growth architecture firm that builds cohesive digital ecosystems with clarity and purpose — Zoho One, Salesforce, and performance marketing.">
+  <link rel="canonical" href="https://digiolic.com/pages/about-us.html">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+
+  <!-- Fonts: Fraunces (signature italic accent), Plus Jakarta Sans (headings), Inter, Cinzel & Instrument Serif for Cinematic Menu -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@1,9..144,300..700&family=Inter:wght@300;400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Cinzel:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap"
+    rel="stylesheet">
+
+  <!-- Core Digiolic & Finsight Themes -->
+  <link rel="stylesheet" href="../css/components.css?v=20261010_p2">
+  <link rel="stylesheet" href="../css/cinematic-menu.css?v=20261010_p2">
+  <link rel="stylesheet" href="../css/zoho-finsight-theme.css?v=20261010_p2">
+
+  <!-- Dedicated Visuvate-inspired Stylesheet -->
+  <link rel="stylesheet" href="../css/about-us.css?v=20261010_about_v6">
+  <link rel="stylesheet" href="../css/client-character-wave.css?v=20261028_w1">
+
+  <style>
+    /* Ensure Header floating over dark background */
+    .mainframe-navbar {
+      position: absolute !important;
+      top: 0 !important;
+      left: 0 !important;
+      right: 0 !important;
+      width: 100% !important;
+      z-index: 1000 !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+      padding: 1.5rem 1.75rem !important;
+      min-height: 84px !important;
+      background: transparent !important;
+      border: none !important;
+      box-sizing: border-box !important;
+    }
+    @media (min-width: 768px) {
+      .mainframe-navbar {
+        padding: 1.75rem 3rem !important;
+        min-height: 96px !important;
+      }
+    }
+    @media (min-width: 1280px) {
+      .mainframe-navbar {
+        padding: 2rem 4.5rem !important;
+        min-height: 104px !important;
+      }
+    }
+    .mainframe-logo-wrap {
+      display: flex !important;
+      align-items: center !important;
+      text-decoration: none !important;
+      z-index: 102 !important;
+    }
+    .cinematic-menu-trigger {
+      color: #FFFFFF !important;
+    }
+    .menu-trigger-text {
+      color: #FFFFFF !important;
+    }
+
+    /* Circular Audio Toggle Button in Navbar (same design as contact us page) */
+    .nav-sound-control {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      border: none;
+      background: rgba(255, 255, 255, 0.12);
+      color: #FFFFFF;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      padding: 0;
+      transition: background-color 0.25s ease, transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), color 0.25s ease;
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
+      flex-shrink: 0;
+      outline: none;
+    }
+
+    .nav-sound-control:hover {
+      transform: scale(1.08);
+      background: rgba(255, 255, 255, 0.22);
+    }
+
+    .nav-sound-control:active {
+      transform: scale(0.95);
+    }
+
+    .nav-sound-control .sound-icon {
+      width: 18px;
+      height: 18px;
+      display: block;
+      pointer-events: none;
+    }
+
+    .nav-sound-control.is-playing .sound-icon-playing {
+      display: block;
+    }
+    .nav-sound-control.is-playing .sound-icon-paused {
+      display: none;
+    }
+    .nav-sound-control.is-paused .sound-icon-playing {
+      display: none;
+    }
+    .nav-sound-control.is-paused .sound-icon-paused {
+      display: block;
+    }
+
+    /* Subtle sound wave pulse animation when playing */
+    .nav-sound-control.is-playing .sound-wave-1 {
+      animation: soundArcPulse 1.2s infinite ease-in-out;
+    }
+    .nav-sound-control.is-playing .sound-wave-2 {
+      animation: soundArcPulse 1.2s infinite 0.2s ease-in-out;
+    }
+
+    @keyframes soundArcPulse {
+      0%, 100% {
+        opacity: 0.45;
+      }
+      50% {
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ==========================================================================
+       HEADER TOPBAR NAVIGATION (Digiolic Logo on left, Menu Trigger on right)
+       ========================================================================== -->
+  <header class="mainframe-navbar" id="mainframeNavbar">
+    <!-- Left: Digiolic Brand Logo -->
+    <a href="../index.html" class="mainframe-logo-wrap" aria-label="Digiolic Home">
+      <img src="../assets/images/digiolic-logo.png" alt="Digiolic" class="brand-logo-img" width="96" height="34"
+        style="height: 34px !important; width: auto !important; max-height: 34px !important; display: block; filter: none !important; -webkit-filter: none !important;">
+    </a>
+
+    <!-- Right: Sound Controller (Image 2 design) + Menu Trigger with Ring Icon -->
+    <div class="mainframe-nav-actions" style="margin-left: auto; display: flex; align-items: center; gap: 0.75rem;">
+      <button type="button" class="nav-sound-control is-playing" id="aboutAudioToggleBtn" aria-label="Play or pause background song" title="Pause Song" aria-pressed="true" tabindex="0">
+        <!-- Playing state: Speaker with Sound Waves (Image 2 design) -->
+        <svg class="sound-icon sound-icon-playing" viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+          <path d="M11 5L6 9H2v6h4l5 4V5z"/>
+          <path class="sound-wave-1" d="M15.54 8.46a5 5 0 0 1 0 7.07" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <path class="sound-wave-2" d="M19.07 4.93a10 10 0 0 1 0 14.14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <!-- Paused state: Speaker Muted -->
+        <svg class="sound-icon sound-icon-paused" viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+          <path d="M11 5L6 9H2v6h4l5 4V5z"/>
+          <line x1="23" y1="9" x2="17" y2="15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <line x1="17" y1="9" x2="23" y2="15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </button>
+
+      <button class="cinematic-menu-trigger" id="cinematicMenuOpenBtn" aria-label="Open Navigation Menu">
+        <span class="menu-trigger-text">Menu</span>
+        <span class="menu-trigger-circle"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- About Us Background Song: name-story.mp3 -->
+  <audio id="aboutStoryAudio" preload="auto" loop playsinline autoplay>
+    <source src="../assets/audio/name-story.mp3" type="audio/mp3">
+    <source src="../js/name-story.mp3" type="audio/mp3">
+  </audio>
+
+  <!-- ==========================================================================
+       CINEMATIC EDITORIAL MENU OVERLAY
+       Reveals underlying About Us page on left, black panel wipes from right with smoke
+       ========================================================================== -->
+  <div class="cinematic-menu-overlay" id="cinematicMenuOverlay" role="dialog" aria-modal="true" aria-label="Navigation Menu">
+    <!-- Clickable Backdrop (left area revealing page) -->
+    <div class="cinematic-menu-backdrop" id="cinematicMenuBackdrop" aria-label="Close menu by clicking background"></div>
+
+    <!-- Right Black Menu Panel with Leading Smoke Edge -->
+    <div class="cinematic-menu-panel" id="cinematicMenuPanel">
+      <!-- Leading Organic Billowing Smoke Edge with live WebGL Canvas animation -->
+      <div class="cinematic-smoke-edge" id="cinematicSmokeEdge" aria-hidden="true">
+        <canvas class="cinematic-smoke-canvas" id="cinematicSmokeCanvas" width="580" height="1384"></canvas>
+        <video class="cinematic-smoke-video-src" id="cinematicSmokeVideoSrc" loop muted playsinline preload="auto" style="display: none;">
+          <source src="../assets/videos/smoke-loop-crop.mp4" type="video/mp4">
+        </video>
+      </div>
+
+      <!-- Top Header inside Panel: Close Button -->
+      <div class="cinematic-panel-top">
+        <button class="cinematic-menu-close" id="cinematicMenuCloseBtn" aria-label="Close Navigation Menu">
+          <span class="close-trigger-text">Close</span>
+          <span class="close-trigger-circle">
+            <span class="close-inner-dot"></span>
+          </span>
+        </button>
+      </div>
+
+      <!-- Center Editorial Display Navigation (About Us above Zoho) -->
+      <nav class="cinematic-nav-center" aria-label="Editorial Menu Navigation">
+        <ul class="cinematic-nav-list">
+          <li class="cinematic-nav-item" style="--item-index: 0">
+            <a href="../index.html" class="cinematic-nav-link" data-title="HOME">HOME</a>
+          </li>
+          <li class="cinematic-nav-item" style="--item-index: 1">
+            <a href="about-us.html" class="cinematic-nav-link active" data-title="ABOUT US">ABOUT US</a>
+          </li>
+          <li class="cinematic-nav-item" style="--item-index: 2">
+            <a href="zoho.html" class="cinematic-nav-link" data-title="ZOHO">ZOHO</a>
+          </li>
+          <li class="cinematic-nav-item" style="--item-index: 3">
+            <a href="salesforce.html" class="cinematic-nav-link" data-title="SALESFORCE">SALESFORCE</a>
+          </li>
+          <li class="cinematic-nav-item" style="--item-index: 4">
+            <a href="digital-marketing.html" class="cinematic-nav-link" data-title="DIGITAL MARKETING">DIGITAL MARKETING</a>
+          </li>
+          <li class="cinematic-nav-item" style="--item-index: 5">
+            <a href="case-stories.html" class="cinematic-nav-link" data-title="CASE STUDIES">CASE STUDIES</a>
+          </li>
+          <li class="cinematic-nav-item" style="--item-index: 6">
+            <a href="contact.html" class="cinematic-nav-link" data-title="CONTACT US">CONTACT US</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+
+  <main id="main">
+
+    <!-- ==========================================================================
+         1. DISPLAY HERO SECTION (About Us with Signature Fraunces Italic Accent)
+         ========================================================================== -->
+    <header class="vv-hero-section" id="vvHeroHeader">
+      <div id="vvHeroTitleWrap" class="will-change-transform">
+        <h1 class="vv-hero-title">
+          About <span class="vv-accent">Us</span>
+        </h1>
+      </div>
+    </header>
+
+    <!-- ==========================================================================
+         2. NARRATIVE CARD & BRAND EMBLEM (Top Hairline & Radial Glow)
+         ========================================================================== -->
+    <div class="vv-narrative-stage" id="vvNarrativeStage">
+      <!-- Visuvate signature horizontal top hairline & radial glow -->
+      <span aria-hidden="true" class="vv-hero-hairline"></span>
+      <span aria-hidden="true" class="vv-hero-glow-radial"></span>
+
+      <!-- Digiolic 3D Brand Mark Emblem -->
+      <div class="vv-brand-mark-wrap" data-reveal="true">
+        <div class="vv-about-mark-stage" id="vvAboutMarkStage">
+          <img src="../assets/images/about-mark.webp" alt="Digiolic Architecture Mark" width="178" height="74" class="vv-about-mark" id="vvAboutMark" loading="eager" decoding="async">
+        </div>
+      </div>
+
+      <!-- Narrative Copy -->
+      <section class="vv-narrative-text-box">
+        <p class="vv-narrative-paragraph" data-reveal="true">
+          <span class="highlight">Digiolic</span> is an enterprise technology and growth architecture firm that builds <span class="highlight">cohesive digital ecosystems</span> with clarity and purpose. We engineer solutions that are architecturally sound, technically resilient, and meaningful to the enterprises that run on them.
+        </p>
+        <p class="vv-narrative-paragraph" data-reveal="true">
+          Every project begins with understanding and ends with precision. Our goal is to eliminate fragmented stacks and design systems that feel effortless and intentional while delivering measurable results that help <span class="highlight">brands grow</span> and <span class="highlight">perform better at enterprise scale.</span>
+        </p>
+      </section>
+
+      <!-- ==========================================================================
+           3. CERTIFICATIONS & ACCREDITATION GRID (3 Badges)
+           ========================================================================== -->
+      <div class="vv-badges-grid" data-reveal="true">
+        <!-- 1. Zoho Advanced Partner -->
+        <div class="vv-badge-card">
+          <div class="vv-badge-icon-wrap">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+            </svg>
+          </div>
+          <div class="vv-badge-title">Zoho Advanced Partner</div>
+          <div class="vv-badge-subtitle">Certified Zoho One Architects</div>
+        </div>
+
+        <!-- 2. Salesforce Specialist -->
+        <div class="vv-badge-card">
+          <div class="vv-badge-icon-wrap">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/>
+            </svg>
+          </div>
+          <div class="vv-badge-title">Salesforce Cloud</div>
+          <div class="vv-badge-subtitle">Sales &amp; Service Cloud Certified</div>
+        </div>
+
+        <!-- 3. Performance Growth -->
+        <div class="vv-badge-card">
+          <div class="vv-badge-icon-wrap">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+            </svg>
+          </div>
+          <div class="vv-badge-title">Performance Analytics</div>
+          <div class="vv-badge-subtitle">Meta &amp; Google Premier Partner</div>
+        </div>
+      </div>
+
+      <!-- ==========================================================================
+           4. OUR PHILOSOPHY SECTION
+           ========================================================================== -->
+      <section class="vv-philosophy-section">
+        <div>
+          <h2 class="vv-section-subheading" data-reveal="true">Our Philosophy</h2>
+          <p data-reveal="true">
+            We believe good architecture should feel effortless and grounded in purpose. Every detail matters, from schema normalization to how quickly an automation resolves a high-volume request. At Digiolic, technology is not just about features, but how clearly it communicates and how seamlessly it performs.
+          </p>
+          <p class="vv-founder-note" data-reveal="true">
+            Built on a conviction that businesses deserve unified ecosystems, not disconnected software silos. Every project reflects an uncompromised commitment to clarity, purpose, and precision—values that define both our engineering culture and the lasting partnerships we architect.
+          </p>
+        </div>
+      </section>
+
+      <!-- ==========================================================================
+           5. OUR VALUES TIMELINE (The Signature Center Vertical Axis)
+           ========================================================================== -->
+      <section class="vv-values-section">
+        <div class="vv-values-header">
+          <h2 class="vv-section-subheading" data-reveal="true">Our Values</h2>
+        </div>
+
+        <div class="vv-values-timeline-wrap">
+          <!-- Center Vertical Gradient Line -->
+          <span aria-hidden="true" class="vv-values-axis"></span>
+
+          <ul class="vv-values-list">
+            <!-- 1. Clarity (Left Node) -->
+            <li class="vv-values-row">
+              <div class="vv-value-item-left" data-reveal="true">
+                <span aria-hidden="true" class="vv-timeline-tick"></span>
+                <h3 class="vv-value-heading">Clarity</h3>
+                <p class="vv-value-description">
+                  Architecture should simplify. Every decision we make is meant to eliminate noise, bring operational focus, and create transparent workflows.
+                </p>
+              </div>
+            </li>
+
+            <!-- 2. Precision (Right Node) -->
+            <li class="vv-values-row">
+              <div class="vv-value-item-right" data-reveal="true">
+                <span aria-hidden="true" class="vv-timeline-tick"></span>
+                <h3 class="vv-value-heading">Precision</h3>
+                <p class="vv-value-description">
+                  Every detail matters. From data schemas and API pipelines to responsive user interface motion, precision defines how we build.
+                </p>
+              </div>
+            </li>
+
+            <!-- 3. Purpose (Left Node) -->
+            <li class="vv-values-row">
+              <div class="vv-value-item-left" data-reveal="true">
+                <span aria-hidden="true" class="vv-timeline-tick"></span>
+                <h3 class="vv-value-heading">Purpose</h3>
+                <p class="vv-value-description">
+                  Each deployment begins with strategic understanding. We engineer with intent so every automation directly supports commercial goals.
+                </p>
+              </div>
+            </li>
+
+            <!-- 4. Consistency (Right Node) -->
+            <li class="vv-values-row">
+              <div class="vv-value-item-right" data-reveal="true">
+                <span aria-hidden="true" class="vv-timeline-tick"></span>
+                <h3 class="vv-value-heading">Consistency</h3>
+                <p class="vv-value-description">
+                  Operations should feel seamless across every touchpoint. We build unified architectures that keep customer journeys cohesive and dependable.
+                </p>
+              </div>
+            </li>
+
+            <!-- 5. Performance (Left Node) -->
+            <li class="vv-values-row">
+              <div class="vv-value-item-left" data-reveal="true">
+                <span aria-hidden="true" class="vv-timeline-tick"></span>
+                <h3 class="vv-value-heading">Performance</h3>
+                <p class="vv-value-description">
+                  An architecture is complete only when it performs reliably under high concurrency. We engineer platforms that are fast, fluid, and rock-solid.
+                </p>
+              </div>
+            </li>
+          </ul>
+
+          <!-- Sticky Bottom Gradient Fade -->
+          <span aria-hidden="true" class="vv-timeline-bottom-fade"></span>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- ==========================================================================
+         CALL TO ACTION & 3D EMBLEM BANNER ("Create Bold. Deliver Better.")
+         ========================================================================== -->
+    <section class="vv-cta-banner-section" id="vvCtaBannerSection">
+      <div class="vv-cta-inner">
+        <h2 class="vv-cta-title ct-wave-heading" id="aboutCtaTitle" aria-label="Create Bold. Deliver Better.">
+          <span class="ct-wave-mask">
+            <span class="ct-wave-line" id="aboutCtaLine1">Create Bold.</span>
+          </span>
+          <span class="ct-wave-mask">
+            <span class="ct-wave-line" id="aboutCtaLine2">Deliver Better.</span>
+          </span>
+        </h2>
+        <div class="vv-cta-buttons" data-reveal="true">
+          <a class="vv-btn-see-work" href="case-stories.html">
+            <span>See our work</span>
+          </a>
+          <a class="vv-btn-get-touch" href="contact.html">
+            <span>Get in touch</span>
+          </a>
+        </div>
+      </div>
+      <div class="vv-footer-mark-stage" id="vvFooterMarkStage">
+        <div class="vv-monumental-watermark ct-wave-heading" id="aboutDigiolicWatermark" aria-label="DIGIOLIC">
+          <span class="ct-wave-mask">
+            <span class="ct-monumental-line" id="aboutDigiolicLine">DIGIOLIC</span>
+          </span>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==========================================================================
+       6. FOOTER SECTION (Identical to Zoho / FinSight Theme Footer)
+       ========================================================================== -->
+  <footer class="site-footer finsight-theme-footer" id="zohoFooter" aria-label="Digiolic Site Footer">
+    <!-- Ambient Blue Radiant Glow (Abstract from FinSight) -->
+    <div class="finsight-footer-abstract" aria-hidden="true"></div>
+
+    <div class="container-home-compact">
+
+      <div class="footer-grid">
+
+        <!-- 1) Digiolic Brand (Left side) -->
+        <div class="footer-brand-col">
+          <a href="../index.html" class="brand-logo" aria-label="Digiolic Home">
+            <img src="../assets/images/digiolic-logo.png" alt="Digiolic" height="34">
+          </a>
+          <p>
+            Architecting next-generation enterprise business systems. Unified Zoho One, Salesforce Cloud, and performance growth marketing.
+          </p>
+        </div>
+
+        <!-- 2) Services (After Digiolic) -->
+        <div>
+          <h4 class="footer-heading">Services</h4>
+          <ul class="footer-links">
+            <li><a href="about-us.html" class="footer-link">About Us</a></li>
+            <li><a href="zoho.html" class="footer-link">Zoho Enterprise</a></li>
+            <li><a href="salesforce.html" class="footer-link">Salesforce Cloud</a></li>
+            <li><a href="digital-marketing.html" class="footer-link">Digital Marketing</a></li>
+            <li><a href="case-stories.html" class="footer-link">Case Stories</a></li>
+          </ul>
+        </div>
+
+        <!-- 3) Contact (After Services) -->
+        <div>
+          <h4 class="footer-heading">Contact</h4>
+          <div class="footer-contact-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+            </svg>
+            <div>
+              <span>Mobile</span>
+              <a href="tel:+919665530071" class="footer-link">+91 9665530071</a>
+            </div>
+          </div>
+          <div class="footer-contact-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+              <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
+            <div>
+              <span>Email id</span>
+              <a href="mailto:info@digiolic.com" class="footer-link">info@digiolic.com</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4) Subscribe Now (Right side) -->
+        <div class="footer-subscribe-col">
+          <!-- Social Icons Row (Facebook, LinkedIn, Instagram, YouTube) -->
+          <div class="footer-social-row">
+            <a href="https://www.facebook.com/digiolic" target="_blank" rel="noopener noreferrer" class="footer-social-icon-btn" aria-label="Facebook">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="#1877F2"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </a>
+            <a href="https://www.linkedin.com/company/digiolic/" target="_blank" rel="noopener noreferrer" class="footer-social-icon-btn" aria-label="LinkedIn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="#0A66C2"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+            </a>
+            <a href="https://www.instagram.com/digiolic?stkn=MWhmamRsMnB0M3ZlOQ==" target="_blank" rel="noopener noreferrer" class="footer-social-icon-btn" aria-label="Instagram">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="#0F172A"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            </a>
+            <a href="https://youtube.com/@digiolic5977?si=L4YyP_snrB2UKgS3" target="_blank" rel="noopener noreferrer" class="footer-social-icon-btn" aria-label="YouTube">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="#0284C7"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            </a>
+          </div>
+
+          <!-- Title & Subtitle -->
+          <h3 class="footer-subscribe-title">Subscribe Now</h3>
+          <p class="footer-subscribe-subtitle">Don’t miss our future updates! Get Subscribed Today!</p>
+
+          <!-- Zoho Campaigns Web-Optin Form -->
+          <div name="signupFormContainer" style="width: 100%; max-width: 390px;">
+            <input type="hidden" id="signupTmplName" value="quick_form_2">
+            <input type="hidden" value="0" id="recapThemeOptin">
+            <input type="hidden" id="orgNameFull" value="Digiolic">
+            <div id="sf3z58df09f8f9745c325b2e255ad73b0dfaee3e5aa3f3d8a8750b9faa5cd925d880" data-type="signupform">
+              <div id="customForm">
+                <div name="SIGNUP_BODY" id="SIGNUP_BODY" style="width: 100%;">
+                  <form method="POST" id="zcampaignOptinForm" action="https://rxodjw-zgp4.maillist-manage.in/weboptin.zc" target="_zcSignup" onsubmit="if(typeof zcActionUrlRest==='function'){zcActionUrlRest();}" class="footer-subscribe-pill-form">
+                    <div id="errorMsgDiv" style="display: none; position: absolute; bottom: calc(100% + 8px); left: 0; background-color: #FEF2F2; padding: 6px 12px; color: #DC2626; font-size: 12px; border: 1px solid #FECACA; border-radius: 6px; white-space: nowrap; z-index: 10; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">Please enter a valid email address.</div>
+                    <input type="email" placeholder="Enter your email address" changeitem="SIGNUP_FORM_FIELD" name="CONTACT_EMAIL" id="EMBED_FORM_EMAIL_LABEL" class="footer-subscribe-input" required aria-label="Enter your email address">
+                    <input type="text" style="display:none;" placeholder="Name" changeitem="SIGNUP_FORM_FIELD" name="LASTNAME" id="LASTNAME">
+                    <button type="button" action="Save" name="SIGNUP_SUBMIT_BUTTON" id="zcWebOptin" changetype="SIGNUP_SUBMIT_BUTTON_TEXT" class="footer-subscribe-btn" aria-label="Join Now" onclick="if(typeof saveOptin==='function'){saveOptin(this,false,window['runOnFormSubmit_sf3z58df09f8f9745c325b2e255ad73b0dfaee3e5aa3f3d8a8750b9faa5cd925d880'],'#sf3z58df09f8f9745c325b2e255ad73b0dfaee3e5aa3f3d8a8750b9faa5cd925d880 ',event);}else{document.getElementById('zcampaignOptinForm').submit();}">
+                      <span>Join Now</span>
+                      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                      </svg>
+                    </button>
+                    <input type="hidden" id="fieldBorder" value="">
+                    <input type="hidden" id="submitType" name="submitType" value="optinCustomView">
+                    <input type="hidden" id="emailReportId" name="emailReportId" value="">
+                    <input type="hidden" id="formType" name="formType" value="QuickForm">
+                    <input type="hidden" name="zx" id="cmpZuid" value="1dfb196f57">
+                    <input type="hidden" name="zcvers" value="2.0">
+                    <input type="hidden" name="oldListIds" id="allCheckedListIds" value="">
+                    <input type="hidden" id="mode" name="mode" value="OptinCreateView">
+                    <input type="hidden" id="zcld" name="zcld" value="152a1e1638a799c9">
+                    <input type="hidden" id="zctd" name="zctd" value="152a1e1638a645f9">
+                    <input type="hidden" id="document_domain" value="">
+                    <input type="hidden" id="zc_Url" value="rxodjw-zgp4.maillist-manage.in">
+                    <input type="hidden" id="new_optin_response_in" value="0">
+                    <input type="hidden" id="duplicate_optin_response_in" value="0">
+                    <input type="hidden" name="zc_trackCode" id="zc_trackCode" value="ZCFORMVIEW">
+                    <input type="hidden" id="zc_formIx" name="zc_formIx" value="3z58df09f8f9745c325b2e255ad73b0dfaee3e5aa3f3d8a8750b9faa5cd925d880">
+                    <input type="hidden" id="viewFrom" value="URL_ACTION">
+                    <span style="display: none" id="dt_CONTACT_EMAIL">1,true,6,Contact Email,2</span>
+                    <span style="display: none" id="dt_FIRSTNAME">1,false,1,First Name,2</span>
+                    <span style="display: none" id="dt_LASTNAME">1,false,1,Last Name,2</span>
+                  </form>
+                  <img src="https://rxodjw-zgp4.maillist-manage.in/images/spacer.gif" id="refImage" onload="if(typeof referenceSetter==='function'){referenceSetter(this);}" style="display:none;">
+                  <iframe name="_zcSignup" id="_zcSignup" style="display:none;" title="Zoho Campaigns Target"></iframe>
+                </div>
+              </div>
+            </div>
+            <input type="hidden" id="signupFormType" value="QuickForm_Horizontal">
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="footer-bottom">
+        <div>
+          &copy; 2026 Digiolic All rights reserved.
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="../js/gsap.min.js"></script>
+  <script src="../js/ScrollTrigger.min.js"></script>
+  <script src="../js/client-character-wave.js?v=20261028_w1"></script>
+  <script src="../js/cinematic-menu.js?v=20261010_p2"></script>
+
+  <!-- Visuvate Authentic About Us Parallax & Stagger Animation Engine -->
+  <script>
+    (function () {
+      function initAnimations() {
+        if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') {
+          setTimeout(initAnimations, 50);
+          return;
+        }
+
+        gsap.registerPlugin(ScrollTrigger);
+
+        // 1. Hero Title Parallax Scrub Tuck (Exact Visuvate Ratio)
+        const heroHeader = document.querySelector('#vvHeroHeader') || document.querySelector('.vv-hero-section');
+        const titleWrap = document.querySelector('#vvHeroTitleWrap');
+
+        if (heroHeader && titleWrap) {
+          const mm = gsap.matchMedia();
+          mm.add({
+            mobile: "(prefers-reduced-motion: no-preference) and (max-width: 767px)",
+            desktop: "(prefers-reduced-motion: no-preference) and (min-width: 768px)"
+          }, (context) => {
+            const { mobile: isMobile } = context.conditions;
+            gsap.to(titleWrap, {
+              y: isMobile ? 78 : 230,
+              ease: "none",
+              scrollTrigger: {
+                trigger: heroHeader,
+                start: "top top",
+                end: "bottom top",
+                scrub: true,
+                invalidateOnRefresh: true
+              }
+            });
+          });
+        }
+
+        // 2. Staggered [data-reveal="true"] Sections (Exact Visuvate Timing)
+        const revealContainers = [
+          document.querySelector('.vv-narrative-text-box'),
+          document.querySelector('.vv-badges-grid'),
+          document.querySelector('.vv-philosophy-section'),
+          ...document.querySelectorAll('.vv-values-row')
+        ];
+
+        revealContainers.forEach((container) => {
+          if (!container) return;
+          const targets = container.querySelectorAll('[data-reveal="true"]');
+          if (targets.length) {
+            gsap.from(targets, {
+              y: 26,
+              opacity: 0,
+              duration: 0.75,
+              ease: "power3.out",
+              stagger: 0.09,
+              scrollTrigger: {
+                trigger: container,
+                start: "top 80%"
+              },
+              clearProps: "transform,opacity"
+            });
+          }
+        });
+
+        // Brand Mark Initial Stage Reveal
+        const brandMarkWrap = document.querySelector('.vv-brand-mark-wrap[data-reveal="true"]');
+        if (brandMarkWrap) {
+          gsap.from(brandMarkWrap, {
+            y: 24,
+            opacity: 0,
+            duration: 0.8,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: brandMarkWrap,
+              start: "top 85%"
+            },
+            clearProps: "transform,opacity"
+          });
+        }
+
+        // 3. Central Values Timeline Line Fill on Scroll Scrub
+        const axis = document.querySelector('.vv-values-axis');
+        const valuesWrap = document.querySelector('.vv-values-timeline-wrap');
+        if (axis && valuesWrap) {
+          gsap.fromTo(axis, 
+            { scaleY: 0, transformOrigin: "top center" },
+            {
+              scaleY: 1,
+              ease: "none",
+              scrollTrigger: {
+                trigger: valuesWrap,
+                start: "top 75%",
+                end: "bottom 85%",
+                scrub: true
+              }
+            }
+          );
+        }
+
+        // 4. Interactive 3D Perspective Tilt on Mouse Movement
+        const stage = document.querySelector('#vvNarrativeStage');
+        const markStage = document.querySelector('#vvAboutMarkStage');
+        if (stage && markStage) {
+          let targetX = 0, targetY = 0, curX = 0, curY = 0;
+
+          stage.addEventListener('mouseleave', () => {
+            targetX = 0;
+            targetY = 0;
+          });
+
+          stage.addEventListener('mousemove', (e) => {
+            const rect = markStage.getBoundingClientRect();
+            const centerX = rect.left + rect.width / 2;
+            const centerY = rect.top + rect.height / 2;
+            const dx = (e.clientX - centerX) / (window.innerWidth / 2);
+            const dy = (e.clientY - centerY) / (window.innerHeight / 2);
+            targetX = Math.max(-1, Math.min(1, dx)) * 14;
+            targetY = Math.max(-1, Math.min(1, dy)) * -14;
+          });
+
+          function tiltLoop() {
+            curX += (targetX - curX) * 0.08;
+            curY += (targetY - curY) * 0.08;
+            if (markStage) {
+              markStage.style.transform = `perspective(600px) rotateY(${curX.toFixed(2)}deg) rotateX(${curY.toFixed(2)}deg)`;
+            }
+            requestAnimationFrame(tiltLoop);
+          }
+          requestAnimationFrame(tiltLoop);
+        }
+
+        // 5. CTA Title and Buttons Stagger Reveal
+        const ctaSection = document.querySelector('#vvCtaBannerSection');
+        if (ctaSection) {
+          const ctaReveals = ctaSection.querySelectorAll('[data-reveal="true"]');
+          if (ctaReveals.length) {
+            gsap.from(ctaReveals, {
+              y: 26,
+              opacity: 0,
+              duration: 0.75,
+              ease: "power3.out",
+              stagger: 0.09,
+              scrollTrigger: {
+                trigger: ctaSection,
+                start: "top 80%"
+              },
+              clearProps: "transform,opacity"
+            });
+          }
+        }
+
+        // 6. About Us Background Song Controller (name-story.mp3)
+        // Same design and interaction as the contact us page
+        function initAboutAudio() {
+          const audio = document.getElementById('aboutStoryAudio');
+          const toggleBtn = document.getElementById('aboutAudioToggleBtn');
+          if (!audio || !toggleBtn) return;
+
+          let userManuallyPaused = false;
+          let isPlaying = true;
+          let gestureUnlocked = false;
+          audio.volume = 0.85;
+
+          function updateUI(active) {
+            if (active) {
+              toggleBtn.classList.add('is-playing');
+              toggleBtn.classList.remove('is-paused');
+              toggleBtn.setAttribute('aria-pressed', 'true');
+              toggleBtn.setAttribute('title', 'Pause Song');
+            } else {
+              toggleBtn.classList.remove('is-playing');
+              toggleBtn.classList.add('is-paused');
+              toggleBtn.setAttribute('aria-pressed', 'false');
+              toggleBtn.setAttribute('title', 'Play Song');
+            }
+          }
+
+          function startAudio() {
+            isPlaying = true;
+            updateUI(true);
+            const playPromise = audio.play();
+            if (playPromise !== undefined) {
+              playPromise
+                .then(() => {
+                  isPlaying = true;
+                  updateUI(true);
+                })
+                .catch(() => {
+                  // If browser autoplay restriction catches unmuted play on initial load,
+                  // keep UI playing and eagerly unlock on any gesture/scroll/click
+                  if (!userManuallyPaused) {
+                    updateUI(true);
+                  }
+                });
+            } else {
+              updateUI(true);
+            }
+          }
+
+          function stopAudio() {
+            if (!audio.paused) {
+              audio.pause();
+            }
+            isPlaying = false;
+            updateUI(false);
+          }
+
+          audio.addEventListener('play', () => {
+            isPlaying = true;
+            updateUI(true);
+          });
+          audio.addEventListener('pause', () => {
+            if (userManuallyPaused) {
+              isPlaying = false;
+              updateUI(false);
+            }
+          });
+
+          // Toggle button click: manual Play / Pause
+          toggleBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            gestureUnlocked = true;
+            if (!audio.paused || isPlaying) {
+              userManuallyPaused = true;
+              stopAudio();
+            } else {
+              userManuallyPaused = false;
+              startAudio();
+            }
+          });
+
+          // Attempt initial playback immediately on load
+          startAudio();
+
+          // Gesture unlock on any user movement / gesture / click / scroll / keydown
+          const unlockEvents = ['pointerdown', 'mousedown', 'click', 'touchstart', 'touchend', 'scroll', 'wheel', 'keydown', 'mousemove'];
+          function unlockAutoplayOnGesture() {
+            if (gestureUnlocked) return;
+            if (userManuallyPaused) return;
+
+            if (audio.paused) {
+              const p = audio.play();
+              if (p !== undefined) {
+                p.then(() => {
+                  gestureUnlocked = true;
+                  unlockEvents.forEach(evt => window.removeEventListener(evt, unlockAutoplayOnGesture));
+                  updateUI(true);
+                }).catch(() => {});
+              }
+            }
+          }
+
+          unlockEvents.forEach(evt => window.addEventListener(evt, unlockAutoplayOnGesture, { passive: true }));
+        }
+
+        initAboutAudio();
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initAnimations);
+      } else {
+        initAnimations();
+      }
+    })();
+  </script>
+
+</body>
+
+</html>
