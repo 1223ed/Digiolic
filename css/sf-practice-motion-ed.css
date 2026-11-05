@@ -497,24 +497,7 @@
   }
 
   .sf-practice-hud {
-    width: 100% !important;
-    padding: 0 4px !important;
-    margin-bottom: 0 !important;
-    z-index: 25 !important;
-  }
-
-  .sf-practice-hud-pill {
-    font-size: 0.65rem !important;
-    padding: 4px 10px !important;
-  }
-
-  .sf-practice-hud-counter {
-    font-size: 0.72rem !important;
-  }
-
-  .sf-practice-hud-btn {
-    font-size: 0.68rem !important;
-    padding: 6px 12px !important;
+    display: none !important;
   }
 
   .sf-practice-hero-header {
