@@ -62,32 +62,17 @@
       const scrolled = -trackRect.top;
       const progress = clamp(scrolled / scrollableDist, 0, 1);
 
-      // ------------------------------------------------------------------------
-      // Phase 1: Header Departure (Progress 0.00 -> 0.18)
-      // Identical motion & easing to "EVERYTHING YOU NEED TO GET MORE FROM SALESFORCE"
-      // ------------------------------------------------------------------------
+      // Intro headline is completely static - no animation (as requested)
       const introEl = document.getElementById('sfQudeIntro');
       if (introEl) {
-        const riseProgress = clamp(progress / 0.18, 0, 1);
-        const easedHeader = riseProgress < 0.5 
-          ? 4 * riseProgress * riseProgress * riseProgress 
-          : 1 - Math.pow(-2 * riseProgress + 2, 3) / 2;
-        const exitDist = window.innerWidth < 992 ? 300 : 340;
-        const headerY = -easedHeader * exitDist;
-        const headerOpacity = clamp(1 - easedHeader * 1.5, 0, 1);
-
-        introEl.style.transform = `translate3d(0, ${headerY.toFixed(2)}px, 0)`;
-        introEl.style.opacity = headerOpacity.toFixed(3);
+        introEl.style.transform = 'none';
+        introEl.style.opacity = '1';
       }
 
-      // Smooth vertical centering of cards deck as headline departs
+      // Deck remains cleanly positioned below the header
       const deckEl = section.querySelector('.sf-qude-deck');
       if (deckEl) {
-        const riseProgress = clamp(progress / 0.18, 0, 1);
-        const easedRise = 1 - Math.pow(1 - riseProgress, 3);
-        const initialDeckOffset = clamp(190, windowH * 0.24, 230);
-        const deckY = (1 - easedRise) * initialDeckOffset;
-        deckEl.style.transform = `translate3d(0, ${deckY.toFixed(2)}px, 0)`;
+        deckEl.style.transform = 'none';
       }
 
       cards.forEach((card, i) => {

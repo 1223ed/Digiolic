@@ -103,39 +103,17 @@
       // Physics lerp interpolation matching Webflow & Motion.ed
       currentProgress = lerp(currentProgress, targetProgress, 0.09);
 
-      // ------------------------------------------------------------------------
-      // Phase 1: Vertical Rise & Header Departure (Progress 0.00 -> 0.22)
-      // Reference: Motion.ed frames f_004 -> f_014
-      // ------------------------------------------------------------------------
-      const riseProgress = clamp(currentProgress / 0.22, 0, 1);
-      const easedRise = easeOutCubic(riseProgress);
-      const easedHeader = easeInOutCubic(riseProgress);
+      // Headline is completely static - no animation (as requested)
+      heroHeader.style.transform = 'none';
+      heroHeader.style.opacity = '1';
 
-      // Headline translates UP and exits off top of screen smoothly
-      const isMobile = window.innerWidth < 992;
-      const headerExitDistance = isMobile ? 320 : ((cardsWrapper.offsetTop || 120) + 380);
-      const headerY = -easedHeader * headerExitDistance;
-      const headerOpacity = clamp(1 - easedHeader * 1.5, 0, 1);
-      heroHeader.style.transform = `translate3d(0, ${headerY.toFixed(2)}px, 0)`;
-      heroHeader.style.opacity = headerOpacity.toFixed(3);
-
-      // Cards track rises up from peaking position to vertical center
-      const currentCardY = lerp(initialPeakingY, 0, easedRise);
-      cardsWrapper.style.transform = `translate3d(0, ${currentCardY.toFixed(2)}px, 0)`;
+      // Cards track remains in position
+      cardsWrapper.style.transform = 'none';
 
       // ------------------------------------------------------------------------
-      // Phase 2: Horizontal Card Glide (Progress 0.22 -> 1.00)
-      // Reference: Motion.ed frames f_014 -> f_029
+      // Horizontal Card Glide (Progress 0.00 -> 1.00)
       // ------------------------------------------------------------------------
-      let currentTrackX = 0;
-      let glideProgress = 0;
-
-      if (currentProgress >= 0.22) {
-        glideProgress = clamp((currentProgress - 0.22) / 0.78, 0, 1);
-        const easedGlide = easeOutCubic(glideProgress);
-        currentTrackX = -easedGlide * maxTranslateX;
-      }
-
+      const currentTrackX = -currentProgress * maxTranslateX;
       cardsTrack.style.transform = `translate3d(${currentTrackX.toFixed(2)}px, 0, 0)`;
 
       // Dynamic Card Depth & Shadow Focus

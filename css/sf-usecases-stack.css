@@ -30,16 +30,18 @@
 }
 
 .sf-qude-sticky .sf-qude-intro {
-  position: absolute;
-  top: clamp(16px, 3vh, 36px);
-  left: 0;
-  width: 100%;
-  padding: 0 clamp(20px, 4vw, 40px);
-  margin: 0;
-  z-index: 20;
-  pointer-events: none;
-  will-change: transform, opacity;
-  transform-origin: center top;
+  position: relative !important;
+  top: auto !important;
+  left: auto !important;
+  width: 100% !important;
+  flex: none !important;
+  padding: 0 0 clamp(10px, 1.8vh, 18px) 0 !important;
+  margin: 0 !important;
+  z-index: 20 !important;
+  pointer-events: auto !important;
+  transform: none !important;
+  opacity: 1 !important;
+  will-change: auto;
 }
 
 /* Pill Badge (Clean Neutral Outline, No Blue Glow) */
@@ -54,7 +56,7 @@
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(255, 255, 255, 0.16);
   color: rgba(255, 255, 255, 0.90);
-  margin-bottom: clamp(16px, 2.5vh, 24px);
+  margin-bottom: clamp(8px, 1.2vh, 14px);
   box-shadow: none !important;
   opacity: 1;
 }
@@ -65,7 +67,7 @@
   user-select: none;
   perspective: 1200px;
   transform-style: preserve-3d;
-  margin: 0 auto clamp(16px, 2.5vh, 24px) auto;
+  margin: 0 auto clamp(8px, 1.2vh, 14px) auto;
   max-width: 1440px;
 }
 
@@ -80,7 +82,7 @@
   display: block !important;
   text-align: center !important;
   font-family: 'Montserrat', 'Manrope', var(--font-heading, 'Outfit', 'Inter', -apple-system, sans-serif);
-  font-size: clamp(43px, 5.0vw, 74px) !important;
+  font-size: clamp(36px, 4.2vw, 64px) !important;
   font-weight: 900;
   line-height: 1.05 !important;
   letter-spacing: -0.035em !important;
@@ -152,9 +154,9 @@
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
-  padding: clamp(16px, 2.5vh, 32px) clamp(10px, 2vw, 24px);
+  padding: clamp(16px, 2.5vh, 28px) clamp(10px, 2vw, 24px) clamp(16px, 2vh, 24px);
   box-sizing: border-box;
   z-index: 10;
 }
@@ -167,8 +169,8 @@
 .sf-qude-deck {
   position: relative;
   width: min(1440px, 96vw);
-  height: clamp(470px, 62vh, 580px);
-  margin: 0 auto;
+  height: clamp(370px, 49vh, 460px);
+  margin: clamp(20px, 3vh, 36px) auto 0 auto;
   z-index: 2;
   will-change: transform;
 }
@@ -394,7 +396,7 @@
 
   .sf-qude-deck {
     width: 96vw;
-    height: clamp(480px, 74vh, 560px);
+    height: clamp(380px, 55vh, 460px);
   }
 
   .sf-qude-card {
