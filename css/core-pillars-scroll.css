@@ -10,23 +10,26 @@
   --feather-accent-amber: #f59e0b;
 }
 
-/* Outer Section: Tall container pinned by ScrollTrigger */
+/* Outer Section: Tall container for 5 Pillars Scrub */
 .mai-pillars-scroll-section {
   position: relative;
   width: 100% !important;
-  height: 100vh !important;
-  min-height: 100vh !important;
+  height: 560vh !important;
+  min-height: 560vh !important;
   background-color: #000000 !important;
   background: #000000 !important;
   color: var(--feather-text-dark, #121316) !important;
-  overflow: hidden !important;
+  overflow: visible !important;
   z-index: 10 !important;
   box-sizing: border-box !important;
 }
 
 /* Sticky Viewport Container */
 .mai-pillars-sticky-viewport {
-  position: relative !important;
+  position: -webkit-sticky !important;
+  position: sticky !important;
+  top: 0 !important;
+  left: 0 !important;
   width: 100% !important;
   height: 100vh !important;
   height: 100dvh !important;
@@ -626,6 +629,10 @@
 
 /* Mobile & Tablet Optimizations */
 @media (max-width: 900px) {
+  .mai-pillars-scroll-section {
+    height: 500vh !important;
+    min-height: 500vh !important;
+  }
   .mai-pillar-intro-stage {
     padding: 0 1.25rem !important;
     justify-content: center !important;

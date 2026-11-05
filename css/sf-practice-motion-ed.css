@@ -143,7 +143,7 @@
   align-items: center !important;
   text-align: center !important;
   padding: 0 clamp(20px, 4vw, 60px) !important;
-  margin: clamp(4px, 0.8vh, 10px) auto clamp(20px, 2.5vh, 32px) auto !important;
+  margin: clamp(4px, 0.8vh, 10px) auto clamp(24px, 2.9vh, 36px) auto !important;
   box-sizing: border-box !important;
   transform: none !important;
   opacity: 1 !important;
@@ -161,7 +161,7 @@
   font-weight: 800 !important;
   letter-spacing: -0.035em !important;
   line-height: 1.05 !important;
-  text-transform: uppercase !important;
+  text-transform: none !important;
   color: #FFFFFF !important;
   display: flex !important;
   flex-direction: column !important;

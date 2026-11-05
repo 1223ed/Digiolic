@@ -16,8 +16,8 @@
   <meta http-equiv="Expires" content="0">
 
   <!-- Core & Component CSS -->
-  <link rel="stylesheet" href="css/style.css?v=20260920_v302">
-  <link rel="stylesheet" href="css/components.css?v=20260919_v209">
+  <link rel="stylesheet" href="css/style.css?v=20261105_v1">
+  <link rel="stylesheet" href="css/components.css?v=20261105_v1">
   <link rel="stylesheet" href="css/hero.css?v=20260919_v209">
   <link rel="stylesheet" href="css/pages.css?v=20260919_v209">
   <link rel="stylesheet" href="css/chat-widget.css?v=20260919_v209">
@@ -82,17 +82,13 @@
        ========================================================================== */
     .challenges-solutions-section {
       width: 100% !important;
-      background: linear-gradient(
-        180deg,
-        #000000 0%,
-        #000000 5%,
-        #ffffff 5%,
-        #ffffff 95%,
-        #000000 95%,
-        #000000 100%
-      ) !important;
-      color: #111111 !important;
-      padding: clamp(80px, 9vw, 140px) clamp(24px, 5vw, 80px) !important;
+      background-color: #000000 !important;
+      background: 
+        radial-gradient(ellipse 90% 50% at 50% 52%, rgba(149, 95, 217, 0.82) 0%, rgba(126, 67, 201, 0.55) 32%, rgba(96, 52, 154, 0.30) 58%, rgba(44, 23, 73, 0) 80%),
+        radial-gradient(ellipse 70% 45% at 25% 45%, rgba(99, 52, 159, 0.35) 0%, transparent 65%),
+        linear-gradient(180deg, #000000 0%, #000000 16%, #160D27 34%, #291642 48%, #381B5E 58%, #22103B 74%, #120920 86%, #000000 100%) !important;
+      color: #FFFFFF !important;
+      padding: clamp(90px, 10vw, 150px) clamp(24px, 5vw, 80px) !important;
       box-sizing: border-box !important;
       position: relative !important;
       z-index: 10 !important;
@@ -100,10 +96,40 @@
       font-family: 'Playfair Display', Georgia, 'Times New Roman', serif !important;
       -webkit-font-smoothing: antialiased !important;
       -moz-osx-font-smoothing: grayscale !important;
+      border: none !important;
     }
+
+    /* Seamless Deep Black Gradient Fade at top (exact match to #aiSection::before) */
+    .challenges-solutions-section::before {
+      content: '' !important;
+      position: absolute !important;
+      left: 0 !important;
+      right: 0 !important;
+      top: 0 !important;
+      height: 240px !important;
+      background: linear-gradient(180deg, #000000 0%, #000000 35%, rgba(0, 0, 0, 0.85) 60%, rgba(0, 0, 0, 0.35) 85%, transparent 100%) !important;
+      pointer-events: none !important;
+      z-index: 2 !important;
+    }
+
+    /* Seamless Black Gradient Fade at bottom (exact match to #aiSection::after) */
+    .challenges-solutions-section::after {
+      content: '' !important;
+      position: absolute !important;
+      left: 0 !important;
+      right: 0 !important;
+      bottom: 0 !important;
+      height: 220px !important;
+      background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.45) 45%, rgba(0, 0, 0, 0.88) 80%, #000000 100%) !important;
+      pointer-events: none !important;
+      z-index: 2 !important;
+    }
+
     .cs-container {
       max-width: 1320px !important;
       margin: 0 auto !important;
+      position: relative !important;
+      z-index: 5 !important;
     }
     .cs-header {
       text-align: center !important;
@@ -114,14 +140,15 @@
       font-size: clamp(28px, 3.6vw, 46px) !important;
       font-weight: 400 !important;
       line-height: 1.32 !important;
-      color: #111111 !important;
+      color: #FFFFFF !important;
       letter-spacing: -0.015em !important;
       max-width: 1100px !important;
       margin: 0 auto !important;
+      text-shadow: 0 4px 24px rgba(0, 0, 0, 0.5) !important;
     }
     .cs-heading-accent {
       font-style: normal !important;
-      color: #111111 !important;
+      color: #F8FAFC !important;
       display: inline-block !important;
       margin-top: 4px !important;
     }
@@ -157,11 +184,12 @@
       font-family: 'Playfair Display', Georgia, serif !important;
       font-size: clamp(30px, 3.2vw, 42px) !important;
       font-weight: 400 !important;
-      color: #111111 !important;
+      color: #FFFFFF !important;
       letter-spacing: -0.01em !important;
       position: relative !important;
       z-index: 2 !important;
       white-space: nowrap !important;
+      text-shadow: 0 2px 16px rgba(0, 0, 0, 0.4) !important;
     }
     .cs-underline-wrap {
       position: relative !important;
@@ -181,7 +209,7 @@
       margin-top: 4px !important;
     }
     .cs-underline-svg path {
-      stroke: #111111 !important;
+      stroke: #FFFFFF !important;
     }
     .cs-oval-wrap {
       position: relative !important;
@@ -199,7 +227,7 @@
       overflow: visible !important;
     }
     .cs-oval-svg path {
-      stroke: #111111 !important;
+      stroke: #FFFFFF !important;
     }
     .cs-divider {
       display: flex !important;
@@ -215,7 +243,7 @@
       overflow: visible !important;
     }
     .cs-divider-svg path {
-      stroke: #CBD5E1 !important;
+      stroke: rgba(255, 255, 255, 0.35) !important;
     }
     .cs-list {
       list-style: none !important;
@@ -232,7 +260,7 @@
       font-family: 'Playfair Display', Georgia, serif !important;
       font-size: clamp(18px, 1.45vw, 22px) !important;
       line-height: 1.42 !important;
-      color: #1a1a1a !important;
+      color: #F1F5F9 !important;
       font-weight: 400 !important;
       letter-spacing: -0.005em !important;
     }
@@ -248,18 +276,17 @@
     .cs-icon-svg {
       width: 21px !important;
       height: 21px !important;
-      stroke: #111111 !important;
       fill: none !important;
       stroke-linecap: round !important;
       stroke-linejoin: round !important;
     }
     .cs-icon-cross {
       stroke-width: 2.2 !important;
-      stroke: #111111 !important;
+      stroke: #F87171 !important;
     }
     .cs-icon-check {
       stroke-width: 2.4 !important;
-      stroke: #111111 !important;
+      stroke: #34D399 !important;
     }
     @media (max-width: 960px) {
       .cs-grid {
@@ -283,29 +310,245 @@
       }
     }
 
-    /* Hero container for standalone React mount */
-    #heroNavbar,
-    #heroMobileOverlay {
-      display: none !important;
-    }
-    #heroScrollWrapper {
+    /* ==========================================================================
+       CLEAN AUTOPLAY VIDEO HERO SECTION (No Scroll Scrubbing Lock)
+       ========================================================================== */
+    .home-hero-clean {
       position: relative !important;
-      width: 100% !important;
-      height: auto !important;
-      min-height: 500vh !important;
-      overflow: visible !important;
-    }
-    #heroScrollWrapper .sticky,
-    #heroScrollWrapper [class*="sticky"] {
-      position: -webkit-sticky !important;
-      position: sticky !important;
-      top: 0 !important;
-      left: 0 !important;
-      right: 0 !important;
       width: 100% !important;
       height: 100vh !important;
       height: 100dvh !important;
+      min-height: 640px !important;
+      overflow: hidden !important;
+      display: flex !important;
+      flex-direction: column !important;
+      justify-content: space-between !important;
+      background-color: #050505 !important;
+      color: #111827 !important;
+      box-sizing: border-box !important;
+      z-index: 20 !important;
+    }
+
+    .home-hero-media {
+      position: absolute !important;
+      inset: 0 !important;
+      width: 100% !important;
+      height: 100% !important;
+      overflow: hidden !important;
+      z-index: 1 !important;
+      pointer-events: none !important;
+    }
+
+    .home-hero-video {
+      position: absolute !important;
+      top: 50% !important;
+      left: 50% !important;
+      min-width: 100% !important;
+      min-height: 100% !important;
+      width: auto !important;
+      height: auto !important;
+      transform: translate(-50%, -50%) !important;
+      object-fit: cover !important;
+      display: block !important;
+    }
+
+    .home-hero-overlay {
+      position: absolute !important;
+      inset: 0 !important;
+      background: radial-gradient(ellipse 80% 60% at 50% 50%, rgba(255, 255, 255, 0.15) 0%, rgba(0, 0, 0, 0.3) 100%),
+                  linear-gradient(180deg, rgba(255, 255, 255, 0.4) 0%, transparent 28%, transparent 72%, rgba(0, 0, 0, 0.45) 100%) !important;
+      pointer-events: none !important;
+    }
+
+    .home-hero-header {
+      position: relative !important;
+      z-index: 20 !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+      padding: clamp(20px, 3.2vw, 36px) clamp(24px, 4.5vw, 64px) !important;
+      width: 100% !important;
+      box-sizing: border-box !important;
+    }
+
+    .home-hero-brand {
+      display: inline-flex !important;
+      align-items: center !important;
+      text-decoration: none !important;
+      transition: opacity 0.3s ease !important;
+    }
+    .home-hero-brand:hover {
+      opacity: 0.85 !important;
+    }
+
+    .home-hero-logo {
+      height: clamp(32px, 3.6vw, 42px) !important;
+      width: auto !important;
+      object-fit: contain !important;
+      filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.12)) !important;
+    }
+
+    .home-hero-actions {
+      display: flex !important;
+      align-items: center !important;
+      gap: clamp(12px, 1.8vw, 20px) !important;
+    }
+
+    .home-hero-contact-btn {
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 8px !important;
+      background: #000000 !important;
+      color: #FFFFFF !important;
+      padding: 10px 22px !important;
+      border-radius: 9999px !important;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+      font-size: 0.86rem !important;
+      font-weight: 700 !important;
+      letter-spacing: 0.05em !important;
+      text-transform: uppercase !important;
+      text-decoration: none !important;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25) !important;
+      transition: transform 0.25s ease, background-color 0.25s ease, box-shadow 0.25s ease !important;
+    }
+    .home-hero-contact-btn:hover {
+      transform: translateY(-2px) !important;
+      background: #1E293B !important;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35) !important;
+    }
+    .home-hero-arrow {
+      font-size: 1.05em !important;
+      line-height: 1 !important;
+      transition: transform 0.25s ease !important;
+    }
+    .home-hero-contact-btn:hover .home-hero-arrow {
+      transform: translate(2px, -2px) !important;
+    }
+
+    .home-hero-menu-btn {
+      background: rgba(255, 255, 255, 0.85) !important;
+      border: 1px solid rgba(0, 0, 0, 0.1) !important;
+      width: 44px !important;
+      height: 44px !important;
+      border-radius: 50% !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      cursor: pointer !important;
+      backdrop-filter: blur(12px) !important;
+      -webkit-backdrop-filter: blur(12px) !important;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12) !important;
+      transition: transform 0.25s ease, background-color 0.25s ease !important;
+      padding: 0 !important;
+    }
+    .home-hero-menu-btn:hover {
+      transform: scale(1.06) !important;
+      background: #FFFFFF !important;
+    }
+    .home-menu-icon {
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 5px !important;
+      width: 18px !important;
+    }
+    .home-menu-bar {
+      width: 100% !important;
+      height: 2px !important;
+      background: #000000 !important;
+      border-radius: 2px !important;
+      transition: transform 0.25s ease !important;
+    }
+
+    .home-hero-content {
+      position: relative !important;
       z-index: 10 !important;
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      justify-content: center !important;
+      text-align: center !important;
+      padding: 0 clamp(20px, 4vw, 48px) !important;
+      max-width: 1120px !important;
+      margin: 0 auto !important;
+      flex: 1 !important;
+    }
+
+    .home-hero-title {
+      margin: 0 !important;
+      padding: 0 !important;
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      gap: clamp(8px, 1.2vh, 16px) !important;
+    }
+
+    .home-hero-line-primary {
+      font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif) !important;
+      font-size: clamp(34px, 4.4vw, 68px) !important;
+      font-weight: 800 !important;
+      line-height: 1.1 !important;
+      letter-spacing: -0.035em !important;
+      color: #0F172A !important;
+      text-shadow: 0 2px 20px rgba(255, 255, 255, 0.8), 0 1px 2px rgba(0, 0, 0, 0.1) !important;
+    }
+
+    .home-hero-line-tagline {
+      font-family: 'Fraunces', serif !important;
+      font-style: italic !important;
+      font-size: clamp(26px, 3.2vw, 48px) !important;
+      font-weight: 400 !important;
+      line-height: 1.15 !important;
+      color: #334155 !important;
+      letter-spacing: -0.015em !important;
+      text-shadow: 0 2px 16px rgba(255, 255, 255, 0.7) !important;
+    }
+
+    .home-hero-sub {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+      font-size: clamp(15px, 1.35vw, 19px) !important;
+      line-height: 1.6 !important;
+      color: #475569 !important;
+      max-width: 680px !important;
+      margin: clamp(16px, 2vh, 26px) auto 0 auto !important;
+      font-weight: 450 !important;
+      text-shadow: 0 1px 8px rgba(255, 255, 255, 0.7) !important;
+    }
+
+    .home-hero-bottom {
+      margin-top: clamp(24px, 3.5vh, 44px) !important;
+      margin-bottom: clamp(16px, 2.5vh, 32px) !important;
+    }
+
+    .home-hero-scroll-btn {
+      width: 44px !important;
+      height: 44px !important;
+      border-radius: 50% !important;
+      background: rgba(255, 255, 255, 0.85) !important;
+      border: 1px solid rgba(0, 0, 0, 0.12) !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      color: #0F172A !important;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1) !important;
+      backdrop-filter: blur(8px) !important;
+      -webkit-backdrop-filter: blur(8px) !important;
+      transition: transform 0.25s ease, background-color 0.25s ease, box-shadow 0.25s ease !important;
+      animation: heroBounce 2.4s infinite ease-in-out !important;
+      text-decoration: none !important;
+    }
+    .home-hero-scroll-btn:hover {
+      transform: translateY(3px) scale(1.08) !important;
+      background: #FFFFFF !important;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18) !important;
+    }
+    .home-hero-scroll-icon {
+      width: 20px !important;
+      height: 20px !important;
+    }
+
+    @keyframes heroBounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(6px); }
     }
     /* Absolute Navbar at Top Only — Never Floats or Sticks When Scrolled */
     .mainframe-navbar,
@@ -578,9 +821,92 @@
   <main id="mainContent">
 
     <!-- ==========================================================================
-         CINEMATIC SCROLL-TIED VIDEO HERO SECTION (Vite React WebCodecs Mount)
+         CINEMATIC HERO SECTION (Autoplay Video Background: Categorizing Colored Balls)
+         - Autoplay looped background video without scroll-locking
+         - Digiolic Logo, Sound waves toggle, Contact CTA, Cinematic Menu trigger
+         - Certified team experience pill badge
+         - Dynamic Brand typography (Zoho, Salesforce, Digital Marketing)
+         - Subtitle and smooth scroll down button
          ========================================================================== -->
-    <div id="heroScrollWrapper"></div>
+    <section class="home-hero-clean" id="heroSection" aria-label="Digiolic Hero">
+      <!-- Background Video Container -->
+      <div class="home-hero-media">
+        <video class="home-hero-video" autoplay loop muted playsinline webkit-playsinline preload="auto">
+          <source src="assets/videos/categorizing-colored-balls.mp4" type="video/mp4">
+        </video>
+        <div class="home-hero-overlay"></div>
+      </div>
+
+      <!-- Top Header / Navigation Bar -->
+      <header class="home-hero-header" id="heroNavbar">
+        <a href="index.html" class="home-hero-brand" aria-label="Digiolic Home">
+          <img src="assets/images/digiolic-logo-dark.png?v=20260927_green_d" alt="Digiolic" class="home-hero-logo">
+        </a>
+
+        <div class="home-hero-actions">
+          <!-- Audio Toggle Button -->
+          <button type="button" class="nav-sound-control is-playing" id="zohoAudioToggleBtn" aria-label="Play or pause background song" title="Pause Song" aria-pressed="true" tabindex="0">
+            <span class="sound-wave-bar"></span>
+            <span class="sound-wave-bar"></span>
+            <span class="sound-wave-bar"></span>
+            <span class="sound-wave-bar"></span>
+          </button>
+
+          <!-- Contact CTA Pill Button -->
+          <a href="pages/contact.html" class="home-hero-contact-btn">
+            <span>LET'S TALK</span>
+            <span class="home-hero-arrow" aria-hidden="true">↗</span>
+          </a>
+
+          <!-- Cinematic Menu Trigger -->
+          <button type="button" class="home-hero-menu-btn" id="cinematicMenuOpenBtn" aria-label="Open Navigation Menu">
+            <span class="home-menu-icon">
+              <span class="home-menu-bar"></span>
+              <span class="home-menu-bar"></span>
+              <span class="home-menu-bar"></span>
+            </span>
+          </button>
+        </div>
+      </header>
+
+      <!-- Center Hero Content -->
+      <div class="home-hero-content">
+        <!-- Experience Pill Badge -->
+        <div class="hero-home-exp-badge">
+          <span class="hero-home-exp-badge-dot"></span>
+          <span class="hero-home-exp-badge-text">8+ Years of Experience with Certified Team</span>
+        </div>
+
+        <!-- Monumental Typography -->
+        <h1 class="home-hero-title">
+          <span class="home-hero-line-primary">
+            <span class="hero-brand-anim hero-brand-zoho">Zoho</span>, 
+            <span class="hero-brand-anim hero-brand-salesforce">Salesforce</span>, and 
+            <span class="hero-brand-anim hero-brand-marketing">Digital Marketing</span>
+          </span>
+          <span class="home-hero-line-tagline">
+            Complexity Simplified, Growth Amplified
+          </span>
+        </h1>
+
+        <!-- Subtitle Description -->
+        <p class="home-hero-sub">
+          Let's make your business incredible together by uniting powerful Zoho and Salesforce architectures with performance-driven digital marketing.
+        </p>
+
+        <!-- Bottom Actions / Scroll Down Anchor -->
+        <div class="home-hero-bottom">
+          <a href="#metricsSection" class="home-hero-scroll-btn" aria-label="Scroll down to metrics">
+            <svg class="home-hero-scroll-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Background Audio Element -->
+      <audio id="zohoStoryAudio" src="assets/audio/name-story.mp3" preload="auto" loop></audio>
+    </section>
 
     <!-- ==========================================================================
          2. KEY METRICS & TRUSTED CLIENTS (Single Row, 50-50 Proportion)
@@ -1631,7 +1957,6 @@
   </footer>
 
   <!-- JavaScript Modules -->
-  <script type="module" src="assets/vectrus/vectrus-hero.js?v=20261103_revert_v1"></script>
   <script src="js/main.js?v=20260920_v302"></script>
   <script src="js/form-validation.js?v=20260906_v17"></script>
   <script src="js/why-choose-interactive.js?v=20261103_v3"></script>

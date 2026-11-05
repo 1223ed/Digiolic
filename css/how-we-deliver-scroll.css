@@ -534,35 +534,46 @@
 
 @media (max-width: 768px) {
   .hscroll-delivery-section {
-    height: 480vh;
+    height: 480vh !important;
+  }
+  .hscroll-slide {
+    padding: 0 5vw !important;
+    width: 100vw !important;
+  }
+  .hscroll-slide-intro {
+    padding: 0 5vw !important;
   }
   .hscroll-intro-title {
-    font-size: clamp(2.4rem, 8.5vw, 3.8rem);
+    font-size: clamp(2rem, 7.5vw, 3.2rem) !important;
   }
   .hscroll-step-title {
-    font-size: clamp(2.6rem, 8.8vw, 4.2rem);
+    font-size: clamp(2.2rem, 7.8vw, 3.2rem) !important;
+    opacity: 1 !important;
+    visibility: visible !important;
   }
   .hscroll-step-lead {
-    font-size: 1rem;
-    line-height: 1.5;
-    margin-bottom: 1.4rem;
+    font-size: 0.95rem !important;
+    line-height: 1.5 !important;
+    margin-bottom: 1.2rem !important;
   }
   .hscroll-watermark-num {
-    font-size: 11rem;
-    left: -10px;
-    top: 40%;
+    font-size: 7.5rem !important;
+    left: -5px !important;
+    top: 36% !important;
+    opacity: 0.12 !important;
   }
   .hscroll-card-inner {
-    margin-left: 0;
-    padding-bottom: 5rem;
+    margin-left: 0 !important;
+    padding-bottom: 4rem !important;
+    max-width: 90vw !important;
   }
   .hscroll-step-list li {
-    font-size: 0.9rem;
+    font-size: 0.88rem !important;
   }
   .hscroll-node-label {
-    display: none; /* Hide text labels on mobile to avoid overlap */
+    display: none !important;
   }
   .hscroll-nav-track {
-    width: 80vw;
+    width: 82vw !important;
   }
 }

@@ -112,3 +112,15 @@
   display: inline-block !important;
 }
 
+/* Mobile: Ensure wave characters and titles are always visible and never blank */
+@media (max-width: 900px) {
+  .ct-wave-char {
+    transform: none !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+  .ct-wave-mask {
+    overflow: visible !important;
+  }
+}
+

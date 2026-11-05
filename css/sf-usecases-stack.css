@@ -67,7 +67,7 @@
   user-select: none;
   perspective: 1200px;
   transform-style: preserve-3d;
-  margin: 0 auto clamp(8px, 1.2vh, 14px) auto;
+  margin: 0 auto clamp(10px, 1.4vh, 16px) auto;
   max-width: 1440px;
 }
 
@@ -86,7 +86,7 @@
   font-weight: 900;
   line-height: 1.05 !important;
   letter-spacing: -0.035em !important;
-  text-transform: uppercase;
+  text-transform: none;
   color: #FFFFFF;
   text-shadow: 0 4px 30px rgba(0, 0, 0, 0.7);
   white-space: normal !important;

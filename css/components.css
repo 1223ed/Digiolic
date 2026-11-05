@@ -1599,3 +1599,77 @@ body.case-stories-page .mainframe-mobile-link.cta-pill:hover {
     border-right: 1px solid rgba(15, 23, 42, 0.08);
   }
 }
+
+/* ==========================================================================
+   FLOATING SCROLL NAV BUTTON (Universal across all pages)
+   ========================================================================== */
+.floating-scroll-nav {
+  position: fixed !important;
+  right: 24px !important;
+  bottom: 90px !important;
+  width: 44px !important;
+  height: 44px !important;
+  border-radius: 50% !important;
+  background: rgba(14, 20, 36, 0.9) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  border: 1px solid rgba(56, 189, 248, 0.45) !important;
+  color: #38BDF8 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+  z-index: 2147483630 !important;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45), 0 0 14px rgba(56, 189, 248, 0.25) !important;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              background-color 0.25s ease,
+              border-color 0.25s ease,
+              color 0.25s ease,
+              box-shadow 0.25s ease !important;
+  outline: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.floating-scroll-nav:hover {
+  transform: translateY(-3px) scale(1.06) !important;
+  background: rgba(15, 23, 42, 0.96) !important;
+  border-color: rgba(56, 189, 248, 0.85) !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.55), 0 0 22px rgba(56, 189, 248, 0.55) !important;
+}
+
+.floating-scroll-nav:active {
+  transform: translateY(0) scale(0.95) !important;
+}
+
+.floating-scroll-nav .scroll-nav-icon {
+  width: 20px !important;
+  height: 20px !important;
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+  display: block !important;
+}
+
+.floating-scroll-nav.is-down .scroll-nav-icon {
+  transform: rotate(180deg) !important;
+}
+
+.floating-scroll-nav.is-up .scroll-nav-icon {
+  transform: rotate(0deg) !important;
+}
+
+@media (max-width: 991px) {
+  .floating-scroll-nav,
+  #floatingScrollNav {
+    display: flex !important;
+    position: fixed !important;
+    right: 18px !important;
+    bottom: 84px !important;
+    width: 44px !important;
+    height: 44px !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    z-index: 2147483640 !important;
+  }
+}

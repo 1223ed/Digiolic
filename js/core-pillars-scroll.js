@@ -452,20 +452,38 @@
       }
     }
 
-    // Master ScrollTrigger for Six Pillars Section
-    const st = ScrollTrigger.create({
-      id: 'featherCorePillarsScrollTrigger',
-      trigger: section,
-      pin: true,
-      start: 'top top',
-      end: () => '+=' + getTotalScrollDistance(),
-      scrub: 0.8,
-      anticipatePin: 1,
-      invalidateOnRefresh: true,
-      onUpdate: (self) => {
-        renderPillarsFrame(self.progress);
-      }
-    });
+    // Native scroll calculation so mobile viewports animate 100% reliably
+    function updatePillarsScrollState() {
+      const sectionRect = section.getBoundingClientRect();
+      const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+      const totalScrollDistance = section.offsetHeight - viewportHeight;
+      if (totalScrollDistance <= 0) return;
+
+      const scrolledInSection = -sectionRect.top;
+      let rawProgress = scrolledInSection / totalScrollDistance;
+      const progress = Math.max(0, Math.min(1, rawProgress));
+      renderPillarsFrame(progress);
+    }
+
+    window.addEventListener('scroll', updatePillarsScrollState, { passive: true });
+    window.addEventListener('resize', updatePillarsScrollState, { passive: true });
+
+    // Master ScrollTrigger for Six Pillars Section (keeps GSAP plugin in sync)
+    let st = null;
+    try {
+      st = ScrollTrigger.create({
+        id: 'featherCorePillarsScrollTrigger',
+        trigger: section,
+        start: 'top top',
+        end: 'bottom bottom',
+        scrub: 0.8,
+        onUpdate: (self) => {
+          renderPillarsFrame(self.progress);
+        }
+      });
+    } catch (e) {
+      console.warn('ScrollTrigger init fallback:', e);
+    }
 
     // Side Navigation Dots Click Handlers
     dots.forEach((dot, dIdx) => {

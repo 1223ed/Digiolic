@@ -568,18 +568,17 @@
           if (kf === STAGE_INTERVALS[0].kf) {
             return {
               ...kf,
-              x: -1.75,
-              y: 0.25,
-              scale: 1.70
+              x: 0,
+              y: -0.55,
+              scale: 1.25
             };
           }
-          // On mobile, all slides (Pillars 1 to 5) keep the 3D feather docked on the right edge
-          // exactly as in Stage 1, framing the content with zero text overlap!
+          // On mobile, keep 3D feather visible on screen framing the content
           return {
             ...kf,
-            x: 2.80,
-            y: 0.25,
-            scale: 1.70
+            x: 0.35,
+            y: -0.25,
+            scale: 1.15
           };
         }
         return kf;

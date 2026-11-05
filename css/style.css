@@ -3736,10 +3736,16 @@ input[type="button"] {
 @media (max-width: 991px) {
   .floating-scroll-nav,
   #floatingScrollNav {
-    display: none !important;
-    pointer-events: none !important;
-    visibility: hidden !important;
-    opacity: 0 !important;
+    display: flex !important;
+    position: fixed !important;
+    right: 18px !important;
+    bottom: 84px !important;
+    width: 44px !important;
+    height: 44px !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    z-index: 2147483640 !important;
   }
 }
 
