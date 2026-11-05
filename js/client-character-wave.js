@@ -263,57 +263,6 @@
     slideTitles.forEach(title => {
       setupElementWave(title, { stagger: 0.024, duration: 0.68, baseDelay: 0.02 });
     });
-
-    // -------------------------------------------------------------------------
-    // 4. SALESFORCE PAGE TARGETS:
-    //    - "EVERYTHING YOU NEED TO GET MORE FROM SALESFORCE" (#sfPracticeHeroTitle)
-    //    - "WHAT CAN SALESFORCE DO FOR YOUR BUSINESS?" (#sfQudeTitleLine)
-    //    - "SALESFORCE IMPLEMENTATION BUILT AROUND YOUR BUSINESS" (#sfProcessTitle)
-    // -------------------------------------------------------------------------
-    const sfTargets = [
-      { id: 'sfPracticeHeroTitle', triggerId: 'servicesOverview' },
-      { id: 'sfQudeTitleLine', triggerId: 'useCasesSection' },
-      { id: 'sfProcessTitle', triggerId: 'processSection' }
-    ];
-
-    sfTargets.forEach(target => {
-      const headingEl = document.getElementById(target.id);
-      const sectionEl = document.getElementById(target.triggerId);
-      if (headingEl) {
-        setupElementWave(headingEl, { stagger: 0.018, duration: 0.72, baseDelay: 0.03 });
-
-        if (typeof ScrollTrigger !== 'undefined' && typeof gsap !== 'undefined') {
-          ScrollTrigger.create({
-            trigger: sectionEl || headingEl,
-            start: "top 85%",
-            onEnter: () => headingEl._triggerWave(),
-            onEnterBack: () => headingEl._triggerWave()
-          });
-        }
-        if ('IntersectionObserver' in window) {
-          const obs = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-              if (entry.isIntersecting) {
-                headingEl._triggerWave();
-              }
-            });
-          }, { threshold: [0, 0.1] });
-          obs.observe(headingEl);
-          if (sectionEl) obs.observe(sectionEl);
-        } else {
-          headingEl._triggerWave();
-        }
-
-        const onScrollCheck = () => {
-          const r = headingEl.getBoundingClientRect();
-          if (r.top < window.innerHeight * 0.95 && r.bottom > 0) {
-            headingEl._triggerWave();
-          }
-        };
-        window.addEventListener('scroll', onScrollCheck, { passive: true });
-        onScrollCheck();
-      }
-    });
   }
 
   // Auto-init on DOMContentLoaded or immediate if loaded

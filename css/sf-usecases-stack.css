@@ -77,9 +77,8 @@
 }
 
 .sf-qude-title-line {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: block !important;
+  text-align: center !important;
   font-family: 'Montserrat', 'Manrope', var(--font-heading, 'Outfit', 'Inter', -apple-system, sans-serif);
   font-size: clamp(43px, 5.0vw, 74px) !important;
   font-weight: 900;
@@ -88,7 +87,9 @@
   text-transform: uppercase;
   color: #FFFFFF;
   text-shadow: 0 4px 30px rgba(0, 0, 0, 0.7);
-  white-space: nowrap;
+  white-space: normal !important;
+  word-break: keep-all !important;
+  overflow-wrap: normal !important;
 }
 
 .sf-qude-monumental-title .sf-practice-hero-title {

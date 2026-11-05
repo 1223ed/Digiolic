@@ -112,34 +112,3 @@
   display: inline-block !important;
 }
 
-/* Ensure blue accent in Salesforce headings is vibrant and solid */
-.sf-text-blue .ct-wave-char,
-.sf-qude-highlight .ct-wave-char,
-.sf-practice-hero-title .sf-text-blue .ct-wave-char,
-.sf-qude-title-line .sf-qude-highlight .ct-wave-char,
-.sf-play-title .sf-text-blue .ct-wave-char {
-  color: #00A1E0 !important;
-  -webkit-text-fill-color: #00A1E0 !important;
-  display: inline-block !important;
-  text-shadow: 0 0 35px rgba(0, 161, 224, 0.4);
-}
-
-.sf-practice-hero-title .ct-wave-mask,
-.sf-qude-title-line .ct-wave-mask,
-.sf-play-title .ct-wave-mask {
-  overflow: hidden !important;
-  display: block !important;
-  line-height: inherit;
-  padding: 0.04em 0;
-  vertical-align: top;
-  text-align: center;
-}
-
-.sf-practice-hero-title .ct-wave-line,
-.sf-qude-title-line .ct-wave-line,
-.sf-play-title .ct-wave-line {
-  display: block;
-  line-height: inherit;
-  text-align: center;
-}
-

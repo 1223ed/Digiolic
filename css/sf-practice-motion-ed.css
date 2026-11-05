@@ -517,9 +517,9 @@
   }
 
   .sf-practice-hero-title {
-    font-size: clamp(19px, 5.2vw, 26px) !important;
-    line-height: 1.15 !important;
-    letter-spacing: -0.02em !important;
+    font-size: clamp(26px, 6.8vw, 38px) !important;
+    line-height: 1.12 !important;
+    letter-spacing: -0.035em !important;
     margin-bottom: 6px !important;
   }
 
