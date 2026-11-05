@@ -138,7 +138,7 @@
       }
 
       if (counterEl) {
-        const activeCardIdx = Math.min(cards.length, Math.max(1, Math.round(glideProgress * (cards.length - 1)) + 1));
+        const activeCardIdx = Math.min(cards.length, Math.max(1, Math.round(currentProgress * (cards.length - 1)) + 1));
         counterEl.textContent = `0${activeCardIdx} / 0${cards.length}`;
       }
 

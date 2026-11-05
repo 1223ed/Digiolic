@@ -88,7 +88,7 @@
               depth += (1 - Math.pow(1 - subT, 3));
             }
           }
-          const translateY = Math.round(-depth * 18);
+          const translateY = Math.round(-depth * 4);
           const scale = (1.0 - (depth * 0.038)).toFixed(4);
           const overlayAlpha = Math.min(0.78, depth * 0.22).toFixed(3);
 
@@ -126,7 +126,7 @@
                 depth += (1 - Math.pow(1 - subT, 3));
               }
             }
-            const translateY = Math.round(-depth * 18);
+            const translateY = Math.round(-depth * 4);
             const scale = (1.0 - (depth * 0.038)).toFixed(4);
             const overlayAlpha = Math.min(0.78, depth * 0.22).toFixed(3);
 

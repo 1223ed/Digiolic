@@ -133,22 +133,24 @@
    Font: Clean, modern sans-serif with regular/medium weight (400-500) matching Image 2.
    ========================================================================== */
 .sf-practice-hero-header {
-  position: absolute;
-  top: clamp(28px, 4vh, 46px);
-  left: 0;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 0 clamp(20px, 4vw, 60px);
-  box-sizing: border-box;
+  position: relative !important;
+  top: auto !important;
+  left: auto !important;
+  width: 100% !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: center !important;
+  text-align: center !important;
+  padding: 0 clamp(20px, 4vw, 60px) !important;
+  margin: clamp(8px, 1.2vh, 16px) auto clamp(48px, 6.5vh, 76px) auto !important;
+  box-sizing: border-box !important;
   transform: none !important;
   opacity: 1 !important;
   will-change: auto;
   pointer-events: auto;
   z-index: 20;
+  flex-shrink: 0 !important;
 }
 
 .sf-practice-hero-title {
@@ -210,19 +212,20 @@
    Rises to vertical center as headline scrolls out, then scrubs horizontally.
    ========================================================================== */
 .sf-practice-cards-wrapper {
-  position: absolute;
-  top: clamp(245px, 30vh, 280px);
-  left: 0;
-  width: 100%;
-  height: clamp(390px, 50vh, 460px);
-  display: flex;
-  align-items: center;
-  overflow: visible;
-  box-sizing: border-box;
-  will-change: transform;
-  z-index: 10;
-  pointer-events: auto;
-  opacity: 1;
+  position: relative !important;
+  top: auto !important;
+  left: auto !important;
+  width: 100% !important;
+  height: clamp(350px, 46vh, 430px) !important;
+  display: flex !important;
+  align-items: center !important;
+  overflow: visible !important;
+  box-sizing: border-box !important;
+  will-change: transform !important;
+  z-index: 10 !important;
+  pointer-events: auto !important;
+  opacity: 1 !important;
+  flex-shrink: 0 !important;
 }
 
 .sf-practice-cards-track {
