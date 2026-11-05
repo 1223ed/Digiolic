@@ -9,7 +9,7 @@
 (function () {
   'use strict';
 
-  // Helper: recursively split text inside an element, preserving child tag hierarchy
+  // Helper: recursively split text inside an element, preserving child tag hierarchy and word integrity
   function splitNodeToChars(node, charArray, isStartOfBlock, isEndOfBlock) {
     if (node.nodeType === Node.TEXT_NODE) {
       let text = node.textContent;
@@ -29,19 +29,36 @@
       }
 
       const frag = document.createDocumentFragment();
+      const tokens = text.split(/(\s+)/);
 
-      for (let i = 0; i < text.length; i++) {
-        const char = text[i];
-        const span = document.createElement('span');
-        span.className = 'ct-wave-char' + (char === ' ' ? ' space' : '');
-        span.textContent = char === ' ' ? '\u00A0' : char;
-        frag.appendChild(span);
-        charArray.push(span);
-      }
+      tokens.forEach(token => {
+        if (!token) return;
+        if (/^\s+$/.test(token)) {
+          const spaceSpan = document.createElement('span');
+          spaceSpan.className = 'ct-wave-char space';
+          spaceSpan.textContent = '\u00A0';
+          frag.appendChild(spaceSpan);
+          charArray.push(spaceSpan);
+        } else {
+          const wordWrap = document.createElement('span');
+          wordWrap.className = 'ct-wave-word';
+
+          for (let i = 0; i < token.length; i++) {
+            const char = token[i];
+            const span = document.createElement('span');
+            span.className = 'ct-wave-char';
+            span.textContent = char;
+            wordWrap.appendChild(span);
+            charArray.push(span);
+          }
+          frag.appendChild(wordWrap);
+        }
+      });
+
       node.parentNode.replaceChild(frag, node);
     } else if (node.nodeType === Node.ELEMENT_NODE) {
-      // Do not re-split if already a wave char
-      if (node.classList.contains('ct-wave-char')) {
+      // Do not re-split if already a wave char or word container
+      if (node.classList.contains('ct-wave-char') || node.classList.contains('ct-wave-word')) {
         charArray.push(node);
         return;
       }
@@ -245,6 +262,57 @@
     const slideTitles = document.querySelectorAll('.hscroll-step-title.ct-wave-heading, [data-slide-title]');
     slideTitles.forEach(title => {
       setupElementWave(title, { stagger: 0.024, duration: 0.68, baseDelay: 0.02 });
+    });
+
+    // -------------------------------------------------------------------------
+    // 4. SALESFORCE PAGE TARGETS:
+    //    - "EVERYTHING YOU NEED TO GET MORE FROM SALESFORCE" (#sfPracticeHeroTitle)
+    //    - "WHAT CAN SALESFORCE DO FOR YOUR BUSINESS?" (#sfQudeTitleLine)
+    //    - "SALESFORCE IMPLEMENTATION BUILT AROUND YOUR BUSINESS" (#sfProcessTitle)
+    // -------------------------------------------------------------------------
+    const sfTargets = [
+      { id: 'sfPracticeHeroTitle', triggerId: 'servicesOverview' },
+      { id: 'sfQudeTitleLine', triggerId: 'useCasesSection' },
+      { id: 'sfProcessTitle', triggerId: 'processSection' }
+    ];
+
+    sfTargets.forEach(target => {
+      const headingEl = document.getElementById(target.id);
+      const sectionEl = document.getElementById(target.triggerId);
+      if (headingEl) {
+        setupElementWave(headingEl, { stagger: 0.018, duration: 0.72, baseDelay: 0.03 });
+
+        if (typeof ScrollTrigger !== 'undefined' && typeof gsap !== 'undefined') {
+          ScrollTrigger.create({
+            trigger: sectionEl || headingEl,
+            start: "top 85%",
+            onEnter: () => headingEl._triggerWave(),
+            onEnterBack: () => headingEl._triggerWave()
+          });
+        }
+        if ('IntersectionObserver' in window) {
+          const obs = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                headingEl._triggerWave();
+              }
+            });
+          }, { threshold: [0, 0.1] });
+          obs.observe(headingEl);
+          if (sectionEl) obs.observe(sectionEl);
+        } else {
+          headingEl._triggerWave();
+        }
+
+        const onScrollCheck = () => {
+          const r = headingEl.getBoundingClientRect();
+          if (r.top < window.innerHeight * 0.95 && r.bottom > 0) {
+            headingEl._triggerWave();
+          }
+        };
+        window.addEventListener('scroll', onScrollCheck, { passive: true });
+        onScrollCheck();
+      }
     });
   }
 

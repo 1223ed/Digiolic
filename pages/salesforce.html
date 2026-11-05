@@ -32,8 +32,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800;900&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/sf-clouds-motion-ed.css?v=20261105_mob_v1">
-  <link rel="stylesheet" href="../css/sf-practice-motion-ed.css?v=20261105_mob_v1">
-  <link rel="stylesheet" href="../css/sf-usecases-stack.css?v=20261105_mob_v1">
+  <link rel="stylesheet" href="../css/sf-practice-motion-ed.css?v=20261105_sf_wave_v2">
+  <link rel="stylesheet" href="../css/sf-usecases-stack.css?v=20261105_sf_wave_v2">
+  <link rel="stylesheet" href="../css/client-character-wave.css?v=20261105_sf_wave_v2">
 
   <style>
     html {
@@ -370,7 +371,7 @@
       font-weight: 800 !important;
       line-height: 1.05 !important;
       letter-spacing: -0.035em !important;
-      text-transform: none !important;
+      text-transform: uppercase !important;
       color: #FFFFFF !important;
       margin: 0 auto clamp(16px, 2.5vh, 24px) auto !important;
       text-align: center !important;
@@ -424,8 +425,8 @@
       #useCasesSection .sf-qude-title-line,
       #processSection .sf-play-title,
       #processSection h2.sf-play-title {
-        font-size: clamp(25px, 6.5vw, 36px) !important;
-        line-height: 1.12 !important;
+        font-size: clamp(20px, 5.4vw, 32px) !important;
+        line-height: 1.15 !important;
       }
     }
 
@@ -2161,7 +2162,7 @@
       font-weight: 800 !important;
       line-height: 1.05 !important;
       letter-spacing: -0.035em !important;
-      text-transform: none !important;
+      text-transform: uppercase !important;
       color: #FFFFFF !important;
       margin: 0 !important;
       display: flex !important;
@@ -4894,9 +4895,13 @@
 
         <!-- Monumental Centered Headline (Matches "IMPLEMENTATION EXAMPLES" in video) -->
         <div class="sf-practice-hero-header">
-          <h2 class="sf-practice-hero-title">
-            <span class="sf-hero-line"><span class="sf-text-blue">Everything</span> you need</span>
-            <span class="sf-hero-line">to get more from <span class="sf-text-blue">Salesforce</span></span>
+          <h2 class="sf-practice-hero-title ct-wave-heading" id="sfPracticeHeroTitle" aria-label="EVERYTHING YOU NEED TO GET MORE FROM SALESFORCE">
+            <span class="ct-wave-mask" style="display: block;">
+              <span class="sf-hero-line ct-wave-line"><span class="sf-text-blue">EVERYTHING</span> YOU NEED</span>
+            </span>
+            <span class="ct-wave-mask" style="display: block;">
+              <span class="sf-hero-line ct-wave-line">TO GET MORE FROM <span class="sf-text-blue">SALESFORCE</span></span>
+            </span>
           </h2>
           <p class="sf-practice-hero-desc">From high-level architectural advisory to sub-second automations and managed operations.</p>
         </div>
@@ -5282,10 +5287,14 @@
             <div class="sf-qude-pill-badge" id="sfQudePillBadge">MEASURABLE OUTCOMES</div>
 
             <!-- Monumental Architectural Centered Typography with Overflow Wave Masks -->
-            <div class="sf-qude-monumental-title" aria-label="What can Salesforce do for your business?">
-              <h2 class="sf-practice-hero-title sf-qude-title-line" id="sfQudeTitleLine" style="font-family: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important; font-size: clamp(43px, 5.0vw, 74px) !important; font-weight: 800 !important; letter-spacing: -0.035em !important; line-height: 1.05 !important; text-transform: none !important; color: #FFFFFF !important; margin: 0 auto clamp(16px, 2.5vh, 24px) auto !important; text-align: center !important;">
-                <span class="sf-hero-line">What can <span class="sf-qude-highlight" style="color: #00A1E0 !important; text-shadow: none !important;">Salesforce</span> do</span>
-                <span class="sf-hero-line">for your business?</span>
+            <div class="sf-qude-monumental-title" aria-label="WHAT CAN SALESFORCE DO FOR YOUR BUSINESS?">
+              <h2 class="sf-practice-hero-title sf-qude-title-line ct-wave-heading" id="sfQudeTitleLine" style="font-family: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important; font-size: clamp(43px, 5.0vw, 74px) !important; font-weight: 800 !important; letter-spacing: -0.035em !important; line-height: 1.05 !important; text-transform: uppercase !important; color: #FFFFFF !important; margin: 0 auto clamp(16px, 2.5vh, 24px) auto !important; text-align: center !important;" aria-label="WHAT CAN SALESFORCE DO FOR YOUR BUSINESS?">
+                <span class="ct-wave-mask" style="display: block;">
+                  <span class="sf-hero-line ct-wave-line">WHAT CAN <span class="sf-qude-highlight" style="color: #00A1E0 !important; text-shadow: none !important;">SALESFORCE</span> DO</span>
+                </span>
+                <span class="ct-wave-mask" style="display: block;">
+                  <span class="sf-hero-line ct-wave-line">FOR YOUR BUSINESS?</span>
+                </span>
               </h2>
             </div>
 
@@ -5517,9 +5526,13 @@
             <div class="sf-play-badge">
               <span>PROVEN METHODOLOGY</span>
             </div>
-            <h2 class="sf-play-title">
-              <span class="sf-hero-line"><span class="sf-text-blue">Salesforce</span> implementation</span>
-              <span class="sf-hero-line">built around your business</span>
+            <h2 class="sf-play-title ct-wave-heading" id="sfProcessTitle" aria-label="SALESFORCE IMPLEMENTATION BUILT AROUND YOUR BUSINESS">
+              <span class="ct-wave-mask" style="display: block;">
+                <span class="sf-hero-line ct-wave-line"><span class="sf-text-blue">SALESFORCE</span> IMPLEMENTATION</span>
+              </span>
+              <span class="ct-wave-mask" style="display: block;">
+                <span class="sf-hero-line ct-wave-line">BUILT AROUND YOUR BUSINESS</span>
+              </span>
             </h2>
           </div>
         </div>
@@ -6745,10 +6758,13 @@
       }
     })();
   </script>
+  <script src="../js/gsap.min.js"></script>
+  <script src="../js/ScrollTrigger.min.js"></script>
+  <script src="../js/client-character-wave.js?v=20261105_sf_wave_v2"></script>
   <script src="../js/sf-tech-stack-cinema.js?v=20261104_cinema_mob_v1"></script>
   <script src="../js/sf-clouds-motion-ed.js?v=20261105_mob_v1"></script>
-  <script src="../js/sf-practice-motion-ed.js?v=20261105_mob_v1"></script>
-  <script src="../js/sf-usecases-stack.js?v=20261105_mob_v1"></script>
+  <script src="../js/sf-practice-motion-ed.js?v=20261105_sf_wave_v2"></script>
+  <script src="../js/sf-usecases-stack.js?v=20261105_sf_wave_v2"></script>
   <script src="../js/sf-process-motion.js?v=20261105_mob_v1"></script>
   <script src="../js/sf-celestial-particles.js?v=20261103_1"></script>
 </body>
