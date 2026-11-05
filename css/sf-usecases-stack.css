@@ -169,8 +169,8 @@
 .sf-qude-deck {
   position: relative;
   width: min(1440px, 96vw);
-  height: clamp(340px, 45vh, 420px);
-  margin: clamp(48px, 6.5vh, 80px) auto 0 auto;
+  height: clamp(400px, 52vh, 480px);
+  margin: clamp(28px, 3.8vh, 46px) auto 0 auto;
   z-index: 2;
   will-change: transform;
 }
@@ -186,13 +186,13 @@
   box-shadow: 0 30px 70px -15px rgba(0, 0, 0, 0.6), 0 12px 30px -8px rgba(0, 0, 0, 0.4);
   border: 1px solid rgba(255, 255, 255, 0.15);
   box-sizing: border-box;
-  padding: clamp(26px, 3vw, 44px) clamp(32px, 4vw, 64px);
+  padding: clamp(20px, 2.2vw, 30px) clamp(26px, 3.2vw, 52px);
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   transform-origin: center top;
   will-change: transform, opacity;
-  overflow: hidden;
+  overflow: visible !important;
 }
 
 /* Darkening tint overlay for stacked cards (replicates Qude frame-by-frame dimming to grey) */
@@ -212,14 +212,14 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-bottom: clamp(16px, 2.2vh, 24px);
+  padding-bottom: clamp(10px, 1.4vh, 16px);
   border-bottom: 1px solid rgba(15, 23, 42, 0.12);
   flex-shrink: 0;
 }
 
 .sf-qude-card-category {
   font-family: 'Space Grotesk', var(--font-heading, 'Outfit', sans-serif);
-  font-size: clamp(26px, 3.6vw, 46px);
+  font-size: clamp(22px, 2.8vw, 36px);
   font-weight: 600;
   letter-spacing: -0.015em;
   text-transform: uppercase;
@@ -232,9 +232,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 48px;
-  height: 48px;
-  border-radius: 14px;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
   background: rgba(15, 23, 42, 0.04);
   color: var(--accent-color, #00A1E0);
   transition: transform 0.3s ease;
@@ -245,19 +245,19 @@
 }
 
 .sf-qude-card-icon-badge svg {
-  width: 26px;
-  height: 26px;
+  width: 24px;
+  height: 24px;
   fill: currentColor;
 }
 
 /* Card Body (Two-Column Layout: Huge Numeral Left + Rich Content Right) */
 .sf-qude-card-body {
   display: grid;
-  grid-template-columns: minmax(140px, 240px) 1fr;
-  gap: clamp(28px, 4.5vw, 60px);
+  grid-template-columns: minmax(110px, 180px) 1fr;
+  gap: clamp(20px, 3vw, 42px);
   align-items: center;
   height: 100%;
-  padding-top: clamp(16px, 2.4vh, 28px);
+  padding-top: clamp(10px, 1.4vh, 18px);
   box-sizing: border-box;
 }
 
@@ -271,7 +271,7 @@
 
 .sf-qude-giant-num {
   font-family: var(--font-heading, 'Outfit', sans-serif);
-  font-size: clamp(110px, 17vw, 215px);
+  font-size: clamp(80px, 11vw, 150px);
   font-weight: 800;
   line-height: 0.82;
   letter-spacing: -0.06em;
@@ -288,20 +288,20 @@
 
 .sf-qude-card-headline {
   font-family: var(--font-heading, 'Outfit', sans-serif);
-  font-size: clamp(22px, 2.4vw, 30px);
+  font-size: clamp(18px, 2vw, 25px);
   font-weight: 700;
   color: #0F172A;
   line-height: 1.25;
-  margin: 0 0 clamp(10px, 1.4vh, 16px) 0;
+  margin: 0 0 8px 0;
   letter-spacing: -0.015em;
 }
 
 .sf-qude-card-desc {
   font-family: var(--font-body, 'Inter', sans-serif);
-  font-size: clamp(15px, 1.25vw, 17px);
+  font-size: clamp(13.5px, 1.05vw, 15.5px);
   color: #475569;
-  line-height: 1.65;
-  margin: 0 0 clamp(18px, 2.5vh, 28px) 0;
+  line-height: 1.5;
+  margin: 0 0 clamp(10px, 1.5vh, 16px) 0;
   max-width: 640px;
 }
 
@@ -309,22 +309,22 @@
 .sf-qude-features-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: clamp(10px, 1.4vh, 14px) clamp(16px, 2.2vw, 26px);
+  gap: clamp(8px, 1.1vh, 10px) clamp(12px, 1.8vw, 20px);
   max-width: 660px;
 }
 
 .sf-qude-feature-item {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   font-family: var(--font-body, 'Inter', sans-serif);
-  font-size: clamp(13.5px, 1.1vw, 15px);
+  font-size: clamp(12.5px, 0.95vw, 14px);
   font-weight: 500;
   color: #1E293B;
   background: rgba(15, 23, 42, 0.035);
   border: 1px solid rgba(15, 23, 42, 0.065);
-  padding: 9px 15px;
-  border-radius: 11px;
+  padding: 7px 13px;
+  border-radius: 9px;
   transition: background 0.25s ease, transform 0.25s ease;
 }
 
