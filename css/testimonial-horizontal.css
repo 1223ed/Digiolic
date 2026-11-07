@@ -138,16 +138,16 @@
   transform: translate3d(0, 0, 0);
 }
 
-/* Individual Showcase Card */
 .t-card-wrapper {
   flex-shrink: 0;
   width: clamp(700px, 70vw, 1120px);
   height: clamp(520px, 75vh, 730px);
   border-radius: 24px;
   overflow: hidden;
-  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.85);
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  background-color: #0b0f17;
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.12), 0 8px 24px rgba(60, 45, 20, 0.05);
+  border: 1.5px solid rgba(220, 210, 195, 0.85);
+  background-color: #FAF7F2;
+  background: linear-gradient(135deg, #FFFFFF 0%, #FDFBF7 28%, #F5ECE0 68%, #FFFFFF 100%) !important;
   position: relative;
   transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), 
               opacity 0.45s ease, 
@@ -160,12 +160,12 @@
 
 /* Active center card prominence */
 .t-card-wrapper.is-active {
-  border-color: rgba(255, 255, 255, 0.28);
-  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.95), 0 0 40px rgba(255, 255, 255, 0.04);
+  border-color: rgba(190, 170, 140, 0.95);
+  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.16), 0 0 36px rgba(245, 236, 224, 0.6);
 }
 
 .t-card-wrapper:not(.is-active) {
-  opacity: 0.88;
+  opacity: 0.92;
   transform: scale(0.975);
 }
 
@@ -222,20 +222,20 @@
   font-weight: 700;
   letter-spacing: -0.02em;
   text-transform: uppercase;
-  color: #FFFFFF;
+  color: #0F172A !important;
   margin-bottom: 20px;
   line-height: 1.1;
-  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.65);
+  text-shadow: none !important;
 }
 
 .t-card-quote-text {
   font-size: clamp(1.02rem, 1.25vw, 1.25rem);
   line-height: 1.65;
   max-width: 880px;
-  color: rgba(255, 255, 255, 0.92);
-  font-weight: 400;
+  color: #1E293B !important;
+  font-weight: 450;
   margin-bottom: 28px;
-  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
+  text-shadow: none !important;
 }
 
 /* Action Button */
@@ -247,9 +247,9 @@
   font-size: 0.78rem;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: #FFFFFF;
-  background: rgba(255, 255, 255, 0.12);
-  border: 1px solid rgba(255, 255, 255, 0.35);
+  color: #0F172A;
+  background: rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.15);
   border-radius: 999px;
   padding: 12px 28px;
   backdrop-filter: blur(16px);
@@ -264,9 +264,9 @@
 }
 
 .t-card-action-btn:hover {
-  background: #FFFFFF;
-  color: #000000;
-  box-shadow: 0 0 30px rgba(255, 255, 255, 0.45);
+  background: #0F172A;
+  color: #FFFFFF;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
   transform: translateY(-2px);
 }
 
@@ -282,10 +282,10 @@
   padding: 22px clamp(20px, 3.5vw, 44px);
   position: relative;
   z-index: 3;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(255, 255, 255, 0.72);
 }
 
 .t-author-block {
@@ -299,17 +299,17 @@
   font-family: 'Space Grotesk', -apple-system, sans-serif;
   font-size: 1.1rem;
   font-weight: 700;
-  color: #FFFFFF;
+  color: #0F172A !important;
 }
 
 .t-author-meta {
   font-size: 0.84rem;
-  color: #94A3B8;
+  color: #64748B !important;
   font-family: 'Inter', -apple-system, sans-serif;
 }
 
 .t-rating-stars {
-  color: #F8E71C;
+  color: #D97706;
   font-size: 0.9rem;
   letter-spacing: 3px;
   margin-top: 2px;
@@ -320,7 +320,7 @@
   font-size: 0.74rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(15, 23, 42, 0.7);
   text-align: center;
 }
 
@@ -332,31 +332,20 @@
   font-family: 'Space Mono', monospace;
   font-size: 0.72rem;
   letter-spacing: 0.14em;
-  color: rgba(255, 255, 255, 0.75);
+  color: rgba(15, 23, 42, 0.75);
   text-transform: uppercase;
 }
 
-/* Distinct Card Atmospheric Gradients */
-.card-theme-1 {
-  background-color: #38070e;
-  background-image: 
-    linear-gradient(180deg, rgba(30, 4, 8, 0.58) 0%, rgba(20, 3, 6, 0.42) 40%, rgba(15, 2, 4, 0.68) 100%),
-    url('../assets/images/fyx-finance-bg.png');
-  background-position: center center;
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-
-.card-theme-2 {
-  background: linear-gradient(135deg, #242932 0%, #1c2128 50%, #121519 100%);
-}
-
-.card-theme-3 {
-  background: linear-gradient(135deg, #0b2416 0%, #071916 50%, #040e10 100%);
-}
-
+/* Distinct Card Atmospheric Gradients: White & Cream Mixed */
+.card-theme-1,
+.card-theme-2,
+.card-theme-3,
 .card-theme-4 {
-  background: linear-gradient(135deg, #0e1e36 0%, #122540 50%, #080f16 100%);
+  background-color: #FAF7F2 !important;
+  background-image: linear-gradient(135deg, #FFFFFF 0%, #FDFBF7 28%, #F5ECE0 68%, #FFFFFF 100%) !important;
+  background-position: center center !important;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
 }
 
 .bg-mesh-glow {

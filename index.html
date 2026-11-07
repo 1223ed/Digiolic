@@ -515,8 +515,15 @@
     }
 
     .home-hero-bottom {
-      margin-top: clamp(24px, 3.5vh, 44px) !important;
-      margin-bottom: clamp(16px, 2.5vh, 32px) !important;
+      display: flex !important;
+      justify-content: center !important;
+      align-items: center !important;
+      width: 100% !important;
+      margin-top: auto !important;
+      margin-bottom: clamp(24px, 4.5vh, 48px) !important;
+      position: relative !important;
+      z-index: 10 !important;
+      pointer-events: auto !important;
     }
 
     .home-hero-scroll-btn {
@@ -829,9 +836,8 @@
          - Subtitle and smooth scroll down button
          ========================================================================== -->
     <section class="home-hero-clean" id="heroSection" aria-label="Digiolic Hero">
-      <!-- Background Video Container -->
       <div class="home-hero-media">
-        <video class="home-hero-video" autoplay loop muted playsinline webkit-playsinline preload="auto">
+        <video class="home-hero-video" id="homeHeroVideo" autoplay muted playsinline webkit-playsinline preload="auto">
           <source src="assets/videos/categorizing-colored-balls.mp4" type="video/mp4">
         </video>
         <div class="home-hero-overlay"></div>
@@ -869,39 +875,13 @@
         </div>
       </header>
 
-      <!-- Center Hero Content -->
-      <div class="home-hero-content">
-        <!-- Experience Pill Badge -->
-        <div class="hero-home-exp-badge">
-          <span class="hero-home-exp-badge-dot"></span>
-          <span class="hero-home-exp-badge-text">8+ Years of Experience with Certified Team</span>
-        </div>
-
-        <!-- Monumental Typography -->
-        <h1 class="home-hero-title">
-          <span class="home-hero-line-primary">
-            <span class="hero-brand-anim hero-brand-zoho">Zoho</span>, 
-            <span class="hero-brand-anim hero-brand-salesforce">Salesforce</span>, and 
-            <span class="hero-brand-anim hero-brand-marketing">Digital Marketing</span>
-          </span>
-          <span class="home-hero-line-tagline">
-            Complexity Simplified, Growth Amplified
-          </span>
-        </h1>
-
-        <!-- Subtitle Description -->
-        <p class="home-hero-sub">
-          Let's make your business incredible together by uniting powerful Zoho and Salesforce architectures with performance-driven digital marketing.
-        </p>
-
-        <!-- Bottom Actions / Scroll Down Anchor -->
-        <div class="home-hero-bottom">
-          <a href="#metricsSection" class="home-hero-scroll-btn" aria-label="Scroll down to metrics">
-            <svg class="home-hero-scroll-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="6 9 12 15 18 9"></polyline>
-            </svg>
-          </a>
-        </div>
+      <!-- Bottom Actions / Scroll Down Anchor -->
+      <div class="home-hero-bottom">
+        <a href="#metricsSection" class="home-hero-scroll-btn" aria-label="Scroll down to metrics">
+          <svg class="home-hero-scroll-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </a>
       </div>
 
       <!-- Background Audio Element -->
@@ -2119,6 +2099,45 @@
         document.addEventListener('DOMContentLoaded', initHomeAudio);
       } else {
         initHomeAudio();
+      }
+    })();
+
+    // Home Hero Video Controller: Starts on landing, does NOT repeat
+    (function() {
+      function initHomeHeroVideo() {
+        const video = document.getElementById('homeHeroVideo');
+        if (!video) return;
+
+        video.loop = false;
+        video.muted = true;
+        video.playsInline = true;
+
+        function startVideoOnLanding() {
+          video.currentTime = 0;
+          const p = video.play();
+          if (p !== undefined) {
+            p.catch(function() {});
+          }
+        }
+
+        // When video reaches end, stop and do not repeat
+        video.addEventListener('ended', function() {
+          video.pause();
+        });
+
+        startVideoOnLanding();
+
+        window.addEventListener('pageshow', function(e) {
+          if (e.persisted) {
+            startVideoOnLanding();
+          }
+        });
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initHomeHeroVideo);
+      } else {
+        initHomeHeroVideo();
       }
     })();
   </script>

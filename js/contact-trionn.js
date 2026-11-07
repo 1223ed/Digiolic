@@ -178,8 +178,9 @@ function initHeroHangingVideoLoop() {
 
       vidA.src = blobUrl;
       vidA.currentTime = currentTimeA;
-      if (!isPausedA) {
-        vidA.play().catch(() => {});
+      const pA = vidA.play();
+      if (pA !== undefined) {
+        pA.catch(() => {});
       }
 
       if (vidB) {

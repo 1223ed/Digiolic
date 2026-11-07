@@ -293,9 +293,10 @@
   height: clamp(520px, 75vh, 730px);
   border-radius: 24px;
   overflow: hidden;
-  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.85);
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  background-color: #0b0f17;
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.12), 0 8px 24px rgba(60, 45, 20, 0.05);
+  border: 1.5px solid rgba(220, 210, 195, 0.85);
+  background-color: #FAF7F2;
+  background: linear-gradient(135deg, #FFFFFF 0%, #FDFBF7 28%, #F5ECE0 68%, #FFFFFF 100%) !important;
   position: relative;
   transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), 
               opacity 0.45s ease, 
@@ -308,12 +309,12 @@
 
 /* Active center card prominence */
 .t-card-wrapper.is-active {
-  border-color: rgba(255, 255, 255, 0.28);
-  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.95), 0 0 40px rgba(255, 255, 255, 0.04);
+  border-color: rgba(190, 170, 140, 0.95);
+  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.16), 0 0 36px rgba(245, 236, 224, 0.6);
 }
 
 .t-card-wrapper:not(.is-active) {
-  opacity: 0.88;
+  opacity: 0.92;
   transform: scale(0.975);
 }
 
@@ -365,14 +366,9 @@
   z-index: 2;
 }
 
-/* Deep center scrim for pristine quote contrast & effortless readability */
+/* Center scrim removed for crisp white and cream card aesthetics */
 .t-card-body::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(ellipse at 50% 50%, rgba(4, 6, 11, 0.88) 0%, rgba(4, 6, 11, 0.70) 58%, transparent 100%);
-  pointer-events: none;
-  z-index: -1;
+  display: none !important;
 }
 
 .t-card-company-hero {
@@ -381,10 +377,10 @@
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: #FFFFFF;
+  color: #0F172A !important;
   margin-bottom: 24px;
   line-height: 1.2;
-  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.85);
+  text-shadow: none !important;
 }
 
 .t-card-quote-text {
@@ -392,11 +388,11 @@
   font-size: clamp(1.14rem, 1.5vw, 1.38rem);
   line-height: 1.82;
   max-width: 820px;
-  color: #FFFFFF;
-  font-weight: 400;
+  color: #1E293B !important;
+  font-weight: 450;
   letter-spacing: -0.01em;
   margin: 0 auto;
-  text-shadow: 0 3px 24px rgba(0, 0, 0, 0.98);
+  text-shadow: none !important;
 }
 
 /* Action Button */
@@ -435,7 +431,7 @@
   transform: translateX(4px);
 }
 
-/* Card Bottom Bar - Clean & Minimal Author Meta */
+/* Card Bottom Bar - Clean & Minimal Author Meta on White/Cream */
 .t-card-bottom-bar {
   display: flex;
   align-items: center;
@@ -443,10 +439,10 @@
   padding: 22px clamp(28px, 4vw, 52px);
   position: relative;
   z-index: 3;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  background: rgba(0, 0, 0, 0.42);
+  background: rgba(255, 255, 255, 0.72);
 }
 
 .t-author-block {
@@ -460,65 +456,27 @@
   font-family: 'Space Grotesk', -apple-system, sans-serif;
   font-size: 1.15rem;
   font-weight: 700;
-  color: #FFFFFF;
+  color: #0F172A !important;
   letter-spacing: 0.01em;
 }
 
 .t-author-meta {
   font-size: 0.88rem;
-  color: #94A3B8;
+  color: #64748B !important;
   font-family: 'Inter', -apple-system, sans-serif;
 }
 
-/* Distinct Card Atmospheric Gradients with Golden Architectural Medallions (Subdued & Elegant) */
-.card-theme-1 {
-  background-color: #0d0103;
-  background-image: 
-    linear-gradient(180deg, rgba(16, 2, 4, 0.68) 0%, rgba(12, 1, 3, 0.82) 45%, rgba(6, 0, 1, 0.96) 100%),
-    url('../assets/images/fyx-finance-bg.png?v=20261028_no_people');
-  background-position: center top;
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-
-.card-theme-2 {
-  background-color: #090e16;
-  background-image: 
-    linear-gradient(180deg, rgba(10, 15, 24, 0.68) 0%, rgba(8, 12, 19, 0.82) 45%, rgba(4, 7, 12, 0.96) 100%),
-    url('../assets/images/blume-labs-bg.png?v=20261028_v1');
-  background-position: center top;
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-
-.card-theme-3 {
-  background-color: #041209;
-  background-image: 
-    linear-gradient(180deg, rgba(4, 18, 10, 0.68) 0%, rgba(3, 14, 8, 0.82) 45%, rgba(1, 8, 4, 0.96) 100%),
-    url('../assets/images/greenworld-bg.png?v=20261028_v1');
-  background-position: center top;
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-
-.card-theme-4 {
-  background-color: #040d1a;
-  background-image: 
-    linear-gradient(180deg, rgba(6, 17, 33, 0.68) 0%, rgba(4, 12, 24, 0.82) 45%, rgba(2, 6, 14, 0.96) 100%),
-    url('../assets/images/pierian-bg.png?v=20261028_v1');
-  background-position: center top;
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-
+/* Mixed White and Cream Gradient for All Client Reviews */
+.card-theme-1,
+.card-theme-2,
+.card-theme-3,
+.card-theme-4,
 .card-theme-5 {
-  background-color: #0e0904;
-  background-image: 
-    linear-gradient(180deg, rgba(20, 13, 5, 0.68) 0%, rgba(14, 9, 3, 0.82) 45%, rgba(7, 4, 1, 0.96) 100%),
-    url('../assets/images/phase-05-training-adoption.jpg');
-  background-position: center top;
-  background-size: cover;
-  background-repeat: no-repeat;
+  background-color: #FAF7F2 !important;
+  background-image: linear-gradient(135deg, #FFFFFF 0%, #FDFBF7 28%, #F5ECE0 68%, #FFFFFF 100%) !important;
+  background-position: center center !important;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
 }
 
 .bg-mesh-glow {

@@ -816,6 +816,25 @@
       box-sizing: border-box;
     }
 
+    @media (max-width: 768px) {
+      .dp-hero-container {
+        height: 100dvh !important;
+        min-height: 560px !important;
+        max-height: 100dvh !important;
+      }
+      .dp-hero-video {
+        position: absolute !important;
+        inset: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        object-position: center center !important;
+      }
+      .dp-hero-content {
+        padding: 5.5rem 1.25rem 2rem 1.25rem !important;
+      }
+    }
+
     @media (min-width: 640px) {
       .dp-hero-content {
         padding: 2rem 1.75rem 3rem 1.75rem;
