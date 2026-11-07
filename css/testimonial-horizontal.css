@@ -338,43 +338,43 @@
 
 /* Card Background: #bdc3c7 -> #2c3e50 Color Combination with Original Graphic Imagery */
 .card-theme-1 {
-  background-color: #2c3e50;
+  background-color: #2c3e50 !important;
   background-image: 
     linear-gradient(135deg, rgba(189, 195, 199, 0.55) 0%, rgba(44, 62, 80, 0.88) 100%),
-    url('../assets/images/fyx-finance-bg.png?v=20261028_no_people');
-  background-position: center top;
-  background-size: cover;
-  background-repeat: no-repeat;
+    url('../assets/images/fyx-finance-bg.png?v=20261028_no_people') !important;
+  background-position: center top !important;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
 }
 
 .card-theme-2 {
-  background-color: #2c3e50;
+  background-color: #2c3e50 !important;
   background-image: 
     linear-gradient(135deg, rgba(189, 195, 199, 0.55) 0%, rgba(44, 62, 80, 0.88) 100%),
-    url('../assets/images/blume-labs-bg.png?v=20261028_v1');
-  background-position: center top;
-  background-size: cover;
-  background-repeat: no-repeat;
+    url('../assets/images/blume-labs-bg.png?v=20261028_v1') !important;
+  background-position: center top !important;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
 }
 
 .card-theme-3 {
-  background-color: #2c3e50;
+  background-color: #2c3e50 !important;
   background-image: 
     linear-gradient(135deg, rgba(189, 195, 199, 0.55) 0%, rgba(44, 62, 80, 0.88) 100%),
-    url('../assets/images/greenworld-bg.png?v=20261028_v1');
-  background-position: center top;
-  background-size: cover;
-  background-repeat: no-repeat;
+    url('../assets/images/greenworld-bg.png?v=20261028_v1') !important;
+  background-position: center top !important;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
 }
 
 .card-theme-4 {
-  background-color: #2c3e50;
+  background-color: #2c3e50 !important;
   background-image: 
     linear-gradient(135deg, rgba(189, 195, 199, 0.55) 0%, rgba(44, 62, 80, 0.88) 100%),
-    url('../assets/images/pierian-bg.png?v=20261028_v1');
-  background-position: center top;
-  background-size: cover;
-  background-repeat: no-repeat;
+    url('../assets/images/pierian-bg.png?v=20261028_v1') !important;
+  background-position: center top !important;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
 }
 
 .bg-mesh-glow {
