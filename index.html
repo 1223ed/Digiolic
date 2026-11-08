@@ -35,7 +35,7 @@
   <link rel="stylesheet" href="css/why-choose-interactive.css?v=20261104_v1">
   <link rel="stylesheet" href="css/challenges-solutions.css?v=20261103_v6">
   <link rel="stylesheet" href="css/enterprise-solutions-trionn.css?v=20261027_trionn_v13">
-  <link rel="stylesheet" href="css/client-testimonials-section.css?v=20261108_reverted_clean_v1">
+  <link rel="stylesheet" href="css/client-testimonials-section.css?v=20261108_grid_v1">
   <link rel="stylesheet" href="css/zoho-footer.css?v=20261027_v1">
 
   <style>
@@ -858,6 +858,27 @@
       display: inline-block !important;
       font-weight: 700 !important;
       letter-spacing: 0.03em !important;
+    }
+
+    /* ==========================================================================
+       CLIENT TESTIMONIALS SECTION: Sleek Dark Grid Pattern Matching User Reference
+       ========================================================================== */
+    #clientTestimonialsSection,
+    .ct-master-section,
+    .ct-master-sticky {
+      background-color: #0f0f0f !important;
+      background-image: linear-gradient(180deg, #000000 0%, #0f0f0f 5%, #0f0f0f 95%, #000000 100%) !important;
+    }
+
+    #clientTestimonialsSection .ct-bg-grid-lines,
+    .ct-master-section .ct-bg-grid-lines {
+      background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.07) 1px, transparent 1px) !important;
+      background-size: 72px 72px !important;
+      opacity: 1 !important;
+      mask-image: linear-gradient(180deg, transparent 0%, black 5%, black 95%, transparent 100%) !important;
+      -webkit-mask-image: linear-gradient(180deg, transparent 0%, black 5%, black 95%, transparent 100%) !important;
     }
 
     /* ==========================================================================
