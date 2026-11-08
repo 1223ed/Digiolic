@@ -40,6 +40,27 @@
   box-sizing: border-box;
 }
 
+/* Top Black Shadow / Gradient Blend to seamlessly mix with Section 4 above */
+.ct-top-shadow-blend {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: clamp(160px, 24vh, 280px);
+  background: linear-gradient(
+    to bottom,
+    #000000 0%,
+    rgba(0, 0, 0, 0.96) 20%,
+    rgba(0, 0, 0, 0.78) 40%,
+    rgba(0, 0, 0, 0.48) 65%,
+    rgba(0, 0, 0, 0.18) 85%,
+    transparent 100%
+  ) !important;
+  pointer-events: none;
+  z-index: 5;
+}
+
 /* Atmospheric Celestial Background (Constellation Dots & Micro-Grid matching image) */
 .ct-bg-atmosphere {
   position: absolute;
@@ -111,7 +132,7 @@
   font-family: 'Space Mono', monospace;
   font-size: 0.72rem;
   letter-spacing: 0.16em;
-  color: #000000 !important;
+  color: #FFFFFF !important;
   text-transform: uppercase;
   user-select: none;
   pointer-events: none;
@@ -121,23 +142,23 @@
   gap: 6px;
   padding: 6px 14px;
   border-radius: 999px;
-  background: rgba(0, 0, 0, 0.08) !important;
-  border: 1px solid rgba(0, 0, 0, 0.25) !important;
+  background: rgba(255, 255, 255, 0.15) !important;
+  border: 1px solid rgba(255, 255, 255, 0.35) !important;
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
 }
 
 .ct-counter-current {
-  color: #000000 !important;
+  color: #FFFFFF !important;
   font-weight: 700;
 }
 
 .ct-counter-divider {
-  color: rgba(0, 0, 0, 0.40) !important;
+  color: rgba(255, 255, 255, 0.50) !important;
 }
 
 .ct-counter-total {
-  color: rgba(0, 0, 0, 0.60) !important;
+  color: rgba(255, 255, 255, 0.75) !important;
 }
 
 /* ==========================================================================
