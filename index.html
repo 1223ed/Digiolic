@@ -430,17 +430,101 @@
     }
 
     @media (max-width: 640px) {
+      .home-hero-header {
+        padding: 16px 16px !important;
+      }
+      .home-hero-logo {
+        height: 28px !important;
+      }
       .home-hero-actions {
-        gap: 8px !important;
+        gap: 6px !important;
       }
       .home-hero-contact-btn {
-        padding: 8px 14px !important;
-        font-size: 0.76rem !important;
-        gap: 5px !important;
+        padding: 7px 12px !important;
+        font-size: 0.72rem !important;
+        gap: 4px !important;
       }
       .home-hero-menu-btn {
-        width: 38px !important;
-        height: 38px !important;
+        width: 36px !important;
+        height: 36px !important;
+      }
+      .home-hero-actions .nav-sound-control {
+        width: 36px !important;
+        height: 36px !important;
+      }
+    }
+
+    /* Hero Audio Toggle Button (Matches Zoho Page Design & Home Hero Theme) */
+    .home-hero-actions .nav-sound-control {
+      width: 44px !important;
+      height: 44px !important;
+      border-radius: 50% !important;
+      border: 1px solid rgba(0, 0, 0, 0.1) !important;
+      background: rgba(255, 255, 255, 0.85) !important;
+      backdrop-filter: blur(12px) !important;
+      -webkit-backdrop-filter: blur(12px) !important;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12) !important;
+      color: #0F172A !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      cursor: pointer !important;
+      padding: 0 !important;
+      transition: background-color 0.25s ease, transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease !important;
+      user-select: none !important;
+      -webkit-tap-highlight-color: transparent !important;
+      flex-shrink: 0 !important;
+      outline: none !important;
+    }
+
+    .home-hero-actions .nav-sound-control:hover {
+      transform: scale(1.08) !important;
+      background: #FFFFFF !important;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18) !important;
+    }
+
+    .home-hero-actions .nav-sound-control:active {
+      transform: scale(0.95) !important;
+    }
+
+    .home-hero-actions .nav-sound-control .sound-icon {
+      width: 18px !important;
+      height: 18px !important;
+      display: block !important;
+      pointer-events: none !important;
+    }
+
+    .home-hero-actions .nav-sound-control.is-playing .sound-icon-playing {
+      display: block !important;
+    }
+
+    .home-hero-actions .nav-sound-control.is-playing .sound-icon-paused {
+      display: none !important;
+    }
+
+    .home-hero-actions .nav-sound-control.is-paused .sound-icon-playing {
+      display: none !important;
+    }
+
+    .home-hero-actions .nav-sound-control.is-paused .sound-icon-paused {
+      display: block !important;
+    }
+
+    /* Subtle sound wave pulse animation when playing */
+    .home-hero-actions .nav-sound-control.is-playing .sound-wave-1 {
+      animation: soundArcPulse 1.2s infinite ease-in-out !important;
+    }
+
+    .home-hero-actions .nav-sound-control.is-playing .sound-wave-2 {
+      animation: soundArcPulse 1.2s infinite 0.2s ease-in-out !important;
+    }
+
+    @keyframes soundArcPulse {
+      0%, 100% {
+        opacity: 0.45;
+      }
+      50% {
+        opacity: 1;
       }
     }
 
@@ -954,6 +1038,25 @@
             <span>LET'S TALK</span>
             <span class="home-hero-arrow" aria-hidden="true">↗</span>
           </a>
+
+          <!-- Audio Toggle Button (Exact same SVG and animation as Zoho page, just left side of menu option) -->
+          <button type="button" class="nav-sound-control is-playing" id="zohoAudioToggleBtn"
+            aria-label="Play or pause background song" title="Pause Song" aria-pressed="true" tabindex="0">
+            <!-- Playing state: Speaker with Sound Waves -->
+            <svg class="sound-icon sound-icon-playing" viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+              <path d="M11 5L6 9H2v6h4l5 4V5z" />
+              <path class="sound-wave-1" d="M15.54 8.46a5 5 0 0 1 0 7.07" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" />
+              <path class="sound-wave-2" d="M19.07 4.93a10 10 0 0 1 0 14.14" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" />
+            </svg>
+            <!-- Paused state: Speaker Muted -->
+            <svg class="sound-icon sound-icon-paused" viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+              <path d="M11 5L6 9H2v6h4l5 4V5z" />
+              <line x1="23" y1="9" x2="17" y2="15" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+              <line x1="17" y1="9" x2="23" y2="15" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            </svg>
+          </button>
 
           <!-- Cinematic Menu Trigger -->
           <button type="button" class="home-hero-menu-btn" id="cinematicMenuOpenBtn" aria-label="Open Navigation Menu">
@@ -2117,6 +2220,121 @@
         document.addEventListener('DOMContentLoaded', initHomeHeroVideo);
       } else {
         initHomeHeroVideo();
+      }
+    })();
+  </script>
+  <!-- Digiolic Background Song: name-story.mp3 (Same audio and functionality as Zoho page) -->
+  <audio id="zohoStoryAudio" preload="auto" loop playsinline autoplay>
+    <source src="assets/audio/name-story.mp3" type="audio/mp3">
+    <source src="js/name-story.mp3" type="audio/mp3">
+  </audio>
+
+  <script>
+    // Digiolic Home Background Audio Controller (Exact match to Zoho page)
+    (function () {
+      function initHomeAudio() {
+        const audio = document.getElementById('zohoStoryAudio');
+        const toggleBtn = document.getElementById('zohoAudioToggleBtn');
+        if (!audio || !toggleBtn) return;
+
+        let userManuallyPaused = false;
+        let isPlaying = true;
+        let gestureUnlocked = false;
+        audio.volume = 0.85;
+
+        function updateUI(active) {
+          if (active) {
+            toggleBtn.classList.add('is-playing');
+            toggleBtn.classList.remove('is-paused');
+            toggleBtn.setAttribute('aria-pressed', 'true');
+            toggleBtn.setAttribute('title', 'Pause Song');
+          } else {
+            toggleBtn.classList.remove('is-playing');
+            toggleBtn.classList.add('is-paused');
+            toggleBtn.setAttribute('aria-pressed', 'false');
+            toggleBtn.setAttribute('title', 'Play Song');
+          }
+        }
+
+        function startAudio() {
+          isPlaying = true;
+          updateUI(true);
+          const playPromise = audio.play();
+          if (playPromise !== undefined) {
+            playPromise
+              .then(() => {
+                isPlaying = true;
+                updateUI(true);
+              })
+              .catch(() => {
+                if (!userManuallyPaused) {
+                  updateUI(true);
+                }
+              });
+          } else {
+            updateUI(true);
+          }
+        }
+
+        function stopAudio() {
+          if (!audio.paused) {
+            audio.pause();
+          }
+          isPlaying = false;
+          updateUI(false);
+        }
+
+        audio.addEventListener('play', () => {
+          isPlaying = true;
+          updateUI(true);
+        });
+        audio.addEventListener('pause', () => {
+          if (userManuallyPaused) {
+            isPlaying = false;
+            updateUI(false);
+          }
+        });
+
+        // Toggle button click: manual Play / Pause
+        toggleBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          gestureUnlocked = true;
+          if (!audio.paused || isPlaying) {
+            userManuallyPaused = true;
+            stopAudio();
+          } else {
+            userManuallyPaused = false;
+            startAudio();
+          }
+        });
+
+        startAudio();
+
+        // Autoplay unlock on any user interaction
+        const unlockEvents = ['pointerdown', 'mousedown', 'click', 'touchstart', 'touchend', 'scroll', 'wheel', 'keydown', 'mousemove'];
+        function unlockAutoplayOnGesture() {
+          if (gestureUnlocked) return;
+          if (userManuallyPaused) return;
+
+          if (audio.paused) {
+            const p = audio.play();
+            if (p !== undefined) {
+              p.then(() => {
+                gestureUnlocked = true;
+                unlockEvents.forEach((evt) => window.removeEventListener(evt, unlockAutoplayOnGesture));
+                updateUI(true);
+              }).catch(() => {});
+            }
+          }
+        }
+
+        unlockEvents.forEach((evt) => window.addEventListener(evt, unlockAutoplayOnGesture, { passive: true }));
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initHomeAudio);
+      } else {
+        initHomeAudio();
       }
     })();
   </script>

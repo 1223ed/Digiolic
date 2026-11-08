@@ -59,7 +59,13 @@
 
 /* Monumental Architectural Watermark (About Us Page "DIGIOLIC") */
 .vv-monumental-watermark {
-  display: none !important;
+  display: flex !important;
+  justify-content: center;
+  align-items: flex-end;
+  width: 100%;
+  pointer-events: none;
+  line-height: 0.85;
+  user-select: none;
 }
 
 .ct-monumental-line {
@@ -68,7 +74,7 @@
   align-items: center;
   font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
   font-weight: 800;
-  font-size: clamp(3.8rem, 13.5vw, 12.5rem);
+  font-size: clamp(3rem, 12.5vw, 12.5rem);
   line-height: 0.85;
   letter-spacing: -0.035em;
   text-transform: uppercase;
@@ -78,6 +84,7 @@
   -webkit-text-fill-color: transparent;
   color: transparent;
   text-shadow: none;
+  white-space: nowrap;
 }
 
 /* Preserve watermark gradient across split characters */

@@ -1217,9 +1217,31 @@ button {
   color: #000000;
 }
 
-.vv-footer-mark-stage,
+.vv-footer-mark-stage {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 1300px;
+  pointer-events: none;
+  display: flex !important;
+  justify-content: center;
+  align-items: flex-end;
+  line-height: 0;
+  z-index: 1;
+  overflow: hidden;
+}
+
 .vv-footer-watermark,
 .vv-footer-mark {
-  display: none !important;
+  display: block;
+  width: 94%;
+  height: auto;
+  pointer-events: none;
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  z-index: 1;
 }
 
