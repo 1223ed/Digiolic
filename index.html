@@ -391,7 +391,9 @@
     .home-hero-actions {
       display: flex !important;
       align-items: center !important;
-      gap: clamp(12px, 1.8vw, 20px) !important;
+      gap: clamp(10px, 1.8vw, 20px) !important;
+      white-space: nowrap !important;
+      flex-shrink: 0 !important;
     }
 
     .home-hero-contact-btn {
@@ -410,6 +412,8 @@
       text-decoration: none !important;
       box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25) !important;
       transition: transform 0.25s ease, background-color 0.25s ease, box-shadow 0.25s ease !important;
+      white-space: nowrap !important;
+      flex-shrink: 0 !important;
     }
     .home-hero-contact-btn:hover {
       transform: translateY(-2px) !important;
@@ -423,6 +427,21 @@
     }
     .home-hero-contact-btn:hover .home-hero-arrow {
       transform: translate(2px, -2px) !important;
+    }
+
+    @media (max-width: 640px) {
+      .home-hero-actions {
+        gap: 8px !important;
+      }
+      .home-hero-contact-btn {
+        padding: 8px 14px !important;
+        font-size: 0.76rem !important;
+        gap: 5px !important;
+      }
+      .home-hero-menu-btn {
+        width: 38px !important;
+        height: 38px !important;
+      }
     }
 
     .home-hero-menu-btn {
@@ -847,11 +866,6 @@
 
 <body>
 
-  <!-- Digiolic Background Song: name-story.mp3 (Same audio as Zoho Enterprise & About Us page) -->
-  <audio id="zohoStoryAudio" preload="auto" loop playsinline autoplay>
-    <source src="assets/audio/name-story.mp3" type="audio/mp3">
-    <source src="js/name-story.mp3" type="audio/mp3">
-  </audio>
 
   <!-- ==========================================================================
        CINEMATIC EDITORIAL MENU OVERLAY
@@ -935,14 +949,6 @@
         </a>
 
         <div class="home-hero-actions">
-          <!-- Audio Toggle Button -->
-          <button type="button" class="nav-sound-control is-playing" id="zohoAudioToggleBtn" aria-label="Play or pause background song" title="Pause Song" aria-pressed="true" tabindex="0">
-            <span class="sound-wave-bar"></span>
-            <span class="sound-wave-bar"></span>
-            <span class="sound-wave-bar"></span>
-            <span class="sound-wave-bar"></span>
-          </button>
-
           <!-- Contact CTA Pill Button -->
           <a href="pages/contact.html" class="home-hero-contact-btn">
             <span>LET'S TALK</span>
@@ -968,9 +974,6 @@
           </svg>
         </a>
       </div>
-
-      <!-- Background Audio Element -->
-      <audio id="zohoStoryAudio" src="assets/audio/name-story.mp3" preload="auto" loop></audio>
     </section>
 
     <!-- ==========================================================================
@@ -2077,116 +2080,7 @@
       <polyline points="18 15 12 9 6 15"></polyline>
     </svg>
   </button>
-  <!-- Digiolic Background Audio Controller (Exact match to Zoho & About Us page) -->
   <script>
-    (function () {
-      function initHomeAudio() {
-        const audio = document.getElementById('zohoStoryAudio');
-        if (!audio) return;
-
-        let userManuallyPaused = false;
-        let isPlaying = true;
-        let gestureUnlocked = false;
-        audio.volume = 0.85;
-
-        function updateUI(active) {
-          const toggleBtn = document.getElementById('zohoAudioToggleBtn');
-          if (!toggleBtn) return;
-          if (active) {
-            toggleBtn.classList.add('is-playing');
-            toggleBtn.classList.remove('is-paused');
-            toggleBtn.setAttribute('aria-pressed', 'true');
-            toggleBtn.setAttribute('title', 'Pause Song');
-          } else {
-            toggleBtn.classList.remove('is-playing');
-            toggleBtn.classList.add('is-paused');
-            toggleBtn.setAttribute('aria-pressed', 'false');
-            toggleBtn.setAttribute('title', 'Play Song');
-          }
-        }
-
-        function startAudio() {
-          isPlaying = true;
-          updateUI(true);
-          const playPromise = audio.play();
-          if (playPromise !== undefined) {
-            playPromise
-              .then(() => {
-                isPlaying = true;
-                updateUI(true);
-              })
-              .catch(() => {
-                if (!userManuallyPaused) {
-                  updateUI(true);
-                }
-              });
-          } else {
-            updateUI(true);
-          }
-        }
-
-        function stopAudio() {
-          if (!audio.paused) {
-            audio.pause();
-          }
-          isPlaying = false;
-          updateUI(false);
-        }
-
-        audio.addEventListener('play', () => {
-          isPlaying = true;
-          updateUI(true);
-        });
-        audio.addEventListener('pause', () => {
-          if (userManuallyPaused) {
-            isPlaying = false;
-            updateUI(false);
-          }
-        });
-
-        document.addEventListener('click', (e) => {
-          const btn = e.target.closest && e.target.closest('#zohoAudioToggleBtn');
-          if (!btn) return;
-          e.stopPropagation();
-          gestureUnlocked = true;
-          if (!audio.paused || isPlaying) {
-            userManuallyPaused = true;
-            stopAudio();
-          } else {
-            userManuallyPaused = false;
-            startAudio();
-          }
-        });
-
-        startAudio();
-
-        const unlockEvents = ['pointerdown', 'mousedown', 'click', 'touchstart', 'touchend', 'scroll', 'wheel', 'keydown', 'mousemove'];
-        function unlockAutoplayOnGesture() {
-          if (gestureUnlocked) return;
-          if (userManuallyPaused) return;
-
-          if (audio.paused) {
-            const p = audio.play();
-            if (p !== undefined) {
-              p.then(() => {
-                gestureUnlocked = true;
-                unlockEvents.forEach((evt) => window.removeEventListener(evt, unlockAutoplayOnGesture));
-                updateUI(true);
-              }).catch(() => {});
-            }
-          }
-        }
-
-        unlockEvents.forEach((evt) => window.addEventListener(evt, unlockAutoplayOnGesture, { passive: true }));
-      }
-
-      if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initHomeAudio);
-      } else {
-        initHomeAudio();
-      }
-    })();
-
     // Home Hero Video Controller: Starts on landing, does NOT repeat
     (function() {
       function initHomeHeroVideo() {

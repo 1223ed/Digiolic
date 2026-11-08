@@ -171,33 +171,26 @@
   // Master Initialization for Target Elements
   function initAll() {
     // -------------------------------------------------------------------------
-    // 1. ABOUT US PAGE TARGETS:
+    // 1. ABOUT US PAGE TARGET:
     //    - "Create Bold. Deliver Better." (#aboutCtaTitle)
-    //    - "DIGIOLIC" (#aboutDigiolicWatermark)
     // -------------------------------------------------------------------------
     const aboutCtaSection = document.getElementById('vvCtaBannerSection');
     const aboutCtaTitle = document.getElementById('aboutCtaTitle');
-    const aboutDigiolic = document.getElementById('aboutDigiolicWatermark');
 
     if (aboutCtaTitle) {
       setupElementWave(aboutCtaTitle, { stagger: 0.024, duration: 0.72, baseDelay: 0.05 });
     }
-    if (aboutDigiolic) {
-      setupElementWave(aboutDigiolic, { stagger: 0.038, duration: 0.85, baseDelay: 0.15 });
-    }
 
-    if (aboutCtaSection && (aboutCtaTitle || aboutDigiolic)) {
+    if (aboutCtaSection && aboutCtaTitle) {
       if (typeof ScrollTrigger !== 'undefined' && typeof gsap !== 'undefined') {
         ScrollTrigger.create({
           trigger: aboutCtaSection,
           start: "top 78%",
           onEnter: () => {
             if (aboutCtaTitle) aboutCtaTitle._triggerWave();
-            if (aboutDigiolic) aboutDigiolic._triggerWave();
           },
           onEnterBack: () => {
             if (aboutCtaTitle) aboutCtaTitle._triggerWave();
-            if (aboutDigiolic) aboutDigiolic._triggerWave();
           }
         });
       } else if ('IntersectionObserver' in window) {
@@ -205,14 +198,12 @@
           entries.forEach(entry => {
             if (entry.isIntersecting) {
               if (aboutCtaTitle) aboutCtaTitle._triggerWave();
-              if (aboutDigiolic) aboutDigiolic._triggerWave();
             }
           });
         }, { threshold: 0.2 });
         obs.observe(aboutCtaSection);
       } else {
         if (aboutCtaTitle) aboutCtaTitle._triggerWave();
-        if (aboutDigiolic) aboutDigiolic._triggerWave();
       }
     }
 
