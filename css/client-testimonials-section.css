@@ -11,8 +11,8 @@
   position: relative;
   width: 100%;
   height: 500vh; /* Delivers luxurious, controlled scroll distance */
-  background: #000000 !important;
-  background-color: #000000 !important;
+  background: #FF5C4B !important;
+  background-color: #FF5C4B !important;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -34,8 +34,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: #000000 !important;
-  background-color: #000000 !important;
+  background: #FF5C4B !important;
+  background-color: #FF5C4B !important;
   isolation: isolate;
   box-sizing: border-box;
 }
@@ -55,8 +55,8 @@
   position: absolute;
   inset: 0;
   background-image: 
-    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+    linear-gradient(rgba(255, 255, 255, 0.12) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.12) 1px, transparent 1px);
   background-size: 80px 80px;
   opacity: 0.55;
   mask-image: radial-gradient(circle at 50% 50%, black 50%, transparent 90%);
@@ -111,27 +111,33 @@
   font-family: 'Space Mono', monospace;
   font-size: 0.72rem;
   letter-spacing: 0.16em;
-  color: rgba(255, 255, 255, 0.4);
+  color: #FFFFFF !important;
   text-transform: uppercase;
   user-select: none;
   pointer-events: none;
   z-index: 10;
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.25) !important;
+  border: 1px solid rgba(255, 255, 255, 0.35) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
 
 .ct-counter-current {
-  color: #F8E71C;
+  color: #FFFFFF !important;
   font-weight: 700;
 }
 
 .ct-counter-divider {
-  color: rgba(255, 255, 255, 0.3);
+  color: rgba(255, 255, 255, 0.6) !important;
 }
 
 .ct-counter-total {
-  color: rgba(255, 255, 255, 0.45);
+  color: rgba(255, 255, 255, 0.75) !important;
 }
 
 /* ==========================================================================
@@ -164,16 +170,18 @@
   font-size: 0.75rem;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  padding: 6px 18px;
+  padding: 7px 20px;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  color: #F8E71C;
+  background: rgba(0, 0, 0, 0.22) !important;
+  border: 1px solid rgba(255, 255, 255, 0.45) !important;
+  color: #FFFFFF !important;
   margin-bottom: 24px;
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.5s ease, transform 0.5s ease;
   will-change: transform, opacity;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 /* Monumental Center Title with Overflow Wave Masks */
@@ -224,7 +232,8 @@
 
 /* Subtitle Lead Description */
 .ct-lead-desc {
-  color: #94A3B8;
+  color: #FFFFFF !important;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.25);
   max-width: 680px;
   margin: 0 auto 36px;
   font-size: clamp(1rem, 1.3vw, 1.2rem);
@@ -244,7 +253,8 @@
   font-size: 0.75rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(255, 255, 255, 0.95) !important;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.25);
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.5s ease, transform 0.5s ease;
