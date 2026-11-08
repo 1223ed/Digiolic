@@ -805,19 +805,18 @@
         const prevCard = k > 0 ? phaseCards[k - 1] : null;
         const targetRow = phaseRows[k];
 
-        if (!path1 || !path2 || !path3) continue;
+        let L1 = 1, L2 = 1, L3 = 1;
+        try {
+          if (path1 && path1.getTotalLength) L1 = path1.getTotalLength() || 1;
+          if (path2 && path2.getTotalLength) L2 = path2.getTotalLength() || 1;
+          if (path3 && path3.getTotalLength) L3 = path3.getTotalLength() || 1;
+        } catch (e) {}
 
-        const L1 = path1.getTotalLength() || 1;
-        const L2 = path2.getTotalLength() || 1;
-        const L3 = path3.getTotalLength() || 1;
-
-        path1.style.strokeDasharray = L1;
-        path2.style.strokeDasharray = L2;
-        path3.style.strokeDasharray = L3;
-
-        path1.style.strokeDashoffset = L1;
-        path2.style.strokeDashoffset = L2;
-        path3.style.strokeDashoffset = L3;
+        try {
+          if (path1) { path1.style.strokeDasharray = L1; path1.style.strokeDashoffset = L1; }
+          if (path2) { path2.style.strokeDasharray = L2; path2.style.strokeDashoffset = L2; }
+          if (path3) { path3.style.strokeDasharray = L3; path3.style.strokeDashoffset = L3; }
+        } catch (e) {}
 
         const bundleData = {
           bundleEl,
@@ -885,80 +884,17 @@
 
     /**
      * Render Bundle at scroll progress p in [0, 1]:
-     * - p = 0 to 0.84: 3 lines draw with staggered flight, leading white pointers at tips.
-     * - p = 0.84: All 3 lines & pointers touch together at single destination coordinate.
-     * - p >= 0.78 to 1.0: Destination card box generates / populates (expands with scale & opacity).
-     * - Scrolling up: bidirectionally scrubs backwards in real-time.
+     * - Wire bundles are hidden per user request.
+     * - Destination card box smoothly generates / populates (expands with scale & opacity)
+     *   as the user scrolls down to each phase.
      */
     function renderBundle(b, progress) {
       if (!b) return;
 
-      const CONVERGE_P = 0.84;
-      const CARD_POP_START = 0.78;
-
-      // Normalized tip progress [0, 1]
-      const pNorm = Math.min(1, Math.max(0, progress / CONVERGE_P));
-
-      // Staggered speed matching TRIONN video:
-      // Dot 1 leads ahead
-      // Dot 2 in middle
-      // Dot 3 trails closely behind
-      // At pNorm = 1.0, ALL THREE reach 100% of length and touch simultaneously!
-      const u1 = Math.pow(pNorm, 0.88);
-      const u2 = Math.pow(pNorm, 0.96);
-      const u3 = Math.pow(pNorm, 1.06);
-
-      const d1 = b.L1 * u1;
-      const d2 = b.L2 * u2;
-      const d3 = b.L3 * u3;
-
-      b.path1.style.strokeDashoffset = (b.L1 - d1);
-      b.path2.style.strokeDashoffset = (b.L2 - d2);
-      b.path3.style.strokeDashoffset = (b.L3 - d3);
-
-      if (pNorm > 0.01) {
-        const pt1 = b.path1.getPointAtLength(d1);
-        const pt2 = b.path2.getPointAtLength(d2);
-        const pt3 = b.path3.getPointAtLength(d3);
-
-        b.dot1.setAttribute('transform', `translate(${pt1.x}, ${pt1.y})`);
-        b.dot2.setAttribute('transform', `translate(${pt2.x}, ${pt2.y})`);
-        b.dot3.setAttribute('transform', `translate(${pt3.x}, ${pt3.y})`);
-
-        // Smooth fade-in when departing, full visibility during flight
-        const inAlpha = Math.min(1, pNorm * 6);
-        // Soft merge into arrival point right at convergence
-        const fadeDots = pNorm > 0.96 ? Math.max(0, (1 - pNorm) / 0.04) : 1;
-        const finalAlpha = (inAlpha * fadeDots).toFixed(3);
-
-        b.dot1.style.opacity = finalAlpha;
-        b.dot2.style.opacity = finalAlpha;
-        b.dot3.style.opacity = finalAlpha;
-      } else {
-        b.dot1.style.opacity = '0';
-        b.dot2.style.opacity = '0';
-        b.dot3.style.opacity = '0';
-      }
-
-      // Target landing dot brightens to 1.0 as lines converge
-      if (b.targetDot) {
-        const dotAlpha = 0.30 + 0.70 * Math.min(1, Math.max(0, (progress - 0.55) / 0.30));
-        b.targetDot.style.opacity = dotAlpha.toFixed(2);
-      }
-
-      // Arrival spark illuminates as the 3 lines meet together
-      if (b.arrivalSpark) {
-        if (progress < 0.76) {
-          b.arrivalSpark.style.opacity = '0';
-        } else {
-          const sparkP = Math.min(1, (progress - 0.76) / 0.14);
-          b.arrivalSpark.style.opacity = sparkP.toFixed(2);
-        }
-      }
-
       // CARD BOX POPULATION:
-      // The box generates and populates into view as the lines arrive behind it
+      // The box smoothly generates and populates into view as user scrolls to it
       if (b.targetCard) {
+        const CARD_POP_START = 0.08;
         if (progress < CARD_POP_START) {
           b.targetCard.style.opacity = '0';
           b.targetCard.style.transform = 'scale(0.88) translateY(20px)';
@@ -969,15 +905,15 @@
             b.cardBody.style.boxShadow = 'none';
           }
         } else {
-          const popP = Math.min(1, (progress - CARD_POP_START) / (1 - CARD_POP_START));
-          // Cubic ease-out expansion matching TRIONN
+          const popP = Math.min(1, (progress - CARD_POP_START) / (0.80 - CARD_POP_START));
+          // Cubic ease-out expansion
           const ease = 1 - Math.pow(1 - popP, 3);
           const scale = (0.88 + 0.12 * ease).toFixed(4);
           const ty = (20 * (1 - ease)).toFixed(2);
 
           b.targetCard.style.opacity = popP.toFixed(3);
           b.targetCard.style.transform = `scale(${scale}) translateY(${ty}px)`;
-          b.targetCard.style.pointerEvents = popP > 0.5 ? 'auto' : 'none';
+          b.targetCard.style.pointerEvents = popP > 0.3 ? 'auto' : 'none';
 
           if (b.cardBody) {
             b.cardBody.style.borderColor = `rgba(255, 255, 255, ${(0.10 + 0.12 * ease).toFixed(2)})`;
