@@ -742,20 +742,52 @@ html {
   max-width: 680px;
 }
 
-/* Celestial Filaments SVG Canvas — Hidden per user request (curved connecting lines removed) */
-.trionn-celestial-canvas,
-#celestialCanvas,
-.celestial-wire-bundle,
-.celestial-wire,
-.travelling-dot,
-.bundle-target-dot,
-.bundle-arrival-spark,
-.bundle-start-dot,
+/* Celestial Filaments SVG Canvas (positioned BEHIND cards so lines emerge from back of boxes) */
+.trionn-celestial-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 2;
+  overflow: visible;
+}
+
+.celestial-wire-bundle {
+  will-change: opacity;
+}
+
+.celestial-wire {
+  fill: none;
+  stroke-linecap: round;
+  will-change: stroke-dashoffset;
+  filter: drop-shadow(0 0 1px rgba(255, 255, 255, 0.25));
+}
+
+.travelling-dot {
+  pointer-events: none;
+  will-change: transform, opacity;
+  filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.85));
+}
+
+.bundle-target-dot {
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.bundle-arrival-spark {
+  pointer-events: none;
+  will-change: transform, opacity;
+  filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.9));
+  transition: opacity 0.22s ease, transform 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.bundle-start-dot {
+  pointer-events: none;
+}
+
 .celestial-terminal-dot {
-  display: none !important;
-  opacity: 0 !important;
-  visibility: hidden !important;
-  pointer-events: none !important;
+  fill: #FFFFFF;
 }
 
 /* Staggered Vertical Phases Container */
@@ -1183,9 +1215,7 @@ html {
   }
 
   .trionn-celestial-canvas {
-    display: none !important;
-    opacity: 0 !important;
-    visibility: hidden !important;
+    opacity: 0.25;
   }
 }
 
