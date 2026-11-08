@@ -1223,25 +1223,31 @@ button {
   left: 50%;
   transform: translateX(-50%);
   width: 100%;
-  max-width: 1300px;
+  max-width: 1200px;
   pointer-events: none;
   display: flex !important;
   justify-content: center;
   align-items: flex-end;
-  line-height: 0;
   z-index: 1;
-  overflow: hidden;
+  padding: 0 1rem;
+  box-sizing: border-box;
 }
 
-.vv-footer-watermark,
-.vv-footer-mark {
-  display: block;
-  width: 94%;
-  height: auto;
+.vv-monumental-watermark {
+  display: flex !important;
+  justify-content: center;
+  align-items: flex-end;
+  width: 100%;
   pointer-events: none;
-  opacity: 1;
-  transform: translateY(0);
-  transition: opacity 0.8s ease, transform 0.8s ease;
-  z-index: 1;
+  user-select: none;
+}
+
+.vv-monumental-svg {
+  width: 100%;
+  max-width: 1000px;
+  height: auto;
+  display: block;
+  pointer-events: none;
+  user-select: none;
 }
 

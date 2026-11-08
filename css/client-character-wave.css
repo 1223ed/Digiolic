@@ -68,6 +68,15 @@
   user-select: none;
 }
 
+.vv-monumental-svg {
+  width: 100%;
+  max-width: 1000px;
+  height: auto;
+  display: block;
+  pointer-events: none;
+  user-select: none;
+}
+
 .ct-monumental-line {
   display: inline-flex;
   justify-content: center;
