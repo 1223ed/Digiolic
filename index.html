@@ -32,7 +32,6 @@
   <!-- TASA Orbiter Font (Architectural Geometric Sans from composites.archi) -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource-variable/tasa-orbiter/index.css">
   <link rel="stylesheet" href="css/cinematic-menu.css?v=20261004_v26">
-  <link rel="stylesheet" href="css/home-hero-cinematic-scroll.css?v=20261108_v3">
   <link rel="stylesheet" href="css/why-choose-interactive.css?v=20261104_v1">
   <link rel="stylesheet" href="css/challenges-solutions.css?v=20261103_v6">
   <link rel="stylesheet" href="css/enterprise-solutions-trionn.css?v=20261027_trionn_v13">
@@ -1012,314 +1011,71 @@
   <main id="mainContent">
 
     <!-- ==========================================================================
-         CINEMATIC SCROLL-TIED VIDEO HERO SECTION
-         - Pinned sticky 100vh viewport scrubbing hf_hero_optimized.mp4
-         - 3 Content Phases: Zoho & Salesforce -> Scaling Velocity -> The Digiolic Promise
-         - Dynamic Day-to-Night color flip and dual logo crossfade
+         CINEMATIC HERO SECTION (Autoplay Video Background: Categorizing Colored Balls)
+         - Autoplay looped background video without scroll-locking
+         - Digiolic Logo, Sound waves toggle, Contact CTA, Cinematic Menu trigger
+         - Certified team experience pill badge
+         - Dynamic Brand typography (Zoho, Salesforce, Digital Marketing)
+         - Subtitle and smooth scroll down button
          ========================================================================== -->
-    <!-- ==========================================================================
-         CINEMATIC SCROLL STORY HERO SECTION
-         1. Full Black Screen (The Void)
-         2. Monumental "D" Letter Reveal
-         3. Full "DIGIOLIC" Word Expansion
-         4. Focus lock onto "G" (GROWTH)
-         5. Service 1: Zoho Enterprise (One by One)
-         6. Service 2: Salesforce Cloud (One by One)
-         7. Service 3: Performance Digital Marketing + Finale CTA
-         ========================================================================== -->
-    <section class="hero-story-track" id="cinematicStoryTrack" aria-label="Digiolic Cinematic Story">
-      <div class="hero-story-stage" id="cinematicStoryStage">
+    <section class="home-hero-clean" id="heroSection" aria-label="Digiolic Hero">
+      <div class="home-hero-media">
+        <video class="home-hero-video" id="homeHeroVideo" autoplay muted playsinline webkit-playsinline preload="auto">
+          <source src="assets/videos/categorizing-colored-balls.mp4" type="video/mp4">
+        </video>
+        <div class="home-hero-overlay"></div>
+      </div>
 
-        <!-- 1. Ambient Atmospheric Glow Orbs -->
-        <div class="hero-story-ambient" aria-hidden="true">
-          <div class="story-glow-orb glow-center-green" id="glowCenterGreen"></div>
-          <div class="story-glow-orb glow-zoho-red" id="glowZohoRed"></div>
-          <div class="story-glow-orb glow-sf-blue" id="glowSfBlue"></div>
-          <div class="story-glow-orb glow-mkt-purple" id="glowMktPurple"></div>
-        </div>
+      <!-- Top Header / Navigation Bar -->
+      <header class="home-hero-header" id="heroNavbar">
+        <a href="index.html" class="home-hero-brand" aria-label="Digiolic Home">
+          <img src="assets/images/digiolic-logo-dark.png?v=20260927_green_d" alt="Digiolic" class="home-hero-logo">
+        </a>
 
-        <!-- 2. Cyber Stardust Background Grid -->
-        <div class="hero-story-grid" aria-hidden="true"></div>
-
-        <!-- 3. Dynamic Interactive Canvas -->
-        <canvas class="hero-story-canvas" id="storyCanvas" aria-hidden="true"></canvas>
-
-        <!-- 4. Persistent Top Header Navbar -->
-        <header class="hero-story-header" id="heroStoryHeader">
-          <a href="index.html" class="hero-story-brand" aria-label="Digiolic Home">
-            <img src="assets/images/digiolic-logo.png?v=20260927_green_d" alt="Digiolic" class="brand-logo-img">
+        <div class="home-hero-actions">
+          <!-- Contact CTA Pill Button -->
+          <a href="pages/contact.html" class="home-hero-contact-btn">
+            <span>LET'S TALK</span>
+            <span class="home-hero-arrow" aria-hidden="true">↗</span>
           </a>
 
-          <!-- Stage Ticker (Middle) -->
-          <div class="hero-story-ticker" aria-label="Current story stage">
-            <span class="ticker-pulse-dot" aria-hidden="true"></span>
-            <span id="storyTickerText">THE VOID</span>
-          </div>
-
-          <div class="hero-story-actions">
-            <!-- Contact CTA Pill Button -->
-            <a href="pages/contact.html" class="hero-story-contact-btn">
-              <span>LET'S TALK</span>
-              <span class="btn-arrow" aria-hidden="true">↗</span>
-            </a>
-
-            <!-- Audio Toggle Button (Plays Digiolic name-story.mp3) -->
-            <button type="button" class="nav-sound-control is-playing" id="zohoAudioToggleBtn"
-              aria-label="Play or pause background song" title="Pause Song" aria-pressed="true" tabindex="0">
-              <svg class="sound-icon sound-icon-playing" viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
-                <path d="M11 5L6 9H2v6h4l5 4V5z" />
-                <path class="sound-wave-1" d="M15.54 8.46a5 5 0 0 1 0 7.07" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-                <path class="sound-wave-2" d="M19.07 4.93a10 10 0 0 1 0 14.14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-              </svg>
-              <svg class="sound-icon sound-icon-paused" viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
-                <path d="M11 5L6 9H2v6h4l5 4V5z" />
-                <line x1="23" y1="9" x2="17" y2="15" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-                <line x1="17" y1="9" x2="23" y2="15" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-              </svg>
-            </button>
-
-            <!-- Cinematic Fullscreen Menu Trigger -->
-            <button type="button" class="hero-story-menu-btn" id="cinematicMenuOpenBtn" aria-label="Open Navigation Menu">
-              <span class="hero-story-menu-icon">
-                <span class="hero-story-menu-bar"></span>
-                <span class="hero-story-menu-bar"></span>
-                <span class="hero-story-menu-bar"></span>
-              </span>
-            </button>
-          </div>
-        </header>
-
-        <!-- 5. Central Theater Stage for All Episodes -->
-        <div class="hero-story-theater" aria-live="polite">
-
-          <!-- ================================================================
-               EPISODE 0: FULL BLACK VOID (0% - 8% Scroll)
-               ================================================================ -->
-          <div class="story-episode episode-void" id="epVoid">
-            <div class="void-whisper-badge">
-              <span class="void-pulse-dot" aria-hidden="true"></span>
-              <span>ENTER THE ARCHITECTURE</span>
-            </div>
-            <h1 class="void-headline">YOUR GROWTH IS OUR MISSION</h1>
-            <div class="void-scroll-prompt-center">
-              <span>SCROLL TO ENTER</span>
-              <span aria-hidden="true">↓</span>
-            </div>
-          </div>
-
-          <!-- ================================================================
-               EPISODE 1: THE MONUMENTAL "D" REVEAL (8% - 24% Scroll)
-               ================================================================ -->
-          <div class="story-episode episode-letter-d" id="epD">
-            <div class="d-monolith-wrap">
-              <!-- Luminous Green SVG "D" Monolith -->
-              <svg class="d-monolith-svg" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                  <linearGradient id="dGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stop-color="#86EFAC" />
-                    <stop offset="45%" stop-color="#22C55E" />
-                    <stop offset="100%" stop-color="#15803D" />
-                  </linearGradient>
-                  <filter id="dGlowFilter" x="-20%" y="-20%" width="140%" height="140%">
-                    <feGaussianBlur stdDeviation="6" result="blur" />
-                    <feComposite in="SourceGraphic" in2="blur" operator="over" />
-                  </filter>
-                </defs>
-                <!-- Stylized Digiolic "D" Glyph -->
-                <path d="M 45 25 H 105 C 150 25 180 58 180 100 C 180 142 150 175 105 175 H 45 V 25 Z" fill="url(#dGradient)" filter="url(#dGlowFilter)" />
-                <path d="M 80 60 H 105 C 128 60 145 78 145 100 C 145 122 128 140 105 140 H 80 V 60 Z" fill="#000000" />
-              </svg>
-
-              <!-- Rotating Orbital Ring -->
-              <div class="d-halo-ring" aria-hidden="true"></div>
-
-              <div class="d-sub-caption">
-                [ THE DIGIOLIC ENGINE • EST. 2018 ]
-              </div>
-            </div>
-          </div>
-
-          <!-- ================================================================
-               EPISODE 2: FULL "DIGIOLIC" WORD EXPANSION (24% - 42% Scroll)
-               ================================================================ -->
-          <div class="story-episode episode-digiolic-word" id="epDigiolic">
-            <div class="digiolic-monument-wrap">
-              <h2 class="digiolic-brand-title">
-                <span class="title-accent-d">D</span>IGIOLIC
-              </h2>
-
-              <p class="digiolic-word-tagline">
-                Complexity Simplified, Growth Amplified
-              </p>
-
-              <p class="digiolic-word-desc">
-                Architecting high-velocity cloud ecosystems and synchronized growth engines for ambitious global enterprises.
-              </p>
-            </div>
-          </div>
-
-          <!-- ================================================================
-               EPISODE 3: FOCUS LOCK ONTO "G" (GROWTH) (42% - 58% Scroll)
-               ================================================================ -->
-          <div class="story-episode episode-letter-g" id="epG">
-            <div class="g-focus-stage">
-              <div class="g-orbital-rings" aria-hidden="true"></div>
-
-              <h2 class="g-monument-glyph">G</h2>
-
-              <div class="g-growth-badge">
-                <span class="ticker-pulse-dot" aria-hidden="true"></span>
-                <span>G IS FOR GROWTH</span>
-              </div>
-
-              <h3 class="g-growth-title">YOUR GROWTH IS OUR MISSION</h3>
-              <p class="g-growth-sub">
-                Three synchronized enterprise pillars. One exponential growth trajectory.
-              </p>
-            </div>
-          </div>
-
-          <!-- ================================================================
-               EPISODE 4: SERVICE 1 — ZOHO ENTERPRISE (58% - 72% Scroll)
-               ================================================================ -->
-          <div class="story-episode episode-service-zoho" id="epZoho">
-            <div class="service-spotlight-card card-zoho-spotlight">
-              <div class="card-header-bar">
-                <span class="service-step-chip">SERVICE 01 / 03</span>
-                <div class="service-icon-box" aria-hidden="true">
-                  <!-- Zoho Hexagon Vector Icon -->
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                    <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
-                    <polyline points="2 17 12 22 22 17"></polyline>
-                    <polyline points="2 12 12 17 22 12"></polyline>
-                  </svg>
-                </div>
-              </div>
-
-              <h3 class="service-display-title">ZOHO ENTERPRISE ECOSYSTEM</h3>
-              <div class="service-tagline">"Complexity Simplified Across Your Entire Cloud Stack"</div>
-              <p class="service-description">
-                Deep custom Deluge scripting, automated CRM pipelines, Creator custom app engineering, and cross-department data intelligence that unites your sales, finance, and operations.
-              </p>
-
-              <div class="service-pills-row">
-                <span class="service-pill-item">Zoho CRM Plus</span>
-                <span class="service-pill-item">Zoho Creator</span>
-                <span class="service-pill-item">Books &amp; Inventory</span>
-                <span class="service-pill-item">Zoho Analytics</span>
-                <span class="service-pill-item">Custom Deluge &amp; APIs</span>
-              </div>
-
-              <div class="service-kpi-footer">
-                <span class="kpi-footer-label">Pipeline Velocity Lift</span>
-                <span class="kpi-footer-metric">+340%</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- ================================================================
-               EPISODE 5: SERVICE 2 — SALESFORCE CLOUD (72% - 86% Scroll)
-               ================================================================ -->
-          <div class="story-episode episode-service-sf" id="epSf">
-            <div class="service-spotlight-card card-sf-spotlight">
-              <div class="card-header-bar">
-                <span class="service-step-chip">SERVICE 02 / 03</span>
-                <div class="service-icon-box" aria-hidden="true">
-                  <!-- Salesforce Cloud Vector Icon -->
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path>
-                  </svg>
-                </div>
-              </div>
-
-              <h3 class="service-display-title">SALESFORCE CLOUD VELOCITY</h3>
-              <div class="service-tagline">"Precision Automation Built For Mission-Critical Scale"</div>
-              <p class="service-description">
-                Enterprise architecture, custom Apex development, advanced Flow automations, CPQ optimization, and Service Cloud omni-channel implementations tailored for high-volume enterprise pipelines.
-              </p>
-
-              <div class="service-pills-row">
-                <span class="service-pill-item">Sales Cloud</span>
-                <span class="service-pill-item">Service Cloud</span>
-                <span class="service-pill-item">Flows &amp; Apex</span>
-                <span class="service-pill-item">CPQ Solutions</span>
-                <span class="service-pill-item">Data Cloud Sync</span>
-              </div>
-
-              <div class="service-kpi-footer">
-                <span class="kpi-footer-label">Execution Precision Rate</span>
-                <span class="kpi-footer-metric">99.9%</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- ================================================================
-               EPISODE 6: SERVICE 3 — DIGITAL MARKETING & FINALE (86% - 100%)
-               ================================================================ -->
-          <div class="story-episode episode-service-mkt" id="epMkt">
-            <div class="service-spotlight-card card-mkt-spotlight">
-              <div class="card-header-bar">
-                <span class="service-step-chip">SERVICE 03 / 03</span>
-                <div class="service-icon-box" aria-hidden="true">
-                  <!-- Performance Chart Growth Icon -->
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                    <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
-                    <polyline points="17 6 23 6 23 12"></polyline>
-                  </svg>
-                </div>
-              </div>
-
-              <h3 class="service-display-title">PERFORMANCE DIGITAL MARKETING</h3>
-              <div class="service-tagline">"Full-Funnel Acquisition Engineered For Exponential Revenue"</div>
-              <p class="service-description">
-                Data-driven customer acquisition uniting high-intent Google Search, Meta scale, programmatic buying, conversion rate optimization (CRO), and multi-touch revenue attribution.
-              </p>
-
-              <div class="service-pills-row">
-                <span class="service-pill-item">Google Ads Premier</span>
-                <span class="service-pill-item">Meta Scale</span>
-                <span class="service-pill-item">CRO Funnels</span>
-                <span class="service-pill-item">Revenue Attribution</span>
-                <span class="service-pill-item">B2B ABM Media</span>
-              </div>
-
-              <div class="service-kpi-footer">
-                <span class="kpi-footer-label">Managed Enterprise Pipeline</span>
-                <span class="kpi-footer-metric">$48M+</span>
-              </div>
-
-              <!-- Direct Actions inside Final Card -->
-              <div class="service-finale-actions">
-                <a href="pages/contact.html" class="service-primary-btn">
-                  <span>LET'S TALK</span>
-                  <span aria-hidden="true">↗</span>
-                </a>
-                <button type="button" class="service-secondary-btn" id="storyExploreBtn">
-                  <span>EXPLORE CLIENT RESULTS</span>
-                  <span aria-hidden="true">↓</span>
-                </button>
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-        <!-- 6. Story Progress Scrubber Dots & Jump Arrow (Bottom Center) -->
-        <div class="hero-story-scrubber" aria-label="Story chapter navigation">
-          <span class="scrubber-dot is-active-dot" data-step="0" title="The Void"></span>
-          <span class="scrubber-dot" data-step="1" title="'D' Reveal"></span>
-          <span class="scrubber-dot" data-step="2" title="DIGIOLIC"></span>
-          <span class="scrubber-dot" data-step="3" title="'G' for Growth"></span>
-          <span class="scrubber-dot" data-step="4" title="Service 1: Zoho"></span>
-          <span class="scrubber-dot" data-step="5" title="Service 2: Salesforce"></span>
-          <span class="scrubber-dot" data-step="6" title="Service 3: Marketing"></span>
-          <button type="button" class="scrubber-jump-arrow" id="storyJumpBtn" aria-label="Next story chapter" title="Next chapter">
-            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="6 9 12 15 18 9"></polyline>
+          <!-- Audio Toggle Button (Exact same SVG and animation as Zoho page, just left side of menu option) -->
+          <button type="button" class="nav-sound-control is-playing" id="zohoAudioToggleBtn"
+            aria-label="Play or pause background song" title="Pause Song" aria-pressed="true" tabindex="0">
+            <!-- Playing state: Speaker with Sound Waves -->
+            <svg class="sound-icon sound-icon-playing" viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+              <path d="M11 5L6 9H2v6h4l5 4V5z" />
+              <path class="sound-wave-1" d="M15.54 8.46a5 5 0 0 1 0 7.07" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" />
+              <path class="sound-wave-2" d="M19.07 4.93a10 10 0 0 1 0 14.14" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" />
+            </svg>
+            <!-- Paused state: Speaker Muted -->
+            <svg class="sound-icon sound-icon-paused" viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+              <path d="M11 5L6 9H2v6h4l5 4V5z" />
+              <line x1="23" y1="9" x2="17" y2="15" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+              <line x1="17" y1="9" x2="23" y2="15" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
             </svg>
           </button>
-        </div>
 
+          <!-- Cinematic Menu Trigger -->
+          <button type="button" class="home-hero-menu-btn" id="cinematicMenuOpenBtn" aria-label="Open Navigation Menu">
+            <span class="home-menu-icon">
+              <span class="home-menu-bar"></span>
+              <span class="home-menu-bar"></span>
+              <span class="home-menu-bar"></span>
+            </span>
+          </button>
+        </div>
+      </header>
+
+      <!-- Bottom Actions / Scroll Down Anchor -->
+      <div class="home-hero-bottom">
+        <a href="#metricsSection" class="home-hero-scroll-btn" aria-label="Scroll down to metrics">
+          <svg class="home-hero-scroll-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </a>
       </div>
     </section>
 
@@ -2427,6 +2183,46 @@
       <polyline points="18 15 12 9 6 15"></polyline>
     </svg>
   </button>
+  <script>
+    // Home Hero Video Controller: Starts on landing, does NOT repeat
+    (function() {
+      function initHomeHeroVideo() {
+        const video = document.getElementById('homeHeroVideo');
+        if (!video) return;
+
+        video.loop = false;
+        video.muted = true;
+        video.playsInline = true;
+
+        function startVideoOnLanding() {
+          video.currentTime = 0;
+          const p = video.play();
+          if (p !== undefined) {
+            p.catch(function() {});
+          }
+        }
+
+        // When video reaches end, stop and do not repeat
+        video.addEventListener('ended', function() {
+          video.pause();
+        });
+
+        startVideoOnLanding();
+
+        window.addEventListener('pageshow', function(e) {
+          if (e.persisted) {
+            startVideoOnLanding();
+          }
+        });
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initHomeHeroVideo);
+      } else {
+        initHomeHeroVideo();
+      }
+    })();
+  </script>
   <!-- Digiolic Background Song: name-story.mp3 (Same audio and functionality as Zoho page) -->
   <audio id="zohoStoryAudio" preload="auto" loop playsinline autoplay>
     <source src="assets/audio/name-story.mp3" type="audio/mp3">
@@ -2544,7 +2340,6 @@
   </script>
   <script src="js/scroll-nav.js?v=20260920_v302"></script>
   <script src="js/cinematic-menu.js?v=20261004_v26"></script>
-  <script src="js/home-hero-cinematic-scroll.js?v=20261108_v3"></script>
 </body>
 
 </html>
