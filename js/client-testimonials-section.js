@@ -321,7 +321,7 @@
   }
 
   // =========================================================================
-  // CELESTIAL BACKGROUND PARTICLES (Constellation Dots & Micro-Grid Matching Image)
+  // CELESTIAL BACKGROUND PARTICLES (Exact Same Engine as HOW DO WE DELIVER SUCCESS?)
   // =========================================================================
   function initCelestialBackgroundParticles(canvasId, sectionEl) {
     const canvas = document.getElementById(canvasId);
@@ -341,11 +341,13 @@
     let lastScrollY = window.scrollY || window.pageYOffset || 0;
     let scrollVelocity = 0;
 
-    const PARTICLE_COUNT = window.innerWidth <= 768 ? 4 : 8;
+    // Number of particles matching HOW DO WE DELIVER SUCCESS?
+    const PARTICLE_COUNT = window.innerWidth <= 768 ? 32 : 58;
 
     function resizeCanvas() {
-      width = sectionEl.offsetWidth || window.innerWidth;
-      height = window.innerHeight;
+      const container = canvas.parentElement || sectionEl;
+      width = container.offsetWidth || window.innerWidth;
+      height = container.offsetHeight || window.innerHeight;
       dpr = Math.min(window.devicePixelRatio || 1, 2);
 
       canvas.width = Math.round(width * dpr);
@@ -361,55 +363,81 @@
     function initParticles() {
       particles = [];
       for (let i = 0; i < PARTICLE_COUNT; i++) {
-        const z = 0.28 + Math.random() * 0.72;
-        const rand = Math.random();
-        let color = '255, 255, 255';
-        if (rand < 0.15) color = '216, 180, 254';
-        else if (rand < 0.30) color = '200, 230, 255';
-
+        const z = 0.25 + Math.random() * 0.75; // 3D depth layer [0.25, 1.0]
         particles.push({
           x: Math.random() * width,
           y: Math.random() * height,
           z: z,
-          radius: 0.45 + z * 0.55,
-          baseAlpha: 0.08 + z * 0.18,
-          pulseSpeed: 0.010 + Math.random() * 0.015,
+          radius: 0.8 + z * 1.4, // larger particles in foreground
+          baseAlpha: 0.18 + z * 0.42, // higher opacity in foreground
+          alpha: 0.2,
+          pulseSpeed: 0.012 + Math.random() * 0.018,
           pulsePhase: Math.random() * Math.PI * 2,
-          driftX: (Math.random() - 0.5) * 0.12,
-          driftY: -0.06 - Math.random() * 0.10,
-          color: color
+          driftX: (Math.random() - 0.5) * 0.22,
+          driftY: -0.12 - Math.random() * 0.18, // gentle upward cosmic float
+          // 85% pure white, 15% soft pale lilac stardust
+          color: Math.random() > 0.20 ? '255, 255, 255' : '216, 180, 254'
         });
       }
     }
 
     function onScroll() {
       const currentScrollY = window.scrollY || window.pageYOffset || 0;
-      scrollVelocity = (currentScrollY - lastScrollY) * 0.08;
+      scrollVelocity = (currentScrollY - lastScrollY) * 0.12;
       lastScrollY = currentScrollY;
     }
 
     function draw() {
       ctx.clearRect(0, 0, width, height);
+
+      // Decay scroll velocity smoothly
       scrollVelocity *= 0.92;
 
       const len = particles.length;
 
-      // Update and draw a very small number of faint, subtle ambient micro-dots
+      // 1. Draw subtle constellation micro-hairlines between nearby foreground particles
+      for (let i = 0; i < len; i++) {
+        const p1 = particles[i];
+        if (p1.z < 0.55) continue; // Only deeper/closer particles link
+        for (let j = i + 1; j < len; j++) {
+          const p2 = particles[j];
+          if (p2.z < 0.55) continue;
+          const dx = p1.x - p2.x;
+          const dy = p1.y - p2.y;
+          const distSq = dx * dx + dy * dy;
+          // Connect if within 115px
+          if (distSq < 13225) {
+            const dist = Math.sqrt(distSq);
+            const lineAlpha = (1 - dist / 115) * 0.08 * (p1.z * p2.z);
+            ctx.beginPath();
+            ctx.moveTo(p1.x, p1.y);
+            ctx.lineTo(p2.x, p2.y);
+            ctx.strokeStyle = `rgba(255, 255, 255, ${lineAlpha.toFixed(4)})`;
+            ctx.lineWidth = 0.65;
+            ctx.stroke();
+          }
+        }
+      }
+
+      // 2. Update and draw particles
       for (let i = 0; i < len; i++) {
         const p = particles[i];
 
         if (!prefersReducedMotion) {
           p.pulsePhase += p.pulseSpeed;
           p.x += p.driftX;
-          p.y += p.driftY - scrollVelocity * (p.z * 0.8);
+          // Apply vertical drift + 3D scroll parallax based on depth z
+          p.y += p.driftY - scrollVelocity * (p.z * 1.2);
 
-          if (p.x < -15) p.x = width + 15;
-          else if (p.x > width + 15) p.x = -15;
+          // Toroidal wrap around canvas borders
+          if (p.x < -10) p.x = width + 10;
+          else if (p.x > width + 10) p.x = -10;
 
-          if (p.y < -15) p.y = height + 15;
-          else if (p.y > height + 15) p.y = -15;
+          if (p.y < -10) p.y = height + 10;
+          else if (p.y > height + 10) p.y = -10;
         }
 
+        // Shimmering breathing luminosity
         const shimmer = 0.75 + 0.25 * Math.sin(p.pulsePhase);
         const currentAlpha = (p.baseAlpha * shimmer).toFixed(3);
 
@@ -417,6 +445,14 @@
         ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
         ctx.fillStyle = `rgba(${p.color}, ${currentAlpha})`;
         ctx.fill();
+
+        // Delicate luminous halo aura for larger foreground stars
+        if (p.z > 0.75) {
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.radius * 2.5, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(${p.color}, ${(currentAlpha * 0.20).toFixed(3)})`;
+          ctx.fill();
+        }
       }
 
       if (isVisible && !prefersReducedMotion) {
@@ -424,6 +460,7 @@
       }
     }
 
+    // Set up IntersectionObserver for 0% CPU consumption when off-screen
     if ('IntersectionObserver' in window) {
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
