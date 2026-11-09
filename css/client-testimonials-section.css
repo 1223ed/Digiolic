@@ -354,19 +354,20 @@
 .t-company-logo-box {
   display: flex;
   align-items: center;
-  justify-content: center;
-  height: 64px;
-  max-width: 170px;
+  justify-content: flex-end;
+  height: 78px;
+  max-width: 250px;
   box-sizing: border-box;
 }
 
 .t-company-logo-img {
-  max-height: 52px;
-  max-width: 145px;
+  max-height: 72px;
+  max-width: 230px;
   width: auto;
   height: auto;
   object-fit: contain;
   display: block;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.05));
 }
 
 .t-card-meta {
@@ -392,24 +393,10 @@
 }
 
 /* ==========================================================================
-   AUTHENTIC POSTAGE STAMP WITH SUNBURST ROSETTE (MATCHING USER IMAGE)
+   POSTAGE STAMP (HIDDEN PER USER REQUEST)
    ========================================================================== */
 .t-postage-stamp {
-  position: relative;
-  width: 82px;
-  height: 104px;
-  border-radius: 6px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  padding: 8px 6px;
-  box-sizing: border-box;
-  color: #FFFFFF !important;
-  user-select: none;
-  flex-shrink: 0;
-  outline: 2px dashed rgba(255, 255, 255, 0.8);
-  outline-offset: -5px;
+  display: none !important;
 }
 
 .stamp-orange {
