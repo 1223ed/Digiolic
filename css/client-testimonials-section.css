@@ -334,15 +334,39 @@
   color: #18181B !important;
 }
 
-/* Card Header: P.O. Box & Company Name (Left) + Postage Stamp (Right) */
 .t-card-header {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: center;
   margin-bottom: 28px;
   position: relative;
   z-index: 2;
   gap: 16px;
+}
+
+.t-card-header-right {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-shrink: 0;
+}
+
+.t-company-logo-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 64px;
+  max-width: 170px;
+  box-sizing: border-box;
+}
+
+.t-company-logo-img {
+  max-height: 52px;
+  max-width: 145px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
 }
 
 .t-card-meta {
@@ -352,13 +376,7 @@
 }
 
 .t-po-box {
-  font-family: 'Space Mono', 'SF Mono', Menlo, Consolas, monospace;
-  font-size: 14px;
-  font-weight: 500;
-  letter-spacing: 0.16em;
-  color: #71717A !important;
-  margin-bottom: 8px;
-  line-height: 1.2;
+  display: none !important;
 }
 
 .t-company-name {
