@@ -33,7 +33,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource-variable/tasa-orbiter/index.css">
   <link rel="stylesheet" href="css/cinematic-menu.css?v=20261004_v26">
   <link rel="stylesheet" href="css/why-choose-interactive.css?v=20261109_v2">
-  <link rel="stylesheet" href="css/challenges-solutions.css?v=20261109_v7">
+  <link rel="stylesheet" href="css/challenges-solutions.css?v=20261103_v6">
   <link rel="stylesheet" href="css/enterprise-solutions-trionn.css?v=20261027_trionn_v13">
   <link rel="stylesheet" href="css/client-testimonials-section.css?v=20261108_lawrencium_v1">
   <link rel="stylesheet" href="css/zoho-footer.css?v=20261027_v1">
@@ -78,69 +78,25 @@
     }
 
     /* ==========================================================================
-       CHALLENGES & SOLUTIONS SECTION: Sticky Card Slide-Up Transition
-       Exact match to Pangram Pangram Neue Montreal page transition:
-       - .cs-pin-track pins section at top: 0
-       - .challenges-solutions-section stays stationary in full viewport
-       - #clientTestimonialsSection slides smoothly UP on top of it from the bottom
+       CHALLENGES & SOLUTIONS SECTION: Clean, pristine white layout with doodles
        ========================================================================== */
-    .cs-pin-track {
-      position: relative;
-      width: 100%;
-      height: 200vh;
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      background-color: #000000;
-      z-index: 10;
-    }
-
     .challenges-solutions-section {
       width: 100% !important;
-      height: 100vh !important;
-      height: 100dvh !important;
-      min-height: 100vh !important;
-      position: sticky !important;
-      top: 0 !important;
-      left: 0 !important;
-      z-index: 10 !important;
       background-color: #000000 !important;
       background: 
         radial-gradient(ellipse 90% 50% at 50% 52%, rgba(149, 95, 217, 0.82) 0%, rgba(126, 67, 201, 0.55) 32%, rgba(96, 52, 154, 0.30) 58%, rgba(44, 23, 73, 0) 80%),
         radial-gradient(ellipse 70% 45% at 25% 45%, rgba(99, 52, 159, 0.35) 0%, transparent 65%),
         linear-gradient(180deg, #000000 0%, #000000 16%, #160D27 34%, #291642 48%, #381B5E 58%, #22103B 74%, #120920 86%, #000000 100%) !important;
       color: #FFFFFF !important;
-      padding: clamp(32px, 4vh, 64px) clamp(24px, 5vw, 80px) !important;
+      padding: clamp(90px, 10vw, 150px) clamp(24px, 5vw, 80px) !important;
       box-sizing: border-box !important;
-      display: flex !important;
-      flex-direction: column !important;
-      justify-content: center !important;
+      position: relative !important;
+      z-index: 10 !important;
       overflow: hidden !important;
       font-family: 'Playfair Display', Georgia, 'Times New Roman', serif !important;
       -webkit-font-smoothing: antialiased !important;
       -moz-osx-font-smoothing: grayscale !important;
       border: none !important;
-    }
-
-    /* Client Testimonials Section: Higher z-index and top shadow for dramatic card overlay */
-    .ct-master-section {
-      position: relative !important;
-      z-index: 25 !important;
-      box-shadow: 0 -30px 80px rgba(0, 0, 0, 0.95), 0 -1px 0 rgba(255, 255, 255, 0.08) !important;
-    }
-
-    @media (max-width: 768px) {
-      .cs-pin-track {
-        height: auto !important;
-      }
-      .challenges-solutions-section {
-        position: relative !important;
-        height: auto !important;
-        min-height: auto !important;
-        padding: clamp(60px, 8vw, 90px) 20px !important;
-        display: block !important;
-        overflow: visible !important;
-      }
     }
 
     /* Seamless Deep Black Gradient Fade at top (exact match to #aiSection::before) */
@@ -150,7 +106,7 @@
       left: 0 !important;
       right: 0 !important;
       top: 0 !important;
-      height: 140px !important;
+      height: 240px !important;
       background: linear-gradient(180deg, #000000 0%, #000000 35%, rgba(0, 0, 0, 0.85) 60%, rgba(0, 0, 0, 0.35) 85%, transparent 100%) !important;
       pointer-events: none !important;
       z-index: 2 !important;
@@ -163,7 +119,7 @@
       left: 0 !important;
       right: 0 !important;
       bottom: 0 !important;
-      height: 140px !important;
+      height: 220px !important;
       background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.45) 45%, rgba(0, 0, 0, 0.88) 80%, #000000 100%) !important;
       pointer-events: none !important;
       z-index: 2 !important;
@@ -177,13 +133,13 @@
     }
     .cs-header {
       text-align: center !important;
-      margin-bottom: clamp(18px, 2.6vh, 34px) !important;
+      margin-bottom: clamp(60px, 8vw, 100px) !important;
     }
     .cs-main-heading {
       font-family: 'Playfair Display', Georgia, serif !important;
-      font-size: clamp(22px, 2.3vw, 36px) !important;
+      font-size: clamp(28px, 3.6vw, 46px) !important;
       font-weight: 400 !important;
-      line-height: 1.25 !important;
+      line-height: 1.32 !important;
       color: #FFFFFF !important;
       letter-spacing: -0.015em !important;
       max-width: 1100px !important;
@@ -219,14 +175,14 @@
       flex-direction: column !important;
       align-items: center !important;
       justify-content: center !important;
-      min-height: auto !important;
-      margin-bottom: clamp(14px, 2vh, 26px) !important;
+      min-height: 96px !important;
+      margin-bottom: clamp(40px, 5vw, 64px) !important;
       text-align: center !important;
       width: 100% !important;
     }
     .cs-title-text {
       font-family: 'Playfair Display', Georgia, serif !important;
-      font-size: clamp(24px, 2.3vw, 34px) !important;
+      font-size: clamp(30px, 3.2vw, 42px) !important;
       font-weight: 400 !important;
       color: #FFFFFF !important;
       letter-spacing: -0.01em !important;
@@ -260,7 +216,7 @@
       display: inline-flex !important;
       align-items: center !important;
       justify-content: center !important;
-      padding: 10px 38px !important;
+      padding: 14px 44px !important;
     }
     .cs-oval-svg {
       position: absolute !important;
@@ -283,7 +239,7 @@
     .cs-divider-svg {
       width: 8px !important;
       height: 100% !important;
-      min-height: 330px !important;
+      min-height: 420px !important;
       overflow: visible !important;
     }
     .cs-divider-svg path {
@@ -293,17 +249,17 @@
       list-style: none !important;
       display: flex !important;
       flex-direction: column !important;
-      gap: clamp(10px, 1.6vh, 18px) !important;
+      gap: clamp(24px, 3.2vw, 36px) !important;
       margin: 0 !important;
       padding: 0 !important;
     }
     .cs-item {
       display: flex !important;
       align-items: flex-start !important;
-      gap: clamp(12px, 1.4vw, 20px) !important;
+      gap: clamp(16px, 2vw, 26px) !important;
       font-family: 'Playfair Display', Georgia, serif !important;
-      font-size: clamp(14px, 1.15vw, 17px) !important;
-      line-height: 1.35 !important;
+      font-size: clamp(18px, 1.45vw, 22px) !important;
+      line-height: 1.42 !important;
       color: #F1F5F9 !important;
       font-weight: 400 !important;
       letter-spacing: -0.005em !important;
@@ -1733,12 +1689,12 @@
     </section>
 
     <!-- ==========================================================================
-         4B. CLIENT CHALLENGES & OUR SOLUTIONS (STICKY PINNED TRACK)
-         - Pinned track provides smooth card slide-up transition to Client Testimonials
-         - Inspired by Pangram Pangram Neue Montreal editorial page change
+         4B. CLIENT CHALLENGES & OUR SOLUTIONS (MERCHANT SERVICES COMPARISON)
+         - Monumental editorial serif headline
+         - Hand-drawn doodle underline and lasso oval accents
+         - Two-column comparative analysis between client challenges and Digiolic solutions
          ========================================================================== -->
-    <div class="cs-pin-track" id="challengesSolutionsTrack">
-      <section class="challenges-solutions-section" id="challengesSolutionsSection" aria-label="Your Challenges and Our Solutions">
+    <section class="challenges-solutions-section" id="challengesSolutionsSection" aria-label="Your Challenges and Our Solutions">
       <div class="cs-container">
 
           <!-- Main Editorial Headline (Image 2) -->
@@ -1882,7 +1838,6 @@
         </div>
       </div>
     </section>
-    </div>
 
     <!-- ==========================================================================
          5. CLIENT TESTIMONIALS (MONUMENTAL HERO & RIGHT-SIDE SLIDE-IN REVIEWS)
