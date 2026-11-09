@@ -211,7 +211,7 @@
   justify-content: center;
   align-items: center;
   font-family: 'Montserrat', 'Outfit', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: clamp(3.4rem, 6.8vw, 7.5rem);
+  font-size: clamp(2.89rem, 5.78vw, 6.375rem);
   font-weight: 900;
   line-height: 0.90;
   letter-spacing: -0.04em;
@@ -780,7 +780,7 @@
   }
 
   .wcu-title-line {
-    font-size: clamp(2.4rem, 7.2vw, 4.4rem);
+    font-size: clamp(2.04rem, 6.12vw, 3.74rem);
   }
 
   .wcu-pos-1 { top: 12%; left: 6%; }
@@ -823,7 +823,7 @@
 
 @media (max-width: 640px) {
   .wcu-title-line {
-    font-size: clamp(1.8rem, 8vw, 2.7rem);
+    font-size: clamp(1.53rem, 6.8vw, 2.3rem);
   }
 
   /* Staggered vertical distribution on mobile so left and right pills never overlap or hit CTA */
