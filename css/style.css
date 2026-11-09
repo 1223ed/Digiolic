@@ -102,7 +102,7 @@
 }
 
 html {
-  font-size: 16px;
+  font-size: 14.4px; /* Reduced by 10% from 16px for universal typography refinement */
   scroll-behavior: auto; /* Required for GSAP ScrollTrigger synchronous coordinate accuracy */
   -webkit-text-size-adjust: 100%;
   text-rendering: optimizeLegibility;
@@ -112,7 +112,7 @@ html {
 
 body {
   font-family: var(--font-body);
-  font-size: 17px;
+  font-size: 15.3px; /* Reduced by 10% from 17px */
   font-weight: 400;
   background-color: var(--color-bg);
   color: var(--color-text-secondary);
@@ -148,13 +148,13 @@ ul, ol {
 }
 
 /* ==========================================================================
-   STANDARDIZED TYPOGRAPHY SYSTEM
-   Main Heading (H1): 64px | Manrope | 800 (Extra Bold)
-   Subheading: 42px | Manrope | 700 (Bold)
-   Section Heading: 28px | Manrope | 700 (Bold)
-   Body Text: 17px | Inter | 400 (Regular)
-   Small Text: 14px | Inter | 400 (Regular)
-   Button Text: 15px | Inter | 600 (Semi Bold)
+   STANDARDIZED TYPOGRAPHY SYSTEM (REDUCED BY 10% ACROSS ALL PAGES)
+   Main Heading (H1): 58px | Manrope | 800 (Extra Bold)
+   Subheading (H2): 38px | Manrope | 700 (Bold)
+   Section Heading (H3): 25px | Manrope | 700 (Bold)
+   Body Text: 15.3px | Inter | 400 (Regular)
+   Small Text: 12.6px | Inter | 400 (Regular)
+   Button Text: 13.5px | Inter | 600 (Semi Bold)
    ========================================================================== */
 
 .font-display {
@@ -165,7 +165,7 @@ ul, ol {
   font-family: var(--font-editorial);
 }
 
-/* 1. Main Heading (H1) — 64px, Manrope, 800 (Extra Bold) */
+/* 1. Main Heading (H1) — 58px, Manrope, 800 (Extra Bold) */
 h1,
 .heading-display,
 .heading-hero-canvas,
@@ -177,7 +177,7 @@ h1,
 .dm-hero-title,
 .contact-hero-title {
   font-family: var(--font-heading) !important;
-  font-size: 64px !important;
+  font-size: 58px !important;
   font-weight: 800 !important;
   line-height: 1.1 !important;
   letter-spacing: -0.03em !important;
@@ -195,7 +195,7 @@ h1,
   .dp-main-heading,
   .dm-hero-title,
   .contact-hero-title {
-    font-size: clamp(34px, 5.5vw, 56px) !important;
+    font-size: clamp(31px, 5vw, 50px) !important;
   }
 }
 
@@ -210,11 +210,11 @@ h1,
   .dp-main-heading,
   .dm-hero-title,
   .contact-hero-title {
-    font-size: clamp(28px, 8vw, 38px) !important;
+    font-size: clamp(25px, 7.2vw, 34px) !important;
   }
 }
 
-/* 2. Subheading (H2) — 42px, Manrope, 700 (Bold) */
+/* 2. Subheading (H2) — 38px, Manrope, 700 (Bold) */
 h2,
 .subheading,
 .heading-xl,
@@ -228,40 +228,40 @@ h2,
 .trust-reviews-main-title,
 .contact-pane-title {
   font-family: var(--font-heading) !important;
-  font-size: 42px !important;
+  font-size: 38px !important;
   font-weight: 700 !important;
   line-height: 1.2 !important;
   letter-spacing: -0.025em !important;
   color: var(--color-text-primary);
 }
 
-/* 2.1 Headings Increased by +20% — 50px */
+/* 2.1 Headings Increased by +20% — 45px */
 .dm-clean-header-title,
 .dm-why-choose-title,
 .dm-case-studies-title {
   font-family: var(--font-heading) !important;
-  font-size: 50px !important;
+  font-size: 45px !important;
   font-weight: 700 !important;
   line-height: 1.2 !important;
   letter-spacing: -0.025em !important;
   color: var(--color-text-primary);
 }
 
-/* 2.2 Reference Size (Matching Zoho's Modern Technology Stack) — up to 68px */
+/* 2.2 Reference Size (Matching Zoho's Modern Technology Stack) — up to 61px */
 .dm-editorial-heading {
   font-family: var(--font-heading) !important;
-  font-size: clamp(42px, 6.2vw, 68px) !important;
+  font-size: clamp(38px, 5.6vw, 61px) !important;
   font-weight: 800 !important;
   line-height: 1.16 !important;
   letter-spacing: -0.03em !important;
   color: var(--color-text-primary);
 }
 
-/* 2.3 Salesforce Section Titles (Reference: Everything You Need to Get More From Salesforce) — clamp(38px, 5.6vw, 61px) */
+/* 2.3 Salesforce Section Titles (Reference: Everything You Need to Get More From Salesforce) — clamp(34px, 5vw, 55px) */
 .sf-section-title,
 .sf-why-choose-title {
   font-family: var(--font-heading) !important;
-  font-size: clamp(38px, 5.6vw, 61px) !important;
+  font-size: clamp(34px, 5vw, 55px) !important;
   font-weight: 800 !important;
   line-height: 1.16 !important;
   letter-spacing: -0.03em !important;
@@ -271,7 +271,7 @@ h2,
 /* 2.4 FAQ Main Heading (Reduced by 30%) */
 .faq-main-heading {
   font-family: var(--font-heading) !important;
-  font-size: clamp(30px, 4.3vw, 48px) !important;
+  font-size: clamp(27px, 3.9vw, 43px) !important;
   font-weight: 800 !important;
   line-height: 1.16 !important;
   letter-spacing: -0.025em !important;
@@ -291,26 +291,26 @@ h2,
   .pillars-editorial-heading,
   .trust-reviews-main-title,
   .contact-pane-title {
-    font-size: clamp(28px, 4vw, 36px) !important;
+    font-size: clamp(25px, 3.6vw, 32px) !important;
   }
 
   .dm-clean-header-title,
   .dm-why-choose-title,
   .dm-case-studies-title {
-    font-size: clamp(34px, 4.8vw, 43px) !important;
+    font-size: clamp(31px, 4.3vw, 39px) !important;
   }
 
   .dm-editorial-heading {
-    font-size: clamp(34px, 5.5vw, 52px) !important;
+    font-size: clamp(31px, 5vw, 47px) !important;
   }
 
   .sf-section-title,
   .sf-why-choose-title {
-    font-size: clamp(31px, 5vw, 47px) !important;
+    font-size: clamp(28px, 4.5vw, 42px) !important;
   }
 
   .faq-main-heading {
-    font-size: clamp(26px, 4vw, 38px) !important;
+    font-size: clamp(23px, 3.6vw, 34px) !important;
   }
 }
 
@@ -327,33 +327,33 @@ h2,
   .pillars-editorial-heading,
   .trust-reviews-main-title,
   .contact-pane-title {
-    font-size: clamp(22px, 6vw, 28px) !important;
+    font-size: clamp(20px, 5.4vw, 25px) !important;
   }
 
   .dm-clean-header-title,
   .dm-why-choose-title,
   .dm-case-studies-title {
-    font-size: clamp(26px, 7.2vw, 34px) !important;
+    font-size: clamp(23px, 6.5vw, 31px) !important;
   }
 
   .dm-editorial-heading {
-    font-size: clamp(32px, 8.2vw, 46px) !important;
+    font-size: clamp(29px, 7.4vw, 41px) !important;
     line-height: 1.18 !important;
   }
 
   .sf-section-title,
   .sf-why-choose-title {
-    font-size: clamp(29px, 7.5vw, 41px) !important;
+    font-size: clamp(26px, 6.8vw, 37px) !important;
     line-height: 1.18 !important;
   }
 
   .faq-main-heading {
-    font-size: clamp(24px, 5.5vw, 32px) !important;
+    font-size: clamp(22px, 5vw, 29px) !important;
     line-height: 1.18 !important;
   }
 }
 
-/* 3. Section Heading (H3) — 28px, Manrope, 700 (Bold) */
+/* 3. Section Heading (H3) — 25px, Manrope, 700 (Bold) */
 h3,
 .section-heading,
 .heading-md,
@@ -372,7 +372,7 @@ h3,
 .faq-card-title,
 .footer-subscribe-title {
   font-family: var(--font-heading) !important;
-  font-size: 28px !important;
+  font-size: 25px !important;
   font-weight: 700 !important;
   line-height: 1.3 !important;
   letter-spacing: -0.02em !important;
@@ -397,7 +397,7 @@ h3,
   .faq-question,
   .faq-card-title,
   .footer-subscribe-title {
-    font-size: clamp(20px, 5vw, 24px) !important;
+    font-size: clamp(18px, 4.5vw, 22px) !important;
   }
 }
 
@@ -410,14 +410,14 @@ h4, h5, h6 {
 }
 
 .heading-sm {
-  font-size: 1.15rem;
+  font-size: 1.04rem;
   font-weight: 600;
   letter-spacing: -0.015em;
   line-height: 1.4;
   font-family: var(--font-heading);
 }
 
-/* 4. Body Text — 17px, Inter, 400 (Regular) */
+/* 4. Body Text — 15.3px, Inter, 400 (Regular) */
 body,
 p,
 .body-text,
@@ -432,12 +432,12 @@ p,
 .faq-answer,
 .table-desc {
   font-family: var(--font-body) !important;
-  font-size: 17px !important;
+  font-size: 15.3px !important;
   font-weight: 400 !important;
   line-height: 1.65 !important;
 }
 
-/* 5. Small Text — 14px, Inter, 400 (Regular) */
+/* 5. Small Text — 12.6px, Inter, 400 (Regular) */
 small,
 .small-text,
 .body-sm,
@@ -455,12 +455,12 @@ small,
 .cs-meta-tag,
 .cs-card-category {
   font-family: var(--font-body) !important;
-  font-size: 14px !important;
+  font-size: 12.6px !important;
   font-weight: 400 !important;
   line-height: 1.55 !important;
 }
 
-/* 6. Button Text — 15px, Inter, 600 (Semi Bold) */
+/* 6. Button Text — 13.5px, Inter, 600 (Semi Bold) */
 button,
 .btn,
 .btn-primary,
@@ -482,7 +482,7 @@ button,
 input[type="submit"],
 input[type="button"] {
   font-family: var(--font-btn) !important;
-  font-size: 15px !important;
+  font-size: 13.5px !important;
   font-weight: 600 !important;
   letter-spacing: 0.01em !important;
 }

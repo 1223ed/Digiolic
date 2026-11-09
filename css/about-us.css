@@ -41,7 +41,7 @@ html {
   background-color: var(--vv-bg);
   color: var(--vv-text-primary);
   font-family: var(--font-sans);
-  font-size: 16px;
+  font-size: 14.4px; /* Reduced by 10% from 16px */
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
