@@ -35,7 +35,7 @@
   <link rel="stylesheet" href="css/why-choose-interactive.css?v=20261109_v2">
   <link rel="stylesheet" href="css/challenges-solutions.css?v=20261103_v6">
   <link rel="stylesheet" href="css/enterprise-solutions-trionn.css?v=20261027_trionn_v13">
-  <link rel="stylesheet" href="css/client-testimonials-section.css?v=20261108_lawrencium_v1">
+  <link rel="stylesheet" href="css/client-testimonials-section.css?v=20261109_postcard_v2">
   <link rel="stylesheet" href="css/zoho-footer.css?v=20261027_v1">
 
   <style>
@@ -861,88 +861,241 @@
     }
 
     /* ==========================================================================
-       CLIENT REVIEW CARDS: #0f0c29 -> #302b63 -> #24243e Gradient + Original Artwork Graphics
+       CLIENT REVIEW CARDS: VINTAGE IVORY POSTCARD DESIGN (MATCHING REFERENCE MOCKUP)
        ========================================================================== */
     .t-card-wrapper {
-      box-shadow: 0 25px 70px rgba(0, 0, 0, 0.85), 0 0 35px rgba(48, 43, 99, 0.45) !important;
-      border: 1.5px solid rgba(48, 43, 99, 0.55) !important;
-      background-color: #24243e !important;
-      background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%) !important;
+      box-shadow: 0 25px 65px rgba(0, 0, 0, 0.65), 0 2px 10px rgba(0, 0, 0, 0.25) !important;
+      border: 1px solid rgba(0, 0, 0, 0.08) !important;
+      background-color: #FAF7F0 !important;
+      background: #FAF7F0 !important;
+      background-image: none !important;
+      border-radius: 24px !important;
+      overflow: hidden !important;
     }
 
     .t-card-wrapper.is-active {
-      border-color: rgba(147, 130, 248, 0.75) !important;
-      box-shadow: 0 30px 90px rgba(0, 0, 0, 0.9), 0 0 45px rgba(48, 43, 99, 0.6) !important;
+      box-shadow: 0 32px 85px rgba(0, 0, 0, 0.75), 0 3px 14px rgba(0, 0, 0, 0.3) !important;
+      border-color: rgba(0, 0, 0, 0.12) !important;
+      transform: scale(1.0) !important;
     }
 
-    .t-card-wrapper .t-card-company-hero {
+    .t-card-wrapper:not(.is-active) {
+      opacity: 0.9 !important;
+      transform: scale(0.975) !important;
+    }
+
+    .t-card-inner {
+      background-color: #FAF7F0 !important;
+      background: #FAF7F0 !important;
+      color: #18181B !important;
+      padding: clamp(36px, 4vw, 48px) clamp(36px, 4.5vw, 52px) clamp(28px, 3.2vw, 38px) clamp(36px, 4.5vw, 52px) !important;
+      box-sizing: border-box !important;
+      display: flex !important;
+      flex-direction: column !important;
+      justify-content: space-between !important;
+      height: 100% !important;
+    }
+
+    .t-card-header {
+      display: flex !important;
+      justify-content: space-between !important;
+      align-items: flex-start !important;
+      margin-bottom: 28px !important;
+      position: relative !important;
+      z-index: 2 !important;
+      gap: 16px !important;
+    }
+
+    .t-card-meta {
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: flex-start !important;
+    }
+
+    .t-po-box {
+      font-family: 'Space Mono', 'SF Mono', Menlo, Consolas, monospace !important;
+      font-size: 14px !important;
+      font-weight: 500 !important;
+      letter-spacing: 0.16em !important;
+      color: #71717A !important;
+      margin-bottom: 8px !important;
+      line-height: 1.2 !important;
+      text-transform: none !important;
+    }
+
+    .t-company-name {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+      font-size: clamp(24px, 2.3vw, 30px) !important;
+      font-weight: 800 !important;
+      letter-spacing: -0.02em !important;
+      color: #000000 !important;
+      text-transform: uppercase !important;
+      margin: 0 !important;
+      line-height: 1.1 !important;
+      text-shadow: none !important;
+    }
+
+    .t-postage-stamp {
+      position: relative !important;
+      width: 82px !important;
+      height: 104px !important;
+      border-radius: 6px !important;
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+      padding: 8px 6px !important;
+      box-sizing: border-box !important;
       color: #FFFFFF !important;
-      text-shadow: 0 2px 14px rgba(0, 0, 0, 0.85) !important;
+      user-select: none !important;
+      flex-shrink: 0 !important;
+      outline: 2px dashed rgba(255, 255, 255, 0.8) !important;
+      outline-offset: -5px !important;
     }
 
-    .t-card-wrapper .t-card-quote-text {
+    .stamp-orange {
+      background: #F05123 !important;
+      box-shadow: 0 8px 20px rgba(240, 81, 35, 0.35) !important;
+    }
+
+    .stamp-blue {
+      background: #2563EB !important;
+      box-shadow: 0 8px 20px rgba(37, 99, 235, 0.35) !important;
+    }
+
+    .stamp-green {
+      background: #059669 !important;
+      box-shadow: 0 8px 20px rgba(5, 150, 105, 0.35) !important;
+    }
+
+    .stamp-purple {
+      background: #7C3AED !important;
+      box-shadow: 0 8px 20px rgba(124, 58, 237, 0.35) !important;
+    }
+
+    .t-stamp-top {
+      font-size: 10px !important;
+      font-weight: 800 !important;
+      letter-spacing: 0.12em !important;
+      text-transform: uppercase !important;
       color: #FFFFFF !important;
-      font-weight: 400 !important;
-      text-shadow: 0 3px 24px rgba(0, 0, 0, 0.98) !important;
+      line-height: 1 !important;
     }
 
-    .t-card-wrapper .t-author-name {
+    .t-stamp-graphic {
+      width: 34px !important;
+      height: 34px !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+    }
+
+    .t-stamp-graphic svg {
+      width: 34px !important;
+      height: 34px !important;
+      display: block !important;
+    }
+
+    .t-stamp-bottom {
+      font-size: 12px !important;
+      font-weight: 800 !important;
+      letter-spacing: 0.05em !important;
       color: #FFFFFF !important;
+      line-height: 1 !important;
     }
 
-    .t-card-wrapper .t-author-meta {
-      color: #CBD5E1 !important;
+    .t-card-body {
+      flex: 1 !important;
+      display: flex !important;
+      flex-direction: column !important;
+      justify-content: center !important;
+      align-items: flex-start !important;
+      text-align: left !important;
+      padding: 0 !important;
+      margin: 0 0 32px 0 !important;
+      position: relative !important;
+      z-index: 2 !important;
+      background: transparent !important;
     }
 
-    .t-card-wrapper .t-card-bottom-bar {
-      border-top: 1px solid rgba(48, 43, 99, 0.4) !important;
-      background: rgba(15, 12, 41, 0.68) !important;
-      backdrop-filter: blur(16px) !important;
-      -webkit-backdrop-filter: blur(16px) !important;
+    .t-card-quote-text {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+      font-size: clamp(17px, 1.3vw, 19.5px) !important;
+      line-height: 1.62 !important;
+      max-width: 100% !important;
+      color: #18181B !important;
+      font-weight: 500 !important;
+      letter-spacing: -0.01em !important;
+      margin: 0 !important;
+      text-shadow: none !important;
+      text-align: left !important;
+    }
+
+    .t-card-footer {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+      padding-top: 20px !important;
+      border-top: 1px solid #E4E4E7 !important;
+      position: relative !important;
+      z-index: 2 !important;
+      gap: 16px !important;
+      width: 100% !important;
+      box-sizing: border-box !important;
+      background: transparent !important;
+    }
+
+    .t-author-name {
+      font-family: 'Inter', -apple-system, sans-serif !important;
+      font-size: 15px !important;
+      font-weight: 750 !important;
+      color: #000000 !important;
+      letter-spacing: 0.01em !important;
+    }
+
+    .t-author-meta {
+      font-size: 14px !important;
+      color: #52525B !important;
+      font-family: 'Inter', -apple-system, sans-serif !important;
+      font-weight: 450 !important;
+    }
+
+    .t-service-pill {
+      display: inline-flex !important;
+      align-items: center !important;
+      padding: 6px 14px !important;
+      border-radius: 9999px !important;
+      background: #E2F1E6 !important;
+      color: #166534 !important;
+      font-size: 12.5px !important;
+      font-weight: 600 !important;
+      letter-spacing: 0.02em !important;
+      white-space: nowrap !important;
+    }
+
+    .pill-blue {
+      background: #DBEAFE !important;
+      color: #1E40AF !important;
+    }
+
+    .pill-purple {
+      background: #F3E8FF !important;
+      color: #6B21A8 !important;
     }
 
     .card-theme-1,
-    .t-card-wrapper.card-theme-1 {
-      background-color: #24243e !important;
-      background-image: 
-        linear-gradient(135deg, rgba(15, 12, 41, 0.60) 0%, rgba(48, 43, 99, 0.70) 50%, rgba(36, 36, 62, 0.85) 100%),
-        url('assets/images/fyx-finance-bg.png?v=20261108_lawrencium_v1') !important;
-      background-position: center top !important;
-      background-size: cover !important;
-      background-repeat: no-repeat !important;
-    }
-
+    .t-card-wrapper.card-theme-1,
     .card-theme-2,
-    .t-card-wrapper.card-theme-2 {
-      background-color: #24243e !important;
-      background-image: 
-        linear-gradient(135deg, rgba(15, 12, 41, 0.60) 0%, rgba(48, 43, 99, 0.70) 50%, rgba(36, 36, 62, 0.85) 100%),
-        url('assets/images/blume-labs-bg.png?v=20261108_lawrencium_v1') !important;
-      background-position: center top !important;
-      background-size: cover !important;
-      background-repeat: no-repeat !important;
-    }
-
+    .t-card-wrapper.card-theme-2,
     .card-theme-3,
-    .t-card-wrapper.card-theme-3 {
-      background-color: #24243e !important;
-      background-image: 
-        linear-gradient(135deg, rgba(15, 12, 41, 0.60) 0%, rgba(48, 43, 99, 0.70) 50%, rgba(36, 36, 62, 0.85) 100%),
-        url('assets/images/greenworld-bg.png?v=20261108_lawrencium_v1') !important;
-      background-position: center top !important;
-      background-size: cover !important;
-      background-repeat: no-repeat !important;
-    }
-
+    .t-card-wrapper.card-theme-3,
     .card-theme-4,
-    .t-card-wrapper.card-theme-4 {
-      background-color: #24243e !important;
-      background-image: 
-        linear-gradient(135deg, rgba(15, 12, 41, 0.60) 0%, rgba(48, 43, 99, 0.70) 50%, rgba(36, 36, 62, 0.85) 100%),
-        url('assets/images/pierian-bg.png?v=20261108_lawrencium_v1') !important;
-      background-position: center top !important;
-      background-size: cover !important;
-      background-repeat: no-repeat !important;
+    .t-card-wrapper.card-theme-4,
+    .card-theme-5,
+    .t-card-wrapper.card-theme-5 {
+      background-color: #FAF7F0 !important;
+      background: #FAF7F0 !important;
+      background-image: none !important;
     }
   </style>
   <link rel="stylesheet" href="css/responsive.css?v=20260930_v1">
@@ -1897,75 +2050,202 @@
           <div class="ct-cards-track" id="ctCardsTrack">
 
             <!-- CARD 1: FYX FINANCE -->
-            <!-- CARD 1: FYX FINANCE -->
             <div class="t-card-wrapper card-theme-1 is-active" data-index="0">
               <div class="t-card-inner">
+                <header class="t-card-header">
+                  <div class="t-card-meta">
+                    <span class="t-po-box">P.O. Box 87256</span>
+                    <h3 class="t-company-name">FYX FINANCE</h3>
+                  </div>
+                  <div class="t-postage-stamp stamp-orange" aria-label="Verified Postage Stamp 5.0 Stars">
+                    <span class="t-stamp-top">VERIFIED</span>
+                    <div class="t-stamp-graphic" aria-hidden="true">
+                      <svg viewBox="0 0 40 40" width="34" height="34" fill="none">
+                        <circle cx="20" cy="20" r="14" stroke="#FFFFFF" stroke-width="1.4" stroke-dasharray="2 2"/>
+                        <g stroke="#FFFFFF" stroke-width="1.2" stroke-linecap="round">
+                          <line x1="20" y1="6" x2="20" y2="34"/>
+                          <line x1="6" y1="20" x2="34" y2="20"/>
+                          <line x1="10.1" y1="10.1" x2="29.9" y2="29.9"/>
+                          <line x1="10.1" y1="29.9" x2="29.9" y2="10.1"/>
+                          <line x1="7.1" y1="14.6" x2="32.9" y2="25.4"/>
+                          <line x1="7.1" y1="25.4" x2="32.9" y2="14.6"/>
+                          <line x1="14.6" y1="7.1" x2="25.4" y2="32.9"/>
+                          <line x1="25.4" y1="7.1" x2="14.6" y2="32.9"/>
+                        </g>
+                        <circle cx="20" cy="20" r="3.5" fill="#FFFFFF"/>
+                      </svg>
+                    </div>
+                    <span class="t-stamp-bottom">5.0 ★</span>
+                  </div>
+                </header>
+
                 <div class="t-card-body">
-                  <h3 class="t-card-company-hero">FYX FINANCE</h3>
                   <p class="t-card-quote-text">
                     “DIGIOLIC delivered a fantastic implementation of Zoho CRM, Zoho Forms, Zoho Sign, and telephony integration for our business. Their expertise and attention to detail made the entire process smooth and efficient. The seamless integration has improved our lead management, communication, and overall productivity. Their team was professional, responsive, and excellent at understanding our requirements. Highly recommended for end-to-end Zoho solutions and business automation.”
                   </p>
                 </div>
-                <div class="t-card-bottom-bar">
-                  <div class="t-author-block">
+
+                <footer class="t-card-footer">
+                  <div class="t-author-col">
                     <span class="t-author-name">Karthik</span>
+                  </div>
+                  <div class="t-role-col">
                     <span class="t-author-meta">Tech Head · FYX Finance</span>
                   </div>
-                </div>
+                  <div class="t-badge-col">
+                    <span class="t-service-pill">Zoho Enterprise</span>
+                  </div>
+                </footer>
               </div>
             </div>
 
             <!-- CARD 2: BLUME LABS -->
             <div class="t-card-wrapper card-theme-2" data-index="1">
               <div class="t-card-inner">
+                <header class="t-card-header">
+                  <div class="t-card-meta">
+                    <span class="t-po-box">P.O. Box 89671</span>
+                    <h3 class="t-company-name">BLUME LABS</h3>
+                  </div>
+                  <div class="t-postage-stamp stamp-blue" aria-label="Verified Postage Stamp 5.0 Stars">
+                    <span class="t-stamp-top">VERIFIED</span>
+                    <div class="t-stamp-graphic" aria-hidden="true">
+                      <svg viewBox="0 0 40 40" width="34" height="34" fill="none">
+                        <circle cx="20" cy="20" r="14" stroke="#FFFFFF" stroke-width="1.4" stroke-dasharray="2 2"/>
+                        <g stroke="#FFFFFF" stroke-width="1.2" stroke-linecap="round">
+                          <line x1="20" y1="6" x2="20" y2="34"/>
+                          <line x1="6" y1="20" x2="34" y2="20"/>
+                          <line x1="10.1" y1="10.1" x2="29.9" y2="29.9"/>
+                          <line x1="10.1" y1="29.9" x2="29.9" y2="10.1"/>
+                          <line x1="7.1" y1="14.6" x2="32.9" y2="25.4"/>
+                          <line x1="7.1" y1="25.4" x2="32.9" y2="14.6"/>
+                          <line x1="14.6" y1="7.1" x2="25.4" y2="32.9"/>
+                          <line x1="25.4" y1="7.1" x2="14.6" y2="32.9"/>
+                        </g>
+                        <circle cx="20" cy="20" r="3.5" fill="#FFFFFF"/>
+                      </svg>
+                    </div>
+                    <span class="t-stamp-bottom">5.0 ★</span>
+                  </div>
+                </header>
+
                 <div class="t-card-body">
-                  <h3 class="t-card-company-hero">BLUME LABS</h3>
                   <p class="t-card-quote-text">
                     “Digiolic did an incredible job setting up Zoho CRM for our team, and the entire process was completely stress-free. They customized everything to match how we actually work, so our daily tracking and follow-ups are so much easier now. The training they provided made adoption a breeze for everyone on the team. I’m really happy with the results and would definitely recommend them.”
                   </p>
                 </div>
-                <div class="t-card-bottom-bar">
-                  <div class="t-author-block">
+
+                <footer class="t-card-footer">
+                  <div class="t-author-col">
                     <span class="t-author-name">Harsh Chirania</span>
+                  </div>
+                  <div class="t-role-col">
                     <span class="t-author-meta">Founder and CEO · Blume Labs</span>
                   </div>
-                </div>
+                  <div class="t-badge-col">
+                    <span class="t-service-pill pill-blue">Zoho CRM & Setup</span>
+                  </div>
+                </footer>
               </div>
             </div>
 
             <!-- CARD 3: GREENWORLD SOLARWARES -->
             <div class="t-card-wrapper card-theme-3" data-index="2">
               <div class="t-card-inner">
+                <header class="t-card-header">
+                  <div class="t-card-meta">
+                    <span class="t-po-box">P.O. Box 77109</span>
+                    <h3 class="t-company-name">GREENWORLD SOLARWARES</h3>
+                  </div>
+                  <div class="t-postage-stamp stamp-green" aria-label="Verified Postage Stamp 5.0 Stars">
+                    <span class="t-stamp-top">VERIFIED</span>
+                    <div class="t-stamp-graphic" aria-hidden="true">
+                      <svg viewBox="0 0 40 40" width="34" height="34" fill="none">
+                        <circle cx="20" cy="20" r="14" stroke="#FFFFFF" stroke-width="1.4" stroke-dasharray="2 2"/>
+                        <g stroke="#FFFFFF" stroke-width="1.2" stroke-linecap="round">
+                          <line x1="20" y1="6" x2="20" y2="34"/>
+                          <line x1="6" y1="20" x2="34" y2="20"/>
+                          <line x1="10.1" y1="10.1" x2="29.9" y2="29.9"/>
+                          <line x1="10.1" y1="29.9" x2="29.9" y2="10.1"/>
+                          <line x1="7.1" y1="14.6" x2="32.9" y2="25.4"/>
+                          <line x1="7.1" y1="25.4" x2="32.9" y2="14.6"/>
+                          <line x1="14.6" y1="7.1" x2="25.4" y2="32.9"/>
+                          <line x1="25.4" y1="7.1" x2="14.6" y2="32.9"/>
+                        </g>
+                        <circle cx="20" cy="20" r="3.5" fill="#FFFFFF"/>
+                      </svg>
+                    </div>
+                    <span class="t-stamp-bottom">5.0 ★</span>
+                  </div>
+                </header>
+
                 <div class="t-card-body">
-                  <h3 class="t-card-company-hero">GREENWORLD SOLARWARES</h3>
                   <p class="t-card-quote-text">
                     “DIGIOLIC delivered an exceptional implementation of Zoho People and related HR integrations for our organization. Their expertise and attention to detail made the entire transition smooth and efficient. The seamless setup has streamlined our leave and attendance tracking, performance management, and overall HR operations. Their team was professional, responsive, and excellent at understanding our unique requirements. Highly recommended for end-to-end Zoho solutions and workforce automation.”
                   </p>
                 </div>
-                <div class="t-card-bottom-bar">
-                  <div class="t-author-block">
+
+                <footer class="t-card-footer">
+                  <div class="t-author-col">
                     <span class="t-author-name">Rahul Kumar</span>
+                  </div>
+                  <div class="t-role-col">
                     <span class="t-author-meta">Tech Lead · Greenworld Solarwares Private Limited</span>
                   </div>
-                </div>
+                  <div class="t-badge-col">
+                    <span class="t-service-pill">Zoho People & HR</span>
+                  </div>
+                </footer>
               </div>
             </div>
 
             <!-- CARD 4: PIERIAN TECHNOLOGIES -->
             <div class="t-card-wrapper card-theme-4" data-index="3">
               <div class="t-card-inner">
+                <header class="t-card-header">
+                  <div class="t-card-meta">
+                    <span class="t-po-box">P.O. Box 63105</span>
+                    <h3 class="t-company-name">PIERIAN TECHNOLOGIES</h3>
+                  </div>
+                  <div class="t-postage-stamp stamp-purple" aria-label="Verified Postage Stamp 5.0 Stars">
+                    <span class="t-stamp-top">VERIFIED</span>
+                    <div class="t-stamp-graphic" aria-hidden="true">
+                      <svg viewBox="0 0 40 40" width="34" height="34" fill="none">
+                        <circle cx="20" cy="20" r="14" stroke="#FFFFFF" stroke-width="1.4" stroke-dasharray="2 2"/>
+                        <g stroke="#FFFFFF" stroke-width="1.2" stroke-linecap="round">
+                          <line x1="20" y1="6" x2="20" y2="34"/>
+                          <line x1="6" y1="20" x2="34" y2="20"/>
+                          <line x1="10.1" y1="10.1" x2="29.9" y2="29.9"/>
+                          <line x1="10.1" y1="29.9" x2="29.9" y2="10.1"/>
+                          <line x1="7.1" y1="14.6" x2="32.9" y2="25.4"/>
+                          <line x1="7.1" y1="25.4" x2="32.9" y2="14.6"/>
+                          <line x1="14.6" y1="7.1" x2="25.4" y2="32.9"/>
+                          <line x1="25.4" y1="7.1" x2="14.6" y2="32.9"/>
+                        </g>
+                        <circle cx="20" cy="20" r="3.5" fill="#FFFFFF"/>
+                      </svg>
+                    </div>
+                    <span class="t-stamp-bottom">5.0 ★</span>
+                  </div>
+                </header>
+
                 <div class="t-card-body">
-                  <h3 class="t-card-company-hero">PIERIAN TECHNOLOGIES</h3>
                   <p class="t-card-quote-text">
                     “Great work by the Digiolic team throughout the project. The team was professional, responsive, and supportive. They understood our requirements and delivered the project on time. Really appreciate their hard work and commitment!”
                   </p>
                 </div>
-                <div class="t-card-bottom-bar">
-                  <div class="t-author-block">
+
+                <footer class="t-card-footer">
+                  <div class="t-author-col">
                     <span class="t-author-name">Manoj PV</span>
+                  </div>
+                  <div class="t-role-col">
                     <span class="t-author-meta">Finance Lead · Pierian Technologies</span>
                   </div>
-                </div>
+                  <div class="t-badge-col">
+                    <span class="t-service-pill pill-purple">Systems Consulting</span>
+                  </div>
+                </footer>
               </div>
             </div>
 
