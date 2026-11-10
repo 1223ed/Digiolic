@@ -1988,7 +1988,7 @@
         animation: squareBobAnim ease-in-out infinite;
       }
 
-      /* Card Background Image Zoom */
+      /* Clean & Plain Photo Hover Overlay (100% Solid & Plain, Absolutely Zero Lines/Grid) */
       .projects-card-bg-img {
         position: absolute;
         inset: 0;
@@ -1997,38 +1997,22 @@
         object-fit: cover;
         transition: transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
       }
-      .projects-card-container:hover .projects-card-bg-img {
-        transform: scale(1.06);
+      .projects-card-container:hover .projects-card-bg-img,
+      .projects-card-container.is-active .projects-card-bg-img {
+        transform: scale(1.08);
       }
-
-      /* Pixel Block Animation Overlay (12x8 Grid with Zero-Seam Overlap) */
-      .projects-pixel-grid {
+      .projects-card-overlay {
         position: absolute;
         inset: 0;
-        display: grid;
-        grid-template-columns: repeat(12, 1fr);
-        grid-template-rows: repeat(8, 1fr);
+        background-color: rgba(0, 0, 0, 0.38);
+        opacity: 0;
         pointer-events: none;
         z-index: 5;
-        overflow: hidden;
+        transition: opacity 0.35s cubic-bezier(0.22, 1, 0.36, 1);
       }
-      .projects-pixel-block {
-        background-color: rgba(0, 0, 0, 0.78);
-        transform: scale(0);
-        opacity: 0;
-        width: 101.5%;
-        height: 101.5%;
-        transform-origin: center center;
-        transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.28s cubic-bezier(0.22, 1, 0.36, 1);
-        will-change: transform, opacity;
-      }
-      .projects-card-container:hover .projects-pixel-block,
-      .projects-card-container.is-active .projects-pixel-block {
-        transform: scale(1.08);
+      .projects-card-container:hover .projects-card-overlay,
+      .projects-card-container.is-active .projects-card-overlay {
         opacity: 1;
-      }
-      .projects-card-container:not(:hover):not(.is-active) .projects-pixel-block {
-        transition-duration: 0.24s;
       }
 
       /* Top-Right Header Bar: Location Details & Action Arrow (Matches red rectangle specification) */
@@ -2256,8 +2240,8 @@
           <div class="projects-card-container group" data-case-id="case-blume-labs" role="button" tabindex="0" aria-label="View Blume Labs Case Study" style="position: relative; aspect-ratio: 4/3; overflow: hidden; background-color: #111827; cursor: pointer; border-radius: 4px;">
             <img src="../assets/images/case-studies/landmarks/blume-tech.jpg" alt="Blume Labs" class="projects-card-bg-img" loading="lazy">
             
-            <!-- 12x8 Pixel-block Photo Animation Grid -->
-            <div class="projects-pixel-grid"></div>
+            <!-- Plain Smooth Photo Animation Overlay (Zero Lines) -->
+            <div class="projects-card-overlay"></div>
             
             
 
@@ -2284,8 +2268,8 @@
           <div class="projects-card-container group" data-case-id="case-pierian" role="button" tabindex="0" aria-label="View Pierian Technologies Case Study" style="position: relative; aspect-ratio: 4/3; overflow: hidden; background-color: #111827; cursor: pointer; border-radius: 4px;">
             <img src="../assets/images/case-studies/landmarks/bangalore-finance.jpg" alt="Pierian Technologies" class="projects-card-bg-img" loading="lazy">
             
-            <!-- 12x8 Pixel-block Photo Animation Grid -->
-            <div class="projects-pixel-grid"></div>
+            <!-- Plain Smooth Photo Animation Overlay (Zero Lines) -->
+            <div class="projects-card-overlay"></div>
             
             
 
@@ -2312,8 +2296,8 @@
           <div class="projects-card-container group" data-case-id="case-fyx" role="button" tabindex="0" aria-label="View FYX Finance Case Study" style="position: relative; aspect-ratio: 4/3; overflow: hidden; background-color: #111827; cursor: pointer; border-radius: 4px;">
             <img src="../assets/images/case-studies/landmarks/sydney-opera.jpg" alt="FYX Finance" class="projects-card-bg-img" loading="lazy">
             
-            <!-- 12x8 Pixel-block Photo Animation Grid -->
-            <div class="projects-pixel-grid"></div>
+            <!-- Plain Smooth Photo Animation Overlay (Zero Lines) -->
+            <div class="projects-card-overlay"></div>
             
             
 
@@ -2340,8 +2324,8 @@
           <div class="projects-card-container group" data-case-id="case-monster-india" role="button" tabindex="0" aria-label="View Monster India Case Study" style="position: relative; aspect-ratio: 4/3; overflow: hidden; background-color: #111827; cursor: pointer; border-radius: 4px;">
             <img src="../assets/images/case-studies/landmarks/india-gate.jpg" alt="Monster India" class="projects-card-bg-img" loading="lazy">
             
-            <!-- 12x8 Pixel-block Photo Animation Grid -->
-            <div class="projects-pixel-grid"></div>
+            <!-- Plain Smooth Photo Animation Overlay (Zero Lines) -->
+            <div class="projects-card-overlay"></div>
             
             
 
@@ -2368,8 +2352,8 @@
           <div class="projects-card-container group" data-case-id="case-greenworld" role="button" tabindex="0" aria-label="View Greenworld Solarwares Case Study" style="position: relative; aspect-ratio: 4/3; overflow: hidden; background-color: #111827; cursor: pointer; border-radius: 4px;">
             <img src="../assets/images/case-studies/landmarks/solar-energy.jpg" alt="Greenworld Solarwares" class="projects-card-bg-img" loading="lazy">
             
-            <!-- 12x8 Pixel-block Photo Animation Grid -->
-            <div class="projects-pixel-grid"></div>
+            <!-- Plain Smooth Photo Animation Overlay (Zero Lines) -->
+            <div class="projects-card-overlay"></div>
             
             
 
@@ -2396,8 +2380,8 @@
           <div class="projects-card-container group" data-case-id="case-verzeo" role="button" tabindex="0" aria-label="View Verzeo Technologies Case Study" style="position: relative; aspect-ratio: 4/3; overflow: hidden; background-color: #111827; cursor: pointer; border-radius: 4px;">
             <img src="../assets/images/case-studies/landmarks/bangalore-vidhana.jpg" alt="Verzeo Technologies" class="projects-card-bg-img" loading="lazy">
             
-            <!-- 12x8 Pixel-block Photo Animation Grid -->
-            <div class="projects-pixel-grid"></div>
+            <!-- Plain Smooth Photo Animation Overlay (Zero Lines) -->
+            <div class="projects-card-overlay"></div>
             
             
 
@@ -2424,8 +2408,8 @@
           <div class="projects-card-container group" data-case-id="case-nz-immigration" role="button" tabindex="0" aria-label="View NZ Immigration Case Study" style="position: relative; aspect-ratio: 4/3; overflow: hidden; background-color: #111827; cursor: pointer; border-radius: 4px;">
             <img src="../assets/images/case-studies/landmarks/new-zealand.jpg" alt="NZ Immigration" class="projects-card-bg-img" loading="lazy">
             
-            <!-- 12x8 Pixel-block Photo Animation Grid -->
-            <div class="projects-pixel-grid"></div>
+            <!-- Plain Smooth Photo Animation Overlay (Zero Lines) -->
+            <div class="projects-card-overlay"></div>
             
             
 
@@ -2452,8 +2436,8 @@
           <div class="projects-card-container group" data-case-id="case-banaraswala" role="button" tabindex="0" aria-label="View Banaraswala Case Study" style="position: relative; aspect-ratio: 4/3; overflow: hidden; background-color: #111827; cursor: pointer; border-radius: 4px;">
             <img src="../assets/images/case-studies/landmarks/delhi-qutub.jpg" alt="Banaraswala" class="projects-card-bg-img" loading="lazy">
             
-            <!-- 12x8 Pixel-block Photo Animation Grid -->
-            <div class="projects-pixel-grid"></div>
+            <!-- Plain Smooth Photo Animation Overlay (Zero Lines) -->
+            <div class="projects-card-overlay"></div>
             
             
 
@@ -2480,8 +2464,8 @@
           <div class="projects-card-container group" data-case-id="case-loomcrafts" role="button" tabindex="0" aria-label="View Loom Crafts Case Study" style="position: relative; aspect-ratio: 4/3; overflow: hidden; background-color: #111827; cursor: pointer; border-radius: 4px;">
             <img src="../assets/images/case-studies/landmarks/agra-taj.jpg" alt="Loom Crafts" class="projects-card-bg-img" loading="lazy">
             
-            <!-- 12x8 Pixel-block Photo Animation Grid -->
-            <div class="projects-pixel-grid"></div>
+            <!-- Plain Smooth Photo Animation Overlay (Zero Lines) -->
+            <div class="projects-card-overlay"></div>
             
             
 
@@ -2508,8 +2492,8 @@
           <div class="projects-card-container group" data-case-id="case-chanakya-university" role="button" tabindex="0" aria-label="View Chanakya University Case Study" style="position: relative; aspect-ratio: 4/3; overflow: hidden; background-color: #111827; cursor: pointer; border-radius: 4px;">
             <img src="../assets/images/case-studies/landmarks/chanakya-univ.jpg" alt="Chanakya University" class="projects-card-bg-img" loading="lazy">
             
-            <!-- 12x8 Pixel-block Photo Animation Grid -->
-            <div class="projects-pixel-grid"></div>
+            <!-- Plain Smooth Photo Animation Overlay (Zero Lines) -->
+            <div class="projects-card-overlay"></div>
             
             
 
@@ -2536,8 +2520,8 @@
           <div class="projects-card-container group" data-case-id="case-deccan-herald" role="button" tabindex="0" aria-label="View Deccan Herald Case Study" style="position: relative; aspect-ratio: 4/3; overflow: hidden; background-color: #111827; cursor: pointer; border-radius: 4px;">
             <img src="../assets/images/case-studies/landmarks/deccan-herald.jpg" alt="Deccan Herald" class="projects-card-bg-img" loading="lazy">
             
-            <!-- 12x8 Pixel-block Photo Animation Grid -->
-            <div class="projects-pixel-grid"></div>
+            <!-- Plain Smooth Photo Animation Overlay (Zero Lines) -->
+            <div class="projects-card-overlay"></div>
             
             
 
@@ -2564,8 +2548,8 @@
           <div class="projects-card-container group" data-case-id="case-myntra" role="button" tabindex="0" aria-label="View Myntra Case Study" style="position: relative; aspect-ratio: 4/3; overflow: hidden; background-color: #111827; cursor: pointer; border-radius: 4px;">
             <img src="../assets/images/case-studies/landmarks/myntra-campus.jpg" alt="Myntra" class="projects-card-bg-img" loading="lazy">
             
-            <!-- 12x8 Pixel-block Photo Animation Grid -->
-            <div class="projects-pixel-grid"></div>
+            <!-- Plain Smooth Photo Animation Overlay (Zero Lines) -->
+            <div class="projects-card-overlay"></div>
             
             
 
@@ -2592,8 +2576,8 @@
           <div class="projects-card-container group" data-case-id="case-flipkart" role="button" tabindex="0" aria-label="View Flipkart Case Study" style="position: relative; aspect-ratio: 4/3; overflow: hidden; background-color: #111827; cursor: pointer; border-radius: 4px;">
             <img src="../assets/images/case-studies/landmarks/flipkart-hub.jpg" alt="Flipkart" class="projects-card-bg-img" loading="lazy">
             
-            <!-- 12x8 Pixel-block Photo Animation Grid -->
-            <div class="projects-pixel-grid"></div>
+            <!-- Plain Smooth Photo Animation Overlay (Zero Lines) -->
+            <div class="projects-card-overlay"></div>
             
             
 
@@ -2620,8 +2604,8 @@
           <div class="projects-card-container group" data-case-id="case-via-milano" role="button" tabindex="0" aria-label="View via Milano Case Study" style="position: relative; aspect-ratio: 4/3; overflow: hidden; background-color: #111827; cursor: pointer; border-radius: 4px;">
             <img src="../assets/images/case-studies/landmarks/via-milano.jpg" alt="via Milano" class="projects-card-bg-img" loading="lazy">
             
-            <!-- 12x8 Pixel-block Photo Animation Grid -->
-            <div class="projects-pixel-grid"></div>
+            <!-- Plain Smooth Photo Animation Overlay (Zero Lines) -->
+            <div class="projects-card-overlay"></div>
             
             
 
@@ -2678,51 +2662,21 @@
       <div style="height: 3rem;"></div>
     </section>
 
-    <!-- Client-side Interactive Enhancement: Pixel Grid Generator, Scroll Parallax & Magnetic Cursor -->
+    <!-- Client-side Interactive Enhancement: Plain Photo Animation & Parallax -->
     <script>
       (function() {
-        // 1. Generate 12x8 pixel blocks for all cards with diagonal stagger
-        var COLS = 12, ROWS = 8;
-        var pixelGrids = document.querySelectorAll('.projects-pixel-grid');
-        pixelGrids.forEach(function(grid) {
-          for (var r = 0; r < ROWS; r++) {
-            for (var c = 0; c < COLS; c++) {
-              var block = document.createElement('div');
-              block.className = 'projects-pixel-block';
-              var delayIn = ((r + c) * 0.018).toFixed(3);
-              var delayOut = (((ROWS - r) + (COLS - c)) * 0.012).toFixed(3);
-              block.style.transitionDelay = delayIn + 's';
-              block.dataset.delayIn = delayIn + 's';
-              block.dataset.delayOut = delayOut + 's';
-              grid.appendChild(block);
-            }
-          }
-        });
-
-        // 2. Toggle delay directions on hover/leave (Desktop & Mobile)
+        // 1. Interactive Card Handlers (Plain Smooth Animation, Zero Lines)
         var cards = document.querySelectorAll('.projects-card-container');
         cards.forEach(function(card) {
-          var blocks = card.querySelectorAll('.projects-pixel-block');
-          
-          card.addEventListener('mouseenter', function() {
-            blocks.forEach(function(b) { b.style.transitionDelay = b.dataset.delayIn; });
-          });
-          card.addEventListener('mouseleave', function() {
-            blocks.forEach(function(b) { b.style.transitionDelay = b.dataset.delayOut; });
-            card.classList.remove('is-active');
-          });
-
-          // Touch events for mobile photo animation
+          // Touch / pointer interaction on mobile
           card.addEventListener('touchstart', function() {
-            blocks.forEach(function(b) { b.style.transitionDelay = b.dataset.delayIn; });
             card.classList.add('is-active');
           }, { passive: true });
 
           card.addEventListener('touchend', function() {
             setTimeout(function() {
-              blocks.forEach(function(b) { b.style.transitionDelay = b.dataset.delayOut; });
               card.classList.remove('is-active');
-            }, 900);
+            }, 800);
           }, { passive: true });
 
           // Click handler to open case study modal
@@ -2744,19 +2698,16 @@
           });
         });
 
-        // 3. Mobile auto-trigger photo animation as cards scroll into viewport
+        // 2. Mobile Viewport Animation on Scroll (Smooth Zoom & Glow, Zero Lines)
         if ('IntersectionObserver' in window && window.innerWidth <= 768) {
           var cardObserver = new IntersectionObserver(function(entries) {
             entries.forEach(function(entry) {
               var card = entry.target;
-              var blocks = card.querySelectorAll('.projects-pixel-block');
               if (entry.isIntersecting) {
-                blocks.forEach(function(b) { b.style.transitionDelay = b.dataset.delayIn; });
                 card.classList.add('is-active');
                 setTimeout(function() {
-                  blocks.forEach(function(b) { b.style.transitionDelay = b.dataset.delayOut; });
                   card.classList.remove('is-active');
-                }, 1300);
+                }, 1200);
               }
             });
           }, { threshold: 0.55 });
@@ -2766,7 +2717,7 @@
           });
         }
 
-        // 4. Header Parallax Squares based on scroll
+        // 3. Header Parallax Squares based on scroll
         var section = document.getElementById('projectsCaseStudiesSection');
         var floatSquares = document.querySelectorAll('.projects-float-square');
         if (section && floatSquares.length) {

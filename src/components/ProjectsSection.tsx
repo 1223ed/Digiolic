@@ -547,32 +547,11 @@ const CaseStudyCard: React.FC<CardProps> = ({ study, index }) => {
         className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-105"
       />
 
-      {/* 2. Pixel-block hover overlay (12 x 8 grid with zero-seam overlap) */}
-      <div className="pointer-events-none absolute inset-0 z-[5] overflow-hidden">
-        {PIXEL_BLOCKS.map((b) => (
-          <motion.div
-            key={b.id}
-            className="absolute bg-black/80"
-            style={{
-              width: `${100 / COLS + 0.6}%`,
-              height: `${100 / ROWS + 0.6}%`,
-              left: `${(b.col * 100) / COLS}%`,
-              top: `${(b.row * 100) / ROWS}%`,
-            }}
-            initial={{ scale: 0, opacity: 0 }}
-            animate={
-              isHovered ? { scale: 1.08, opacity: 1 } : { scale: 0, opacity: 0 }
-            }
-            transition={{
-              duration: 0.28,
-              delay: isHovered
-                ? (b.row + b.col) * 0.018
-                : (ROWS - b.row + (COLS - b.col)) * 0.012,
-              ease: EASING,
-            }}
-          />
-        ))}
-      </div>
+      {/* 2. Plain & Smooth Darkening Hover Overlay (Zero lines, 100% clean) */}
+      <div
+        className="pointer-events-none absolute inset-0 z-[5] bg-black/40 transition-opacity duration-350 ease-[cubic-bezier(0.22,1,0.36,1)]"
+        style={{ opacity: isHovered ? 1 : 0 }}
+      />
 
       {/* 3. Top-Right Location Details */}
       <div className="absolute right-3 top-3 z-15 flex max-w-[calc(100%-1.5rem)] items-center sm:right-4 sm:top-4 sm:max-w-[calc(100%-2rem)]">
