@@ -56,9 +56,12 @@ function initShutterScrollTransition() {
     gsap.set(s, { scaleY: 0, transformOrigin: 'bottom' });
   });
 
-  if (formsSection) {
-    gsap.set(formsSection, { marginTop: '-100dvh' });
+  function syncFormOffset() {
+    if (!formsSection || !bannerSection) return;
+    const h = bannerSection.offsetHeight;
+    formsSection.style.marginTop = `-${h}px`;
   }
+  syncFormOffset();
 
   let heroVideoController = null;
   let activeShutterTl = null;
@@ -93,19 +96,24 @@ function initShutterScrollTransition() {
   }
 
   window.addEventListener('scroll', updateNavbarTheme, { passive: true });
-  window.addEventListener('resize', updateNavbarTheme, { passive: true });
+  window.addEventListener('resize', () => {
+    syncFormOffset();
+    updateNavbarTheme();
+  }, { passive: true });
 
   // Unified luxury Venetian Blinds shutter wipe transition across desktop, laptop, tablet & mobile
+  const videoContainer = document.getElementById('bannerVideoContainer');
   const isTouch = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
   const shutterTl = gsap.timeline({
     scrollTrigger: {
       trigger: bannerSection,
       start: 'top top',
-      end: '+=200%',
+      end: () => `+=${Math.round(bannerSection.offsetHeight * 1.8)}`,
       pin: true,
-      scrub: isTouch ? 0.6 : 0.8,
+      scrub: isTouch ? 0.4 : 0.8,
       anticipatePin: 1,
       pinSpacing: true,
+      invalidateOnRefresh: true,
       onUpdate: () => {
         updateNavbarTheme();
         if (heroVideoController && heroVideoController.syncWithScroll) {
@@ -117,6 +125,12 @@ function initShutterScrollTransition() {
   });
 
   activeShutterTl = shutterTl;
+
+  // Direct background color transition to deep black (#040508)
+  shutterTl.to(bannerSection, { backgroundColor: '#040508', duration: 0.65, ease: 'none' }, 0.05);
+  if (videoContainer) {
+    shutterTl.to(videoContainer, { backgroundColor: '#040508', duration: 0.65, ease: 'none' }, 0.05);
+  }
 
   if (bannerScrollBtn) {
     shutterTl.to(bannerScrollBtn, { opacity: 0, y: -20, duration: 0.15, ease: 'none' }, 0);
@@ -425,7 +439,7 @@ function initScrollDownAction() {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
       const bannerSection = document.getElementById('contact-banner-section');
-      const factor = 2.05;
+      const factor = 1.85;
       const targetOffset = bannerSection ? (bannerSection.offsetHeight * factor) : window.innerHeight * factor;
       window.scrollTo({
         top: targetOffset,
