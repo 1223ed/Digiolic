@@ -586,3 +586,4 @@ export default function ProjectsSection(): JSX.Element {
     </section>
   );
 }
+
