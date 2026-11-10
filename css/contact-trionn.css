@@ -182,7 +182,7 @@ body.contact-page .mainframe-navbar.is-nav-dark .nav-sound-control:hover {
   width: 100%;
   height: 100vh;
   height: 100dvh;
-  min-height: 100dvh;
+  min-height: 640px;
   background-color: var(--trionn-banner-bg);
   color: var(--trionn-text-dark);
   overflow: hidden;
@@ -190,33 +190,27 @@ body.contact-page .mainframe-navbar.is-nav-dark .nav-sound-control:hover {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  padding-top: clamp(4.5rem, 8vh, 6.25rem);
-  padding-bottom: clamp(1.25rem, 2.5vh, 2.25rem);
   box-sizing: border-box;
 }
 
 .banner-video-container {
   width: 100%;
-  max-width: clamp(340px, 46vw, 660px);
-  margin: 0 auto;
   display: grid;
   place-items: start center;
   background-color: var(--trionn-banner-bg);
   mix-blend-mode: darken;
-  transform: translateY(-12px);
+  transform: translateY(-20px);
   pointer-events: none;
   z-index: 5;
   position: relative;
-  flex-shrink: 0;
 }
 
 .banner-lion-video {
   grid-area: 1 / 1;
-  width: 100%;
-  height: auto;
-  max-height: clamp(240px, 44vh, 52vh);
+  max-height: 72vh;
+  max-height: 72dvh;
+  width: auto;
   object-fit: contain;
-  object-position: center top;
   opacity: 0.92;
   display: block;
   transition: opacity 0.35s ease;
@@ -234,48 +228,47 @@ body.contact-page .mainframe-navbar.is-nav-dark .nav-sound-control:hover {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: clamp(0.35rem, 0.8vw, 0.65rem);
-  padding: 0 1.25rem;
+  gap: 0.85rem;
+  padding: 0 1.5rem;
   z-index: 10;
   box-sizing: border-box;
-  flex-shrink: 0;
-  margin-top: 0.25rem;
+  margin-top: -3.5rem;
 }
 
 .banner-headline {
   font-family: var(--trionn-font-display);
-  font-size: clamp(1.75rem, 4.4vw, 3.8rem);
+  font-size: clamp(2.5rem, 5.8vw, 5.25rem);
   font-weight: 700;
   color: var(--trionn-text-dark);
   letter-spacing: -0.035em;
-  line-height: 1.1;
+  line-height: 1.05;
   margin: 0;
 }
 
 .banner-subtext {
   font-family: var(--trionn-font-body);
-  font-size: clamp(0.85rem, 1.1vw, 1.05rem);
+  font-size: clamp(0.92rem, 1.25vw, 1.15rem);
   font-weight: 400;
   color: rgba(18, 19, 22, 0.72);
-  line-height: 1.55;
-  max-width: 580px;
+  line-height: 1.6;
+  max-width: 640px;
   margin: 0 auto;
 }
 
 /* Scroll Down Indicator Button */
 .banner-scroll-action {
   position: absolute;
-  bottom: clamp(1.25rem, 3vh, 2.25rem);
+  bottom: 2.5rem;
   left: 50%;
   transform: translateX(-50%);
   z-index: 15;
   cursor: pointer;
-  color: rgba(18, 19, 22, 0.65);
+  color: rgba(18, 19, 22, 0.55);
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
   transition: color 0.25s ease, transform 0.25s ease, opacity 0.25s ease;
   user-select: none;
@@ -294,31 +287,87 @@ body.contact-page .mainframe-navbar.is-nav-dark .nav-sound-control:hover {
 
 @media (max-width: 768px) {
   #contact-banner-section {
+    position: relative !important;
+    width: 100% !important;
+    height: 100vh !important;
+    height: 100dvh !important;
+    min-height: 100dvh !important;
+    max-height: 100dvh !important;
+    background-color: var(--trionn-banner-bg) !important;
+    color: var(--trionn-text-dark) !important;
+    overflow: hidden !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+    align-items: center !important;
     padding-top: 4.75rem !important;
     padding-bottom: 1.25rem !important;
+    box-sizing: border-box !important;
   }
   .banner-video-container {
-    max-width: 360px !important;
+    width: 100% !important;
+    max-width: 380px !important;
+    margin: 0 auto !important;
+    display: grid !important;
+    place-items: start center !important;
+    background-color: var(--trionn-banner-bg) !important;
+    mix-blend-mode: darken !important;
     transform: translateY(-8px) !important;
+    pointer-events: none !important;
+    z-index: 5 !important;
+    position: relative !important;
+    flex-shrink: 0 !important;
   }
   .banner-lion-video {
-    max-height: 44dvh !important;
+    grid-area: 1 / 1 !important;
+    width: 100% !important;
+    height: auto !important;
+    max-height: 48dvh !important;
+    object-fit: contain !important;
+    object-position: center top !important;
+    opacity: 0.92 !important;
+    display: block !important;
   }
   .banner-text-content {
-    padding: 0 1rem !important;
-    gap: 0.4rem !important;
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    width: 100% !important;
+    text-align: center !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 0.45rem !important;
+    margin-top: 0.25rem !important;
+    padding: 0 1.25rem !important;
+    z-index: 10 !important;
+    box-sizing: border-box !important;
+    flex-shrink: 0 !important;
   }
   .banner-headline {
     font-size: clamp(1.65rem, 6.2vw, 2.15rem) !important;
+    letter-spacing: -0.035em !important;
+    line-height: 1.12 !important;
+    margin: 0 !important;
   }
   .banner-subtext {
     font-size: clamp(0.82rem, 3.2vw, 0.92rem) !important;
+    line-height: 1.45 !important;
     max-width: 330px !important;
+    margin: 0 auto !important;
   }
   .banner-scroll-action {
+    position: absolute !important;
     bottom: 1.25rem !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    margin: 0 !important;
+    z-index: 15 !important;
     width: 38px !important;
     height: 38px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
   }
 }
 

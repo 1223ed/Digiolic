@@ -136,7 +136,7 @@ function initShutterScrollTransition() {
     shutterTl.to(bannerScrollBtn, { opacity: 0, y: -20, duration: 0.15, ease: 'none' }, 0);
   }
   if (bannerText) {
-    shutterTl.to(bannerText, { y: -50, opacity: 0.15, duration: 0.4, ease: 'none' }, 0);
+    shutterTl.to(bannerText, { y: -60, opacity: 0.15, duration: 0.4, ease: 'none' }, 0);
   }
 
   shutterTl.addLabel('stripes_start', 0.05);
@@ -439,7 +439,8 @@ function initScrollDownAction() {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
       const bannerSection = document.getElementById('contact-banner-section');
-      const factor = 1.85;
+      const isMobile = window.innerWidth <= 768;
+      const factor = isMobile ? 1.85 : 2.05;
       const targetOffset = bannerSection ? (bannerSection.offsetHeight * factor) : window.innerHeight * factor;
       window.scrollTo({
         top: targetOffset,
