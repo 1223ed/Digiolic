@@ -606,12 +606,21 @@ const CaseStudyCard: React.FC<CardProps> = ({ study, index }) => {
         </span>
       </div>
 
-      {/* 5. Top-Right Corner Arrow Badge */}
-      <div
-        className="absolute right-4 top-4 z-10 flex h-9 w-9 items-center justify-center rounded-full border border-white/40 bg-black/60 text-base text-white backdrop-blur transition-all duration-300 group-hover:scale-110 group-hover:border-white group-hover:bg-black"
-        aria-hidden="true"
-      >
-        ↗
+      {/* 5. Top-Right Header Bar: Location Details & Action Arrow (Matches red rectangle specification) */}
+      <div className="absolute right-3 top-3 z-15 flex max-w-[calc(100%-1.5rem)] items-center gap-1.5 sm:right-4 sm:top-4 sm:gap-2 sm:max-w-[calc(100%-2rem)]">
+        <span className="inline-flex items-center gap-1.5 overflow-hidden text-ellipsis whitespace-nowrap rounded-full border border-white/35 bg-black/65 px-2.5 py-1 text-[10px] font-medium tracking-wide text-white shadow-md backdrop-blur transition-colors duration-200 group-hover:border-white/60 group-hover:bg-black/90 sm:px-3 sm:py-1.5 sm:text-[11px]">
+          <svg className="h-3 w-3 shrink-0 opacity-85" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+            <circle cx="12" cy="10" r="3" />
+          </svg>
+          {study.location}
+        </span>
+        <div
+          className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-white/40 bg-black/60 text-sm text-white shadow-md backdrop-blur transition-all duration-300 group-hover:scale-110 group-hover:border-white group-hover:bg-black sm:h-9 sm:w-9 sm:text-base"
+          aria-hidden="true"
+        >
+          ↗
+        </div>
       </div>
 
       {/* 6. Info plate (bottom left) */}
@@ -629,9 +638,6 @@ const CaseStudyCard: React.FC<CardProps> = ({ study, index }) => {
             )}`}
           >
             {study.service}
-          </span>
-          <span className="text-[12px] font-medium text-black/65">
-            {study.location}
           </span>
         </div>
       </div>
@@ -728,8 +734,8 @@ export default function ProjectsSection(): JSX.Element {
       {/* -------------------------------------------------------------------- */}
       {/* Footer Area                                                          */}
       {/* -------------------------------------------------------------------- */}
-      <div className="mx-auto max-w-7xl px-6 pb-6 sm:px-10 lg:px-16">
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between">
+      <div className="mx-auto max-w-7xl px-6 pb-12 sm:px-10 lg:px-16">
+        <div className="flex flex-col items-start justify-between gap-8 border-t border-black/10 pt-10 md:flex-row md:items-end">
           {/* Left side */}
           <div className="max-w-md">
             <div
@@ -762,25 +768,6 @@ export default function ProjectsSection(): JSX.Element {
                 </svg>
               </span>
             </a>
-          </div>
-
-          {/* Right side (Infinite Marquee) */}
-          <div className="mt-8 flex-1 overflow-hidden border-t border-black/10 md:ml-12 md:mt-0 md:border-t-0">
-            <div className="overflow-hidden py-5">
-              <div className="marquee-projects flex w-max">
-                {doubledLogos.map((item, index) => (
-                  <div
-                    key={`${item.name}-${index}`}
-                    className="flex shrink-0 items-center gap-2.5 px-8"
-                  >
-                    <div className="text-black">{item.icon}</div>
-                    <span className="whitespace-nowrap text-sm font-medium tracking-wide text-black/80">
-                      {item.name}
-                    </span>
-                  </div>
-                ))}
-              </div>
-            </div>
           </div>
         </div>
       </div>
