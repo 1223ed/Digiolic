@@ -592,21 +592,7 @@ const CaseStudyCard: React.FC<CardProps> = ({ study, index }) => {
         ))}
       </div>
 
-      {/* 4. Center Hover Pill (Matches Blume Labs reference image) */}
-      <div
-        className={`pointer-events-none absolute left-1/2 top-1/2 z-[25] inline-flex -translate-x-1/2 -translate-y-1/2 items-center gap-2 whitespace-nowrap rounded-full bg-white px-8 py-3.5 font-sans text-base font-bold text-black shadow-[0_16px_36px_rgba(0,0,0,0.45)] transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] ${
-          isHovered
-            ? 'scale-100 opacity-100'
-            : 'scale-90 opacity-0'
-        }`}
-      >
-        <span>{study.company}</span>
-        <span className="text-lg transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
-          ↗
-        </span>
-      </div>
-
-      {/* 5. Top-Right Header Bar: Location Details & Action Arrow (Matches red rectangle specification) */}
+      {/* 4. Top-Right Header Bar: Location Details & Action Arrow */}
       <div className="absolute right-3 top-3 z-15 flex max-w-[calc(100%-1.5rem)] items-center gap-1.5 sm:right-4 sm:top-4 sm:gap-2 sm:max-w-[calc(100%-2rem)]">
         <span className="inline-flex items-center gap-1.5 overflow-hidden text-ellipsis whitespace-nowrap rounded-full border border-white/35 bg-black/65 px-2.5 py-1 text-[10px] font-medium tracking-wide text-white shadow-md backdrop-blur transition-colors duration-200 group-hover:border-white/60 group-hover:bg-black/90 sm:px-3 sm:py-1.5 sm:text-[11px]">
           <svg className="h-3 w-3 shrink-0 opacity-85" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
