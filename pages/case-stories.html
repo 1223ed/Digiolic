@@ -1988,6 +1988,19 @@
         animation: squareBobAnim ease-in-out infinite;
       }
 
+      /* Card Background Image Zoom */
+      .projects-card-bg-img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+      }
+      .projects-card-container:hover .projects-card-bg-img {
+        transform: scale(1.06);
+      }
+
       /* Pixel Block Overlay */
       .projects-pixel-grid {
         position: absolute;
@@ -1999,7 +2012,7 @@
         z-index: 5;
       }
       .projects-pixel-block {
-        background-color: rgba(0, 0, 0, 0.82);
+        background-color: rgba(0, 0, 0, 0.78);
         transform: scale(0);
         opacity: 0;
         transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.25s cubic-bezier(0.22, 1, 0.36, 1);
@@ -2008,11 +2021,112 @@
         transform: scale(1);
         opacity: 1;
       }
-
-      /* Diagonal delays for 12x8 blocks on entrance */
-      /* Each block calculates delay: (row + col) * 0.018s */
       .projects-card-container:not(:hover) .projects-pixel-block {
         transition-duration: 0.22s;
+      }
+
+      /* Center Floating Hover Pill (Matches reference Blume Labs image verbatim) */
+      .projects-hover-pill {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(0.85);
+        opacity: 0;
+        pointer-events: none;
+        background: #FFFFFF;
+        color: #000000;
+        font-family: 'DM Sans', -apple-system, sans-serif;
+        font-size: clamp(1.05rem, 1.4vw, 1.25rem);
+        font-weight: 700;
+        padding: 0.85rem 2rem;
+        border-radius: 9999px;
+        box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45), 0 2px 8px rgba(0, 0, 0, 0.2);
+        display: inline-flex;
+        align-items: center;
+        gap: 0.55rem;
+        transition: opacity 0.26s cubic-bezier(0.22, 1, 0.36, 1), transform 0.26s cubic-bezier(0.22, 1, 0.36, 1);
+        z-index: 25;
+        white-space: nowrap;
+      }
+      .projects-hover-pill-arrow {
+        font-size: 1.25rem;
+        line-height: 1;
+        display: inline-block;
+        transition: transform 0.2s ease;
+      }
+      .projects-card-container:hover .projects-hover-pill {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+      }
+      .projects-card-container:hover .projects-hover-pill-arrow {
+        transform: translate(3px, -3px);
+      }
+
+      /* Top-Right Action Arrow Button */
+      .projects-card-corner-arrow {
+        position: absolute;
+        right: 1.15rem;
+        top: 1.15rem;
+        display: flex;
+        height: 2.25rem;
+        width: 2.25rem;
+        align-items: center;
+        justify-content: center;
+        background-color: rgba(0, 0, 0, 0.65);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        border: 1px solid rgba(255, 255, 255, 0.35);
+        border-radius: 9999px;
+        font-size: 1.05rem;
+        color: #ffffff;
+        z-index: 10;
+        transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), background-color 0.2s, border-color 0.2s;
+      }
+      .projects-card-container:hover .projects-card-corner-arrow {
+        transform: scale(1.1) translate(1px, -1px);
+        background-color: #000000;
+        border-color: #ffffff;
+      }
+
+      /* Bottom-Left Info Plate */
+      .projects-card-info-plate {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        background-color: #ffffff;
+        padding: 0.85rem 1.35rem 0.95rem 1.35rem;
+        z-index: 20;
+        max-width: 85%;
+        border-top-right-radius: 6px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+        transition: background-color 0.2s ease;
+      }
+
+      /* Service Badges */
+      .projects-service-badge {
+        display: inline-flex;
+        align-items: center;
+        padding: 0.22rem 0.6rem;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        border-radius: 4px;
+      }
+      .projects-service-badge.zoho {
+        background-color: #ECFDF5;
+        color: #059669;
+        border: 1px solid rgba(5, 150, 105, 0.2);
+      }
+      .projects-service-badge.salesforce {
+        background-color: #EFF6FF;
+        color: #0284C7;
+        border: 1px solid rgba(2, 132, 199, 0.2);
+      }
+      .projects-service-badge.marketing {
+        background-color: #FFF7ED;
+        color: #EA580C;
+        border: 1px solid rgba(234, 88, 12, 0.2);
       }
 
       /* CTA Button Arrow Shift */
@@ -2064,7 +2178,7 @@
       .projects-grid-2x2 {
         display: grid;
         grid-template-columns: 1fr;
-        gap: 1rem;
+        gap: 1.5rem;
       }
       @media (min-width: 768px) {
         .projects-grid-2x2 {
@@ -2143,12 +2257,15 @@
       <!-- ==================================================================== -->
       <div class="projects-container" style="padding-left: clamp(1.25rem, 3vw, 4rem); padding-right: clamp(1.25rem, 3vw, 4rem); padding-bottom: 4rem;">
         <div class="projects-grid-2x2">
-          
-          <!-- Card 1: HeartX -->
-          <div class="projects-card-container group" data-card-id="heartx" style="position: relative; aspect-ratio: 4/3; overflow: hidden; background-color: #171717; cursor: pointer;">
-            <img src="https://images.pexels.com/photos/7691249/pexels-photo-7691249.jpeg?auto=compress&cs=tinysrgb&w=800" alt="HeartX" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;" loading="lazy">
-            <div class="projects-pixel-grid" data-card="heartx"></div>
-            <!-- Magnetic squares HeartX: (5,30,16), (10,42,10), (3,52,7), (80,70,14), (85,82,9), (78,60,6) -->
+
+          <!-- Card 1: Blume Labs (Zoho Enterprise) -->
+          <div class="projects-card-container group" data-case-id="case-blume-labs" role="button" tabindex="0" aria-label="View Blume Labs Case Study" style="position: relative; aspect-ratio: 4/3; overflow: hidden; background-color: #111827; cursor: pointer; border-radius: 4px;">
+            <img src="../assets/images/case-studies/landmarks/blume-tech.jpg" alt="Blume Labs" class="projects-card-bg-img" loading="lazy">
+            
+            <!-- 12x8 Pixel-block Hover Overlay Grid -->
+            <div class="projects-pixel-grid" data-card="case-blume-labs"></div>
+            
+            <!-- Magnetic Squares -->
             <div class="projects-mag-squares" style="position: absolute; inset: 0; pointer-events: none; z-index: 15;">
               <div class="mag-sq" style="position: absolute; left: 5%; top: 30%; width: 16px; height: 16px; background-color: #000000;"></div>
               <div class="mag-sq" style="position: absolute; left: 10%; top: 42%; width: 10px; height: 10px; background-color: #000000;"></div>
@@ -2157,21 +2274,36 @@
               <div class="mag-sq" style="position: absolute; left: 85%; top: 82%; width: 9px; height: 9px; background-color: #000000;"></div>
               <div class="mag-sq" style="position: absolute; left: 78%; top: 60%; width: 6px; height: 6px; background-color: #000000;"></div>
             </div>
-            <div style="position: absolute; right: 1rem; top: 1rem; display: flex; height: 1.75rem; width: 1.75rem; align-items: center; justify-content: center; border: 1px solid rgba(255, 255, 255, 0.3); font-size: 0.75rem; color: #ffffff; z-index: 10;" aria-hidden="true">+</div>
-            <div style="position: absolute; bottom: 0; left: 0; background-color: #ffffff; padding: 0.625rem 1rem 0.75rem 1rem; z-index: 20; max-width: 70%;">
-              <h3 style="font-size: clamp(1.4rem, 2.2vw, 2rem); font-weight: 400; line-height: 1.2; color: #000000; margin: 0;">HeartX</h3>
-              <div style="margin-top: 0.375rem; display: flex; align-items: center; gap: 1rem;">
-                <span style="font-size: 12px; color: rgba(0, 0, 0, 0.6);">Brand Strategy & Product Design</span>
-                <span style="font-size: 12px; font-weight: 500; color: #000000;">2026</span>
+
+            <!-- Center Hover Pill Badge (Matches Blume Labs reference image) -->
+            <div class="projects-hover-pill">
+              <span>Blume Labs</span>
+              <span class="projects-hover-pill-arrow">↗</span>
+            </div>
+
+            <!-- Top-Right Action Arrow Button -->
+            <div class="projects-card-corner-arrow" aria-hidden="true">
+              ↗
+            </div>
+
+            <!-- Bottom-Left Info Plate -->
+            <div class="projects-card-info-plate">
+              <h3 style="font-size: clamp(1.25rem, 1.9vw, 1.75rem); font-weight: 600; line-height: 1.2; color: #000000; margin: 0;">Blume Labs</h3>
+              <div style="margin-top: 0.45rem; display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem;">
+                <span class="projects-service-badge zoho">Zoho Enterprise</span>
+                <span style="font-size: 12px; color: rgba(0, 0, 0, 0.65); font-weight: 500;">Location: Bangalore, India</span>
               </div>
             </div>
           </div>
 
-          <!-- Card 2: Swave® -->
-          <div class="projects-card-container group" data-card-id="swave" style="position: relative; aspect-ratio: 4/3; overflow: hidden; background-color: #171717; cursor: pointer;">
-            <img src="https://images.pexels.com/photos/2559941/pexels-photo-2559941.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Swave®" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;" loading="lazy">
-            <div class="projects-pixel-grid" data-card="swave"></div>
-            <!-- Magnetic squares Swave: (82,55,16), (88,68,10), (78,72,7), (85,42,6), (90,80,8) -->
+          <!-- Card 2: Pierian Technologies (Zoho Enterprise) -->
+          <div class="projects-card-container group" data-case-id="case-pierian" role="button" tabindex="0" aria-label="View Pierian Technologies Case Study" style="position: relative; aspect-ratio: 4/3; overflow: hidden; background-color: #111827; cursor: pointer; border-radius: 4px;">
+            <img src="../assets/images/case-studies/landmarks/bangalore-finance.jpg" alt="Pierian Technologies" class="projects-card-bg-img" loading="lazy">
+            
+            <!-- 12x8 Pixel-block Hover Overlay Grid -->
+            <div class="projects-pixel-grid" data-card="case-pierian"></div>
+            
+            <!-- Magnetic Squares -->
             <div class="projects-mag-squares" style="position: absolute; inset: 0; pointer-events: none; z-index: 15;">
               <div class="mag-sq" style="position: absolute; left: 82%; top: 55%; width: 16px; height: 16px; background-color: #000000;"></div>
               <div class="mag-sq" style="position: absolute; left: 88%; top: 68%; width: 10px; height: 10px; background-color: #000000;"></div>
@@ -2179,21 +2311,36 @@
               <div class="mag-sq" style="position: absolute; left: 85%; top: 42%; width: 6px; height: 6px; background-color: #000000;"></div>
               <div class="mag-sq" style="position: absolute; left: 90%; top: 80%; width: 8px; height: 8px; background-color: #000000;"></div>
             </div>
-            <div style="position: absolute; right: 1rem; top: 1rem; display: flex; height: 1.75rem; width: 1.75rem; align-items: center; justify-content: center; border: 1px solid rgba(255, 255, 255, 0.3); font-size: 0.75rem; color: #ffffff; z-index: 10;" aria-hidden="true">+</div>
-            <div style="position: absolute; bottom: 0; left: 0; background-color: #ffffff; padding: 0.625rem 1rem 0.75rem 1rem; z-index: 20; max-width: 70%;">
-              <h3 style="font-size: clamp(1.4rem, 2.2vw, 2rem); font-weight: 400; line-height: 1.2; color: #000000; margin: 0;">Swave&#174;</h3>
-              <div style="margin-top: 0.375rem; display: flex; align-items: center; gap: 1rem;">
-                <span style="font-size: 12px; color: rgba(0, 0, 0, 0.6);">Web Design & Identity</span>
-                <span style="font-size: 12px; font-weight: 500; color: #000000;">2025</span>
+
+            <!-- Center Hover Pill Badge (Matches Blume Labs reference image) -->
+            <div class="projects-hover-pill">
+              <span>Pierian Technologies</span>
+              <span class="projects-hover-pill-arrow">↗</span>
+            </div>
+
+            <!-- Top-Right Action Arrow Button -->
+            <div class="projects-card-corner-arrow" aria-hidden="true">
+              ↗
+            </div>
+
+            <!-- Bottom-Left Info Plate -->
+            <div class="projects-card-info-plate">
+              <h3 style="font-size: clamp(1.25rem, 1.9vw, 1.75rem); font-weight: 600; line-height: 1.2; color: #000000; margin: 0;">Pierian Technologies</h3>
+              <div style="margin-top: 0.45rem; display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem;">
+                <span class="projects-service-badge zoho">Zoho Enterprise</span>
+                <span style="font-size: 12px; color: rgba(0, 0, 0, 0.65); font-weight: 500;">Location: Bangalore, India</span>
               </div>
             </div>
           </div>
 
-          <!-- Card 3: EduSpark -->
-          <div class="projects-card-container group" data-card-id="eduspark" style="position: relative; aspect-ratio: 4/3; overflow: hidden; background-color: #171717; cursor: pointer;">
-            <img src="https://images.pexels.com/photos/5428003/pexels-photo-5428003.jpeg?auto=compress&cs=tinysrgb&w=800" alt="EduSpark" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;" loading="lazy">
-            <div class="projects-pixel-grid" data-card="eduspark"></div>
-            <!-- Magnetic squares EduSpark: (4,24,16), (10,36,10), (2,44,7), (78,78,14), (84,88,8) -->
+          <!-- Card 3: FYX Finance (Zoho Enterprise) -->
+          <div class="projects-card-container group" data-case-id="case-fyx" role="button" tabindex="0" aria-label="View FYX Finance Case Study" style="position: relative; aspect-ratio: 4/3; overflow: hidden; background-color: #111827; cursor: pointer; border-radius: 4px;">
+            <img src="../assets/images/case-studies/landmarks/sydney-opera.jpg" alt="FYX Finance" class="projects-card-bg-img" loading="lazy">
+            
+            <!-- 12x8 Pixel-block Hover Overlay Grid -->
+            <div class="projects-pixel-grid" data-card="case-fyx"></div>
+            
+            <!-- Magnetic Squares -->
             <div class="projects-mag-squares" style="position: absolute; inset: 0; pointer-events: none; z-index: 15;">
               <div class="mag-sq" style="position: absolute; left: 4%; top: 24%; width: 16px; height: 16px; background-color: #000000;"></div>
               <div class="mag-sq" style="position: absolute; left: 10%; top: 36%; width: 10px; height: 10px; background-color: #000000;"></div>
@@ -2201,21 +2348,36 @@
               <div class="mag-sq" style="position: absolute; left: 78%; top: 78%; width: 14px; height: 14px; background-color: #000000;"></div>
               <div class="mag-sq" style="position: absolute; left: 84%; top: 88%; width: 8px; height: 8px; background-color: #000000;"></div>
             </div>
-            <div style="position: absolute; right: 1rem; top: 1rem; display: flex; height: 1.75rem; width: 1.75rem; align-items: center; justify-content: center; border: 1px solid rgba(255, 255, 255, 0.3); font-size: 0.75rem; color: #ffffff; z-index: 10;" aria-hidden="true">+</div>
-            <div style="position: absolute; bottom: 0; left: 0; background-color: #ffffff; padding: 0.625rem 1rem 0.75rem 1rem; z-index: 20; max-width: 70%;">
-              <h3 style="font-size: clamp(1.4rem, 2.2vw, 2rem); font-weight: 400; line-height: 1.2; color: #000000; margin: 0;">EduSpark</h3>
-              <div style="margin-top: 0.375rem; display: flex; align-items: center; gap: 1rem;">
-                <span style="font-size: 12px; color: rgba(0, 0, 0, 0.6);">Brand Strategy & Web Design</span>
-                <span style="font-size: 12px; font-weight: 500; color: #000000;">2023</span>
+
+            <!-- Center Hover Pill Badge (Matches Blume Labs reference image) -->
+            <div class="projects-hover-pill">
+              <span>FYX Finance</span>
+              <span class="projects-hover-pill-arrow">↗</span>
+            </div>
+
+            <!-- Top-Right Action Arrow Button -->
+            <div class="projects-card-corner-arrow" aria-hidden="true">
+              ↗
+            </div>
+
+            <!-- Bottom-Left Info Plate -->
+            <div class="projects-card-info-plate">
+              <h3 style="font-size: clamp(1.25rem, 1.9vw, 1.75rem); font-weight: 600; line-height: 1.2; color: #000000; margin: 0;">FYX Finance</h3>
+              <div style="margin-top: 0.45rem; display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem;">
+                <span class="projects-service-badge zoho">Zoho Enterprise</span>
+                <span style="font-size: 12px; color: rgba(0, 0, 0, 0.65); font-weight: 500;">Location: Sydney, Australia</span>
               </div>
             </div>
           </div>
 
-          <!-- Card 4: Greenergy -->
-          <div class="projects-card-container group" data-card-id="greenergy" style="position: relative; aspect-ratio: 4/3; overflow: hidden; background-color: #171717; cursor: pointer;">
-            <img src="https://images.pexels.com/photos/2800832/pexels-photo-2800832.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Greenergy" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;" loading="lazy">
-            <div class="projects-pixel-grid" data-card="greenergy"></div>
-            <!-- Magnetic squares Greenergy: (82,26,14), (88,38,10), (78,44,7), (84,54,5), (90,60,8) -->
+          <!-- Card 4: Monster India (Salesforce Cloud) -->
+          <div class="projects-card-container group" data-case-id="case-monster-india" role="button" tabindex="0" aria-label="View Monster India Case Study" style="position: relative; aspect-ratio: 4/3; overflow: hidden; background-color: #111827; cursor: pointer; border-radius: 4px;">
+            <img src="../assets/images/case-studies/landmarks/india-gate.jpg" alt="Monster India" class="projects-card-bg-img" loading="lazy">
+            
+            <!-- 12x8 Pixel-block Hover Overlay Grid -->
+            <div class="projects-pixel-grid" data-card="case-monster-india"></div>
+            
+            <!-- Magnetic Squares -->
             <div class="projects-mag-squares" style="position: absolute; inset: 0; pointer-events: none; z-index: 15;">
               <div class="mag-sq" style="position: absolute; left: 82%; top: 26%; width: 14px; height: 14px; background-color: #000000;"></div>
               <div class="mag-sq" style="position: absolute; left: 88%; top: 38%; width: 10px; height: 10px; background-color: #000000;"></div>
@@ -2223,16 +2385,397 @@
               <div class="mag-sq" style="position: absolute; left: 84%; top: 54%; width: 5px; height: 5px; background-color: #000000;"></div>
               <div class="mag-sq" style="position: absolute; left: 90%; top: 60%; width: 8px; height: 8px; background-color: #000000;"></div>
             </div>
-            <div style="position: absolute; right: 1rem; top: 1rem; display: flex; height: 1.75rem; width: 1.75rem; align-items: center; justify-content: center; border: 1px solid rgba(255, 255, 255, 0.3); font-size: 0.75rem; color: #ffffff; z-index: 10;" aria-hidden="true">+</div>
-            <div style="position: absolute; bottom: 0; left: 0; background-color: #ffffff; padding: 0.625rem 1rem 0.75rem 1rem; z-index: 20; max-width: 70%;">
-              <h3 style="font-size: clamp(1.4rem, 2.2vw, 2rem); font-weight: 400; line-height: 1.2; color: #000000; margin: 0;">Greenergy</h3>
-              <div style="margin-top: 0.375rem; display: flex; align-items: center; gap: 1rem;">
-                <span style="font-size: 12px; color: rgba(0, 0, 0, 0.6);">Brand Strategy & Web Design</span>
-                <span style="font-size: 12px; font-weight: 500; color: #000000;">2022</span>
+
+            <!-- Center Hover Pill Badge (Matches Blume Labs reference image) -->
+            <div class="projects-hover-pill">
+              <span>Monster India</span>
+              <span class="projects-hover-pill-arrow">↗</span>
+            </div>
+
+            <!-- Top-Right Action Arrow Button -->
+            <div class="projects-card-corner-arrow" aria-hidden="true">
+              ↗
+            </div>
+
+            <!-- Bottom-Left Info Plate -->
+            <div class="projects-card-info-plate">
+              <h3 style="font-size: clamp(1.25rem, 1.9vw, 1.75rem); font-weight: 600; line-height: 1.2; color: #000000; margin: 0;">Monster India</h3>
+              <div style="margin-top: 0.45rem; display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem;">
+                <span class="projects-service-badge salesforce">Salesforce Cloud</span>
+                <span style="font-size: 12px; color: rgba(0, 0, 0, 0.65); font-weight: 500;">Location: Noida, India</span>
               </div>
             </div>
           </div>
 
+          <!-- Card 5: Greenworld Solarwares (Zoho Enterprise) -->
+          <div class="projects-card-container group" data-case-id="case-greenworld" role="button" tabindex="0" aria-label="View Greenworld Solarwares Case Study" style="position: relative; aspect-ratio: 4/3; overflow: hidden; background-color: #111827; cursor: pointer; border-radius: 4px;">
+            <img src="../assets/images/case-studies/landmarks/solar-energy.jpg" alt="Greenworld Solarwares" class="projects-card-bg-img" loading="lazy">
+            
+            <!-- 12x8 Pixel-block Hover Overlay Grid -->
+            <div class="projects-pixel-grid" data-card="case-greenworld"></div>
+            
+            <!-- Magnetic Squares -->
+            <div class="projects-mag-squares" style="position: absolute; inset: 0; pointer-events: none; z-index: 15;">
+              <div class="mag-sq" style="position: absolute; left: 6%; top: 40%; width: 14px; height: 14px; background-color: #000000;"></div>
+              <div class="mag-sq" style="position: absolute; left: 12%; top: 52%; width: 9px; height: 9px; background-color: #000000;"></div>
+              <div class="mag-sq" style="position: absolute; left: 4%; top: 62%; width: 6px; height: 6px; background-color: #000000;"></div>
+              <div class="mag-sq" style="position: absolute; left: 82%; top: 30%; width: 16px; height: 16px; background-color: #000000;"></div>
+              <div class="mag-sq" style="position: absolute; left: 88%; top: 42%; width: 10px; height: 10px; background-color: #000000;"></div>
+            </div>
+
+            <!-- Center Hover Pill Badge (Matches Blume Labs reference image) -->
+            <div class="projects-hover-pill">
+              <span>Greenworld Solarwares</span>
+              <span class="projects-hover-pill-arrow">↗</span>
+            </div>
+
+            <!-- Top-Right Action Arrow Button -->
+            <div class="projects-card-corner-arrow" aria-hidden="true">
+              ↗
+            </div>
+
+            <!-- Bottom-Left Info Plate -->
+            <div class="projects-card-info-plate">
+              <h3 style="font-size: clamp(1.25rem, 1.9vw, 1.75rem); font-weight: 600; line-height: 1.2; color: #000000; margin: 0;">Greenworld Solarwares</h3>
+              <div style="margin-top: 0.45rem; display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem;">
+                <span class="projects-service-badge zoho">Zoho Enterprise</span>
+                <span style="font-size: 12px; color: rgba(0, 0, 0, 0.65); font-weight: 500;">Location: Chhattisgarh, India</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 6: Verzeo Technologies (Salesforce Cloud) -->
+          <div class="projects-card-container group" data-case-id="case-verzeo" role="button" tabindex="0" aria-label="View Verzeo Technologies Case Study" style="position: relative; aspect-ratio: 4/3; overflow: hidden; background-color: #111827; cursor: pointer; border-radius: 4px;">
+            <img src="../assets/images/case-studies/landmarks/bangalore-vidhana.jpg" alt="Verzeo Technologies" class="projects-card-bg-img" loading="lazy">
+            
+            <!-- 12x8 Pixel-block Hover Overlay Grid -->
+            <div class="projects-pixel-grid" data-card="case-verzeo"></div>
+            
+            <!-- Magnetic Squares -->
+            <div class="projects-mag-squares" style="position: absolute; inset: 0; pointer-events: none; z-index: 15;">
+              <div class="mag-sq" style="position: absolute; left: 5%; top: 30%; width: 16px; height: 16px; background-color: #000000;"></div>
+              <div class="mag-sq" style="position: absolute; left: 10%; top: 42%; width: 10px; height: 10px; background-color: #000000;"></div>
+              <div class="mag-sq" style="position: absolute; left: 80%; top: 70%; width: 14px; height: 14px; background-color: #000000;"></div>
+              <div class="mag-sq" style="position: absolute; left: 85%; top: 82%; width: 9px; height: 9px; background-color: #000000;"></div>
+              <div class="mag-sq" style="position: absolute; left: 78%; top: 60%; width: 6px; height: 6px; background-color: #000000;"></div>
+            </div>
+
+            <!-- Center Hover Pill Badge (Matches Blume Labs reference image) -->
+            <div class="projects-hover-pill">
+              <span>Verzeo Technologies</span>
+              <span class="projects-hover-pill-arrow">↗</span>
+            </div>
+
+            <!-- Top-Right Action Arrow Button -->
+            <div class="projects-card-corner-arrow" aria-hidden="true">
+              ↗
+            </div>
+
+            <!-- Bottom-Left Info Plate -->
+            <div class="projects-card-info-plate">
+              <h3 style="font-size: clamp(1.25rem, 1.9vw, 1.75rem); font-weight: 600; line-height: 1.2; color: #000000; margin: 0;">Verzeo Technologies</h3>
+              <div style="margin-top: 0.45rem; display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem;">
+                <span class="projects-service-badge salesforce">Salesforce Cloud</span>
+                <span style="font-size: 12px; color: rgba(0, 0, 0, 0.65); font-weight: 500;">Location: Bangalore, India</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 7: NZ Immigration (Zoho Enterprise) -->
+          <div class="projects-card-container group" data-case-id="case-nz-immigration" role="button" tabindex="0" aria-label="View NZ Immigration Case Study" style="position: relative; aspect-ratio: 4/3; overflow: hidden; background-color: #111827; cursor: pointer; border-radius: 4px;">
+            <img src="../assets/images/case-studies/landmarks/new-zealand.jpg" alt="NZ Immigration" class="projects-card-bg-img" loading="lazy">
+            
+            <!-- 12x8 Pixel-block Hover Overlay Grid -->
+            <div class="projects-pixel-grid" data-card="case-nz-immigration"></div>
+            
+            <!-- Magnetic Squares -->
+            <div class="projects-mag-squares" style="position: absolute; inset: 0; pointer-events: none; z-index: 15;">
+              <div class="mag-sq" style="position: absolute; left: 82%; top: 55%; width: 16px; height: 16px; background-color: #000000;"></div>
+              <div class="mag-sq" style="position: absolute; left: 88%; top: 68%; width: 10px; height: 10px; background-color: #000000;"></div>
+              <div class="mag-sq" style="position: absolute; left: 78%; top: 72%; width: 7px; height: 7px; background-color: #000000;"></div>
+              <div class="mag-sq" style="position: absolute; left: 85%; top: 42%; width: 6px; height: 6px; background-color: #000000;"></div>
+              <div class="mag-sq" style="position: absolute; left: 90%; top: 80%; width: 8px; height: 8px; background-color: #000000;"></div>
+            </div>
+
+            <!-- Center Hover Pill Badge (Matches Blume Labs reference image) -->
+            <div class="projects-hover-pill">
+              <span>NZ Immigration</span>
+              <span class="projects-hover-pill-arrow">↗</span>
+            </div>
+
+            <!-- Top-Right Action Arrow Button -->
+            <div class="projects-card-corner-arrow" aria-hidden="true">
+              ↗
+            </div>
+
+            <!-- Bottom-Left Info Plate -->
+            <div class="projects-card-info-plate">
+              <h3 style="font-size: clamp(1.25rem, 1.9vw, 1.75rem); font-weight: 600; line-height: 1.2; color: #000000; margin: 0;">NZ Immigration</h3>
+              <div style="margin-top: 0.45rem; display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem;">
+                <span class="projects-service-badge zoho">Zoho Enterprise</span>
+                <span style="font-size: 12px; color: rgba(0, 0, 0, 0.65); font-weight: 500;">Location: Auckland, New Zealand</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 8: Banaraswala (Salesforce Cloud) -->
+          <div class="projects-card-container group" data-case-id="case-banaraswala" role="button" tabindex="0" aria-label="View Banaraswala Case Study" style="position: relative; aspect-ratio: 4/3; overflow: hidden; background-color: #111827; cursor: pointer; border-radius: 4px;">
+            <img src="../assets/images/case-studies/landmarks/delhi-qutub.jpg" alt="Banaraswala" class="projects-card-bg-img" loading="lazy">
+            
+            <!-- 12x8 Pixel-block Hover Overlay Grid -->
+            <div class="projects-pixel-grid" data-card="case-banaraswala"></div>
+            
+            <!-- Magnetic Squares -->
+            <div class="projects-mag-squares" style="position: absolute; inset: 0; pointer-events: none; z-index: 15;">
+              <div class="mag-sq" style="position: absolute; left: 4%; top: 24%; width: 16px; height: 16px; background-color: #000000;"></div>
+              <div class="mag-sq" style="position: absolute; left: 10%; top: 36%; width: 10px; height: 10px; background-color: #000000;"></div>
+              <div class="mag-sq" style="position: absolute; left: 2%; top: 44%; width: 7px; height: 7px; background-color: #000000;"></div>
+              <div class="mag-sq" style="position: absolute; left: 78%; top: 78%; width: 14px; height: 14px; background-color: #000000;"></div>
+              <div class="mag-sq" style="position: absolute; left: 84%; top: 88%; width: 8px; height: 8px; background-color: #000000;"></div>
+            </div>
+
+            <!-- Center Hover Pill Badge (Matches Blume Labs reference image) -->
+            <div class="projects-hover-pill">
+              <span>Banaraswala</span>
+              <span class="projects-hover-pill-arrow">↗</span>
+            </div>
+
+            <!-- Top-Right Action Arrow Button -->
+            <div class="projects-card-corner-arrow" aria-hidden="true">
+              ↗
+            </div>
+
+            <!-- Bottom-Left Info Plate -->
+            <div class="projects-card-info-plate">
+              <h3 style="font-size: clamp(1.25rem, 1.9vw, 1.75rem); font-weight: 600; line-height: 1.2; color: #000000; margin: 0;">Banaraswala</h3>
+              <div style="margin-top: 0.45rem; display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem;">
+                <span class="projects-service-badge salesforce">Salesforce Cloud</span>
+                <span style="font-size: 12px; color: rgba(0, 0, 0, 0.65); font-weight: 500;">Location: Delhi, India</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 9: Loom Crafts (Salesforce Cloud) -->
+          <div class="projects-card-container group" data-case-id="case-loomcrafts" role="button" tabindex="0" aria-label="View Loom Crafts Case Study" style="position: relative; aspect-ratio: 4/3; overflow: hidden; background-color: #111827; cursor: pointer; border-radius: 4px;">
+            <img src="../assets/images/case-studies/landmarks/agra-taj.jpg" alt="Loom Crafts" class="projects-card-bg-img" loading="lazy">
+            
+            <!-- 12x8 Pixel-block Hover Overlay Grid -->
+            <div class="projects-pixel-grid" data-card="case-loomcrafts"></div>
+            
+            <!-- Magnetic Squares -->
+            <div class="projects-mag-squares" style="position: absolute; inset: 0; pointer-events: none; z-index: 15;">
+              <div class="mag-sq" style="position: absolute; left: 82%; top: 26%; width: 14px; height: 14px; background-color: #000000;"></div>
+              <div class="mag-sq" style="position: absolute; left: 88%; top: 38%; width: 10px; height: 10px; background-color: #000000;"></div>
+              <div class="mag-sq" style="position: absolute; left: 78%; top: 44%; width: 7px; height: 7px; background-color: #000000;"></div>
+              <div class="mag-sq" style="position: absolute; left: 84%; top: 54%; width: 5px; height: 5px; background-color: #000000;"></div>
+              <div class="mag-sq" style="position: absolute; left: 90%; top: 60%; width: 8px; height: 8px; background-color: #000000;"></div>
+            </div>
+
+            <!-- Center Hover Pill Badge (Matches Blume Labs reference image) -->
+            <div class="projects-hover-pill">
+              <span>Loom Crafts</span>
+              <span class="projects-hover-pill-arrow">↗</span>
+            </div>
+
+            <!-- Top-Right Action Arrow Button -->
+            <div class="projects-card-corner-arrow" aria-hidden="true">
+              ↗
+            </div>
+
+            <!-- Bottom-Left Info Plate -->
+            <div class="projects-card-info-plate">
+              <h3 style="font-size: clamp(1.25rem, 1.9vw, 1.75rem); font-weight: 600; line-height: 1.2; color: #000000; margin: 0;">Loom Crafts</h3>
+              <div style="margin-top: 0.45rem; display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem;">
+                <span class="projects-service-badge salesforce">Salesforce Cloud</span>
+                <span style="font-size: 12px; color: rgba(0, 0, 0, 0.65); font-weight: 500;">Location: Ghaziabad, India</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 10: Chanakya University (Zoho Enterprise) -->
+          <div class="projects-card-container group" data-case-id="case-chanakya-university" role="button" tabindex="0" aria-label="View Chanakya University Case Study" style="position: relative; aspect-ratio: 4/3; overflow: hidden; background-color: #111827; cursor: pointer; border-radius: 4px;">
+            <img src="../assets/images/case-studies/landmarks/chanakya-univ.jpg" alt="Chanakya University" class="projects-card-bg-img" loading="lazy">
+            
+            <!-- 12x8 Pixel-block Hover Overlay Grid -->
+            <div class="projects-pixel-grid" data-card="case-chanakya-university"></div>
+            
+            <!-- Magnetic Squares -->
+            <div class="projects-mag-squares" style="position: absolute; inset: 0; pointer-events: none; z-index: 15;">
+              <div class="mag-sq" style="position: absolute; left: 6%; top: 40%; width: 14px; height: 14px; background-color: #000000;"></div>
+              <div class="mag-sq" style="position: absolute; left: 12%; top: 52%; width: 9px; height: 9px; background-color: #000000;"></div>
+              <div class="mag-sq" style="position: absolute; left: 4%; top: 62%; width: 6px; height: 6px; background-color: #000000;"></div>
+              <div class="mag-sq" style="position: absolute; left: 82%; top: 30%; width: 16px; height: 16px; background-color: #000000;"></div>
+              <div class="mag-sq" style="position: absolute; left: 88%; top: 42%; width: 10px; height: 10px; background-color: #000000;"></div>
+            </div>
+
+            <!-- Center Hover Pill Badge (Matches Blume Labs reference image) -->
+            <div class="projects-hover-pill">
+              <span>Chanakya University</span>
+              <span class="projects-hover-pill-arrow">↗</span>
+            </div>
+
+            <!-- Top-Right Action Arrow Button -->
+            <div class="projects-card-corner-arrow" aria-hidden="true">
+              ↗
+            </div>
+
+            <!-- Bottom-Left Info Plate -->
+            <div class="projects-card-info-plate">
+              <h3 style="font-size: clamp(1.25rem, 1.9vw, 1.75rem); font-weight: 600; line-height: 1.2; color: #000000; margin: 0;">Chanakya University</h3>
+              <div style="margin-top: 0.45rem; display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem;">
+                <span class="projects-service-badge zoho">Zoho Enterprise</span>
+                <span style="font-size: 12px; color: rgba(0, 0, 0, 0.65); font-weight: 500;">Location: Bangalore, India</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 11: Deccan Herald (Digital Marketing) -->
+          <div class="projects-card-container group" data-case-id="case-deccan-herald" role="button" tabindex="0" aria-label="View Deccan Herald Case Study" style="position: relative; aspect-ratio: 4/3; overflow: hidden; background-color: #111827; cursor: pointer; border-radius: 4px;">
+            <img src="../assets/images/case-studies/landmarks/deccan-herald.jpg" alt="Deccan Herald" class="projects-card-bg-img" loading="lazy">
+            
+            <!-- 12x8 Pixel-block Hover Overlay Grid -->
+            <div class="projects-pixel-grid" data-card="case-deccan-herald"></div>
+            
+            <!-- Magnetic Squares -->
+            <div class="projects-mag-squares" style="position: absolute; inset: 0; pointer-events: none; z-index: 15;">
+              <div class="mag-sq" style="position: absolute; left: 5%; top: 30%; width: 16px; height: 16px; background-color: #000000;"></div>
+              <div class="mag-sq" style="position: absolute; left: 10%; top: 42%; width: 10px; height: 10px; background-color: #000000;"></div>
+              <div class="mag-sq" style="position: absolute; left: 3%; top: 52%; width: 7px; height: 7px; background-color: #000000;"></div>
+              <div class="mag-sq" style="position: absolute; left: 80%; top: 70%; width: 14px; height: 14px; background-color: #000000;"></div>
+              <div class="mag-sq" style="position: absolute; left: 85%; top: 82%; width: 9px; height: 9px; background-color: #000000;"></div>
+            </div>
+
+            <!-- Center Hover Pill Badge (Matches Blume Labs reference image) -->
+            <div class="projects-hover-pill">
+              <span>Deccan Herald</span>
+              <span class="projects-hover-pill-arrow">↗</span>
+            </div>
+
+            <!-- Top-Right Action Arrow Button -->
+            <div class="projects-card-corner-arrow" aria-hidden="true">
+              ↗
+            </div>
+
+            <!-- Bottom-Left Info Plate -->
+            <div class="projects-card-info-plate">
+              <h3 style="font-size: clamp(1.25rem, 1.9vw, 1.75rem); font-weight: 600; line-height: 1.2; color: #000000; margin: 0;">Deccan Herald</h3>
+              <div style="margin-top: 0.45rem; display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem;">
+                <span class="projects-service-badge marketing">Digital Marketing</span>
+                <span style="font-size: 12px; color: rgba(0, 0, 0, 0.65); font-weight: 500;">Location: Bangalore, India</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 12: Myntra (Digital Marketing) -->
+          <div class="projects-card-container group" data-case-id="case-myntra" role="button" tabindex="0" aria-label="View Myntra Case Study" style="position: relative; aspect-ratio: 4/3; overflow: hidden; background-color: #111827; cursor: pointer; border-radius: 4px;">
+            <img src="../assets/images/case-studies/landmarks/myntra-campus.jpg" alt="Myntra" class="projects-card-bg-img" loading="lazy">
+            
+            <!-- 12x8 Pixel-block Hover Overlay Grid -->
+            <div class="projects-pixel-grid" data-card="case-myntra"></div>
+            
+            <!-- Magnetic Squares -->
+            <div class="projects-mag-squares" style="position: absolute; inset: 0; pointer-events: none; z-index: 15;">
+              <div class="mag-sq" style="position: absolute; left: 82%; top: 55%; width: 16px; height: 16px; background-color: #000000;"></div>
+              <div class="mag-sq" style="position: absolute; left: 88%; top: 68%; width: 10px; height: 10px; background-color: #000000;"></div>
+              <div class="mag-sq" style="position: absolute; left: 78%; top: 72%; width: 7px; height: 7px; background-color: #000000;"></div>
+              <div class="mag-sq" style="position: absolute; left: 85%; top: 42%; width: 6px; height: 6px; background-color: #000000;"></div>
+              <div class="mag-sq" style="position: absolute; left: 90%; top: 80%; width: 8px; height: 8px; background-color: #000000;"></div>
+            </div>
+
+            <!-- Center Hover Pill Badge (Matches Blume Labs reference image) -->
+            <div class="projects-hover-pill">
+              <span>Myntra</span>
+              <span class="projects-hover-pill-arrow">↗</span>
+            </div>
+
+            <!-- Top-Right Action Arrow Button -->
+            <div class="projects-card-corner-arrow" aria-hidden="true">
+              ↗
+            </div>
+
+            <!-- Bottom-Left Info Plate -->
+            <div class="projects-card-info-plate">
+              <h3 style="font-size: clamp(1.25rem, 1.9vw, 1.75rem); font-weight: 600; line-height: 1.2; color: #000000; margin: 0;">Myntra</h3>
+              <div style="margin-top: 0.45rem; display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem;">
+                <span class="projects-service-badge marketing">Digital Marketing</span>
+                <span style="font-size: 12px; color: rgba(0, 0, 0, 0.65); font-weight: 500;">Location: Bangalore, India</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 13: Flipkart (Digital Marketing) -->
+          <div class="projects-card-container group" data-case-id="case-flipkart" role="button" tabindex="0" aria-label="View Flipkart Case Study" style="position: relative; aspect-ratio: 4/3; overflow: hidden; background-color: #111827; cursor: pointer; border-radius: 4px;">
+            <img src="../assets/images/case-studies/landmarks/flipkart-hub.jpg" alt="Flipkart" class="projects-card-bg-img" loading="lazy">
+            
+            <!-- 12x8 Pixel-block Hover Overlay Grid -->
+            <div class="projects-pixel-grid" data-card="case-flipkart"></div>
+            
+            <!-- Magnetic Squares -->
+            <div class="projects-mag-squares" style="position: absolute; inset: 0; pointer-events: none; z-index: 15;">
+              <div class="mag-sq" style="position: absolute; left: 4%; top: 24%; width: 16px; height: 16px; background-color: #000000;"></div>
+              <div class="mag-sq" style="position: absolute; left: 10%; top: 36%; width: 10px; height: 10px; background-color: #000000;"></div>
+              <div class="mag-sq" style="position: absolute; left: 2%; top: 44%; width: 7px; height: 7px; background-color: #000000;"></div>
+              <div class="mag-sq" style="position: absolute; left: 78%; top: 78%; width: 14px; height: 14px; background-color: #000000;"></div>
+              <div class="mag-sq" style="position: absolute; left: 84%; top: 88%; width: 8px; height: 8px; background-color: #000000;"></div>
+            </div>
+
+            <!-- Center Hover Pill Badge (Matches Blume Labs reference image) -->
+            <div class="projects-hover-pill">
+              <span>Flipkart</span>
+              <span class="projects-hover-pill-arrow">↗</span>
+            </div>
+
+            <!-- Top-Right Action Arrow Button -->
+            <div class="projects-card-corner-arrow" aria-hidden="true">
+              ↗
+            </div>
+
+            <!-- Bottom-Left Info Plate -->
+            <div class="projects-card-info-plate">
+              <h3 style="font-size: clamp(1.25rem, 1.9vw, 1.75rem); font-weight: 600; line-height: 1.2; color: #000000; margin: 0;">Flipkart</h3>
+              <div style="margin-top: 0.45rem; display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem;">
+                <span class="projects-service-badge marketing">Digital Marketing</span>
+                <span style="font-size: 12px; color: rgba(0, 0, 0, 0.65); font-weight: 500;">Location: Bangalore, India</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 14: via Milano (Digital Marketing) -->
+          <div class="projects-card-container group" data-case-id="case-via-milano" role="button" tabindex="0" aria-label="View via Milano Case Study" style="position: relative; aspect-ratio: 4/3; overflow: hidden; background-color: #111827; cursor: pointer; border-radius: 4px;">
+            <img src="../assets/images/case-studies/landmarks/via-milano.jpg" alt="via Milano" class="projects-card-bg-img" loading="lazy">
+            
+            <!-- 12x8 Pixel-block Hover Overlay Grid -->
+            <div class="projects-pixel-grid" data-card="case-via-milano"></div>
+            
+            <!-- Magnetic Squares -->
+            <div class="projects-mag-squares" style="position: absolute; inset: 0; pointer-events: none; z-index: 15;">
+              <div class="mag-sq" style="position: absolute; left: 82%; top: 26%; width: 14px; height: 14px; background-color: #000000;"></div>
+              <div class="mag-sq" style="position: absolute; left: 88%; top: 38%; width: 10px; height: 10px; background-color: #000000;"></div>
+              <div class="mag-sq" style="position: absolute; left: 78%; top: 44%; width: 7px; height: 7px; background-color: #000000;"></div>
+              <div class="mag-sq" style="position: absolute; left: 84%; top: 54%; width: 5px; height: 5px; background-color: #000000;"></div>
+              <div class="mag-sq" style="position: absolute; left: 90%; top: 60%; width: 8px; height: 8px; background-color: #000000;"></div>
+            </div>
+
+            <!-- Center Hover Pill Badge (Matches Blume Labs reference image) -->
+            <div class="projects-hover-pill">
+              <span>via Milano</span>
+              <span class="projects-hover-pill-arrow">↗</span>
+            </div>
+
+            <!-- Top-Right Action Arrow Button -->
+            <div class="projects-card-corner-arrow" aria-hidden="true">
+              ↗
+            </div>
+
+            <!-- Bottom-Left Info Plate -->
+            <div class="projects-card-info-plate">
+              <h3 style="font-size: clamp(1.25rem, 1.9vw, 1.75rem); font-weight: 600; line-height: 1.2; color: #000000; margin: 0;">via Milano</h3>
+              <div style="margin-top: 0.45rem; display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem;">
+                <span class="projects-service-badge marketing">Digital Marketing</span>
+                <span style="font-size: 12px; color: rgba(0, 0, 0, 0.65); font-weight: 500;">Location: Bangalore & Hyderabad, India</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -2388,6 +2931,24 @@
           });
           card.addEventListener('mouseleave', function() {
             blocks.forEach(function(b) { b.style.transitionDelay = b.dataset.delayOut; });
+          });
+
+          // Click handler to open case study modal
+          card.addEventListener('click', function(e) {
+            e.preventDefault();
+            var caseId = card.getAttribute('data-case-id');
+            if (caseId && typeof window.openCaseStudyModal === 'function') {
+              window.openCaseStudyModal(caseId);
+            }
+          });
+          card.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              var caseId = card.getAttribute('data-case-id');
+              if (caseId && typeof window.openCaseStudyModal === 'function') {
+                window.openCaseStudyModal(caseId);
+              }
+            }
           });
 
           // 2. Magnetic squares spring tracking

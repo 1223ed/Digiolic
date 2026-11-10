@@ -33,20 +33,22 @@ const TOP_FLOATING_SQUARES: FloatingSquareConfig[] = [
 
 interface CaseStudy {
   id: string;
-  title: string;
-  category: string;
-  year: string;
+  company: string;
+  service: string;
+  serviceClass: 'zoho' | 'salesforce' | 'marketing';
+  location: string;
   image: string;
   magneticSquares: FloatingSquareConfig[];
 }
 
 const CASE_STUDIES: CaseStudy[] = [
   {
-    id: 'heartx',
-    title: 'HeartX',
-    category: 'Brand Strategy & Product Design',
-    year: '2026',
-    image: 'https://images.pexels.com/photos/7691249/pexels-photo-7691249.jpeg?auto=compress&cs=tinysrgb&w=800',
+    id: 'case-blume-labs',
+    company: 'Blume Labs',
+    service: 'Zoho Enterprise',
+    serviceClass: 'zoho',
+    location: 'Location: Bangalore, India',
+    image: '../assets/images/case-studies/landmarks/blume-tech.jpg',
     magneticSquares: [
       { x: 5, y: 30, size: 16 },
       { x: 10, y: 42, size: 10 },
@@ -57,11 +59,12 @@ const CASE_STUDIES: CaseStudy[] = [
     ],
   },
   {
-    id: 'swave',
-    title: 'Swave\u00AE',
-    category: 'Web Design & Identity',
-    year: '2025',
-    image: 'https://images.pexels.com/photos/2559941/pexels-photo-2559941.jpeg?auto=compress&cs=tinysrgb&w=800',
+    id: 'case-pierian',
+    company: 'Pierian Technologies',
+    service: 'Zoho Enterprise',
+    serviceClass: 'zoho',
+    location: 'Location: Bangalore, India',
+    image: '../assets/images/case-studies/landmarks/bangalore-finance.jpg',
     magneticSquares: [
       { x: 82, y: 55, size: 16 },
       { x: 88, y: 68, size: 10 },
@@ -71,11 +74,12 @@ const CASE_STUDIES: CaseStudy[] = [
     ],
   },
   {
-    id: 'eduspark',
-    title: 'EduSpark',
-    category: 'Brand Strategy & Web Design',
-    year: '2023',
-    image: 'https://images.pexels.com/photos/5428003/pexels-photo-5428003.jpeg?auto=compress&cs=tinysrgb&w=800',
+    id: 'case-fyx',
+    company: 'FYX Finance',
+    service: 'Zoho Enterprise',
+    serviceClass: 'zoho',
+    location: 'Location: Sydney, Australia',
+    image: '../assets/images/case-studies/landmarks/sydney-opera.jpg',
     magneticSquares: [
       { x: 4, y: 24, size: 16 },
       { x: 10, y: 36, size: 10 },
@@ -85,11 +89,162 @@ const CASE_STUDIES: CaseStudy[] = [
     ],
   },
   {
-    id: 'greenergy',
-    title: 'Greenergy',
-    category: 'Brand Strategy & Web Design',
-    year: '2022',
-    image: 'https://images.pexels.com/photos/2800832/pexels-photo-2800832.jpeg?auto=compress&cs=tinysrgb&w=800',
+    id: 'case-monster-india',
+    company: 'Monster India',
+    service: 'Salesforce Cloud',
+    serviceClass: 'salesforce',
+    location: 'Location: Noida, India',
+    image: '../assets/images/case-studies/landmarks/india-gate.jpg',
+    magneticSquares: [
+      { x: 82, y: 26, size: 14 },
+      { x: 88, y: 38, size: 10 },
+      { x: 78, y: 44, size: 7 },
+      { x: 84, y: 54, size: 5 },
+      { x: 90, y: 60, size: 8 },
+    ],
+  },
+  {
+    id: 'case-greenworld',
+    company: 'Greenworld Solarwares',
+    service: 'Zoho Enterprise',
+    serviceClass: 'zoho',
+    location: 'Location: Chhattisgarh, India',
+    image: '../assets/images/case-studies/landmarks/solar-energy.jpg',
+    magneticSquares: [
+      { x: 6, y: 40, size: 14 },
+      { x: 12, y: 52, size: 9 },
+      { x: 4, y: 62, size: 6 },
+      { x: 82, y: 30, size: 16 },
+      { x: 88, y: 42, size: 10 },
+    ],
+  },
+  {
+    id: 'case-verzeo',
+    company: 'Verzeo Technologies',
+    service: 'Salesforce Cloud',
+    serviceClass: 'salesforce',
+    location: 'Location: Bangalore, India',
+    image: '../assets/images/case-studies/landmarks/bangalore-vidhana.jpg',
+    magneticSquares: [
+      { x: 5, y: 30, size: 16 },
+      { x: 10, y: 42, size: 10 },
+      { x: 80, y: 70, size: 14 },
+      { x: 85, y: 82, size: 9 },
+      { x: 78, y: 60, size: 6 },
+    ],
+  },
+  {
+    id: 'case-nz-immigration',
+    company: 'NZ Immigration',
+    service: 'Zoho Enterprise',
+    serviceClass: 'zoho',
+    location: 'Location: Auckland, New Zealand',
+    image: '../assets/images/case-studies/landmarks/new-zealand.jpg',
+    magneticSquares: [
+      { x: 82, y: 55, size: 16 },
+      { x: 88, y: 68, size: 10 },
+      { x: 78, y: 72, size: 7 },
+      { x: 85, y: 42, size: 6 },
+      { x: 90, y: 80, size: 8 },
+    ],
+  },
+  {
+    id: 'case-banaraswala',
+    company: 'Banaraswala',
+    service: 'Salesforce Cloud',
+    serviceClass: 'salesforce',
+    location: 'Location: Delhi, India',
+    image: '../assets/images/case-studies/landmarks/delhi-qutub.jpg',
+    magneticSquares: [
+      { x: 4, y: 24, size: 16 },
+      { x: 10, y: 36, size: 10 },
+      { x: 2, y: 44, size: 7 },
+      { x: 78, y: 78, size: 14 },
+      { x: 84, y: 88, size: 8 },
+    ],
+  },
+  {
+    id: 'case-loomcrafts',
+    company: 'Loom Crafts',
+    service: 'Salesforce Cloud',
+    serviceClass: 'salesforce',
+    location: 'Location: Ghaziabad, India',
+    image: '../assets/images/case-studies/landmarks/agra-taj.jpg',
+    magneticSquares: [
+      { x: 82, y: 26, size: 14 },
+      { x: 88, y: 38, size: 10 },
+      { x: 78, y: 44, size: 7 },
+      { x: 84, y: 54, size: 5 },
+      { x: 90, y: 60, size: 8 },
+    ],
+  },
+  {
+    id: 'case-chanakya-university',
+    company: 'Chanakya University',
+    service: 'Zoho Enterprise',
+    serviceClass: 'zoho',
+    location: 'Location: Bangalore, India',
+    image: '../assets/images/case-studies/landmarks/chanakya-univ.jpg',
+    magneticSquares: [
+      { x: 6, y: 40, size: 14 },
+      { x: 12, y: 52, size: 9 },
+      { x: 4, y: 62, size: 6 },
+      { x: 82, y: 30, size: 16 },
+      { x: 88, y: 42, size: 10 },
+    ],
+  },
+  {
+    id: 'case-deccan-herald',
+    company: 'Deccan Herald',
+    service: 'Digital Marketing',
+    serviceClass: 'marketing',
+    location: 'Location: Bangalore, India',
+    image: '../assets/images/case-studies/landmarks/deccan-herald.jpg',
+    magneticSquares: [
+      { x: 5, y: 30, size: 16 },
+      { x: 10, y: 42, size: 10 },
+      { x: 3, y: 52, size: 7 },
+      { x: 80, y: 70, size: 14 },
+      { x: 85, y: 82, size: 9 },
+    ],
+  },
+  {
+    id: 'case-myntra',
+    company: 'Myntra',
+    service: 'Digital Marketing',
+    serviceClass: 'marketing',
+    location: 'Location: Bangalore, India',
+    image: '../assets/images/case-studies/landmarks/myntra-campus.jpg',
+    magneticSquares: [
+      { x: 82, y: 55, size: 16 },
+      { x: 88, y: 68, size: 10 },
+      { x: 78, y: 72, size: 7 },
+      { x: 85, y: 42, size: 6 },
+      { x: 90, y: 80, size: 8 },
+    ],
+  },
+  {
+    id: 'case-flipkart',
+    company: 'Flipkart',
+    service: 'Digital Marketing',
+    serviceClass: 'marketing',
+    location: 'Location: Bangalore, India',
+    image: '../assets/images/case-studies/landmarks/flipkart-hub.jpg',
+    magneticSquares: [
+      { x: 4, y: 24, size: 16 },
+      { x: 10, y: 36, size: 10 },
+      { x: 2, y: 44, size: 7 },
+      { x: 78, y: 78, size: 14 },
+      { x: 84, y: 88, size: 8 },
+    ],
+  },
+  {
+    id: 'case-via-milano',
+    company: 'via Milano',
+    service: 'Digital Marketing',
+    serviceClass: 'marketing',
+    location: 'Location: Bangalore & Hyderabad, India',
+    image: '../assets/images/case-studies/landmarks/via-milano.jpg',
     magneticSquares: [
       { x: 82, y: 26, size: 14 },
       { x: 88, y: 38, size: 10 },
@@ -255,7 +410,7 @@ const MARQUEE_LOGOS = [
 ];
 
 /* -------------------------------------------------------------------------- */
-/*                         Subcomponent: Floating Square                      */
+/*                         Subcomponent: Floating Parallax Square             */
 /* -------------------------------------------------------------------------- */
 
 interface FloatingSquareProps {
@@ -273,8 +428,9 @@ const FloatingSquare: React.FC<FloatingSquareProps> = ({
   size,
   scrollYProgress,
 }) => {
-  const rawY = useTransform(scrollYProgress, [0, 1], [0, -(80 + index * 30)]);
-  const springY = useSpring(rawY, { stiffness: 40, damping: 20 });
+  const maxParallax = -(80 + index * 30);
+  const rawY = useTransform(scrollYProgress, [0, 1], [0, maxParallax]);
+  const smoothY = useSpring(rawY, { stiffness: 40, damping: 20 });
 
   return (
     <motion.div
@@ -284,7 +440,7 @@ const FloatingSquare: React.FC<FloatingSquareProps> = ({
         top: `${y}%`,
         width: `${size}px`,
         height: `${size}px`,
-        y: springY,
+        y: smoothY,
       }}
     >
       <motion.div
@@ -292,8 +448,8 @@ const FloatingSquare: React.FC<FloatingSquareProps> = ({
         animate={{ y: [0, -10, 0] }}
         transition={{
           duration: 3 + index * 0.4,
-          ease: 'easeInOut',
           repeat: Infinity,
+          ease: 'easeInOut',
           delay: index * 0.3,
         }}
       />
@@ -343,23 +499,52 @@ const CaseStudyCard: React.FC<CardProps> = ({ study, index }) => {
     mouseY.set(0.5);
   }, [mouseX, mouseY]);
 
+  const handleCardClick = () => {
+    if (typeof (window as any).openCaseStudyModal === 'function') {
+      (window as any).openCaseStudyModal(study.id);
+    }
+  };
+
+  const getServiceBadgeStyle = (cls: string) => {
+    switch (cls) {
+      case 'zoho':
+        return 'bg-emerald-50 text-emerald-700 border border-emerald-500/20';
+      case 'salesforce':
+        return 'bg-blue-50 text-sky-700 border border-sky-500/20';
+      case 'marketing':
+        return 'bg-orange-50 text-orange-700 border border-orange-500/20';
+      default:
+        return 'bg-neutral-100 text-neutral-800 border border-neutral-300';
+    }
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-40px' }}
-      transition={{ duration: 0.7, delay: index * 0.1, ease: EASING }}
-      className="group relative aspect-[4/3] overflow-hidden bg-neutral-900"
+      transition={{ duration: 0.7, delay: (index % 4) * 0.1, ease: EASING }}
+      className="group relative aspect-[4/3] cursor-pointer overflow-hidden rounded bg-neutral-900"
       onMouseMove={handleMouseMove}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
+      onClick={handleCardClick}
+      role="button"
+      tabIndex={0}
+      aria-label={`View ${study.company} Case Study`}
+      onKeyDown={(e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          handleCardClick();
+        }
+      }}
     >
-      {/* 1. Background image */}
+      {/* 1. Background image with smooth zoom */}
       <img
         src={study.image}
-        alt={study.title}
+        alt={study.company}
         loading="lazy"
-        className="absolute inset-0 h-full w-full object-cover"
+        className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-105"
       />
 
       {/* 2. Pixel-block hover overlay (12 x 8 grid) */}
@@ -407,26 +592,47 @@ const CaseStudyCard: React.FC<CardProps> = ({ study, index }) => {
         ))}
       </div>
 
-      {/* 4. Plus button (top right) */}
+      {/* 4. Center Hover Pill (Matches Blume Labs reference image) */}
       <div
-        className="absolute right-4 top-4 flex h-7 w-7 items-center justify-center border border-white/30 text-xs text-white"
-        style={{ zIndex: 10 }}
-        aria-hidden="true"
+        className={`pointer-events-none absolute left-1/2 top-1/2 z-[25] inline-flex -translate-x-1/2 -translate-y-1/2 items-center gap-2 whitespace-nowrap rounded-full bg-white px-8 py-3.5 font-sans text-base font-bold text-black shadow-[0_16px_36px_rgba(0,0,0,0.45)] transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+          isHovered
+            ? 'scale-100 opacity-100'
+            : 'scale-90 opacity-0'
+        }`}
       >
-        +
+        <span>{study.company}</span>
+        <span className="text-lg transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
+          ↗
+        </span>
       </div>
 
-      {/* 5. Info plate (bottom left) */}
+      {/* 5. Top-Right Corner Arrow Badge */}
       <div
-        className="absolute bottom-0 left-0 bg-white px-4 pb-3 pt-2.5"
-        style={{ zIndex: 20, maxWidth: '70%' }}
+        className="absolute right-4 top-4 z-10 flex h-9 w-9 items-center justify-center rounded-full border border-white/40 bg-black/60 text-base text-white backdrop-blur transition-all duration-300 group-hover:scale-110 group-hover:border-white group-hover:bg-black"
+        aria-hidden="true"
       >
-        <h3 className="text-[clamp(1.4rem,2.2vw,2rem)] font-normal leading-tight text-black">
-          {study.title}
+        ↗
+      </div>
+
+      {/* 6. Info plate (bottom left) */}
+      <div
+        className="absolute bottom-0 left-0 rounded-tr-md bg-white px-5 pb-3.5 pt-3 shadow-[0_4px_20px_rgba(0,0,0,0.12)]"
+        style={{ zIndex: 20, maxWidth: '85%' }}
+      >
+        <h3 className="text-[clamp(1.25rem,1.9vw,1.75rem)] font-semibold leading-tight text-black">
+          {study.company}
         </h3>
-        <div className="mt-1.5 flex items-center gap-4">
-          <span className="text-[12px] text-black/60">{study.category}</span>
-          <span className="text-[12px] font-medium text-black">{study.year}</span>
+        <div className="mt-1.5 flex flex-wrap items-center gap-3">
+          <span
+            className={`rounded px-2 py-0.5 text-[11px] font-bold uppercase tracking-wider ${getServiceBadgeStyle(
+              study.serviceClass
+            )}`}
+          >
+            {study.service}
+          </span>
+          <span className="text-[12px] font-medium text-black/65">
+            {study.location}
+          </span>
         </div>
       </div>
     </motion.div>
@@ -447,8 +653,6 @@ export default function ProjectsSection(): JSX.Element {
   });
 
   const isHeaderInView = useInView(headerRef, { once: true, margin: '-60px' });
-
-  // Doubled logos for a seamless marquee loop
   const doubledLogos = [...MARQUEE_LOGOS, ...MARQUEE_LOGOS];
 
   return (
@@ -457,7 +661,6 @@ export default function ProjectsSection(): JSX.Element {
       className="relative bg-white text-black"
       style={{ fontFamily: "'DM Sans', sans-serif" }}
     >
-      {/* Marquee Keyframe Styles */}
       <style>{`
         @keyframes marqueeProjects {
           from { transform: translateX(0); }
@@ -471,16 +674,16 @@ export default function ProjectsSection(): JSX.Element {
         }
       `}</style>
 
-      {/* ==================================================================== */}
+      {/* -------------------------------------------------------------------- */}
       {/* Top Area (Header with floating squares)                              */}
-      {/* ==================================================================== */}
+      {/* -------------------------------------------------------------------- */}
       <div className="relative px-6 pb-10 pt-32 sm:px-10 lg:px-16 lg:pt-40">
-        {/* Floating Parallax Squares */}
+        {/* Parallax floating squares */}
         <div className="pointer-events-none absolute inset-0 overflow-hidden">
-          {TOP_FLOATING_SQUARES.map((sq, index) => (
+          {TOP_FLOATING_SQUARES.map((sq, i) => (
             <FloatingSquare
-              key={index}
-              index={index}
+              key={i}
+              index={i}
               x={sq.x}
               y={sq.y}
               size={sq.size}
@@ -489,7 +692,7 @@ export default function ProjectsSection(): JSX.Element {
           ))}
         </div>
 
-        {/* Header Text */}
+        {/* Centered header text */}
         <div ref={headerRef} className="relative mx-auto max-w-7xl text-center">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
@@ -511,23 +714,23 @@ export default function ProjectsSection(): JSX.Element {
         </div>
       </div>
 
-      {/* ==================================================================== */}
-      {/* Case Study Cards (2x2 grid)                                         */}
-      {/* ==================================================================== */}
+      {/* -------------------------------------------------------------------- */}
+      {/* Case Study Cards (2-column responsive grid)                         */}
+      {/* -------------------------------------------------------------------- */}
       <div className="mx-auto max-w-7xl px-6 pb-16 sm:px-10 lg:px-16">
-        <div className="grid gap-4 md:grid-cols-2">
-          {CASE_STUDIES.map((study, index) => (
-            <CaseStudyCard key={study.id} study={study} index={index} />
+        <div className="grid gap-6 md:grid-cols-2">
+          {CASE_STUDIES.map((study, idx) => (
+            <CaseStudyCard key={study.id} study={study} index={idx} />
           ))}
         </div>
       </div>
 
-      {/* ==================================================================== */}
+      {/* -------------------------------------------------------------------- */}
       {/* Footer Area                                                          */}
-      {/* ==================================================================== */}
+      {/* -------------------------------------------------------------------- */}
       <div className="mx-auto max-w-7xl px-6 pb-6 sm:px-10 lg:px-16">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between">
-          {/* Left Side */}
+          {/* Left side */}
           <div className="max-w-md">
             <div
               className="mb-4 flex h-7 w-7 items-center justify-center border border-black/20 text-xs text-black"
@@ -541,9 +744,10 @@ export default function ProjectsSection(): JSX.Element {
               identity, website, and messaging into one focused engine for
               growth.
             </p>
-            <button
-              type="button"
-              className="group mt-6 flex items-end focus:outline-none"
+
+            <a
+              href="contact.html"
+              className="group mt-6 inline-flex items-end focus:outline-none"
             >
               <span className="inline-flex items-center gap-[10px] border border-black/20 bg-black px-3 py-2 text-base font-medium text-white transition-colors duration-200 group-hover:bg-black/85">
                 Let's work together
@@ -557,21 +761,21 @@ export default function ProjectsSection(): JSX.Element {
                   <path d="M18.75 6V15.75C18.75 15.949 18.671 16.14 18.53 16.28C18.39 16.421 18.199 16.5 18 16.5C17.801 16.5 17.61 16.421 17.47 16.28C17.329 16.14 17.25 15.949 17.25 15.75V7.81L6.53 18.53C6.39 18.671 6.199 18.75 6 18.75C5.801 18.75 5.61 18.671 5.47 18.53C5.329 18.39 5.25 18.199 5.25 18C5.25 17.801 5.329 17.61 5.47 17.47L16.19 6.75H8.25C8.051 6.75 7.86 6.671 7.72 6.53C7.579 6.39 7.5 6.199 7.5 6C7.5 5.801 7.579 5.61 7.72 5.47C7.86 5.329 8.051 5.25 8.25 5.25H18C18.199 5.25 18.39 5.329 18.53 5.47C18.671 5.61 18.75 5.801 18.75 6Z" />
                 </svg>
               </span>
-            </button>
+            </a>
           </div>
 
-          {/* Right Side (Marquee) */}
+          {/* Right side (Infinite Marquee) */}
           <div className="mt-8 flex-1 overflow-hidden border-t border-black/10 md:ml-12 md:mt-0 md:border-t-0">
             <div className="overflow-hidden py-5">
               <div className="marquee-projects flex w-max">
-                {doubledLogos.map((logo, idx) => (
+                {doubledLogos.map((item, index) => (
                   <div
-                    key={`${logo.name}-${idx}`}
+                    key={`${item.name}-${index}`}
                     className="flex shrink-0 items-center gap-2.5 px-8"
                   >
-                    <div className="text-black">{logo.icon}</div>
+                    <div className="text-black">{item.icon}</div>
                     <span className="whitespace-nowrap text-sm font-medium tracking-wide text-black/80">
-                      {logo.name}
+                      {item.name}
                     </span>
                   </div>
                 ))}
@@ -581,9 +785,7 @@ export default function ProjectsSection(): JSX.Element {
         </div>
       </div>
 
-      {/* Bottom spacer */}
       <div className="h-12" />
     </section>
   );
 }
-
