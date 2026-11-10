@@ -69,8 +69,8 @@ function initShutterScrollTransition() {
       // Inside the dark form section
       navbar.classList.add('is-nav-dark');
     } else {
-      // Inside the hero banner: check shutter wipe progress if on desktop
-      if (window.innerWidth > 768 && activeShutterTl && activeShutterTl.scrollTrigger) {
+      // Inside the hero banner: check shutter wipe progress
+      if (activeShutterTl && activeShutterTl.scrollTrigger) {
         const progress = activeShutterTl.scrollTrigger.progress;
         if (progress > 0.45) {
           navbar.classList.add('is-nav-dark');
@@ -145,21 +145,62 @@ function initShutterScrollTransition() {
     };
   });
 
-  // Mobile (<= 768px): Natural, frictionless scroll flow - zero empty spacer gaps
+  // Mobile (<= 768px): Pinned Venetian Blinds wipe matching Desktop website design
   mm.add("(max-width: 768px)", () => {
-    activeShutterTl = null;
-    if (formsSection) {
-      gsap.set(formsSection, { marginTop: 0 });
-    }
     stripes.forEach(s => {
-      gsap.set(s, { scaleY: 0 });
+      gsap.set(s, { scaleY: 0, transformOrigin: 'bottom' });
     });
+
+    if (formsSection) {
+      gsap.set(formsSection, { marginTop: '-100dvh' });
+    }
+
+    const shutterTl = gsap.timeline({
+      scrollTrigger: {
+        trigger: bannerSection,
+        start: 'top top',
+        end: '+=140%',
+        pin: true,
+        scrub: 0.6,
+        anticipatePin: 1,
+        pinSpacing: true,
+        onUpdate: () => {
+          updateNavbarTheme();
+          if (heroVideoController && heroVideoController.syncWithScroll) {
+            heroVideoController.syncWithScroll();
+          }
+        }
+      },
+      defaults: { ease: 'none' }
+    });
+
+    activeShutterTl = shutterTl;
+
     if (bannerScrollBtn) {
-      gsap.set(bannerScrollBtn, { opacity: 1, y: 0 });
+      shutterTl.to(bannerScrollBtn, { opacity: 0, y: -15, duration: 0.15, ease: 'none' }, 0);
     }
     if (bannerText) {
-      gsap.set(bannerText, { opacity: 1, y: 0 });
+      shutterTl.to(bannerText, { y: -35, opacity: 0.15, duration: 0.4, ease: 'none' }, 0);
     }
+
+    shutterTl.addLabel('stripes_start', 0.05);
+    const totalStripes = stripes.length;
+    for (let e = 0; e < totalStripes; e++) {
+      const r = (0.3 * (totalStripes - 1 - e)) / (totalStripes - 1);
+      const s = r + 0.3;
+      shutterTl.to(stripes[e], {
+        scaleY: 1,
+        duration: s - r,
+        ease: 'none'
+      }, `stripes_start+=${r}`);
+    }
+    shutterTl.to({}, { duration: 0.15 });
+
+    return () => {
+      activeShutterTl = null;
+      if (formsSection) gsap.set(formsSection, { clearProps: 'marginTop' });
+      stripes.forEach(s => gsap.set(s, { clearProps: 'all' }));
+    };
   });
 
   updateNavbarTheme();
@@ -441,14 +482,9 @@ function initScrollDownAction() {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
       const isMobile = window.innerWidth <= 768;
-      if (isMobile) {
-        formsSection.scrollIntoView({ behavior: 'smooth' });
-        return;
-      }
-      // On desktop, smooth scroll past the pinned hero banner directly into the form
       const bannerSection = document.getElementById('contact-banner-section');
-      const factor = 2.05;
-      const targetOffset = bannerSection ? (bannerSection.offsetHeight * factor) : window.innerHeight * 2;
+      const factor = isMobile ? 1.45 : 2.05;
+      const targetOffset = bannerSection ? (bannerSection.offsetHeight * factor) : window.innerHeight * factor;
       window.scrollTo({
         top: targetOffset,
         behavior: 'smooth'
