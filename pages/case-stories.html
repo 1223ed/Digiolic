@@ -29,7 +29,7 @@
   <!-- Exact Font specified -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=Anton&family=Comic+Neue:ital,wght@0,400;0,700;1,700&family=Inter:ital,opsz,wght@0,14..32,300..900;1,14..32,300..900&family=Manrope:wght@400;500;600;700;800&family=Montserrat:wght@800;900&family=Outfit:wght@400;600;700;800&family=Patrick+Hand&family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=Anton&family=Comic+Neue:ital,wght@0,400;0,700;1,700&family=Inter:ital,opsz,wght@0,14..32,300..900;1,14..32,300..900&family=Manrope:wght@400;500;600;700;800&family=Montserrat:wght@800;900&family=Outfit:wght@400;600;700;800&family=Patrick+Hand&family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&family=IBM+Plex+Mono:wght@400;500&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/cinematic-menu.css?v=20261004_v3">
 
   <style>
@@ -1946,6 +1946,571 @@
       </div>
     </section>
 
+    <!-- ==========================================================================
+         5.1 INTERACTIVE 3D VIDEO RIBBON & CASE STUDY SHOWCASE (VANTE SYSTEM)
+         Scroll-driven continuous Catmull-Rom 3D ribbon transitioning into 3x2 grid
+         ========================================================================== -->
+    <style>
+      #vanteTrack {
+        position: relative;
+        height: 900vh;
+        background: #0a0a0b;
+        --v-bg: #0a0a0b;
+        --v-ink: #f4f1ea;
+        --v-mid: #8d8b86;
+        --v-line: rgba(244, 241, 234, 0.14);
+        font-family: 'Inter Tight', system-ui, sans-serif;
+        color: var(--v-ink);
+        -webkit-font-smoothing: antialiased;
+        overflow-x: hidden;
+      }
+      #vanteTrack * { box-sizing: border-box; }
+      #vanteTrack .vante-stage {
+        position: sticky;
+        top: 0;
+        height: 100vh;
+        height: 100svh;
+        overflow: hidden;
+        background: var(--v-bg);
+      }
+      #vanteTrack .vante-hl {
+        position: absolute;
+        left: 0;
+        right: 0;
+        font-weight: 400;
+        font-size: clamp(40px, 6.7vw, 130px);
+        line-height: 1;
+        letter-spacing: -0.055em;
+        white-space: nowrap;
+        text-align: center;
+        will-change: transform;
+        color: var(--v-ink);
+        pointer-events: none;
+        z-index: 2;
+      }
+      #vanteTrack #vanteL1 { top: calc(50% - 0.98em); }
+      #vanteTrack #vanteL2 { top: calc(50% + 0.03em); }
+      #vanteTrack #vanteL1 span, #vanteTrack #vanteL2 span { display: inline-block; }
+      #vanteTrack #vanteL1 span { margin-right: 15vw; }
+      #vanteTrack #vanteL2 span { margin-left: 15vw; }
+      #vanteTrack #vanteCap {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 17em;
+        text-align: center;
+        font-size: clamp(9px, 0.74vw, 13px);
+        font-weight: 500;
+        line-height: 1.3;
+        letter-spacing: 0.03em;
+        text-transform: uppercase;
+        color: var(--v-ink);
+        pointer-events: none;
+        z-index: 2;
+      }
+      #vanteTrack #vanteGl {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        display: block;
+        z-index: 1;
+      }
+      #vanteTrack .vante-top {
+        position: absolute;
+        left: 32px;
+        right: 32px;
+        top: 26px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        pointer-events: none;
+        z-index: 10;
+      }
+      #vanteTrack .vante-acts {
+        margin-left: auto;
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        pointer-events: auto;
+      }
+      #vanteTrack #vantePager {
+        display: flex;
+        margin: -26px 0 0 28px;
+        pointer-events: auto;
+      }
+      #vanteTrack #vantePager span {
+        display: grid;
+        place-items: center;
+        width: 44px;
+        height: 50px;
+        border: 1px solid var(--v-line);
+        border-top: 0;
+        margin-left: -1px;
+        font: 400 11px 'IBM Plex Mono', monospace;
+        color: var(--v-mid);
+      }
+      #vanteTrack #vanteGlow {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        height: 42%;
+        background: linear-gradient(rgba(244, 241, 234, 0.1), rgba(244, 241, 234, 0));
+        pointer-events: none;
+        z-index: 2;
+      }
+      #vanteTrack #vanteCross {
+        position: absolute;
+        left: 32px;
+        right: 32px;
+        top: 37.5%;
+        height: 1px;
+        background: var(--v-line);
+        pointer-events: none;
+        z-index: 2;
+      }
+      #vanteTrack #vanteCross i {
+        position: absolute;
+        left: 50%;
+        top: -0.62em;
+        margin-left: -0.3em;
+        font: 400 13px 'IBM Plex Mono', monospace;
+        color: var(--v-mid);
+        background: var(--v-bg);
+        padding: 0 0.3em;
+        line-height: 1.2;
+        font-style: normal;
+      }
+      #vanteTrack .vante-logo {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+        font-size: 19px;
+        font-weight: 600;
+        letter-spacing: 0.09em;
+        color: var(--v-ink);
+      }
+      #vanteTrack .vante-acts a {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+        height: 32px;
+        padding: 0 15px;
+        border: 1px solid rgba(244, 241, 234, 0.55);
+        border-radius: 99px;
+        color: var(--v-ink);
+        text-decoration: none;
+        font-size: 12px;
+        font-weight: 500;
+        letter-spacing: 0.06em;
+        transition: background 0.2s, color 0.2s;
+      }
+      #vanteTrack .vante-acts a:hover {
+        background: var(--v-ink);
+        color: var(--v-bg);
+      }
+      #vanteTrack .vante-acts a i {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: currentColor;
+      }
+      #vanteTrack .vante-acts a b {
+        display: block;
+        width: 13px;
+        height: 7px;
+        border-top: 1px solid currentColor;
+        border-bottom: 1px solid currentColor;
+      }
+      #vanteTrack #vanteHint {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        font: 500 12px 'IBM Plex Mono', monospace;
+        color: var(--v-ink);
+        text-decoration: none;
+        letter-spacing: 0.04em;
+        pointer-events: auto;
+        border-bottom: 1px solid var(--v-ink);
+        padding-bottom: 2px;
+      }
+      #vanteTrack .vante-bot {
+        position: absolute;
+        left: 32px;
+        right: 32px;
+        bottom: 26px;
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        font: 400 11px/1.45 'IBM Plex Mono', monospace;
+        color: var(--v-mid);
+        pointer-events: none;
+        z-index: 10;
+      }
+      #vanteTrack .vante-bot div:first-child { max-width: 28ch; }
+      #vanteTrack .vante-mid-tag { text-align: center; }
+      #vanteTrack .vante-shw {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: var(--v-ink);
+        text-decoration: none;
+        font: 500 11px 'IBM Plex Mono', monospace;
+        pointer-events: auto;
+      }
+      #vanteTrack .vante-shw i {
+        display: block;
+        width: 38px;
+        height: 1px;
+        background: var(--v-ink);
+      }
+      #vanteTrack #vanteRule {
+        position: absolute;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: var(--v-line);
+        transform: scaleX(0);
+        transform-origin: 0 50%;
+        pointer-events: none;
+        z-index: 2;
+      }
+      #vanteTrack #vanteName {
+        position: absolute;
+        left: 0;
+        top: 0;
+        padding: 6px 14px;
+        border-radius: 99px;
+        background: #f4f1ea;
+        color: #0a0a0b;
+        font: 500 12px 'Inter Tight', sans-serif;
+        letter-spacing: -0.01em;
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 0.15s ease-out;
+        will-change: transform;
+        z-index: 20;
+        white-space: nowrap;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+      }
+      @media (max-width: 900px) {
+        #vanteTrack .vante-top, #vanteTrack .vante-bot, #vanteTrack #vanteCross { left: 18px; right: 18px; }
+        #vanteTrack #vanteHint, #vanteTrack #vantePager, #vanteTrack .vante-mid-tag, #vanteTrack .vante-bot div:first-child { display: none; }
+      }
+    </style>
+
+    <section id="vanteTrack" aria-label="Interactive 3D Video Ribbon and Case Studies Grid">
+      <div class="vante-stage" id="vanteStage">
+        <div id="vanteGlow"></div>
+        <div id="vanteCross"><i>+</i></div>
+        <div class="vante-top">
+          <div class="vante-logo">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="width: 22px; height: 18px; color: #10b981;">
+              <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+              <polyline points="2 17 12 22 22 17"></polyline>
+              <polyline points="2 12 12 17 22 12"></polyline>
+            </svg>
+            <span>DIGIOLIC</span>
+          </div>
+          <div id="vantePager"><span>←</span><span>→</span></div>
+          <a href="#cs3DShowcaseSection" id="vanteHint">EXPLORE ALL ARCHITECTURES →</a>
+          <div class="vante-acts">
+            <a href="contact.html"><i></i>LET'S TALK</a>
+            <a href="#clientsShowcase"><b></b>MENU</a>
+          </div>
+        </div>
+
+        <div class="vante-hl" id="vanteL1"><span>CASE STUDIES</span><span>CASE STUDIES</span></div>
+        <div class="vante-hl" id="vanteL2"><span>PROVEN IMPACT</span><span>PROVEN IMPACT</span></div>
+        <div id="vanteCap">Architecting scalable business engines for high-growth enterprises.</div>
+
+        <div id="vanteRule"></div>
+        <canvas id="vanteGl"></canvas>
+
+        <div class="vante-bot">
+          <div>Real enterprise transformations, custom integrations, and measurable ROI delivered across deployments.</div>
+          <div class="vante-mid-tag">ZOHO ONE / SALESFORCE / AUTOMATION / MIGRATION</div>
+          <a href="#cs3DShowcaseSection" class="vante-shw">VIEW SHOWCASE <i></i></a>
+        </div>
+
+        <div id="vanteName"></div>
+      </div>
+    </section>
+
+    <script type="module">
+      import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js';
+
+      const $ = id => document.getElementById(id);
+      const clamp = (v, a = 0, b = 1) => Math.max(a, Math.min(b, v));
+      const span = (v, a, b) => clamp((v - a) / (b - a));
+      const mix = (a, b, t) => a + (b - a) * t;
+      const ease = t => t * t * (3 - 2 * t);
+      const out = t => 1 - Math.pow(1 - t, 3);
+
+      /* ---------- cards & case studies data ---------- */
+      const DATA = [
+        { title: 'Monster India — Salesforce Cloud ↗', caseId: 'case-monster-india', src: 'https://pub-86dc5b5484314368ac5436a674b0d919.r2.dev/designs/roadster-3d-car-landing.mp4' },
+        { title: 'FYX Finance — Zoho CRM Architecture ↗', caseId: 'case-fyx', src: 'https://pub-86dc5b5484314368ac5436a674b0d919.r2.dev/aaaf/living-portrait-hero.mp4' },
+        { title: 'Verzeo Technologies — Salesforce LMS ↗', caseId: 'case-verzeo', src: 'https://pub-86dc5b5484314368ac5436a674b0d919.r2.dev/aaaf/oraciteslArea.mp4' },
+        { title: 'Banaraswala — Manufacturing Cloud ↗', caseId: 'case-banaraswala', src: 'https://pub-86dc5b5484314368ac5436a674b0d919.r2.dev/aaaf/medusa-jellyfish-hero.mp4' },
+        { title: 'NZ Immigration — Zoho One Suite ↗', caseId: 'case-nz-immigration', src: 'https://pub-86dc5b5484314368ac5436a674b0d919.r2.dev/designs/ink-reveal-hover.mp4' },
+        { title: 'Greenworld Solarwares — Zoho People ↗', caseId: 'case-greenworld', src: 'https://pub-86dc5b5484314368ac5436a674b0d919.r2.dev/designs/space-voyage-video.mp4' },
+        { title: 'Pierian Technologies — Zoho Books ↗', caseId: 'case-pierian', src: 'https://pub-86dc5b5484314368ac5436a674b0d919.r2.dev/designs/helion-dispatch-landing.mp4' },
+        { title: 'Blume Labs — Zoho One Enterprise ↗', caseId: 'case-blume-labs', src: 'https://pub-86dc5b5484314368ac5436a674b0d919.r2.dev/designs/honey-bee-melli-landing.mp4' }
+      ];
+
+      /* ---------- scene ---------- */
+      const stage = $('vanteStage'), canvas = $('vanteGl');
+      const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true, powerPreference: 'high-performance' });
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+      renderer.outputColorSpace = THREE.LinearSRGBColorSpace;
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(35, 1, .1, 100);
+      camera.position.set(0, 0, 0);
+
+      let W = 1, H = 1, aspect = 1;
+      function resize() {
+        if (!stage) return;
+        const r = stage.getBoundingClientRect();
+        W = r.width || window.innerWidth;
+        H = r.height || window.innerHeight;
+        aspect = W / H;
+        renderer.setSize(W, H, false);
+        camera.aspect = aspect;
+        camera.fov = aspect < 16 / 9 ? (Math.atan(.561 / aspect) * 2 * 180 / Math.PI) : 35;
+        camera.updateProjectionMatrix();
+        cards.forEach(c => c.mat.uniforms.aspect.value = aspect);
+        updateScroll();
+      }
+      window.addEventListener('resize', resize);
+
+      /* ---------- rail: 161 samples -> CatmullRom -> 1201 LUT ---------- */
+      const P = [];
+      for (let i = 0; i <= 160; i++) {
+        const t = i / 160, ph = mix(-1.5, Math.PI * 2 + 1.35, t), cs = Math.cos(ph);
+        const depth = cs > 0 ? 7.6 + 16.4 * Math.pow(cs, .9) : 7.6 + 2.2 * cs;
+        const edge = .84 + .5 * span(.14 - t, 0, .14) + .8 * span(t, .84, 1);
+        const u = 2 * t - 1;
+        P.push(new THREE.Vector3(
+          edge * Math.sin(ph) * depth * .561,
+          .5 * Math.sign(u) * Math.pow(Math.abs(u), 1.4) * depth * .63,
+          -depth
+        ));
+      }
+      const curve = new THREE.CatmullRomCurve3(P, false, 'centripetal');
+      const SAMPLES = 1200, LUT = new Float32Array((SAMPLES + 1) * 6);
+      for (let i = 0; i <= SAMPLES; i++) {
+        const u = i / SAMPLES, pt = curve.getPointAt(u), tg = curve.getTangentAt(u);
+        const o = i * 6;
+        LUT[o] = pt.x; LUT[o+1] = pt.y; LUT[o+2] = pt.z;
+        LUT[o+3] = tg.x; LUT[o+4] = tg.y; LUT[o+5] = tg.z;
+      }
+      const PATH_L = curve.getLength();
+
+      function at(dist, outPos, outTan) {
+        const u = clamp(dist / PATH_L), f = u * SAMPLES, i0 = Math.floor(f), i1 = Math.min(SAMPLES, i0 + 1), fr = f - i0;
+        const o0 = i0 * 6, o1 = i1 * 6;
+        outPos.set(mix(LUT[o0], LUT[o1], fr), mix(LUT[o0+1], LUT[o1+1], fr), mix(LUT[o0+2], LUT[o1+2], fr));
+        outTan.set(mix(LUT[o0+3], LUT[o1+3], fr), mix(LUT[o0+4], LUT[o1+4], fr), mix(LUT[o0+5], LUT[o1+5], fr)).normalize();
+      }
+
+      /* ---------- card shader ---------- */
+      const vert = `
+        varying vec2 vUv;
+        void main() {
+          vUv = uv;
+          gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+        }
+      `;
+      const frag = `
+        uniform sampler2D map;
+        uniform float aspect, loaded;
+        varying vec2 vUv;
+        float rbox(vec2 p, vec2 b, float r) {
+          vec2 d = abs(p) - b + vec2(r);
+          return length(max(d, vec2(0.0))) + min(max(d.x, d.y), 0.0) - r;
+        }
+        void main() {
+          vec2 uv = vUv;
+          if (!gl_FrontFacing) uv.x = 1.0 - uv.x;
+          float d = rbox(uv - vec2(0.5), vec2(0.5), 0.018);
+          if (d > 0.0) discard;
+          vec2 st = uv - vec2(0.5);
+          if (aspect > 1.0) st.x *= aspect; else st.y /= aspect;
+          st += vec2(0.5);
+          vec3 col = texture2D(map, clamp(st, 0.0, 1.0)).rgb;
+          col = mix(vec3(0.075), col, loaded);
+          float edge = smoothstep(0.0, -0.012, d);
+          col += vec3(0.08) * (1.0 - edge);
+          gl_FragColor = vec4(col, 1.0);
+        }
+      `;
+
+      /* ---------- card meshes ---------- */
+      const CARD_W = 2.1, CARD_H = 1.32, GAP = .03, STEP = CARD_W + GAP, NX = 28, NY = 3;
+      const cards = DATA.map((d, i) => {
+        const v = document.createElement('video');
+        v.src = d.src; v.crossOrigin = 'anonymous'; v.loop = true; v.muted = true; v.playsInline = true;
+        const tex = new THREE.VideoTexture(v);
+        tex.colorSpace = THREE.NoColorSpace;
+        tex.minFilter = THREE.LinearFilter; tex.magFilter = THREE.LinearFilter;
+        const mat = new THREE.ShaderMaterial({
+          vertexShader: vert, fragmentShader: frag,
+          uniforms: { map: { value: tex }, aspect: { value: 1 }, loaded: { value: 0 } },
+          side: THREE.DoubleSide, depthTest: true
+        });
+        v.addEventListener('loadeddata', () => { mat.uniforms.loaded.value = 1; }, { once: true });
+        const geo = new THREE.PlaneGeometry(1, 1, NX, NY);
+        const mesh = new THREE.Mesh(geo, mat);
+        scene.add(mesh);
+        return { i, title: d.title, caseId: d.caseId, v, tex, mat, geo, mesh, rect: null };
+      });
+
+      /* ---------- grid layout (3x2 or 2x3 below .9 aspect) ---------- */
+      const GZ = 8;
+      let cols = 3, rows = 2;
+      function grid(i) {
+        cols = aspect < .9 ? 2 : 3; rows = aspect < .9 ? 3 : 2;
+        const c = i % cols, r = Math.floor(i / cols);
+        const vh = 2 * GZ * Math.tan(camera.fov * Math.PI / 360), vw = vh * aspect;
+        const gw = vw * (aspect < .9 ? .88 : .74), gap = gw * .017;
+        const w = (gw - (cols - 1) * gap) / cols, h = w / 1.58;
+        const left = -gw / 2 + w / 2, top = (rows * h + (rows - 1) * gap) / 2 - h / 2;
+        return { x: left + c * (w + gap), y: top - r * (h + gap), w, h, vw, vh, c, r };
+      }
+
+      /* ---------- ribbon & grid poses ---------- */
+      const op = new THREE.Vector3(), ot = new THREE.Vector3(), up = new THREE.Vector3(), vp = new THREE.Vector3(), Y = new THREE.Vector3(0, 1, 0);
+      function poseRibbon(c, head) {
+        const pos = c.geo.attributes.position, centre = head - c.i * STEP;
+        for (let iy = 0; iy <= NY; iy++) for (let ix = 0; ix <= NX; ix++) {
+          const k = iy * (NX + 1) + ix, lu = ix / NX - .5, lv = .5 - iy / NY;
+          at(centre + lu * CARD_W, op, ot);
+          up.copy(Y).addScaledVector(ot, -Y.dot(ot)).normalize();
+          vp.copy(op).addScaledVector(up, lv * CARD_H);
+          pos.setXYZ(k, vp.x, vp.y, vp.z);
+        }
+        pos.needsUpdate = true;
+      }
+      function poseGrid(c, q) {
+        const g = grid(c.i), pos = c.geo.attributes.position;
+        const dx = (g.c - (cols - 1) / 2) * 1.2, dy = g.r < rows / 2 ? 1 : -1;
+        const ox = dx * g.vw * .62 * (1 - q), oy = dy * g.vh * (g.c === 1 ? .95 : .34) * (1 - q), tilt = (1 - q) * .22 * (g.c - 1 || .5) * dy;
+        const cs = Math.cos(tilt), sn = Math.sin(tilt);
+        for (let iy = 0; iy <= NY; iy++) for (let ix = 0; ix <= NX; ix++) {
+          const k = iy * (NX + 1) + ix, x = (ix / NX - .5) * g.w, y = (.5 - iy / NY) * g.h;
+          pos.setXYZ(k, g.x + ox + x * cs - y * sn, g.y + oy + x * sn + y * cs, -GZ - (1 - q) * .6 * Math.sin(ix / NX * Math.PI));
+        }
+        pos.needsUpdate = true;
+        c.rect = g;
+      }
+
+      /* ---------- scroll & render ---------- */
+      const RIB_A = .14, RIB_B = .63;
+      let target = 0, p = 0, frozen = false;
+      const track = $('vanteTrack');
+
+      function updateScroll() {
+        if (!track) return;
+        const rect = track.getBoundingClientRect();
+        const maxScroll = track.offsetHeight - window.innerHeight;
+        if (maxScroll <= 0) return;
+        target = clamp(-rect.top / maxScroll);
+      }
+      window.addEventListener('scroll', updateScroll, { passive: true });
+
+      // Performance: observe track visibility to sleep Three.js when scrolled out of view
+      if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries) => {
+          frozen = !entries[0].isIntersecting;
+          if (frozen) {
+            cards.forEach(c => { if (!c.v.paused) c.v.pause(); });
+          }
+        }, { threshold: 0.01 });
+        observer.observe(track);
+      }
+
+      function render() {
+        const pp = p;
+        const rise = 1 - out(span(pp, 0, .12));
+        const run = mix(-50, 76, span(pp, 0, .58));
+        $('vanteL1').style.transform = `translate3d(${run}vw,${rise * 34}vh,0)`;
+        $('vanteL2').style.transform = `translate3d(${-run}vw,${rise * 34}vh,0)`;
+        const capA = 1 - span(pp, .52, .57);
+        $('vanteCap').style.opacity = capA;
+        $('vanteCap').style.transform = `translate(-50%,calc(-50% + ${rise * 34}vh))`;
+        const intro = 1 - span(pp, 0, .05);
+        for (const id of ['vanteHint', 'vantePager', 'vanteCross', 'vanteGlow']) {
+          const el = $(id);
+          if (el) el.style.opacity = intro;
+        }
+        $('vanteRule').style.transform = `scaleX(${ease(span(pp, .72, .86))})`;
+        $('vanteRule').style.top = '50%';
+
+        const pr = span(pp, RIB_A, RIB_B), head = mix(0, PATH_L + cards.length * STEP, pr);
+        for (const c of cards) {
+          const s = head - c.i * STEP, end = PATH_L - CARD_W;
+          if (s < end) {
+            c.mesh.visible = s > CARD_W; c.rect = null;
+            if (c.mesh.visible) poseRibbon(c, head);
+          } else if (c.i < cols * rows) {
+            const st = mix(RIB_A, RIB_B, (end + c.i * STEP) / (PATH_L + cards.length * STEP)), q = out(span(pp, st, st + .13));
+            c.mesh.visible = q > .001;
+            if (c.mesh.visible) poseGrid(c, q);
+          } else { c.mesh.visible = false; c.rect = null; }
+        }
+        renderer.render(scene, camera);
+      }
+
+      /* ---------- hover & click interactions ---------- */
+      const nameEl = $('vanteName');
+      let currentHit = null;
+
+      stage.addEventListener('pointermove', e => {
+        currentHit = null;
+        if (p > .86) {
+          const rect = stage.getBoundingClientRect();
+          const nx = ((e.clientX - rect.left) / W - .5), ny = (.5 - (e.clientY - rect.top) / H);
+          for (const c of cards) {
+            const g = c.rect; if (!g) continue;
+            const x = nx * g.vw, y = ny * g.vh;
+            if (Math.abs(x - g.x) < g.w / 2 && Math.abs(y - g.y) < g.h / 2) currentHit = c;
+          }
+        }
+        nameEl.style.opacity = currentHit ? 1 : 0;
+        stage.style.cursor = currentHit ? 'pointer' : 'default';
+        if (currentHit) {
+          nameEl.textContent = currentHit.title;
+          const rect = stage.getBoundingClientRect();
+          nameEl.style.transform = `translate(${e.clientX - rect.left + 14}px,${e.clientY - rect.top + 16}px)`;
+        }
+      });
+
+      stage.addEventListener('click', () => {
+        if (currentHit && currentHit.caseId && typeof window.openCaseStudyModal === 'function') {
+          window.openCaseStudyModal(currentHit.caseId);
+        }
+      });
+
+      /* ---------- animation loop ---------- */
+      function loop() {
+        if (!frozen) {
+          p += (target - p) * .09;
+          if (Math.abs(target - p) < .00005) p = target;
+          for (const c of cards) {
+            if (c.mesh.visible && c.v.paused) c.v.play().catch(() => {});
+            else if (!c.mesh.visible && !c.v.paused) c.v.pause();
+          }
+          render();
+        }
+        requestAnimationFrame(loop);
+      }
+
+      resize();
+      loop();
+    </script>
   </main>
 
   <!-- ==========================================================================
