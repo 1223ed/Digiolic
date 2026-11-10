@@ -44,7 +44,7 @@
   align-items: center;
   overflow: hidden;
   box-sizing: border-box;
-  padding: clamp(18px, 3vh, 36px) clamp(24px, 4vw, 64px) clamp(16px, 2.5vh, 28px);
+  padding: clamp(8px, 1.2vh, 16px) clamp(24px, 4vw, 64px) clamp(14px, 2vh, 22px);
   z-index: 10;
 }
 
@@ -72,10 +72,10 @@
   gap: 8px;
   background: rgba(255, 255, 255, 0.08);
   border: 1px solid rgba(255, 255, 255, 0.18);
-  padding: 6px 14px;
+  padding: 5px 12px;
   border-radius: 999px;
   font-family: 'Space Mono', Menlo, monospace;
-  font-size: 0.72rem;
+  font-size: 0.70rem;
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -98,7 +98,7 @@
 
 .sf-practice-hud-counter {
   font-family: 'Space Mono', Menlo, monospace;
-  font-size: 0.78rem;
+  font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.10em;
   color: rgba(255, 255, 255, 0.85);
@@ -112,11 +112,11 @@
   color: #050505;
   text-decoration: none;
   font-family: 'Inter', sans-serif;
-  font-size: 0.76rem;
+  font-size: 0.72rem;
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  padding: 8px 18px;
+  padding: 6px 16px;
   border-radius: 999px;
   transition: transform 0.25s ease, background-color 0.25s ease, color 0.25s ease;
 }
@@ -143,7 +143,7 @@
   align-items: center !important;
   text-align: center !important;
   padding: 0 clamp(20px, 4vw, 60px) !important;
-  margin: clamp(4px, 0.8vh, 10px) auto clamp(24px, 2.9vh, 36px) auto !important;
+  margin: clamp(2px, 0.4vh, 6px) auto clamp(8px, 1.2vh, 14px) auto !important;
   box-sizing: border-box !important;
   transform: none !important;
   opacity: 1 !important;
@@ -157,10 +157,10 @@
   margin: 0;
   padding: 0;
   font-family: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
-  font-size: clamp(30px, 3.4vw, 52px) !important;
+  font-size: clamp(24px, 2.5vw, 38px) !important;
   font-weight: 800 !important;
   letter-spacing: -0.035em !important;
-  line-height: 1.05 !important;
+  line-height: 1.08 !important;
   text-transform: none !important;
   color: #FFFFFF !important;
   display: flex !important;
@@ -171,14 +171,14 @@
 
 @media (max-width: 1024px) {
   .sf-practice-hero-title {
-    font-size: clamp(28px, 4.2vw, 44px) !important;
+    font-size: clamp(22px, 3.4vw, 32px) !important;
     line-height: 1.10 !important;
   }
 }
 
 @media (max-width: 768px) {
   .sf-practice-hero-title {
-    font-size: clamp(24px, 6.2vw, 34px) !important;
+    font-size: clamp(20px, 5.2vw, 28px) !important;
     line-height: 1.15 !important;
   }
 }
@@ -195,11 +195,11 @@
 }
 
 .sf-practice-hero-desc {
-  margin: clamp(6px, 1vh, 10px) auto 0 auto;
+  margin: clamp(3px, 0.4vh, 6px) auto 0 auto;
   padding: 0;
   font-family: 'Inter', sans-serif;
-  font-size: clamp(0.86rem, 0.98vw, 1.02rem);
-  line-height: 1.45;
+  font-size: clamp(0.78rem, 0.85vw, 0.90rem);
+  line-height: 1.35;
   font-weight: 400;
   color: rgba(255, 255, 255, 0.72);
   max-width: 860px;
@@ -216,7 +216,7 @@
   top: auto !important;
   left: auto !important;
   width: 100% !important;
-  height: clamp(470px, 58vh, 550px) !important;
+  height: clamp(360px, calc(100vh - 220px), 445px) !important;
   display: flex !important;
   align-items: center !important;
   overflow: visible !important;
@@ -231,7 +231,7 @@
 .sf-practice-cards-track {
   display: flex;
   align-items: stretch;
-  gap: clamp(20px, 2.4vw, 36px);
+  gap: clamp(18px, 2.2vw, 32px);
   padding-left: clamp(32px, 6vw, 90px);
   padding-right: clamp(40px, 8vw, 120px);
   height: 100%;
@@ -250,8 +250,8 @@
    ========================================================================== */
 .sf-pbox-card {
   position: relative;
-  width: clamp(360px, 28vw, 430px);
-  min-width: clamp(360px, 28vw, 430px);
+  width: clamp(330px, 25vw, 395px);
+  min-width: clamp(330px, 25vw, 395px);
   height: 100%;
   background: #FFFFFF;
   border: 1.5px solid #08080B;
@@ -260,7 +260,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: clamp(18px, 1.8vw, 24px) clamp(20px, 2vw, 26px);
+  padding: clamp(12px, 1.2vw, 16px) clamp(14px, 1.4vw, 18px);
   box-sizing: border-box;
   transform-style: preserve-3d;
   transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
@@ -342,21 +342,21 @@
 }
 
 .sf-pbox-title {
-  margin: 0 0 6px 0;
+  margin: 0 0 4px 0;
   font-family: 'Space Grotesk', 'Outfit', 'Inter', sans-serif;
-  font-size: clamp(1.25rem, 1.5vw, 1.55rem);
+  font-size: clamp(1.15rem, 1.3vw, 1.38rem);
   font-weight: 700;
-  line-height: 1.2;
+  line-height: 1.18;
   letter-spacing: -0.025em;
   color: #08080B;
   flex-shrink: 0;
 }
 
 .sf-pbox-desc {
-  margin: 0 0 8px 0;
+  margin: 0 0 6px 0;
   font-family: 'Inter', sans-serif;
-  font-size: clamp(0.86rem, 0.95vw, 0.96rem);
-  line-height: 1.45;
+  font-size: clamp(0.76rem, 0.84vw, 0.88rem);
+  line-height: 1.36;
   color: #475569;
   font-weight: 400;
   flex-shrink: 0;
@@ -365,40 +365,40 @@
 /* Callout Quote for Integration (Card 4) */
 .sf-pbox-quote {
   font-family: 'Space Grotesk', sans-serif;
-  font-size: 0.82rem;
+  font-size: 0.78rem;
   font-weight: 600;
   font-style: italic;
   color: #00A1E0;
   background: rgba(0, 161, 224, 0.08);
   border-left: 3px solid #00A1E0;
-  padding: 4px 10px;
+  padding: 3px 8px;
   border-radius: 0 6px 6px 0;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
   flex-shrink: 0;
 }
 
 /* Core Capabilities Pills */
 .sf-pbox-capabilities {
   margin-top: auto;
-  margin-bottom: 8px;
+  margin-bottom: 5px;
   overflow: visible !important;
 }
 
 .sf-pbox-cap-label {
   display: block;
   font-family: 'Space Mono', Menlo, monospace;
-  font-size: 0.68rem;
+  font-size: 0.64rem;
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: #94A3B8;
-  margin-bottom: 5px;
+  margin-bottom: 3px;
 }
 
 .sf-pbox-pills {
   display: flex;
   flex-wrap: wrap;
-  gap: 5px;
+  gap: 4px;
   margin: 0;
   padding: 0;
   list-style: none;
@@ -406,13 +406,13 @@
 
 .sf-pbox-pill {
   font-family: 'Inter', sans-serif;
-  font-size: 0.73rem;
+  font-size: 0.68rem;
   font-weight: 500;
   line-height: 1.25;
   color: #1E293B;
   background: #F1F5F9;
   border: 1px solid #E2E8F0;
-  padding: 3px 8px;
+  padding: 2px 7px;
   border-radius: 6px;
   transition: all 0.2s ease;
   white-space: nowrap;
@@ -428,7 +428,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-top: 8px;
+  padding-top: 6px;
   border-top: 1px solid rgba(8, 8, 11, 0.08);
   flex-shrink: 0;
 }
@@ -436,9 +436,9 @@
 .sf-pbox-action {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   font-family: 'Space Mono', Menlo, monospace;
-  font-size: 0.76rem;
+  font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
