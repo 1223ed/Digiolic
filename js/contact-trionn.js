@@ -13,7 +13,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initCustomServiceSelect();
   initFloatingLabels();
   initScrollDownAction();
-  initHeroHangingVideoLoop();
   initContactAudio();
 });
 
@@ -34,6 +33,9 @@ function initShutterScrollTransition() {
 
   gsap.registerPlugin(ScrollTrigger);
 
+  // Prevent resize jitter on mobile touch devices when browser address bar collapses/expands
+  ScrollTrigger.config({ ignoreMobileResize: true });
+
   const bannerSection = document.getElementById('contact-banner-section');
   const stripes = Array.from(document.querySelectorAll('.stripe-item')); // In order: 0 is top, 4 is bottom
   const bannerScrollBtn = document.getElementById('bannerScrollDownBtn');
@@ -47,6 +49,15 @@ function initShutterScrollTransition() {
   // Disable browser automatic scroll restoration to ensure precise GSAP coordinates on fresh reload
   if ('scrollRestoration' in history) {
     history.scrollRestoration = 'manual';
+  }
+
+  // Set initial states for stripes and formsSection
+  stripes.forEach(s => {
+    gsap.set(s, { scaleY: 0, transformOrigin: 'bottom' });
+  });
+
+  if (formsSection) {
+    gsap.set(formsSection, { marginTop: '-100dvh' });
   }
 
   let heroVideoController = null;
@@ -84,124 +95,48 @@ function initShutterScrollTransition() {
   window.addEventListener('scroll', updateNavbarTheme, { passive: true });
   window.addEventListener('resize', updateNavbarTheme, { passive: true });
 
-  // Use gsap.matchMedia for clean desktop vs mobile segregation
-  const mm = gsap.matchMedia();
-
-  // Desktop (> 768px): Pinned Venetian Blinds wipe
-  mm.add("(min-width: 769px)", () => {
-    stripes.forEach(s => {
-      gsap.set(s, { scaleY: 0, transformOrigin: 'bottom' });
-    });
-
-    if (formsSection) {
-      gsap.set(formsSection, { marginTop: '-100dvh' });
-    }
-
-    const shutterTl = gsap.timeline({
-      scrollTrigger: {
-        trigger: bannerSection,
-        start: 'top top',
-        end: '+=200%',
-        pin: true,
-        scrub: 0.8,
-        anticipatePin: 1,
-        pinSpacing: true,
-        onUpdate: () => {
-          updateNavbarTheme();
-          if (heroVideoController && heroVideoController.syncWithScroll) {
-            heroVideoController.syncWithScroll();
-          }
+  // Unified luxury Venetian Blinds shutter wipe transition across desktop, laptop, tablet & mobile
+  const isTouch = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+  const shutterTl = gsap.timeline({
+    scrollTrigger: {
+      trigger: bannerSection,
+      start: 'top top',
+      end: '+=200%',
+      pin: true,
+      scrub: isTouch ? 0.6 : 0.8,
+      anticipatePin: 1,
+      pinSpacing: true,
+      onUpdate: () => {
+        updateNavbarTheme();
+        if (heroVideoController && heroVideoController.syncWithScroll) {
+          heroVideoController.syncWithScroll();
         }
-      },
-      defaults: { ease: 'none' }
-    });
-
-    activeShutterTl = shutterTl;
-
-    if (bannerScrollBtn) {
-      shutterTl.to(bannerScrollBtn, { opacity: 0, y: -20, duration: 0.15, ease: 'none' }, 0);
-    }
-    if (bannerText) {
-      shutterTl.to(bannerText, { y: -60, opacity: 0.15, duration: 0.4, ease: 'none' }, 0);
-    }
-
-    shutterTl.addLabel('stripes_start', 0.05);
-    const totalStripes = stripes.length;
-    for (let e = 0; e < totalStripes; e++) {
-      const r = (0.3 * (totalStripes - 1 - e)) / (totalStripes - 1);
-      const s = r + 0.3;
-      shutterTl.to(stripes[e], {
-        scaleY: 1,
-        duration: s - r,
-        ease: 'none'
-      }, `stripes_start+=${r}`);
-    }
-    shutterTl.to({}, { duration: 0.15 });
-
-    return () => {
-      activeShutterTl = null;
-      if (formsSection) gsap.set(formsSection, { clearProps: 'marginTop' });
-      stripes.forEach(s => gsap.set(s, { clearProps: 'all' }));
-    };
+      }
+    },
+    defaults: { ease: 'none' }
   });
 
-  // Mobile (<= 768px): Pinned Venetian Blinds wipe matching Desktop website design
-  mm.add("(max-width: 768px)", () => {
-    stripes.forEach(s => {
-      gsap.set(s, { scaleY: 0, transformOrigin: 'bottom' });
-    });
+  activeShutterTl = shutterTl;
 
-    if (formsSection) {
-      gsap.set(formsSection, { marginTop: '-100dvh' });
-    }
+  if (bannerScrollBtn) {
+    shutterTl.to(bannerScrollBtn, { opacity: 0, y: -20, duration: 0.15, ease: 'none' }, 0);
+  }
+  if (bannerText) {
+    shutterTl.to(bannerText, { y: -50, opacity: 0.15, duration: 0.4, ease: 'none' }, 0);
+  }
 
-    const shutterTl = gsap.timeline({
-      scrollTrigger: {
-        trigger: bannerSection,
-        start: 'top top',
-        end: '+=140%',
-        pin: true,
-        scrub: 0.6,
-        anticipatePin: 1,
-        pinSpacing: true,
-        onUpdate: () => {
-          updateNavbarTheme();
-          if (heroVideoController && heroVideoController.syncWithScroll) {
-            heroVideoController.syncWithScroll();
-          }
-        }
-      },
-      defaults: { ease: 'none' }
-    });
-
-    activeShutterTl = shutterTl;
-
-    if (bannerScrollBtn) {
-      shutterTl.to(bannerScrollBtn, { opacity: 0, y: -15, duration: 0.15, ease: 'none' }, 0);
-    }
-    if (bannerText) {
-      shutterTl.to(bannerText, { y: -35, opacity: 0.15, duration: 0.4, ease: 'none' }, 0);
-    }
-
-    shutterTl.addLabel('stripes_start', 0.05);
-    const totalStripes = stripes.length;
-    for (let e = 0; e < totalStripes; e++) {
-      const r = (0.3 * (totalStripes - 1 - e)) / (totalStripes - 1);
-      const s = r + 0.3;
-      shutterTl.to(stripes[e], {
-        scaleY: 1,
-        duration: s - r,
-        ease: 'none'
-      }, `stripes_start+=${r}`);
-    }
-    shutterTl.to({}, { duration: 0.15 });
-
-    return () => {
-      activeShutterTl = null;
-      if (formsSection) gsap.set(formsSection, { clearProps: 'marginTop' });
-      stripes.forEach(s => gsap.set(s, { clearProps: 'all' }));
-    };
-  });
+  shutterTl.addLabel('stripes_start', 0.05);
+  const totalStripes = stripes.length;
+  for (let e = 0; e < totalStripes; e++) {
+    const r = (0.3 * (totalStripes - 1 - e)) / (totalStripes - 1);
+    const s = r + 0.3;
+    shutterTl.to(stripes[e], {
+      scaleY: 1,
+      duration: s - r,
+      ease: 'none'
+    }, `stripes_start+=${r}`);
+  }
+  shutterTl.to({}, { duration: 0.15 });
 
   updateNavbarTheme();
 
@@ -224,6 +159,9 @@ function initHeroHangingVideoLoop() {
 
   if (!container || !vidA) return null;
 
+  if (vidA.dataset.hangingInitialized === 'true') return null;
+  vidA.dataset.hangingInitialized = 'true';
+
   const LOOP_START = 4.55;
   const LOOP_END = 9.85;
   const CROSSFADE_DURATION = 0.35; // 350ms smooth blend window
@@ -233,32 +171,27 @@ function initHeroHangingVideoLoop() {
   let isTransitioning = false;
   let userScrolledAway = false;
 
-  // Fetch as Blob for zero-latency seeking in memory
+  // Blob caching for standby video for instant seeking without disrupting active video playback
   const sourceEl = vidA.querySelector('source');
   const videoSrc = sourceEl ? sourceEl.getAttribute('src') : (vidA.currentSrc || '../assets/videos/contact-hero-video.mp4');
 
-  fetch(videoSrc)
-    .then(res => res.blob())
-    .then(blob => {
-      const blobUrl = URL.createObjectURL(blob);
-      const currentTimeA = vidA.currentTime || 0;
-      const isPausedA = vidA.paused;
-
-      vidA.src = blobUrl;
-      vidA.currentTime = currentTimeA;
-      const pA = vidA.play();
-      if (pA !== undefined) {
-        pA.catch(() => {});
-      }
-
-      if (vidB) {
-        vidB.src = blobUrl;
-        vidB.currentTime = LOOP_START;
-      }
-    })
-    .catch(err => {
-      console.warn('Hero video Blob caching fallback:', err);
-    });
+  if (window.fetch) {
+    fetch(videoSrc)
+      .then(res => {
+        if (!res.ok) throw new Error('Blob fetch failed: ' + res.status);
+        return res.blob();
+      })
+      .then(blob => {
+        const blobUrl = URL.createObjectURL(blob);
+        if (vidB) {
+          vidB.src = blobUrl;
+          vidB.currentTime = LOOP_START;
+        }
+      })
+      .catch(err => {
+        console.warn('Hero video Blob caching fallback:', err);
+      });
+  }
 
   function performCrossfade() {
     if (isTransitioning || !standbyVideo) return;
@@ -323,16 +256,26 @@ function initHeroHangingVideoLoop() {
     vidB.addEventListener('ended', handleEnded);
   }
 
-  // Ensure initial play
-  vidA.play().catch(() => {
-    const onFirstGesture = () => {
-      vidA.play().catch(() => {});
-      window.removeEventListener('pointerdown', onFirstGesture);
-      window.removeEventListener('scroll', onFirstGesture);
-    };
-    window.addEventListener('pointerdown', onFirstGesture, { passive: true });
-    window.addEventListener('scroll', onFirstGesture, { passive: true });
-  });
+  // Ensure initial play and mobile touch unlock
+  const tryPlay = () => {
+    const p = vidA.play();
+    if (p !== undefined) {
+      p.catch(() => {});
+    }
+  };
+  tryPlay();
+
+  const onFirstGesture = () => {
+    if (vidA.paused) {
+      tryPlay();
+    }
+    window.removeEventListener('pointerdown', onFirstGesture);
+    window.removeEventListener('touchstart', onFirstGesture);
+    window.removeEventListener('scroll', onFirstGesture);
+  };
+  window.addEventListener('pointerdown', onFirstGesture, { passive: true });
+  window.addEventListener('touchstart', onFirstGesture, { passive: true });
+  window.addEventListener('scroll', onFirstGesture, { passive: true });
 
   function syncWithScroll() {
     const bannerSection = document.getElementById('contact-banner-section');
@@ -481,9 +424,8 @@ function initScrollDownAction() {
   if (btn && formsSection) {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
-      const isMobile = window.innerWidth <= 768;
       const bannerSection = document.getElementById('contact-banner-section');
-      const factor = isMobile ? 1.45 : 2.05;
+      const factor = 2.05;
       const targetOffset = bannerSection ? (bannerSection.offsetHeight * factor) : window.innerHeight * factor;
       window.scrollTo({
         top: targetOffset,
