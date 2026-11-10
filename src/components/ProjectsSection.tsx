@@ -547,53 +547,14 @@ const CaseStudyCard: React.FC<CardProps> = ({ study, index }) => {
         className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-105"
       />
 
-      {/* 2. Pixel-block hover overlay (12 x 8 grid) */}
-      <div className="pointer-events-none absolute inset-0 z-[5]">
-        {PIXEL_BLOCKS.map((b) => (
-          <motion.div
-            key={b.id}
-            className="absolute bg-black/80"
-            style={{
-              width: `${100 / COLS}%`,
-              height: `${100 / ROWS}%`,
-              left: `${(b.col * 100) / COLS}%`,
-              top: `${(b.row * 100) / ROWS}%`,
-            }}
-            initial={{ scale: 0, opacity: 0 }}
-            animate={
-              isHovered ? { scale: 1, opacity: 1 } : { scale: 0, opacity: 0 }
-            }
-            transition={{
-              duration: 0.25,
-              delay: isHovered
-                ? (b.row + b.col) * 0.018
-                : (ROWS - b.row + (COLS - b.col)) * 0.012,
-              ease: EASING,
-            }}
-          />
-        ))}
-      </div>
+      {/* 2. Seamless Darkening Hover Overlay (Zero grid lines or artifacts) */}
+      <div
+        className="pointer-events-none absolute inset-0 z-[5] bg-black/40 transition-opacity duration-300 ease-[cubic-bezier(0.22,1,0.36,1)]"
+        style={{ opacity: isHovered ? 1 : 0 }}
+      />
 
-      {/* 3. Magnetic squares */}
-      <div className="pointer-events-none absolute inset-0 z-[15]">
-        {study.magneticSquares.map((sq, i) => (
-          <motion.div
-            key={i}
-            className="absolute bg-black"
-            style={{
-              left: `${sq.x}%`,
-              top: `${sq.y}%`,
-              width: `${sq.size}px`,
-              height: `${sq.size}px`,
-              x: springX,
-              y: springY,
-            }}
-          />
-        ))}
-      </div>
-
-      {/* 4. Top-Right Header Bar: Location Details & Action Arrow */}
-      <div className="absolute right-3 top-3 z-15 flex max-w-[calc(100%-1.5rem)] items-center gap-1.5 sm:right-4 sm:top-4 sm:gap-2 sm:max-w-[calc(100%-2rem)]">
+      {/* 3. Top-Right Location Details */}
+      <div className="absolute right-3 top-3 z-15 flex max-w-[calc(100%-1.5rem)] items-center sm:right-4 sm:top-4 sm:max-w-[calc(100%-2rem)]">
         <span className="inline-flex items-center gap-1.5 overflow-hidden text-ellipsis whitespace-nowrap rounded-full border border-white/35 bg-black/65 px-2.5 py-1 text-[10px] font-medium tracking-wide text-white shadow-md backdrop-blur transition-colors duration-200 group-hover:border-white/60 group-hover:bg-black/90 sm:px-3 sm:py-1.5 sm:text-[11px]">
           <svg className="h-3 w-3 shrink-0 opacity-85" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
             <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
@@ -601,12 +562,6 @@ const CaseStudyCard: React.FC<CardProps> = ({ study, index }) => {
           </svg>
           {study.location}
         </span>
-        <div
-          className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-white/40 bg-black/60 text-sm text-white shadow-md backdrop-blur transition-all duration-300 group-hover:scale-110 group-hover:border-white group-hover:bg-black sm:h-9 sm:w-9 sm:text-base"
-          aria-hidden="true"
-        >
-          ↗
-        </div>
       </div>
 
       {/* 6. Info plate (bottom left) */}

@@ -2001,28 +2001,18 @@
         transform: scale(1.06);
       }
 
-      /* Pixel Block Overlay */
-      .projects-pixel-grid {
+      /* Smooth Darkening Card Hover Overlay (Seamless, zero grid lines) */
+      .projects-card-overlay {
         position: absolute;
         inset: 0;
-        display: grid;
-        grid-template-columns: repeat(12, 1fr);
-        grid-template-rows: repeat(8, 1fr);
+        background-color: rgba(0, 0, 0, 0.4);
+        opacity: 0;
         pointer-events: none;
         z-index: 5;
+        transition: opacity 0.3s cubic-bezier(0.22, 1, 0.36, 1);
       }
-      .projects-pixel-block {
-        background-color: rgba(0, 0, 0, 0.78);
-        transform: scale(0);
-        opacity: 0;
-        transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.25s cubic-bezier(0.22, 1, 0.36, 1);
-      }
-      .projects-card-container:hover .projects-pixel-block {
-        transform: scale(1);
+      .projects-card-container:hover .projects-card-overlay {
         opacity: 1;
-      }
-      .projects-card-container:not(:hover) .projects-pixel-block {
-        transition-duration: 0.22s;
       }
 
       /* Top-Right Header Bar: Location Details & Action Arrow (Matches red rectangle specification) */
@@ -2061,28 +2051,7 @@
         background-color: rgba(0, 0, 0, 0.88);
         border-color: rgba(255, 255, 255, 0.6);
       }
-      .projects-card-corner-arrow {
-        display: flex;
-        height: 2.15rem;
-        width: 2.15rem;
-        flex-shrink: 0;
-        align-items: center;
-        justify-content: center;
-        background-color: rgba(0, 0, 0, 0.65);
-        backdrop-filter: blur(8px);
-        -webkit-backdrop-filter: blur(8px);
-        border: 1px solid rgba(255, 255, 255, 0.35);
-        border-radius: 9999px;
-        font-size: 1rem;
-        color: #ffffff;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-        transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), background-color 0.2s, border-color 0.2s;
-      }
-      .projects-card-container:hover .projects-card-corner-arrow {
-        transform: scale(1.1) translate(1px, -1px);
-        background-color: #000000;
-        border-color: #ffffff;
-      }
+      
       @media (max-width: 640px) {
         .projects-card-top-bar {
           top: 0.75rem;
@@ -2094,11 +2063,7 @@
           font-size: 10px;
           padding: 0.25rem 0.55rem;
         }
-        .projects-card-corner-arrow {
-          height: 1.85rem;
-          width: 1.85rem;
-          font-size: 0.85rem;
-        }
+        
       }
 
       /* Bottom-Left Info Plate */
@@ -2275,18 +2240,10 @@
           <div class="projects-card-container group" data-case-id="case-blume-labs" role="button" tabindex="0" aria-label="View Blume Labs Case Study" style="position: relative; aspect-ratio: 4/3; overflow: hidden; background-color: #111827; cursor: pointer; border-radius: 4px;">
             <img src="../assets/images/case-studies/landmarks/blume-tech.jpg" alt="Blume Labs" class="projects-card-bg-img" loading="lazy">
             
-            <!-- 12x8 Pixel-block Hover Overlay Grid -->
-            <div class="projects-pixel-grid" data-card="case-blume-labs"></div>
+            <!-- Smooth Seamless Hover Overlay -->
+            <div class="projects-card-overlay"></div>
             
-            <!-- Magnetic Squares -->
-            <div class="projects-mag-squares" style="position: absolute; inset: 0; pointer-events: none; z-index: 15;">
-              <div class="mag-sq" style="position: absolute; left: 5%; top: 30%; width: 16px; height: 16px; background-color: #000000;"></div>
-              <div class="mag-sq" style="position: absolute; left: 10%; top: 42%; width: 10px; height: 10px; background-color: #000000;"></div>
-              <div class="mag-sq" style="position: absolute; left: 3%; top: 52%; width: 7px; height: 7px; background-color: #000000;"></div>
-              <div class="mag-sq" style="position: absolute; left: 80%; top: 70%; width: 14px; height: 14px; background-color: #000000;"></div>
-              <div class="mag-sq" style="position: absolute; left: 85%; top: 82%; width: 9px; height: 9px; background-color: #000000;"></div>
-              <div class="mag-sq" style="position: absolute; left: 78%; top: 60%; width: 6px; height: 6px; background-color: #000000;"></div>
-            </div>
+            
 
             <!-- Top-Right Location Details & Action Arrow (Matches red rectangle specification) -->
             <div class="projects-card-top-bar">
@@ -2294,9 +2251,7 @@
                 <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; opacity: 0.85;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
                 Location: Bangalore, India
               </span>
-              <div class="projects-card-corner-arrow" aria-hidden="true">
-                ↗
-              </div>
+              
             </div>
 
             <!-- Bottom-Left Info Plate -->
@@ -2313,17 +2268,10 @@
           <div class="projects-card-container group" data-case-id="case-pierian" role="button" tabindex="0" aria-label="View Pierian Technologies Case Study" style="position: relative; aspect-ratio: 4/3; overflow: hidden; background-color: #111827; cursor: pointer; border-radius: 4px;">
             <img src="../assets/images/case-studies/landmarks/bangalore-finance.jpg" alt="Pierian Technologies" class="projects-card-bg-img" loading="lazy">
             
-            <!-- 12x8 Pixel-block Hover Overlay Grid -->
-            <div class="projects-pixel-grid" data-card="case-pierian"></div>
+            <!-- Smooth Seamless Hover Overlay -->
+            <div class="projects-card-overlay"></div>
             
-            <!-- Magnetic Squares -->
-            <div class="projects-mag-squares" style="position: absolute; inset: 0; pointer-events: none; z-index: 15;">
-              <div class="mag-sq" style="position: absolute; left: 82%; top: 55%; width: 16px; height: 16px; background-color: #000000;"></div>
-              <div class="mag-sq" style="position: absolute; left: 88%; top: 68%; width: 10px; height: 10px; background-color: #000000;"></div>
-              <div class="mag-sq" style="position: absolute; left: 78%; top: 72%; width: 7px; height: 7px; background-color: #000000;"></div>
-              <div class="mag-sq" style="position: absolute; left: 85%; top: 42%; width: 6px; height: 6px; background-color: #000000;"></div>
-              <div class="mag-sq" style="position: absolute; left: 90%; top: 80%; width: 8px; height: 8px; background-color: #000000;"></div>
-            </div>
+            
 
             <!-- Top-Right Location Details & Action Arrow (Matches red rectangle specification) -->
             <div class="projects-card-top-bar">
@@ -2331,9 +2279,7 @@
                 <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; opacity: 0.85;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
                 Location: Bangalore, India
               </span>
-              <div class="projects-card-corner-arrow" aria-hidden="true">
-                ↗
-              </div>
+              
             </div>
 
             <!-- Bottom-Left Info Plate -->
@@ -2350,17 +2296,10 @@
           <div class="projects-card-container group" data-case-id="case-fyx" role="button" tabindex="0" aria-label="View FYX Finance Case Study" style="position: relative; aspect-ratio: 4/3; overflow: hidden; background-color: #111827; cursor: pointer; border-radius: 4px;">
             <img src="../assets/images/case-studies/landmarks/sydney-opera.jpg" alt="FYX Finance" class="projects-card-bg-img" loading="lazy">
             
-            <!-- 12x8 Pixel-block Hover Overlay Grid -->
-            <div class="projects-pixel-grid" data-card="case-fyx"></div>
+            <!-- Smooth Seamless Hover Overlay -->
+            <div class="projects-card-overlay"></div>
             
-            <!-- Magnetic Squares -->
-            <div class="projects-mag-squares" style="position: absolute; inset: 0; pointer-events: none; z-index: 15;">
-              <div class="mag-sq" style="position: absolute; left: 4%; top: 24%; width: 16px; height: 16px; background-color: #000000;"></div>
-              <div class="mag-sq" style="position: absolute; left: 10%; top: 36%; width: 10px; height: 10px; background-color: #000000;"></div>
-              <div class="mag-sq" style="position: absolute; left: 2%; top: 44%; width: 7px; height: 7px; background-color: #000000;"></div>
-              <div class="mag-sq" style="position: absolute; left: 78%; top: 78%; width: 14px; height: 14px; background-color: #000000;"></div>
-              <div class="mag-sq" style="position: absolute; left: 84%; top: 88%; width: 8px; height: 8px; background-color: #000000;"></div>
-            </div>
+            
 
             <!-- Top-Right Location Details & Action Arrow (Matches red rectangle specification) -->
             <div class="projects-card-top-bar">
@@ -2368,9 +2307,7 @@
                 <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; opacity: 0.85;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
                 Location: Sydney, Australia
               </span>
-              <div class="projects-card-corner-arrow" aria-hidden="true">
-                ↗
-              </div>
+              
             </div>
 
             <!-- Bottom-Left Info Plate -->
@@ -2387,17 +2324,10 @@
           <div class="projects-card-container group" data-case-id="case-monster-india" role="button" tabindex="0" aria-label="View Monster India Case Study" style="position: relative; aspect-ratio: 4/3; overflow: hidden; background-color: #111827; cursor: pointer; border-radius: 4px;">
             <img src="../assets/images/case-studies/landmarks/india-gate.jpg" alt="Monster India" class="projects-card-bg-img" loading="lazy">
             
-            <!-- 12x8 Pixel-block Hover Overlay Grid -->
-            <div class="projects-pixel-grid" data-card="case-monster-india"></div>
+            <!-- Smooth Seamless Hover Overlay -->
+            <div class="projects-card-overlay"></div>
             
-            <!-- Magnetic Squares -->
-            <div class="projects-mag-squares" style="position: absolute; inset: 0; pointer-events: none; z-index: 15;">
-              <div class="mag-sq" style="position: absolute; left: 82%; top: 26%; width: 14px; height: 14px; background-color: #000000;"></div>
-              <div class="mag-sq" style="position: absolute; left: 88%; top: 38%; width: 10px; height: 10px; background-color: #000000;"></div>
-              <div class="mag-sq" style="position: absolute; left: 78%; top: 44%; width: 7px; height: 7px; background-color: #000000;"></div>
-              <div class="mag-sq" style="position: absolute; left: 84%; top: 54%; width: 5px; height: 5px; background-color: #000000;"></div>
-              <div class="mag-sq" style="position: absolute; left: 90%; top: 60%; width: 8px; height: 8px; background-color: #000000;"></div>
-            </div>
+            
 
             <!-- Top-Right Location Details & Action Arrow (Matches red rectangle specification) -->
             <div class="projects-card-top-bar">
@@ -2405,9 +2335,7 @@
                 <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; opacity: 0.85;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
                 Location: Noida, India
               </span>
-              <div class="projects-card-corner-arrow" aria-hidden="true">
-                ↗
-              </div>
+              
             </div>
 
             <!-- Bottom-Left Info Plate -->
@@ -2424,17 +2352,10 @@
           <div class="projects-card-container group" data-case-id="case-greenworld" role="button" tabindex="0" aria-label="View Greenworld Solarwares Case Study" style="position: relative; aspect-ratio: 4/3; overflow: hidden; background-color: #111827; cursor: pointer; border-radius: 4px;">
             <img src="../assets/images/case-studies/landmarks/solar-energy.jpg" alt="Greenworld Solarwares" class="projects-card-bg-img" loading="lazy">
             
-            <!-- 12x8 Pixel-block Hover Overlay Grid -->
-            <div class="projects-pixel-grid" data-card="case-greenworld"></div>
+            <!-- Smooth Seamless Hover Overlay -->
+            <div class="projects-card-overlay"></div>
             
-            <!-- Magnetic Squares -->
-            <div class="projects-mag-squares" style="position: absolute; inset: 0; pointer-events: none; z-index: 15;">
-              <div class="mag-sq" style="position: absolute; left: 6%; top: 40%; width: 14px; height: 14px; background-color: #000000;"></div>
-              <div class="mag-sq" style="position: absolute; left: 12%; top: 52%; width: 9px; height: 9px; background-color: #000000;"></div>
-              <div class="mag-sq" style="position: absolute; left: 4%; top: 62%; width: 6px; height: 6px; background-color: #000000;"></div>
-              <div class="mag-sq" style="position: absolute; left: 82%; top: 30%; width: 16px; height: 16px; background-color: #000000;"></div>
-              <div class="mag-sq" style="position: absolute; left: 88%; top: 42%; width: 10px; height: 10px; background-color: #000000;"></div>
-            </div>
+            
 
             <!-- Top-Right Location Details & Action Arrow (Matches red rectangle specification) -->
             <div class="projects-card-top-bar">
@@ -2442,9 +2363,7 @@
                 <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; opacity: 0.85;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
                 Location: Chhattisgarh, India
               </span>
-              <div class="projects-card-corner-arrow" aria-hidden="true">
-                ↗
-              </div>
+              
             </div>
 
             <!-- Bottom-Left Info Plate -->
@@ -2461,17 +2380,10 @@
           <div class="projects-card-container group" data-case-id="case-verzeo" role="button" tabindex="0" aria-label="View Verzeo Technologies Case Study" style="position: relative; aspect-ratio: 4/3; overflow: hidden; background-color: #111827; cursor: pointer; border-radius: 4px;">
             <img src="../assets/images/case-studies/landmarks/bangalore-vidhana.jpg" alt="Verzeo Technologies" class="projects-card-bg-img" loading="lazy">
             
-            <!-- 12x8 Pixel-block Hover Overlay Grid -->
-            <div class="projects-pixel-grid" data-card="case-verzeo"></div>
+            <!-- Smooth Seamless Hover Overlay -->
+            <div class="projects-card-overlay"></div>
             
-            <!-- Magnetic Squares -->
-            <div class="projects-mag-squares" style="position: absolute; inset: 0; pointer-events: none; z-index: 15;">
-              <div class="mag-sq" style="position: absolute; left: 5%; top: 30%; width: 16px; height: 16px; background-color: #000000;"></div>
-              <div class="mag-sq" style="position: absolute; left: 10%; top: 42%; width: 10px; height: 10px; background-color: #000000;"></div>
-              <div class="mag-sq" style="position: absolute; left: 80%; top: 70%; width: 14px; height: 14px; background-color: #000000;"></div>
-              <div class="mag-sq" style="position: absolute; left: 85%; top: 82%; width: 9px; height: 9px; background-color: #000000;"></div>
-              <div class="mag-sq" style="position: absolute; left: 78%; top: 60%; width: 6px; height: 6px; background-color: #000000;"></div>
-            </div>
+            
 
             <!-- Top-Right Location Details & Action Arrow (Matches red rectangle specification) -->
             <div class="projects-card-top-bar">
@@ -2479,9 +2391,7 @@
                 <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; opacity: 0.85;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
                 Location: Bangalore, India
               </span>
-              <div class="projects-card-corner-arrow" aria-hidden="true">
-                ↗
-              </div>
+              
             </div>
 
             <!-- Bottom-Left Info Plate -->
@@ -2498,17 +2408,10 @@
           <div class="projects-card-container group" data-case-id="case-nz-immigration" role="button" tabindex="0" aria-label="View NZ Immigration Case Study" style="position: relative; aspect-ratio: 4/3; overflow: hidden; background-color: #111827; cursor: pointer; border-radius: 4px;">
             <img src="../assets/images/case-studies/landmarks/new-zealand.jpg" alt="NZ Immigration" class="projects-card-bg-img" loading="lazy">
             
-            <!-- 12x8 Pixel-block Hover Overlay Grid -->
-            <div class="projects-pixel-grid" data-card="case-nz-immigration"></div>
+            <!-- Smooth Seamless Hover Overlay -->
+            <div class="projects-card-overlay"></div>
             
-            <!-- Magnetic Squares -->
-            <div class="projects-mag-squares" style="position: absolute; inset: 0; pointer-events: none; z-index: 15;">
-              <div class="mag-sq" style="position: absolute; left: 82%; top: 55%; width: 16px; height: 16px; background-color: #000000;"></div>
-              <div class="mag-sq" style="position: absolute; left: 88%; top: 68%; width: 10px; height: 10px; background-color: #000000;"></div>
-              <div class="mag-sq" style="position: absolute; left: 78%; top: 72%; width: 7px; height: 7px; background-color: #000000;"></div>
-              <div class="mag-sq" style="position: absolute; left: 85%; top: 42%; width: 6px; height: 6px; background-color: #000000;"></div>
-              <div class="mag-sq" style="position: absolute; left: 90%; top: 80%; width: 8px; height: 8px; background-color: #000000;"></div>
-            </div>
+            
 
             <!-- Top-Right Location Details & Action Arrow (Matches red rectangle specification) -->
             <div class="projects-card-top-bar">
@@ -2516,9 +2419,7 @@
                 <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; opacity: 0.85;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
                 Location: Auckland, New Zealand
               </span>
-              <div class="projects-card-corner-arrow" aria-hidden="true">
-                ↗
-              </div>
+              
             </div>
 
             <!-- Bottom-Left Info Plate -->
@@ -2535,17 +2436,10 @@
           <div class="projects-card-container group" data-case-id="case-banaraswala" role="button" tabindex="0" aria-label="View Banaraswala Case Study" style="position: relative; aspect-ratio: 4/3; overflow: hidden; background-color: #111827; cursor: pointer; border-radius: 4px;">
             <img src="../assets/images/case-studies/landmarks/delhi-qutub.jpg" alt="Banaraswala" class="projects-card-bg-img" loading="lazy">
             
-            <!-- 12x8 Pixel-block Hover Overlay Grid -->
-            <div class="projects-pixel-grid" data-card="case-banaraswala"></div>
+            <!-- Smooth Seamless Hover Overlay -->
+            <div class="projects-card-overlay"></div>
             
-            <!-- Magnetic Squares -->
-            <div class="projects-mag-squares" style="position: absolute; inset: 0; pointer-events: none; z-index: 15;">
-              <div class="mag-sq" style="position: absolute; left: 4%; top: 24%; width: 16px; height: 16px; background-color: #000000;"></div>
-              <div class="mag-sq" style="position: absolute; left: 10%; top: 36%; width: 10px; height: 10px; background-color: #000000;"></div>
-              <div class="mag-sq" style="position: absolute; left: 2%; top: 44%; width: 7px; height: 7px; background-color: #000000;"></div>
-              <div class="mag-sq" style="position: absolute; left: 78%; top: 78%; width: 14px; height: 14px; background-color: #000000;"></div>
-              <div class="mag-sq" style="position: absolute; left: 84%; top: 88%; width: 8px; height: 8px; background-color: #000000;"></div>
-            </div>
+            
 
             <!-- Top-Right Location Details & Action Arrow (Matches red rectangle specification) -->
             <div class="projects-card-top-bar">
@@ -2553,9 +2447,7 @@
                 <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; opacity: 0.85;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
                 Location: Delhi, India
               </span>
-              <div class="projects-card-corner-arrow" aria-hidden="true">
-                ↗
-              </div>
+              
             </div>
 
             <!-- Bottom-Left Info Plate -->
@@ -2572,17 +2464,10 @@
           <div class="projects-card-container group" data-case-id="case-loomcrafts" role="button" tabindex="0" aria-label="View Loom Crafts Case Study" style="position: relative; aspect-ratio: 4/3; overflow: hidden; background-color: #111827; cursor: pointer; border-radius: 4px;">
             <img src="../assets/images/case-studies/landmarks/agra-taj.jpg" alt="Loom Crafts" class="projects-card-bg-img" loading="lazy">
             
-            <!-- 12x8 Pixel-block Hover Overlay Grid -->
-            <div class="projects-pixel-grid" data-card="case-loomcrafts"></div>
+            <!-- Smooth Seamless Hover Overlay -->
+            <div class="projects-card-overlay"></div>
             
-            <!-- Magnetic Squares -->
-            <div class="projects-mag-squares" style="position: absolute; inset: 0; pointer-events: none; z-index: 15;">
-              <div class="mag-sq" style="position: absolute; left: 82%; top: 26%; width: 14px; height: 14px; background-color: #000000;"></div>
-              <div class="mag-sq" style="position: absolute; left: 88%; top: 38%; width: 10px; height: 10px; background-color: #000000;"></div>
-              <div class="mag-sq" style="position: absolute; left: 78%; top: 44%; width: 7px; height: 7px; background-color: #000000;"></div>
-              <div class="mag-sq" style="position: absolute; left: 84%; top: 54%; width: 5px; height: 5px; background-color: #000000;"></div>
-              <div class="mag-sq" style="position: absolute; left: 90%; top: 60%; width: 8px; height: 8px; background-color: #000000;"></div>
-            </div>
+            
 
             <!-- Top-Right Location Details & Action Arrow (Matches red rectangle specification) -->
             <div class="projects-card-top-bar">
@@ -2590,9 +2475,7 @@
                 <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; opacity: 0.85;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
                 Location: Ghaziabad, India
               </span>
-              <div class="projects-card-corner-arrow" aria-hidden="true">
-                ↗
-              </div>
+              
             </div>
 
             <!-- Bottom-Left Info Plate -->
@@ -2609,17 +2492,10 @@
           <div class="projects-card-container group" data-case-id="case-chanakya-university" role="button" tabindex="0" aria-label="View Chanakya University Case Study" style="position: relative; aspect-ratio: 4/3; overflow: hidden; background-color: #111827; cursor: pointer; border-radius: 4px;">
             <img src="../assets/images/case-studies/landmarks/chanakya-univ.jpg" alt="Chanakya University" class="projects-card-bg-img" loading="lazy">
             
-            <!-- 12x8 Pixel-block Hover Overlay Grid -->
-            <div class="projects-pixel-grid" data-card="case-chanakya-university"></div>
+            <!-- Smooth Seamless Hover Overlay -->
+            <div class="projects-card-overlay"></div>
             
-            <!-- Magnetic Squares -->
-            <div class="projects-mag-squares" style="position: absolute; inset: 0; pointer-events: none; z-index: 15;">
-              <div class="mag-sq" style="position: absolute; left: 6%; top: 40%; width: 14px; height: 14px; background-color: #000000;"></div>
-              <div class="mag-sq" style="position: absolute; left: 12%; top: 52%; width: 9px; height: 9px; background-color: #000000;"></div>
-              <div class="mag-sq" style="position: absolute; left: 4%; top: 62%; width: 6px; height: 6px; background-color: #000000;"></div>
-              <div class="mag-sq" style="position: absolute; left: 82%; top: 30%; width: 16px; height: 16px; background-color: #000000;"></div>
-              <div class="mag-sq" style="position: absolute; left: 88%; top: 42%; width: 10px; height: 10px; background-color: #000000;"></div>
-            </div>
+            
 
             <!-- Top-Right Location Details & Action Arrow (Matches red rectangle specification) -->
             <div class="projects-card-top-bar">
@@ -2627,9 +2503,7 @@
                 <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; opacity: 0.85;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
                 Location: Bangalore, India
               </span>
-              <div class="projects-card-corner-arrow" aria-hidden="true">
-                ↗
-              </div>
+              
             </div>
 
             <!-- Bottom-Left Info Plate -->
@@ -2646,17 +2520,10 @@
           <div class="projects-card-container group" data-case-id="case-deccan-herald" role="button" tabindex="0" aria-label="View Deccan Herald Case Study" style="position: relative; aspect-ratio: 4/3; overflow: hidden; background-color: #111827; cursor: pointer; border-radius: 4px;">
             <img src="../assets/images/case-studies/landmarks/deccan-herald.jpg" alt="Deccan Herald" class="projects-card-bg-img" loading="lazy">
             
-            <!-- 12x8 Pixel-block Hover Overlay Grid -->
-            <div class="projects-pixel-grid" data-card="case-deccan-herald"></div>
+            <!-- Smooth Seamless Hover Overlay -->
+            <div class="projects-card-overlay"></div>
             
-            <!-- Magnetic Squares -->
-            <div class="projects-mag-squares" style="position: absolute; inset: 0; pointer-events: none; z-index: 15;">
-              <div class="mag-sq" style="position: absolute; left: 5%; top: 30%; width: 16px; height: 16px; background-color: #000000;"></div>
-              <div class="mag-sq" style="position: absolute; left: 10%; top: 42%; width: 10px; height: 10px; background-color: #000000;"></div>
-              <div class="mag-sq" style="position: absolute; left: 3%; top: 52%; width: 7px; height: 7px; background-color: #000000;"></div>
-              <div class="mag-sq" style="position: absolute; left: 80%; top: 70%; width: 14px; height: 14px; background-color: #000000;"></div>
-              <div class="mag-sq" style="position: absolute; left: 85%; top: 82%; width: 9px; height: 9px; background-color: #000000;"></div>
-            </div>
+            
 
             <!-- Top-Right Location Details & Action Arrow (Matches red rectangle specification) -->
             <div class="projects-card-top-bar">
@@ -2664,9 +2531,7 @@
                 <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; opacity: 0.85;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
                 Location: Bangalore, India
               </span>
-              <div class="projects-card-corner-arrow" aria-hidden="true">
-                ↗
-              </div>
+              
             </div>
 
             <!-- Bottom-Left Info Plate -->
@@ -2683,17 +2548,10 @@
           <div class="projects-card-container group" data-case-id="case-myntra" role="button" tabindex="0" aria-label="View Myntra Case Study" style="position: relative; aspect-ratio: 4/3; overflow: hidden; background-color: #111827; cursor: pointer; border-radius: 4px;">
             <img src="../assets/images/case-studies/landmarks/myntra-campus.jpg" alt="Myntra" class="projects-card-bg-img" loading="lazy">
             
-            <!-- 12x8 Pixel-block Hover Overlay Grid -->
-            <div class="projects-pixel-grid" data-card="case-myntra"></div>
+            <!-- Smooth Seamless Hover Overlay -->
+            <div class="projects-card-overlay"></div>
             
-            <!-- Magnetic Squares -->
-            <div class="projects-mag-squares" style="position: absolute; inset: 0; pointer-events: none; z-index: 15;">
-              <div class="mag-sq" style="position: absolute; left: 82%; top: 55%; width: 16px; height: 16px; background-color: #000000;"></div>
-              <div class="mag-sq" style="position: absolute; left: 88%; top: 68%; width: 10px; height: 10px; background-color: #000000;"></div>
-              <div class="mag-sq" style="position: absolute; left: 78%; top: 72%; width: 7px; height: 7px; background-color: #000000;"></div>
-              <div class="mag-sq" style="position: absolute; left: 85%; top: 42%; width: 6px; height: 6px; background-color: #000000;"></div>
-              <div class="mag-sq" style="position: absolute; left: 90%; top: 80%; width: 8px; height: 8px; background-color: #000000;"></div>
-            </div>
+            
 
             <!-- Top-Right Location Details & Action Arrow (Matches red rectangle specification) -->
             <div class="projects-card-top-bar">
@@ -2701,9 +2559,7 @@
                 <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; opacity: 0.85;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
                 Location: Bangalore, India
               </span>
-              <div class="projects-card-corner-arrow" aria-hidden="true">
-                ↗
-              </div>
+              
             </div>
 
             <!-- Bottom-Left Info Plate -->
@@ -2720,17 +2576,10 @@
           <div class="projects-card-container group" data-case-id="case-flipkart" role="button" tabindex="0" aria-label="View Flipkart Case Study" style="position: relative; aspect-ratio: 4/3; overflow: hidden; background-color: #111827; cursor: pointer; border-radius: 4px;">
             <img src="../assets/images/case-studies/landmarks/flipkart-hub.jpg" alt="Flipkart" class="projects-card-bg-img" loading="lazy">
             
-            <!-- 12x8 Pixel-block Hover Overlay Grid -->
-            <div class="projects-pixel-grid" data-card="case-flipkart"></div>
+            <!-- Smooth Seamless Hover Overlay -->
+            <div class="projects-card-overlay"></div>
             
-            <!-- Magnetic Squares -->
-            <div class="projects-mag-squares" style="position: absolute; inset: 0; pointer-events: none; z-index: 15;">
-              <div class="mag-sq" style="position: absolute; left: 4%; top: 24%; width: 16px; height: 16px; background-color: #000000;"></div>
-              <div class="mag-sq" style="position: absolute; left: 10%; top: 36%; width: 10px; height: 10px; background-color: #000000;"></div>
-              <div class="mag-sq" style="position: absolute; left: 2%; top: 44%; width: 7px; height: 7px; background-color: #000000;"></div>
-              <div class="mag-sq" style="position: absolute; left: 78%; top: 78%; width: 14px; height: 14px; background-color: #000000;"></div>
-              <div class="mag-sq" style="position: absolute; left: 84%; top: 88%; width: 8px; height: 8px; background-color: #000000;"></div>
-            </div>
+            
 
             <!-- Top-Right Location Details & Action Arrow (Matches red rectangle specification) -->
             <div class="projects-card-top-bar">
@@ -2738,9 +2587,7 @@
                 <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; opacity: 0.85;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
                 Location: Bangalore, India
               </span>
-              <div class="projects-card-corner-arrow" aria-hidden="true">
-                ↗
-              </div>
+              
             </div>
 
             <!-- Bottom-Left Info Plate -->
@@ -2757,17 +2604,10 @@
           <div class="projects-card-container group" data-case-id="case-via-milano" role="button" tabindex="0" aria-label="View via Milano Case Study" style="position: relative; aspect-ratio: 4/3; overflow: hidden; background-color: #111827; cursor: pointer; border-radius: 4px;">
             <img src="../assets/images/case-studies/landmarks/via-milano.jpg" alt="via Milano" class="projects-card-bg-img" loading="lazy">
             
-            <!-- 12x8 Pixel-block Hover Overlay Grid -->
-            <div class="projects-pixel-grid" data-card="case-via-milano"></div>
+            <!-- Smooth Seamless Hover Overlay -->
+            <div class="projects-card-overlay"></div>
             
-            <!-- Magnetic Squares -->
-            <div class="projects-mag-squares" style="position: absolute; inset: 0; pointer-events: none; z-index: 15;">
-              <div class="mag-sq" style="position: absolute; left: 82%; top: 26%; width: 14px; height: 14px; background-color: #000000;"></div>
-              <div class="mag-sq" style="position: absolute; left: 88%; top: 38%; width: 10px; height: 10px; background-color: #000000;"></div>
-              <div class="mag-sq" style="position: absolute; left: 78%; top: 44%; width: 7px; height: 7px; background-color: #000000;"></div>
-              <div class="mag-sq" style="position: absolute; left: 84%; top: 54%; width: 5px; height: 5px; background-color: #000000;"></div>
-              <div class="mag-sq" style="position: absolute; left: 90%; top: 60%; width: 8px; height: 8px; background-color: #000000;"></div>
-            </div>
+            
 
             <!-- Top-Right Location Details & Action Arrow (Matches red rectangle specification) -->
             <div class="projects-card-top-bar">
@@ -2775,9 +2615,7 @@
                 <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; opacity: 0.85;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
                 Location: Bangalore & Hyderabad, India
               </span>
-              <div class="projects-card-corner-arrow" aria-hidden="true">
-                ↗
-              </div>
+              
             </div>
 
             <!-- Bottom-Left Info Plate -->
@@ -2827,36 +2665,9 @@
     <!-- Client-side Interactive Enhancement: Pixel Grid Generator, Scroll Parallax & Magnetic Cursor -->
     <script>
       (function() {
-        // 1. Generate 12x8 pixel blocks for all cards with diagonal stagger
-        var COLS = 12, ROWS = 8;
-        var pixelGrids = document.querySelectorAll('.projects-pixel-grid');
-        pixelGrids.forEach(function(grid) {
-          for (var r = 0; r < ROWS; r++) {
-            for (var c = 0; c < COLS; c++) {
-              var block = document.createElement('div');
-              block.className = 'projects-pixel-block';
-              var delayIn = ((r + c) * 0.018).toFixed(3);
-              var delayOut = (((ROWS - r) + (COLS - c)) * 0.012).toFixed(3);
-              block.style.transitionDelay = delayIn + 's';
-              block.dataset.delayIn = delayIn + 's';
-              block.dataset.delayOut = delayOut + 's';
-              grid.appendChild(block);
-            }
-          }
-        });
-
-        // Toggle delay directions on hover/leave
+        // Click handler to open case study modal
         var cards = document.querySelectorAll('.projects-card-container');
         cards.forEach(function(card) {
-          var blocks = card.querySelectorAll('.projects-pixel-block');
-          card.addEventListener('mouseenter', function() {
-            blocks.forEach(function(b) { b.style.transitionDelay = b.dataset.delayIn; });
-          });
-          card.addEventListener('mouseleave', function() {
-            blocks.forEach(function(b) { b.style.transitionDelay = b.dataset.delayOut; });
-          });
-
-          // Click handler to open case study modal
           card.addEventListener('click', function(e) {
             e.preventDefault();
             var caseId = card.getAttribute('data-case-id');
@@ -2874,41 +2685,9 @@
             }
           });
 
-          // 2. Magnetic squares spring tracking
-          var magSquares = card.querySelectorAll('.mag-sq');
-          var targetX = 0, targetY = 0, curX = 0, curY = 0;
-          var animId = null;
-
-          function springLoop() {
-            curX += (targetX - curX) * 0.12;
-            curY += (targetY - curY) * 0.12;
-            magSquares.forEach(function(sq) {
-              sq.style.transform = 'translate3d(' + curX.toFixed(2) + 'px,' + curY.toFixed(2) + 'px,0)';
-            });
-            if (Math.abs(targetX - curX) > 0.05 || Math.abs(targetY - curY) > 0.05) {
-              animId = requestAnimationFrame(springLoop);
-            } else {
-              animId = null;
-            }
-          }
-
-          card.addEventListener('mousemove', function(e) {
-            var rect = card.getBoundingClientRect();
-            var nx = (e.clientX - rect.left) / rect.width - 0.5;
-            var ny = (e.clientY - rect.top) / rect.height - 0.5;
-            targetX = nx * 40;
-            targetY = ny * 40;
-            if (!animId) animId = requestAnimationFrame(springLoop);
           });
 
-          card.addEventListener('mouseleave', function() {
-            targetX = 0;
-            targetY = 0;
-            if (!animId) animId = requestAnimationFrame(springLoop);
-          });
-        });
-
-        // 3. Header Parallax Squares based on scroll
+        // 2. Header Parallax Squares based on scroll
         var section = document.getElementById('projectsCaseStudiesSection');
         var floatSquares = document.querySelectorAll('.projects-float-square');
         if (section && floatSquares.length) {
