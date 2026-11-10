@@ -592,30 +592,94 @@
   .ct-title-line {
     font-size: clamp(2.2rem, 8.5vw, 4.2rem);
   }
-  .t-card-wrapper {
-    width: calc(100vw - 40px);
-    height: clamp(460px, 76vh, 620px);
-    border-radius: 18px;
-  }
   .ct-cards-track {
-    padding-left: 20px;
-    padding-right: 20px;
-    gap: 20px;
+    padding-left: 16px;
+    padding-right: 16px;
+    gap: 16px;
+  }
+  .t-card-wrapper {
+    width: calc(100vw - 32px) !important;
+    max-width: 420px !important;
+    height: min(84vh, 84dvh) !important;
+    min-height: 520px !important;
+    border-radius: 20px !important;
+    overflow: hidden !important;
+  }
+  .t-card-inner {
+    padding: 22px 20px 18px 20px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    height: 100% !important;
+    box-sizing: border-box !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+  .t-card-header {
+    margin-bottom: 12px !important;
+    gap: 10px !important;
+    flex-shrink: 0 !important;
+  }
+  .t-company-name {
+    font-size: clamp(18px, 4.8vw, 22px) !important;
+    line-height: 1.15 !important;
+  }
+  .t-company-logo-box {
+    height: 38px !important;
+    max-width: 120px !important;
+  }
+  .t-company-logo-img {
+    max-height: 36px !important;
+    max-width: 110px !important;
   }
   .t-card-body {
-    padding: 24px 18px;
-  }
-  .t-card-company-hero {
-    font-size: 1.25rem;
-    margin-bottom: 16px;
+    flex: 1 1 auto !important;
+    margin: 0 0 12px 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
   }
   .t-card-quote-text {
-    font-size: 0.95rem;
-    line-height: 1.62;
-    margin-bottom: 0;
+    font-size: clamp(12.5px, 3.4vw, 14.5px) !important;
+    line-height: 1.5 !important;
+    letter-spacing: -0.01em !important;
   }
-  .t-card-bottom-bar {
-    padding: 14px 18px;
+  .t-card-footer {
+    padding-top: 10px !important;
+    border-top: 1px solid #E4E4E7 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 6px !important;
+    flex-shrink: 0 !important;
+    width: 100% !important;
+  }
+  .t-author-col {
+    display: flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+  }
+  .t-author-name {
+    font-size: 13.5px !important;
+    font-weight: 700 !important;
+    line-height: 1.2 !important;
+  }
+  .t-role-col {
+    width: 100% !important;
+  }
+  .t-author-meta {
+    font-size: 12px !important;
+    color: #52525B !important;
+    line-height: 1.35 !important;
+    display: block !important;
+  }
+  .t-badge-col {
+    margin-top: 2px !important;
+  }
+  .t-service-pill {
+    font-size: 11px !important;
+    padding: 4px 10px !important;
+    line-height: 1.2 !important;
   }
   .ct-counter-badge {
     font-size: 0.62rem;
@@ -625,6 +689,25 @@
 @media (max-width: 480px) {
   .ct-title-line {
     font-size: clamp(1.75rem, 8.2vw, 2.6rem);
+  }
+}
+
+@media (max-width: 380px) {
+  .t-card-inner {
+    padding: 16px 16px 14px 16px !important;
+  }
+  .t-card-quote-text {
+    font-size: 12px !important;
+    line-height: 1.45 !important;
+  }
+  .t-company-name {
+    font-size: 17px !important;
+  }
+  .t-company-logo-box {
+    height: 32px !important;
+  }
+  .t-company-logo-img {
+    max-height: 30px !important;
   }
 }
 

@@ -44,67 +44,13 @@ function initShutterScrollTransition() {
 
   if (!bannerSection || stripes.length === 0) return;
 
-  // Set initial states
-  stripes.forEach(s => {
-    gsap.set(s, { scaleY: 0, transformOrigin: 'bottom' });
-  });
-
-  // Pull formsSection up into the pin spacer so it enters within rows 4-5 with zero black screen dead-zone
-  if (formsSection) {
-    gsap.set(formsSection, { marginTop: '-100dvh' });
-  }
-
-  // Smooth, slow pinned transition matching the original reference video
-  const isTouch = ScrollTrigger.isTouch;
-  const endDistance = isTouch ? '+=150%' : '+=200%';
-
-  let heroVideoController = null;
-
-  const shutterTl = gsap.timeline({
-    scrollTrigger: {
-      trigger: bannerSection,
-      start: 'top top',
-      end: endDistance,
-      pin: true,
-      scrub: 0.8, // Smooth and slow trackpad/wheel scrub
-      anticipatePin: 1,
-      pinSpacing: true,
-      onUpdate: () => {
-        updateNavbarTheme();
-        if (heroVideoController && heroVideoController.syncWithScroll) {
-          heroVideoController.syncWithScroll();
-        }
-      }
-    },
-    defaults: { ease: 'none' }
-  });
-
-  // Fade out scroll indicator and float text upward
-  if (bannerScrollBtn) {
-    shutterTl.to(bannerScrollBtn, { opacity: 0, y: -20, duration: 0.15, ease: 'none' }, 0);
-  }
-  if (bannerText) {
-    shutterTl.to(bannerText, { y: -60, opacity: 0.15, duration: 0.4, ease: 'none' }, 0);
-  }
-
-  // Venetian blind stripes staggered expansion from bottom (index 4) to top (index 0)
-  shutterTl.addLabel('stripes_start', 0.05);
-  const totalStripes = stripes.length;
-  for (let e = 0; e < totalStripes; e++) {
-    const r = (0.3 * (totalStripes - 1 - e)) / (totalStripes - 1);
-    const s = r + 0.3;
-    shutterTl.to(stripes[e], {
-      scaleY: 1,
-      duration: s - r,
-      ease: 'none'
-    }, `stripes_start+=${r}`);
-  }
-  shutterTl.to({}, { duration: 0.15 });
-
   // Disable browser automatic scroll restoration to ensure precise GSAP coordinates on fresh reload
   if ('scrollRestoration' in history) {
     history.scrollRestoration = 'manual';
   }
+
+  let heroVideoController = null;
+  let activeShutterTl = null;
 
   // Foolproof navbar theme manager based on section boundaries & shutter progress
   function updateNavbarTheme() {
@@ -123,18 +69,99 @@ function initShutterScrollTransition() {
       // Inside the dark form section
       navbar.classList.add('is-nav-dark');
     } else {
-      // Inside the hero banner: check shutter wipe progress
-      const progress = shutterTl && shutterTl.scrollTrigger ? shutterTl.scrollTrigger.progress : 0;
-      if (progress > 0.45) {
-        navbar.classList.add('is-nav-dark');
-      } else {
-        navbar.classList.remove('is-nav-dark');
+      // Inside the hero banner: check shutter wipe progress if on desktop
+      if (window.innerWidth > 768 && activeShutterTl && activeShutterTl.scrollTrigger) {
+        const progress = activeShutterTl.scrollTrigger.progress;
+        if (progress > 0.45) {
+          navbar.classList.add('is-nav-dark');
+          return;
+        }
       }
+      navbar.classList.remove('is-nav-dark');
     }
   }
 
   window.addEventListener('scroll', updateNavbarTheme, { passive: true });
   window.addEventListener('resize', updateNavbarTheme, { passive: true });
+
+  // Use gsap.matchMedia for clean desktop vs mobile segregation
+  const mm = gsap.matchMedia();
+
+  // Desktop (> 768px): Pinned Venetian Blinds wipe
+  mm.add("(min-width: 769px)", () => {
+    stripes.forEach(s => {
+      gsap.set(s, { scaleY: 0, transformOrigin: 'bottom' });
+    });
+
+    if (formsSection) {
+      gsap.set(formsSection, { marginTop: '-100dvh' });
+    }
+
+    const shutterTl = gsap.timeline({
+      scrollTrigger: {
+        trigger: bannerSection,
+        start: 'top top',
+        end: '+=200%',
+        pin: true,
+        scrub: 0.8,
+        anticipatePin: 1,
+        pinSpacing: true,
+        onUpdate: () => {
+          updateNavbarTheme();
+          if (heroVideoController && heroVideoController.syncWithScroll) {
+            heroVideoController.syncWithScroll();
+          }
+        }
+      },
+      defaults: { ease: 'none' }
+    });
+
+    activeShutterTl = shutterTl;
+
+    if (bannerScrollBtn) {
+      shutterTl.to(bannerScrollBtn, { opacity: 0, y: -20, duration: 0.15, ease: 'none' }, 0);
+    }
+    if (bannerText) {
+      shutterTl.to(bannerText, { y: -60, opacity: 0.15, duration: 0.4, ease: 'none' }, 0);
+    }
+
+    shutterTl.addLabel('stripes_start', 0.05);
+    const totalStripes = stripes.length;
+    for (let e = 0; e < totalStripes; e++) {
+      const r = (0.3 * (totalStripes - 1 - e)) / (totalStripes - 1);
+      const s = r + 0.3;
+      shutterTl.to(stripes[e], {
+        scaleY: 1,
+        duration: s - r,
+        ease: 'none'
+      }, `stripes_start+=${r}`);
+    }
+    shutterTl.to({}, { duration: 0.15 });
+
+    return () => {
+      activeShutterTl = null;
+      if (formsSection) gsap.set(formsSection, { clearProps: 'marginTop' });
+      stripes.forEach(s => gsap.set(s, { clearProps: 'all' }));
+    };
+  });
+
+  // Mobile (<= 768px): Natural, frictionless scroll flow - zero empty spacer gaps
+  mm.add("(max-width: 768px)", () => {
+    activeShutterTl = null;
+    if (formsSection) {
+      gsap.set(formsSection, { marginTop: 0 });
+    }
+    stripes.forEach(s => {
+      gsap.set(s, { scaleY: 0 });
+    });
+    if (bannerScrollBtn) {
+      gsap.set(bannerScrollBtn, { opacity: 1, y: 0 });
+    }
+    if (bannerText) {
+      gsap.set(bannerText, { opacity: 1, y: 0 });
+    }
+  });
+
   updateNavbarTheme();
 
   // Initialize Hero Centerpiece Hanging Video controller linked to scroll
@@ -411,11 +438,16 @@ function initScrollDownAction() {
   const formsSection = document.getElementById('contact-forms-section');
 
   if (btn && formsSection) {
-    btn.addEventListener('click', () => {
-      // Smooth scroll past the pinned hero banner directly into the form
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const isMobile = window.innerWidth <= 768;
+      if (isMobile) {
+        formsSection.scrollIntoView({ behavior: 'smooth' });
+        return;
+      }
+      // On desktop, smooth scroll past the pinned hero banner directly into the form
       const bannerSection = document.getElementById('contact-banner-section');
-      const isTouch = typeof ScrollTrigger !== 'undefined' && ScrollTrigger.isTouch;
-      const factor = isTouch ? 1.55 : 2.05;
+      const factor = 2.05;
       const targetOffset = bannerSection ? (bannerSection.offsetHeight * factor) : window.innerHeight * 2;
       window.scrollTo({
         top: targetOffset,
