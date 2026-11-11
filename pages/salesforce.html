@@ -32,7 +32,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800;900&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/sf-clouds-motion-ed.css?v=20261105_mob_v1">
-  <link rel="stylesheet" href="../css/sf-practice-motion-ed.css?v=20261110_cardfit_v1">
+  <link rel="stylesheet" href="../css/sf-practice-motion-ed.css?v=20261111_seamfix_v1">
   <link rel="stylesheet" href="../css/sf-usecases-stack.css?v=20261105_static_v8">
 
   <style>
@@ -1823,12 +1823,14 @@
        ========================================================================== */
     #aiSection {
       background-color: #000000 !important;
-      background: 
+      background-image: 
         radial-gradient(ellipse 90% 50% at 50% 52%, rgba(149, 95, 217, 0.82) 0%, rgba(126, 67, 201, 0.55) 32%, rgba(96, 52, 154, 0.30) 58%, rgba(44, 23, 73, 0) 80%),
         radial-gradient(ellipse 70% 45% at 25% 45%, rgba(99, 52, 159, 0.35) 0%, transparent 65%),
         linear-gradient(180deg, #000000 0%, #000000 16%, #160D27 34%, #291642 48%, #381B5E 58%, #22103B 74%, #120920 86%, #000000 100%) !important;
-      padding: 6.5rem 1.5rem 4.5rem 1.5rem !important;
+      padding: calc(6.5rem + 3px) 1.5rem 4.5rem 1.5rem !important;
+      margin-top: -3px !important;
       position: relative !important;
+      z-index: 51 !important;
       overflow: hidden !important;
       color: #FFFFFF !important;
       border-top: none !important;
