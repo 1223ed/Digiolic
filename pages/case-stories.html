@@ -2017,7 +2017,13 @@
         transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.25s cubic-bezier(0.22, 1, 0.36, 1);
         transition-delay: var(--d-out, 0s);
       }
-      .projects-card-container:hover .projects-pixel-block,
+      @media (hover: hover) {
+        .projects-card-container:hover .projects-pixel-block {
+          transform: scale(1);
+          opacity: 1;
+          transition-delay: var(--d-in, 0s);
+        }
+      }
       .projects-card-container.is-active .projects-pixel-block {
         transform: scale(1);
         opacity: 1;
@@ -2840,12 +2846,26 @@
           }
 
           // Pointer tracking (Desktop hover + mouse move)
+          var touchDeactivateTimer = null;
+          var touchStartX = 0;
+          var touchStartY = 0;
+          var isScrollGesture = false;
+
           function handlePointer(clientX, clientY) {
             var rect = card.getBoundingClientRect();
             if (!rect.width || !rect.height) return;
             var nx = Math.max(0, Math.min(1, (clientX - rect.left) / rect.width));
             var ny = Math.max(0, Math.min(1, (clientY - rect.top) / rect.height));
             setCardSpringTargets(cardSprings, rect, nx, ny);
+          }
+
+          function clearActive() {
+            if (touchDeactivateTimer) {
+              clearTimeout(touchDeactivateTimer);
+              touchDeactivateTimer = null;
+            }
+            card.classList.remove('is-active');
+            resetCardSprings(cardSprings);
           }
 
           card.addEventListener('mouseenter', function(e) {
@@ -2855,33 +2875,63 @@
             handlePointer(e.clientX, e.clientY);
           });
           card.addEventListener('mouseleave', function() {
-            card.classList.remove('is-active');
-            resetCardSprings(cardSprings);
+            clearActive();
           });
 
-          // Touch tracking (Mobile)
+          // Touch tracking (Mobile: triggers ONLY when user touches or clicks a card, never automatically on scroll)
           card.addEventListener('touchstart', function(e) {
-            card.classList.add('is-active');
+            if (touchDeactivateTimer) {
+              clearTimeout(touchDeactivateTimer);
+              touchDeactivateTimer = null;
+            }
+            isScrollGesture = false;
             var t = e.touches && e.touches[0];
-            if (t) handlePointer(t.clientX, t.clientY);
+            if (t) {
+              touchStartX = t.clientX;
+              touchStartY = t.clientY;
+              card.classList.add('is-active');
+              handlePointer(t.clientX, t.clientY);
+            }
           }, { passive: true });
           card.addEventListener('touchmove', function(e) {
             var t = e.touches && e.touches[0];
-            if (t) handlePointer(t.clientX, t.clientY);
+            if (!t) return;
+            if (!isScrollGesture && Math.abs(t.clientY - touchStartY) > 16) {
+              isScrollGesture = true;
+              clearActive();
+              return;
+            }
+            if (!isScrollGesture) {
+              handlePointer(t.clientX, t.clientY);
+            }
+          }, { passive: true });
+          card.addEventListener('touchcancel', function() {
+            clearActive();
           }, { passive: true });
           card.addEventListener('touchend', function() {
-            setTimeout(function() {
-              card.classList.remove('is-active');
-              resetCardSprings(cardSprings);
-            }, 750);
+            if (isScrollGesture) {
+              clearActive();
+              return;
+            }
+            touchDeactivateTimer = setTimeout(function() {
+              clearActive();
+            }, 650);
           }, { passive: true });
 
-          // Store reset/pulse hooks for mobile scroll observer
-          card._magneticSprings = cardSprings;
-
-          // Modal open handlers
+          // Modal open handlers (also pulses card animation on click/tap)
           card.addEventListener('click', function(e) {
             e.preventDefault();
+            if (!card.matches(':hover') && !card.classList.contains('is-active')) {
+              card.classList.add('is-active');
+              var rect = card.getBoundingClientRect();
+              if (e.clientX || e.clientY) {
+                handlePointer(e.clientX, e.clientY);
+              } else {
+                setCardSpringTargets(cardSprings, rect, 0.5, 0.5);
+              }
+              if (touchDeactivateTimer) clearTimeout(touchDeactivateTimer);
+              touchDeactivateTimer = setTimeout(clearActive, 650);
+            }
             if (caseId && typeof window.openCaseStudyModal === 'function') {
               window.openCaseStudyModal(caseId);
             }
@@ -2889,6 +2939,10 @@
           card.addEventListener('keydown', function(e) {
             if (e.key === 'Enter' || e.key === ' ') {
               e.preventDefault();
+              card.classList.add('is-active');
+              setCardSpringTargets(cardSprings, card.getBoundingClientRect(), 0.5, 0.5);
+              if (touchDeactivateTimer) clearTimeout(touchDeactivateTimer);
+              touchDeactivateTimer = setTimeout(clearActive, 650);
               if (caseId && typeof window.openCaseStudyModal === 'function') {
                 window.openCaseStudyModal(caseId);
               }
@@ -2896,32 +2950,7 @@
           });
         });
 
-        // 2. Mobile Viewport Scroll Animation (12x8 pixel-dissolve wave + magnetic attraction pulse)
-        if ('IntersectionObserver' in window && window.innerWidth <= 768) {
-          var cardObserver = new IntersectionObserver(function(entries) {
-            entries.forEach(function(entry) {
-              var card = entry.target;
-              if (entry.isIntersecting) {
-                card.classList.add('is-active');
-                if (card._magneticSprings) {
-                  setCardSpringTargets(card._magneticSprings, card.getBoundingClientRect(), 0.5, 0.5);
-                }
-                setTimeout(function() {
-                  card.classList.remove('is-active');
-                  if (card._magneticSprings) {
-                    resetCardSprings(card._magneticSprings);
-                  }
-                }, 1150);
-              }
-            });
-          }, { threshold: 0.55 });
-
-          cards.forEach(function(card) {
-            cardObserver.observe(card);
-          });
-        }
-
-        // 3. Header Parallax Squares based on scroll
+        // 2. Header Parallax Squares based on scroll
         var section = document.getElementById('projectsCaseStudiesSection');
         var floatSquares = document.querySelectorAll('.projects-float-square');
         if (section && floatSquares.length) {

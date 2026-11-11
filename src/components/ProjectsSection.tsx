@@ -530,6 +530,9 @@ interface CardProps {
 const CaseStudyCard: React.FC<CardProps> = ({ study, index }) => {
   const [isHovered, setIsHovered] = useState(false);
   const cardRef = useRef<HTMLDivElement>(null);
+  const touchTimerRef = useRef<number | null>(null);
+  const touchStartYRef = useRef(0);
+  const isScrollGestureRef = useRef(false);
 
   const mouseX = useMotionValue(0.5);
   const mouseY = useMotionValue(0.5);
@@ -543,6 +546,18 @@ const CaseStudyCard: React.FC<CardProps> = ({ study, index }) => {
     },
     [mouseX, mouseY]
   );
+
+  const resetInteraction = useCallback(() => {
+    if (touchTimerRef.current !== null) {
+      window.clearTimeout(touchTimerRef.current);
+      touchTimerRef.current = null;
+    }
+    setIsHovered(false);
+    mouseX.set(0.5);
+    mouseY.set(0.5);
+  }, [mouseX, mouseY]);
+
+  useEffect(() => resetInteraction, [resetInteraction]);
 
   const handleMouseMove = useCallback(
     (e: React.MouseEvent<HTMLDivElement>) => {
@@ -560,27 +575,51 @@ const CaseStudyCard: React.FC<CardProps> = ({ study, index }) => {
   );
 
   const handleMouseLeave = useCallback(() => {
-    setIsHovered(false);
-    mouseX.set(0.5);
-    mouseY.set(0.5);
-  }, [mouseX, mouseY]);
+    resetInteraction();
+  }, [resetInteraction]);
 
   const handleTouchStart = useCallback(
     (e: React.TouchEvent<HTMLDivElement>) => {
+      if (touchTimerRef.current !== null) {
+        window.clearTimeout(touchTimerRef.current);
+        touchTimerRef.current = null;
+      }
+      isScrollGestureRef.current = false;
       const touch = e.touches[0];
-      if (touch) updatePointer(touch.clientX, touch.clientY, e.currentTarget);
-      setIsHovered(true);
+      if (touch) {
+        touchStartYRef.current = touch.clientY;
+        updatePointer(touch.clientX, touch.clientY, e.currentTarget);
+        setIsHovered(true);
+      }
     },
     [updatePointer]
   );
 
+  const handleTouchMove = useCallback(
+    (e: React.TouchEvent<HTMLDivElement>) => {
+      const touch = e.touches[0];
+      if (!touch) return;
+      if (!isScrollGestureRef.current && Math.abs(touch.clientY - touchStartYRef.current) > 16) {
+        isScrollGestureRef.current = true;
+        resetInteraction();
+        return;
+      }
+      if (!isScrollGestureRef.current) {
+        updatePointer(touch.clientX, touch.clientY, e.currentTarget);
+      }
+    },
+    [resetInteraction, updatePointer]
+  );
+
   const handleTouchEnd = useCallback(() => {
-    window.setTimeout(() => {
-      setIsHovered(false);
-      mouseX.set(0.5);
-      mouseY.set(0.5);
-    }, 600);
-  }, [mouseX, mouseY]);
+    if (isScrollGestureRef.current) {
+      resetInteraction();
+      return;
+    }
+    touchTimerRef.current = window.setTimeout(() => {
+      resetInteraction();
+    }, 650);
+  }, [resetInteraction]);
 
   const handleCardClick = () => {
     if (typeof (window as any).openCaseStudyModal === 'function') {
@@ -613,6 +652,8 @@ const CaseStudyCard: React.FC<CardProps> = ({ study, index }) => {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       onTouchStart={handleTouchStart}
+      onTouchMove={handleTouchMove}
+      onTouchCancel={resetInteraction}
       onTouchEnd={handleTouchEnd}
       onClick={handleCardClick}
       role="button"
