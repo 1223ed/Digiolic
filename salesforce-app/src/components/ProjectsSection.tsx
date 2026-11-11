@@ -37,7 +37,7 @@ interface CaseStudy {
   id: string;
   company: string;
   service: string;
-  serviceClass: 'zoho' | 'salesforce' | 'marketing';
+  serviceClass: 'zoho' | 'salesforce';
   location: string;
   image: string;
   magneticSquares: FloatingSquareConfig[];
@@ -193,66 +193,6 @@ const CASE_STUDIES: CaseStudy[] = [
       { x: 4, y: 62, size: 6 },
       { x: 82, y: 30, size: 16 },
       { x: 88, y: 42, size: 10 },
-    ],
-  },
-  {
-    id: 'case-deccan-herald',
-    company: 'Deccan Herald',
-    service: 'Digital Marketing',
-    serviceClass: 'marketing',
-    location: 'Location: Bangalore, India',
-    image: '../assets/images/case-studies/landmarks/deccan-herald.jpg',
-    magneticSquares: [
-      { x: 5, y: 30, size: 16 },
-      { x: 10, y: 42, size: 10 },
-      { x: 3, y: 52, size: 7 },
-      { x: 80, y: 70, size: 14 },
-      { x: 85, y: 82, size: 9 },
-    ],
-  },
-  {
-    id: 'case-myntra',
-    company: 'Myntra',
-    service: 'Digital Marketing',
-    serviceClass: 'marketing',
-    location: 'Location: Bangalore, India',
-    image: '../assets/images/case-studies/landmarks/myntra-campus.jpg',
-    magneticSquares: [
-      { x: 82, y: 55, size: 16 },
-      { x: 88, y: 68, size: 10 },
-      { x: 78, y: 72, size: 7 },
-      { x: 85, y: 42, size: 6 },
-      { x: 90, y: 80, size: 8 },
-    ],
-  },
-  {
-    id: 'case-flipkart',
-    company: 'Flipkart',
-    service: 'Digital Marketing',
-    serviceClass: 'marketing',
-    location: 'Location: Bangalore, India',
-    image: '../assets/images/case-studies/landmarks/flipkart-hub.jpg',
-    magneticSquares: [
-      { x: 4, y: 24, size: 16 },
-      { x: 10, y: 36, size: 10 },
-      { x: 2, y: 44, size: 7 },
-      { x: 78, y: 78, size: 14 },
-      { x: 84, y: 88, size: 8 },
-    ],
-  },
-  {
-    id: 'case-via-milano',
-    company: 'via Milano',
-    service: 'Digital Marketing',
-    serviceClass: 'marketing',
-    location: 'Location: Bangalore & Hyderabad, India',
-    image: '../assets/images/case-studies/landmarks/via-milano.jpg',
-    magneticSquares: [
-      { x: 82, y: 26, size: 14 },
-      { x: 88, y: 38, size: 10 },
-      { x: 78, y: 44, size: 7 },
-      { x: 84, y: 54, size: 5 },
-      { x: 90, y: 60, size: 8 },
     ],
   },
 ];
