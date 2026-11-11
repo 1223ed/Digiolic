@@ -44,12 +44,13 @@
   align-items: center;
   overflow: hidden;
   box-sizing: border-box;
-  padding: clamp(8px, 1.2vh, 16px) clamp(24px, 4vw, 64px) clamp(14px, 2vh, 22px);
+  padding: clamp(28px, 4.4vh, 46px) clamp(24px, 4vw, 64px) clamp(14px, 2vh, 22px);
   z-index: 10;
 }
 
-/* Top Editorial HUD Bar */
+/* Top Editorial HUD Bar (Removed per design review) */
 .sf-practice-hud {
+  display: none !important;
   width: 100%;
   max-width: 1440px;
   display: flex;
