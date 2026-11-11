@@ -208,6 +208,11 @@
   will-change: transform, opacity;
 }
 
+#heroSection .hw-char:first-child {
+  color: #76C826;
+  text-shadow: 0 8px 36px rgba(0, 0, 0, 0.68), 0 0 26px rgba(118, 200, 38, 0.25);
+}
+
 #heroSection .hero-wait-line {
   margin: 0;
   font-family: 'Plus Jakarta Sans', 'Manrope', sans-serif;
