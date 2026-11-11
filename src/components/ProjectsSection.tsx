@@ -446,7 +446,7 @@ const FloatingSquare: React.FC<FloatingSquareProps> = ({
       }}
     >
       <motion.div
-        className="h-full w-full bg-black"
+        className="h-full w-full bg-white"
         animate={{ y: [0, -10, 0] }}
         transition={{
           duration: 3 + index * 0.4,
@@ -505,7 +505,7 @@ const MagneticSquare: React.FC<MagneticSquareProps> = ({
 
   return (
     <motion.div
-      className="pointer-events-none absolute bg-black"
+      className="pointer-events-none absolute bg-white shadow-[0_2px_10px_rgba(0,0,0,0.45)]"
       style={{
         left: `${sq.x}%`,
         top: `${sq.y}%`,
@@ -634,7 +634,7 @@ const CaseStudyCard: React.FC<CardProps> = ({ study, index }) => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-40px' }}
       transition={{ duration: 0.7, delay: (index % 4) * 0.1, ease: EASING }}
-      className="group relative aspect-[4/3] cursor-pointer overflow-hidden rounded bg-neutral-900"
+      className="group relative aspect-[4/3] cursor-pointer overflow-hidden rounded border border-white/15 bg-neutral-950 transition-colors hover:border-white/35"
       onMouseMove={handleMouseMove}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
@@ -715,14 +715,14 @@ const CaseStudyCard: React.FC<CardProps> = ({ study, index }) => {
 
       {/* 5. Info plate (bottom left) */}
       <div
-        className="absolute bottom-0 left-0 bg-white px-4 pb-3 pt-2.5"
+        className="absolute bottom-0 left-0 bg-black px-4 pb-3 pt-2.5"
         style={{ zIndex: 20, maxWidth: '82%' }}
       >
-        <h3 className="text-[clamp(1.4rem,2.2vw,2rem)] font-normal leading-tight tracking-normal text-black">
+        <h3 className="text-[clamp(1.4rem,2.2vw,2rem)] font-normal leading-tight tracking-normal text-white">
           {study.company}
         </h3>
         <div className="mt-1.5 flex flex-wrap items-center gap-4">
-          <span className="text-[12px] font-normal text-black/60">
+          <span className="text-[12px] font-normal text-white/60">
             {study.service}
           </span>
         </div>
@@ -750,7 +750,7 @@ export default function ProjectsSection(): JSX.Element {
   return (
     <section
       ref={sectionRef}
-      className="relative bg-white text-black"
+      className="relative border-b border-white/10 bg-black text-white"
       style={{ fontFamily: "'DM Sans', sans-serif" }}
     >
       <style>{`
@@ -793,14 +793,14 @@ export default function ProjectsSection(): JSX.Element {
             }
             transition={{ duration: 0.7, ease: EASING }}
           >
-            <span className="mb-5 inline-block bg-black px-4 py-1.5 text-[13px] font-medium tracking-wide text-white">
+            <span className="mb-5 inline-block bg-white px-4 py-1.5 text-[13px] font-medium tracking-wide text-black">
               Projects
             </span>
             <h2 className="text-[clamp(1.8rem,3.2vw,2.8rem)] font-light leading-[1.25] tracking-tight">
-              <span className="text-black">Insights from </span>
-              <span className="text-black/40">Our</span>
+              <span className="text-white">Insights from </span>
+              <span className="text-white/45">Our</span>
               <br />
-              <span className="text-black/40">Case Studies</span>
+              <span className="text-white/45">Case Studies</span>
             </h2>
           </motion.div>
         </div>
