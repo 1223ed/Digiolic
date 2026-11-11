@@ -34,6 +34,7 @@
   <link rel="stylesheet" href="../css/sf-clouds-motion-ed.css?v=20261105_mob_v1">
   <link rel="stylesheet" href="../css/sf-practice-motion-ed.css?v=20261111_slategrad_v1">
   <link rel="stylesheet" href="../css/sf-usecases-stack.css?v=20261105_static_v8">
+  <link rel="stylesheet" href="../css/sf-process-heartx.css?v=20261111_hx_v1">
 
   <style>
     html {
@@ -359,10 +360,7 @@
     #useCasesSection .sf-section-title,
     #useCasesSection h2.sf-section-title,
     #useCasesSection .sf-qude-title-line,
-    #useCasesSection h2.sf-qude-title-line,
-    #processSection .sf-section-title,
-    #processSection .sf-play-title,
-    #processSection h2.sf-play-title {
+    #useCasesSection h2.sf-qude-title-line {
       font-family: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
       font-size: clamp(48px, 5.6vw, 82px) !important;
       font-weight: 800 !important;
@@ -413,10 +411,7 @@
       #useCasesSection .sf-section-title,
       #useCasesSection h2.sf-section-title,
       #useCasesSection .sf-qude-title-line,
-      #useCasesSection h2.sf-qude-title-line,
-      #processSection .sf-section-title,
-      #processSection .sf-play-title,
-      #processSection h2.sf-play-title {
+      #useCasesSection h2.sf-qude-title-line {
         font-size: clamp(34px, 5.4vw, 56px) !important;
         line-height: 1.08 !important;
       }
@@ -440,10 +435,7 @@
       #useCasesSection .sf-section-title,
       #useCasesSection h2.sf-section-title,
       #useCasesSection .sf-qude-title-line,
-      #useCasesSection h2.sf-qude-title-line,
-      #processSection .sf-section-title,
-      #processSection .sf-play-title,
-      #processSection h2.sf-play-title {
+      #useCasesSection h2.sf-qude-title-line {
         font-size: clamp(21px, 5.5vw, 32px) !important;
         line-height: 1.15 !important;
         word-break: keep-all !important;
@@ -2150,353 +2142,8 @@
 
     /* ==========================================================================
        SECTION 11: SALESFORCE IMPLEMENTATION BUILT AROUND YOUR BUSINESS
-       100% Faithful Recreation of Image 1 ("WHO WE'RE PLAYING WITH")
-       Warm Linen Canvas (#FAF8F5), Chamfered Cut-Corners, Angled Orange CTA
+       Styled externally in ../css/sf-process-heartx.css
        ========================================================================== */
-    .sf-play-section {
-      background-color: #000000 !important;
-      background: #000000 !important;
-      color: #FFFFFF !important;
-      padding: clamp(60px, 8vh, 100px) clamp(20px, 4vw, 56px) !important;
-      position: relative !important;
-      overflow: hidden;
-      border-top: none !important;
-      border-bottom: none !important;
-      border: none !important;
-      box-sizing: border-box !important;
-    }
-
-    .sf-play-container {
-      max-width: 1400px;
-      margin: 0 auto;
-      position: relative;
-    }
-
-    /* Centered Title & Pill Badge (Image 1 Header) */
-    .sf-play-header-wrap {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      margin-bottom: clamp(70px, 9.4vh, 122px) !important;
-      padding-left: 0;
-      width: 100%;
-      position: relative !important;
-      top: auto !important;
-      z-index: 2 !important;
-      transform: none !important;
-      opacity: 1 !important;
-      will-change: auto !important;
-      pointer-events: auto !important;
-    }
-
-    .sf-play-title-group {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      gap: 14px;
-      width: 100%;
-    }
-
-    .sf-play-title {
-      font-family: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
-      font-size: clamp(43px, 5.0vw, 74px) !important;
-      font-weight: 800 !important;
-      line-height: 1.05 !important;
-      letter-spacing: -0.035em !important;
-      text-transform: none !important;
-      color: #FFFFFF !important;
-      margin: 0 !important;
-      display: flex !important;
-      flex-direction: column !important;
-      align-items: center !important;
-      text-align: center !important;
-    }
-
-    .sf-play-title .sf-hero-line {
-      display: block !important;
-      white-space: normal !important;
-      text-align: center !important;
-    }
-
-    .sf-play-title .sf-text-blue {
-      color: #00A1E0 !important;
-      text-shadow: 0 0 35px rgba(0, 161, 224, 0.4);
-    }
-
-    .sf-play-badge {
-      display: inline-flex;
-      align-items: center;
-      padding: 5px 14px;
-      border: 2px solid #FF4600;
-      border-radius: 9999px;
-      font-family: 'Space Mono', monospace;
-      font-size: 0.74rem;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: #FF4600;
-      background: rgba(255, 70, 0, 0.08);
-      margin-top: 6px;
-      white-space: nowrap;
-    }
-
-    /* 3-Column Editorial Grid matching Image 1 */
-    .sf-play-grid {
-      display: grid;
-      grid-template-columns: minmax(320px, 1.05fr) minmax(300px, 1fr) minmax(300px, 1fr);
-      gap: clamp(20px, 2.2vw, 32px);
-      align-items: start;
-      position: relative !important;
-    }
-
-    .sf-play-col {
-      display: flex;
-      flex-direction: column;
-      gap: clamp(20px, 2.2vw, 32px);
-    }
-
-    /* Column 2 Center offset to match Image 1's floating middle position */
-    .sf-play-card-center-offset {
-      margin-top: clamp(16px, 3vh, 40px);
-    }
-
-    /* Base Card Styling - Palette Matching User's Reference Image */
-    .sf-play-card {
-      position: relative;
-      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
-                  box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1),
-                  border-color 0.25s ease;
-      user-select: none;
-    }
-
-    .sf-play-standard {
-      border: 1.5px solid rgba(0, 0, 0, 0.12);
-      border-radius: 6px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
-    }
-
-    .sf-play-standard:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45);
-    }
-
-    /* Chamfered Top-Right (Card 1 - Milestone Position) */
-    .sf-play-chamfer-tr {
-      background: rgba(0, 0, 0, 0.18);
-      clip-path: polygon(0 0, calc(100% - 28px) 0, 100% 28px, 100% 100%, 0 100%);
-      padding: 1.5px;
-      border-radius: 6px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
-    }
-    .sf-play-chamfer-tr .sf-play-card-inner {
-      clip-path: polygon(0 0, calc(100% - 27px) 0, 100% 27px, 100% 100%, 0 100%);
-    }
-    .sf-play-chamfer-tr:hover {
-      transform: translateY(-4px);
-      filter: drop-shadow(0 16px 28px rgba(0, 0, 0, 0.5));
-    }
-
-    /* Chamfered Bottom-Right (Card 7 - Storm8 Position) */
-    .sf-play-chamfer-br {
-      background: rgba(0, 0, 0, 0.18);
-      clip-path: polygon(0 0, 100% 0, 100% calc(100% - 28px), calc(100% - 28px) 100%, 0 100%);
-      padding: 1.5px;
-      border-radius: 6px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
-    }
-    .sf-play-chamfer-br .sf-play-card-inner {
-      clip-path: polygon(0 0, 100% 0, 100% calc(100% - 27px), calc(100% - 27px) 100%, 0 100%);
-    }
-    .sf-play-chamfer-br:hover {
-      transform: translateY(-4px);
-      filter: drop-shadow(0 16px 28px rgba(0, 0, 0, 0.5));
-    }
-
-    /* Exact Colors from Reference Image applied to the Rectangle Boxes */
-    #sfProcessCard1 .sf-play-card-inner {
-      background: #E1DBFD !important; /* Soft Lilac / Lavender */
-    }
-    #sfProcessCard2 {
-      background: #90C3CD !important; /* Soft Aqua / Teal */
-    }
-    #sfProcessCard3 {
-      background: #FF764A !important; /* Vibrant Warm Coral / Orange */
-    }
-    #sfProcessCard4 {
-      background: #47B171 !important; /* Emerald / Jade Green */
-    }
-    #sfProcessCard5 {
-      background: #FFB84F !important; /* Warm Amber / Golden Honey */
-    }
-    #sfProcessCard6 {
-      background: #E1DBFD !important; /* Soft Lilac / Lavender */
-    }
-    #sfProcessCard7 .sf-play-card-inner {
-      background: #90C3CD !important; /* Soft Aqua / Teal */
-    }
-
-    /* Editorial Deep Black Typography inside Cards for Maximum Legibility & Brand Contrast */
-    .sf-play-card .sf-play-card-title {
-      color: #0D0E12 !important;
-      font-weight: 800 !important;
-    }
-    .sf-play-card .sf-play-card-desc {
-      color: rgba(13, 14, 18, 0.88) !important;
-      font-weight: 500 !important;
-    }
-    .sf-play-card .sf-play-phase-tag {
-      color: rgba(13, 14, 18, 0.65) !important;
-      font-weight: 700 !important;
-    }
-
-    .sf-play-card-inner {
-      padding: clamp(24px, 2.5vw, 32px);
-      box-sizing: border-box;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      min-height: 250px;
-    }
-
-    /* Emblem / Icon */
-    .sf-play-emblem {
-      margin-bottom: 16px;
-      color: #0D0E12;
-      display: flex;
-      align-items: center;
-    }
-
-    .sf-play-phase-tag {
-      font-family: 'Space Mono', monospace;
-      font-size: 0.74rem;
-      font-weight: 700;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: #64748B;
-      margin-bottom: 8px;
-    }
-
-    .sf-play-card-title {
-      font-family: 'Space Grotesk', 'Outfit', sans-serif;
-      font-size: clamp(1.22rem, 1.4vw, 1.42rem);
-      font-weight: 800;
-      line-height: 1.22;
-      letter-spacing: -0.02em;
-      color: #0D0E12;
-      margin: 0 0 10px 0;
-    }
-
-    .sf-play-card-desc {
-      font-family: 'Inter', sans-serif;
-      font-size: 0.94rem;
-      line-height: 1.6;
-      color: #475569;
-      margin: 0;
-    }
-
-    /* Left Lead Copy & Orange CTA Button */
-    .sf-play-lead-copy {
-      padding: 10px 4px;
-    }
-
-    .sf-play-lead-copy p {
-      font-family: 'Space Grotesk', 'Inter', sans-serif;
-      font-size: clamp(1rem, 1.15vw, 1.12rem);
-      line-height: 1.68;
-      color: rgba(255, 255, 255, 0.78);
-      margin: 0 0 24px 0;
-      font-weight: 400;
-    }
-
-    /* Orange Cut-Corner CTA Button (Image 1 REACH OUT TO US) */
-    .sf-play-orange-cta {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      background-color: #FF4600;
-      color: #FFFFFF !important;
-      font-family: 'Space Grotesk', 'Space Mono', sans-serif;
-      font-size: 0.96rem;
-      font-weight: 800;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      text-decoration: none;
-      padding: 14px 28px;
-      clip-path: polygon(0 0, 100% 0, 100% calc(100% - 14px), calc(100% - 14px) 100%, 0 100%);
-      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-      box-shadow: 0 6px 18px rgba(255, 70, 0, 0.35);
-    }
-
-    .sf-play-orange-cta:hover {
-      background-color: #E03E00;
-      transform: translateY(-2px);
-      box-shadow: 0 10px 24px rgba(255, 70, 0, 0.45);
-    }
-
-    /* Responsive Breakpoints */
-    @media (max-width: 1080px) {
-      .sf-play-header-wrap {
-        padding-left: 0;
-        justify-content: center;
-        text-align: center;
-        margin-bottom: clamp(40px, 6vh, 70px) !important;
-      }
-      .sf-play-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-      .sf-play-col-1 {
-        grid-column: 1 / -1;
-      }
-      .sf-play-card-center-offset {
-        margin-top: 0;
-      }
-    }
-
-    @media (max-width: 991px) {
-      .sf-play-grid {
-        display: flex !important;
-        flex-direction: column !important;
-        gap: 20px !important;
-      }
-      .sf-play-col {
-        display: contents !important;
-      }
-      #sfProcessCard1 {
-        order: 1 !important;
-      }
-      #sfProcessCard2 {
-        order: 2 !important;
-      }
-      #sfProcessCard3 {
-        order: 3 !important;
-      }
-      #sfProcessCard4 {
-        order: 4 !important;
-      }
-      #sfProcessCard5 {
-        order: 5 !important;
-      }
-      #sfProcessCard6 {
-        order: 6 !important;
-      }
-      #sfProcessCard7 {
-        order: 7 !important;
-      }
-      .sf-play-lead-copy {
-        order: 8 !important;
-        margin-top: 10px !important;
-        padding: 0 10px !important;
-      }
-      .sf-play-title {
-        font-size: clamp(22px, 6vw, 32px) !important;
-      }
-      .sf-play-card-inner {
-        min-height: auto !important;
-      }
-    }
 
     /* ==========================================================================
        SECTION 19: SALESFORCE IMPLEMENTATION FAQS (EXACT FINSIGHT SPECIFICATION)
@@ -5489,159 +5136,300 @@
          ========================================================================== -->
     <section class="sf-section sf-play-section" id="processSection">
       <div class="sf-play-container">
-        
-        <!-- Centered Title & Pill Badge (Image 1 Header) -->
-        <div class="sf-play-header-wrap" id="sfProcessHeaderWrap">
-          <div class="sf-play-title-group">
-            <div class="sf-play-badge">
-              <span>PROVEN METHODOLOGY</span>
+
+        <!-- Sticky Editorial Intro Column (Left) -->
+        <div class="sf-hx-intro-col">
+          <div class="sf-play-header-wrap" id="sfProcessHeaderWrap">
+            <div class="sf-play-title-group">
+              <div class="sf-play-badge">
+                <span>PROVEN METHODOLOGY</span>
+              </div>
+              <h2 class="sf-section-title sf-play-title" id="sfProcessTitle">
+                <span class="sf-hero-line"><span class="sf-ai-highlight">Salesforce</span> Implementation</span>
+                <span class="sf-hero-line">Built Around Your Business</span>
+              </h2>
             </div>
-            <h2 class="sf-section-title sf-play-title" id="sfProcessTitle">
-              <span class="sf-hero-line"><span class="sf-ai-highlight">Salesforce</span> Implementation</span>
-              <span class="sf-hero-line">Built Around Your Business</span>
-            </h2>
+          </div>
+
+          <div class="sf-play-lead-copy">
+            <p>We've established battle-tested agile delivery frameworks engineered for zero business disruption, seamless system integrations, and high day-one user adoption. Our clients partner with us for bespoke Salesforce architecture and stay for our precise execution.</p>
+
+            <a href="contact.html" class="sf-play-orange-cta">
+              <span>REACH OUT TO US</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg>
+            </a>
+          </div>
+
+          <div class="sf-hx-scroll-hud" aria-hidden="true">
+            <div class="sf-hx-hud-meta">
+              <span class="sf-hx-hud-count"><span class="sf-hx-hud-current">01</span> / 07</span>
+              <span class="sf-hx-hud-name">Discovery &amp; Blueprint</span>
+            </div>
+            <div class="sf-hx-hud-track">
+              <div class="sf-hx-hud-fill"></div>
+            </div>
           </div>
         </div>
 
-        <!-- Editorial Asymmetric Grid (Matching Image 1 Layout) -->
-        <div class="sf-play-grid">
-          
-          <!-- COLUMN 1 (LEFT) -->
-          <div class="sf-play-col sf-play-col-1">
-            <!-- Card 1: Top-Left with Chamfered Top-Right Corner (Phase 01) -->
-            <div class="sf-play-card sf-play-chamfer-tr" id="sfProcessCard1">
-              <div class="sf-play-card-inner">
-                <div class="sf-play-emblem">
-                  <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-                    <rect x="2" y="2" width="36" height="36" rx="4" stroke="#0D0E12" stroke-width="2.2"/>
-                    <polygon points="20,8 32,20 20,32 8,20" fill="#0D0E12"/>
-                    <circle cx="20" cy="20" r="3.5" fill="#E1DBFD"/>
-                  </svg>
-                </div>
+        <!-- 2-Column Staggered Editorial Showcase Cards (Right - HeartX Spec) -->
+        <div class="sf-hx-grid">
+
+          <!-- Card 1 (Phase 01) -->
+          <article class="sf-play-card sf-hx-card" id="sfProcessCard1" tabindex="0">
+            <div class="sf-hx-media">
+              <img class="sf-hx-photo" src="../assets/images/phase-01-consulting.jpg" alt="Discovery &amp; Blueprint" loading="lazy">
+              <div class="sf-hx-scrim" aria-hidden="true"></div>
+              <div class="sf-hx-pixels" aria-hidden="true">
+                <span class="sf-hx-px sf-hx-px-1"></span>
+                <span class="sf-hx-px sf-hx-px-2"></span>
+                <span class="sf-hx-px sf-hx-px-3"></span>
+                <span class="sf-hx-px sf-hx-px-4"></span>
+                <span class="sf-hx-px sf-hx-px-5"></span>
+              </div>
+              <div class="sf-hx-tile-grid" aria-hidden="true"></div>
+            </div>
+            <div class="sf-play-emblem">
+              <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                <rect x="2" y="2" width="36" height="36" rx="4" stroke="#0D0E12" stroke-width="2.2"/>
+                <polygon points="20,8 32,20 20,32 8,20" fill="#0D0E12"/>
+                <circle cx="20" cy="20" r="3.5" fill="#E1DBFD"/>
+              </svg>
+            </div>
+            <div class="sf-hx-plus-box" aria-hidden="true">
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6">
+                <line x1="8" y1="2.5" x2="8" y2="13.5"></line>
+                <line x1="2.5" y1="8" x2="13.5" y2="8"></line>
+              </svg>
+            </div>
+            <div class="sf-hx-notch sf-play-card-inner">
+              <h3 class="sf-play-card-title">Discovery &amp; Blueprint</h3>
+              <div class="sf-hx-meta-row">
                 <div class="sf-play-phase-tag">PHASE 01 · 1-2 WEEKS</div>
-                <h3 class="sf-play-card-title">Discovery &amp; Blueprint</h3>
-                <p class="sf-play-card-desc">Architecture audit, stakeholder interviews, security boundaries, and technical delivery roadmapping.</p>
               </div>
+              <p class="sf-play-card-desc">Architecture audit, stakeholder interviews, security boundaries, and technical delivery roadmapping.</p>
             </div>
+          </article>
 
-            <!-- Left Editorial Copy Paragraph & Orange Button (Image 1 Left Zone) -->
-            <div class="sf-play-lead-copy">
-              <p>We've established battle-tested agile delivery frameworks engineered for zero business disruption, seamless system integrations, and high day-one user adoption. Our clients partner with us for bespoke Salesforce architecture and stay for our precise execution.</p>
-              
-              <!-- Orange Angled Cut-Corner CTA Button (Image 1 REACH OUT TO US) -->
-              <a href="contact.html" class="sf-play-orange-cta">
-                <span>REACH OUT TO US</span>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                  <line x1="7" y1="17" x2="17" y2="7"></line>
-                  <polyline points="7 7 17 7 17 17"></polyline>
-                </svg>
-              </a>
-            </div>
-
-            <!-- Card 4: Bottom-Left Card (Phase 04) -->
-            <div class="sf-play-card sf-play-standard" id="sfProcessCard4">
-              <div class="sf-play-card-inner">
-                <div class="sf-play-emblem">
-                  <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-                    <circle cx="20" cy="20" r="17" stroke="#0D0E12" stroke-width="2.2"/>
-                    <line x1="12" y1="14" x2="28" y2="14" stroke="#0D0E12" stroke-width="2.5"/>
-                    <line x1="10" y1="20" x2="30" y2="20" stroke="#0D0E12" stroke-width="2.5"/>
-                    <line x1="14" y1="26" x2="26" y2="26" stroke="#0D0E12" stroke-width="2.5"/>
-                  </svg>
-                </div>
-                <div class="sf-play-phase-tag">PHASE 04 · 2-3 WEEKS</div>
-                <h3 class="sf-play-card-title">Integration &amp; Migration</h3>
-                <p class="sf-play-card-desc">Bi-directional REST/SOAP API pipelines, ERP connectivity, and zero-downtime ETL migration of legacy database records.</p>
+          <!-- Card 2 (Phase 02) -->
+          <article class="sf-play-card sf-hx-card" id="sfProcessCard2" tabindex="0">
+            <div class="sf-hx-media">
+              <img class="sf-hx-photo" src="../assets/images/sf-tech/salesforce.jpg" alt="Solution Design &amp; Data Model" loading="lazy">
+              <div class="sf-hx-scrim" aria-hidden="true"></div>
+              <div class="sf-hx-pixels" aria-hidden="true">
+                <span class="sf-hx-px sf-hx-px-1"></span>
+                <span class="sf-hx-px sf-hx-px-2"></span>
+                <span class="sf-hx-px sf-hx-px-3"></span>
+                <span class="sf-hx-px sf-hx-px-4"></span>
+                <span class="sf-hx-px sf-hx-px-5"></span>
               </div>
+              <div class="sf-hx-tile-grid" aria-hidden="true"></div>
             </div>
-          </div>
-
-          <!-- COLUMN 2 (CENTER) -->
-          <div class="sf-play-col sf-play-col-2">
-            <!-- Card 2: Center Offset Floating Card (Phase 02) -->
-            <div class="sf-play-card sf-play-standard sf-play-card-center-offset" id="sfProcessCard2">
-              <div class="sf-play-card-inner">
-                <div class="sf-play-emblem">
-                  <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-                    <polygon points="20,4 36,13 36,27 20,36 4,27 4,13" stroke="#0D0E12" stroke-width="2.2"/>
-                    <polyline points="4,13 20,22 36,13" stroke="#0D0E12" stroke-width="2"/>
-                    <line x1="20" y1="22" x2="20" y2="36" stroke="#0D0E12" stroke-width="2"/>
-                  </svg>
-                </div>
+            <div class="sf-play-emblem">
+              <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                <polygon points="20,4 36,13 36,27 20,36 4,27 4,13" stroke="#0D0E12" stroke-width="2.2"/>
+                <polyline points="4,13 20,22 36,13" stroke="#0D0E12" stroke-width="2"/>
+                <line x1="20" y1="22" x2="20" y2="36" stroke="#0D0E12" stroke-width="2"/>
+              </svg>
+            </div>
+            <div class="sf-hx-plus-box" aria-hidden="true">
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6">
+                <line x1="8" y1="2.5" x2="8" y2="13.5"></line>
+                <line x1="2.5" y1="8" x2="13.5" y2="8"></line>
+              </svg>
+            </div>
+            <div class="sf-hx-notch sf-play-card-inner">
+              <h3 class="sf-play-card-title">Solution Design &amp; Data Model</h3>
+              <div class="sf-hx-meta-row">
                 <div class="sf-play-phase-tag">PHASE 02 · 2 WEEKS</div>
-                <h3 class="sf-play-card-title">Solution Design &amp; Data Model</h3>
-                <p class="sf-play-card-desc">Scalable object schemas, role hierarchies, security governance, and automated Flow maps built for enterprise scale.</p>
               </div>
+              <p class="sf-play-card-desc">Scalable object schemas, role hierarchies, security governance, and automated Flow maps built for enterprise scale.</p>
             </div>
+          </article>
 
-            <!-- Card 5: Center-Bottom Card (Phase 05) -->
-            <div class="sf-play-card sf-play-standard" id="sfProcessCard5">
-              <div class="sf-play-card-inner">
-                <div class="sf-play-emblem">
-                  <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-                    <path d="M20 4L7 9V19C7 27 12.5 34.5 20 37C27.5 34.5 33 27 33 19V9L20 4Z" stroke="#0D0E12" stroke-width="2.2"/>
-                    <path d="M14 20L18 24L26 16" stroke="#0D0E12" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-                </div>
-                <div class="sf-play-phase-tag">PHASE 05 · 1-2 WEEKS</div>
-                <h3 class="sf-play-card-title">Rigorous QA &amp; UAT Validation</h3>
-                <p class="sf-play-card-desc">Governor-limit stress testing, security code scanning, regression suites, and end-to-end user acceptance sign-offs.</p>
+          <!-- Card 3 (Phase 03) -->
+          <article class="sf-play-card sf-hx-card" id="sfProcessCard3" tabindex="0">
+            <div class="sf-hx-media">
+              <img class="sf-hx-photo" src="../assets/images/sf-tech/apex.jpg" alt="Custom Engineering &amp; LWC" loading="lazy">
+              <div class="sf-hx-scrim" aria-hidden="true"></div>
+              <div class="sf-hx-pixels" aria-hidden="true">
+                <span class="sf-hx-px sf-hx-px-1"></span>
+                <span class="sf-hx-px sf-hx-px-2"></span>
+                <span class="sf-hx-px sf-hx-px-3"></span>
+                <span class="sf-hx-px sf-hx-px-4"></span>
+                <span class="sf-hx-px sf-hx-px-5"></span>
               </div>
+              <div class="sf-hx-tile-grid" aria-hidden="true"></div>
             </div>
-          </div>
-
-          <!-- COLUMN 3 (RIGHT) -->
-          <div class="sf-play-col sf-play-col-3">
-            <!-- Card 3: Top-Right Card (Phase 03) -->
-            <div class="sf-play-card sf-play-standard" id="sfProcessCard3">
-              <div class="sf-play-card-inner">
-                <div class="sf-play-emblem">
-                  <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-                    <rect x="5" y="8" width="30" height="24" rx="3" stroke="#0D0E12" stroke-width="2.2"/>
-                    <path d="M14 16L10 20L14 24" stroke="#0D0E12" stroke-width="2" stroke-linecap="round"/>
-                    <path d="M26 16L30 20L26 24" stroke="#0D0E12" stroke-width="2" stroke-linecap="round"/>
-                    <line x1="22" y1="15" x2="18" y2="25" stroke="#0D0E12" stroke-width="2" stroke-linecap="round"/>
-                  </svg>
-                </div>
+            <div class="sf-play-emblem">
+              <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                <rect x="5" y="8" width="30" height="24" rx="3" stroke="#0D0E12" stroke-width="2.2"/>
+                <path d="M14 16L10 20L14 24" stroke="#0D0E12" stroke-width="2" stroke-linecap="round"/>
+                <path d="M26 16L30 20L26 24" stroke="#0D0E12" stroke-width="2" stroke-linecap="round"/>
+                <line x1="22" y1="15" x2="18" y2="25" stroke="#0D0E12" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div class="sf-hx-plus-box" aria-hidden="true">
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6">
+                <line x1="8" y1="2.5" x2="8" y2="13.5"></line>
+                <line x1="2.5" y1="8" x2="13.5" y2="8"></line>
+              </svg>
+            </div>
+            <div class="sf-hx-notch sf-play-card-inner">
+              <h3 class="sf-play-card-title">Custom Engineering &amp; LWC</h3>
+              <div class="sf-hx-meta-row">
                 <div class="sf-play-phase-tag">PHASE 03 · 3-4 WEEKS</div>
-                <h3 class="sf-play-card-title">Custom Engineering &amp; LWC</h3>
-                <p class="sf-play-card-desc">Governor-limit-safe Apex, custom Lightning Web Components (LWC), dynamic UI, and automated business logic.</p>
               </div>
+              <p class="sf-play-card-desc">Governor-limit-safe Apex, custom Lightning Web Components (LWC), dynamic UI, and automated business logic.</p>
             </div>
+          </article>
 
-            <!-- Card 6: Middle-Right Card (Phase 06) -->
-            <div class="sf-play-card sf-play-standard" id="sfProcessCard6">
-              <div class="sf-play-card-inner">
-                <div class="sf-play-emblem">
-                  <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-                    <circle cx="20" cy="20" r="16" stroke="#0D0E12" stroke-width="2.2"/>
-                    <path d="M12 20L18 26L28 14" stroke="#0D0E12" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    <circle cx="20" cy="8" r="1.5" fill="#0D0E12"/>
-                    <circle cx="32" cy="20" r="1.5" fill="#0D0E12"/>
-                    <circle cx="20" cy="32" r="1.5" fill="#0D0E12"/>
-                    <circle cx="8" cy="20" r="1.5" fill="#0D0E12"/>
-                  </svg>
-                </div>
+          <!-- Card 4 (Phase 04) -->
+          <article class="sf-play-card sf-hx-card" id="sfProcessCard4" tabindex="0">
+            <div class="sf-hx-media">
+              <img class="sf-hx-photo" src="../assets/images/sf-tech/apis.jpg" alt="Integration &amp; Migration" loading="lazy">
+              <div class="sf-hx-scrim" aria-hidden="true"></div>
+              <div class="sf-hx-pixels" aria-hidden="true">
+                <span class="sf-hx-px sf-hx-px-1"></span>
+                <span class="sf-hx-px sf-hx-px-2"></span>
+                <span class="sf-hx-px sf-hx-px-3"></span>
+                <span class="sf-hx-px sf-hx-px-4"></span>
+                <span class="sf-hx-px sf-hx-px-5"></span>
+              </div>
+              <div class="sf-hx-tile-grid" aria-hidden="true"></div>
+            </div>
+            <div class="sf-play-emblem">
+              <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                <circle cx="20" cy="20" r="17" stroke="#0D0E12" stroke-width="2.2"/>
+                <line x1="12" y1="14" x2="28" y2="14" stroke="#0D0E12" stroke-width="2.5"/>
+                <line x1="10" y1="20" x2="30" y2="20" stroke="#0D0E12" stroke-width="2.5"/>
+                <line x1="14" y1="26" x2="26" y2="26" stroke="#0D0E12" stroke-width="2.5"/>
+              </svg>
+            </div>
+            <div class="sf-hx-plus-box" aria-hidden="true">
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6">
+                <line x1="8" y1="2.5" x2="8" y2="13.5"></line>
+                <line x1="2.5" y1="8" x2="13.5" y2="8"></line>
+              </svg>
+            </div>
+            <div class="sf-hx-notch sf-play-card-inner">
+              <h3 class="sf-play-card-title">Integration &amp; Migration</h3>
+              <div class="sf-hx-meta-row">
+                <div class="sf-play-phase-tag">PHASE 04 · 2-3 WEEKS</div>
+              </div>
+              <p class="sf-play-card-desc">Bi-directional REST/SOAP API pipelines, ERP connectivity, and zero-downtime ETL migration of legacy database records.</p>
+            </div>
+          </article>
+
+          <!-- Card 5 (Phase 05) -->
+          <article class="sf-play-card sf-hx-card" id="sfProcessCard5" tabindex="0">
+            <div class="sf-hx-media">
+              <img class="sf-hx-photo" src="../assets/images/phase-03-implementation.jpg" alt="Rigorous QA &amp; UAT Validation" loading="lazy">
+              <div class="sf-hx-scrim" aria-hidden="true"></div>
+              <div class="sf-hx-pixels" aria-hidden="true">
+                <span class="sf-hx-px sf-hx-px-1"></span>
+                <span class="sf-hx-px sf-hx-px-2"></span>
+                <span class="sf-hx-px sf-hx-px-3"></span>
+                <span class="sf-hx-px sf-hx-px-4"></span>
+                <span class="sf-hx-px sf-hx-px-5"></span>
+              </div>
+              <div class="sf-hx-tile-grid" aria-hidden="true"></div>
+            </div>
+            <div class="sf-play-emblem">
+              <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                <path d="M20 4L7 9V19C7 27 12.5 34.5 20 37C27.5 34.5 33 27 33 19V9L20 4Z" stroke="#0D0E12" stroke-width="2.2"/>
+                <path d="M14 20L18 24L26 16" stroke="#0D0E12" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div class="sf-hx-plus-box" aria-hidden="true">
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6">
+                <line x1="8" y1="2.5" x2="8" y2="13.5"></line>
+                <line x1="2.5" y1="8" x2="13.5" y2="8"></line>
+              </svg>
+            </div>
+            <div class="sf-hx-notch sf-play-card-inner">
+              <h3 class="sf-play-card-title">Rigorous QA &amp; UAT Validation</h3>
+              <div class="sf-hx-meta-row">
+                <div class="sf-play-phase-tag">PHASE 05 · 1-2 WEEKS</div>
+              </div>
+              <p class="sf-play-card-desc">Governor-limit stress testing, security code scanning, regression suites, and end-to-end user acceptance sign-offs.</p>
+            </div>
+          </article>
+
+          <!-- Card 6 (Phase 06) -->
+          <article class="sf-play-card sf-hx-card" id="sfProcessCard6" tabindex="0">
+            <div class="sf-hx-media">
+              <img class="sf-hx-photo" src="../assets/images/sf-tech/datacloud.jpg" alt="Production Cutover &amp; Go-Live" loading="lazy">
+              <div class="sf-hx-scrim" aria-hidden="true"></div>
+              <div class="sf-hx-pixels" aria-hidden="true">
+                <span class="sf-hx-px sf-hx-px-1"></span>
+                <span class="sf-hx-px sf-hx-px-2"></span>
+                <span class="sf-hx-px sf-hx-px-3"></span>
+                <span class="sf-hx-px sf-hx-px-4"></span>
+                <span class="sf-hx-px sf-hx-px-5"></span>
+              </div>
+              <div class="sf-hx-tile-grid" aria-hidden="true"></div>
+            </div>
+            <div class="sf-play-emblem">
+              <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                <circle cx="20" cy="20" r="16" stroke="#0D0E12" stroke-width="2.2"/>
+                <path d="M12 20L18 26L28 14" stroke="#0D0E12" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="20" cy="8" r="1.5" fill="#0D0E12"/>
+                <circle cx="32" cy="20" r="1.5" fill="#0D0E12"/>
+                <circle cx="20" cy="32" r="1.5" fill="#0D0E12"/>
+                <circle cx="8" cy="20" r="1.5" fill="#0D0E12"/>
+              </svg>
+            </div>
+            <div class="sf-hx-plus-box" aria-hidden="true">
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6">
+                <line x1="8" y1="2.5" x2="8" y2="13.5"></line>
+                <line x1="2.5" y1="8" x2="13.5" y2="8"></line>
+              </svg>
+            </div>
+            <div class="sf-hx-notch sf-play-card-inner">
+              <h3 class="sf-play-card-title">Production Cutover &amp; Go-Live</h3>
+              <div class="sf-hx-meta-row">
                 <div class="sf-play-phase-tag">PHASE 06 · 1 WEEK</div>
-                <h3 class="sf-play-card-title">Production Cutover &amp; Go-Live</h3>
-                <p class="sf-play-card-desc">Risk-mitigated metadata deployment, automated CI/CD releases, sandbox sign-offs, and zero business disruption.</p>
               </div>
+              <p class="sf-play-card-desc">Risk-mitigated metadata deployment, automated CI/CD releases, sandbox sign-offs, and zero business disruption.</p>
             </div>
+          </article>
 
-            <!-- Card 7: Bottom-Right with Chamfered Bottom-Right Corner (Phase 07) -->
-            <div class="sf-play-card sf-play-chamfer-br" id="sfProcessCard7">
-              <div class="sf-play-card-inner">
-                <div class="sf-play-emblem">
-                  <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-                    <path d="M20 4L24 14H35L26 21L29 32L20 25L11 32L14 21L5 14H16L20 4Z" stroke="#0D0E12" stroke-width="2.2" stroke-linejoin="round"/>
-                  </svg>
-                </div>
-                <div class="sf-play-phase-tag">PHASE 07 · ONGOING</div>
-                <h3 class="sf-play-card-title">Enablement &amp; Hypercare</h3>
-                <p class="sf-play-card-desc">Role-based user training, admin handover, continuous platform health audits, and 24/7 dedicated hypercare.</p>
+          <!-- Card 7 (Phase 07 - Wide Finale) -->
+          <article class="sf-play-card sf-hx-card" id="sfProcessCard7" tabindex="0">
+            <div class="sf-hx-media">
+              <img class="sf-hx-photo" src="../assets/images/phase-05-training-adoption.jpg" alt="Enablement &amp; Hypercare" loading="lazy">
+              <div class="sf-hx-scrim" aria-hidden="true"></div>
+              <div class="sf-hx-pixels" aria-hidden="true">
+                <span class="sf-hx-px sf-hx-px-1"></span>
+                <span class="sf-hx-px sf-hx-px-2"></span>
+                <span class="sf-hx-px sf-hx-px-3"></span>
+                <span class="sf-hx-px sf-hx-px-4"></span>
+                <span class="sf-hx-px sf-hx-px-5"></span>
               </div>
+              <div class="sf-hx-tile-grid" aria-hidden="true"></div>
             </div>
-          </div>
+            <div class="sf-play-emblem">
+              <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                <path d="M20 4L24 14H35L26 21L29 32L20 25L11 32L14 21L5 14H16L20 4Z" stroke="#0D0E12" stroke-width="2.2" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div class="sf-hx-plus-box" aria-hidden="true">
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6">
+                <line x1="8" y1="2.5" x2="8" y2="13.5"></line>
+                <line x1="2.5" y1="8" x2="13.5" y2="8"></line>
+              </svg>
+            </div>
+            <div class="sf-hx-notch sf-play-card-inner">
+              <h3 class="sf-play-card-title">Enablement &amp; Hypercare</h3>
+              <div class="sf-hx-meta-row">
+                <div class="sf-play-phase-tag">PHASE 07 · ONGOING</div>
+              </div>
+              <p class="sf-play-card-desc">Role-based user training, admin handover, continuous platform health audits, and 24/7 dedicated hypercare.</p>
+            </div>
+          </article>
 
         </div>
 
@@ -6728,6 +6516,7 @@
   <script src="../js/sf-clouds-motion-ed.js?v=20261105_mob_v1"></script>
   <script src="../js/sf-practice-motion-ed.js?v=20261105_static_v8"></script>
   <script src="../js/sf-usecases-stack.js?v=20261105_static_v8"></script>
+  <script src="../js/sf-process-motion.js?v=20261111_hx_v1"></script>
   <script src="../js/sf-celestial-particles.js?v=20261103_1"></script>
 </body>
 </html>

@@ -1,0 +1,706 @@
+/* ==========================================================================
+   SALESFORCE IMPLEMENTATION BUILT AROUND YOUR BUSINESS (#processSection)
+   HeartX Editorial Pixel-Grid Wipe & Architectural Notch Design System
+   Reference: Screen Recording 2026-11-11 at 11.23.43 AM.mov
+   - Pure White Architectural Canvas (#FFFFFF)
+   - Sticky Left Editorial Column (Badge, Headline, Copy, CTA, Progress HUD)
+   - 2-Column Staggered Editorial Card Showcase (0px sharp geometry)
+   - Bottom-Left White Cutout Notch (.sf-hx-notch) flush with page canvas
+   - Top-Right Bordered + Control Rotating 0deg <-> 90deg (through 45deg diamond)
+   - Diagonal 10x7 Square-Tile Pixel Wipe + Subtle Scattered Black Pixels
+   - Native CSS Scroll-Driven View Timeline + JS Parallax / Fallback + Reduced Motion
+   ========================================================================== */
+
+#processSection.sf-play-section {
+  background-color: #FFFFFF !important;
+  background: #FFFFFF !important;
+  color: #0A0A0A !important;
+  padding: clamp(80px, 11vh, 136px) clamp(20px, 4.2vw, 64px) !important;
+  position: relative !important;
+  overflow-x: clip !important;
+  overflow-y: visible !important;
+  border: none !important;
+  border-top: none !important;
+  border-bottom: none !important;
+  box-sizing: border-box !important;
+  z-index: 45;
+}
+
+#processSection .sf-play-container {
+  max-width: 1420px;
+  margin: 0 auto;
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(310px, 0.38fr) minmax(0, 1fr);
+  gap: clamp(36px, 4.8vw, 76px);
+  align-items: start;
+}
+
+/* ==========================================================================
+   LEFT STICKY EDITORIAL INTRO COLUMN
+   ========================================================================== */
+#processSection .sf-hx-intro-col {
+  position: sticky;
+  top: clamp(88px, 12vh, 128px);
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  padding-top: 6px;
+}
+
+#processSection .sf-play-header-wrap {
+  display: flex !important;
+  justify-content: flex-start !important;
+  align-items: flex-start !important;
+  text-align: left !important;
+  margin-bottom: clamp(20px, 2.6vh, 28px) !important;
+  padding-left: 0 !important;
+  width: 100% !important;
+  position: relative !important;
+  top: auto !important;
+  transform: none !important;
+  opacity: 1 !important;
+}
+
+#processSection .sf-play-title-group {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  justify-content: flex-start !important;
+  text-align: left !important;
+  gap: 16px !important;
+  width: 100% !important;
+}
+
+#processSection .sf-play-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 14px;
+  border: 1.5px solid rgba(255, 70, 0, 0.35);
+  border-radius: 9999px;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #FF4600 !important;
+  background: rgba(255, 70, 0, 0.06);
+  margin: 0;
+  white-space: nowrap;
+}
+
+#processSection #sfProcessTitle.sf-play-title,
+#processSection h2.sf-play-title,
+#processSection h2.sf-section-title {
+  font-family: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  font-size: clamp(32px, 3.25vw, 52px) !important;
+  font-weight: 800 !important;
+  line-height: 1.08 !important;
+  letter-spacing: -0.035em !important;
+  text-transform: none !important;
+  color: #0A0A0A !important;
+  -webkit-text-fill-color: #0A0A0A !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  text-align: left !important;
+  width: 100% !important;
+}
+
+#processSection .sf-play-title .sf-hero-line {
+  display: block !important;
+  text-align: left !important;
+  white-space: normal !important;
+  width: 100% !important;
+}
+
+#processSection .sf-play-title .sf-ai-highlight,
+#processSection .sf-play-title .sf-text-blue {
+  color: #0086C9 !important;
+  -webkit-text-fill-color: #0086C9 !important;
+  text-shadow: none !important;
+}
+
+#processSection .sf-play-lead-copy {
+  padding: 0 !important;
+  margin: 0 0 28px 0 !important;
+  width: 100%;
+  max-width: 440px;
+}
+
+#processSection .sf-play-lead-copy p {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+  font-size: clamp(0.98rem, 1.05vw, 1.06rem) !important;
+  line-height: 1.72 !important;
+  color: #4B5563 !important;
+  margin: 0 0 28px 0 !important;
+  font-weight: 400 !important;
+}
+
+#processSection .sf-play-orange-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #FF4600 !important;
+  color: #FFFFFF !important;
+  font-family: 'Space Grotesk', 'Space Mono', sans-serif !important;
+  font-size: 0.9rem !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+  text-decoration: none !important;
+  padding: 14px 28px !important;
+  border-radius: 0 !important;
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              background-color 0.25s ease,
+              box-shadow 0.25s ease;
+  box-shadow: 0 6px 18px rgba(255, 70, 0, 0.22);
+}
+
+#processSection .sf-play-orange-cta:hover {
+  background-color: #0A0A0A !important;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 26px rgba(10, 10, 10, 0.18);
+}
+
+/* Architectural Scroll Progress HUD inside Sticky Column */
+#processSection .sf-hx-scroll-hud {
+  width: 100%;
+  max-width: 380px;
+  padding-top: 22px;
+  border-top: 1px solid rgba(10, 10, 10, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#processSection .sf-hx-hud-meta {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #6B7280;
+}
+
+#processSection .sf-hx-hud-count {
+  color: #0A0A0A;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+#processSection .sf-hx-hud-name {
+  color: #374151;
+  font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+#processSection .sf-hx-hud-track {
+  width: 100%;
+  height: 2px;
+  background: rgba(10, 10, 10, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+#processSection .sf-hx-hud-fill {
+  position: absolute;
+  inset: 0;
+  background: #0A0A0A;
+  transform-origin: left center;
+  transform: scaleX(0.14);
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+
+/* ==========================================================================
+   RIGHT 2-COLUMN STAGGERED HEARTX CARD GRID
+   ========================================================================== */
+#processSection .sf-hx-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: clamp(22px, 2.5vw, 36px);
+  row-gap: clamp(30px, 3.8vw, 52px);
+  align-items: start;
+  width: 100%;
+}
+
+/* Individual Showcase Card - Sharp 0px Architectural Silhouette */
+#processSection .sf-play-card.sf-hx-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: clamp(360px, 28vw, 430px);
+  background: #101114 !important;
+  border: none !important;
+  border-radius: 0 !important;
+  clip-path: none !important;
+  padding: 0 !important;
+  box-shadow: none !important;
+  filter: none !important;
+  overflow: hidden;
+  cursor: pointer;
+  user-select: none;
+  outline: none;
+  will-change: transform;
+  transform: translate3d(0, var(--sf-card-parallax, 0px), 0);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Staggered Right Column Offset (Desktop) matching editorial rhythm */
+@media (min-width: 992px) {
+  #processSection .sf-hx-card:nth-child(even) {
+    margin-top: clamp(40px, 5.5vw, 76px);
+  }
+
+  /* Phase 07 Finale Card spans both columns cleanly with wide HeartX hero proportion */
+  #processSection #sfProcessCard7.sf-hx-card {
+    grid-column: 1 / -1;
+    min-height: clamp(380px, 31vw, 460px);
+    margin-top: 12px;
+  }
+
+  #processSection #sfProcessCard7 .sf-hx-notch {
+    width: min(58%, 480px);
+  }
+}
+
+/* Native CSS Scroll-Driven Entry Reveal (progressive enhancement when supported) */
+@keyframes sfHxCardScrollEnter {
+  from {
+    opacity: 0.72;
+    translate: 0 36px;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+
+@supports ((animation-timeline: view()) and (animation-range: entry)) {
+  #processSection .sf-play-card.sf-hx-card {
+    animation: sfHxCardScrollEnter linear both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 28%;
+  }
+}
+
+/* Full-Bleed Media Stage */
+#processSection .sf-hx-media {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+  background: #121316;
+}
+
+#processSection .sf-hx-photo {
+  width: 100%;
+  height: 112%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  /* Editorial desaturated filmic monochrome-warm grading matching HeartX */
+  filter: grayscale(42%) sepia(14%) contrast(1.06) brightness(1.16);
+  transform: translate3d(0, var(--sf-img-parallax, -4%), 0) scale(1.03);
+  transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, filter;
+}
+
+#processSection .sf-hx-card.is-hx-active .sf-hx-photo,
+#processSection .sf-hx-card:hover .sf-hx-photo,
+#processSection .sf-hx-card:focus-visible .sf-hx-photo {
+  transform: translate3d(0, var(--sf-img-parallax, -4%), 0) scale(1.065);
+  filter: grayscale(35%) sepia(18%) contrast(1.12) brightness(0.84);
+}
+
+/* Soft Base Scrim for crisp top-bar icon contrast */
+#processSection .sf-hx-scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.22) 0%,
+    rgba(0, 0, 0, 0.02) 44%,
+    rgba(0, 0, 0, 0.14) 100%
+  );
+  pointer-events: none;
+  transition: opacity 0.35s ease;
+}
+
+/* Soft darkening settle wash after pixel tiles sweep across (matches burstC_12) */
+#processSection .sf-hx-media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  background: rgba(6, 7, 10, 0.34);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.16s ease 0s;
+}
+
+#processSection .sf-hx-card.is-hx-active .sf-hx-media::after,
+#processSection .sf-hx-card:hover .sf-hx-media::after,
+#processSection .sf-hx-card:focus-visible .sf-hx-media::after,
+#processSection .sf-hx-card.is-scroll-sealed .sf-hx-media::after {
+  opacity: 1;
+  transition: opacity 0.32s ease 0.26s;
+}
+
+/* Scattered Black Geometric Pixel Squares inlaid on photo (matches HeartX frames) */
+#processSection .sf-hx-pixels {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+}
+
+#processSection .sf-hx-px {
+  position: absolute;
+  background: #060608;
+  display: block;
+}
+
+#processSection .sf-hx-px-1 { top: 20%; left: 10%; width: 16px; height: 16px; }
+#processSection .sf-hx-px-2 { top: 34%; left: 15%; width: 10px; height: 10px; opacity: 0.92; }
+#processSection .sf-hx-px-3 { top: 45%; left: 7%;  width: 8px;  height: 8px;  opacity: 0.85; }
+#processSection .sf-hx-px-4 { top: 53%; right: 24%; width: 9px; height: 9px;  opacity: 0.9; }
+#processSection .sf-hx-px-5 { top: 61%; right: 17%; width: 18px; height: 18px; }
+
+/* Vary pixel scatter positions per odd/even card for organic variety */
+#processSection .sf-hx-card:nth-child(even) .sf-hx-px-1 { top: 24%; left: auto; right: 20%; width: 14px; height: 14px; }
+#processSection .sf-hx-card:nth-child(even) .sf-hx-px-2 { top: 42%; left: 18%; width: 11px; height: 11px; }
+#processSection .sf-hx-card:nth-child(even) .sf-hx-px-4 { top: 56%; right: 12%; width: 16px; height: 16px; }
+#processSection .sf-hx-card:nth-child(3n) .sf-hx-px-3 { top: 31%; left: 32%; width: 12px; height: 12px; }
+
+/* Diagonal Square-Tile Pixel Wipe Grid (matches Screen Recording 11.23.43 AM.mov) */
+#processSection .sf-hx-tile-grid {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: repeat(7, 1fr);
+  gap: 1.5px;
+  pointer-events: none;
+}
+
+#processSection #sfProcessCard7 .sf-hx-tile-grid {
+  grid-template-columns: repeat(14, 1fr);
+  grid-template-rows: repeat(7, 1fr);
+}
+
+#processSection .sf-hx-tile {
+  background: rgba(6, 7, 10, 0.78);
+  opacity: 0;
+  transform: scale(0.04);
+  transform-origin: center center;
+  will-change: transform, opacity;
+  transition:
+    transform 0.24s cubic-bezier(0.22, 1, 0.36, 1) var(--out-delay, 0ms),
+    opacity 0.20s ease var(--out-delay, 0ms);
+}
+
+/* Active State (Hover / Focus / Tap / Scroll-Sealed Curtain):
+   Sweeps diagonally from Top-Left (0,0) -> Bottom-Right (cols,rows) */
+#processSection .sf-hx-card.is-hx-active .sf-hx-tile,
+#processSection .sf-hx-card:hover .sf-hx-tile,
+#processSection .sf-hx-card:focus-visible .sf-hx-tile,
+#processSection .sf-hx-card.is-scroll-sealed .sf-hx-tile {
+  opacity: 1;
+  transform: scale(0.95);
+  transition:
+    transform 0.26s cubic-bezier(0.22, 1, 0.36, 1) var(--in-delay, 0ms),
+    opacity 0.20s ease var(--in-delay, 0ms);
+}
+
+/* Sealed scroll entry uses full opacity cover so initial wipe unveils cleanly */
+#processSection .sf-hx-card.is-scroll-sealed .sf-hx-tile {
+  background: rgba(12, 13, 17, 0.88);
+  transform: scale(1.06);
+}
+
+/* Top Controls Bar: SVG Phase Emblem (Left) & HeartX Rotating + Square (Right) */
+#processSection .sf-play-emblem {
+  position: absolute;
+  top: clamp(16px, 1.8vw, 22px);
+  left: clamp(16px, 1.8vw, 22px);
+  z-index: 7;
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  background: rgba(10, 11, 14, 0.45);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  margin: 0 !important;
+  padding: 7px;
+  box-sizing: border-box;
+  border-radius: 0;
+  pointer-events: none;
+}
+
+#processSection .sf-play-emblem svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  /* Invert #0D0E12 dark linework cleanly to crisp white inside the dark glass badge */
+  filter: invert(1);
+}
+
+#processSection .sf-hx-plus-box {
+  position: absolute;
+  top: clamp(16px, 1.8vw, 22px);
+  right: clamp(16px, 1.8vw, 22px);
+  z-index: 7;
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.38);
+  background: rgba(0, 0, 0, 0.22);
+  color: #FFFFFF;
+  border-radius: 0;
+  pointer-events: none;
+  transform: rotate(0deg);
+  transition:
+    transform 0.44s cubic-bezier(0.35, 0, 0.25, 1),
+    border-color 0.3s ease,
+    background-color 0.3s ease;
+  will-change: transform;
+}
+
+#processSection .sf-hx-plus-box svg {
+  width: 14px;
+  height: 14px;
+  display: block;
+}
+
+/* Rotate 0deg -> 90deg smoothly passing through 45deg diamond (matches burstC_05..09) */
+#processSection .sf-hx-card.is-hx-active .sf-hx-plus-box,
+#processSection .sf-hx-card:hover .sf-hx-plus-box,
+#processSection .sf-hx-card:focus-visible .sf-hx-plus-box,
+#processSection .sf-hx-card.is-scroll-sealed .sf-hx-plus-box {
+  transform: rotate(90deg);
+  border-color: rgba(255, 255, 255, 0.72);
+  background: rgba(0, 0, 0, 0.42);
+}
+
+/* ==========================================================================
+   SIGNATURE BOTTOM-LEFT WHITE ARCHITECTURAL CUTOUT NOTCH (.sf-hx-notch)
+   Flush with bottom & left card edges; blends seamlessly into #FFFFFF canvas
+   ========================================================================== */
+#processSection .sf-hx-notch.sf-play-card-inner {
+  position: relative;
+  z-index: 6;
+  align-self: flex-start;
+  width: min(82%, 375px);
+  min-height: auto !important;
+  margin-top: clamp(150px, 13vw, 196px);
+  background: #FFFFFF !important;
+  border-radius: 0 !important;
+  padding: clamp(16px, 1.8vw, 22px) clamp(18px, 2vw, 26px) clamp(14px, 1.4vw, 18px) clamp(14px, 1.6vw, 22px) !important;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  text-align: left;
+  clip-path: none !important;
+}
+
+#processSection .sf-play-card-title {
+  font-family: 'Manrope', 'Helvetica Neue', -apple-system, sans-serif !important;
+  font-size: clamp(1.18rem, 1.45vw, 1.44rem) !important;
+  font-weight: 600 !important;
+  line-height: 1.2 !important;
+  letter-spacing: -0.025em !important;
+  color: #0A0A0A !important;
+  margin: 0 0 8px 0 !important;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+#processSection .sf-hx-card:hover .sf-play-card-title {
+  transform: translateX(2px);
+}
+
+#processSection .sf-hx-meta-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+#processSection .sf-play-phase-tag {
+  font-family: 'Space Mono', 'Inter', monospace !important;
+  font-size: 0.72rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+  color: #52555E !important;
+  margin: 0 !important;
+}
+
+#processSection .sf-play-card-desc {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+  font-size: clamp(0.84rem, 0.92vw, 0.91rem) !important;
+  line-height: 1.54 !important;
+  font-weight: 400 !important;
+  color: #5A5E66 !important;
+  margin: 0 !important;
+}
+
+/* ==========================================================================
+   RESPONSIVE: TABLET & MOBILE (<= 991px & <= 640px)
+   ========================================================================== */
+@media (max-width: 991px) {
+  #processSection.sf-play-section {
+    padding: clamp(56px, 8vh, 84px) clamp(16px, 4.5vw, 28px) !important;
+  }
+
+  #processSection .sf-play-container {
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+  }
+
+  #processSection .sf-hx-intro-col {
+    position: relative;
+    top: auto;
+    width: 100%;
+    align-items: flex-start;
+    padding-top: 0;
+  }
+
+  #processSection #sfProcessTitle.sf-play-title,
+  #processSection h2.sf-play-title,
+  #processSection h2.sf-section-title {
+    font-size: clamp(26px, 6.2vw, 38px) !important;
+    line-height: 1.12 !important;
+  }
+
+  #processSection .sf-play-lead-copy {
+    max-width: 100%;
+    margin-bottom: 20px !important;
+  }
+
+  #processSection .sf-play-lead-copy p {
+    margin-bottom: 20px !important;
+    font-size: 0.96rem !important;
+  }
+
+  #processSection .sf-hx-scroll-hud {
+    max-width: 100%;
+    padding-top: 16px;
+  }
+
+  #processSection .sf-hx-grid {
+    grid-template-columns: 1fr;
+    row-gap: 24px;
+  }
+
+  #processSection .sf-hx-card:nth-child(even) {
+    margin-top: 0;
+  }
+
+  #processSection .sf-play-card.sf-hx-card {
+    min-height: 360px;
+    transform: none !important;
+  }
+
+  #processSection .sf-hx-notch.sf-play-card-inner {
+    width: min(84%, 400px);
+    margin-top: 155px;
+    padding: 16px 20px 14px 16px !important;
+  }
+
+  #processSection .sf-hx-tile-grid,
+  #processSection #sfProcessCard7 .sf-hx-tile-grid {
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  #processSection .sf-play-card.sf-hx-card {
+    min-height: 335px;
+  }
+
+  #processSection .sf-hx-notch.sf-play-card-inner {
+    width: 86%;
+    margin-top: 140px;
+    padding: 14px 16px 12px 12px !important;
+  }
+
+  #processSection .sf-play-emblem,
+  #processSection .sf-hx-plus-box {
+    width: 34px;
+    height: 34px;
+    top: 14px;
+  }
+
+  #processSection .sf-play-emblem {
+    left: 14px;
+    padding: 6px;
+  }
+
+  #processSection .sf-hx-plus-box {
+    right: 14px;
+  }
+}
+
+/* ==========================================================================
+   ACCESSIBILITY: PREFERS-REDUCED-MOTION
+   Disables pixel wipe transitions, parallax transforms, and + square rotation
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  #processSection .sf-play-card.sf-hx-card {
+    animation: none !important;
+    transform: none !important;
+    translate: none !important;
+    transition: none !important;
+    opacity: 1 !important;
+  }
+
+  #processSection .sf-hx-photo,
+  #processSection .sf-hx-tile,
+  #processSection .sf-hx-plus-box,
+  #processSection .sf-play-card-title,
+  #processSection .sf-hx-hud-fill,
+  #processSection .sf-play-orange-cta,
+  #processSection .sf-hx-media::after {
+    transition: none !important;
+    animation: none !important;
+  }
+
+  #processSection .sf-hx-card.is-scroll-sealed .sf-hx-tile {
+    opacity: 0 !important;
+    transform: scale(0) !important;
+  }
+
+  #processSection .sf-hx-card.is-scroll-sealed .sf-hx-plus-box,
+  #processSection .sf-hx-card:hover .sf-hx-plus-box {
+    transform: rotate(0deg) !important;
+  }
+
+  #processSection .sf-hx-card:hover .sf-hx-photo {
+    transform: none !important;
+  }
+}
