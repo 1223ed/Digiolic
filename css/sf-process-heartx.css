@@ -2,19 +2,20 @@
    SALESFORCE IMPLEMENTATION BUILT AROUND YOUR BUSINESS (#processSection)
    HeartX Editorial Pixel-Grid Wipe & Architectural Notch Design System
    Reference: Screen Recording 2026-11-11 at 11.23.43 AM.mov
-   - Pure White Architectural Canvas (#FFFFFF)
+   - Pure Black Architectural Canvas (#000000) matching surrounding Salesforce sections
    - Sticky Left Editorial Column (Badge, Headline, Copy, CTA, Progress HUD)
    - 2-Column Staggered Editorial Card Showcase (0px sharp geometry)
-   - Bottom-Left White Cutout Notch (.sf-hx-notch) flush with page canvas
+   - Bottom-Left Black Cutout Notch (.sf-hx-notch) flush with page canvas
    - Top-Right Bordered + Control Rotating 0deg <-> 90deg (through 45deg diamond)
    - Diagonal 10x7 Square-Tile Pixel Wipe + Subtle Scattered Black Pixels
    - Native CSS Scroll-Driven View Timeline + JS Parallax / Fallback + Reduced Motion
    ========================================================================== */
 
 #processSection.sf-play-section {
-  background-color: #FFFFFF !important;
-  background: #FFFFFF !important;
-  color: #0A0A0A !important;
+  background-color: #000000 !important;
+  background: #000000 !important;
+  color: #FFFFFF !important;
+  color-scheme: dark;
   padding: clamp(80px, 11vh, 136px) clamp(20px, 4.2vw, 64px) !important;
   position: relative !important;
   overflow-x: clip !important;
@@ -78,15 +79,15 @@
   display: inline-flex;
   align-items: center;
   padding: 6px 14px;
-  border: 1.5px solid rgba(255, 70, 0, 0.35);
+  border: 1.5px solid rgba(255, 107, 53, 0.45);
   border-radius: 9999px;
   font-family: 'Space Mono', monospace;
   font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: #FF4600 !important;
-  background: rgba(255, 70, 0, 0.06);
+  color: #FF6B35 !important;
+  background: rgba(255, 70, 0, 0.12);
   margin: 0;
   white-space: nowrap;
 }
@@ -100,8 +101,8 @@
   line-height: 1.08 !important;
   letter-spacing: -0.035em !important;
   text-transform: none !important;
-  color: #0A0A0A !important;
-  -webkit-text-fill-color: #0A0A0A !important;
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
   margin: 0 !important;
   padding: 0 !important;
   display: flex !important;
@@ -120,8 +121,8 @@
 
 #processSection .sf-play-title .sf-ai-highlight,
 #processSection .sf-play-title .sf-text-blue {
-  color: #0086C9 !important;
-  -webkit-text-fill-color: #0086C9 !important;
+  color: #00A1E0 !important;
+  -webkit-text-fill-color: #00A1E0 !important;
   text-shadow: none !important;
 }
 
@@ -136,7 +137,7 @@
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
   font-size: clamp(0.98rem, 1.05vw, 1.06rem) !important;
   line-height: 1.72 !important;
-  color: #4B5563 !important;
+  color: #B8C0CC !important;
   margin: 0 0 28px 0 !important;
   font-weight: 400 !important;
 }
@@ -158,14 +159,16 @@
   clip-path: polygon(0 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%);
   transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
               background-color 0.25s ease,
+              color 0.25s ease,
               box-shadow 0.25s ease;
-  box-shadow: 0 6px 18px rgba(255, 70, 0, 0.22);
+  box-shadow: 0 6px 20px rgba(255, 70, 0, 0.28);
 }
 
 #processSection .sf-play-orange-cta:hover {
-  background-color: #0A0A0A !important;
+  background-color: #FFFFFF !important;
+  color: #0A0A0A !important;
   transform: translateY(-2px);
-  box-shadow: 0 12px 26px rgba(10, 10, 10, 0.18);
+  box-shadow: 0 12px 28px rgba(255, 255, 255, 0.16);
 }
 
 /* Architectural Scroll Progress HUD inside Sticky Column */
@@ -173,7 +176,7 @@
   width: 100%;
   max-width: 380px;
   padding-top: 22px;
-  border-top: 1px solid rgba(10, 10, 10, 0.1);
+  border-top: 1px solid rgba(255, 255, 255, 0.16);
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -188,17 +191,17 @@
   font-size: 0.72rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #6B7280;
+  color: #9CA3AF;
 }
 
 #processSection .sf-hx-hud-count {
-  color: #0A0A0A;
+  color: #FFFFFF;
   font-weight: 700;
   white-space: nowrap;
 }
 
 #processSection .sf-hx-hud-name {
-  color: #374151;
+  color: #CBD5E1;
   font-weight: 500;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -208,7 +211,7 @@
 #processSection .sf-hx-hud-track {
   width: 100%;
   height: 2px;
-  background: rgba(10, 10, 10, 0.1);
+  background: rgba(255, 255, 255, 0.18);
   position: relative;
   overflow: hidden;
 }
@@ -216,7 +219,7 @@
 #processSection .sf-hx-hud-fill {
   position: absolute;
   inset: 0;
-  background: #0A0A0A;
+  background: #FFFFFF;
   transform-origin: left center;
   transform: scaleX(0.14);
   transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
@@ -326,7 +329,7 @@
   filter: grayscale(35%) sepia(18%) contrast(1.12) brightness(0.84);
 }
 
-/* Soft Base Scrim for crisp top-bar icon contrast */
+/* Soft Base Scrim for crisp top-bar icon contrast + hairline edge separation on #000000 */
 #processSection .sf-hx-scrim {
   position: absolute;
   inset: 0;
@@ -337,6 +340,7 @@
     rgba(0, 0, 0, 0.02) 44%,
     rgba(0, 0, 0, 0.14) 100%
   );
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.12);
   pointer-events: none;
   transition: opacity 0.35s ease;
 }
@@ -504,8 +508,8 @@
 }
 
 /* ==========================================================================
-   SIGNATURE BOTTOM-LEFT WHITE ARCHITECTURAL CUTOUT NOTCH (.sf-hx-notch)
-   Flush with bottom & left card edges; blends seamlessly into #FFFFFF canvas
+   SIGNATURE BOTTOM-LEFT ARCHITECTURAL CUTOUT NOTCH (.sf-hx-notch)
+   Flush with bottom & left card edges; blends seamlessly into #000000 canvas
    ========================================================================== */
 #processSection .sf-hx-notch.sf-play-card-inner {
   position: relative;
@@ -514,7 +518,7 @@
   width: min(82%, 375px);
   min-height: auto !important;
   margin-top: clamp(150px, 13vw, 196px);
-  background: #FFFFFF !important;
+  background: #000000 !important;
   border-radius: 0 !important;
   padding: clamp(16px, 1.8vw, 22px) clamp(18px, 2vw, 26px) clamp(14px, 1.4vw, 18px) clamp(14px, 1.6vw, 22px) !important;
   box-sizing: border-box;
@@ -531,7 +535,7 @@
   font-weight: 600 !important;
   line-height: 1.2 !important;
   letter-spacing: -0.025em !important;
-  color: #0A0A0A !important;
+  color: #FFFFFF !important;
   margin: 0 0 8px 0 !important;
   transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -554,7 +558,7 @@
   font-weight: 700 !important;
   letter-spacing: 0.08em !important;
   text-transform: uppercase !important;
-  color: #52555E !important;
+  color: #9CA3AF !important;
   margin: 0 !important;
 }
 
@@ -563,7 +567,7 @@
   font-size: clamp(0.84rem, 0.92vw, 0.91rem) !important;
   line-height: 1.54 !important;
   font-weight: 400 !important;
-  color: #5A5E66 !important;
+  color: #A1AAB8 !important;
   margin: 0 !important;
 }
 
@@ -702,5 +706,37 @@
 
   #processSection .sf-hx-card:hover .sf-hx-photo {
     transform: none !important;
+  }
+}
+
+#processSection .sf-play-card.sf-hx-card:focus-visible {
+  outline: 2px solid #00A1E0 !important;
+  outline-offset: 3px;
+}
+
+/* ==========================================================================
+   ACCESSIBILITY: FORCED COLORS MODE
+   Replaces removed inset shadows/fills with system borders & text tokens
+   ========================================================================== */
+@media (forced-colors: active) {
+  #processSection .sf-play-card.sf-hx-card {
+    border: 1px solid CanvasText !important;
+  }
+
+  #processSection .sf-hx-notch.sf-play-card-inner {
+    border-top: 1px solid CanvasText !important;
+    border-right: 1px solid CanvasText !important;
+  }
+
+  #processSection .sf-play-orange-cta {
+    border: 1px solid ButtonText !important;
+  }
+
+  #processSection .sf-hx-hud-track {
+    border: 1px solid CanvasText;
+  }
+
+  #processSection .sf-hx-hud-fill {
+    background: Highlight;
   }
 }
