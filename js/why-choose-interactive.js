@@ -328,7 +328,7 @@
           <line x1="6" y1="20" x2="6" y2="14"></line>
           <polyline points="3 8 9 2 15 8"></polyline>
         </svg>`,
-        description: 'We leverage 8 years of technical expertise to deploy scalable Zoho and Salesforce environments backed by performance-driven marketing systems.'
+        description: 'We leverage 30+ years of technical expertise to deploy scalable Zoho and Salesforce environments backed by performance-driven marketing systems.'
       },
       {
         id: 'more-reach',

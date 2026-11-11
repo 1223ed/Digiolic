@@ -32,8 +32,8 @@
   margin: 0 auto;
   position: relative;
   display: grid;
-  grid-template-columns: minmax(310px, 0.38fr) minmax(0, 1fr);
-  gap: clamp(36px, 4.8vw, 76px);
+  grid-template-columns: minmax(350px, 0.44fr) minmax(0, 1fr);
+  gap: clamp(32px, 4.2vw, 68px);
   align-items: start;
 }
 
@@ -73,6 +73,8 @@
   text-align: left !important;
   gap: 16px !important;
   width: 100% !important;
+  container-type: inline-size;
+  container-name: sf-process-head;
 }
 
 #processSection .sf-play-badge {
@@ -95,11 +97,12 @@
 #processSection #sfProcessTitle.sf-play-title,
 #processSection h2.sf-play-title,
 #processSection h2.sf-section-title {
-  font-family: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
-  font-size: clamp(32px, 3.25vw, 52px) !important;
-  font-weight: 800 !important;
-  line-height: 1.08 !important;
-  letter-spacing: -0.035em !important;
+  font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+  font-size: clamp(2rem, 1.1rem + 2vw, 3.125rem) !important;
+  font-weight: 500 !important;
+  line-height: 1.06 !important;
+  letter-spacing: -0.03em !important;
+  text-wrap: balance;
   text-transform: none !important;
   color: #FFFFFF !important;
   -webkit-text-fill-color: #FFFFFF !important;
@@ -110,6 +113,14 @@
   align-items: flex-start !important;
   text-align: left !important;
   width: 100% !important;
+}
+
+@supports (font-size: 1cqi) {
+  #processSection #sfProcessTitle.sf-play-title,
+  #processSection h2.sf-play-title,
+  #processSection h2.sf-section-title {
+    font-size: clamp(2.25rem, 0.9rem + 8.6cqi, 3.625rem) !important;
+  }
 }
 
 #processSection .sf-play-title .sf-hero-line {
@@ -130,16 +141,18 @@
   padding: 0 !important;
   margin: 0 0 28px 0 !important;
   width: 100%;
-  max-width: 440px;
+  max-width: 460px;
 }
 
 #processSection .sf-play-lead-copy p {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
-  font-size: clamp(0.98rem, 1.05vw, 1.06rem) !important;
-  line-height: 1.72 !important;
-  color: #B8C0CC !important;
+  font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+  font-size: clamp(1.125rem, 0.95rem + 0.35vw, 1.25rem) !important;
+  line-height: 1.54 !important;
+  letter-spacing: -0.01em !important;
+  color: rgba(255, 255, 255, 0.86) !important;
   margin: 0 0 28px 0 !important;
   font-weight: 400 !important;
+  text-wrap: pretty;
 }
 
 #processSection .sf-play-orange-cta {
@@ -596,7 +609,7 @@
   #processSection #sfProcessTitle.sf-play-title,
   #processSection h2.sf-play-title,
   #processSection h2.sf-section-title {
-    font-size: clamp(26px, 6.2vw, 38px) !important;
+    font-size: clamp(1.625rem, 0.7rem + 3.4vw, 2.25rem) !important;
     line-height: 1.12 !important;
   }
 
@@ -607,7 +620,8 @@
 
   #processSection .sf-play-lead-copy p {
     margin-bottom: 20px !important;
-    font-size: 0.96rem !important;
+    font-size: clamp(1.0625rem, 0.9rem + 0.35vw, 1.1875rem) !important;
+    line-height: 1.52 !important;
   }
 
   #processSection .sf-hx-scroll-hud {

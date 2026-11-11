@@ -4,7 +4,7 @@
    - High-Contrast Light-on-Dark Header Logo, Actions, Audio & Menu Controls
    - Act 1 (Autoplay): Sequential D->I->G->I->O->L->I->C Reveal -> Hold ->
      "YOUR WAIT IS WORTH NOW" Emerge -> Smooth Crossfade Out
-   - Act 2 (Settles & Holds): "8+ Years Experience | Certified Experts" Pill,
+   - Act 2 (Settles & Holds): "30+ Years Experience | Certified Experts" Pill,
      Editorial Serif "Zoho, Salesforce & Digital Marketing", & Positioning Copy
    - GPU-Composited Motion + sibling-index() Stagger + Reduced-Motion & Pause
    ========================================================================== */
@@ -228,7 +228,7 @@
 
 /* --------------------------------------------------------------------------
    ACT 2: EDITORIAL MANIFEST LOCKUP (Matching Reference Screenshot)
-   "8+ Years Experience | Certified Experts" + "Zoho, Salesforce & Digital Marketing"
+   "30+ Years Experience | Certified Experts" + "Zoho, Salesforce & Digital Marketing"
    -------------------------------------------------------------------------- */
 #heroSection .hero-act-manifest {
   gap: clamp(16px, 2.4vh, 26px);

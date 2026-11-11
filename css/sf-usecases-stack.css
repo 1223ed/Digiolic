@@ -81,11 +81,12 @@
 .sf-qude-title-line {
   display: block !important;
   text-align: center !important;
-  font-family: 'Montserrat', 'Manrope', var(--font-heading, 'Outfit', 'Inter', -apple-system, sans-serif);
-  font-size: clamp(36px, 4.2vw, 64px) !important;
-  font-weight: 900;
+  font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: clamp(2.625rem, 1.25rem + 4.35vw, 5.125rem) !important;
+  font-weight: 500;
   line-height: 1.05 !important;
-  letter-spacing: -0.035em !important;
+  letter-spacing: -0.03em !important;
+  text-wrap: balance;
   text-transform: none;
   color: #FFFFFF;
   text-shadow: 0 4px 30px rgba(0, 0, 0, 0.7);
@@ -125,14 +126,17 @@
   text-shadow: none !important;
 }
 
-/* Lead Description (Identical to .ct-lead-desc) */
+/* Lead Description */
 .sf-qude-lead-desc {
-  font-family: var(--font-body, 'Inter', sans-serif);
-  font-size: clamp(1rem, 1.25vw, 1.2rem);
-  color: rgba(255, 255, 255, 0.7);
-  max-width: 720px;
+  font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: clamp(1.125rem, 0.95rem + 0.35vw, 1.3125rem);
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.86);
+  max-width: min(42rem, 92%);
   margin: 0 auto;
-  line-height: 1.6;
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
   opacity: 1;
 }
 
@@ -346,8 +350,8 @@
    ========================================================================== */
 @media (max-width: 1024px) {
   .sf-qude-title-line {
-    font-size: clamp(38px, 5.2vw, 56px) !important;
-    line-height: 1.10 !important;
+    font-size: clamp(2.125rem, 1.1rem + 3.6vw, 3.625rem) !important;
+    line-height: 1.08 !important;
   }
 }
 
@@ -381,13 +385,14 @@
   }
 
   .sf-qude-title-line {
-    font-size: clamp(28px, 7vw, 40px) !important;
-    line-height: 1.15 !important;
+    font-size: clamp(1.625rem, 0.7rem + 3.4vw, 2.125rem) !important;
+    line-height: 1.12 !important;
     white-space: normal;
   }
 
   .sf-qude-lead-desc {
-    font-size: 0.95rem;
+    font-size: clamp(1.0625rem, 0.9rem + 0.35vw, 1.1875rem);
+    line-height: 1.5;
   }
 
   .sf-qude-sticky {

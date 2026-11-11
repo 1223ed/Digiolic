@@ -349,7 +349,7 @@ export default function App() {
                 }}
               >
                 <span className="hero-home-exp-badge-text text-white font-extrabold text-[10.5px] sm:text-[13.5px] uppercase tracking-wider leading-none">
-                  8+ Years of Experience with Certified Team
+                  30+ Years of Experience with Certified Team
                 </span>
               </div>
 
