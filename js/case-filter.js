@@ -318,6 +318,94 @@ document.addEventListener('DOMContentLoaded', () => {
       ]
     },
 
+    'case-deccan-herald': {
+      company: 'Deccan Herald',
+      location: 'Bangalore, India',
+      products: 'Performance Marketing, Audience Segmentation, Data Analytics, Conversion Rate Optimization',
+      description: 'Deccan Herald is one of India\'s premier daily English-language broadsheet publications. With millions of active monthly digital readers, Deccan Herald partnered with Digiolic to supercharge digital subscriber acquisitions, slash customer acquisition costs (CAC), and optimize programmatic subscription funnels.',
+      challenges: [
+        '<strong>Sub-Optimal Lead Conversion:</strong> Rising CAC and plateauing digital subscriber acquisitions across regional readership segments.',
+        '<strong>Audience Channel Fragmentation:</strong> Inability to accurately attribute subscription conversions across print, organic search, and paid social campaigns.',
+        '<strong>Subscription Funnel Drop-off:</strong> High bounce rates at paywalls and complex subscription payment checkout flows.'
+      ],
+      solution: [
+        '<strong>Full-Funnel Paid Acquisition Re-Architecture:</strong> Deployed granular behavioral segmentation across Google Search, Display, and Meta Ads.',
+        '<strong>Conversion Rate Optimization (CRO):</strong> Redesigned subscription landing page funnels with frictionless 1-click micro-paywalls and payment integrations.',
+        '<strong>Attribution Modeling & Predictive LTV:</strong> Integrated real-time analytics to measure reader propensity and lifetime value across readership segments.'
+      ],
+      benefits: [
+        '<strong>+37% Boost in Lead Generation:</strong> Qualified digital subscriber leads surged within the first 90 days of campaign deployment.',
+        '<strong>-49% Reduction in CAC:</strong> Customer acquisition cost halved through algorithmic audience targeting and continuous funnel optimization.',
+        '<strong>High-Yield Subscriber Retention:</strong> Enhanced retention rate of yearly premium digital news subscribers.'
+      ]
+    },
+
+    'case-myntra': {
+      company: 'Myntra',
+      location: 'Bangalore, India',
+      products: 'Organic SEO Engine, High-Velocity Content Marketing, Keyword Architecture',
+      description: 'Myntra is India\'s foremost fashion and lifestyle e-commerce powerhouse. Digiolic engineered a programmatic SEO expansion and search authority architecture that catapulted thousands of high-intent search queries into top rankings, driving exponential organic traffic growth.',
+      challenges: [
+        '<strong>High-Velocity Category Indexing:</strong> Managing search ranking authority across hundreds of thousands of rapidly churning fashion SKUs.',
+        '<strong>Intense Competitive SERP Pressure:</strong> Dominating ultra-competitive seasonal keyword categories (End of Reason Sale, Festive fashion).',
+        '<strong>Crawl Budget & Technical Optimization:</strong> Navigating complex faceted navigation parameters and canonicalization at massive enterprise scale.'
+      ],
+      solution: [
+        '<strong>Programmatic SEO & Canonical Architecture:</strong> Built automated internal linking hierarchies and faceted navigation indexing rules.',
+        '<strong>Long-Tail Keyword Matrix:</strong> Deployed high-volume, high-intent seasonal style keyword clusters across women\'s, men\'s, and footwear categories.',
+        '<strong>Core Web Vitals & Accelerated Indexing:</strong> Optimized structured data markup and mobile rendering speed for instant indexing by search engine crawlers.'
+      ],
+      benefits: [
+        '<strong>10X Boost in Organic Search Traffic:</strong> Massive surge in high-intent non-brand organic discovery across primary fashion apparel keywords.',
+        '<strong>100% Increase MOM:</strong> Consistent month-over-month compounding traffic growth during peak e-commerce sales cycles.',
+        '<strong>Multi-Crore Organic Revenue Lift:</strong> Decreased reliance on high-cost paid search channels through dominant organic SERP ownership.'
+      ]
+    },
+
+    'case-flipkart': {
+      company: 'Flipkart',
+      location: 'Bangalore, India',
+      products: 'Social Media Growth Engine, Viral Video Production, Influencer Orchestration',
+      description: 'Flipkart is India\'s leading homegrown e-commerce ecosystem. Digiolic partnered with Flipkart to craft high-impact, viral social campaigns and video engagement funnels that engaged Gen-Z and millennial shoppers nationwide during Big Billion Days and festive shopping festivals.',
+      challenges: [
+        '<strong>Social Engagement Fatigue:</strong> Standing out in an oversaturated e-commerce social landscape during competitive festive sale periods.',
+        '<strong>Gen-Z Visual Content Demands:</strong> Transitioning from promotional static banners to authentic, short-form viral storytelling.',
+        '<strong>Social Commerce Direct Conversion:</strong> Bridging the gap between social engagement (Instagram Reels, YouTube Shorts) and direct app checkouts.'
+      ],
+      solution: [
+        '<strong>Interactive Social Content Frameworks:</strong> Designed engaging, dynamic carousel and short-form video campaigns showcasing exclusive product drops.',
+        '<strong>Influencer-Led Video Creative Strategy:</strong> Directed targeted creator collaborations delivering relatable lifestyle narratives tied to Flipkart app promotions.',
+        '<strong>Omnichannel Retargeting Loops:</strong> Deployed synchronized remarketing funnels converting social video viewers into in-app buyers.'
+      ],
+      benefits: [
+        '<strong>+40% Boost in Instagram Engagement:</strong> Remarkable lift in comment shares, saves, and interactive sticker participation across brand channels.',
+        '<strong>+70% Boost in YouTube Video Views:</strong> Record-breaking audience reach and watch time on high-energy campaign video launches.',
+        '<strong>Viral App Installs & Cart Velocity:</strong> Exponential surge in new user app downloads and festive shopping bag checkouts.'
+      ]
+    },
+
+    'case-via-milano': {
+      company: 'via Milano',
+      location: 'Bangalore & Hyderabad, India',
+      products: 'Local Hospitality Growth, Micro-Targeted Ad Campaigns, Automated Table Booking Engine',
+      description: 'via Milano is a premier authentic Italian fine dining restaurant brand in India. Digiolic delivered an integrated local search, visual social media, and digital booking system that dramatically increased table reservations and private dining revenue.',
+      challenges: [
+        '<strong>Weekday Dining Slowdowns:</strong> Inconsistent footfall between high-demand weekend dinner rushes and slower weekday lunch periods.',
+        '<strong>Local Search Competition:</strong> Competing against new culinary outlets in prime urban dining districts.',
+        '<strong>Table Reservation Friction:</strong> Third-party booking platforms charging heavy commissions without providing direct customer ownership.'
+      ],
+      solution: [
+        '<strong>Hyper-Local Geo-Targeted Ad Engine:</strong> Launched radius-based Google and Instagram ad campaigns reaching corporate professionals within a 5km radius.',
+        '<strong>Direct Commission-Free Reservation Funnel:</strong> Implemented seamless 1-click table booking and WhatsApp confirmation workflows.',
+        '<strong>Sensory Food Visual Storytelling:</strong> Produced high-definition gastronomic imagery and behind-the-scenes chef specials highlighting woodfired craftsmanship.'
+      ],
+      benefits: [
+        '<strong>4X Boost in Direct Table Bookings:</strong> Substantial surge in direct online dining reservations without high aggregator fees.',
+        '<strong>100% Increase in Recurring Dining Revenue:</strong> Doubled seasonal revenue through corporate dining packages, wine tastings, and event bookings.',
+        '<strong>Dominant Local Map Pack Ranking:</strong> Ranked #1 in local Google Maps searches for Italian fine dining in central metropolitan hubs.'
+      ]
+    },
+
     'case-siemens': {
       company: 'Siemens',
       location: 'Global / India',
@@ -531,6 +619,10 @@ document.addEventListener('DOMContentLoaded', () => {
     'case-verzeo': '../assets/images/case-studies/verzeo.png',
     'case-banaraswala': '../assets/images/case-studies/banaraswala.png',
     'case-loomcrafts': '../assets/images/case-studies/loomcrafts.png',
+    'case-deccan-herald': '../assets/images/client-deccanherald-trans.png',
+    'case-myntra': '../assets/images/clients-grid/myntra.png',
+    'case-flipkart': '../assets/images/clients-grid/flipkart.png',
+    'case-via-milano': '../assets/images/clients-grid/via-milano.png',
     'case-siemens': '../assets/images/clients-grid/siemens.png',
     'case-audible': '../assets/images/clients-grid/audible.png',
     'case-betterplace': '../assets/images/clients-grid/betterplace-1.png',
@@ -721,6 +813,26 @@ document.addEventListener('DOMContentLoaded', () => {
       e.preventDefault();
       const caseKey = btn.getAttribute('data-case-id');
       if (caseKey) openModal(caseKey);
+    });
+  });
+
+  // Open triggers on Digital Marketing Green Case Study Cards
+  document.querySelectorAll('.dm-case-study-card').forEach(card => {
+    card.addEventListener('click', (e) => {
+      e.preventDefault();
+      const studyKey = card.getAttribute('data-study');
+      if (studyKey) {
+        openModal(`case-${studyKey}`);
+      }
+    });
+    card.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        const studyKey = card.getAttribute('data-study');
+        if (studyKey) {
+          openModal(`case-${studyKey}`);
+        }
+      }
     });
   });
 

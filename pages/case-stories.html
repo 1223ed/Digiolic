@@ -20,7 +20,7 @@
   <link rel="stylesheet" href="../css/style.css?v=20261109_fint10_v1">
   <link rel="stylesheet" href="../css/components.css?v=20261105_v1">
   <link rel="stylesheet" href="../css/pages.css?v=20260919_v209">
-  <link rel="stylesheet" href="../css/case-stories.css?v=20261001_blackbtn_v1">
+  <link rel="stylesheet" href="../css/case-stories.css?v=20261111_dm_green_v1">
   <link rel="stylesheet" href="../css/responsive.css?v=20260930_v1">
   <link rel="stylesheet" href="../css/chat-widget.css?v=20260919_v209">
   <link rel="stylesheet" href="../css/zoho-footer.css?v=20261103_1">
@@ -1428,7 +1428,6 @@
         overflow: hidden;
         width: 100%;
         box-sizing: border-box;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
       }
       .projects-spec-section * {
         box-sizing: border-box;
@@ -2290,6 +2289,132 @@
     </script>
 
     <!-- ==========================================================================
+         DIGITAL MARKETING CASE STUDIES SECTION (4 SQUARE GREEN CARDS ON DEEP BLACK)
+         ========================================================================== -->
+    <style>
+      .dm-case-studies-section#dmCaseStudiesSection {
+        background: #000000 !important;
+        color: #ffffff !important;
+        padding: clamp(1rem, 2vw, 2rem) 0 clamp(4.5rem, 6.5vw, 6rem) 0 !important;
+        position: relative !important;
+        overflow: hidden !important;
+        border-top: none !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+      }
+      .dm-case-studies-section#dmCaseStudiesSection .dm-case-studies-container {
+        width: 100% !important;
+        max-width: 80rem !important;
+        margin: 0 auto !important;
+        padding-left: clamp(1.25rem, 3vw, 4rem) !important;
+        padding-right: clamp(1.25rem, 3vw, 4rem) !important;
+        box-sizing: border-box !important;
+      }
+      .dm-case-studies-section#dmCaseStudiesSection .dm-case-studies-title {
+        font-family: 'DM Sans', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif !important;
+        font-size: clamp(26px, 2.8vw, 38px) !important;
+        font-weight: 400 !important;
+        line-height: 1.2 !important;
+        letter-spacing: 0.04em !important;
+        text-transform: uppercase !important;
+        text-align: center !important;
+        color: #76B82A !important;
+        margin: 0 auto clamp(2rem, 3.5vw, 3rem) auto !important;
+      }
+      .dm-case-studies-section#dmCaseStudiesSection .dm-case-studies-grid {
+        display: grid !important;
+        grid-template-columns: repeat(4, 1fr) !important;
+        gap: 1.5rem !important;
+        max-width: 100% !important;
+        margin: 0 auto !important;
+        align-items: stretch !important;
+      }
+      .dm-case-studies-section#dmCaseStudiesSection .dm-case-study-card {
+        position: relative !important;
+        border-radius: 0 !important;
+        overflow: hidden !important;
+        background: #76B82A !important;
+        box-shadow: none !important;
+        cursor: pointer !important;
+        transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+                    box-shadow 0.3s cubic-bezier(0.22, 1, 0.36, 1) !important;
+      }
+      @media (hover: hover) {
+        .dm-case-studies-section#dmCaseStudiesSection .dm-case-study-card:hover {
+          transform: translateY(-6px) !important;
+          box-shadow: 0 18px 36px -10px rgba(118, 184, 42, 0.35) !important;
+        }
+      }
+      .dm-case-studies-section#dmCaseStudiesSection .dm-case-study-img {
+        width: 100% !important;
+        height: 100% !important;
+        aspect-ratio: 1 / 1 !important;
+        object-fit: cover !important;
+        object-position: top center !important;
+        transform: scale(1.015) !important;
+        display: block !important;
+        user-select: none !important;
+      }
+      @media (max-width: 992px) {
+        .dm-case-studies-section#dmCaseStudiesSection .dm-case-studies-grid {
+          grid-template-columns: repeat(2, 1fr) !important;
+          gap: 1.25rem !important;
+          max-width: 100% !important;
+        }
+      }
+      @media (max-width: 540px) {
+        .dm-case-studies-section#dmCaseStudiesSection .dm-case-studies-grid {
+          grid-template-columns: 1fr !important;
+          gap: 1.25rem !important;
+          max-width: 100% !important;
+        }
+      }
+    </style>
+
+    <section class="dm-case-studies-section" id="dmCaseStudiesSection" aria-label="Digital Marketing Case Studies">
+      <div class="dm-case-studies-container">
+        <h2 class="dm-case-studies-title">CASE STUDIES</h2>
+
+        <div class="dm-case-studies-grid">
+          <!-- Card 1: Deccan Herald -->
+          <div class="dm-case-study-card" data-study="deccan-herald" role="button" tabindex="0" aria-label="View Deccan Herald Case Study">
+            <img
+              src="../assets/images/case-study-card-1.png"
+              alt="Deccan Herald Case Study - News &amp; Publication: 37% Boost in Lead Generation, 49% Reduction in CAC"
+              class="dm-case-study-img"
+              loading="lazy">
+          </div>
+
+          <!-- Card 2: Myntra -->
+          <div class="dm-case-study-card" data-study="myntra" role="button" tabindex="0" aria-label="View Myntra Case Study">
+            <img
+              src="../assets/images/case-study-card-2.png"
+              alt="Myntra Case Study - E-Commerce: 10X Boost in Organic traffic, 100% Increase MOM"
+              class="dm-case-study-img"
+              loading="lazy">
+          </div>
+
+          <!-- Card 3: Flipkart -->
+          <div class="dm-case-study-card" data-study="flipkart" role="button" tabindex="0" aria-label="View Flipkart Case Study">
+            <img
+              src="../assets/images/case-study-card-3.png"
+              alt="Flipkart Case Study - E-Commerce: 40% Boost in IG Engagement, 70% Boost in YT Views"
+              class="dm-case-study-img"
+              loading="lazy">
+          </div>
+
+          <!-- Card 4: via Milano -->
+          <div class="dm-case-study-card" data-study="via-milano" role="button" tabindex="0" aria-label="View via Milano Case Study">
+            <img
+              src="../assets/images/case-study-card-4.png"
+              alt="via Milano Case Study - E-Commerce: 4X Boost in Table Booking, 100% Increase Revenue"
+              class="dm-case-study-img"
+              loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
          4. EDITORIAL PULL QUOTE SECTION
          ========================================================================== -->
     <section class="cs-quote-section">
@@ -2666,7 +2791,7 @@
 
   <!-- JavaScript Modules -->
   <script src="../js/main.js?v=20260926_green_d_v6"></script>
-  <script src="../js/case-filter.js?v=20261003_3d_v3"></script>
+  <script src="../js/case-filter.js?v=20261111_dm_green_v1"></script>
   <script src="../js/form-validation.js?v=20260912_footer_v3"></script>
 
   <!-- Zoho WebForm Analytics Tracking -->
