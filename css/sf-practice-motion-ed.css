@@ -9,6 +9,17 @@
    - 100% Text-Only Architecture (No Images)
    ========================================================================== */
 
+/* Gradient interpolation space token (fallback empty for pre-2024 browsers) */
+:root {
+  --sf-grad-space: ;
+}
+
+@supports (background: linear-gradient(in oklab, white, black)) {
+  :root {
+    --sf-grad-space: in oklab;
+  }
+}
+
 /* Outer Scroll Track Container */
 .sf-practice-section {
   position: relative;
@@ -254,10 +265,11 @@
   width: clamp(330px, 25vw, 395px);
   min-width: clamp(330px, 25vw, 395px);
   height: 100%;
-  background: #FFFFFF;
-  border: 1.5px solid #08080B;
+  background-color: #8e9eab;
+  background-image: linear-gradient(135deg var(--sf-grad-space), #8e9eab 0%, #eef2f3 100%);
+  border: 1.5px solid rgba(238, 242, 243, 0.65);
   border-radius: 24px;
-  box-shadow: 0 20px 40px -15px rgba(15, 23, 42, 0.10), 0 4px 10px rgba(0, 0, 0, 0.03);
+  box-shadow: 0 20px 44px -15px rgba(15, 23, 42, 0.35), 0 4px 12px rgba(0, 0, 0, 0.16);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -272,8 +284,8 @@
 }
 
 .sf-pbox-card:hover {
-  border-color: #00A1E0;
-  box-shadow: 0 30px 60px -15px rgba(0, 161, 224, 0.25), 0 10px 24px rgba(0, 0, 0, 0.08);
+  border-color: #eef2f3;
+  box-shadow: 0 30px 60px -15px rgba(142, 158, 171, 0.42), 0 10px 24px rgba(0, 0, 0, 0.18);
 }
 
 /* Card Inset Frame Crosshair Corner (+) TRIONN style */
@@ -284,9 +296,9 @@
   right: 16px;
   font-family: 'Inter', monospace;
   font-size: 13px;
-  font-weight: 300;
-  color: #94A3B8;
-  opacity: 0.6;
+  font-weight: 400;
+  color: rgba(15, 23, 42, 0.55);
+  opacity: 0.75;
   pointer-events: none;
 }
 
@@ -308,9 +320,9 @@
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: #08080B;
-  background: rgba(8, 8, 11, 0.05);
-  border: 1px solid rgba(8, 8, 11, 0.12);
+  color: #0F172A;
+  background: rgba(238, 242, 243, 0.86);
+  border: 1px solid rgba(15, 23, 42, 0.16);
   padding: 4px 10px;
   border-radius: 6px;
 }
@@ -319,8 +331,8 @@
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background-color: #00A1E0;
-  box-shadow: 0 0 6px rgba(0, 161, 224, 0.8);
+  background-color: #334155;
+  box-shadow: 0 0 0 2px rgba(142, 158, 171, 0.35);
 }
 
 .sf-pbox-num {
@@ -328,7 +340,7 @@
   font-size: clamp(1.5rem, 1.9vw, 2.0rem);
   font-weight: 800;
   line-height: 1;
-  color: #08080B;
+  color: #0F172A;
   letter-spacing: -0.04em;
   margin-right: 18px; /* space away from top corner crosshair */
 }
@@ -358,7 +370,7 @@
   font-family: 'Inter', sans-serif;
   font-size: clamp(0.76rem, 0.84vw, 0.88rem);
   line-height: 1.36;
-  color: #475569;
+  color: #1E293B;
   font-weight: 400;
   flex-shrink: 0;
 }
@@ -369,9 +381,9 @@
   font-size: 0.78rem;
   font-weight: 600;
   font-style: italic;
-  color: #00A1E0;
-  background: rgba(0, 161, 224, 0.08);
-  border-left: 3px solid #00A1E0;
+  color: #0F172A;
+  background: rgba(238, 242, 243, 0.58);
+  border-left: 3px solid #334155;
   padding: 3px 8px;
   border-radius: 0 6px 6px 0;
   margin-bottom: 6px;
@@ -392,7 +404,7 @@
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: #94A3B8;
+  color: #334155;
   margin-bottom: 3px;
 }
 
@@ -410,9 +422,9 @@
   font-size: 0.68rem;
   font-weight: 500;
   line-height: 1.25;
-  color: #1E293B;
-  background: #F1F5F9;
-  border: 1px solid #E2E8F0;
+  color: #0F172A;
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(15, 23, 42, 0.14);
   padding: 2px 7px;
   border-radius: 6px;
   transition: all 0.2s ease;
@@ -421,7 +433,7 @@
 
 .sf-pbox-card:hover .sf-pbox-pill {
   background: #FFFFFF;
-  border-color: #CBD5E1;
+  border-color: rgba(15, 23, 42, 0.28);
 }
 
 /* Bottom Action Row (View / Explore Practice) */
@@ -430,7 +442,7 @@
   justify-content: space-between;
   align-items: center;
   padding-top: 6px;
-  border-top: 1px solid rgba(8, 8, 11, 0.08);
+  border-top: 1px solid rgba(15, 23, 42, 0.14);
   flex-shrink: 0;
 }
 
@@ -458,7 +470,7 @@
 
 .sf-pbox-card:hover .sf-pbox-action {
   letter-spacing: 0.20em;
-  color: #00A1E0;
+  color: #1E293B;
 }
 
 .sf-pbox-card:hover .sf-pbox-arrow {
@@ -660,200 +672,32 @@
 }
 
 /* ==========================================================================
-   IMAGE 2: INDIVIDUAL LIGHT COLORWAYS FOR PRACTICE RECTANGLE BOX CARDS
-   Each card receives a distinct, harmonious light pastel background tint
-   with matching tag pill accents, numeric index hues, and hover illumination
+   UNIFIED SLATE-PEARL GRADIENT COLORWAY FOR PRACTICE RECTANGLE BOX CARDS
+   Applies #8e9eab -> #eef2f3 uniformly across all 8 cards on desktop & mobile
+   while keeping Forced Colors Mode legible when gradients are stripped.
    ========================================================================== */
+@media (forced-colors: active) {
+  .sf-pbox-card,
+  .sf-pbox-tag,
+  .sf-pbox-pill {
+    background: Canvas;
+    color: CanvasText;
+    border-color: CanvasText;
+  }
 
-/* Card 1: Soft Ice Cyan Tint (Strategy) */
-.sf-pbox-card[data-index="1"],
-.sf-pbox-card:nth-child(1) {
-  background: #F0F8FF !important;
-  border-color: #BAE6FD !important;
-}
-.sf-pbox-card[data-index="1"]:hover,
-.sf-pbox-card:nth-child(1):hover {
-  border-color: #0284C7 !important;
-  box-shadow: 0 30px 60px -15px rgba(2, 132, 199, 0.28), 0 10px 24px rgba(0, 0, 0, 0.08) !important;
-}
-.sf-pbox-card[data-index="1"] .sf-pbox-tag {
-  background: rgba(2, 132, 199, 0.08) !important;
-  border-color: rgba(2, 132, 199, 0.25) !important;
-  color: #0369A1 !important;
-}
-.sf-pbox-card[data-index="1"] .sf-pbox-tag-dot {
-  background-color: #0284C7 !important;
-  box-shadow: 0 0 6px rgba(2, 132, 199, 0.8) !important;
-}
-.sf-pbox-card[data-index="1"] .sf-pbox-num {
-  color: #0284C7 !important;
-}
+  .sf-pbox-tag-dot {
+    background-color: CanvasText;
+  }
 
-/* Card 2: Soft Mint Sage Tint (Development) */
-.sf-pbox-card[data-index="2"],
-.sf-pbox-card:nth-child(2) {
-  background: #F0FDF4 !important;
-  border-color: #BBF7D0 !important;
-}
-.sf-pbox-card[data-index="2"]:hover,
-.sf-pbox-card:nth-child(2):hover {
-  border-color: #16A34A !important;
-  box-shadow: 0 30px 60px -15px rgba(22, 163, 74, 0.28), 0 10px 24px rgba(0, 0, 0, 0.08) !important;
-}
-.sf-pbox-card[data-index="2"] .sf-pbox-tag {
-  background: rgba(22, 163, 74, 0.08) !important;
-  border-color: rgba(22, 163, 74, 0.25) !important;
-  color: #15803D !important;
-}
-.sf-pbox-card[data-index="2"] .sf-pbox-tag-dot {
-  background-color: #16A34A !important;
-  box-shadow: 0 0 6px rgba(22, 163, 74, 0.8) !important;
-}
-.sf-pbox-card[data-index="2"] .sf-pbox-num {
-  color: #16A34A !important;
-}
-
-/* Card 3: Soft Lavender Lilac Tint (Integration) */
-.sf-pbox-card[data-index="3"],
-.sf-pbox-card:nth-child(3) {
-  background: #F5F3FF !important;
-  border-color: #DDD6FE !important;
-}
-.sf-pbox-card[data-index="3"]:hover,
-.sf-pbox-card:nth-child(3):hover {
-  border-color: #7C3AED !important;
-  box-shadow: 0 30px 60px -15px rgba(124, 58, 237, 0.28), 0 10px 24px rgba(0, 0, 0, 0.08) !important;
-}
-.sf-pbox-card[data-index="3"] .sf-pbox-tag {
-  background: rgba(124, 58, 237, 0.08) !important;
-  border-color: rgba(124, 58, 237, 0.25) !important;
-  color: #6D28D9 !important;
-}
-.sf-pbox-card[data-index="3"] .sf-pbox-tag-dot {
-  background-color: #7C3AED !important;
-  box-shadow: 0 0 6px rgba(124, 58, 237, 0.8) !important;
-}
-.sf-pbox-card[data-index="3"] .sf-pbox-num {
-  color: #7C3AED !important;
-}
-
-/* Card 4: Soft Sky Azure Tint (Automation) */
-.sf-pbox-card[data-index="4"],
-.sf-pbox-card:nth-child(4) {
-  background: #EFF6FF !important;
-  border-color: #BFDBFE !important;
-}
-.sf-pbox-card[data-index="4"]:hover,
-.sf-pbox-card:nth-child(4):hover {
-  border-color: #2563EB !important;
-  box-shadow: 0 30px 60px -15px rgba(37, 99, 235, 0.28), 0 10px 24px rgba(0, 0, 0, 0.08) !important;
-}
-.sf-pbox-card[data-index="4"] .sf-pbox-tag {
-  background: rgba(37, 99, 235, 0.08) !important;
-  border-color: rgba(37, 99, 235, 0.25) !important;
-  color: #1D4ED8 !important;
-}
-.sf-pbox-card[data-index="4"] .sf-pbox-tag-dot {
-  background-color: #2563EB !important;
-  box-shadow: 0 0 6px rgba(37, 99, 235, 0.8) !important;
-}
-.sf-pbox-card[data-index="4"] .sf-pbox-num {
-  color: #2563EB !important;
-}
-
-/* Card 5: Soft Peach Amber Tint (Data) */
-.sf-pbox-card[data-index="5"],
-.sf-pbox-card:nth-child(5) {
-  background: #FFFBEB !important;
-  border-color: #FDE68A !important;
-}
-.sf-pbox-card[data-index="5"]:hover,
-.sf-pbox-card:nth-child(5):hover {
-  border-color: #D97706 !important;
-  box-shadow: 0 30px 60px -15px rgba(217, 119, 6, 0.28), 0 10px 24px rgba(0, 0, 0, 0.08) !important;
-}
-.sf-pbox-card[data-index="5"] .sf-pbox-tag {
-  background: rgba(217, 119, 6, 0.08) !important;
-  border-color: rgba(217, 119, 6, 0.25) !important;
-  color: #B45309 !important;
-}
-.sf-pbox-card[data-index="5"] .sf-pbox-tag-dot {
-  background-color: #D97706 !important;
-  box-shadow: 0 0 6px rgba(217, 119, 6, 0.8) !important;
-}
-.sf-pbox-card[data-index="5"] .sf-pbox-num {
-  color: #D97706 !important;
-}
-
-/* Card 6: Soft Rose Blush Tint (Support) */
-.sf-pbox-card[data-index="6"],
-.sf-pbox-card:nth-child(6) {
-  background: #FFF1F2 !important;
-  border-color: #FECDD3 !important;
-}
-.sf-pbox-card[data-index="6"]:hover,
-.sf-pbox-card:nth-child(6):hover {
-  border-color: #E11D48 !important;
-  box-shadow: 0 30px 60px -15px rgba(225, 29, 72, 0.28), 0 10px 24px rgba(0, 0, 0, 0.08) !important;
-}
-.sf-pbox-card[data-index="6"] .sf-pbox-tag {
-  background: rgba(225, 29, 72, 0.08) !important;
-  border-color: rgba(225, 29, 72, 0.25) !important;
-  color: #BE123C !important;
-}
-.sf-pbox-card[data-index="6"] .sf-pbox-tag-dot {
-  background-color: #E11D48 !important;
-  box-shadow: 0 0 6px rgba(225, 29, 72, 0.8) !important;
-}
-.sf-pbox-card[data-index="6"] .sf-pbox-num {
-  color: #E11D48 !important;
-}
-
-/* Card 7: Soft Emerald Seafoam Tint (Health Check) */
-.sf-pbox-card[data-index="7"],
-.sf-pbox-card:nth-child(7) {
-  background: #ECFDF5 !important;
-  border-color: #A7F3D0 !important;
-}
-.sf-pbox-card[data-index="7"]:hover,
-.sf-pbox-card:nth-child(7):hover {
-  border-color: #059669 !important;
-  box-shadow: 0 30px 60px -15px rgba(5, 150, 105, 0.28), 0 10px 24px rgba(0, 0, 0, 0.08) !important;
-}
-.sf-pbox-card[data-index="7"] .sf-pbox-tag {
-  background: rgba(5, 150, 105, 0.08) !important;
-  border-color: rgba(5, 150, 105, 0.25) !important;
-  color: #047857 !important;
-}
-.sf-pbox-card[data-index="7"] .sf-pbox-tag-dot {
-  background-color: #059669 !important;
-  box-shadow: 0 0 6px rgba(5, 150, 105, 0.8) !important;
-}
-.sf-pbox-card[data-index="7"] .sf-pbox-num {
-  color: #059669 !important;
-}
-
-/* Card 8: Soft Periwinkle Slate Tint (AppExchange) */
-.sf-pbox-card[data-index="8"],
-.sf-pbox-card:nth-child(8) {
-  background: #EEF2FF !important;
-  border-color: #C7D2FE !important;
-}
-.sf-pbox-card[data-index="8"]:hover,
-.sf-pbox-card:nth-child(8):hover {
-  border-color: #4F46E5 !important;
-  box-shadow: 0 30px 60px -15px rgba(79, 70, 229, 0.28), 0 10px 24px rgba(0, 0, 0, 0.08) !important;
-}
-.sf-pbox-card[data-index="8"] .sf-pbox-tag {
-  background: rgba(79, 70, 229, 0.08) !important;
-  border-color: rgba(79, 70, 229, 0.25) !important;
-  color: #4338CA !important;
-}
-.sf-pbox-card[data-index="8"] .sf-pbox-tag-dot {
-  background-color: #4F46E5 !important;
-  box-shadow: 0 0 6px rgba(79, 70, 229, 0.8) !important;
-}
-.sf-pbox-card[data-index="8"] .sf-pbox-num {
-  color: #4F46E5 !important;
+  .sf-pbox-title,
+  .sf-pbox-desc,
+  .sf-pbox-num,
+  .sf-pbox-cap-label,
+  .sf-pbox-quote,
+  .sf-pbox-action,
+  .sf-pbox-footer {
+    color: CanvasText;
+    border-color: CanvasText;
+  }
 }
 
