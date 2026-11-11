@@ -809,56 +809,13 @@ export default function ProjectsSection(): JSX.Element {
       {/* -------------------------------------------------------------------- */}
       {/* Case Study Cards (2-column responsive grid)                         */}
       {/* -------------------------------------------------------------------- */}
-      <div className="mx-auto max-w-7xl px-6 pb-16 sm:px-10 lg:px-16">
+      <div className="mx-auto max-w-7xl px-6 pb-20 sm:px-10 lg:px-16">
         <div className="grid gap-6 md:grid-cols-2">
           {CASE_STUDIES.map((study, idx) => (
             <CaseStudyCard key={study.id} study={study} index={idx} />
           ))}
         </div>
       </div>
-
-      {/* -------------------------------------------------------------------- */}
-      {/* Footer Area                                                          */}
-      {/* -------------------------------------------------------------------- */}
-      <div className="mx-auto max-w-7xl px-6 pb-12 sm:px-10 lg:px-16">
-        <div className="flex flex-col items-start justify-between gap-8 border-t border-black/10 pt-10 md:flex-row md:items-end">
-          {/* Left side */}
-          <div className="max-w-md">
-            <div
-              className="mb-4 flex h-7 w-7 items-center justify-center border border-black/20 text-xs text-black"
-              aria-hidden="true"
-            >
-              +
-            </div>
-            <p className="text-[14px] leading-[1.7] text-black/60">
-              We partner with ambitious brands that are ready to move beyond
-              fragmented visuals and shallow quick fixes -- turning their
-              identity, website, and messaging into one focused engine for
-              growth.
-            </p>
-
-            <a
-              href="contact.html"
-              className="group mt-6 inline-flex items-end focus:outline-none"
-            >
-              <span className="inline-flex items-center gap-[10px] border border-black/20 bg-black px-3 py-2 text-base font-medium text-white transition-colors duration-200 group-hover:bg-black/85">
-                Let's work together
-              </span>
-              <span className="mb-6 flex h-6 w-6 items-center justify-center bg-black transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:mb-9">
-                <svg
-                  className="h-4 w-4 fill-current text-white"
-                  viewBox="0 0 24 24"
-                  aria-hidden="true"
-                >
-                  <path d="M18.75 6V15.75C18.75 15.949 18.671 16.14 18.53 16.28C18.39 16.421 18.199 16.5 18 16.5C17.801 16.5 17.61 16.421 17.47 16.28C17.329 16.14 17.25 15.949 17.25 15.75V7.81L6.53 18.53C6.39 18.671 6.199 18.75 6 18.75C5.801 18.75 5.61 18.671 5.47 18.53C5.329 18.39 5.25 18.199 5.25 18C5.25 17.801 5.329 17.61 5.47 17.47L16.19 6.75H8.25C8.051 6.75 7.86 6.671 7.72 6.53C7.579 6.39 7.5 6.199 7.5 6C7.5 5.801 7.579 5.61 7.72 5.47C7.86 5.329 8.051 5.25 8.25 5.25H18C18.199 5.25 18.39 5.329 18.53 5.47C18.671 5.61 18.75 5.801 18.75 6Z" />
-                </svg>
-              </span>
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <div className="h-12" />
     </section>
   );
 }

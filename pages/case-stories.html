@@ -23,7 +23,6 @@
   <link rel="stylesheet" href="../css/case-stories.css?v=20261001_blackbtn_v1">
   <link rel="stylesheet" href="../css/responsive.css?v=20260930_v1">
   <link rel="stylesheet" href="../css/chat-widget.css?v=20260919_v209">
-  <link rel="stylesheet" href="../css/case-3d-sphere.css?v=20261003_v1">
   <link rel="stylesheet" href="../css/zoho-footer.css?v=20261103_1">
 
   <!-- Exact Font specified -->
@@ -1415,539 +1414,6 @@
     </style>
 
     <!-- ==========================================================================
-         3D CURVED SPHERE / CYLINDER CASE STUDIES SHOWCASE
-         Exact Replication of Squarespace 3D Showcase Wall:
-         - Orbiting 3-tier curved cylindrical perspective cloud of case studies
-         - Drag momentum physics + idle continuous ambient drift
-         - Hover pill badges with arrow ([Client Name] ↗)
-         - Click opens rich case study architecture & impact modal
-         - Category filtering & 3D / Grid View toggle
-         ========================================================================== -->
-    <section class="cs-3d-showcase-section" id="cs3DShowcaseSection" aria-label="Interactive 3D Case Studies Showcase">
-      <div id="caseStudiesGallery" style="position: absolute; top: 0; left: 0; width: 1px; height: 1px; opacity: 0; pointer-events: none;"></div>
-
-      <!-- Top Vignette Gradient -->
-      <div class="cs-3d-vignette-top"></div>
-
-      <!-- Top Controls & Category Filters -->
-      <div class="cs-3d-top-bar">
-        <div class="cs-3d-filter-pills" role="tablist" aria-label="Filter case studies">
-          <button type="button" class="cs-3d-filter-btn is-active" data-filter="all">All (14)</button>
-          <button type="button" class="cs-3d-filter-btn" data-filter="zoho">Zoho (6)</button>
-          <button type="button" class="cs-3d-filter-btn" data-filter="salesforce">Salesforce (4)</button>
-          <button type="button" class="cs-3d-filter-btn" data-filter="digital-marketing">Digital Marketing (4)</button>
-        </div>
-      </div>
-
-      <!-- Center Stationary Title -->
-      <div class="cs-3d-center-brand">
-        <h2 class="cs-3d-center-title">
-          <span class="cs-3d-title-main">CASE STUDY</span>
-        </h2>
-      </div>
-
-      <!-- 3D Transform World Container -->
-      <div class="cs-3d-world" id="cs3DWorld">
-        <div class="cs-3d-cylinder" id="cs3DCylinder">
-          <!-- Card 1: Monster India (Salesforce) -->
-          <div class="cs-3d-card-item" data-case-id="case-monster-india" data-category="salesforce crm">
-            <div class="cs-3d-card-inner">
-              <img src="../assets/images/case-studies/landmarks/india-gate.jpg" alt="Monster India" class="cs-3d-card-bg-img" loading="eager">
-              <div class="cs-3d-card-overlay">
-                <div class="cs-3d-card-top-bar">
-                  <span class="cs-3d-card-client-name">Monster India</span>
-                  <span class="cs-3d-card-pill-tag salesforce">Salesforce CRM</span>
-                </div>
-                <div class="cs-3d-card-bottom-bar">
-                  <span class="cs-3d-card-location">
-                    <svg class="cs-3d-card-loc-icon" viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                      <circle cx="12" cy="10" r="3"></circle>
-                    </svg>
-                    India
-                  </span>
-                </div>
-              </div>
-              <div class="cs-3d-hover-pill">Monster India <span class="cs-3d-hover-pill-arrow">↗</span></div>
-            </div>
-          </div>
-
-          <!-- Card 2: FYX Finance (Zoho) -->
-          <div class="cs-3d-card-item" data-case-id="case-fyx" data-category="zoho crm">
-            <div class="cs-3d-card-inner">
-              <img src="../assets/images/case-studies/landmarks/sydney-opera.jpg" alt="FYX Finance" class="cs-3d-card-bg-img" loading="eager">
-              <div class="cs-3d-card-overlay">
-                <div class="cs-3d-card-top-bar">
-                  <span class="cs-3d-card-client-name">FYX Finance</span>
-                  <span class="cs-3d-card-pill-tag zoho">Zoho CRM</span>
-                </div>
-                <div class="cs-3d-card-bottom-bar">
-                  <span class="cs-3d-card-location">
-                    <svg class="cs-3d-card-loc-icon" viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                      <circle cx="12" cy="10" r="3"></circle>
-                    </svg>
-                    Australia
-                  </span>
-                </div>
-              </div>
-              <div class="cs-3d-hover-pill">FYX Finance <span class="cs-3d-hover-pill-arrow">↗</span></div>
-            </div>
-          </div>
-
-          <!-- Card 3: Verzeo Technologies (Salesforce) -->
-          <div class="cs-3d-card-item" data-case-id="case-verzeo" data-category="salesforce crm">
-            <div class="cs-3d-card-inner">
-              <img src="../assets/images/case-studies/landmarks/bangalore-vidhana.jpg" alt="Verzeo Technologies" class="cs-3d-card-bg-img" loading="eager">
-              <div class="cs-3d-card-overlay">
-                <div class="cs-3d-card-top-bar">
-                  <span class="cs-3d-card-client-name">Verzeo Technologies</span>
-                  <span class="cs-3d-card-pill-tag salesforce">Salesforce CRM</span>
-                </div>
-                <div class="cs-3d-card-bottom-bar">
-                  <span class="cs-3d-card-location">
-                    <svg class="cs-3d-card-loc-icon" viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                      <circle cx="12" cy="10" r="3"></circle>
-                    </svg>
-                    Bangalore, India
-                  </span>
-                </div>
-              </div>
-              <div class="cs-3d-hover-pill">Verzeo Technologies <span class="cs-3d-hover-pill-arrow">↗</span></div>
-            </div>
-          </div>
-
-          <!-- Card 4: Banaraswala (Salesforce) -->
-          <div class="cs-3d-card-item" data-case-id="case-banaraswala" data-category="salesforce crm">
-            <div class="cs-3d-card-inner">
-              <img src="../assets/images/case-studies/landmarks/delhi-qutub.jpg" alt="Banaraswala" class="cs-3d-card-bg-img" loading="eager">
-              <div class="cs-3d-card-overlay">
-                <div class="cs-3d-card-top-bar">
-                  <span class="cs-3d-card-client-name">Banaraswala</span>
-                  <span class="cs-3d-card-pill-tag salesforce">Salesforce CRM</span>
-                </div>
-                <div class="cs-3d-card-bottom-bar">
-                  <span class="cs-3d-card-location">
-                    <svg class="cs-3d-card-loc-icon" viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                      <circle cx="12" cy="10" r="3"></circle>
-                    </svg>
-                    Delhi, India
-                  </span>
-                </div>
-              </div>
-              <div class="cs-3d-hover-pill">Banaraswala <span class="cs-3d-hover-pill-arrow">↗</span></div>
-            </div>
-          </div>
-
-          <!-- Card 5: NZ Immigration (Zoho) -->
-          <div class="cs-3d-card-item" data-case-id="case-nz-immigration" data-category="zoho crm">
-            <div class="cs-3d-card-inner">
-              <img src="../assets/images/case-studies/landmarks/new-zealand.jpg" alt="NZ Immigration" class="cs-3d-card-bg-img" loading="eager">
-              <div class="cs-3d-card-overlay">
-                <div class="cs-3d-card-top-bar">
-                  <span class="cs-3d-card-client-name">NZ Immigration</span>
-                  <span class="cs-3d-card-pill-tag zoho">Zoho Suite</span>
-                </div>
-                <div class="cs-3d-card-bottom-bar">
-                  <span class="cs-3d-card-location">
-                    <svg class="cs-3d-card-loc-icon" viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                      <circle cx="12" cy="10" r="3"></circle>
-                    </svg>
-                    New Zealand
-                  </span>
-                </div>
-              </div>
-              <div class="cs-3d-hover-pill">NZ Immigration <span class="cs-3d-hover-pill-arrow">↗</span></div>
-            </div>
-          </div>
-
-          <!-- Card 6: Greenworld Solarwares (Zoho) -->
-          <div class="cs-3d-card-item" data-case-id="case-greenworld" data-category="zoho hr">
-            <div class="cs-3d-card-inner">
-              <img src="../assets/images/case-studies/landmarks/solar-energy.jpg" alt="Greenworld Solarwares" class="cs-3d-card-bg-img" loading="eager">
-              <div class="cs-3d-card-overlay">
-                <div class="cs-3d-card-top-bar">
-                  <span class="cs-3d-card-client-name">Greenworld Solarwares</span>
-                  <span class="cs-3d-card-pill-tag zoho">Zoho People</span>
-                </div>
-                <div class="cs-3d-card-bottom-bar">
-                  <span class="cs-3d-card-location">
-                    <svg class="cs-3d-card-loc-icon" viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                      <circle cx="12" cy="10" r="3"></circle>
-                    </svg>
-                    Chhattisgarh, India
-                  </span>
-                </div>
-              </div>
-              <div class="cs-3d-hover-pill">Greenworld Solarwares <span class="cs-3d-hover-pill-arrow">↗</span></div>
-            </div>
-          </div>
-
-          <!-- Card 7: Pierian Technologies (Zoho) -->
-          <div class="cs-3d-card-item" data-case-id="case-pierian" data-category="zoho finance">
-            <div class="cs-3d-card-inner">
-              <img src="../assets/images/case-studies/landmarks/bangalore-finance.jpg" alt="Pierian Technologies" class="cs-3d-card-bg-img" loading="eager">
-              <div class="cs-3d-card-overlay">
-                <div class="cs-3d-card-top-bar">
-                  <span class="cs-3d-card-client-name">Pierian Technologies</span>
-                  <span class="cs-3d-card-pill-tag zoho">Zoho Books</span>
-                </div>
-                <div class="cs-3d-card-bottom-bar">
-                  <span class="cs-3d-card-location">
-                    <svg class="cs-3d-card-loc-icon" viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                      <circle cx="12" cy="10" r="3"></circle>
-                    </svg>
-                    Bangalore, India
-                  </span>
-                </div>
-              </div>
-              <div class="cs-3d-hover-pill">Pierian Technologies <span class="cs-3d-hover-pill-arrow">↗</span></div>
-            </div>
-          </div>
-
-          <!-- Card 8: Blume Labs (Zoho) -->
-          <div class="cs-3d-card-item" data-case-id="case-blume-labs" data-category="zoho finance crm">
-            <div class="cs-3d-card-inner">
-              <img src="../assets/images/case-studies/landmarks/blume-tech.jpg" alt="Blume Labs" class="cs-3d-card-bg-img" loading="eager">
-              <div class="cs-3d-card-overlay">
-                <div class="cs-3d-card-top-bar">
-                  <span class="cs-3d-card-client-name">Blume Labs</span>
-                  <span class="cs-3d-card-pill-tag zoho">Zoho One</span>
-                </div>
-                <div class="cs-3d-card-bottom-bar">
-                  <span class="cs-3d-card-location">
-                    <svg class="cs-3d-card-loc-icon" viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                      <circle cx="12" cy="10" r="3"></circle>
-                    </svg>
-                    Bangalore, India
-                  </span>
-                </div>
-              </div>
-              <div class="cs-3d-hover-pill">Blume Labs <span class="cs-3d-hover-pill-arrow">↗</span></div>
-            </div>
-          </div>
-
-          <!-- Card 9: Loom Crafts (Salesforce) -->
-          <div class="cs-3d-card-item" data-case-id="case-loomcrafts" data-category="salesforce crm">
-            <div class="cs-3d-card-inner">
-              <img src="../assets/images/case-studies/landmarks/agra-taj.jpg" alt="Loom Crafts" class="cs-3d-card-bg-img" loading="eager">
-              <div class="cs-3d-card-overlay">
-                <div class="cs-3d-card-top-bar">
-                  <span class="cs-3d-card-client-name">Loom Crafts</span>
-                  <span class="cs-3d-card-pill-tag salesforce">Salesforce CRM</span>
-                </div>
-                <div class="cs-3d-card-bottom-bar">
-                  <span class="cs-3d-card-location">
-                    <svg class="cs-3d-card-loc-icon" viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                      <circle cx="12" cy="10" r="3"></circle>
-                    </svg>
-                    Uttar Pradesh, India
-                  </span>
-                </div>
-              </div>
-              <div class="cs-3d-hover-pill">Loom Crafts <span class="cs-3d-hover-pill-arrow">↗</span></div>
-            </div>
-          </div>
-
-          <!-- Card 10: Chanakya University (Zoho) -->
-          <div class="cs-3d-card-item" data-case-id="case-chanakya-university" data-category="zoho crm">
-            <div class="cs-3d-card-inner">
-              <img src="../assets/images/case-studies/landmarks/chanakya-univ.jpg" alt="Chanakya University" class="cs-3d-card-bg-img" loading="eager">
-              <div class="cs-3d-card-overlay">
-                <div class="cs-3d-card-top-bar">
-                  <span class="cs-3d-card-client-name">Chanakya University</span>
-                  <span class="cs-3d-card-pill-tag zoho">Zoho CRM</span>
-                </div>
-                <div class="cs-3d-card-bottom-bar">
-                  <span class="cs-3d-card-location">
-                    <svg class="cs-3d-card-loc-icon" viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                      <circle cx="12" cy="10" r="3"></circle>
-                    </svg>
-                    Bangalore, India
-                  </span>
-                </div>
-              </div>
-              <div class="cs-3d-hover-pill">Chanakya University <span class="cs-3d-hover-pill-arrow">↗</span></div>
-            </div>
-          </div>
-
-          <!-- Card 11: Deccan Herald (Digital Marketing) -->
-          <div class="cs-3d-card-item" data-case-id="case-deccan-herald" data-category="digital-marketing marketing">
-            <div class="cs-3d-card-inner">
-              <img src="../assets/images/case-studies/landmarks/deccan-herald.jpg" alt="Deccan Herald" class="cs-3d-card-bg-img" loading="eager">
-              <div class="cs-3d-card-overlay">
-                <div class="cs-3d-card-top-bar">
-                  <span class="cs-3d-card-client-name">Deccan Herald</span>
-                  <span class="cs-3d-card-pill-tag marketing">Digital Marketing</span>
-                </div>
-                <div class="cs-3d-card-bottom-bar">
-                  <span class="cs-3d-card-location">
-                    <svg class="cs-3d-card-loc-icon" viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                      <circle cx="12" cy="10" r="3"></circle>
-                    </svg>
-                    Bangalore, India
-                  </span>
-                </div>
-              </div>
-              <div class="cs-3d-hover-pill">Deccan Herald <span class="cs-3d-hover-pill-arrow">↗</span></div>
-            </div>
-          </div>
-
-          <!-- Card 12: Myntra (Digital Marketing) -->
-          <div class="cs-3d-card-item" data-case-id="case-myntra" data-category="digital-marketing marketing">
-            <div class="cs-3d-card-inner">
-              <img src="../assets/images/case-studies/landmarks/myntra-campus.jpg" alt="Myntra" class="cs-3d-card-bg-img" loading="eager">
-              <div class="cs-3d-card-overlay">
-                <div class="cs-3d-card-top-bar">
-                  <span class="cs-3d-card-client-name">Myntra</span>
-                  <span class="cs-3d-card-pill-tag marketing">Digital Marketing</span>
-                </div>
-                <div class="cs-3d-card-bottom-bar">
-                  <span class="cs-3d-card-location">
-                    <svg class="cs-3d-card-loc-icon" viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                      <circle cx="12" cy="10" r="3"></circle>
-                    </svg>
-                    Bangalore, India
-                  </span>
-                </div>
-              </div>
-              <div class="cs-3d-hover-pill">Myntra <span class="cs-3d-hover-pill-arrow">↗</span></div>
-            </div>
-          </div>
-
-          <!-- Card 13: Flipkart (Digital Marketing) -->
-          <div class="cs-3d-card-item" data-case-id="case-flipkart" data-category="digital-marketing marketing">
-            <div class="cs-3d-card-inner">
-              <img src="../assets/images/case-studies/landmarks/flipkart-hub.jpg" alt="Flipkart" class="cs-3d-card-bg-img" loading="eager">
-              <div class="cs-3d-card-overlay">
-                <div class="cs-3d-card-top-bar">
-                  <span class="cs-3d-card-client-name">Flipkart</span>
-                  <span class="cs-3d-card-pill-tag marketing">Digital Marketing</span>
-                </div>
-                <div class="cs-3d-card-bottom-bar">
-                  <span class="cs-3d-card-location">
-                    <svg class="cs-3d-card-loc-icon" viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                      <circle cx="12" cy="10" r="3"></circle>
-                    </svg>
-                    Bangalore, India
-                  </span>
-                </div>
-              </div>
-              <div class="cs-3d-hover-pill">Flipkart <span class="cs-3d-hover-pill-arrow">↗</span></div>
-            </div>
-          </div>
-
-          <!-- Card 14: via Milano (Digital Marketing) -->
-          <div class="cs-3d-card-item" data-case-id="case-via-milano" data-category="digital-marketing marketing">
-            <div class="cs-3d-card-inner">
-              <img src="../assets/images/case-studies/landmarks/via-milano.jpg" alt="via Milano" class="cs-3d-card-bg-img" loading="eager">
-              <div class="cs-3d-card-overlay">
-                <div class="cs-3d-card-top-bar">
-                  <span class="cs-3d-card-client-name">via Milano</span>
-                  <span class="cs-3d-card-pill-tag marketing">Digital Marketing</span>
-                </div>
-                <div class="cs-3d-card-bottom-bar">
-                  <span class="cs-3d-card-location">
-                    <svg class="cs-3d-card-loc-icon" viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                      <circle cx="12" cy="10" r="3"></circle>
-                    </svg>
-                    Bangalore, India
-                  </span>
-                </div>
-              </div>
-              <div class="cs-3d-hover-pill">via Milano <span class="cs-3d-hover-pill-arrow">↗</span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Bottom Interactive Navigation & Drag Dock -->
-      <div class="cs-3d-bottom-dock">
-        <button type="button" class="cs-3d-dock-arrow" id="cs3DPrevBtn" aria-label="Rotate Left">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="15 18 9 12 15 6"></polyline>
-          </svg>
-        </button>
-        <span class="cs-3d-dock-text">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M5 9l-3 3 3 3M9 5l3-3 3 3M15 19l-3 3-3-3M19 9l3 3-3 3"/>
-            <line x1="2" y1="12" x2="22" y2="12"/>
-          </svg>
-          Drag horizontally to rotate · Click card to view
-        </span>
-        <button type="button" class="cs-3d-dock-arrow" id="cs3DNextBtn" aria-label="Rotate Right">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="9 18 15 12 9 6"></polyline>
-          </svg>
-        </button>
-      </div>
-
-      <!-- Bottom Vignette Gradient -->
-      <div class="cs-3d-vignette-bottom"></div>
-    </section>
-
-    <!-- ==========================================================================
-         4. EDITORIAL PULL QUOTE SECTION
-         ========================================================================== -->
-    <section class="cs-quote-section">
-      <div class="cs-quote-container">
-        <div class="cs-quote-icon" aria-hidden="true">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
-            <path
-              d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
-          </svg>
-        </div>
-
-        <blockquote class="cs-quote-text">
-          &ldquo;Digiolic did an incredible job setting up Zoho CRM for our team, and the entire process was completely stress-free. They customized everything to match how we actually work, so our daily tracking and follow-ups are so much easier now. The training they provided made adoption a breeze for everyone on the team. I’m really happy with the results and would definitely recommend them.&rdquo;
-        </blockquote>
-
-        <div class="cs-quote-author-wrap">
-          <span class="cs-quote-author-role">FOUNDER AND CEO</span>
-          <cite class="cs-quote-author-title">Harsh Chirania</cite>
-          <span class="cs-quote-author-meta">Blume Labs</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- ==========================================================================
-         5. ENTERPRISE CLIENT SHOWCASE (30-BRAND MATRIX)
-         ========================================================================== -->
-    <section class="cs-clients-section" id="clientsShowcase" aria-label="Enterprise Client Showcase">
-      <div class="cs-clients-container">
-        <div class="cs-clients-header">
-          <span class="cs-eyebrow">ENTERPRISE CLIENT ECOSYSTEM</span>
-          <h2 class="cs-section-title">Trusted by <span class="cs-title-red" style="color: #FF3B30 !important;">Industry Leaders</span></h2>
-          <p class="cs-section-subtitle">
-            Partnering with world-class enterprises, high-velocity disruptors, and category leaders to build scalable revenue architecture.
-          </p>
-        </div>
-
-        <div class="cs-clients-grid" role="list">
-          <div class="cs-client-card" role="listitem" title="Audible (An Amazon Company)">
-            <img src="../assets/images/clients-grid/audible.png" alt="Audible - An Amazon Company" width="152" height="125" loading="lazy">
-          </div>
-          <div class="cs-client-card" role="listitem" title="Flipkart">
-            <img src="../assets/images/clients-grid/flipkart.png" alt="Flipkart" width="152" height="125" loading="lazy">
-          </div>
-          <div class="cs-client-card" role="listitem" title="Melorra">
-            <img src="../assets/images/clients-grid/melorra.png" alt="Melorra" width="152" height="125" loading="lazy">
-          </div>
-          <div class="cs-client-card" role="listitem" title="Savaari Car Rentals">
-            <img src="../assets/images/clients-grid/savaari.png" alt="Savaari Car Rentals" width="152" height="125" loading="lazy">
-          </div>
-          <div class="cs-client-card" role="listitem" title="Medall Diagnostics">
-            <img src="../assets/images/clients-grid/medall.png" alt="Medall Diagnostics" width="152" height="125" loading="lazy">
-          </div>
-          <div class="cs-client-card" role="listitem" title="Ur Health">
-            <img src="../assets/images/clients-grid/ur-health.png" alt="Ur Health" width="152" height="125" loading="lazy">
-          </div>
-
-          <div class="cs-client-card" role="listitem" title="CloudRobo">
-            <img src="../assets/images/clients-grid/cloudrobo.png" alt="CloudRobo" width="152" height="125" loading="lazy">
-          </div>
-          <div class="cs-client-card" role="listitem" title="Freshersworld.com">
-            <img src="../assets/images/clients-grid/freshersworld.png" alt="Freshersworld.com" width="152" height="125" loading="lazy">
-          </div>
-          <div class="cs-client-card" role="listitem" title="Siemens">
-            <img src="../assets/images/clients-grid/siemens.png" alt="Siemens" width="152" height="125" loading="lazy">
-          </div>
-          <div class="cs-client-card" role="listitem" title="Tenacious Bee Collective">
-            <img src="../assets/images/clients-grid/tenacious-bee.png" alt="Tenacious Bee Collective" width="152" height="125" loading="lazy">
-          </div>
-          <div class="cs-client-card" role="listitem" title="Big Pitcher">
-            <img src="../assets/images/clients-grid/big-pitcher.png" alt="Big Pitcher" width="152" height="125" loading="lazy">
-          </div>
-          <div class="cs-client-card" role="listitem" title="ISACA">
-            <img src="../assets/images/clients-grid/isaca.png" alt="ISACA" width="152" height="125" loading="lazy">
-          </div>
-
-          <div class="cs-client-card" role="listitem" title="Mr. Naan &amp; Mrs. Idli">
-            <img src="../assets/images/clients-grid/mr-naan-mrs-idli.png" alt="Mr. Naan &amp; Mrs. Idli" width="152" height="125" loading="lazy">
-          </div>
-          <div class="cs-client-card" role="listitem" title="Chat360">
-            <img src="../assets/images/clients-grid/chat360.png" alt="Chat360" width="152" height="125" loading="lazy">
-          </div>
-          <div class="cs-client-card" role="listitem" title="Tycoon Fintech">
-            <img src="../assets/images/clients-grid/tycoon-fintech.png" alt="Tycoon Fintech" width="152" height="125" loading="lazy">
-          </div>
-          <div class="cs-client-card" role="listitem" title="Indiabulls Home Loans">
-            <img src="../assets/images/clients-grid/indiabulls.png" alt="Indiabulls Home Loans" width="152" height="125" loading="lazy">
-          </div>
-          <div class="cs-client-card" role="listitem" title="Mahindra First Choice">
-            <img src="../assets/images/clients-grid/mahindra-first-choice.png" alt="Mahindra First Choice" width="152" height="125" loading="lazy">
-          </div>
-          <div class="cs-client-card" role="listitem" title="Betterplace">
-            <img src="../assets/images/clients-grid/betterplace-1.png" alt="Betterplace" width="152" height="125" loading="lazy">
-          </div>
-
-          <div class="cs-client-card" role="listitem" title="Hero">
-            <img src="../assets/images/clients-grid/hero.png" alt="Hero" width="152" height="125" loading="lazy">
-          </div>
-          <div class="cs-client-card" role="listitem" title="Shape Crunch">
-            <img src="../assets/images/clients-grid/shape-crunch.png" alt="Shape Crunch" width="152" height="125" loading="lazy">
-          </div>
-          <div class="cs-client-card" role="listitem" title="Daaki">
-            <img src="../assets/images/clients-grid/daaki.png" alt="Daaki" width="152" height="125" loading="lazy">
-          </div>
-          <div class="cs-client-card" role="listitem" title="Betterplace">
-            <img src="../assets/images/clients-grid/betterplace-2.png" alt="Betterplace" width="152" height="125" loading="lazy">
-          </div>
-          <div class="cs-client-card" role="listitem" title="Xiaomi Mi">
-            <img src="../assets/images/clients-grid/xiaomi-mi.png" alt="Xiaomi Mi" width="152" height="125" loading="lazy">
-          </div>
-          <div class="cs-client-card" role="listitem" title="Nexus Wealth Management Ltd.">
-            <img src="../assets/images/clients-grid/nexus.png" alt="Nexus Wealth Management Ltd." width="152" height="125" loading="lazy">
-          </div>
-
-          <div class="cs-client-card" role="listitem" title="Yorozu">
-            <img src="../assets/images/clients-grid/yorozu.png" alt="Yorozu" width="152" height="125" loading="lazy">
-          </div>
-          <div class="cs-client-card" role="listitem" title="Sobha">
-            <img src="../assets/images/clients-grid/sobha.png" alt="Sobha" width="152" height="125" loading="lazy">
-          </div>
-          <div class="cs-client-card" role="listitem" title="viaMilano">
-            <img src="../assets/images/clients-grid/via-milano.png" alt="viaMilano" width="152" height="125" loading="lazy">
-          </div>
-          <div class="cs-client-card" role="listitem" title="Myntra">
-            <img src="../assets/images/clients-grid/myntra.png" alt="Myntra" width="152" height="125" loading="lazy">
-          </div>
-          <div class="cs-client-card" role="listitem" title="Haldiram's">
-            <img src="../assets/images/clients-grid/haldirams.png" alt="Haldiram's" width="152" height="125" loading="lazy">
-          </div>
-          <div class="cs-client-card" role="listitem" title="Truffles">
-            <img src="../assets/images/clients-grid/truffles.png" alt="Truffles" width="152" height="125" loading="lazy">
-          </div>
-
-          <div class="cs-client-card" role="listitem" title="FYX Finance">
-            <img src="../assets/images/clients-grid/fyx.png" alt="FYX Finance" width="152" height="125" loading="lazy">
-          </div>
-          <div class="cs-client-card" role="listitem" title="Blume Labs">
-            <img src="../assets/images/clients-grid/blume-labs.png" alt="Blume Labs" width="152" height="125" loading="lazy">
-          </div>
-          <div class="cs-client-card" role="listitem" title="Greenworld Solarwares">
-            <img src="../assets/images/clients-grid/greenworld.png" alt="Greenworld Solarwares" width="152" height="125" loading="lazy">
-          </div>
-          <div class="cs-client-card" role="listitem" title="Pierian Technologies">
-            <img src="../assets/images/clients-grid/pierian.png" alt="Pierian Technologies" width="152" height="125" loading="lazy">
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ==========================================================================
          5.1 PROJECTS / CASE STUDIES SECTION (REACT + FRAMER MOTION + TAILWIND DESIGN)
          White background, black text, floating parallax squares, 2x2 grid with
          pixel-dissolve hover overlay, magnetic cursor squares, and infinite marquee
@@ -2162,45 +1628,6 @@
         }
       }
 
-      /* CTA Button Arrow Shift */
-      .projects-cta-group {
-        display: inline-flex;
-        align-items: flex-end;
-        cursor: pointer;
-        text-decoration: none;
-        border: none;
-        background: transparent;
-        padding: 0;
-      }
-      .projects-cta-badge {
-        display: flex;
-        height: 1.5rem;
-        width: 1.5rem;
-        align-items: center;
-        justify-content: center;
-        background-color: #000000;
-        margin-bottom: 1.5rem; /* mb-6 */
-        transition: all 300ms cubic-bezier(0.22, 1, 0.36, 1);
-      }
-      .projects-cta-group:hover .projects-cta-badge {
-        margin-bottom: 2.25rem !important; /* mb-9 */
-      }
-      .projects-cta-label {
-        display: inline-flex;
-        align-items: center;
-        gap: 10px;
-        border: 1px solid rgba(0, 0, 0, 0.2);
-        background-color: #000000;
-        padding: 0.5rem 0.75rem;
-        font-size: 1rem;
-        font-weight: 500;
-        color: #ffffff;
-        transition: background-color 200ms ease;
-      }
-      .projects-cta-group:hover .projects-cta-label {
-        background-color: rgba(0, 0, 0, 0.85);
-      }
-
       /* Layout responsive helpers */
       .projects-container {
         width: 100%;
@@ -2217,24 +1644,15 @@
         .projects-grid-2x2 {
           grid-template-columns: repeat(2, 1fr);
         }
-        .projects-footer-row {
-          flex-direction: row !important;
-          align-items: flex-end !important;
-          justify-content: space-between !important;
-        }
-        .projects-marquee-col {
-          margin-left: 3rem !important;
-          border-top: none !important;
-          margin-top: 0 !important;
-        }
       }
     </style>
 
     <section class="projects-spec-section" id="projectsCaseStudiesSection" style="font-family: 'DM Sans', sans-serif;">
+      <div id="caseStudiesGallery" style="position: absolute; top: 0; left: 0; width: 1px; height: 1px; opacity: 0; pointer-events: none;"></div>
       <!-- ==================================================================== -->
       <!-- Top Area (Header with floating squares)                              -->
       <!-- ==================================================================== -->
-      <div style="position: relative; padding: clamp(5rem, 9vw, 10rem) 1.5rem 2.5rem 1.5rem;">
+      <div style="position: relative; padding: clamp(4rem, 7vw, 7.5rem) 1.5rem 2.5rem 1.5rem;">
         <!-- 8 Parallax Floating Squares Layer -->
         <div class="projects-parallax-layer" id="projectsParallaxLayer" style="pointer-events: none; position: absolute; inset: 0; overflow: hidden;">
           <!-- 1: (6, 20, 12) -->
@@ -2288,7 +1706,7 @@
       <!-- ==================================================================== -->
       <!-- Case Study Cards (2x2 grid)                                         -->
       <!-- ==================================================================== -->
-      <div class="projects-container" style="padding-left: clamp(1.25rem, 3vw, 4rem); padding-right: clamp(1.25rem, 3vw, 4rem); padding-bottom: 4rem;">
+      <div class="projects-container" style="padding-left: clamp(1.25rem, 3vw, 4rem); padding-right: clamp(1.25rem, 3vw, 4rem); padding-bottom: clamp(4rem, 6vw, 5.5rem);">
         <div class="projects-grid-2x2">
 
           <!-- Card 1: Blume Labs (Zoho Enterprise) -->
@@ -2698,37 +2116,6 @@
           </div>
         </div>
       </div>
-
-      <!-- ==================================================================== -->
-      <!-- Footer Area (CTA Strip without Marquee)                             -->
-      <!-- ==================================================================== -->
-      <div class="projects-container" style="padding-left: clamp(1.25rem, 3vw, 4rem); padding-right: clamp(1.25rem, 3vw, 4rem); padding-bottom: 2.5rem;">
-        <div class="projects-footer-row" style="display: flex; flex-direction: column; justify-content: space-between; align-items: flex-start; gap: 2rem; border-top: 1px solid rgba(0, 0, 0, 0.1); padding-top: 2.5rem;">
-          
-          <!-- Left side -->
-          <div style="max-width: 38rem;">
-            <div style="margin-bottom: 1rem; display: flex; height: 1.75rem; width: 1.75rem; align-items: center; justify-content: center; border: 1px solid rgba(0, 0, 0, 0.2); font-size: 0.75rem; color: #000000;" aria-hidden="true">+</div>
-            <p style="font-size: 15px; line-height: 1.7; color: rgba(0, 0, 0, 0.65); margin: 0;">
-              We partner with ambitious brands that are ready to move beyond fragmented visuals and shallow quick fixes -- turning their identity, website, and messaging into one focused engine for growth.
-            </p>
-          </div>
-
-          <a href="contact.html" class="projects-cta-group" style="align-self: flex-start;">
-            <span class="projects-cta-label">
-              Let's work together
-            </span>
-            <span class="projects-cta-badge">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="color: #ffffff;" aria-hidden="true">
-                <path d="M18.75 6V15.75C18.75 15.949 18.671 16.14 18.53 16.28C18.39 16.421 18.199 16.5 18 16.5C17.801 16.5 17.61 16.421 17.47 16.28C17.329 16.14 17.25 15.949 17.25 15.75V7.81L6.53 18.53C6.39 18.671 6.199 18.75 6 18.75C5.801 18.75 5.61 18.671 5.47 18.53C5.329 18.39 5.25 18.199 5.25 18C5.25 17.801 5.329 17.61 5.47 17.47L16.19 6.75H8.25C8.051 6.75 7.86 6.671 7.72 6.53C7.579 6.39 7.5 6.199 7.5 6C7.5 5.801 7.579 5.61 7.72 5.47C7.86 5.329 8.051 5.25 8.25 5.25H18C18.199 5.25 18.39 5.329 18.53 5.47C18.671 5.61 18.75 5.801 18.75 6Z" />
-              </svg>
-            </span>
-          </a>
-
-        </div>
-      </div>
-
-      <!-- Bottom spacer -->
-      <div style="height: 3rem;"></div>
     </section>
 
     <!-- Client-side Interactive Enhancement: 12x8 Pixel-Dissolve Wave, Spring Magnetic Squares & Parallax -->
@@ -3007,6 +2394,155 @@
       })();
     </script>
 
+    <!-- ==========================================================================
+         4. EDITORIAL PULL QUOTE SECTION
+         ========================================================================== -->
+    <section class="cs-quote-section">
+      <div class="cs-quote-container">
+        <div class="cs-quote-icon" aria-hidden="true">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+          </svg>
+        </div>
+
+        <blockquote class="cs-quote-text">
+          &ldquo;Digiolic did an incredible job setting up Zoho CRM for our team, and the entire process was completely stress-free. They customized everything to match how we actually work, so our daily tracking and follow-ups are so much easier now. The training they provided made adoption a breeze for everyone on the team. I’m really happy with the results and would definitely recommend them.&rdquo;
+        </blockquote>
+
+        <div class="cs-quote-author-wrap">
+          <span class="cs-quote-author-role">FOUNDER AND CEO</span>
+          <cite class="cs-quote-author-title">Harsh Chirania</cite>
+          <span class="cs-quote-author-meta">Blume Labs</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         5. ENTERPRISE CLIENT SHOWCASE (30-BRAND MATRIX)
+         ========================================================================== -->
+    <section class="cs-clients-section" id="clientsShowcase" aria-label="Enterprise Client Showcase">
+      <div class="cs-clients-container">
+        <div class="cs-clients-header">
+          <span class="cs-eyebrow">ENTERPRISE CLIENT ECOSYSTEM</span>
+          <h2 class="cs-section-title">Trusted by <span class="cs-title-red" style="color: #FF3B30 !important;">Industry Leaders</span></h2>
+          <p class="cs-section-subtitle">
+            Partnering with world-class enterprises, high-velocity disruptors, and category leaders to build scalable revenue architecture.
+          </p>
+        </div>
+
+        <div class="cs-clients-grid" role="list">
+          <div class="cs-client-card" role="listitem" title="Audible (An Amazon Company)">
+            <img src="../assets/images/clients-grid/audible.png" alt="Audible - An Amazon Company" width="152" height="125" loading="lazy">
+          </div>
+          <div class="cs-client-card" role="listitem" title="Flipkart">
+            <img src="../assets/images/clients-grid/flipkart.png" alt="Flipkart" width="152" height="125" loading="lazy">
+          </div>
+          <div class="cs-client-card" role="listitem" title="Melorra">
+            <img src="../assets/images/clients-grid/melorra.png" alt="Melorra" width="152" height="125" loading="lazy">
+          </div>
+          <div class="cs-client-card" role="listitem" title="Savaari Car Rentals">
+            <img src="../assets/images/clients-grid/savaari.png" alt="Savaari Car Rentals" width="152" height="125" loading="lazy">
+          </div>
+          <div class="cs-client-card" role="listitem" title="Medall Diagnostics">
+            <img src="../assets/images/clients-grid/medall.png" alt="Medall Diagnostics" width="152" height="125" loading="lazy">
+          </div>
+          <div class="cs-client-card" role="listitem" title="Ur Health">
+            <img src="../assets/images/clients-grid/ur-health.png" alt="Ur Health" width="152" height="125" loading="lazy">
+          </div>
+
+          <div class="cs-client-card" role="listitem" title="CloudRobo">
+            <img src="../assets/images/clients-grid/cloudrobo.png" alt="CloudRobo" width="152" height="125" loading="lazy">
+          </div>
+          <div class="cs-client-card" role="listitem" title="Freshersworld.com">
+            <img src="../assets/images/clients-grid/freshersworld.png" alt="Freshersworld.com" width="152" height="125" loading="lazy">
+          </div>
+          <div class="cs-client-card" role="listitem" title="Siemens">
+            <img src="../assets/images/clients-grid/siemens.png" alt="Siemens" width="152" height="125" loading="lazy">
+          </div>
+          <div class="cs-client-card" role="listitem" title="Tenacious Bee Collective">
+            <img src="../assets/images/clients-grid/tenacious-bee.png" alt="Tenacious Bee Collective" width="152" height="125" loading="lazy">
+          </div>
+          <div class="cs-client-card" role="listitem" title="Big Pitcher">
+            <img src="../assets/images/clients-grid/big-pitcher.png" alt="Big Pitcher" width="152" height="125" loading="lazy">
+          </div>
+          <div class="cs-client-card" role="listitem" title="ISACA">
+            <img src="../assets/images/clients-grid/isaca.png" alt="ISACA" width="152" height="125" loading="lazy">
+          </div>
+
+          <div class="cs-client-card" role="listitem" title="Mr. Naan &amp; Mrs. Idli">
+            <img src="../assets/images/clients-grid/mr-naan-mrs-idli.png" alt="Mr. Naan &amp; Mrs. Idli" width="152" height="125" loading="lazy">
+          </div>
+          <div class="cs-client-card" role="listitem" title="Chat360">
+            <img src="../assets/images/clients-grid/chat360.png" alt="Chat360" width="152" height="125" loading="lazy">
+          </div>
+          <div class="cs-client-card" role="listitem" title="Tycoon Fintech">
+            <img src="../assets/images/clients-grid/tycoon-fintech.png" alt="Tycoon Fintech" width="152" height="125" loading="lazy">
+          </div>
+          <div class="cs-client-card" role="listitem" title="Indiabulls Home Loans">
+            <img src="../assets/images/clients-grid/indiabulls.png" alt="Indiabulls Home Loans" width="152" height="125" loading="lazy">
+          </div>
+          <div class="cs-client-card" role="listitem" title="Mahindra First Choice">
+            <img src="../assets/images/clients-grid/mahindra-first-choice.png" alt="Mahindra First Choice" width="152" height="125" loading="lazy">
+          </div>
+          <div class="cs-client-card" role="listitem" title="Betterplace">
+            <img src="../assets/images/clients-grid/betterplace-1.png" alt="Betterplace" width="152" height="125" loading="lazy">
+          </div>
+
+          <div class="cs-client-card" role="listitem" title="Hero">
+            <img src="../assets/images/clients-grid/hero.png" alt="Hero" width="152" height="125" loading="lazy">
+          </div>
+          <div class="cs-client-card" role="listitem" title="Shape Crunch">
+            <img src="../assets/images/clients-grid/shape-crunch.png" alt="Shape Crunch" width="152" height="125" loading="lazy">
+          </div>
+          <div class="cs-client-card" role="listitem" title="Daaki">
+            <img src="../assets/images/clients-grid/daaki.png" alt="Daaki" width="152" height="125" loading="lazy">
+          </div>
+          <div class="cs-client-card" role="listitem" title="Betterplace">
+            <img src="../assets/images/clients-grid/betterplace-2.png" alt="Betterplace" width="152" height="125" loading="lazy">
+          </div>
+          <div class="cs-client-card" role="listitem" title="Xiaomi Mi">
+            <img src="../assets/images/clients-grid/xiaomi-mi.png" alt="Xiaomi Mi" width="152" height="125" loading="lazy">
+          </div>
+          <div class="cs-client-card" role="listitem" title="Nexus Wealth Management Ltd.">
+            <img src="../assets/images/clients-grid/nexus.png" alt="Nexus Wealth Management Ltd." width="152" height="125" loading="lazy">
+          </div>
+
+          <div class="cs-client-card" role="listitem" title="Yorozu">
+            <img src="../assets/images/clients-grid/yorozu.png" alt="Yorozu" width="152" height="125" loading="lazy">
+          </div>
+          <div class="cs-client-card" role="listitem" title="Sobha">
+            <img src="../assets/images/clients-grid/sobha.png" alt="Sobha" width="152" height="125" loading="lazy">
+          </div>
+          <div class="cs-client-card" role="listitem" title="viaMilano">
+            <img src="../assets/images/clients-grid/via-milano.png" alt="viaMilano" width="152" height="125" loading="lazy">
+          </div>
+          <div class="cs-client-card" role="listitem" title="Myntra">
+            <img src="../assets/images/clients-grid/myntra.png" alt="Myntra" width="152" height="125" loading="lazy">
+          </div>
+          <div class="cs-client-card" role="listitem" title="Haldiram's">
+            <img src="../assets/images/clients-grid/haldirams.png" alt="Haldiram's" width="152" height="125" loading="lazy">
+          </div>
+          <div class="cs-client-card" role="listitem" title="Truffles">
+            <img src="../assets/images/clients-grid/truffles.png" alt="Truffles" width="152" height="125" loading="lazy">
+          </div>
+
+          <div class="cs-client-card" role="listitem" title="FYX Finance">
+            <img src="../assets/images/clients-grid/fyx.png" alt="FYX Finance" width="152" height="125" loading="lazy">
+          </div>
+          <div class="cs-client-card" role="listitem" title="Blume Labs">
+            <img src="../assets/images/clients-grid/blume-labs.png" alt="Blume Labs" width="152" height="125" loading="lazy">
+          </div>
+          <div class="cs-client-card" role="listitem" title="Greenworld Solarwares">
+            <img src="../assets/images/clients-grid/greenworld.png" alt="Greenworld Solarwares" width="152" height="125" loading="lazy">
+          </div>
+          <div class="cs-client-card" role="listitem" title="Pierian Technologies">
+            <img src="../assets/images/clients-grid/pierian.png" alt="Pierian Technologies" width="152" height="125" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <!-- ==========================================================================
@@ -3236,7 +2772,6 @@
   <!-- JavaScript Modules -->
   <script src="../js/main.js?v=20260926_green_d_v6"></script>
   <script src="../js/case-filter.js?v=20261003_3d_v3"></script>
-  <script src="../js/case-3d-sphere.js?v=20261003_3d_v3"></script>
   <script src="../js/form-validation.js?v=20260912_footer_v3"></script>
 
   <!-- Zoho WebForm Analytics Tracking -->
