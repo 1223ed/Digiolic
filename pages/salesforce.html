@@ -12,7 +12,7 @@
   <!-- Google Fonts: Be Vietnam Pro, Outfit & Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=Inter:wght@300;400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Inter:wght@300;400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://db.onlinewebfonts.com/c/5ac3fe7c6abd2f62067f266d89671492?family=HelveticaNowDisplay-Medium">
 
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
@@ -20,7 +20,7 @@
   <meta http-equiv="Expires" content="0">
 
   <!-- Core & Component CSS -->
-  <link rel="stylesheet" href="../css/style.css?v=20261111_nk_typo_v2">
+  <link rel="stylesheet" href="../css/style.css?v=20261111_nk_dmsans_v3">
   <link rel="stylesheet" href="../css/components.css?v=20261105_v1">
   <link rel="stylesheet" href="../css/pages.css?v=20260930_v6">
   <link rel="stylesheet" href="../css/responsive.css?v=20260930_v6">
@@ -32,9 +32,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800;900&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/sf-clouds-motion-ed.css?v=20261105_mob_v1">
-  <link rel="stylesheet" href="../css/sf-practice-motion-ed.css?v=20261111_nk_typo_v2">
-  <link rel="stylesheet" href="../css/sf-usecases-stack.css?v=20261111_nk_typo_v2">
-  <link rel="stylesheet" href="../css/sf-process-heartx.css?v=20261111_nk_typo_v2">
+  <link rel="stylesheet" href="../css/sf-practice-motion-ed.css?v=20261111_nk_dmsans_v3">
+  <link rel="stylesheet" href="../css/sf-usecases-stack.css?v=20261111_nk_dmsans_v3">
+  <link rel="stylesheet" href="../css/sf-process-heartx.css?v=20261111_nk_dmsans_v3">
 
   <style>
     html {
@@ -352,6 +352,15 @@
        - WHAT CAN SALESFORCE DO FOR YOUR BUSINESS? (#useCasesSection)
        - SALESFORCE IMPLEMENTATION BUILT AROUND YOUR BUSINESS (#processSection)
     */
+    #servicesOverview .sf-practice-hero-header,
+    #useCasesSection .sf-qude-header {
+      max-width: min(1280px, 94vw) !important;
+    }
+
+    #useCasesSection .sf-qude-title-wrap {
+      margin-bottom: 0 !important;
+    }
+
     #aiSection .sf-section-title,
     #aiSection h2.sf-section-title,
     #servicesOverview .sf-section-title,
@@ -361,15 +370,16 @@
     #useCasesSection h2.sf-section-title,
     #useCasesSection .sf-qude-title-line,
     #useCasesSection h2.sf-qude-title-line {
-      font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
-      font-size: clamp(2.625rem, 1.25rem + 4.35vw, 5.125rem) !important;
+      font-family: 'DM Sans', 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+      font-size: clamp(3.75rem, 6.2vw, 6.25rem) !important;
       font-weight: 500 !important;
-      line-height: 1.05 !important;
-      letter-spacing: -0.03em !important;
+      line-height: 0.92 !important;
+      letter-spacing: 0 !important;
       text-wrap: balance;
       text-transform: none !important;
       color: #FFFFFF !important;
-      margin: 0 auto clamp(16px, 2.2vh, 26px) auto !important;
+      max-width: min(1280px, 94vw) !important;
+      margin: 0 auto clamp(24px, 3vw, 44px) auto !important;
       text-align: center !important;
       display: block !important;
     }
@@ -385,6 +395,16 @@
       width: 100% !important;
     }
 
+    .sf-nk-lead {
+      color: #FFFFFF !important;
+      -webkit-text-fill-color: #FFFFFF !important;
+    }
+
+    .sf-nk-muted {
+      color: rgba(255, 255, 255, 0.38) !important;
+      -webkit-text-fill-color: rgba(255, 255, 255, 0.38) !important;
+    }
+
     .sf-ai-highlight,
     .sf-qude-highlight,
     .sf-text-blue {
@@ -393,6 +413,33 @@
       -webkit-text-fill-color: #00A1E0 !important;
       display: inline !important;
       white-space: nowrap !important;
+    }
+
+    /* Section d (#processSection): beat sf-process-heartx.css specificity (2,1,0) cleanly */
+    #processSection .sf-play-title-group h2#sfProcessTitle.sf-play-title,
+    #processSection .sf-play-title-group .sf-play-title,
+    #processSection #sfProcessTitle.sf-play-title {
+      font-family: 'DM Sans', 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+      font-size: clamp(2.125rem, 2.9vw, 3.125rem) !important;
+      font-weight: 500 !important;
+      line-height: 0.96 !important;
+      letter-spacing: 0 !important;
+      text-transform: none !important;
+      color: #FFFFFF !important;
+      text-align: left !important;
+      margin-bottom: clamp(22px, 2.5vw, 34px) !important;
+    }
+
+    @supports (font-size: 1cqi) {
+      #processSection .sf-play-title-group h2#sfProcessTitle.sf-play-title,
+      #processSection .sf-play-title-group .sf-play-title,
+      #processSection #sfProcessTitle.sf-play-title {
+        font-size: clamp(2rem, 0.7rem + 7.8cqi, 3.125rem) !important;
+      }
+    }
+
+    #processSection .sf-hero-line {
+      text-align: left !important;
     }
 
     @media (max-width: 1024px) {
@@ -413,8 +460,9 @@
       #useCasesSection h2.sf-section-title,
       #useCasesSection .sf-qude-title-line,
       #useCasesSection h2.sf-qude-title-line {
-        font-size: clamp(2.125rem, 1.1rem + 3.6vw, 3.625rem) !important;
-        line-height: 1.08 !important;
+        font-size: clamp(2.5rem, 6.4vw, 4.5rem) !important;
+        line-height: 0.94 !important;
+        margin: 0 auto clamp(22px, 3vw, 34px) auto !important;
       }
     }
 
@@ -437,11 +485,21 @@
       #useCasesSection h2.sf-section-title,
       #useCasesSection .sf-qude-title-line,
       #useCasesSection h2.sf-qude-title-line {
-        font-size: clamp(1.625rem, 0.7rem + 3.4vw, 2.125rem) !important;
-        line-height: 1.12 !important;
+        font-size: clamp(2rem, 8.6vw, 2.75rem) !important;
+        line-height: 0.96 !important;
+        margin: 0 auto 24px auto !important;
         word-break: keep-all !important;
         overflow-wrap: normal !important;
         hyphens: none !important;
+      }
+
+      #processSection .sf-play-title-group h2#sfProcessTitle.sf-play-title,
+      #processSection .sf-play-title-group .sf-play-title,
+      #processSection #sfProcessTitle.sf-play-title {
+        font-size: clamp(2rem, 8.6vw, 2.75rem) !important;
+        line-height: 0.98 !important;
+        letter-spacing: 0 !important;
+        margin-bottom: 24px !important;
       }
     }
 
@@ -450,16 +508,26 @@
     #aiSection p.sf-section-subtitle,
     #servicesOverview .sf-practice-hero-desc,
     #useCasesSection .sf-qude-lead-desc {
-      font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
-      font-size: clamp(1.125rem, 0.95rem + 0.35vw, 1.3125rem) !important;
+      font-family: 'DM Sans', 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+      font-size: clamp(1.125rem, 1.05rem + 0.25vw, 1.25rem) !important;
       font-weight: 400 !important;
-      letter-spacing: -0.01em !important;
-      color: rgba(255, 255, 255, 0.86) !important;
-      line-height: 1.5 !important;
-      max-width: min(42rem, 92%) !important;
+      letter-spacing: -0.02em !important;
+      color: #FFFFFF !important;
+      line-height: 1.39 !important;
+      max-width: min(560px, 92%) !important;
       margin: 0 auto !important;
       text-align: center !important;
       text-wrap: balance;
+    }
+
+    #processSection .sf-play-lead-copy p {
+      font-family: 'DM Sans', 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+      font-size: clamp(1.125rem, 1.05rem + 0.25vw, 1.25rem) !important;
+      font-weight: 400 !important;
+      letter-spacing: -0.02em !important;
+      color: #FFFFFF !important;
+      line-height: 1.44 !important;
+      text-align: left !important;
     }
 
     @media (max-width: 768px) {
@@ -468,8 +536,26 @@
       #aiSection p.sf-section-subtitle,
       #servicesOverview .sf-practice-hero-desc,
       #useCasesSection .sf-qude-lead-desc {
-        font-size: clamp(1.0625rem, 0.9rem + 0.35vw, 1.1875rem) !important;
-        line-height: 1.5 !important;
+        font-size: clamp(1.125rem, 1rem + 0.35vw, 1.1875rem) !important;
+        line-height: 1.38 !important;
+        max-width: 92% !important;
+      }
+
+      #processSection .sf-play-lead-copy p {
+        font-size: clamp(1.125rem, 1rem + 0.35vw, 1.1875rem) !important;
+        line-height: 1.42 !important;
+      }
+    }
+
+    @media (forced-colors: active) {
+      .sf-nk-lead,
+      .sf-nk-muted,
+      .sf-section-subtitle,
+      #servicesOverview .sf-practice-hero-desc,
+      #useCasesSection .sf-qude-lead-desc,
+      #processSection .sf-play-lead-copy p {
+        color: CanvasText !important;
+        -webkit-text-fill-color: CanvasText !important;
       }
     }
 
@@ -4541,8 +4627,8 @@
         <!-- Monumental Centered Headline (Matches "IMPLEMENTATION EXAMPLES" in video) -->
         <div class="sf-practice-hero-header">
           <h2 class="sf-section-title sf-practice-hero-title" id="sfPracticeHeroTitle">
-            <span class="sf-hero-line"><span class="sf-ai-highlight">Everything</span> You Need</span>
-            <span class="sf-hero-line">To Get More From <span class="sf-ai-highlight">Salesforce</span></span>
+            <span class="sf-hero-line sf-nk-lead">Everything You Need</span>
+            <span class="sf-hero-line sf-nk-muted">To Get More From Salesforce</span>
           </h2>
           <p class="sf-practice-hero-desc">From high-level architectural advisory to sub-second automations and managed operations.</p>
         </div>
@@ -4805,8 +4891,8 @@
         <div class="sf-section-header" style="margin-bottom: 2.4rem;">
           <div class="sf-eyebrow" style="background: rgba(255, 255, 255, 0.15); border-color: rgba(255, 255, 255, 0.3); color: #FFFFFF;">Next-Gen Intelligence</div>
           <h2 class="sf-section-title sf-ai-animated-heading">
-            <span class="sf-hero-line">Make <span class="sf-ai-highlight">Salesforce</span> Smarter</span>
-            <span class="sf-hero-line">With AI</span>
+            <span class="sf-hero-line sf-nk-lead">Make Salesforce Smarter</span>
+            <span class="sf-hero-line sf-nk-muted">With AI</span>
           </h2>
           <p class="sf-section-subtitle">Combine Salesforce data, automation, and AI to help your teams make faster decisions and deliver more personalized customer experiences.</p>
         </div>
@@ -4930,8 +5016,8 @@
             <!-- Monumental Architectural Centered Typography Matching MAKE SALESFORCE SMARTER WITH AI -->
             <div class="sf-qude-monumental-title">
               <h2 class="sf-section-title sf-qude-title-line" id="sfQudeTitleLine">
-                <span class="sf-hero-line">What Can <span class="sf-ai-highlight">Salesforce</span> Do</span>
-                <span class="sf-hero-line">For Your Business?</span>
+                <span class="sf-hero-line sf-nk-lead">What Can Salesforce Do</span>
+                <span class="sf-hero-line sf-nk-muted">For Your Business?</span>
               </h2>
             </div>
 
@@ -5165,8 +5251,8 @@
                 <span>PROVEN METHODOLOGY</span>
               </div>
               <h2 class="sf-section-title sf-play-title" id="sfProcessTitle">
-                <span class="sf-hero-line"><span class="sf-ai-highlight">Salesforce</span> Implementation</span>
-                <span class="sf-hero-line">Built Around Your Business</span>
+                <span class="sf-hero-line sf-nk-lead">Salesforce Implementation</span>
+                <span class="sf-hero-line sf-nk-muted">Built Around Your Business</span>
               </h2>
             </div>
           </div>
