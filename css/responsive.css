@@ -39,7 +39,7 @@ img {
 }
 
 /* Exclude full-viewport/absolute hero background videos and particle canvases from destructive height: auto */
-video:not(.dp-hero-video):not(.mainframe-bg-video):not(.hero-bg-video):not(#mainframeBgVideo):not(#zohoBgVideo):not(.zoho-hero-bg-video):not(.velorah-bg-video),
+video:not(.dp-hero-video):not(.mainframe-bg-video):not(.hero-bg-video):not(#mainframeBgVideo):not(#zohoBgVideo):not(.zoho-hero-bg-video):not(.velorah-bg-video):not(.wanderful-bg-video),
 canvas:not(.hero-bg-canvas):not(#heroScrollWrapper canvas):not(.dm-particle-canvas):not(.dm-trusted-particle-canvas) {
   max-width: 100% !important;
   height: auto;
@@ -53,6 +53,7 @@ canvas:not(.hero-bg-canvas):not(#heroScrollWrapper canvas):not(.dm-particle-canv
 .zoho-hero-bg-video,
 #zohoBgVideo,
 .velorah-bg-video,
+.wanderful-bg-video,
 #heroScrollWrapper video {
   position: absolute !important;
   inset: 0 !important;

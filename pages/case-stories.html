@@ -21,7 +21,7 @@
   <link rel="stylesheet" href="../css/components.css?v=20261105_v1">
   <link rel="stylesheet" href="../css/pages.css?v=20260919_v209">
   <link rel="stylesheet" href="../css/case-stories.css?v=20261111_dm_green_v1">
-  <link rel="stylesheet" href="../css/responsive.css?v=20260930_v1">
+  <link rel="stylesheet" href="../css/responsive.css?v=20261111_hero_vid_v1">
   <link rel="stylesheet" href="../css/chat-widget.css?v=20260919_v209">
   <link rel="stylesheet" href="../css/zoho-footer.css?v=20261103_1">
 
@@ -296,7 +296,12 @@
       inset: 0 !important;
       width: 100% !important;
       height: 100% !important;
+      min-width: 100% !important;
+      min-height: 100% !important;
+      max-width: none !important;
+      max-height: none !important;
       object-fit: cover !important;
+      object-position: center center !important;
       transform: scale(1.08) !important;
       transform-origin: center !important;
       will-change: transform !important;
@@ -306,7 +311,7 @@
     .wanderful-video-overlay {
       position: absolute !important;
       inset: 0 !important;
-      background: rgba(0, 0, 0, 0.48) !important;
+      background: rgba(0, 0, 0, 0.34) !important;
       backdrop-filter: blur(1px) !important;
       -webkit-backdrop-filter: blur(1px) !important;
       z-index: 1 !important;
@@ -774,6 +779,11 @@
 
     /* Mobile Responsive Overrides */
     @media (max-width: 767px) {
+      .wanderful-bg-video {
+        object-position: 65% center !important;
+        transform: none !important;
+        will-change: auto !important;
+      }
       .mainframe-navbar {
         padding: 1.25rem 1.5rem !important;
         min-height: 70px !important;
@@ -855,7 +865,7 @@
       display: block !important;
     }
   </style>
-  <link rel="stylesheet" href="../css/responsive.css?v=20260930_v1">
+  <link rel="stylesheet" href="../css/responsive.css?v=20261111_hero_vid_v1">
 </head>
 
 <body>
@@ -987,8 +997,8 @@
     <section class="wanderful-hero-wrapper" id="csHeroSection" aria-label="Digiolic Case Studies Hero">
       <!-- Fullscreen Looping Parallax Video Background -->
       <div class="wanderful-video-bg-wrap">
-        <video class="wanderful-bg-video" autoplay loop muted playsinline preload="auto" disablepictureinpicture aria-hidden="true">
-          <source src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260510_060007_60275ce7-030c-4668-a160-8f364ec537d3.mp4" type="video/mp4">
+        <video class="wanderful-bg-video" autoplay loop muted playsinline webkit-playsinline preload="auto" disablepictureinpicture width="1460" height="624" aria-hidden="true">
+          <source src="../assets/videos/case-studies-hero.mp4" type="video/mp4">
         </video>
         <div class="wanderful-video-overlay"></div>
       </div>
@@ -1054,58 +1064,93 @@
         </div>
       </div>
 
-      <!-- Video Autoplay, PlaybackRate 1.25, and Parallax Script -->
+      <!-- Video Autoplay, Visibility Pause, PlaybackRate 1.25, and Settling Parallax Script -->
       <script>
         (function() {
+          var heroSection = document.getElementById('csHeroSection');
           var video = document.querySelector('.wanderful-bg-video');
           if (!video) return;
+
+          var isHeroVisible = true;
+          video.defaultMuted = true;
+          video.muted = true;
+          video.setAttribute('muted', '');
+          video.setAttribute('playsinline', '');
+          video.setAttribute('webkit-playsinline', '');
 
           function setPlayback() {
             try { video.playbackRate = 1.25; } catch (e) {}
           }
-          setPlayback();
-          video.addEventListener('loadedmetadata', setPlayback);
-          video.addEventListener('play', setPlayback);
 
-          // Autoplay unlock
-          video.muted = true;
-          var p = video.play();
-          if (p && typeof p.catch === 'function') {
-            p.catch(function() {
-              var unlock = function() {
-                video.play();
-                setPlayback();
-                document.removeEventListener('touchstart', unlock);
-                document.removeEventListener('click', unlock);
-              };
-              document.addEventListener('touchstart', unlock, { once: true, passive: true });
-              document.addEventListener('click', unlock, { once: true, passive: true });
-            });
+          function tryPlay() {
+            if (!isHeroVisible) return;
+            setPlayback();
+            var p = video.play();
+            if (p && typeof p.catch === 'function') {
+              p.catch(function() {
+                var unlock = function() {
+                  document.removeEventListener('touchstart', unlock);
+                  document.removeEventListener('click', unlock);
+                  if (isHeroVisible) {
+                    video.play();
+                    setPlayback();
+                  }
+                };
+                document.addEventListener('touchstart', unlock, { once: true, passive: true });
+                document.addEventListener('click', unlock, { once: true, passive: true });
+              });
+            }
           }
 
-          // GSAP-style mouse parallax:
-          // listen to mousemove, compute targetX/Y = ((clientX - cx)/cx) * 20, lerp currentX/Y += (target - current) * 0.06
+          video.addEventListener('loadedmetadata', setPlayback);
+          video.addEventListener('play', setPlayback);
+          tryPlay();
+
+          // Pause off-screen hero video decode to conserve battery & GPU resources
+          if (heroSection && 'IntersectionObserver' in window) {
+            var heroObserver = new IntersectionObserver(function(entries) {
+              var entry = entries[0];
+              if (!entry) return;
+              isHeroVisible = entry.isIntersecting;
+              if (isHeroVisible) {
+                tryPlay();
+              } else {
+                video.pause();
+              }
+            }, { rootMargin: '120px 0px' });
+            heroObserver.observe(heroSection);
+          }
+
+          // Desktop-only mouse parallax that sleeps once settled or off-screen
+          var prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+          var supportsHover = window.matchMedia && window.matchMedia('(hover: hover)').matches;
+          if (prefersReducedMotion || !supportsHover) return;
+
           var targetX = 0, targetY = 0;
           var currentX = 0, currentY = 0;
-          var isMouseActive = false;
+          var parallaxRaf = 0;
+
+          function renderParallax() {
+            parallaxRaf = 0;
+            if (!isHeroVisible) return;
+            currentX += (targetX - currentX) * 0.06;
+            currentY += (targetY - currentY) * 0.06;
+            video.style.transform = 'translate3d(' + currentX.toFixed(2) + 'px, ' + currentY.toFixed(2) + 'px, 0) scale(1.08)';
+            if (Math.abs(targetX - currentX) > 0.05 || Math.abs(targetY - currentY) > 0.05) {
+              parallaxRaf = requestAnimationFrame(renderParallax);
+            }
+          }
 
           window.addEventListener('mousemove', function(e) {
-            isMouseActive = true;
+            if (!isHeroVisible) return;
             var cx = window.innerWidth / 2;
             var cy = window.innerHeight / 2;
             targetX = ((e.clientX - cx) / cx) * 20;
             targetY = ((e.clientY - cy) / cy) * 20;
-          }, { passive: true });
-
-          function renderParallax() {
-            if (isMouseActive) {
-              currentX += (targetX - currentX) * 0.06;
-              currentY += (targetY - currentY) * 0.06;
-              video.style.transform = 'translate3d(' + currentX.toFixed(2) + 'px, ' + currentY.toFixed(2) + 'px, 0) scale(1.08)';
+            if (!parallaxRaf) {
+              parallaxRaf = requestAnimationFrame(renderParallax);
             }
-            requestAnimationFrame(renderParallax);
-          }
-          requestAnimationFrame(renderParallax);
+          }, { passive: true });
         })();
       </script>
     </section>
