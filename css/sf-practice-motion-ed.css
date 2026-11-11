@@ -143,7 +143,7 @@
   align-items: center !important;
   text-align: center !important;
   padding: 0 clamp(20px, 4vw, 60px) !important;
-  margin: clamp(2px, 0.4vh, 6px) auto clamp(8px, 1.2vh, 14px) auto !important;
+  margin: clamp(2px, 0.4vh, 6px) auto clamp(36px, 6.2vh, 62px) auto !important;
   box-sizing: border-box !important;
   transform: none !important;
   opacity: 1 !important;
@@ -216,7 +216,7 @@
   top: auto !important;
   left: auto !important;
   width: 100% !important;
-  height: clamp(360px, calc(100vh - 220px), 445px) !important;
+  height: clamp(340px, calc(100vh - 265px), 445px) !important;
   display: flex !important;
   align-items: center !important;
   overflow: visible !important;
@@ -506,10 +506,11 @@
 
   .sf-practice-hero-header {
     position: absolute !important;
-    top: 24px !important;
+    top: 20px !important;
     left: 0 !important;
     width: 100% !important;
     padding: 0 16px !important;
+    margin: 0 !important;
     box-sizing: border-box !important;
     display: flex !important;
     flex-direction: column !important;
@@ -540,11 +541,11 @@
   .sf-practice-cards-wrapper {
     position: absolute !important;
     top: auto !important;
-    bottom: clamp(24px, 4.5vh, 40px) !important;
+    bottom: clamp(22px, 3.6vh, 34px) !important;
     left: 0 !important;
     width: 100% !important;
     height: auto !important;
-    max-height: 62vh !important;
+    max-height: 56vh !important;
     display: flex !important;
     align-items: center !important;
     overflow: hidden !important;
@@ -571,9 +572,9 @@
     width: 84vw !important;
     max-width: 330px !important;
     min-width: 275px !important;
-    height: clamp(380px, 56vh, 460px) !important;
+    height: clamp(366px, 51vh, 425px) !important;
     border-radius: 20px !important;
-    padding: 20px 18px !important;
+    padding: 18px 18px !important;
     box-sizing: border-box !important;
   }
 
