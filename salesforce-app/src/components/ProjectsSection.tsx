@@ -627,19 +627,6 @@ const CaseStudyCard: React.FC<CardProps> = ({ study, index }) => {
     }
   };
 
-  const getServiceBadgeStyle = (cls: string) => {
-    switch (cls) {
-      case 'zoho':
-        return 'bg-emerald-50 text-emerald-700 border border-emerald-500/20';
-      case 'salesforce':
-        return 'bg-blue-50 text-sky-700 border border-sky-500/20';
-      case 'marketing':
-        return 'bg-orange-50 text-orange-700 border border-orange-500/20';
-      default:
-        return 'bg-neutral-100 text-neutral-800 border border-neutral-300';
-    }
-  };
-
   return (
     <motion.div
       ref={cardRef}
@@ -728,18 +715,14 @@ const CaseStudyCard: React.FC<CardProps> = ({ study, index }) => {
 
       {/* 5. Info plate (bottom left) */}
       <div
-        className="absolute bottom-0 left-0 rounded-tr-md bg-white px-5 pb-3.5 pt-3 shadow-[0_4px_20px_rgba(0,0,0,0.12)]"
-        style={{ zIndex: 20, maxWidth: '85%' }}
+        className="absolute bottom-0 left-0 bg-white px-4 pb-3 pt-2.5"
+        style={{ zIndex: 20, maxWidth: '82%' }}
       >
-        <h3 className="text-[clamp(1.25rem,1.9vw,1.75rem)] font-semibold leading-tight text-black">
+        <h3 className="text-[clamp(1.4rem,2.2vw,2rem)] font-normal leading-tight tracking-normal text-black">
           {study.company}
         </h3>
-        <div className="mt-1.5 flex flex-wrap items-center gap-3">
-          <span
-            className={`rounded px-2 py-0.5 text-[11px] font-bold uppercase tracking-wider ${getServiceBadgeStyle(
-              study.serviceClass
-            )}`}
-          >
+        <div className="mt-1.5 flex flex-wrap items-center gap-4">
+          <span className="text-[12px] font-normal text-black/60">
             {study.service}
           </span>
         </div>

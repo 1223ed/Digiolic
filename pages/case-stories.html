@@ -2102,39 +2102,64 @@
         bottom: 0;
         left: 0;
         background-color: #ffffff;
-        padding: 0.85rem 1.35rem 0.95rem 1.35rem;
+        padding: 10px 16px 12px 16px;
         z-index: 20;
-        max-width: 85%;
-        border-top-right-radius: 6px;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+        max-width: 82%;
+        border-top-right-radius: 0;
+        box-shadow: none;
         transition: background-color 0.2s ease;
       }
 
-      /* Service Badges */
-      .projects-service-badge {
-        display: inline-flex;
+      .projects-card-info-plate h3 {
+        font-family: 'DM Sans', sans-serif !important;
+        font-size: clamp(22.4px, 2.2vw, 32px) !important;
+        font-weight: 400 !important;
+        line-height: 1.25 !important;
+        letter-spacing: 0 !important;
+        color: #000000 !important;
+        margin: 0 !important;
+      }
+
+      .projects-card-info-plate .projects-card-meta-row {
+        margin-top: 6px;
+        display: flex;
+        flex-wrap: wrap;
         align-items: center;
-        padding: 0.22rem 0.6rem;
-        font-size: 11px;
-        font-weight: 700;
-        letter-spacing: 0.04em;
-        text-transform: uppercase;
-        border-radius: 4px;
+        gap: 16px;
       }
-      .projects-service-badge.zoho {
-        background-color: #ECFDF5;
-        color: #059669;
-        border: 1px solid rgba(5, 150, 105, 0.2);
-      }
-      .projects-service-badge.salesforce {
-        background-color: #EFF6FF;
-        color: #0284C7;
-        border: 1px solid rgba(2, 132, 199, 0.2);
-      }
+
+      /* Service Labels */
+      .projects-service-badge,
+      .projects-service-badge.zoho,
+      .projects-service-badge.salesforce,
       .projects-service-badge.marketing {
-        background-color: #FFF7ED;
-        color: #EA580C;
-        border: 1px solid rgba(234, 88, 12, 0.2);
+        display: inline-block;
+        padding: 0;
+        margin: 0;
+        font-family: 'DM Sans', sans-serif !important;
+        font-size: 12px !important;
+        font-weight: 400 !important;
+        line-height: 1.35 !important;
+        letter-spacing: 0 !important;
+        text-transform: none !important;
+        color: rgba(0, 0, 0, 0.6) !important;
+        background-color: transparent !important;
+        border: none !important;
+        border-radius: 0 !important;
+      }
+
+      @media (max-width: 640px) {
+        .projects-card-info-plate {
+          padding: 10px 16px 12px 16px;
+          max-width: 85%;
+        }
+        .projects-card-info-plate h3 {
+          font-family: 'DM Sans', sans-serif !important;
+          font-size: clamp(22.4px, 2.2vw, 32px) !important;
+          font-weight: 400 !important;
+          line-height: 1.25 !important;
+          letter-spacing: 0 !important;
+        }
       }
 
       /* CTA Button Arrow Shift */
@@ -2287,8 +2312,8 @@
 
             <!-- Bottom-Left Info Plate -->
             <div class="projects-card-info-plate">
-              <h3 style="font-size: clamp(1.25rem, 1.9vw, 1.75rem); font-weight: 600; line-height: 1.2; color: #000000; margin: 0;">Blume Labs</h3>
-              <div style="margin-top: 0.45rem; display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem;">
+              <h3>Blume Labs</h3>
+              <div class="projects-card-meta-row">
                 <span class="projects-service-badge zoho">Zoho Enterprise</span>
                 
               </div>
@@ -2316,8 +2341,8 @@
 
             <!-- Bottom-Left Info Plate -->
             <div class="projects-card-info-plate">
-              <h3 style="font-size: clamp(1.25rem, 1.9vw, 1.75rem); font-weight: 600; line-height: 1.2; color: #000000; margin: 0;">Pierian Technologies</h3>
-              <div style="margin-top: 0.45rem; display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem;">
+              <h3>Pierian Technologies</h3>
+              <div class="projects-card-meta-row">
                 <span class="projects-service-badge zoho">Zoho Enterprise</span>
                 
               </div>
@@ -2345,8 +2370,8 @@
 
             <!-- Bottom-Left Info Plate -->
             <div class="projects-card-info-plate">
-              <h3 style="font-size: clamp(1.25rem, 1.9vw, 1.75rem); font-weight: 600; line-height: 1.2; color: #000000; margin: 0;">FYX Finance</h3>
-              <div style="margin-top: 0.45rem; display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem;">
+              <h3>FYX Finance</h3>
+              <div class="projects-card-meta-row">
                 <span class="projects-service-badge zoho">Zoho Enterprise</span>
                 
               </div>
@@ -2374,8 +2399,8 @@
 
             <!-- Bottom-Left Info Plate -->
             <div class="projects-card-info-plate">
-              <h3 style="font-size: clamp(1.25rem, 1.9vw, 1.75rem); font-weight: 600; line-height: 1.2; color: #000000; margin: 0;">Monster India</h3>
-              <div style="margin-top: 0.45rem; display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem;">
+              <h3>Monster India</h3>
+              <div class="projects-card-meta-row">
                 <span class="projects-service-badge salesforce">Salesforce Cloud</span>
                 
               </div>
@@ -2403,8 +2428,8 @@
 
             <!-- Bottom-Left Info Plate -->
             <div class="projects-card-info-plate">
-              <h3 style="font-size: clamp(1.25rem, 1.9vw, 1.75rem); font-weight: 600; line-height: 1.2; color: #000000; margin: 0;">Greenworld Solarwares</h3>
-              <div style="margin-top: 0.45rem; display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem;">
+              <h3>Greenworld Solarwares</h3>
+              <div class="projects-card-meta-row">
                 <span class="projects-service-badge zoho">Zoho Enterprise</span>
                 
               </div>
@@ -2432,8 +2457,8 @@
 
             <!-- Bottom-Left Info Plate -->
             <div class="projects-card-info-plate">
-              <h3 style="font-size: clamp(1.25rem, 1.9vw, 1.75rem); font-weight: 600; line-height: 1.2; color: #000000; margin: 0;">Verzeo Technologies</h3>
-              <div style="margin-top: 0.45rem; display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem;">
+              <h3>Verzeo Technologies</h3>
+              <div class="projects-card-meta-row">
                 <span class="projects-service-badge salesforce">Salesforce Cloud</span>
                 
               </div>
@@ -2461,8 +2486,8 @@
 
             <!-- Bottom-Left Info Plate -->
             <div class="projects-card-info-plate">
-              <h3 style="font-size: clamp(1.25rem, 1.9vw, 1.75rem); font-weight: 600; line-height: 1.2; color: #000000; margin: 0;">NZ Immigration</h3>
-              <div style="margin-top: 0.45rem; display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem;">
+              <h3>NZ Immigration</h3>
+              <div class="projects-card-meta-row">
                 <span class="projects-service-badge zoho">Zoho Enterprise</span>
                 
               </div>
@@ -2490,8 +2515,8 @@
 
             <!-- Bottom-Left Info Plate -->
             <div class="projects-card-info-plate">
-              <h3 style="font-size: clamp(1.25rem, 1.9vw, 1.75rem); font-weight: 600; line-height: 1.2; color: #000000; margin: 0;">Banaraswala</h3>
-              <div style="margin-top: 0.45rem; display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem;">
+              <h3>Banaraswala</h3>
+              <div class="projects-card-meta-row">
                 <span class="projects-service-badge salesforce">Salesforce Cloud</span>
                 
               </div>
@@ -2519,8 +2544,8 @@
 
             <!-- Bottom-Left Info Plate -->
             <div class="projects-card-info-plate">
-              <h3 style="font-size: clamp(1.25rem, 1.9vw, 1.75rem); font-weight: 600; line-height: 1.2; color: #000000; margin: 0;">Loom Crafts</h3>
-              <div style="margin-top: 0.45rem; display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem;">
+              <h3>Loom Crafts</h3>
+              <div class="projects-card-meta-row">
                 <span class="projects-service-badge salesforce">Salesforce Cloud</span>
                 
               </div>
@@ -2548,8 +2573,8 @@
 
             <!-- Bottom-Left Info Plate -->
             <div class="projects-card-info-plate">
-              <h3 style="font-size: clamp(1.25rem, 1.9vw, 1.75rem); font-weight: 600; line-height: 1.2; color: #000000; margin: 0;">Chanakya University</h3>
-              <div style="margin-top: 0.45rem; display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem;">
+              <h3>Chanakya University</h3>
+              <div class="projects-card-meta-row">
                 <span class="projects-service-badge zoho">Zoho Enterprise</span>
                 
               </div>
@@ -2577,8 +2602,8 @@
 
             <!-- Bottom-Left Info Plate -->
             <div class="projects-card-info-plate">
-              <h3 style="font-size: clamp(1.25rem, 1.9vw, 1.75rem); font-weight: 600; line-height: 1.2; color: #000000; margin: 0;">Deccan Herald</h3>
-              <div style="margin-top: 0.45rem; display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem;">
+              <h3>Deccan Herald</h3>
+              <div class="projects-card-meta-row">
                 <span class="projects-service-badge marketing">Digital Marketing</span>
                 
               </div>
@@ -2606,8 +2631,8 @@
 
             <!-- Bottom-Left Info Plate -->
             <div class="projects-card-info-plate">
-              <h3 style="font-size: clamp(1.25rem, 1.9vw, 1.75rem); font-weight: 600; line-height: 1.2; color: #000000; margin: 0;">Myntra</h3>
-              <div style="margin-top: 0.45rem; display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem;">
+              <h3>Myntra</h3>
+              <div class="projects-card-meta-row">
                 <span class="projects-service-badge marketing">Digital Marketing</span>
                 
               </div>
@@ -2635,8 +2660,8 @@
 
             <!-- Bottom-Left Info Plate -->
             <div class="projects-card-info-plate">
-              <h3 style="font-size: clamp(1.25rem, 1.9vw, 1.75rem); font-weight: 600; line-height: 1.2; color: #000000; margin: 0;">Flipkart</h3>
-              <div style="margin-top: 0.45rem; display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem;">
+              <h3>Flipkart</h3>
+              <div class="projects-card-meta-row">
                 <span class="projects-service-badge marketing">Digital Marketing</span>
                 
               </div>
@@ -2664,8 +2689,8 @@
 
             <!-- Bottom-Left Info Plate -->
             <div class="projects-card-info-plate">
-              <h3 style="font-size: clamp(1.25rem, 1.9vw, 1.75rem); font-weight: 600; line-height: 1.2; color: #000000; margin: 0;">via Milano</h3>
-              <div style="margin-top: 0.45rem; display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem;">
+              <h3>via Milano</h3>
+              <div class="projects-card-meta-row">
                 <span class="projects-service-badge marketing">Digital Marketing</span>
                 
               </div>
