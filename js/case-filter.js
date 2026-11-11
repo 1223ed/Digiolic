@@ -816,26 +816,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Open triggers on Digital Marketing Green Case Study Cards
-  document.querySelectorAll('.dm-case-study-card').forEach(card => {
-    card.addEventListener('click', (e) => {
-      e.preventDefault();
-      const studyKey = card.getAttribute('data-study');
-      if (studyKey) {
-        openModal(`case-${studyKey}`);
-      }
-    });
-    card.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        const studyKey = card.getAttribute('data-study');
-        if (studyKey) {
-          openModal(`case-${studyKey}`);
-        }
-      }
-    });
-  });
-
   // Close triggers
   if (modalCloseBtn) {
     modalCloseBtn.addEventListener('click', closeModal);
