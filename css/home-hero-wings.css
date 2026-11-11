@@ -1,0 +1,482 @@
+/* ==========================================================================
+   DIGIOLIC HOMEPAGE HERO — WINGS DARK CINEMATIC CHOREOGRAPHY
+   - Clean Obsidian Background (#030304) with Full-Bleed wings-v8_1080p.mp4
+   - High-Contrast Light-on-Dark Header Logo, Actions, Audio & Menu Controls
+   - Act 1 (Autoplay): Sequential D->I->G->I->O->L->I->C Reveal -> Hold ->
+     "YOUR WAIT IS WORTH NOW" Emerge -> Smooth Crossfade Out
+   - Act 2 (Settles & Holds): "8+ Years Experience | Certified Experts" Pill,
+     Editorial Serif "Zoho, Salesforce & Digital Marketing", & Positioning Copy
+   - GPU-Composited Motion + sibling-index() Stagger + Reduced-Motion & Pause
+   ========================================================================== */
+
+#heroSection.home-hero-clean {
+  background-color: #030304 !important;
+  color: #F8FAFC !important;
+  color-scheme: dark;
+  isolation: isolate;
+}
+
+#heroSection .home-hero-media {
+  background-color: #030304;
+}
+
+#heroSection .home-hero-video {
+  position: absolute !important;
+  inset: 0 !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  min-width: 100% !important;
+  min-height: 100% !important;
+  transform: none !important;
+  object-fit: cover !important;
+  object-position: center center !important;
+  opacity: 0.94;
+}
+
+#heroSection .home-hero-overlay {
+  background:
+    radial-gradient(
+      ellipse 72% 58% at 50% 50%,
+      rgba(3, 3, 5, 0.54) 0%,
+      rgba(3, 3, 5, 0.24) 62%,
+      rgba(3, 3, 5, 0.72) 100%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(3, 3, 5, 0.78) 0%,
+      rgba(3, 3, 5, 0.14) 24%,
+      rgba(3, 3, 5, 0.12) 74%,
+      rgba(3, 3, 5, 0.86) 100%
+    ) !important;
+}
+
+/* ==========================================================================
+   LIGHT-ON-DARK HEADER & HERO CHROME
+   ========================================================================== */
+#heroSection .home-hero-logo {
+  filter: drop-shadow(0 2px 12px rgba(0, 0, 0, 0.5)) !important;
+}
+
+#heroSection .home-hero-contact-btn {
+  background: #FFFFFF !important;
+  color: #050608 !important;
+  border: 1px solid rgba(255, 255, 255, 0.9) !important;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.45) !important;
+}
+
+#heroSection .home-hero-contact-btn:hover {
+  background: #E2E8F0 !important;
+  color: #050608 !important;
+  box-shadow: 0 10px 28px rgba(255, 255, 255, 0.16) !important;
+}
+
+#heroSection .home-hero-actions .nav-sound-control,
+#heroSection .home-hero-menu-btn,
+#heroSection .home-hero-scroll-btn {
+  background: rgba(18, 20, 26, 0.62) !important;
+  border: 1px solid rgba(255, 255, 255, 0.26) !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.45) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+}
+
+#heroSection .home-hero-actions .nav-sound-control:hover,
+#heroSection .home-hero-menu-btn:hover,
+#heroSection .home-hero-scroll-btn:hover {
+  background: rgba(255, 255, 255, 0.18) !important;
+  border-color: rgba(255, 255, 255, 0.55) !important;
+  color: #FFFFFF !important;
+}
+
+#heroSection .home-menu-bar {
+  background: #FFFFFF !important;
+}
+
+#heroSection .home-hero-contact-btn:focus-visible,
+#heroSection .home-hero-actions .nav-sound-control:focus-visible,
+#heroSection .home-hero-menu-btn:focus-visible,
+#heroSection .home-hero-scroll-btn:focus-visible,
+#heroSection .hero-motion-toggle:focus-visible {
+  outline: 2px solid #FFFFFF !important;
+  outline-offset: 3px;
+}
+
+/* Accessible Pause/Play Toggle at Bottom-Left (WCAG 2.2.2 — clears bottom-right chat & scroll FAB) */
+#heroSection .home-hero-bottom {
+  padding-inline: clamp(16px, 4vw, 48px);
+  box-sizing: border-box;
+}
+
+#heroSection .hero-motion-toggle {
+  position: absolute;
+  left: clamp(16px, 4vw, 48px);
+  bottom: 0;
+  height: 40px;
+  padding: 0 14px;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  background: rgba(18, 20, 26, 0.68);
+  color: rgba(248, 250, 252, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+#heroSection .hero-motion-toggle:hover {
+  background: rgba(255, 255, 255, 0.16);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(-1px);
+}
+
+#heroSection .hero-motion-toggle svg {
+  width: 13px;
+  height: 13px;
+  flex-shrink: 0;
+}
+
+#heroSection:not(.is-hero-paused) .hero-icon-play,
+#heroSection.is-hero-paused .hero-icon-pause {
+  display: none;
+}
+
+/* ==========================================================================
+   CENTERED MOTION GRAPHICS TYPOGRAPHY STAGE
+   ========================================================================== */
+#heroSection .hero-wings-stage {
+  position: absolute;
+  inset: 0;
+  z-index: 12;
+  display: grid;
+  place-items: center;
+  padding: clamp(88px, 12vh, 130px) clamp(20px, 5vw, 72px) clamp(92px, 12vh, 130px);
+  box-sizing: border-box;
+  pointer-events: none;
+}
+
+#heroSection .hero-act {
+  grid-area: 1 / 1;
+  width: 100%;
+  max-width: 1040px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+/* --------------------------------------------------------------------------
+   ACT 1: DIGIOLIC (D -> C sequential reveal) + "YOUR WAIT IS WORTH NOW"
+   -------------------------------------------------------------------------- */
+#heroSection .hero-act-intro {
+  gap: clamp(18px, 2.8vh, 30px);
+}
+
+#heroSection .hero-digiolic-word {
+  --letter-base-delay: 140ms;
+  --letter-stagger: 125ms;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+  gap: clamp(0.08em, 0.14em, 0.2em);
+  font-family: 'Plus Jakarta Sans', 'Space Grotesk', sans-serif;
+  font-size: clamp(34px, 8.2vw, 128px);
+  font-weight: 800;
+  line-height: 0.95;
+  letter-spacing: 0;
+  color: #FFFFFF;
+  text-transform: uppercase;
+  user-select: none;
+}
+
+#heroSection .hw-char {
+  display: inline-block;
+  color: #FFFFFF;
+  text-shadow: 0 8px 36px rgba(0, 0, 0, 0.55);
+  will-change: transform, opacity;
+}
+
+#heroSection .hero-wait-line {
+  margin: 0;
+  font-family: 'Plus Jakarta Sans', 'Manrope', sans-serif;
+  font-size: clamp(14px, 1.7vw, 24px);
+  font-weight: 800;
+  letter-spacing: 0.28em;
+  line-height: 1.4;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.72);
+  will-change: transform, opacity, clip-path;
+}
+
+/* --------------------------------------------------------------------------
+   ACT 2: EDITORIAL MANIFEST LOCKUP (Matching Reference Screenshot)
+   "8+ Years Experience | Certified Experts" + "Zoho, Salesforce & Digital Marketing"
+   -------------------------------------------------------------------------- */
+#heroSection .hero-act-manifest {
+  gap: clamp(16px, 2.4vh, 26px);
+  max-width: 980px;
+}
+
+#heroSection .hero-manifest-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(7px, 0.75vw, 10px) clamp(18px, 2.2vw, 28px);
+  border: 1.25px solid rgba(255, 255, 255, 0.52);
+  border-radius: 9999px;
+  background: rgba(10, 12, 16, 0.45);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+  font-size: clamp(12.5px, 1.15vw, 17px);
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  color: #F8FAFC;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.42);
+}
+
+#heroSection .hero-act-manifest h1.hero-manifest-title,
+#heroSection h1.hero-manifest-title {
+  margin: 0 !important;
+  max-width: 100% !important;
+  font-family: 'Playfair Display', Georgia, 'Times New Roman', serif !important;
+  font-size: clamp(46px, 6vw, 90px) !important;
+  font-weight: 500 !important;
+  line-height: 1.07 !important;
+  letter-spacing: -0.02em !important;
+  color: #F6F5F0 !important;
+  text-shadow: 0 6px 32px rgba(0, 0, 0, 0.68);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#heroSection .hero-manifest-line {
+  display: block;
+  font-family: 'Playfair Display', Georgia, 'Times New Roman', serif !important;
+  font-weight: inherit !important;
+}
+
+#heroSection h1.hero-manifest-title em {
+  font-family: 'Playfair Display', Georgia, 'Times New Roman', serif !important;
+  font-style: italic !important;
+  font-weight: 400 !important;
+  padding-left: 0.015em;
+}
+
+#heroSection h1.hero-manifest-title .hero-serif-amp {
+  font-family: 'Playfair Display', Georgia, 'Times New Roman', serif !important;
+  font-style: italic !important;
+  font-weight: 400 !important;
+  padding-right: 0.04em;
+}
+
+#heroSection .hero-manifest-sub {
+  margin: 0;
+  max-width: 760px;
+  font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+  font-size: clamp(14.5px, 1.38vw, 21px);
+  font-weight: 400;
+  line-height: 1.54;
+  letter-spacing: -0.005em;
+  color: rgba(241, 245, 249, 0.88);
+  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.72);
+}
+
+/* ==========================================================================
+   COMPOSITOR-DRIVEN KEYFRAME CHOREOGRAPHY (Opt-In When Motion Allowed)
+   ========================================================================== */
+@keyframes heroCharEmerge {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 26px, 0) scale(0.92);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
+@keyframes heroWaitEmerge {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 14px, 0);
+    clip-path: inset(0 100% 0 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+    clip-path: inset(0 0% 0 0);
+  }
+}
+
+@keyframes heroActIntroHoldAndExit {
+  0%, 88% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(0, -18px, 0) scale(0.985);
+    visibility: hidden;
+  }
+}
+
+@keyframes heroElementRiseIn {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 22px, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  #heroSection .hero-act-intro {
+    animation: heroActIntroHoldAndExit 5.25s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  #heroSection .hw-char {
+    opacity: 0;
+    animation: heroCharEmerge 0.52s cubic-bezier(0.16, 1, 0.3, 1) both;
+    animation-delay: calc(var(--letter-base-delay) + (var(--sibling-index, 1) - 1) * var(--letter-stagger));
+    animation-delay: calc(var(--letter-base-delay) + (sibling-index() - 1) * var(--letter-stagger));
+  }
+
+  #heroSection .hero-wait-line {
+    opacity: 0;
+    animation: heroWaitEmerge 0.72s cubic-bezier(0.16, 1, 0.3, 1) 2.05s both;
+  }
+
+  #heroSection .hero-manifest-pill {
+    opacity: 0;
+    animation: heroElementRiseIn 0.65s cubic-bezier(0.16, 1, 0.3, 1) 5.18s both;
+  }
+
+  #heroSection .hero-manifest-line-1 {
+    opacity: 0;
+    animation: heroElementRiseIn 0.72s cubic-bezier(0.16, 1, 0.3, 1) 5.34s both;
+  }
+
+  #heroSection .hero-manifest-line-2 {
+    opacity: 0;
+    animation: heroElementRiseIn 0.72s cubic-bezier(0.16, 1, 0.3, 1) 5.50s both;
+  }
+
+  #heroSection .hero-manifest-sub {
+    opacity: 0;
+    animation: heroElementRiseIn 0.72s cubic-bezier(0.16, 1, 0.3, 1) 5.70s both;
+  }
+}
+
+/* Reduced Motion: Immediate Static Settled Final State */
+@media (prefers-reduced-motion: reduce) {
+  #heroSection .hero-act-intro {
+    display: none !important;
+  }
+
+  #heroSection .hero-manifest-pill,
+  #heroSection .hero-manifest-line,
+  #heroSection .hero-manifest-sub {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  #heroSection .home-hero-scroll-btn {
+    animation: none !important;
+  }
+}
+
+/* Pause Toggle State */
+#heroSection.is-hero-paused .hero-wings-stage,
+#heroSection.is-hero-paused .hero-wings-stage *,
+#heroSection.is-hero-paused .home-hero-scroll-btn,
+#heroSection.is-hero-paused .sound-wave-1,
+#heroSection.is-hero-paused .sound-wave-2 {
+  animation-play-state: paused !important;
+}
+
+/* ==========================================================================
+   RESPONSIVE REFINEMENTS (Tablet & Mobile <= 640px)
+   ========================================================================== */
+@media (max-width: 768px) {
+  #heroSection .hero-digiolic-word {
+    font-size: clamp(32px, 8.6vw, 62px);
+    gap: clamp(0.06em, 0.11em, 0.14em);
+  }
+
+  #heroSection .hero-wait-line {
+    font-size: clamp(11.5px, 3vw, 17px);
+    letter-spacing: 0.2em;
+  }
+
+  #heroSection .hero-act-manifest h1.hero-manifest-title,
+  #heroSection h1.hero-manifest-title {
+    font-size: clamp(34px, 8vw, 58px) !important;
+    line-height: 1.09 !important;
+  }
+
+  #heroSection .hero-manifest-sub {
+    font-size: clamp(14px, 3.6vw, 17px);
+    max-width: min(92vw, 620px);
+  }
+}
+
+@media (max-width: 640px) {
+  #heroSection .home-hero-bottom .home-hero-scroll-btn {
+    display: none !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+  }
+}
+
+@media (max-width: 480px) {
+  #heroSection .hero-digiolic-word {
+    font-size: clamp(28px, 8.2vw, 38px);
+    gap: 0.06em;
+  }
+
+  #heroSection .hero-wait-line {
+    font-size: 11.5px;
+    letter-spacing: 0.16em;
+  }
+
+  #heroSection .hero-manifest-pill {
+    font-size: 11.5px;
+    padding: 6px 14px;
+  }
+
+  #heroSection .hero-act-manifest h1.hero-manifest-title,
+  #heroSection h1.hero-manifest-title {
+    font-size: clamp(30px, 8.2vw, 38px) !important;
+    line-height: 1.1 !important;
+  }
+
+  #heroSection .hero-manifest-sub {
+    font-size: 13.5px;
+    line-height: 1.5;
+  }
+
+  #heroSection .hero-motion-toggle {
+    left: 16px;
+    height: 36px;
+    padding: 0 11px;
+    font-size: 0.65rem;
+  }
+}
+
