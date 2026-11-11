@@ -1,11 +1,13 @@
-import React, { useRef, useState, useCallback } from 'react';
+import React, { useRef, useState, useCallback, useEffect } from 'react';
 import {
   motion,
   useScroll,
   useTransform,
   useSpring,
   useMotionValue,
+  useMotionValueEvent,
   useInView,
+  type MotionValue,
 } from 'framer-motion';
 
 const EASING: [number, number, number, number] = [0.22, 1, 0.36, 1];
@@ -458,6 +460,65 @@ const FloatingSquare: React.FC<FloatingSquareProps> = ({
 };
 
 /* -------------------------------------------------------------------------- */
+/*                         Subcomponent: Magnetic Square                      */
+/* -------------------------------------------------------------------------- */
+
+const MAGNETIC_SPRING = { stiffness: 80, damping: 18, mass: 0.6 };
+
+interface MagneticSquareProps {
+  sq: FloatingSquareConfig;
+  mouseX: MotionValue<number>;
+  mouseY: MotionValue<number>;
+  isHovered: boolean;
+  cardRef: React.RefObject<HTMLDivElement | null>;
+}
+
+const MagneticSquare: React.FC<MagneticSquareProps> = ({
+  sq,
+  mouseX,
+  mouseY,
+  isHovered,
+  cardRef,
+}) => {
+  const springX = useSpring(0, MAGNETIC_SPRING);
+  const springY = useSpring(0, MAGNETIC_SPRING);
+
+  const updateOffset = useCallback(() => {
+    if (!isHovered) {
+      springX.set(0);
+      springY.set(0);
+      return;
+    }
+    const rect = cardRef.current?.getBoundingClientRect();
+    const w = rect ? rect.width : 500;
+    const h = rect ? rect.height : 375;
+    springX.set((mouseX.get() - sq.x / 100) * w * 0.28);
+    springY.set((mouseY.get() - sq.y / 100) * h * 0.28);
+  }, [isHovered, mouseX, mouseY, sq.x, sq.y, cardRef, springX, springY]);
+
+  useEffect(() => {
+    updateOffset();
+  }, [updateOffset]);
+
+  useMotionValueEvent(mouseX, 'change', updateOffset);
+  useMotionValueEvent(mouseY, 'change', updateOffset);
+
+  return (
+    <motion.div
+      className="pointer-events-none absolute bg-black"
+      style={{
+        left: `${sq.x}%`,
+        top: `${sq.y}%`,
+        width: `${sq.size}px`,
+        height: `${sq.size}px`,
+        x: springX,
+        y: springY,
+      }}
+    />
+  );
+};
+
+/* -------------------------------------------------------------------------- */
 /*                         Subcomponent: Case Study Card                      */
 /* -------------------------------------------------------------------------- */
 
@@ -468,35 +529,57 @@ interface CardProps {
 
 const CaseStudyCard: React.FC<CardProps> = ({ study, index }) => {
   const [isHovered, setIsHovered] = useState(false);
+  const cardRef = useRef<HTMLDivElement>(null);
 
   const mouseX = useMotionValue(0.5);
   const mouseY = useMotionValue(0.5);
 
-  const springConfig = { stiffness: 80, damping: 18, mass: 0.6 };
-  const rawShiftX = useTransform(mouseX, [0, 1], [-20, 20]);
-  const rawShiftY = useTransform(mouseY, [0, 1], [-20, 20]);
-  const springX = useSpring(rawShiftX, springConfig);
-  const springY = useSpring(rawShiftY, springConfig);
-
-  const handleMouseMove = useCallback(
-    (e: React.MouseEvent<HTMLDivElement>) => {
-      const rect = e.currentTarget.getBoundingClientRect();
-      const nx = (e.clientX - rect.left) / rect.width;
-      const ny = (e.clientY - rect.top) / rect.height;
-      mouseX.set(nx);
-      mouseY.set(ny);
+  const updatePointer = useCallback(
+    (clientX: number, clientY: number, el: HTMLDivElement) => {
+      const rect = el.getBoundingClientRect();
+      if (!rect.width || !rect.height) return;
+      mouseX.set((clientX - rect.left) / rect.width);
+      mouseY.set((clientY - rect.top) / rect.height);
     },
     [mouseX, mouseY]
   );
 
-  const handleMouseEnter = useCallback(() => {
-    setIsHovered(true);
-  }, []);
+  const handleMouseMove = useCallback(
+    (e: React.MouseEvent<HTMLDivElement>) => {
+      updatePointer(e.clientX, e.clientY, e.currentTarget);
+    },
+    [updatePointer]
+  );
+
+  const handleMouseEnter = useCallback(
+    (e: React.MouseEvent<HTMLDivElement>) => {
+      updatePointer(e.clientX, e.clientY, e.currentTarget);
+      setIsHovered(true);
+    },
+    [updatePointer]
+  );
 
   const handleMouseLeave = useCallback(() => {
     setIsHovered(false);
     mouseX.set(0.5);
     mouseY.set(0.5);
+  }, [mouseX, mouseY]);
+
+  const handleTouchStart = useCallback(
+    (e: React.TouchEvent<HTMLDivElement>) => {
+      const touch = e.touches[0];
+      if (touch) updatePointer(touch.clientX, touch.clientY, e.currentTarget);
+      setIsHovered(true);
+    },
+    [updatePointer]
+  );
+
+  const handleTouchEnd = useCallback(() => {
+    window.setTimeout(() => {
+      setIsHovered(false);
+      mouseX.set(0.5);
+      mouseY.set(0.5);
+    }, 600);
   }, [mouseX, mouseY]);
 
   const handleCardClick = () => {
@@ -520,6 +603,7 @@ const CaseStudyCard: React.FC<CardProps> = ({ study, index }) => {
 
   return (
     <motion.div
+      ref={cardRef}
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-40px' }}
@@ -528,6 +612,8 @@ const CaseStudyCard: React.FC<CardProps> = ({ study, index }) => {
       onMouseMove={handleMouseMove}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
       onClick={handleCardClick}
       role="button"
       tabIndex={0}
@@ -539,22 +625,57 @@ const CaseStudyCard: React.FC<CardProps> = ({ study, index }) => {
         }
       }}
     >
-      {/* 1. Background image with smooth zoom */}
+      {/* 1. Background image */}
       <img
         src={study.image}
         alt={study.company}
         loading="lazy"
-        className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-105"
+        className="absolute inset-0 h-full w-full object-cover"
       />
 
-      {/* 2. Plain & Smooth Darkening Hover Overlay (Zero lines, 100% clean) */}
-      <div
-        className="pointer-events-none absolute inset-0 z-[5] bg-black/40 transition-opacity duration-350 ease-[cubic-bezier(0.22,1,0.36,1)]"
-        style={{ opacity: isHovered ? 1 : 0 }}
-      />
+      {/* 2. Pixel-block diagonal hover overlay (12 x 8) with isolated group opacity to eliminate seams & dark grid lines */}
+      <div className="pointer-events-none absolute inset-0 z-[5] overflow-hidden opacity-80">
+        {PIXEL_BLOCKS.map((b) => (
+          <motion.div
+            key={b.id}
+            className="absolute bg-black"
+            style={{
+              width: `calc(${100 / COLS}% + 1.5px)`,
+              height: `calc(${100 / ROWS}% + 1.5px)`,
+              left: `${(b.col * 100) / COLS}%`,
+              top: `${(b.row * 100) / ROWS}%`,
+            }}
+            initial={{ scale: 0, opacity: 0 }}
+            animate={
+              isHovered ? { scale: 1, opacity: 1 } : { scale: 0, opacity: 0 }
+            }
+            transition={{
+              duration: 0.25,
+              delay: isHovered
+                ? (b.row + b.col) * 0.018
+                : (ROWS - b.row + (COLS - b.col)) * 0.012,
+              ease: EASING,
+            }}
+          />
+        ))}
+      </div>
 
-      {/* 3. Top-Right Location Details */}
-      <div className="absolute right-3 top-3 z-15 flex max-w-[calc(100%-1.5rem)] items-center sm:right-4 sm:top-4 sm:max-w-[calc(100%-2rem)]">
+      {/* 3. Magnetic black squares */}
+      <div className="pointer-events-none absolute inset-0 z-[15]">
+        {study.magneticSquares.map((sq, i) => (
+          <MagneticSquare
+            key={i}
+            sq={sq}
+            mouseX={mouseX}
+            mouseY={mouseY}
+            isHovered={isHovered}
+            cardRef={cardRef}
+          />
+        ))}
+      </div>
+
+      {/* 4. Top-Right Location Details */}
+      <div className="absolute right-3 top-3 z-[20] flex max-w-[calc(100%-1.5rem)] items-center sm:right-4 sm:top-4 sm:max-w-[calc(100%-2rem)]">
         <span className="inline-flex items-center gap-1.5 overflow-hidden text-ellipsis whitespace-nowrap rounded-full border border-white/35 bg-black/65 px-2.5 py-1 text-[10px] font-medium tracking-wide text-white shadow-md backdrop-blur transition-colors duration-200 group-hover:border-white/60 group-hover:bg-black/90 sm:px-3 sm:py-1.5 sm:text-[11px]">
           <svg className="h-3 w-3 shrink-0 opacity-85" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
             <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
@@ -564,7 +685,7 @@ const CaseStudyCard: React.FC<CardProps> = ({ study, index }) => {
         </span>
       </div>
 
-      {/* 6. Info plate (bottom left) */}
+      {/* 5. Info plate (bottom left) */}
       <div
         className="absolute bottom-0 left-0 rounded-tr-md bg-white px-5 pb-3.5 pt-3 shadow-[0_4px_20px_rgba(0,0,0,0.12)]"
         style={{ zIndex: 20, maxWidth: '85%' }}

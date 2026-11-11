@@ -1988,34 +1988,58 @@
         animation: squareBobAnim ease-in-out infinite;
       }
 
-      /* Clean & Plain Photo Hover Overlay (100% Solid & Plain, Absolutely Zero Lines/Grid) */
+      /* Card Background Image */
       .projects-card-bg-img {
         position: absolute;
         inset: 0;
         width: 100%;
         height: 100%;
         object-fit: cover;
-        transition: transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
-      }
-      .projects-card-container:hover .projects-card-bg-img,
-      .projects-card-container.is-active .projects-card-bg-img {
-        transform: scale(1.08);
-      }
-      .projects-card-overlay {
-        position: absolute;
-        inset: 0;
-        background-color: rgba(0, 0, 0, 0.38);
-        opacity: 0;
-        pointer-events: none;
-        z-index: 5;
-        transition: opacity 0.35s cubic-bezier(0.22, 1, 0.36, 1);
-      }
-      .projects-card-container:hover .projects-card-overlay,
-      .projects-card-container.is-active .projects-card-overlay {
-        opacity: 1;
       }
 
-      /* Top-Right Header Bar: Location Details & Action Arrow (Matches red rectangle specification) */
+      /* 12 x 8 Diagonal Pixel-Block Dissolve Overlay (Isolated group opacity eliminates seams & dark grid lines) */
+      .projects-pixel-grid {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        z-index: 5;
+        overflow: hidden;
+        opacity: 0.80;
+        isolation: isolate;
+        transform: translateZ(0);
+      }
+      .projects-pixel-block {
+        position: absolute;
+        background-color: #000000;
+        transform: scale(0);
+        opacity: 0;
+        transform-origin: center center;
+        transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+        transition-delay: var(--d-out, 0s);
+      }
+      .projects-card-container:hover .projects-pixel-block,
+      .projects-card-container.is-active .projects-pixel-block {
+        transform: scale(1);
+        opacity: 1;
+        transition-delay: var(--d-in, 0s);
+      }
+
+      /* Magnetic Cursor Black Squares Layer */
+      .projects-magnetic-layer {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        z-index: 15;
+        overflow: hidden;
+      }
+      .projects-magnetic-square {
+        position: absolute;
+        background-color: #000000;
+        pointer-events: none;
+        will-change: transform;
+      }
+
+      /* Top-Right Header Bar: Location Details */
       .projects-card-top-bar {
         position: absolute;
         top: 1rem;
@@ -2023,7 +2047,7 @@
         display: flex;
         align-items: center;
         gap: 0.5rem;
-        z-index: 15;
+        z-index: 20;
         max-width: calc(100% - 2rem);
         pointer-events: none;
       }
@@ -2240,8 +2264,9 @@
           <div class="projects-card-container group" data-case-id="case-blume-labs" role="button" tabindex="0" aria-label="View Blume Labs Case Study" style="position: relative; aspect-ratio: 4/3; overflow: hidden; background-color: #111827; cursor: pointer; border-radius: 4px;">
             <img src="../assets/images/case-studies/landmarks/blume-tech.jpg" alt="Blume Labs" class="projects-card-bg-img" loading="lazy">
             
-            <!-- Plain Smooth Photo Animation Overlay (Zero Lines) -->
-            <div class="projects-card-overlay"></div>
+            <!-- 12x8 Diagonal Pixel-Dissolve Grid & Magnetic Black Squares -->
+            <div class="projects-pixel-grid"></div>
+            <div class="projects-magnetic-layer"></div>
             
             
 
@@ -2268,8 +2293,9 @@
           <div class="projects-card-container group" data-case-id="case-pierian" role="button" tabindex="0" aria-label="View Pierian Technologies Case Study" style="position: relative; aspect-ratio: 4/3; overflow: hidden; background-color: #111827; cursor: pointer; border-radius: 4px;">
             <img src="../assets/images/case-studies/landmarks/bangalore-finance.jpg" alt="Pierian Technologies" class="projects-card-bg-img" loading="lazy">
             
-            <!-- Plain Smooth Photo Animation Overlay (Zero Lines) -->
-            <div class="projects-card-overlay"></div>
+            <!-- 12x8 Diagonal Pixel-Dissolve Grid & Magnetic Black Squares -->
+            <div class="projects-pixel-grid"></div>
+            <div class="projects-magnetic-layer"></div>
             
             
 
@@ -2296,8 +2322,9 @@
           <div class="projects-card-container group" data-case-id="case-fyx" role="button" tabindex="0" aria-label="View FYX Finance Case Study" style="position: relative; aspect-ratio: 4/3; overflow: hidden; background-color: #111827; cursor: pointer; border-radius: 4px;">
             <img src="../assets/images/case-studies/landmarks/sydney-opera.jpg" alt="FYX Finance" class="projects-card-bg-img" loading="lazy">
             
-            <!-- Plain Smooth Photo Animation Overlay (Zero Lines) -->
-            <div class="projects-card-overlay"></div>
+            <!-- 12x8 Diagonal Pixel-Dissolve Grid & Magnetic Black Squares -->
+            <div class="projects-pixel-grid"></div>
+            <div class="projects-magnetic-layer"></div>
             
             
 
@@ -2324,8 +2351,9 @@
           <div class="projects-card-container group" data-case-id="case-monster-india" role="button" tabindex="0" aria-label="View Monster India Case Study" style="position: relative; aspect-ratio: 4/3; overflow: hidden; background-color: #111827; cursor: pointer; border-radius: 4px;">
             <img src="../assets/images/case-studies/landmarks/india-gate.jpg" alt="Monster India" class="projects-card-bg-img" loading="lazy">
             
-            <!-- Plain Smooth Photo Animation Overlay (Zero Lines) -->
-            <div class="projects-card-overlay"></div>
+            <!-- 12x8 Diagonal Pixel-Dissolve Grid & Magnetic Black Squares -->
+            <div class="projects-pixel-grid"></div>
+            <div class="projects-magnetic-layer"></div>
             
             
 
@@ -2352,8 +2380,9 @@
           <div class="projects-card-container group" data-case-id="case-greenworld" role="button" tabindex="0" aria-label="View Greenworld Solarwares Case Study" style="position: relative; aspect-ratio: 4/3; overflow: hidden; background-color: #111827; cursor: pointer; border-radius: 4px;">
             <img src="../assets/images/case-studies/landmarks/solar-energy.jpg" alt="Greenworld Solarwares" class="projects-card-bg-img" loading="lazy">
             
-            <!-- Plain Smooth Photo Animation Overlay (Zero Lines) -->
-            <div class="projects-card-overlay"></div>
+            <!-- 12x8 Diagonal Pixel-Dissolve Grid & Magnetic Black Squares -->
+            <div class="projects-pixel-grid"></div>
+            <div class="projects-magnetic-layer"></div>
             
             
 
@@ -2380,8 +2409,9 @@
           <div class="projects-card-container group" data-case-id="case-verzeo" role="button" tabindex="0" aria-label="View Verzeo Technologies Case Study" style="position: relative; aspect-ratio: 4/3; overflow: hidden; background-color: #111827; cursor: pointer; border-radius: 4px;">
             <img src="../assets/images/case-studies/landmarks/bangalore-vidhana.jpg" alt="Verzeo Technologies" class="projects-card-bg-img" loading="lazy">
             
-            <!-- Plain Smooth Photo Animation Overlay (Zero Lines) -->
-            <div class="projects-card-overlay"></div>
+            <!-- 12x8 Diagonal Pixel-Dissolve Grid & Magnetic Black Squares -->
+            <div class="projects-pixel-grid"></div>
+            <div class="projects-magnetic-layer"></div>
             
             
 
@@ -2408,8 +2438,9 @@
           <div class="projects-card-container group" data-case-id="case-nz-immigration" role="button" tabindex="0" aria-label="View NZ Immigration Case Study" style="position: relative; aspect-ratio: 4/3; overflow: hidden; background-color: #111827; cursor: pointer; border-radius: 4px;">
             <img src="../assets/images/case-studies/landmarks/new-zealand.jpg" alt="NZ Immigration" class="projects-card-bg-img" loading="lazy">
             
-            <!-- Plain Smooth Photo Animation Overlay (Zero Lines) -->
-            <div class="projects-card-overlay"></div>
+            <!-- 12x8 Diagonal Pixel-Dissolve Grid & Magnetic Black Squares -->
+            <div class="projects-pixel-grid"></div>
+            <div class="projects-magnetic-layer"></div>
             
             
 
@@ -2436,8 +2467,9 @@
           <div class="projects-card-container group" data-case-id="case-banaraswala" role="button" tabindex="0" aria-label="View Banaraswala Case Study" style="position: relative; aspect-ratio: 4/3; overflow: hidden; background-color: #111827; cursor: pointer; border-radius: 4px;">
             <img src="../assets/images/case-studies/landmarks/delhi-qutub.jpg" alt="Banaraswala" class="projects-card-bg-img" loading="lazy">
             
-            <!-- Plain Smooth Photo Animation Overlay (Zero Lines) -->
-            <div class="projects-card-overlay"></div>
+            <!-- 12x8 Diagonal Pixel-Dissolve Grid & Magnetic Black Squares -->
+            <div class="projects-pixel-grid"></div>
+            <div class="projects-magnetic-layer"></div>
             
             
 
@@ -2464,8 +2496,9 @@
           <div class="projects-card-container group" data-case-id="case-loomcrafts" role="button" tabindex="0" aria-label="View Loom Crafts Case Study" style="position: relative; aspect-ratio: 4/3; overflow: hidden; background-color: #111827; cursor: pointer; border-radius: 4px;">
             <img src="../assets/images/case-studies/landmarks/agra-taj.jpg" alt="Loom Crafts" class="projects-card-bg-img" loading="lazy">
             
-            <!-- Plain Smooth Photo Animation Overlay (Zero Lines) -->
-            <div class="projects-card-overlay"></div>
+            <!-- 12x8 Diagonal Pixel-Dissolve Grid & Magnetic Black Squares -->
+            <div class="projects-pixel-grid"></div>
+            <div class="projects-magnetic-layer"></div>
             
             
 
@@ -2492,8 +2525,9 @@
           <div class="projects-card-container group" data-case-id="case-chanakya-university" role="button" tabindex="0" aria-label="View Chanakya University Case Study" style="position: relative; aspect-ratio: 4/3; overflow: hidden; background-color: #111827; cursor: pointer; border-radius: 4px;">
             <img src="../assets/images/case-studies/landmarks/chanakya-univ.jpg" alt="Chanakya University" class="projects-card-bg-img" loading="lazy">
             
-            <!-- Plain Smooth Photo Animation Overlay (Zero Lines) -->
-            <div class="projects-card-overlay"></div>
+            <!-- 12x8 Diagonal Pixel-Dissolve Grid & Magnetic Black Squares -->
+            <div class="projects-pixel-grid"></div>
+            <div class="projects-magnetic-layer"></div>
             
             
 
@@ -2520,8 +2554,9 @@
           <div class="projects-card-container group" data-case-id="case-deccan-herald" role="button" tabindex="0" aria-label="View Deccan Herald Case Study" style="position: relative; aspect-ratio: 4/3; overflow: hidden; background-color: #111827; cursor: pointer; border-radius: 4px;">
             <img src="../assets/images/case-studies/landmarks/deccan-herald.jpg" alt="Deccan Herald" class="projects-card-bg-img" loading="lazy">
             
-            <!-- Plain Smooth Photo Animation Overlay (Zero Lines) -->
-            <div class="projects-card-overlay"></div>
+            <!-- 12x8 Diagonal Pixel-Dissolve Grid & Magnetic Black Squares -->
+            <div class="projects-pixel-grid"></div>
+            <div class="projects-magnetic-layer"></div>
             
             
 
@@ -2548,8 +2583,9 @@
           <div class="projects-card-container group" data-case-id="case-myntra" role="button" tabindex="0" aria-label="View Myntra Case Study" style="position: relative; aspect-ratio: 4/3; overflow: hidden; background-color: #111827; cursor: pointer; border-radius: 4px;">
             <img src="../assets/images/case-studies/landmarks/myntra-campus.jpg" alt="Myntra" class="projects-card-bg-img" loading="lazy">
             
-            <!-- Plain Smooth Photo Animation Overlay (Zero Lines) -->
-            <div class="projects-card-overlay"></div>
+            <!-- 12x8 Diagonal Pixel-Dissolve Grid & Magnetic Black Squares -->
+            <div class="projects-pixel-grid"></div>
+            <div class="projects-magnetic-layer"></div>
             
             
 
@@ -2576,8 +2612,9 @@
           <div class="projects-card-container group" data-case-id="case-flipkart" role="button" tabindex="0" aria-label="View Flipkart Case Study" style="position: relative; aspect-ratio: 4/3; overflow: hidden; background-color: #111827; cursor: pointer; border-radius: 4px;">
             <img src="../assets/images/case-studies/landmarks/flipkart-hub.jpg" alt="Flipkart" class="projects-card-bg-img" loading="lazy">
             
-            <!-- Plain Smooth Photo Animation Overlay (Zero Lines) -->
-            <div class="projects-card-overlay"></div>
+            <!-- 12x8 Diagonal Pixel-Dissolve Grid & Magnetic Black Squares -->
+            <div class="projects-pixel-grid"></div>
+            <div class="projects-magnetic-layer"></div>
             
             
 
@@ -2604,8 +2641,9 @@
           <div class="projects-card-container group" data-case-id="case-via-milano" role="button" tabindex="0" aria-label="View via Milano Case Study" style="position: relative; aspect-ratio: 4/3; overflow: hidden; background-color: #111827; cursor: pointer; border-radius: 4px;">
             <img src="../assets/images/case-studies/landmarks/via-milano.jpg" alt="via Milano" class="projects-card-bg-img" loading="lazy">
             
-            <!-- Plain Smooth Photo Animation Overlay (Zero Lines) -->
-            <div class="projects-card-overlay"></div>
+            <!-- 12x8 Diagonal Pixel-Dissolve Grid & Magnetic Black Squares -->
+            <div class="projects-pixel-grid"></div>
+            <div class="projects-magnetic-layer"></div>
             
             
 
@@ -2662,27 +2700,188 @@
       <div style="height: 3rem;"></div>
     </section>
 
-    <!-- Client-side Interactive Enhancement: Plain Photo Animation & Parallax -->
+    <!-- Client-side Interactive Enhancement: 12x8 Pixel-Dissolve Wave, Spring Magnetic Squares & Parallax -->
     <script>
       (function() {
-        // 1. Interactive Card Handlers (Plain Smooth Animation, Zero Lines)
+        var COLS = 12;
+        var ROWS = 8;
+
+        var MAGNETIC_DATA = {
+          'case-blume-labs':          [[5,30,16],[10,42,10],[3,52,7],[80,70,14],[85,82,9],[78,60,6]],
+          'case-pierian':             [[82,55,16],[88,68,10],[78,72,7],[85,42,6],[90,80,8]],
+          'case-fyx':                 [[4,24,16],[10,36,10],[2,44,7],[78,78,14],[84,88,8]],
+          'case-monster-india':       [[82,26,14],[88,38,10],[78,44,7],[84,54,5],[90,60,8]],
+          'case-greenworld':          [[6,40,14],[12,52,9],[4,62,6],[82,30,16],[88,42,10]],
+          'case-verzeo':              [[5,30,16],[10,42,10],[80,70,14],[85,82,9],[78,60,6]],
+          'case-nz-immigration':      [[82,55,16],[88,68,10],[78,72,7],[85,42,6],[90,80,8]],
+          'case-banaraswala':         [[4,24,16],[10,36,10],[2,44,7],[78,78,14],[84,88,8]],
+          'case-loomcrafts':          [[82,26,14],[88,38,10],[78,44,7],[84,54,5],[90,60,8]],
+          'case-chanakya-university': [[6,40,14],[12,52,9],[4,62,6],[82,30,16],[88,42,10]],
+          'case-deccan-herald':       [[5,30,16],[10,42,10],[3,52,7],[80,70,14],[85,82,9]],
+          'case-myntra':              [[82,55,16],[88,68,10],[78,72,7],[85,42,6],[90,80,8]],
+          'case-flipkart':            [[4,24,16],[10,36,10],[2,44,7],[78,78,14],[84,88,8]],
+          'case-via-milano':          [[82,26,14],[88,38,10],[78,44,7],[84,54,5],[90,60,8]]
+        };
+
+        var STIFFNESS = 80;
+        var DAMPING = 18;
+        var MASS = 0.6;
+        var allSprings = [];
+        var springRafId = null;
+        var lastTime = 0;
+
+        function tickSprings(now) {
+          if (!lastTime) lastTime = now;
+          var dt = Math.min(0.032, Math.max(0.004, (now - lastTime) / 1000));
+          lastTime = now;
+
+          var anyMoving = false;
+          for (var i = 0; i < allSprings.length; i++) {
+            var s = allSprings[i];
+            var dx = s.tx - s.x;
+            var dy = s.ty - s.y;
+            if (Math.abs(dx) < 0.05 && Math.abs(dy) < 0.05 && Math.abs(s.vx) < 0.05 && Math.abs(s.vy) < 0.05) {
+              if (s.x !== s.tx || s.y !== s.ty) {
+                s.x = s.tx;
+                s.y = s.ty;
+                s.vx = 0;
+                s.vy = 0;
+                s.el.style.transform = s.tx === 0 && s.ty === 0
+                  ? 'translate3d(0px,0px,0)'
+                  : 'translate3d(' + s.x.toFixed(2) + 'px,' + s.y.toFixed(2) + 'px,0)';
+              }
+              continue;
+            }
+            var ax = (STIFFNESS * dx - DAMPING * s.vx) / MASS;
+            var ay = (STIFFNESS * dy - DAMPING * s.vy) / MASS;
+            s.vx += ax * dt;
+            s.vy += ay * dt;
+            s.x += s.vx * dt;
+            s.y += s.vy * dt;
+            s.el.style.transform = 'translate3d(' + s.x.toFixed(2) + 'px,' + s.y.toFixed(2) + 'px,0)';
+            anyMoving = true;
+          }
+
+          if (anyMoving) {
+            springRafId = requestAnimationFrame(tickSprings);
+          } else {
+            springRafId = null;
+            lastTime = 0;
+          }
+        }
+
+        function wakeSprings() {
+          if (!springRafId) {
+            lastTime = 0;
+            springRafId = requestAnimationFrame(tickSprings);
+          }
+        }
+
+        function setCardSpringTargets(cardSprings, rect, nx, ny) {
+          for (var i = 0; i < cardSprings.length; i++) {
+            var s = cardSprings[i];
+            s.tx = (nx - s.sx) * rect.width * 0.28;
+            s.ty = (ny - s.sy) * rect.height * 0.28;
+          }
+          wakeSprings();
+        }
+
+        function resetCardSprings(cardSprings) {
+          for (var i = 0; i < cardSprings.length; i++) {
+            cardSprings[i].tx = 0;
+            cardSprings[i].ty = 0;
+          }
+          wakeSprings();
+        }
+
+        // 1. Build 12x8 pixel blocks & magnetic black squares for all cards
         var cards = document.querySelectorAll('.projects-card-container');
         cards.forEach(function(card) {
-          // Touch / pointer interaction on mobile
-          card.addEventListener('touchstart', function() {
-            card.classList.add('is-active');
-          }, { passive: true });
+          var pixelGrid = card.querySelector('.projects-pixel-grid');
+          if (pixelGrid && !pixelGrid.children.length) {
+            var frag = document.createDocumentFragment();
+            var blockW = (100 / COLS).toFixed(4);
+            var blockH = (100 / ROWS).toFixed(4);
+            for (var r = 0; r < ROWS; r++) {
+              for (var c = 0; c < COLS; c++) {
+                var block = document.createElement('div');
+                block.className = 'projects-pixel-block';
+                block.style.left = ((c * 100) / COLS).toFixed(4) + '%';
+                block.style.top = ((r * 100) / ROWS).toFixed(4) + '%';
+                block.style.width = 'calc(' + blockW + '% + 1.5px)';
+                block.style.height = 'calc(' + blockH + '% + 1.5px)';
+                block.style.setProperty('--d-in', ((r + c) * 0.018).toFixed(3) + 's');
+                block.style.setProperty('--d-out', (((ROWS - r) + (COLS - c)) * 0.012).toFixed(3) + 's');
+                frag.appendChild(block);
+              }
+            }
+            pixelGrid.appendChild(frag);
+          }
 
+          var magneticLayer = card.querySelector('.projects-magnetic-layer');
+          var caseId = card.getAttribute('data-case-id');
+          var sqConfigs = MAGNETIC_DATA[caseId] || MAGNETIC_DATA['case-blume-labs'];
+          var cardSprings = [];
+          if (magneticLayer && !magneticLayer.children.length) {
+            var sqFrag = document.createDocumentFragment();
+            sqConfigs.forEach(function(cfg) {
+              var sqEl = document.createElement('div');
+              sqEl.className = 'projects-magnetic-square';
+              sqEl.style.left = cfg[0] + '%';
+              sqEl.style.top = cfg[1] + '%';
+              sqEl.style.width = cfg[2] + 'px';
+              sqEl.style.height = cfg[2] + 'px';
+              sqFrag.appendChild(sqEl);
+              var st = { el: sqEl, sx: cfg[0] / 100, sy: cfg[1] / 100, x: 0, y: 0, vx: 0, vy: 0, tx: 0, ty: 0 };
+              cardSprings.push(st);
+              allSprings.push(st);
+            });
+            magneticLayer.appendChild(sqFrag);
+          }
+
+          // Pointer tracking (Desktop hover + mouse move)
+          function handlePointer(clientX, clientY) {
+            var rect = card.getBoundingClientRect();
+            if (!rect.width || !rect.height) return;
+            var nx = Math.max(0, Math.min(1, (clientX - rect.left) / rect.width));
+            var ny = Math.max(0, Math.min(1, (clientY - rect.top) / rect.height));
+            setCardSpringTargets(cardSprings, rect, nx, ny);
+          }
+
+          card.addEventListener('mouseenter', function(e) {
+            handlePointer(e.clientX, e.clientY);
+          });
+          card.addEventListener('mousemove', function(e) {
+            handlePointer(e.clientX, e.clientY);
+          });
+          card.addEventListener('mouseleave', function() {
+            card.classList.remove('is-active');
+            resetCardSprings(cardSprings);
+          });
+
+          // Touch tracking (Mobile)
+          card.addEventListener('touchstart', function(e) {
+            card.classList.add('is-active');
+            var t = e.touches && e.touches[0];
+            if (t) handlePointer(t.clientX, t.clientY);
+          }, { passive: true });
+          card.addEventListener('touchmove', function(e) {
+            var t = e.touches && e.touches[0];
+            if (t) handlePointer(t.clientX, t.clientY);
+          }, { passive: true });
           card.addEventListener('touchend', function() {
             setTimeout(function() {
               card.classList.remove('is-active');
-            }, 800);
+              resetCardSprings(cardSprings);
+            }, 750);
           }, { passive: true });
 
-          // Click handler to open case study modal
+          // Store reset/pulse hooks for mobile scroll observer
+          card._magneticSprings = cardSprings;
+
+          // Modal open handlers
           card.addEventListener('click', function(e) {
             e.preventDefault();
-            var caseId = card.getAttribute('data-case-id');
             if (caseId && typeof window.openCaseStudyModal === 'function') {
               window.openCaseStudyModal(caseId);
             }
@@ -2690,7 +2889,6 @@
           card.addEventListener('keydown', function(e) {
             if (e.key === 'Enter' || e.key === ' ') {
               e.preventDefault();
-              var caseId = card.getAttribute('data-case-id');
               if (caseId && typeof window.openCaseStudyModal === 'function') {
                 window.openCaseStudyModal(caseId);
               }
@@ -2698,16 +2896,22 @@
           });
         });
 
-        // 2. Mobile Viewport Animation on Scroll (Smooth Zoom & Glow, Zero Lines)
+        // 2. Mobile Viewport Scroll Animation (12x8 pixel-dissolve wave + magnetic attraction pulse)
         if ('IntersectionObserver' in window && window.innerWidth <= 768) {
           var cardObserver = new IntersectionObserver(function(entries) {
             entries.forEach(function(entry) {
               var card = entry.target;
               if (entry.isIntersecting) {
                 card.classList.add('is-active');
+                if (card._magneticSprings) {
+                  setCardSpringTargets(card._magneticSprings, card.getBoundingClientRect(), 0.5, 0.5);
+                }
                 setTimeout(function() {
                   card.classList.remove('is-active');
-                }, 1200);
+                  if (card._magneticSprings) {
+                    resetCardSprings(card._magneticSprings);
+                  }
+                }, 1150);
               }
             });
           }, { threshold: 0.55 });
@@ -2725,7 +2929,6 @@
           function updateParallax() {
             var rect = section.getBoundingClientRect();
             var winH = window.innerHeight;
-            // progress: 0 when top enters bottom, 1 when bottom leaves top
             var totalDist = rect.height + winH;
             var p = (winH - rect.top) / totalDist;
             p = Math.max(0, Math.min(1, p));
