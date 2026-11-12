@@ -603,7 +603,14 @@
 
     .dm-hero-title-accent {
       color: #72B868;
-      text-shadow: 0 0 25px rgba(114, 184, 104, 0.45);
+      text-shadow: none !important;
+      filter: none !important;
+    }
+
+    @media (forced-colors: active) {
+      .dm-hero-title-accent {
+        color: CanvasText;
+      }
     }
 
     /* Description / Sub heading: 17px Inter 400 */
