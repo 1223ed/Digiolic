@@ -625,6 +625,16 @@
       50% { opacity: 1; }
     }
 
+    :root {
+      --wanderful-grad-space: ;
+    }
+
+    @supports (background-image: linear-gradient(100deg in oklab, white, black)) {
+      :root {
+        --wanderful-grad-space: in oklab;
+      }
+    }
+
     /* Hero Headline: Manrope 800, 1:1 match to "Turn Salesforce Into Your Business Growth Engine" */
     .wanderful-headline {
       font-family: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
@@ -653,7 +663,7 @@
     .wanderful-headline-line2 {
       display: block !important;
       margin-top: 0.2em;
-      color: rgba(255, 255, 255, 0.55) !important;
+      color: #64CEFB !important;
       font-size: 64px !important;
       font-weight: 800 !important;
       font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif !important;
@@ -661,6 +671,51 @@
       padding-bottom: 0.2em;
       margin-bottom: -0.2em;
       overflow: visible !important;
+    }
+
+    @keyframes wanderful-shiny-sweep {
+      0% {
+        background-position: 100% 0%;
+      }
+      100% {
+        background-position: -100% 0%;
+      }
+    }
+
+    .wanderful-headline-line2 .wanderful-shiny-text {
+      display: inline-block;
+      font: inherit;
+      font-weight: 800;
+      color: #64CEFB;
+      line-height: 1.25 !important;
+      padding-bottom: 0.22em !important;
+      margin-bottom: -0.22em !important;
+      overflow: visible !important;
+      vertical-align: top;
+    }
+
+    @supports ((-webkit-background-clip: text) or (background-clip: text)) {
+      .wanderful-headline-line2 .wanderful-shiny-text {
+        background-image: linear-gradient(100deg var(--wanderful-grad-space), #64CEFB 0%, #64CEFB 30%, #ffffff 50%, #64CEFB 70%, #64CEFB 100%);
+        background-size: 250% 100%;
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      .wanderful-headline-line2 .wanderful-shiny-text {
+        animation: wanderful-shiny-sweep 3s linear infinite;
+      }
+    }
+
+    @media (forced-colors: active) {
+      .wanderful-headline-line2 .wanderful-shiny-text {
+        background: none !important;
+        -webkit-text-fill-color: CanvasText !important;
+        color: CanvasText !important;
+      }
     }
 
     @media (max-width: 1024px) {
@@ -791,8 +846,17 @@
       .wanderful-hero-content {
         padding: 5.5rem 1.25rem 3rem 1.25rem !important;
       }
-      .wanderful-headline {
-        font-size: clamp(30px, 8.2vw, 42px) !important;
+      .wanderful-headline,
+      .wanderful-headline-line1,
+      .wanderful-headline-line2 {
+        font-size: clamp(26px, 7.4vw, 36px) !important;
+        line-height: 1.15 !important;
+      }
+      .wanderful-headline-line2 {
+        margin-top: 0.15em !important;
+      }
+      .wanderful-headline-line2 .wanderful-shiny-text {
+        line-height: 1.15 !important;
       }
       .wanderful-bottom-block {
         margin-top: 1.75rem !important;
@@ -1048,7 +1112,7 @@
         <!-- Two-line headline with Inter font -->
         <h1 class="wanderful-headline">
           <span class="wanderful-headline-line1">Architectural Engineering That</span>
-          <span class="wanderful-headline-line2">Compounds Revenue.</span>
+          <span class="wanderful-headline-line2"><span class="wanderful-shiny-text">Compounds Revenue.</span></span>
         </h1>
 
         <!-- Bottom Block: Paragraph + CTA Pill + Lock Security Badge -->
