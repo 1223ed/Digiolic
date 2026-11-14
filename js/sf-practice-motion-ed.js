@@ -1,188 +1,133 @@
 /**
- * ==========================================================================
- * SALESFORCE COMPREHENSIVE PRACTICE - MOTION.ED ENGINE
- * 1:1 Exact Match to Motion.ed "IMPLEMENTATION EXAMPLES" Reference Video
- * Reference: Screen Recording 2026-11-02 at 5.21.59 PM.mov
- * 
- * Choreography:
- * 1. Initial State (Progress 0.00):
- *    - Headline ("EVERYTHING YOU NEED TO GET MORE FROM SALESFORCE") is positioned
- *      in the upper region of the stage (matching user Image 3 upper blueprint).
- *    - Cards track is positioned with its top ~140-160px peaking up from the bottom
- *      of the viewport (matching user Image 3 lower blueprint & original Image 2).
- * 
- * 2. Phase 1: Vertical Rise & Header Departure (Progress 0.00 -> 0.22):
- *    - As user scrolls, headline translates straight UP and exits off top of screen,
- *      smoothly fading out (matching frames f_004 -> f_014 in reference video).
- *    - Simultaneously, cards track rises up from peaking position to vertical center
- *      of the stage (translateY: 0).
- *    - Horizontal trackX remains 0 (anchoring card 01 on left).
- * 
- * 3. Phase 2: Horizontal Card Scrub (Progress 0.22 -> 1.00):
- *    - Once cards reach centered height, horizontal track scrubs smoothly from
- *      translateX(0) to translateX(-maxTranslateX) across all 8 cards.
- *    - Subtly focuses center card with dynamic shadow & parabolic depth.
- *    - Top HUD counter updates (01 / 08 -> 08 / 08) and bottom scrub bar fills.
- * 
- * 4. Interactive 3D Perspective Tilt on Card Hover.
- * ==========================================================================
+ * DIGIOLIC - SALESFORCE COMPREHENSIVE PRACTICE SECTION (#servicesOverview)
+ * Progressive Fallback Engine for Crosswalk Editorial Scroll Choreography
+ *
+ * - Modern browsers (native view() + animation-range support): exits cleanly with zero JS scroll work.
+ * - Older browsers without full view()/animation-range support: drives matching cover progress via rAF.
+ * - Respects prefers-reduced-motion: reduce completely (all elements static & visible).
  */
-
 (function () {
   'use strict';
 
-  function initPracticeMotionEd() {
-    const section = document.getElementById('servicesOverview');
+  function clamp01(val) {
+    return val < 0 ? 0 : val > 1 ? 1 : val;
+  }
+
+  function mapRange(val, start, end) {
+    if (end <= start) return val >= end ? 1 : 0;
+    return clamp01((val - start) / (end - start));
+  }
+
+  function easeOutCubic(t) {
+    return 1 - Math.pow(1 - clamp01(t), 3);
+  }
+
+  function computeCoverProgress(el, vh) {
+    var rect = el.getBoundingClientRect();
+    var total = vh + rect.height;
+    return total > 0 ? clamp01((vh - rect.top) / total) : 0;
+  }
+
+  function initCrosswalkPracticeFallback() {
+    var section = document.getElementById('servicesOverview');
     if (!section) return;
 
-    const stage = section.querySelector('.sf-practice-stage');
-    const heroHeader = section.querySelector('.sf-practice-hero-header');
-    const cardsWrapper = section.querySelector('.sf-practice-cards-wrapper');
-    const cardsTrack = section.querySelector('.sf-practice-cards-track');
-    const cards = Array.from(section.querySelectorAll('.sf-pbox-card'));
-    const scrubFill = section.querySelector('.sf-practice-scrub-fill');
-    const counterEl = section.querySelector('.sf-practice-hud-counter');
+    var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduceMotion) return;
 
-    if (!stage || !heroHeader || !cardsWrapper || !cardsTrack || !cards.length) return;
+    // Require BOTH animation-timeline: view() and animation-range: entry before deferring to native CSS
+    var nativeViewSupported =
+      typeof CSS !== 'undefined' &&
+      typeof CSS.supports === 'function' &&
+      CSS.supports('animation-timeline', 'view()') &&
+      CSS.supports('animation-range', 'entry');
 
-    let targetProgress = 0;
-    let currentProgress = 0;
-    let maxTranslateX = 0;
-    let initialPeakingY = 0;
-    let rafId = null;
-    let isDesktop = window.innerWidth >= 992;
+    if (nativeViewSupported) return;
 
-    // Cubic easing functions for liquid smooth physics
-    function easeOutCubic(t) {
-      return 1 - Math.pow(1 - t, 3);
-    }
+    var staircase = section.querySelector('.sf-cw-staircase');
+    var steps = staircase ? Array.prototype.slice.call(staircase.querySelectorAll('.sf-cw-step')) : [];
+    var headerBand = section.querySelector('.sf-cw-header-band');
+    var headerLines = headerBand ? Array.prototype.slice.call(headerBand.querySelectorAll('.sf-cw-line-inner')) : [];
+    var rows = Array.prototype.slice.call(section.querySelectorAll('.sf-cw-row'));
 
-    function easeInOutCubic(t) {
-      return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
-    }
+    section.classList.add('sf-cw-js-fallback');
 
-    function clamp(val, min, max) {
-      return Math.min(Math.max(val, min), max);
-    }
+    var ticking = false;
 
-    function lerp(start, end, factor) {
-      return start + (end - start) * factor;
-    }
+    function updateFrame() {
+      ticking = false;
+      var vh = window.innerHeight || document.documentElement.clientHeight || 800;
+      var vw = window.innerWidth || document.documentElement.clientWidth || 1280;
+      var isStackedMobile = vw <= 820;
 
-    function calculateDimensions() {
-      const viewportWidth = window.innerWidth;
-      const viewportHeight = window.innerHeight;
-      const trackWidth = cardsTrack.scrollWidth;
+      // 1. 14-Column Staircase Entry Wipe
+      if (staircase && steps.length) {
+        var stairP = computeCoverProgress(staircase, vh);
+        for (var i = 0; i < steps.length; i++) {
+          var stepStart = 0.24 + i * 0.015;
+          var stepEnd = 0.50 + i * 0.015;
+          var p = easeOutCubic(mapRange(stairP, stepStart, stepEnd));
+          steps[i].style.setProperty('--cw-step-p', p.toFixed(4));
+        }
+      }
 
-      // Generous right breathing space for card 08 docking
-      maxTranslateX = Math.max(0, trackWidth - viewportWidth + clamp(viewportWidth * 0.08, 30, 140));
+      // 2. Asymmetric Header Band Rules & Line Masks
+      if (headerBand) {
+        var rect = headerBand.getBoundingClientRect();
+        var headCover = computeCoverProgress(headerBand, vh);
+        var entrySpan = rect.height > 0 ? vh / (vh + rect.height) : 0.6;
+        var headEntryNorm = clamp01(headCover / Math.max(entrySpan, 0.2));
 
-      // Calculate initial peaking position for cards track:
-      // Top ~110-165px of the card should be visible peaking from the bottom edge
-      const wrapperTop = cardsWrapper.offsetTop || clamp(60, viewportHeight * 0.14, 140);
-      const peakingVisibleHeight = clamp(110, viewportHeight * 0.16, 170);
-      const targetCardTop = viewportHeight - peakingVisibleHeight;
-      initialPeakingY = Math.max(0, targetCardTop - wrapperTop);
+        var ruleP = easeOutCubic(mapRange(headCover, 0.08, 0.44));
+        headerBand.style.setProperty('--cw-head-rule-p', ruleP.toFixed(4));
+
+        for (var j = 0; j < headerLines.length; j++) {
+          var lineP = easeOutCubic(mapRange(headCover, 0.16 + j * 0.05, 0.46 + j * 0.05));
+          headerLines[j].style.setProperty('--cw-line-y', ((1 - lineP) * 108).toFixed(2) + '%');
+        }
+
+        var descP = easeOutCubic(mapRange(Math.max(headCover, headEntryNorm * 0.48), 0.22, 0.54));
+        headerBand.style.setProperty('--cw-head-desc-op', descP.toFixed(4));
+        headerBand.style.setProperty('--cw-head-desc-y', ((1 - descP) * 28).toFixed(2) + 'px');
+      }
+
+      // 3. Alternating Service Rows (Spine Banner Slide + Copy Reveal + Portrait Parallax)
+      for (var k = 0; k < rows.length; k++) {
+        var row = rows[k];
+        var rowP = computeCoverProgress(row, vh);
+        var side = row.getAttribute('data-side');
+
+        var bannerP = easeOutCubic(mapRange(rowP, 0.08, 0.42));
+        var fromLeftSpine = isStackedMobile || side === 'right';
+        var bannerX = fromLeftSpine ? -(1 - bannerP) * 100 : (1 - bannerP) * 100;
+        row.style.setProperty('--cw-banner-x', bannerX.toFixed(2) + '%');
+
+        var detailsP = easeOutCubic(mapRange(rowP, 0.16, 0.48));
+        row.style.setProperty('--cw-details-op', detailsP.toFixed(4));
+        row.style.setProperty('--cw-details-y', ((1 - detailsP) * 28).toFixed(2) + 'px');
+
+        var frameY = isStackedMobile ? 0 : (0.5 - rowP) * 52;
+        var imgY = (rowP - 0.5) * 12;
+        row.style.setProperty('--cw-frame-y', frameY.toFixed(2) + 'px');
+        row.style.setProperty('--cw-img-y', imgY.toFixed(2) + '%');
+      }
     }
 
     function onScroll() {
-      const rect = section.getBoundingClientRect();
-      const scrollableHeight = rect.height - window.innerHeight;
-
-      if (scrollableHeight <= 0) {
-        targetProgress = 0;
-        return;
+      if (!ticking) {
+        ticking = true;
+        window.requestAnimationFrame(updateFrame);
       }
-
-      const rawProgress = -rect.top / scrollableHeight;
-      targetProgress = clamp(rawProgress, 0, 1);
     }
-
-    // Main Animation Render Loop
-    function render() {
-      // Physics lerp interpolation matching Webflow & Motion.ed
-      currentProgress = lerp(currentProgress, targetProgress, 0.09);
-
-      // Headline is completely static - no animation (as requested)
-      heroHeader.style.transform = 'none';
-      heroHeader.style.opacity = '1';
-
-      // Cards track remains in position
-      cardsWrapper.style.transform = 'none';
-
-      // ------------------------------------------------------------------------
-      // Horizontal Card Glide (Progress 0.00 -> 1.00)
-      // ------------------------------------------------------------------------
-      const currentTrackX = -currentProgress * maxTranslateX;
-      cardsTrack.style.transform = `translate3d(${currentTrackX.toFixed(2)}px, 0, 0)`;
-
-      // Dynamic Card Depth & Shadow Focus
-      const viewportCenter = window.innerWidth / 2;
-      cards.forEach((card) => {
-        const cardRect = card.getBoundingClientRect();
-        const cardCenter = cardRect.left + cardRect.width / 2;
-        const distFromCenter = Math.abs(viewportCenter - cardCenter);
-        const maxDist = window.innerWidth * 0.55;
-        const normDist = clamp(distFromCenter / maxDist, 0, 1);
-
-        const cardScale = lerp(1.0, 0.96, normDist * 0.7);
-        const cardShadowAlpha = lerp(0.18, 0.06, normDist);
-
-        card.style.transform = `scale(${cardScale.toFixed(3)})`;
-        card.style.boxShadow = `0 24px 48px -12px rgba(0, 0, 0, ${cardShadowAlpha.toFixed(3)}), 0 4px 10px rgba(0, 0, 0, 0.04)`;
-      });
-
-      // Update Progress Scrub Bar & HUD Counter
-      if (scrubFill) {
-        scrubFill.style.width = `${(currentProgress * 100).toFixed(1)}%`;
-      }
-
-      if (counterEl) {
-        const activeCardIdx = Math.min(cards.length, Math.max(1, Math.round(currentProgress * (cards.length - 1)) + 1));
-        counterEl.textContent = `0${activeCardIdx} / 0${cards.length}`;
-      }
-
-      rafId = requestAnimationFrame(render);
-    }
-
-    // Interactive 3D Perspective Tilt Hover
-    function initCardHoverTilt() {
-      cards.forEach(card => {
-        card.addEventListener('mousemove', (e) => {
-          if (!isDesktop) return;
-          const rect = card.getBoundingClientRect();
-          const x = e.clientX - rect.left;
-          const y = e.clientY - rect.top;
-          const centerX = rect.width / 2;
-          const centerY = rect.height / 2;
-
-          const rotateX = clamp((centerY - y) / 18, -4, 4);
-          const rotateY = clamp((x - centerX) / 18, -4, 4);
-
-          card.style.transform = `perspective(1000px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) translateY(-5px) scale(1.015)`;
-        });
-
-        card.addEventListener('mouseleave', () => {
-          card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px) scale(1.0)';
-        });
-      });
-    }
-
-    calculateDimensions();
-    onScroll();
-    initCardHoverTilt();
-    rafId = requestAnimationFrame(render);
 
     window.addEventListener('scroll', onScroll, { passive: true });
-    window.addEventListener('resize', () => {
-      calculateDimensions();
-      onScroll();
-    }, { passive: true });
+    window.addEventListener('resize', onScroll, { passive: true });
+    updateFrame();
   }
 
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initPracticeMotionEd);
+    document.addEventListener('DOMContentLoaded', initCrosswalkPracticeFallback);
   } else {
-    initPracticeMotionEd();
+    initCrosswalkPracticeFallback();
   }
 })();

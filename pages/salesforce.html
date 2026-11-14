@@ -32,7 +32,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800;900&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/sf-clouds-motion-ed.css?v=20261105_mob_v1">
-  <link rel="stylesheet" href="../css/sf-practice-motion-ed.css?v=20261111_nk_typo_v2">
+  <link rel="stylesheet" href="../css/sf-practice-motion-ed.css?v=20261112_cw_v1">
   <link rel="stylesheet" href="../css/sf-usecases-stack.css?v=20261111_nk_typo_v2">
   <link rel="stylesheet" href="../css/sf-process-heartx.css?v=20261111_nk_typo_v2">
 
@@ -332,8 +332,6 @@
     }
 
     .sf-section-title,
-    #servicesOverview .sf-section-title,
-    #servicesOverview h2.sf-section-title,
     #cloudsSection .sf-section-title,
     #cloudsSection h2.sf-section-title,
     #whyChooseUs .sf-section-title,
@@ -346,17 +344,12 @@
       margin: 0 0 1.25rem 0;
     }
 
-    /* MATCHING MONUMENTAL STATIC TYPOGRAPHY FOR ALL 4 HEADINGS:
+    /* MATCHING MONUMENTAL STATIC TYPOGRAPHY FOR DARK SECTIONS:
        - MAKE SALESFORCE SMARTER WITH AI (#aiSection)
-       - EVERYTHING YOU NEED TO GET MORE FROM SALESFORCE (#servicesOverview)
        - WHAT CAN SALESFORCE DO FOR YOUR BUSINESS? (#useCasesSection)
-       - SALESFORCE IMPLEMENTATION BUILT AROUND YOUR BUSINESS (#processSection)
     */
     #aiSection .sf-section-title,
     #aiSection h2.sf-section-title,
-    #servicesOverview .sf-section-title,
-    #servicesOverview .sf-practice-hero-title,
-    #servicesOverview h2.sf-practice-hero-title,
     #useCasesSection .sf-section-title,
     #useCasesSection h2.sf-section-title,
     #useCasesSection .sf-qude-title-line,
@@ -406,9 +399,6 @@
 
       #aiSection .sf-section-title,
       #aiSection h2.sf-section-title,
-      #servicesOverview .sf-section-title,
-      #servicesOverview .sf-practice-hero-title,
-      #servicesOverview h2.sf-practice-hero-title,
       #useCasesSection .sf-section-title,
       #useCasesSection h2.sf-section-title,
       #useCasesSection .sf-qude-title-line,
@@ -430,9 +420,6 @@
 
       #aiSection .sf-section-title,
       #aiSection h2.sf-section-title,
-      #servicesOverview .sf-section-title,
-      #servicesOverview .sf-practice-hero-title,
-      #servicesOverview h2.sf-practice-hero-title,
       #useCasesSection .sf-section-title,
       #useCasesSection h2.sf-section-title,
       #useCasesSection .sf-qude-title-line,
@@ -448,7 +435,6 @@
     .sf-section-subtitle,
     #aiSection .sf-section-subtitle,
     #aiSection p.sf-section-subtitle,
-    #servicesOverview .sf-practice-hero-desc,
     #useCasesSection .sf-qude-lead-desc {
       font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
       font-size: clamp(1.125rem, 0.95rem + 0.35vw, 1.3125rem) !important;
@@ -466,7 +452,6 @@
       .sf-section-subtitle,
       #aiSection .sf-section-subtitle,
       #aiSection p.sf-section-subtitle,
-      #servicesOverview .sf-practice-hero-desc,
       #useCasesSection .sf-qude-lead-desc {
         font-size: clamp(1.0625rem, 0.9rem + 0.35vw, 1.1875rem) !important;
         line-height: 1.5 !important;
@@ -4517,48 +4502,75 @@
 
     <!-- ==========================================================================
          SECTION 5: SALESFORCE SERVICES OVERVIEW (01 to 08 - COMPREHENSIVE PRACTICE)
-         ========================================================================== -->
-    <!-- ==========================================================================
-         SECTION 5: SALESFORCE COMPREHENSIVE PRACTICE - MOTION.ED SCROLL ENGINE
-         1:1 Frame-by-frame Recreation of Motion.ed Implementation Examples
-         Reference: Screen Recording 2026-11-02 at 5.21.59 PM.mov
-         - Soft Periwinkle Canvas (#C0C9E6)
-         - Monumental Pinned Headline ("EVERYTHING YOU NEED TO GET MORE FROM SALESFORCE")
-         - Horizontal Scrubbing Rounded Rectangle Cards (Zoho Applications & Features design)
-         - 100% Pure Typography (NO images)
+         Crosswalk Editorial Scroll Architecture:
+         - Warm Stone Canvas (#E7E7E0) & Forest Green (#1D6353 / #1A5C48)
+         - 14-Column Ascending Staircase Entry Wipe over #cloudsSection
+         - Asymmetric 7/12 + 5/12 Header Band & Continuous 50% Center Spine
+         - Spine-Emerging Service Banners (Odd Right / Even Left) & Parallax 3:4 Imagery
          ========================================================================== -->
     <section class="sf-practice-section" id="servicesOverview" aria-label="Comprehensive Practice: Everything You Need to Get More From Salesforce">
-      
-      <!-- Pinned Viewport Stage (100vh) -->
-      <div class="sf-practice-stage">
-        
-        <!-- Atmospheric Background (Constellation Dots & Micro-Grid matching Client Testimonials) -->
-        <div class="sf-bg-atmosphere" aria-hidden="true">
-          <div class="sf-bg-grid-lines"></div>
-          <canvas class="sf-celestial-canvas" id="sfPracticeCelestialCanvas"></canvas>
-        </div>
 
-        <!-- Monumental Centered Headline (Matches "IMPLEMENTATION EXAMPLES" in video) -->
-        <div class="sf-practice-hero-header">
-          <h2 class="sf-section-title sf-practice-hero-title" id="sfPracticeHeroTitle">
-            <span class="sf-hero-line"><span class="sf-ai-highlight">Everything</span> You Need</span>
-            <span class="sf-hero-line">To Get More From <span class="sf-ai-highlight">Salesforce</span></span>
-          </h2>
-          <p class="sf-practice-hero-desc">From high-level architectural advisory to sub-second automations and managed operations.</p>
-        </div>
+      <!-- 14-Column Ascending Staircase Transition Wipe -->
+      <div class="sf-cw-staircase" aria-hidden="true">
+        <div class="sf-cw-step" data-step="0"></div>
+        <div class="sf-cw-step" data-step="1"></div>
+        <div class="sf-cw-step" data-step="2"></div>
+        <div class="sf-cw-step" data-step="3"></div>
+        <div class="sf-cw-step" data-step="4"></div>
+        <div class="sf-cw-step" data-step="5"></div>
+        <div class="sf-cw-step" data-step="6"></div>
+        <div class="sf-cw-step" data-step="7"></div>
+        <div class="sf-cw-step" data-step="8"></div>
+        <div class="sf-cw-step" data-step="9"></div>
+        <div class="sf-cw-step" data-step="10"></div>
+        <div class="sf-cw-step" data-step="11"></div>
+        <div class="sf-cw-step" data-step="12"></div>
+        <div class="sf-cw-step" data-step="13"></div>
+      </div>
 
-        <!-- Horizontal Cards Track Wrapper -->
-        <div class="sf-practice-cards-wrapper">
-          <div class="sf-practice-cards-track">
+      <div class="sf-cw-canvas">
+        <div class="sf-cw-grid-bg" aria-hidden="true"></div>
 
-            <!-- CARD 01: CONSULTING -->
-            <div class="sf-pbox-card" data-index="1">
-              <div class="sf-pbox-header">
-                <span class="sf-pbox-tag"><span class="sf-pbox-tag-dot"></span>CONSULTING</span>
-                <span class="sf-pbox-num">01</span>
+        <!-- Asymmetric Architectural Header Band -->
+        <header class="sf-cw-header-band">
+          <span class="sf-cw-rule-top" aria-hidden="true"></span>
+          <div class="sf-cw-header-grid">
+            <div class="sf-cw-header-left">
+              <h2 class="sf-section-title sf-practice-hero-title sf-cw-hero-title" id="sfPracticeHeroTitle">
+                <span class="sf-cw-line-mask"><span class="sf-cw-line-inner">Everything You Need</span></span>
+                <span class="sf-cw-line-mask"><span class="sf-cw-line-inner">To Get More From Salesforce</span></span>
+              </h2>
+            </div>
+            <div class="sf-cw-header-right">
+              <span class="sf-cw-rule-divider" aria-hidden="true"></span>
+              <p class="sf-practice-hero-desc">From high-level architectural advisory to sub-second automations and managed operations.</p>
+            </div>
+          </div>
+          <span class="sf-cw-rule-bottom" aria-hidden="true"></span>
+        </header>
+
+        <!-- Continuous 50% Spine & Alternating Service Rows (01 to 08) -->
+        <div class="sf-cw-rows-stage">
+          <div class="sf-cw-center-spine" aria-hidden="true"></div>
+
+          <!-- ROW 01: CONSULTING (ODD -> RIGHT BANNER + LEFT PHOTO) -->
+          <article class="sf-cw-row sf-pbox-card" data-index="1" data-side="right">
+            <div class="sf-cw-half sf-cw-half--media">
+              <figure class="sf-cw-photo-frame">
+                <img class="sf-cw-photo" src="../assets/images/sf-practice/practice-01-consulting.jpg" alt="Enterprise systems architect reviewing Salesforce strategy diagrams at a studio drafting desk" width="896" height="1200" loading="lazy" decoding="async">
+              </figure>
+            </div>
+            <div class="sf-cw-half sf-cw-half--content">
+              <div class="sf-cw-banner-clip">
+                <div class="sf-cw-banner">
+                  <div class="sf-pbox-header">
+                    <span class="sf-pbox-tag"><span class="sf-pbox-tag-dot"></span>CONSULTING</span>
+                    <span class="sf-pbox-num">01</span>
+                  </div>
+                  <h3 class="sf-pbox-title">Salesforce Consulting</h3>
+                </div>
               </div>
-              <div class="sf-pbox-body">
-                <h3 class="sf-pbox-title">Salesforce Consulting</h3>
+              <div class="sf-cw-details">
                 <p class="sf-pbox-desc">Help businesses define the right Salesforce strategy, architecture, modules, and roadmap.</p>
                 <div class="sf-pbox-capabilities">
                   <span class="sf-pbox-cap-label">CORE CAPABILITIES</span>
@@ -4571,23 +4583,29 @@
                     <li class="sf-pbox-pill">Optimization strategy</li>
                   </ul>
                 </div>
-              </div>
-              <div class="sf-pbox-footer">
-                <a href="#contact" class="sf-pbox-action">
-                  <span>EXPLORE PRACTICE</span>
-                  <span class="sf-pbox-arrow" aria-hidden="true">→</span>
-                </a>
+                <div class="sf-pbox-footer">
+                  <a href="#contact" class="sf-pbox-action">
+                    <span>EXPLORE PRACTICE</span>
+                    <span class="sf-pbox-arrow" aria-hidden="true">→</span>
+                  </a>
+                </div>
               </div>
             </div>
+          </article>
 
-            <!-- CARD 02: IMPLEMENTATION -->
-            <div class="sf-pbox-card" data-index="2">
-              <div class="sf-pbox-header">
-                <span class="sf-pbox-tag"><span class="sf-pbox-tag-dot"></span>IMPLEMENTATION</span>
-                <span class="sf-pbox-num">02</span>
+          <!-- ROW 02: IMPLEMENTATION (EVEN -> LEFT BANNER + RIGHT PHOTO) -->
+          <article class="sf-cw-row sf-pbox-card" data-index="2" data-side="left">
+            <div class="sf-cw-half sf-cw-half--content">
+              <div class="sf-cw-banner-clip">
+                <div class="sf-cw-banner">
+                  <div class="sf-pbox-header">
+                    <span class="sf-pbox-tag"><span class="sf-pbox-tag-dot"></span>IMPLEMENTATION</span>
+                    <span class="sf-pbox-num">02</span>
+                  </div>
+                  <h3 class="sf-pbox-title">Salesforce Implementation</h3>
+                </div>
               </div>
-              <div class="sf-pbox-body">
-                <h3 class="sf-pbox-title">Salesforce Implementation</h3>
+              <div class="sf-cw-details">
                 <p class="sf-pbox-desc">Implement Salesforce around your actual business processes rather than forcing your business to adapt to the platform.</p>
                 <div class="sf-pbox-capabilities">
                   <span class="sf-pbox-cap-label">CORE CAPABILITIES</span>
@@ -4602,23 +4620,39 @@
                     <li class="sf-pbox-pill">User training</li>
                   </ul>
                 </div>
-              </div>
-              <div class="sf-pbox-footer">
-                <a href="#contact" class="sf-pbox-action">
-                  <span>EXPLORE PRACTICE</span>
-                  <span class="sf-pbox-arrow" aria-hidden="true">→</span>
-                </a>
+                <div class="sf-pbox-footer">
+                  <a href="#contact" class="sf-pbox-action">
+                    <span>EXPLORE PRACTICE</span>
+                    <span class="sf-pbox-arrow" aria-hidden="true">→</span>
+                  </a>
+                </div>
               </div>
             </div>
+            <div class="sf-cw-half sf-cw-half--media">
+              <figure class="sf-cw-photo-frame">
+                <img class="sf-cw-photo" src="../assets/images/sf-practice/practice-02-implementation.jpg" alt="Infrastructure engineer configuring modular enterprise rack wiring and switch banks" width="896" height="1200" loading="lazy" decoding="async">
+              </figure>
+            </div>
+          </article>
 
-            <!-- CARD 03: DEVELOPMENT -->
-            <div class="sf-pbox-card" data-index="3">
-              <div class="sf-pbox-header">
-                <span class="sf-pbox-tag"><span class="sf-pbox-tag-dot"></span>DEVELOPMENT</span>
-                <span class="sf-pbox-num">03</span>
+          <!-- ROW 03: DEVELOPMENT (ODD -> RIGHT BANNER + LEFT PHOTO) -->
+          <article class="sf-cw-row sf-pbox-card" data-index="3" data-side="right">
+            <div class="sf-cw-half sf-cw-half--media">
+              <figure class="sf-cw-photo-frame">
+                <img class="sf-cw-photo" src="../assets/images/sf-practice/practice-03-development.jpg" alt="Close-up architectural study of precision electromechanical relay arrays and perforated logic tape" width="896" height="1200" loading="lazy" decoding="async">
+              </figure>
+            </div>
+            <div class="sf-cw-half sf-cw-half--content">
+              <div class="sf-cw-banner-clip">
+                <div class="sf-cw-banner">
+                  <div class="sf-pbox-header">
+                    <span class="sf-pbox-tag"><span class="sf-pbox-tag-dot"></span>DEVELOPMENT</span>
+                    <span class="sf-pbox-num">03</span>
+                  </div>
+                  <h3 class="sf-pbox-title">Custom Development</h3>
+                </div>
               </div>
-              <div class="sf-pbox-body">
-                <h3 class="sf-pbox-title">Custom Development</h3>
+              <div class="sf-cw-details">
                 <p class="sf-pbox-desc">Build functionality beyond standard Salesforce capabilities with secure, scalable code.</p>
                 <div class="sf-pbox-capabilities">
                   <span class="sf-pbox-cap-label">CORE CAPABILITIES</span>
@@ -4631,23 +4665,29 @@
                     <li class="sf-pbox-pill">Complex business logic</li>
                   </ul>
                 </div>
-              </div>
-              <div class="sf-pbox-footer">
-                <a href="#contact" class="sf-pbox-action">
-                  <span>EXPLORE PRACTICE</span>
-                  <span class="sf-pbox-arrow" aria-hidden="true">→</span>
-                </a>
+                <div class="sf-pbox-footer">
+                  <a href="#contact" class="sf-pbox-action">
+                    <span>EXPLORE PRACTICE</span>
+                    <span class="sf-pbox-arrow" aria-hidden="true">→</span>
+                  </a>
+                </div>
               </div>
             </div>
+          </article>
 
-            <!-- CARD 04: INTEGRATION -->
-            <div class="sf-pbox-card" data-index="4">
-              <div class="sf-pbox-header">
-                <span class="sf-pbox-tag"><span class="sf-pbox-tag-dot"></span>INTEGRATION</span>
-                <span class="sf-pbox-num">04</span>
+          <!-- ROW 04: INTEGRATION (EVEN -> LEFT BANNER + RIGHT PHOTO) -->
+          <article class="sf-cw-row sf-pbox-card" data-index="4" data-side="left">
+            <div class="sf-cw-half sf-cw-half--content">
+              <div class="sf-cw-banner-clip">
+                <div class="sf-cw-banner">
+                  <div class="sf-pbox-header">
+                    <span class="sf-pbox-tag"><span class="sf-pbox-tag-dot"></span>INTEGRATION</span>
+                    <span class="sf-pbox-num">04</span>
+                  </div>
+                  <h3 class="sf-pbox-title">Salesforce Integration</h3>
+                </div>
               </div>
-              <div class="sf-pbox-body">
-                <h3 class="sf-pbox-title">Salesforce Integration</h3>
+              <div class="sf-cw-details">
                 <p class="sf-pbox-desc">Connect Salesforce with the rest of your technology ecosystem for real-time data synchronization.</p>
                 <div class="sf-pbox-quote">"One customer. One connected ecosystem."</div>
                 <div class="sf-pbox-capabilities">
@@ -4661,23 +4701,39 @@
                     <li class="sf-pbox-pill">REST &amp; SOAP APIs</li>
                   </ul>
                 </div>
-              </div>
-              <div class="sf-pbox-footer">
-                <a href="#contact" class="sf-pbox-action">
-                  <span>EXPLORE PRACTICE</span>
-                  <span class="sf-pbox-arrow" aria-hidden="true">→</span>
-                </a>
+                <div class="sf-pbox-footer">
+                  <a href="#contact" class="sf-pbox-action">
+                    <span>EXPLORE PRACTICE</span>
+                    <span class="sf-pbox-arrow" aria-hidden="true">→</span>
+                  </a>
+                </div>
               </div>
             </div>
+            <div class="sf-cw-half sf-cw-half--media">
+              <figure class="sf-cw-photo-frame">
+                <img class="sf-cw-photo" src="../assets/images/sf-practice/practice-04-integration.jpg" alt="Synchronized multi-rack aluminum patchbay matrix representing interconnected API channels" width="896" height="1200" loading="lazy" decoding="async">
+              </figure>
+            </div>
+          </article>
 
-            <!-- CARD 05: AUTOMATION -->
-            <div class="sf-pbox-card" data-index="5">
-              <div class="sf-pbox-header">
-                <span class="sf-pbox-tag"><span class="sf-pbox-tag-dot"></span>AUTOMATION</span>
-                <span class="sf-pbox-num">05</span>
+          <!-- ROW 05: AUTOMATION (ODD -> RIGHT BANNER + LEFT PHOTO) -->
+          <article class="sf-cw-row sf-pbox-card" data-index="5" data-side="right">
+            <div class="sf-cw-half sf-cw-half--media">
+              <figure class="sf-cw-photo-frame">
+                <img class="sf-cw-photo" src="../assets/images/sf-practice/practice-05-automation.jpg" alt="Macro detail of interlocking brass and steel chronometer gearworks" width="896" height="1200" loading="lazy" decoding="async">
+              </figure>
+            </div>
+            <div class="sf-cw-half sf-cw-half--content">
+              <div class="sf-cw-banner-clip">
+                <div class="sf-cw-banner">
+                  <div class="sf-pbox-header">
+                    <span class="sf-pbox-tag"><span class="sf-pbox-tag-dot"></span>AUTOMATION</span>
+                    <span class="sf-pbox-num">05</span>
+                  </div>
+                  <h3 class="sf-pbox-title">Salesforce Automation</h3>
+                </div>
               </div>
-              <div class="sf-pbox-body">
-                <h3 class="sf-pbox-title">Salesforce Automation</h3>
+              <div class="sf-cw-details">
                 <p class="sf-pbox-desc">Eliminate repetitive manual tasks so your revenue and service teams can focus on customer relationships.</p>
                 <div class="sf-pbox-capabilities">
                   <span class="sf-pbox-cap-label">CORE CAPABILITIES</span>
@@ -4690,23 +4746,29 @@
                     <li class="sf-pbox-pill">Customer communication</li>
                   </ul>
                 </div>
-              </div>
-              <div class="sf-pbox-footer">
-                <a href="#contact" class="sf-pbox-action">
-                  <span>EXPLORE PRACTICE</span>
-                  <span class="sf-pbox-arrow" aria-hidden="true">→</span>
-                </a>
+                <div class="sf-pbox-footer">
+                  <a href="#contact" class="sf-pbox-action">
+                    <span>EXPLORE PRACTICE</span>
+                    <span class="sf-pbox-arrow" aria-hidden="true">→</span>
+                  </a>
+                </div>
               </div>
             </div>
+          </article>
 
-            <!-- CARD 06: MIGRATION -->
-            <div class="sf-pbox-card" data-index="6">
-              <div class="sf-pbox-header">
-                <span class="sf-pbox-tag"><span class="sf-pbox-tag-dot"></span>MIGRATION</span>
-                <span class="sf-pbox-num">06</span>
+          <!-- ROW 06: MIGRATION (EVEN -> LEFT BANNER + RIGHT PHOTO) -->
+          <article class="sf-cw-row sf-pbox-card" data-index="6" data-side="left">
+            <div class="sf-cw-half sf-cw-half--content">
+              <div class="sf-cw-banner-clip">
+                <div class="sf-cw-banner">
+                  <div class="sf-pbox-header">
+                    <span class="sf-pbox-tag"><span class="sf-pbox-tag-dot"></span>MIGRATION</span>
+                    <span class="sf-pbox-num">06</span>
+                  </div>
+                  <h3 class="sf-pbox-title">Data Migration</h3>
+                </div>
               </div>
-              <div class="sf-pbox-body">
-                <h3 class="sf-pbox-title">Data Migration</h3>
+              <div class="sf-cw-details">
                 <p class="sf-pbox-desc">Move your existing legacy data into Salesforce safely, cleanly, and with verified zero data loss.</p>
                 <div class="sf-pbox-capabilities">
                   <span class="sf-pbox-cap-label">CORE CAPABILITIES</span>
@@ -4719,23 +4781,39 @@
                     <li class="sf-pbox-pill">Execution &amp; validation</li>
                   </ul>
                 </div>
-              </div>
-              <div class="sf-pbox-footer">
-                <a href="#contact" class="sf-pbox-action">
-                  <span>EXPLORE PRACTICE</span>
-                  <span class="sf-pbox-arrow" aria-hidden="true">→</span>
-                </a>
+                <div class="sf-pbox-footer">
+                  <a href="#contact" class="sf-pbox-action">
+                    <span>EXPLORE PRACTICE</span>
+                    <span class="sf-pbox-arrow" aria-hidden="true">→</span>
+                  </a>
+                </div>
               </div>
             </div>
+            <div class="sf-cw-half sf-cw-half--media">
+              <figure class="sf-cw-photo-frame">
+                <img class="sf-cw-photo" src="../assets/images/sf-practice/practice-06-migration.jpg" alt="Symmetric architectural archive vault corridor under clean zenithal daylight" width="896" height="1200" loading="lazy" decoding="async">
+              </figure>
+            </div>
+          </article>
 
-            <!-- CARD 07: OPTIMIZATION -->
-            <div class="sf-pbox-card" data-index="7">
-              <div class="sf-pbox-header">
-                <span class="sf-pbox-tag"><span class="sf-pbox-tag-dot"></span>OPTIMIZATION</span>
-                <span class="sf-pbox-num">07</span>
+          <!-- ROW 07: OPTIMIZATION (ODD -> RIGHT BANNER + LEFT PHOTO) -->
+          <article class="sf-cw-row sf-pbox-card" data-index="7" data-side="right">
+            <div class="sf-cw-half sf-cw-half--media">
+              <figure class="sf-cw-photo-frame">
+                <img class="sf-cw-photo" src="../assets/images/sf-practice/practice-07-optimization.jpg" alt="Precision analog oscilloscope trace and rotary calibration controls" width="896" height="1200" loading="lazy" decoding="async">
+              </figure>
+            </div>
+            <div class="sf-cw-half sf-cw-half--content">
+              <div class="sf-cw-banner-clip">
+                <div class="sf-cw-banner">
+                  <div class="sf-pbox-header">
+                    <span class="sf-pbox-tag"><span class="sf-pbox-tag-dot"></span>OPTIMIZATION</span>
+                    <span class="sf-pbox-num">07</span>
+                  </div>
+                  <h3 class="sf-pbox-title">Salesforce Optimization</h3>
+                </div>
               </div>
-              <div class="sf-pbox-body">
-                <h3 class="sf-pbox-title">Salesforce Optimization</h3>
+              <div class="sf-cw-details">
                 <p class="sf-pbox-desc">Already using Salesforce? We identify architectural bottlenecks and speed up your existing setup.</p>
                 <div class="sf-pbox-capabilities">
                   <span class="sf-pbox-cap-label">CORE CAPABILITIES</span>
@@ -4748,23 +4826,29 @@
                     <li class="sf-pbox-pill">Performance health checks</li>
                   </ul>
                 </div>
-              </div>
-              <div class="sf-pbox-footer">
-                <a href="#contact" class="sf-pbox-action">
-                  <span>EXPLORE PRACTICE</span>
-                  <span class="sf-pbox-arrow" aria-hidden="true">→</span>
-                </a>
+                <div class="sf-pbox-footer">
+                  <a href="#contact" class="sf-pbox-action">
+                    <span>EXPLORE PRACTICE</span>
+                    <span class="sf-pbox-arrow" aria-hidden="true">→</span>
+                  </a>
+                </div>
               </div>
             </div>
+          </article>
 
-            <!-- CARD 08: MANAGED SERVICES -->
-            <div class="sf-pbox-card" data-index="8">
-              <div class="sf-pbox-header">
-                <span class="sf-pbox-tag"><span class="sf-pbox-tag-dot"></span>MANAGED SERVICES</span>
-                <span class="sf-pbox-num">08</span>
+          <!-- ROW 08: MANAGED SERVICES (EVEN -> LEFT BANNER + RIGHT PHOTO) -->
+          <article class="sf-cw-row sf-pbox-card" data-index="8" data-side="left">
+            <div class="sf-cw-half sf-cw-half--content">
+              <div class="sf-cw-banner-clip">
+                <div class="sf-cw-banner">
+                  <div class="sf-pbox-header">
+                    <span class="sf-pbox-tag"><span class="sf-pbox-tag-dot"></span>MANAGED SERVICES</span>
+                    <span class="sf-pbox-num">08</span>
+                  </div>
+                  <h3 class="sf-pbox-title">Managed Services</h3>
+                </div>
               </div>
-              <div class="sf-pbox-body">
-                <h3 class="sf-pbox-title">Managed Services</h3>
+              <div class="sf-cw-details">
                 <p class="sf-pbox-desc">Your Salesforce journey doesn't end after go-live. We provide continuous maintenance and evolutions.</p>
                 <div class="sf-pbox-capabilities">
                   <span class="sf-pbox-cap-label">CORE CAPABILITIES</span>
@@ -4777,23 +4861,24 @@
                     <li class="sf-pbox-pill">Continuous performance tuning</li>
                   </ul>
                 </div>
-              </div>
-              <div class="sf-pbox-footer">
-                <a href="#contact" class="sf-pbox-action">
-                  <span>EXPLORE PRACTICE</span>
-                  <span class="sf-pbox-arrow" aria-hidden="true">→</span>
-                </a>
+                <div class="sf-pbox-footer">
+                  <a href="#contact" class="sf-pbox-action">
+                    <span>EXPLORE PRACTICE</span>
+                    <span class="sf-pbox-arrow" aria-hidden="true">→</span>
+                  </a>
+                </div>
               </div>
             </div>
+            <div class="sf-cw-half sf-cw-half--media">
+              <figure class="sf-cw-photo-frame">
+                <img class="sf-cw-photo" src="../assets/images/sf-practice/practice-08-managed.jpg" alt="Structured modernist operations command center room under coffered ceiling grid" width="896" height="1200" loading="lazy" decoding="async">
+              </figure>
+            </div>
+          </article>
 
-          </div>
         </div>
 
-        <!-- Bottom Progress Scrub Indicator -->
-        <div class="sf-practice-scrub-bar" aria-hidden="true">
-          <div class="sf-practice-scrub-fill"></div>
-        </div>
-
+        <div class="sf-cw-end-rule" aria-hidden="true"></div>
       </div>
     </section>
 
@@ -6534,7 +6619,7 @@
   </script>
   <script src="../js/sf-tech-stack-cinema.js?v=20261104_cinema_mob_v1"></script>
   <script src="../js/sf-clouds-motion-ed.js?v=20261105_mob_v1"></script>
-  <script src="../js/sf-practice-motion-ed.js?v=20261105_static_v8"></script>
+  <script src="../js/sf-practice-motion-ed.js?v=20261112_cw_v1"></script>
   <script src="../js/sf-usecases-stack.js?v=20261105_static_v8"></script>
   <script src="../js/sf-process-motion.js?v=20261111_hx_v1"></script>
   <script src="../js/sf-celestial-particles.js?v=20261103_1"></script>

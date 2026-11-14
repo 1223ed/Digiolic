@@ -760,8 +760,6 @@ input[type="button"] {
 }
 
 /* --- 2.0 Salesforce: Core Section Titles (Standardized to Reference clamp(38px, 5.6vw, 61px)) --- */
-#servicesOverview .sf-section-title,
-#servicesOverview h2.sf-section-title,
 #useCasesSection .sf-section-title,
 #useCasesSection h2.sf-section-title,
 #cloudsSection .sf-section-title,
@@ -780,8 +778,6 @@ input[type="button"] {
 }
 
 @media (max-width: 1024px) {
-  #servicesOverview .sf-section-title,
-  #servicesOverview h2.sf-section-title,
   #useCasesSection .sf-section-title,
   #useCasesSection h2.sf-section-title,
   #cloudsSection .sf-section-title,
@@ -797,8 +793,6 @@ input[type="button"] {
 }
 
 @media (max-width: 768px) {
-  #servicesOverview .sf-section-title,
-  #servicesOverview h2.sf-section-title,
   #useCasesSection .sf-section-title,
   #useCasesSection h2.sf-section-title,
   #cloudsSection .sf-section-title,

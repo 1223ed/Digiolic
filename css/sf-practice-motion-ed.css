@@ -1,707 +1,943 @@
-/* ==========================================================================
-   SALESFORCE COMPREHENSIVE PRACTICE - MOTION.ED SCROLL ENGINE
-   1:1 Faithful Recreation of Motion.ed Implementation Examples
-   Reference: Screen Recording 2026-11-02 at 5.21.59 PM.mov
-   - Soft Periwinkle Canvas (#C0C9E6)
-   - Monumental Centered Headline Pinned & Docked on Scroll
-   - Horizontal Scrubbing Rounded Rectangle Cards
-   - Zoho Applications & Features Card Typography & Capsule Pills
-   - 100% Text-Only Architecture (No Images)
-   ========================================================================== */
+/* ============================================================================
+ * DIGIOLIC - SALESFORCE COMPREHENSIVE PRACTICE SECTION (#servicesOverview)
+ * Crosswalk Editorial Architecture & Native CSS Scroll-Driven Choreography
+ * - Warm Paper Canvas (#E7E7E0) & Deep Forest Green (#1D6353 / #1A5C48)
+ * - 12-Column + Outer Gutter Hairline Grid & Continuous 50% Center Spine
+ * - 14-Column Ascending Staircase Entry Wipe over #cloudsSection
+ * - Spine-Emerging Service Banners (Odd Right / Even Left) & 3:4 Parallax Photos
+ * ============================================================================ */
 
-/* Gradient interpolation space token (fallback empty for pre-2024 browsers) */
-:root {
-  --sf-grad-space: ;
-}
+#servicesOverview.sf-practice-section {
+  --cw-bg: #E7E7E0;
+  --cw-green: #1D6353;
+  --cw-banner-green: #1A5C48;
+  --cw-paper-ink: #EFEFE8;
+  --cw-paper-muted: rgba(239, 239, 232, 0.72);
+  --cw-rule: rgba(29, 99, 83, 0.42);
+  --cw-rule-soft: rgba(29, 99, 83, 0.18);
+  --cw-grid-line: rgba(29, 99, 83, 0.065);
+  --cw-gutter: 3.06%;
+  --cw-col: calc((100% - 2 * var(--cw-gutter)) / 12);
+  --cw-font: 'Inter', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
 
-@supports (background: linear-gradient(in oklab, white, black)) {
-  :root {
-    --sf-grad-space: in oklab;
-  }
-}
-
-/* Outer Scroll Track Container */
-.sf-practice-section {
   position: relative;
-  z-index: 50;
-  width: 100%;
-  height: 520vh; /* Generous runway for silky, unhurried scroll feel */
-  background-color: #000000;
-  background-image: linear-gradient(180deg, #050505 0%, #050505 88%, #000000 100%);
-  border: none !important;
-  outline: none !important;
+  z-index: 62;
+  background-color: var(--cw-bg);
+  color: var(--cw-green);
+  font-family: var(--cw-font);
+  /* Overflow-x clip avoids scroll-container trapping while letting upward staircase overhang cleanly over #cloudsSection */
+  overflow-x: clip;
+  padding: 0;
   margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  overflow: clip;
-  contain: paint;
 }
 
-/* 100vh Sticky Stage */
-.sf-practice-stage {
-  position: sticky;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  height: 100dvh;
-  background-color: #050505;
-  background: #050505;
-  border: none !important;
-  outline: none !important;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  overflow: hidden;
-  box-sizing: border-box;
-  padding: clamp(28px, 4.4vh, 46px) clamp(24px, 4vw, 64px) clamp(14px, 2vh, 22px);
-  z-index: 10;
-}
+/* ============================================================================
+ * 1. 14-COLUMN STAIRCASE ENTRY WIPE (RISES OVER #cloudsSection)
+ * ============================================================================ */
 
-/* Top Editorial HUD Bar (Removed per design review) */
-.sf-practice-hud {
-  display: none !important;
-  width: 100%;
-  max-width: 1440px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 0;
-  flex-shrink: 0;
-  z-index: 25;
-}
-
-.sf-practice-hud-left {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.sf-practice-hud-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  padding: 5px 12px;
-  border-radius: 999px;
-  font-family: 'Space Mono', Menlo, monospace;
-  font-size: 0.70rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: #FFFFFF;
-}
-
-.sf-practice-hud-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background-color: #00A1E0;
-  box-shadow: 0 0 10px #00A1E0;
-}
-
-.sf-practice-hud-right {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
-
-.sf-practice-hud-counter {
-  font-family: 'Space Mono', Menlo, monospace;
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.10em;
-  color: rgba(255, 255, 255, 0.85);
-}
-
-.sf-practice-hud-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: #FFFFFF;
-  color: #050505;
-  text-decoration: none;
-  font-family: 'Inter', sans-serif;
-  font-size: 0.72rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  padding: 6px 16px;
-  border-radius: 999px;
-  transition: transform 0.25s ease, background-color 0.25s ease, color 0.25s ease;
-}
-
-.sf-practice-hud-btn:hover {
-  background: #00A1E0;
-  color: #FFFFFF;
-  transform: translateY(-1px);
-}
-
-/* ==========================================================================
-   MONUMENTAL HEADLINE (1:1 with "IMPLEMENTATION EXAMPLES")
-   Positioned in the upper region matching user Image 3 blueprint.
-   Font: Clean, modern sans-serif with regular/medium weight (400-500) matching Image 2.
-   ========================================================================== */
-.sf-practice-hero-header {
-  position: relative !important;
-  top: auto !important;
-  left: auto !important;
-  width: 100% !important;
-  display: flex !important;
-  flex-direction: column !important;
-  justify-content: center !important;
-  align-items: center !important;
-  text-align: center !important;
-  padding: 0 clamp(20px, 4vw, 60px) !important;
-  margin: clamp(2px, 0.4vh, 6px) auto clamp(36px, 6.2vh, 62px) auto !important;
-  box-sizing: border-box !important;
-  transform: none !important;
-  opacity: 1 !important;
-  will-change: auto;
-  pointer-events: auto;
-  z-index: 20;
-  flex-shrink: 0 !important;
-}
-
-.sf-practice-hero-title {
-  margin: 0;
-  padding: 0;
-  font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
-  font-size: clamp(2.625rem, 1.25rem + 4.35vw, 5.125rem) !important;
-  font-weight: 500 !important;
-  letter-spacing: -0.03em !important;
-  line-height: 1.05 !important;
-  text-wrap: balance;
-  text-transform: none !important;
-  color: #FFFFFF !important;
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: center !important;
-  justify-content: center !important;
-}
-
-@media (max-width: 1024px) {
-  .sf-practice-hero-title {
-    font-size: clamp(2.125rem, 1.1rem + 3.6vw, 3.625rem) !important;
-    line-height: 1.08 !important;
-  }
-}
-
-@media (max-width: 768px) {
-  .sf-practice-hero-title {
-    font-size: clamp(1.625rem, 0.7rem + 3.4vw, 2.125rem) !important;
-    line-height: 1.12 !important;
-  }
-}
-
-.sf-practice-hero-title .sf-hero-line {
-  display: block;
-  white-space: normal;
-  text-align: center;
-}
-
-.sf-practice-hero-title .sf-text-blue {
-  color: #00A1E0 !important;
-  text-shadow: 0 0 35px rgba(0, 161, 224, 0.4);
-}
-
-.sf-practice-hero-desc {
-  margin: 0 auto;
-  padding: 0;
-  font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: clamp(1.125rem, 0.95rem + 0.35vw, 1.3125rem);
-  line-height: 1.5;
-  letter-spacing: -0.01em;
-  font-weight: 400;
-  color: rgba(255, 255, 255, 0.86);
-  max-width: min(42rem, 92%);
-  text-align: center;
-  text-wrap: balance;
-}
-
-/* ==========================================================================
-   HORIZONTAL CARDS TRACK
-   Peeks up from bottom on entrance matching user Image 3 blueprint.
-   Rises to vertical center as headline scrolls out, then scrubs horizontally.
-   ========================================================================== */
-.sf-practice-cards-wrapper {
-  position: relative !important;
-  top: auto !important;
-  left: auto !important;
-  width: 100% !important;
-  height: clamp(340px, calc(100vh - 265px), 445px) !important;
-  display: flex !important;
-  align-items: center !important;
-  overflow: visible !important;
-  box-sizing: border-box !important;
-  will-change: transform !important;
-  z-index: 10 !important;
-  pointer-events: auto !important;
-  opacity: 1 !important;
-  flex-shrink: 0 !important;
-}
-
-.sf-practice-cards-track {
-  display: flex;
-  align-items: stretch;
-  gap: clamp(18px, 2.2vw, 32px);
-  padding-left: clamp(32px, 6vw, 90px);
-  padding-right: clamp(40px, 8vw, 120px);
-  height: 100%;
-  width: max-content;
-  will-change: transform;
-  box-sizing: border-box;
-}
-
-/* ==========================================================================
-   RECTANGLE BOX CARDS
-   Frame-by-frame match to Motion.ed & TRIONN Zoho Practice Cards
-   - Rounded 24px corners
-   - Crisp 1.5px dark outline border
-   - Pure typography (NO images)
-   - Category tag pill, numeric index, title, description, pills list, and action
-   ========================================================================== */
-.sf-pbox-card {
-  position: relative;
-  width: clamp(330px, 25vw, 395px);
-  min-width: clamp(330px, 25vw, 395px);
-  height: 100%;
-  background-color: #8e9eab;
-  background-image: linear-gradient(135deg var(--sf-grad-space), #8e9eab 0%, #eef2f3 100%);
-  border: 1.5px solid rgba(238, 242, 243, 0.65);
-  border-radius: 24px;
-  box-shadow: 0 20px 44px -15px rgba(15, 23, 42, 0.35), 0 4px 12px rgba(0, 0, 0, 0.16);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: clamp(12px, 1.2vw, 16px) clamp(14px, 1.4vw, 18px);
-  box-sizing: border-box;
-  transform-style: preserve-3d;
-  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-              box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-              border-color 0.25s ease;
-  user-select: none;
-  overflow: visible !important;
-}
-
-.sf-pbox-card:hover {
-  border-color: #eef2f3;
-  box-shadow: 0 30px 60px -15px rgba(142, 158, 171, 0.42), 0 10px 24px rgba(0, 0, 0, 0.18);
-}
-
-/* Card Inset Frame Crosshair Corner (+) TRIONN style */
-.sf-pbox-card::before {
-  content: '+';
-  position: absolute;
-  top: 14px;
-  right: 16px;
-  font-family: 'Inter', monospace;
-  font-size: 13px;
-  font-weight: 400;
-  color: rgba(15, 23, 42, 0.55);
-  opacity: 0.75;
-  pointer-events: none;
-}
-
-/* Card Header: Tag Pill on left, Number on right */
-.sf-pbox-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: clamp(6px, 1vh, 10px);
-  flex-shrink: 0;
-}
-
-.sf-pbox-tag {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  font-family: 'Space Mono', Menlo, monospace;
-  font-size: 0.74rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: #0F172A;
-  background: rgba(238, 242, 243, 0.86);
-  border: 1px solid rgba(15, 23, 42, 0.16);
-  padding: 4px 10px;
-  border-radius: 6px;
-}
-
-.sf-pbox-tag-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background-color: #334155;
-  box-shadow: 0 0 0 2px rgba(142, 158, 171, 0.35);
-}
-
-.sf-pbox-num {
-  font-family: 'Space Grotesk', 'Outfit', sans-serif;
-  font-size: clamp(1.5rem, 1.9vw, 2.0rem);
-  font-weight: 800;
-  line-height: 1;
-  color: #0F172A;
-  letter-spacing: -0.04em;
-  margin-right: 18px; /* space away from top corner crosshair */
-}
-
-/* Card Body */
-.sf-pbox-body {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  overflow: visible !important;
-}
-
-.sf-pbox-title {
-  margin: 0 0 4px 0;
-  font-family: 'Space Grotesk', 'Outfit', 'Inter', sans-serif;
-  font-size: clamp(1.15rem, 1.3vw, 1.38rem);
-  font-weight: 700;
-  line-height: 1.18;
-  letter-spacing: -0.025em;
-  color: #08080B;
-  flex-shrink: 0;
-}
-
-.sf-pbox-desc {
-  margin: 0 0 6px 0;
-  font-family: 'Inter', sans-serif;
-  font-size: clamp(0.76rem, 0.84vw, 0.88rem);
-  line-height: 1.36;
-  color: #1E293B;
-  font-weight: 400;
-  flex-shrink: 0;
-}
-
-/* Callout Quote for Integration (Card 4) */
-.sf-pbox-quote {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 0.78rem;
-  font-weight: 600;
-  font-style: italic;
-  color: #0F172A;
-  background: rgba(238, 242, 243, 0.58);
-  border-left: 3px solid #334155;
-  padding: 3px 8px;
-  border-radius: 0 6px 6px 0;
-  margin-bottom: 6px;
-  flex-shrink: 0;
-}
-
-/* Core Capabilities Pills */
-.sf-pbox-capabilities {
-  margin-top: auto;
-  margin-bottom: 5px;
-  overflow: visible !important;
-}
-
-.sf-pbox-cap-label {
-  display: block;
-  font-family: 'Space Mono', Menlo, monospace;
-  font-size: 0.64rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: #334155;
-  margin-bottom: 3px;
-}
-
-.sf-pbox-pills {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 4px;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.sf-pbox-pill {
-  font-family: 'Inter', sans-serif;
-  font-size: 0.68rem;
-  font-weight: 500;
-  line-height: 1.25;
-  color: #0F172A;
-  background: rgba(255, 255, 255, 0.72);
-  border: 1px solid rgba(15, 23, 42, 0.14);
-  padding: 2px 7px;
-  border-radius: 6px;
-  transition: all 0.2s ease;
-  white-space: nowrap;
-}
-
-.sf-pbox-card:hover .sf-pbox-pill {
-  background: #FFFFFF;
-  border-color: rgba(15, 23, 42, 0.28);
-}
-
-/* Bottom Action Row (View / Explore Practice) */
-.sf-pbox-footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-top: 6px;
-  border-top: 1px solid rgba(15, 23, 42, 0.14);
-  flex-shrink: 0;
-}
-
-.sf-pbox-action {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-family: 'Space Mono', Menlo, monospace;
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: #08080B;
-  text-decoration: none;
-  transition: letter-spacing 0.3s cubic-bezier(0.16, 1, 0.3, 1),
-              color 0.25s ease;
-}
-
-.sf-pbox-arrow {
-  display: inline-block;
-  font-size: 1.15rem;
-  line-height: 1;
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.sf-pbox-card:hover .sf-pbox-action {
-  letter-spacing: 0.20em;
-  color: #1E293B;
-}
-
-.sf-pbox-card:hover .sf-pbox-arrow {
-  transform: translateX(6px);
-}
-
-/* Bottom Progress Scrub Indicator Bar (Clean canvas matching video) */
-.sf-practice-scrub-bar {
-  display: none;
-}
-
-/* ==========================================================================
-   RESPONSIVE DESIGN (Tablets & Mobile)
-   Smooth swipeable horizontal row when touch-based screen < 992px
-   ========================================================================== */
-@media (max-width: 991px) {
-  .sf-practice-section {
-    min-height: 380vh !important;
-    height: 380vh !important;
-    position: relative !important;
-    overflow: clip !important;
-    background-color: #000000 !important;
-    background-image: linear-gradient(180deg, #050505 0%, #050505 88%, #000000 100%) !important;
-    padding: 0 !important;
-  }
-
-  .sf-practice-stage {
-    position: sticky !important;
-    top: 0 !important;
-    height: 100vh !important;
-    height: 100dvh !important;
-    width: 100% !important;
-    overflow: hidden !important;
-    padding: 16px 14px 24px 14px !important;
-    background-color: #050505 !important;
-    background: #050505 !important;
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    box-sizing: border-box !important;
-  }
-
-  .sf-practice-hud {
-    display: none !important;
-  }
-
-  .sf-practice-hero-header {
-    position: absolute !important;
-    top: 20px !important;
-    left: 0 !important;
-    width: 100% !important;
-    padding: 0 16px !important;
-    margin: 0 !important;
-    box-sizing: border-box !important;
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    text-align: center !important;
-    transform: none !important;
-    opacity: 1 !important;
-    will-change: auto !important;
-    pointer-events: auto !important;
-    z-index: 20 !important;
-  }
-
-  .sf-practice-hero-title {
-    font-size: clamp(1.625rem, 0.7rem + 3.4vw, 2.125rem) !important;
-    line-height: 1.12 !important;
-    letter-spacing: -0.03em !important;
-    margin-bottom: 10px !important;
-  }
-
-  .sf-practice-hero-desc {
-    font-size: clamp(1.0625rem, 0.9rem + 0.35vw, 1.1875rem) !important;
-    line-height: 1.5 !important;
-    max-width: 94% !important;
-    margin: 0 auto !important;
-    color: rgba(255, 255, 255, 0.86) !important;
-    opacity: 1 !important;
-  }
-
-  .sf-practice-cards-wrapper {
-    position: absolute !important;
-    top: auto !important;
-    bottom: clamp(22px, 3.6vh, 34px) !important;
-    left: 0 !important;
-    width: 100% !important;
-    height: auto !important;
-    max-height: 56vh !important;
-    display: flex !important;
-    align-items: center !important;
-    overflow: hidden !important;
-    z-index: 22 !important;
-    will-change: transform !important;
-    pointer-events: none !important;
-    margin-top: 0 !important;
-    padding-bottom: 0 !important;
-  }
-
-  .sf-practice-cards-track {
-    display: flex !important;
-    flex-direction: row !important;
-    align-items: center !important;
-    gap: 14px !important;
-    padding: 0 16px !important;
-    will-change: transform !important;
-    pointer-events: auto !important;
-    height: auto !important;
-  }
-
-  .sf-pbox-card {
-    flex-shrink: 0 !important;
-    width: 84vw !important;
-    max-width: 330px !important;
-    min-width: 275px !important;
-    height: clamp(366px, 51vh, 425px) !important;
-    border-radius: 20px !important;
-    padding: 18px 18px !important;
-    box-sizing: border-box !important;
-  }
-
-  .sf-pbox-title {
-    font-size: 1.25rem !important;
-    margin-bottom: 8px !important;
-  }
-
-  .sf-pbox-desc {
-    font-size: 12px !important;
-    line-height: 1.4 !important;
-    margin-bottom: 12px !important;
-  }
-
-  .sf-pbox-pills {
-    gap: 6px !important;
-  }
-
-  .sf-pbox-pill {
-    font-size: 10.5px !important;
-    padding: 3px 8px !important;
-  }
-
-  .sf-practice-scrub-bar {
-    display: flex !important;
-    position: absolute !important;
-    bottom: 16px !important;
-    left: 20px !important;
-    right: 20px !important;
-    width: calc(100% - 40px) !important;
-    z-index: 26 !important;
-  }
-}
-
-/* ==========================================================================
-   ATMOSPHERIC CELESTIAL BACKGROUND (Constellation Dots & Micro-Grid)
-   Identical to Client Testimonials Section
-   ========================================================================== */
-.sf-bg-atmosphere {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 1;
-  overflow: hidden;
-}
-
-/* Smoothly blend bottom grid/stage into #aiSection pure black behind cards */
-#servicesOverview .sf-bg-atmosphere::after {
-  content: '';
+#servicesOverview .sf-cw-staircase {
   position: absolute;
   left: 0;
   right: 0;
+  bottom: 100%;
+  height: clamp(260px, 54vh, 540px);
+  display: flex;
+  align-items: stretch;
+  pointer-events: none;
+  z-index: 65;
+}
+
+#servicesOverview .sf-cw-step {
+  flex: 1 1 0%;
+  background-color: var(--cw-bg);
+  border-right: 1px solid rgba(29, 99, 83, 0.055);
+  transform-origin: bottom center;
+  transform: scaleY(0);
+  will-change: transform;
+}
+
+#servicesOverview .sf-cw-step:first-child,
+#servicesOverview .sf-cw-step:last-child {
+  flex: 0 0 var(--cw-gutter);
+}
+
+#servicesOverview .sf-cw-step:last-child {
+  border-right: none;
+}
+
+/* Reduced-motion / fallback base safety: steps remain cleanly dormant or settled */
+@media (prefers-reduced-motion: reduce) {
+  #servicesOverview .sf-cw-staircase {
+    display: none;
+  }
+}
+
+/* ============================================================================
+ * 2. SECTION CANVAS & ARCHITECTURAL GRID BACKDROP
+ * ============================================================================ */
+
+#servicesOverview .sf-cw-canvas {
+  position: relative;
+  width: 100%;
+  background-color: var(--cw-bg);
+  padding-top: 0;
+}
+
+/* Subtle 12-column + outer gutter vertical grid lines spanning entire section */
+#servicesOverview .sf-cw-grid-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  background-image: linear-gradient(
+    to right,
+    var(--cw-grid-line) 0,
+    var(--cw-grid-line) 1px,
+    transparent 1px
+  );
+  background-position: var(--cw-gutter) 0;
+  background-size: var(--cw-col) 100%;
+}
+
+/* Explicit left boundary tick matching gutter before col 1 */
+#servicesOverview .sf-cw-grid-bg::after {
+  content: '';
+  position: absolute;
+  top: 0;
   bottom: 0;
-  height: 120px;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.72) 58%, #000000 100%);
+  right: var(--cw-gutter);
+  width: 1px;
+  background: var(--cw-grid-line);
+}
+
+/* ============================================================================
+ * 3. HEADER BAND (ASYMMETRIC 7/12 TITLE + 5/12 DESCRIPTION SPLIT)
+ * ============================================================================ */
+
+#servicesOverview .sf-cw-header-band {
+  position: relative;
+  z-index: 4;
+  margin: 0 var(--cw-gutter);
+}
+
+#servicesOverview .sf-cw-rule-top,
+#servicesOverview .sf-cw-rule-bottom {
+  display: block;
+  width: 100%;
+  height: 1px;
+  background-color: var(--cw-rule);
+  transform-origin: left center;
+}
+
+#servicesOverview .sf-cw-header-grid {
+  display: grid;
+  grid-template-columns: 7fr 5fr;
+  align-items: stretch;
+  position: relative;
+}
+
+#servicesOverview .sf-cw-header-left {
+  padding: clamp(22px, 2.5vw, 36px) clamp(24px, 3vw, 44px) clamp(38px, 4.8vw, 72px) 2px;
+  display: flex;
+  align-items: flex-start;
+}
+
+#servicesOverview h2.sf-cw-hero-title {
+  font-family: var(--cw-font) !important;
+  font-size: clamp(32px, 4.05vw, 60px) !important;
+  font-weight: 400 !important;
+  line-height: 1.04 !important;
+  letter-spacing: -0.032em !important;
+  color: var(--cw-green) !important;
+  text-align: left !important;
+  text-transform: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  display: block !important;
+}
+
+#servicesOverview .sf-cw-line-mask {
+  display: block;
+  overflow: clip;
+  padding-bottom: 0.06em;
+  margin-bottom: -0.06em;
+}
+
+#servicesOverview .sf-cw-line-inner {
+  display: block;
+  will-change: transform;
+}
+
+#servicesOverview .sf-cw-header-right {
+  position: relative;
+  padding: clamp(28px, 3.2vw, 48px) clamp(16px, 2.2vw, 32px) clamp(32px, 4vw, 56px) clamp(22px, 2.5vw, 36px);
+  display: flex;
+  align-items: center;
+}
+
+#servicesOverview .sf-cw-rule-divider {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background-color: var(--cw-rule);
+  transform-origin: top center;
+}
+
+#servicesOverview p.sf-practice-hero-desc {
+  font-family: var(--cw-font) !important;
+  font-size: clamp(16px, 1.35vw, 20px) !important;
+  font-weight: 400 !important;
+  line-height: 1.42 !important;
+  letter-spacing: -0.014em !important;
+  color: var(--cw-green) !important;
+  text-align: left !important;
+  max-width: 34ch !important;
+  margin: 0 !important;
+  padding-top: clamp(10px, 1.8vw, 28px);
+}
+
+/* ============================================================================
+ * 4. SERVICE ROWS STAGE & CONTINUOUS 50% CENTER SPINE
+ * ============================================================================ */
+
+#servicesOverview .sf-cw-rows-stage {
+  position: relative;
+  z-index: 4;
+  padding: clamp(64px, 7.8vw, 118px) var(--cw-gutter) clamp(72px, 8vw, 120px);
+}
+
+/* Continuous 50% center spine beginning cleanly at header bottom hairline */
+#servicesOverview .sf-cw-center-spine {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  transform: translateX(-50%);
+  background-color: var(--cw-rule);
   pointer-events: none;
   z-index: 3;
 }
 
-.sf-bg-grid-lines {
-  position: absolute;
-  inset: 0;
-  background-image: 
-    linear-gradient(rgba(255, 255, 255, 0.028) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.028) 1px, transparent 1px);
-  background-size: 80px 80px;
-  opacity: 0.65;
-  mask-image: radial-gradient(circle at 50% 50%, black 50%, transparent 90%);
-  -webkit-mask-image: radial-gradient(circle at 50% 50%, black 50%, transparent 90%);
+#servicesOverview .sf-cw-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: start;
+  position: relative;
+  z-index: 4;
 }
 
-.sf-celestial-canvas {
-  position: absolute;
-  inset: 0;
+#servicesOverview .sf-cw-row + .sf-cw-row {
+  margin-top: clamp(76px, 10.5vw, 152px);
+}
+
+/* Odd (Right content, Left media) & Even (Left content, Right media) */
+#servicesOverview .sf-cw-row[data-side="right"] .sf-cw-half--media {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+#servicesOverview .sf-cw-row[data-side="right"] .sf-cw-half--content {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+#servicesOverview .sf-cw-row[data-side="left"] .sf-cw-half--content {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+#servicesOverview .sf-cw-row[data-side="left"] .sf-cw-half--media {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+/* ============================================================================
+ * 5. OPPOSING 4-COLUMN EDITORIAL PHOTOGRAPH & SCROLL PARALLAX
+ * ============================================================================ */
+
+#servicesOverview .sf-cw-half--media {
+  /* 6 cols in half -> 16.6667% outer margin + 66.6667% (4 cols) photo + 16.6667% spine gap */
+  padding: 0 16.666667%;
+}
+
+#servicesOverview .sf-cw-row[data-side="right"] .sf-cw-half--content {
+  padding-top: clamp(26px, 3.4vw, 52px);
+}
+
+#servicesOverview .sf-cw-photo-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  overflow: clip;
+  background-color: #D7D6CE;
+  border-radius: 0;
+  will-change: transform;
+}
+
+#servicesOverview .sf-cw-photo {
+  display: block;
   width: 100%;
   height: 100%;
+  object-fit: cover;
+  object-position: center 22%;
+  transform: scale(1.06);
+  transform-origin: center center;
+  will-change: transform;
+}
+
+/* ============================================================================
+ * 6. SPINE-CLIPPED FOREST GREEN BANNER (3 GRID COLUMNS WIDE)
+ * ============================================================================ */
+
+#servicesOverview .sf-cw-half--content {
+  display: flex;
+  flex-direction: column;
+}
+
+#servicesOverview .sf-cw-banner-clip {
+  width: 100%;
+  overflow: clip;
+}
+
+#servicesOverview .sf-cw-banner {
+  position: relative;
+  width: 50%; /* Exact 3 of 12 inner columns */
+  min-width: 245px;
+  min-height: clamp(164px, 15.8vw, 224px);
+  background-color: var(--cw-banner-green);
+  color: var(--cw-paper-ink);
+  padding: clamp(16px, 1.5vw, 22px) clamp(18px, 1.65vw, 24px) clamp(20px, 1.9vw, 26px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 0;
+  will-change: transform;
+}
+
+/* Subtle matte paper grain overlay inside green banners */
+#servicesOverview .sf-cw-banner::before {
+  content: '';
+  position: absolute;
+  inset: 0;
   pointer-events: none;
-  z-index: 2;
-  opacity: 0.65;
+  opacity: 0.09;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.28) 0.5px, transparent 0.5px);
+  background-size: 3px 3px;
 }
 
-/* ==========================================================================
-   UNIFIED SLATE-PEARL GRADIENT COLORWAY FOR PRACTICE RECTANGLE BOX CARDS
-   Applies #8e9eab -> #eef2f3 uniformly across all 8 cards on desktop & mobile
-   while keeping Forced Colors Mode legible when gradients are stripped.
-   ========================================================================== */
-@media (forced-colors: active) {
-  .sf-pbox-card,
-  .sf-pbox-tag,
-  .sf-pbox-pill {
-    background: Canvas;
-    color: CanvasText;
-    border-color: CanvasText;
-  }
+#servicesOverview .sf-cw-row[data-side="right"] .sf-cw-banner {
+  margin-right: auto;
+}
 
-  .sf-pbox-tag-dot {
-    background-color: CanvasText;
-  }
+#servicesOverview .sf-cw-row[data-side="left"] .sf-cw-banner {
+  margin-left: auto;
+}
 
-  .sf-pbox-title,
-  .sf-pbox-desc,
-  .sf-pbox-num,
-  .sf-pbox-cap-label,
-  .sf-pbox-quote,
-  .sf-pbox-action,
-  .sf-pbox-footer {
-    color: CanvasText;
-    border-color: CanvasText;
+#servicesOverview .sf-pbox-header {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+#servicesOverview .sf-pbox-tag {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--cw-paper-muted);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+#servicesOverview .sf-pbox-tag-dot {
+  width: 4px;
+  height: 4px;
+  background-color: var(--cw-paper-muted);
+  display: inline-block;
+}
+
+#servicesOverview .sf-pbox-num {
+  font-size: clamp(13px, 0.98vw, 15px);
+  font-weight: 400;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.02em;
+  color: var(--cw-paper-ink);
+  margin-left: auto;
+}
+
+#servicesOverview h3.sf-pbox-title {
+  position: relative;
+  z-index: 1;
+  font-family: var(--cw-font);
+  font-size: clamp(22px, 2.02vw, 31px);
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: -0.022em;
+  color: #F2F1EB;
+  margin: clamp(28px, 3vw, 44px) 0 0 0;
+}
+
+/* ============================================================================
+ * 7. EDITORIAL COPY, QUOTE, CAPABILITIES & LINK BELOW BANNER
+ * ============================================================================ */
+
+#servicesOverview .sf-cw-details {
+  margin-top: clamp(44px, 6.2vw, 96px);
+  will-change: transform, opacity;
+}
+
+#servicesOverview .sf-cw-row[data-side="right"] .sf-cw-details {
+  padding-left: 16.666667%;
+  padding-right: 12%;
+}
+
+#servicesOverview .sf-cw-row[data-side="left"] .sf-cw-details {
+  padding-left: 20%;
+  padding-right: 16.666667%;
+}
+
+#servicesOverview .sf-pbox-desc {
+  font-family: var(--cw-font);
+  font-size: clamp(15px, 1.16vw, 17.5px);
+  font-weight: 400;
+  line-height: 1.54;
+  letter-spacing: -0.008em;
+  color: var(--cw-green);
+  margin: 0 0 22px 0;
+}
+
+#servicesOverview .sf-pbox-quote {
+  font-family: var(--cw-font);
+  font-size: clamp(15px, 1.14vw, 17px);
+  font-style: italic;
+  line-height: 1.45;
+  color: var(--cw-green);
+  border-left: 2px solid var(--cw-rule);
+  padding: 2px 0 2px 14px;
+  margin: 0 0 22px 0;
+}
+
+#servicesOverview .sf-pbox-capabilities {
+  border-top: 1px solid var(--cw-rule-soft);
+  padding-top: 14px;
+  margin-bottom: 24px;
+}
+
+#servicesOverview .sf-pbox-cap-label {
+  display: block;
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(29, 99, 83, 0.72);
+  margin-bottom: 10px;
+}
+
+#servicesOverview .sf-pbox-pills {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px 8px;
+}
+
+#servicesOverview .sf-pbox-pill {
+  font-size: 12.5px;
+  font-weight: 400;
+  line-height: 1.3;
+  letter-spacing: -0.005em;
+  color: var(--cw-green);
+  border: 1px solid rgba(29, 99, 83, 0.28);
+  padding: 5px 10px;
+  border-radius: 0;
+  background-color: rgba(255, 255, 255, 0.22);
+}
+
+#servicesOverview .sf-pbox-footer {
+  display: flex;
+  align-items: center;
+}
+
+#servicesOverview .sf-pbox-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--cw-green);
+  text-decoration: none;
+  padding-bottom: 5px;
+  border-bottom: 1px solid rgba(29, 99, 83, 0.55);
+  transition: gap 0.25s ease, border-color 0.25s ease;
+}
+
+#servicesOverview .sf-pbox-action:hover,
+#servicesOverview .sf-pbox-action:focus-visible {
+  gap: 16px;
+  border-bottom-color: var(--cw-green);
+}
+
+#servicesOverview .sf-pbox-arrow {
+  font-size: 14px;
+  line-height: 1;
+}
+
+/* Subtle bottom footer rule closing the Crosswalk sheet cleanly before #aiSection */
+#servicesOverview .sf-cw-end-rule {
+  position: relative;
+  z-index: 4;
+  height: 1px;
+  margin: 0 var(--cw-gutter);
+  background-color: var(--cw-rule);
+}
+
+/* ============================================================================
+ * 8. NATIVE CSS SCROLL-DRIVEN ANIMATIONS (MODERN WEB GUIDANCE COMPLIANT)
+ *    - Scoped strictly inside prefers-reduced-motion: no-preference
+ *    - Feature-detected via @supports ((animation-timeline: view()) and (animation-range: entry))
+ *    - animation-timeline and animation-range declared AFTER animation shorthand
+ * ============================================================================ */
+
+@keyframes cw-stair-rise {
+  0% {
+    transform: scaleY(0);
+  }
+  100% {
+    transform: scaleY(1);
   }
 }
 
+@keyframes cw-rule-draw-x {
+  0% {
+    transform: scaleX(0);
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes cw-rule-draw-y {
+  0% {
+    transform: scaleY(0);
+  }
+  100% {
+    transform: scaleY(1);
+  }
+}
+
+@keyframes cw-line-mask-rise {
+  0% {
+    transform: translateY(108%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
+
+@keyframes cw-fade-rise {
+  0% {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes cw-banner-from-left-spine {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes cw-banner-from-right-spine {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes cw-photo-frame-parallax {
+  0% {
+    transform: translateY(26px);
+  }
+  100% {
+    transform: translateY(-26px);
+  }
+}
+
+@keyframes cw-photo-img-parallax {
+  0% {
+    transform: translateY(-6%) scale(1.1);
+  }
+  100% {
+    transform: translateY(6%) scale(1.1);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  @supports ((animation-timeline: view()) and (animation-range: entry)) {
+    /* Staircase Timeline on .sf-cw-staircase itself (enters 46vh before section body) */
+    #servicesOverview .sf-cw-staircase {
+      view-timeline-name: --cw-stair;
+      view-timeline-axis: block;
+    }
+
+    #servicesOverview .sf-cw-step {
+      animation: cw-stair-rise cubic-bezier(0.22, 1, 0.36, 1) both;
+      animation-timeline: --cw-stair;
+    }
+
+    #servicesOverview .sf-cw-step[data-step="0"]  { animation-range: cover 16% cover 56%; }
+    #servicesOverview .sf-cw-step[data-step="1"]  { animation-range: cover 18% cover 58%; }
+    #servicesOverview .sf-cw-step[data-step="2"]  { animation-range: cover 20% cover 60%; }
+    #servicesOverview .sf-cw-step[data-step="3"]  { animation-range: cover 22% cover 62%; }
+    #servicesOverview .sf-cw-step[data-step="4"]  { animation-range: cover 24% cover 64%; }
+    #servicesOverview .sf-cw-step[data-step="5"]  { animation-range: cover 26% cover 66%; }
+    #servicesOverview .sf-cw-step[data-step="6"]  { animation-range: cover 28% cover 68%; }
+    #servicesOverview .sf-cw-step[data-step="7"]  { animation-range: cover 30% cover 70%; }
+    #servicesOverview .sf-cw-step[data-step="8"]  { animation-range: cover 32% cover 72%; }
+    #servicesOverview .sf-cw-step[data-step="9"]  { animation-range: cover 34% cover 74%; }
+    #servicesOverview .sf-cw-step[data-step="10"] { animation-range: cover 36% cover 76%; }
+    #servicesOverview .sf-cw-step[data-step="11"] { animation-range: cover 38% cover 78%; }
+    #servicesOverview .sf-cw-step[data-step="12"] { animation-range: cover 40% cover 80%; }
+    #servicesOverview .sf-cw-step[data-step="13"] { animation-range: cover 42% cover 82%; }
+
+    /* Header Band Timeline */
+    #servicesOverview .sf-cw-header-band {
+      view-timeline-name: --cw-head;
+      view-timeline-axis: block;
+    }
+
+    #servicesOverview .sf-cw-rule-top,
+    #servicesOverview .sf-cw-rule-bottom {
+      animation: cw-rule-draw-x cubic-bezier(0.22, 1, 0.36, 1) both;
+      animation-timeline: --cw-head;
+      animation-range: entry 8% cover 42%;
+    }
+
+    #servicesOverview .sf-cw-rule-divider {
+      animation: cw-rule-draw-y cubic-bezier(0.22, 1, 0.36, 1) both;
+      animation-timeline: --cw-head;
+      animation-range: entry 12% cover 46%;
+    }
+
+    #servicesOverview .sf-cw-line-mask:nth-child(1) .sf-cw-line-inner {
+      animation: cw-line-mask-rise cubic-bezier(0.22, 1, 0.36, 1) both;
+      animation-timeline: --cw-head;
+      animation-range: entry 20% cover 46%;
+    }
+
+    #servicesOverview .sf-cw-line-mask:nth-child(2) .sf-cw-line-inner {
+      animation: cw-line-mask-rise cubic-bezier(0.22, 1, 0.36, 1) both;
+      animation-timeline: --cw-head;
+      animation-range: entry 26% cover 52%;
+    }
+
+    #servicesOverview .sf-cw-header-right .sf-practice-hero-desc {
+      animation: cw-fade-rise cubic-bezier(0.22, 1, 0.36, 1) both;
+      animation-timeline: --cw-head;
+      animation-range: entry 28% cover 54%;
+    }
+
+    /* Individual Service Rows Timeline */
+    #servicesOverview .sf-cw-row {
+      view-timeline-name: --cw-row;
+      view-timeline-axis: block;
+    }
+
+    /* Odd rows emerge rightward from behind the center 50% spine */
+    #servicesOverview .sf-cw-row[data-side="right"] .sf-cw-banner {
+      animation: cw-banner-from-left-spine cubic-bezier(0.22, 1, 0.36, 1) both;
+      animation-timeline: --cw-row;
+      animation-range: entry 10% cover 42%;
+    }
+
+    /* Even rows emerge leftward from behind the center 50% spine */
+    #servicesOverview .sf-cw-row[data-side="left"] .sf-cw-banner {
+      animation: cw-banner-from-right-spine cubic-bezier(0.22, 1, 0.36, 1) both;
+      animation-timeline: --cw-row;
+      animation-range: entry 10% cover 42%;
+    }
+
+    #servicesOverview .sf-cw-details {
+      animation: cw-fade-rise cubic-bezier(0.22, 1, 0.36, 1) both;
+      animation-timeline: --cw-row;
+      animation-range: entry 20% cover 48%;
+    }
+
+    #servicesOverview .sf-cw-photo-frame {
+      animation: cw-photo-frame-parallax linear both;
+      animation-timeline: --cw-row;
+      animation-range: cover 0% cover 100%;
+    }
+
+    #servicesOverview .sf-cw-photo {
+      animation: cw-photo-img-parallax linear both;
+      animation-timeline: --cw-row;
+      animation-range: cover 0% cover 100%;
+    }
+  }
+}
+
+/* ============================================================================
+ * 9. JS SCROLL FALLBACK STYLES (ONLY APPLIED WHEN NATIVE VIEW() UNSUPPORTED)
+ * ============================================================================ */
+
+#servicesOverview.sf-cw-js-fallback .sf-cw-step {
+  transform: scaleY(var(--cw-step-p, 0));
+}
+
+#servicesOverview.sf-cw-js-fallback .sf-cw-rule-top,
+#servicesOverview.sf-cw-js-fallback .sf-cw-rule-bottom {
+  transform: scaleX(var(--cw-head-rule-p, 1));
+}
+
+#servicesOverview.sf-cw-js-fallback .sf-cw-rule-divider {
+  transform: scaleY(var(--cw-head-rule-p, 1));
+}
+
+#servicesOverview.sf-cw-js-fallback .sf-cw-line-inner {
+  transform: translateY(var(--cw-line-y, 0%));
+}
+
+#servicesOverview.sf-cw-js-fallback .sf-cw-header-right .sf-practice-hero-desc {
+  opacity: var(--cw-head-desc-op, 1);
+  transform: translateY(var(--cw-head-desc-y, 0px));
+}
+
+#servicesOverview.sf-cw-js-fallback .sf-cw-banner {
+  transform: translateX(var(--cw-banner-x, 0%));
+}
+
+#servicesOverview.sf-cw-js-fallback .sf-cw-details {
+  opacity: var(--cw-details-op, 1);
+  transform: translateY(var(--cw-details-y, 0px));
+}
+
+#servicesOverview.sf-cw-js-fallback .sf-cw-photo-frame {
+  transform: translateY(var(--cw-frame-y, 0px));
+}
+
+#servicesOverview.sf-cw-js-fallback .sf-cw-photo {
+  transform: translateY(var(--cw-img-y, 0%)) scale(1.1);
+}
+
+/* Reduced Motion Explicit Reset (Ensures everything is 100% static & visible) */
+@media (prefers-reduced-motion: reduce) {
+  #servicesOverview .sf-cw-step,
+  #servicesOverview .sf-cw-rule-top,
+  #servicesOverview .sf-cw-rule-bottom,
+  #servicesOverview .sf-cw-rule-divider,
+  #servicesOverview .sf-cw-line-inner,
+  #servicesOverview .sf-practice-hero-desc,
+  #servicesOverview .sf-cw-banner,
+  #servicesOverview .sf-cw-details,
+  #servicesOverview .sf-cw-photo-frame {
+    transform: none !important;
+    opacity: 1 !important;
+    animation: none !important;
+  }
+
+  #servicesOverview .sf-cw-photo {
+    transform: none !important;
+    animation: none !important;
+  }
+}
+
+/* ============================================================================
+ * 10. RESPONSIVE BREAKPOINTS (TABLET <= 1024px & MOBILE <= 820px)
+ * ============================================================================ */
+
+@media (max-width: 1024px) {
+  #servicesOverview.sf-practice-section {
+    --cw-gutter: 28px;
+    --cw-col: calc((100% - 56px) / 12);
+  }
+
+  #servicesOverview h2.sf-cw-hero-title {
+    font-size: clamp(30px, 4.3vw, 48px) !important;
+  }
+
+  #servicesOverview .sf-cw-banner {
+    width: 66%;
+    min-width: 220px;
+  }
+
+  #servicesOverview .sf-cw-row[data-side="right"] .sf-cw-details {
+    padding-left: 12%;
+    padding-right: 4%;
+  }
+
+  #servicesOverview .sf-cw-row[data-side="left"] .sf-cw-details {
+    padding-left: 4%;
+    padding-right: 12%;
+  }
+
+  #servicesOverview .sf-cw-half--media {
+    padding: 0 12%;
+  }
+}
+
+@media (max-width: 820px) {
+  #servicesOverview.sf-practice-section {
+    --cw-gutter: 18px;
+    --cw-col: calc((100% - 36px) / 6);
+  }
+
+  #servicesOverview .sf-cw-staircase {
+    height: 160px;
+  }
+
+  #servicesOverview .sf-cw-grid-bg {
+    background-size: var(--cw-col) 100%;
+  }
+
+  #servicesOverview .sf-cw-canvas {
+    padding-top: 38px;
+  }
+
+  /* Header stacks cleanly within its architectural top/bottom rules */
+  #servicesOverview .sf-cw-header-grid {
+    grid-template-columns: 1fr;
+  }
+
+  #servicesOverview .sf-cw-header-left {
+    padding: 22px 0 24px 0;
+  }
+
+  #servicesOverview h2.sf-cw-hero-title {
+    font-size: clamp(29px, 8.2vw, 42px) !important;
+    line-height: 1.07 !important;
+  }
+
+  #servicesOverview .sf-cw-header-right {
+    padding: 20px 0 26px 0;
+    border-top: 1px solid var(--cw-rule);
+  }
+
+  #servicesOverview .sf-cw-rule-divider {
+    display: none;
+  }
+
+  #servicesOverview p.sf-practice-hero-desc {
+    padding-top: 0;
+    font-size: clamp(15px, 4vw, 17px) !important;
+    max-width: 100% !important;
+  }
+
+  /* Mobile switches spine cleanly to the left margin hairline so banners emerge rightward */
+  #servicesOverview .sf-cw-rows-stage {
+    padding: 40px var(--cw-gutter) 54px calc(var(--cw-gutter) + 1px);
+  }
+
+  #servicesOverview .sf-cw-center-spine {
+    left: var(--cw-gutter);
+    transform: none;
+  }
+
+  #servicesOverview .sf-cw-row {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  #servicesOverview .sf-cw-row + .sf-cw-row {
+    margin-top: 56px;
+  }
+
+  /* Flatten content container on narrow phones so order is Banner -> 3:4 Photo -> Copy/Capabilities */
+  #servicesOverview .sf-cw-row[data-side="right"] .sf-cw-half--content,
+  #servicesOverview .sf-cw-row[data-side="left"] .sf-cw-half--content {
+    display: contents;
+    padding-top: 0;
+  }
+
+  #servicesOverview .sf-cw-banner-clip {
+    order: 1;
+  }
+
+  #servicesOverview .sf-cw-row[data-side="right"] .sf-cw-half--media,
+  #servicesOverview .sf-cw-row[data-side="left"] .sf-cw-half--media {
+    grid-column: 1;
+    order: 2;
+    padding: 4px 0 0 14px;
+  }
+
+  #servicesOverview .sf-cw-details {
+    order: 3;
+  }
+
+  #servicesOverview .sf-cw-banner {
+    width: min(86%, 320px);
+    min-height: 132px;
+    padding: 15px 18px 18px;
+  }
+
+  /* All banners on stacked mobile emerge rightward from the left spine hairline */
+  #servicesOverview .sf-cw-row[data-side="left"] .sf-cw-banner {
+    margin-left: 0;
+    margin-right: auto;
+  }
+
+  #servicesOverview h3.sf-pbox-title {
+    font-size: clamp(21px, 5.8vw, 26px);
+    margin-top: 22px;
+  }
+
+  #servicesOverview .sf-cw-row[data-side="right"] .sf-cw-details,
+  #servicesOverview .sf-cw-row[data-side="left"] .sf-cw-details {
+    margin-top: 4px;
+    padding-left: 14px;
+    padding-right: 4px;
+  }
+
+  #servicesOverview .sf-pbox-desc {
+    font-size: 15px;
+    margin-bottom: 16px;
+  }
+
+  #servicesOverview .sf-pbox-capabilities {
+    margin-bottom: 18px;
+  }
+
+  #servicesOverview .sf-pbox-pill {
+    font-size: 12px;
+    padding: 4px 9px;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) and (max-width: 820px) {
+  @supports ((animation-timeline: view()) and (animation-range: entry)) {
+    #servicesOverview .sf-cw-row[data-side="left"] .sf-cw-banner {
+      animation: cw-banner-from-left-spine cubic-bezier(0.22, 1, 0.36, 1) both;
+      animation-timeline: --cw-row;
+      animation-range: entry 10% cover 42%;
+    }
+
+    #servicesOverview .sf-cw-photo-frame {
+      animation: none;
+    }
+
+    #servicesOverview .sf-cw-photo {
+      animation: cw-photo-img-parallax linear both;
+      animation-timeline: --cw-row;
+      animation-range: cover 0% cover 100%;
+    }
+  }
+}
