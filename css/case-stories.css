@@ -1458,11 +1458,13 @@
    -------------------------------------------------------------------------- */
 .cs-clients-section {
   padding: clamp(4rem, 6vw, 6rem) 0;
-  background: #080C14;
+  background: #000000 !important;
+  background-color: #000000 !important;
   color: #FFFFFF;
   position: relative;
   overflow: hidden;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .cs-clients-container {
