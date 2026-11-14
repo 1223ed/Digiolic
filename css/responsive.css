@@ -1317,19 +1317,34 @@ textarea {
     gap: 1.25rem !important;
   }
 
+  .cs-clients-container {
+    padding-left: 5px !important;
+    padding-right: 5px !important;
+    max-width: 100% !important;
+  }
+
   .cs-clients-grid {
     grid-template-columns: repeat(4, 1fr) !important;
-    gap: 0.4rem !important;
+    gap: 3.5px !important;
   }
   .cs-client-card {
-    padding: 6px 4px !important;
-    border-radius: 6px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border-radius: 5px !important;
+    background: #FFFFFF !important;
+    border: none !important;
+    box-shadow: none !important;
+    overflow: hidden !important;
   }
   .cs-client-card img {
-    border-radius: 6px !important;
-    max-height: 36px !important;
-    width: auto !important;
-    max-width: 85% !important;
+    border-radius: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    max-height: none !important;
+    max-width: 100% !important;
+    object-fit: contain !important;
+    transform: scale(1.12) !important;
+    display: block !important;
   }
 
   .cs-filter-bar,
