@@ -36,19 +36,20 @@
 }
 
 /* ============================================================================
- * 1. 14-COLUMN STAIRCASE ENTRY WIPE (RISES OVER #cloudsSection)
+ * 1. 14-COLUMN STAIRCASE ENTRY WIPE (REMOVED PER USER REQUEST)
  * ============================================================================ */
 
 #servicesOverview .sf-cw-staircase {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 100%;
-  height: clamp(260px, 54vh, 540px);
-  display: flex;
-  align-items: stretch;
-  pointer-events: none;
-  z-index: 65;
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+#servicesOverview .sf-highlight-blue {
+  color: #00A1E0 !important;
+  -webkit-text-fill-color: #00A1E0 !important;
+  text-shadow: 0 0 30px rgba(0, 161, 224, 0.3) !important;
+  display: inline !important;
 }
 
 #servicesOverview .sf-cw-step {
