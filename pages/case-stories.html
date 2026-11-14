@@ -20,7 +20,7 @@
   <link rel="stylesheet" href="../css/style.css?v=20261109_fint10_v1">
   <link rel="stylesheet" href="../css/components.css?v=20261105_v1">
   <link rel="stylesheet" href="../css/pages.css?v=20260919_v209">
-  <link rel="stylesheet" href="../css/case-stories.css?v=20261114_nk_trusted_v2">
+  <link rel="stylesheet" href="../css/case-stories.css?v=20261114_dm_photo_v1">
   <link rel="stylesheet" href="../css/responsive.css?v=20261111_hero_vid_v1">
   <link rel="stylesheet" href="../css/chat-widget.css?v=20260919_v209">
   <link rel="stylesheet" href="../css/zoho-footer.css?v=20261103_1">
@@ -730,7 +730,7 @@
       }
     }
 
-    /* Trusted by Industry Leaders: +30% font size & NK luminous mint highlight */
+    /* Trusted by Industry Leaders: +30% font size & red highlight */
     .cs-clients-header .cs-section-title {
       font-family: var(--font-display, 'Outfit', sans-serif) !important;
       font-size: clamp(2.4rem, 4.2vw, 3.25rem) !important;
@@ -741,14 +741,9 @@
       margin-bottom: 1rem !important;
     }
 
-    .cs-clients-header .cs-section-title .cs-title-nk {
-      color: #00E5A3 !important;
-      background: linear-gradient(135deg, #FFFFFF 0%, #2DD4BF 45%, #00E5A3 100%) !important;
-      -webkit-background-clip: text !important;
-      -webkit-text-fill-color: transparent !important;
-      text-shadow: 0 0 35px rgba(0, 229, 163, 0.45) !important;
-      position: relative !important;
-      display: inline-block !important;
+    .cs-clients-header .cs-section-title .cs-title-red {
+      color: #FF3B30 !important;
+      text-shadow: 0 0 25px rgba(255, 59, 48, 0.35);
     }
 
     /* Bottom Block: Paragraph + Button + Security Row */
@@ -2502,15 +2497,10 @@
          5. ENTERPRISE CLIENT SHOWCASE (30-BRAND MATRIX)
          ========================================================================== -->
     <section class="cs-clients-section" id="clientsShowcase" aria-label="Enterprise Client Showcase">
-      <!-- Animated Nebula Aurora, Drift Streaks & Ambient Stardust Layers -->
-      <div class="cs-nk-aurora" aria-hidden="true"></div>
-      <div class="cs-nk-streaks" aria-hidden="true"></div>
-      <canvas class="cs-nk-canvas" id="clientsParticleCanvas" aria-hidden="true"></canvas>
-
       <div class="cs-clients-container">
         <div class="cs-clients-header">
           <span class="cs-eyebrow">ENTERPRISE CLIENT ECOSYSTEM</span>
-          <h2 class="cs-section-title">Trusted by <span class="cs-title-nk">Industry Leaders</span></h2>
+          <h2 class="cs-section-title">Trusted by <span class="cs-title-red" style="color: #FF3B30 !important;">Industry Leaders</span></h2>
           <p class="cs-section-subtitle">
             Partnering with world-class enterprises, high-velocity disruptors, and category leaders to build scalable revenue architecture.
           </p>
@@ -2918,7 +2908,6 @@
   </button>
   <script src="../js/scroll-nav.js?v=20260920_v302"></script>
   <script src="../js/cinematic-menu.js?v=20261004_v2"></script>
-  <script src="../js/clients-nk-canvas.js?v=20261114_nk_v1" defer></script>
 
   <!-- Case Stories Audio Controller -->
   <script>
