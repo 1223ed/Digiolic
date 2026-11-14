@@ -1662,13 +1662,32 @@
 }
 
 
-/* Digital Marketing 4 Green Square Cards (Deep Black Background) */
+/* Digital Marketing Case Studies Photo Banner (Deep Black Background) */
 .dm-case-studies-section {
   background: #000000 !important;
   border-top: none !important;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
   padding: 1.5rem 0 4.5rem 0 !important;
   position: relative !important;
+}
+
+.dm-case-studies-photo-wrapper {
+  width: 100% !important;
+  max-width: 1024px !important;
+  margin: 0 auto !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+.dm-case-studies-photo {
+  width: 100% !important;
+  max-width: 1024px !important;
+  height: auto !important;
+  display: block !important;
+  object-fit: contain !important;
+  border-radius: 4px !important;
+  user-select: none !important;
 }
 
 .dm-case-studies-grid {

@@ -20,7 +20,7 @@
   <link rel="stylesheet" href="../css/style.css?v=20261109_fint10_v1">
   <link rel="stylesheet" href="../css/components.css?v=20261105_v1">
   <link rel="stylesheet" href="../css/pages.css?v=20260919_v209">
-  <link rel="stylesheet" href="../css/case-stories.css?v=20261111_dm_static_v1">
+  <link rel="stylesheet" href="../css/case-stories.css?v=20261114_dm_photo_v1">
   <link rel="stylesheet" href="../css/responsive.css?v=20261111_hero_vid_v1">
   <link rel="stylesheet" href="../css/chat-widget.css?v=20260919_v209">
   <link rel="stylesheet" href="../css/zoho-footer.css?v=20261103_1">
@@ -2430,47 +2430,26 @@
         color: #76B82A !important;
         margin: 0 auto clamp(2rem, 3.5vw, 3rem) auto !important;
       }
-      .dm-case-studies-section#dmCaseStudiesSection .dm-case-studies-grid {
-        display: grid !important;
-        grid-template-columns: repeat(4, 1fr) !important;
-        gap: 1.5rem !important;
-        max-width: 100% !important;
-        margin: 0 auto !important;
-        align-items: stretch !important;
-      }
-      .dm-case-studies-section#dmCaseStudiesSection .dm-case-study-card {
-        position: relative !important;
-        border-radius: 0 !important;
-        overflow: hidden !important;
-        background: #76B82A !important;
-        box-shadow: none !important;
-        cursor: default !important;
-      }
-      .dm-case-studies-section#dmCaseStudiesSection .dm-case-study-img {
+      .dm-case-studies-section#dmCaseStudiesSection .dm-case-studies-photo-wrapper {
         width: 100% !important;
-        height: 100% !important;
-        aspect-ratio: 1 / 1 !important;
-        object-fit: cover !important;
-        object-position: top center !important;
-        transform: scale(1.015) !important;
-        display: block !important;
-        user-select: none !important;
+        max-width: 1024px !important;
+        margin: 0 auto !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
       }
-      @media (max-width: 992px) {
-        .dm-case-studies-section#dmCaseStudiesSection .dm-case-studies-grid {
-          grid-template-columns: repeat(2, 1fr) !important;
-          gap: 1.25rem !important;
-          max-width: 100% !important;
-        }
+      .dm-case-studies-section#dmCaseStudiesSection .dm-case-studies-photo {
+        width: 100% !important;
+        max-width: 1024px !important;
+        height: auto !important;
+        display: block !important;
+        object-fit: contain !important;
+        border-radius: 4px !important;
+        user-select: none !important;
       }
       @media (max-width: 540px) {
         .dm-case-studies-section#dmCaseStudiesSection .dm-case-studies-title {
           font-size: clamp(22px, 5.8vw, 26px) !important;
-        }
-        .dm-case-studies-section#dmCaseStudiesSection .dm-case-studies-grid {
-          grid-template-columns: 1fr !important;
-          gap: 1.25rem !important;
-          max-width: 100% !important;
         }
       }
     </style>
@@ -2479,42 +2458,13 @@
       <div class="dm-case-studies-container">
         <h2 class="dm-case-studies-title">DIGITAL MARKETING CASE STUDIES</h2>
 
-        <div class="dm-case-studies-grid">
-          <!-- Card 1: Deccan Herald -->
-          <div class="dm-case-study-card">
-            <img
-              src="../assets/images/case-study-card-1.png"
-              alt="Deccan Herald Case Study - News &amp; Publication: 37% Boost in Lead Generation, 49% Reduction in CAC"
-              class="dm-case-study-img"
-              loading="lazy">
-          </div>
-
-          <!-- Card 2: Myntra -->
-          <div class="dm-case-study-card">
-            <img
-              src="../assets/images/case-study-card-2.png"
-              alt="Myntra Case Study - E-Commerce: 10X Boost in Organic traffic, 100% Increase MOM"
-              class="dm-case-study-img"
-              loading="lazy">
-          </div>
-
-          <!-- Card 3: Flipkart -->
-          <div class="dm-case-study-card">
-            <img
-              src="../assets/images/case-study-card-3.png"
-              alt="Flipkart Case Study - E-Commerce: 40% Boost in IG Engagement, 70% Boost in YT Views"
-              class="dm-case-study-img"
-              loading="lazy">
-          </div>
-
-          <!-- Card 4: via Milano -->
-          <div class="dm-case-study-card">
-            <img
-              src="../assets/images/case-study-card-4.png"
-              alt="via Milano Case Study - E-Commerce: 4X Boost in Table Booking, 100% Increase Revenue"
-              class="dm-case-study-img"
-              loading="lazy">
-          </div>
+        <div class="dm-case-studies-photo-wrapper">
+          <img
+            src="../assets/images/digital-marketing-case-studies.png"
+            alt="Digital Marketing Case Studies - Deccan Herald, Myntra, Flipkart, via Milano"
+            class="dm-case-studies-photo"
+            loading="eager"
+            decoding="async">
         </div>
       </div>
     </section>
