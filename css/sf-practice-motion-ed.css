@@ -125,7 +125,13 @@
   margin: 0 var(--cw-gutter);
 }
 
-#servicesOverview .sf-cw-rule-top,
+#servicesOverview .sf-cw-rule-top {
+  display: none !important;
+  visibility: hidden !important;
+  height: 0 !important;
+  border: none !important;
+}
+
 #servicesOverview .sf-cw-rule-bottom {
   display: block;
   width: 100%;
@@ -191,9 +197,23 @@
 }
 
 #servicesOverview .sf-cw-header-right,
-#servicesOverview .sf-cw-rule-divider,
-#servicesOverview p.sf-practice-hero-desc {
+#servicesOverview .sf-cw-rule-divider {
   display: none !important;
+}
+
+#servicesOverview p.sf-practice-hero-desc {
+  display: block !important;
+  font-family: var(--cw-font, 'Inter', 'Plus Jakarta Sans', sans-serif) !important;
+  font-size: clamp(16px, 1.25vw, 19px) !important;
+  font-weight: 400 !important;
+  line-height: 1.5 !important;
+  letter-spacing: -0.012em !important;
+  color: rgba(255, 255, 255, 0.72) !important;
+  text-align: center !important;
+  max-width: min(44rem, 90%) !important;
+  margin: clamp(16px, 2.2vh, 26px) auto 0 auto !important;
+  text-wrap: balance;
+  box-sizing: border-box;
 }
 
 /* ============================================================================
@@ -848,7 +868,14 @@
   }
 
   #servicesOverview p.sf-practice-hero-desc {
-    display: none !important;
+    display: block !important;
+    font-size: clamp(14px, 3.8vw, 16.5px) !important;
+    line-height: 1.48 !important;
+    text-align: center !important;
+    max-width: 95% !important;
+    margin: 14px auto 0 auto !important;
+    padding: 0 !important;
+    color: rgba(255, 255, 255, 0.72) !important;
   }
 
   /* Mobile switches spine cleanly to the left margin hairline so banners emerge rightward */
