@@ -209,6 +209,15 @@
   white-space: nowrap;
 }
 
+/* Digiolic Brand Orange for TESTIMONIALS (Website & Mobile) */
+#ctTitleLine2,
+.ct-title-line#ctTitleLine2,
+#ctTitleLine2 .ct-char {
+  color: #FF6B00 !important;
+  -webkit-text-fill-color: #FF6B00 !important;
+  text-shadow: 0 4px 35px rgba(255, 107, 0, 0.48), 0 0 15px rgba(255, 107, 0, 0.3) !important;
+}
+
 /* Individual character split for silky upward wave entrance */
 .ct-char {
   display: inline-block;

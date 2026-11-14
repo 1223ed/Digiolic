@@ -1318,8 +1318,18 @@ textarea {
   }
 
   .cs-clients-grid {
-    grid-template-columns: repeat(2, 1fr) !important;
-    gap: 0.75rem !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 0.4rem !important;
+  }
+  .cs-client-card {
+    padding: 6px 4px !important;
+    border-radius: 6px !important;
+  }
+  .cs-client-card img {
+    border-radius: 6px !important;
+    max-height: 36px !important;
+    width: auto !important;
+    max-width: 85% !important;
   }
 
   .cs-filter-bar,
