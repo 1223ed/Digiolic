@@ -198,6 +198,12 @@
             <input type="text" style="display:none;" id="LDTuvid" name="LDTuvid">
             <!-- Do not remove this code. -->
             <input type="text" type="hidden" style="display:none;" name="aG9uZXlwb3Q" value="">
+            
+            <!-- Lead Source configured as Website matching Zoho CRM Webform -->
+            <select style="display:none;" id="Lead_Source" name="Lead Source" aria-label="Lead Source">
+              <option value="-None-">-None-</option>
+              <option selected value="Website">Website</option>
+            </select>
 
             <div class="trionn-form-grid">
               <!-- Field 1: Name -->
@@ -402,22 +408,27 @@
               };
               function trackVisitor1462145000000553302() {
                 try {
-                  if ($zoho) {
-                    var LDTuvidObj = document.forms['WebToLeads1462145000000553302']['LDTuvid'];
-                    if (LDTuvidObj && $zoho.salesiq && $zoho.salesiq.visitor) {
-                      LDTuvidObj.value = $zoho.salesiq.visitor.uniqueid();
+                  if (typeof $zoho !== 'undefined') {
+                    var form = document.forms['WebToLeads1462145000000553302'] || document.getElementById('webform1462145000000553302');
+                    if (!form) return;
+                    var LDTuvidObj = form['LDTuvid'];
+                    if (LDTuvidObj && $zoho.salesiq && $zoho.salesiq.visitor && typeof $zoho.salesiq.visitor.uniqueid === 'function') {
+                      var uid = $zoho.salesiq.visitor.uniqueid();
+                      if (uid && uid !== 'undefined') {
+                        LDTuvidObj.value = uid;
+                      }
                     }
-                    var firstnameObj = document.forms['WebToLeads1462145000000553302']['First Name'];
-                    var nameFld = document.forms['WebToLeads1462145000000553302']['Last Name'];
+                    var firstnameObj = form['First Name'];
+                    var nameFld = form['Last Name'];
                     var fullName = nameFld ? nameFld.value : '';
                     if (firstnameObj && firstnameObj.value) {
                       fullName = firstnameObj.value + ' ' + fullName;
                     }
-                    if ($zoho.salesiq && $zoho.salesiq.visitor) {
+                    if ($zoho.salesiq && $zoho.salesiq.visitor && typeof $zoho.salesiq.visitor.name === 'function') {
                       $zoho.salesiq.visitor.name(fullName);
                     }
-                    var emailObj = document.forms['WebToLeads1462145000000553302']['Email'];
-                    if (emailObj && $zoho.salesiq && $zoho.salesiq.visitor) {
+                    var emailObj = form['Email'];
+                    if (emailObj && $zoho.salesiq && $zoho.salesiq.visitor && typeof $zoho.salesiq.visitor.email === 'function') {
                       $zoho.salesiq.visitor.email(emailObj.value);
                     }
                   }
@@ -697,6 +708,11 @@
             }
             alert(fldLangVal[i] + ' cannot be empty.');
             if (mndFileds[i] === 'LEADCF1') {
+              var selectWrap = document.getElementById('trionnServicesSelect');
+              if (selectWrap) {
+                selectWrap.classList.add('is-open');
+                try { selectWrap.scrollIntoView({ behavior: 'smooth', block: 'center' }); } catch(e) {}
+              }
               var trigger = document.querySelector('#trionnServicesSelect .trionn-select-trigger');
               if (trigger) trigger.focus();
             } else {
@@ -741,9 +757,12 @@
       }
       var submitBtn = document.querySelector('.crmWebToEntityForm .formsubmit') || document.getElementById('formsubmit');
       if (submitBtn) {
-        submitBtn.setAttribute('disabled', 'true');
         var span = submitBtn.querySelector('span');
         if (span) span.textContent = 'SENDING...';
+        // Delay disabling so Safari / iOS browsers do not abort the form submit action
+        setTimeout(function() {
+          submitBtn.setAttribute('disabled', 'true');
+        }, 150);
       }
       if (!isAjax) {
         window.addEventListener('focus', historyBack1462145000000553302);
