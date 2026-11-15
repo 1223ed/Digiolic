@@ -3,14 +3,16 @@
  * DIGIOLIC HOMEPAGE HERO — CINEMATIC GSAP THREE-STEP CONTROLLER
  * 
  * 1. Step 1 (Intro Screen):
- *    - Full-screen solid black background.
- *    - Large bold centered heading: "YOUR WAIT IS WORTH NOW".
- *    - 2.5-second hold before smooth fade-out.
+ *    - 1st: Solid full-screen black background (#000000).
+ *    - After 3.0 seconds: Large bold clean sans-serif heading "YOUR WAIT IS WORTH NOW".
+ *    - Smoothly transitions / fades out into Step 2.
  * 
  * 2. Step 2 (Video Reveal / Mask Animation):
- *    - Seamless transition into Wild-style video sequence (word 'DIGIOLIC').
- *    - Center vertical slit mask opens between DIGI and OLIC.
- *    - Expands into circle, then into wide stadium capsule mask.
+ *    - Wild-style video sequence with "DIGI" and "OLIC".
+ *    - Letter "D" colored in Digiolic Green (#76C826).
+ *    - Letter "O" in "OLIC" is completely clear and 100% visible (zero overlap).
+ *    - Symmetrical 50/50 flex layout with calibrated clearance.
+ *    - Center slit mask opens -> expands to circle -> widens to stadium capsule.
  *    - Dynamic video element playing inside: assets/videos/hero-video.mp4
  * 
  * 3. Step 3 (Video Expansion / Card Displacement):
@@ -31,12 +33,14 @@
     imagePlaceholder: 'assets/images/hero-image.png',
 
     // Timings (in seconds)
-    step1Hold: 2.5,          // Requested 2.5s hold on black intro
-    step1Fade: 0.8,          // Transition time for intro screen
+    blackIntroDuration: 3.0, // Requested: 1st full black screen, then in 3s text appears
+    waitTextFadeIn: 0.65,    // Smooth fade in of "YOUR WAIT IS WORTH NOW"
+    waitTextHold: 2.2,       // Hold time for reading intro text
+    step1FadeOut: 0.75,      // Fade out of Step 1 curtain
     step2SlitOpen: 0.45,     // Slit mask opening
     step2CircleExpand: 0.55, // Expansion into circle
-    step2StadiumWiden: 0.7,  // Widening into stadium pill
-    step2Hold: 2.0,          // Hold showing video in stadium mask
+    step2StadiumWiden: 0.7,  // Widening into stadium capsule
+    step2Hold: 2.2,          // Hold showing video in stadium mask
     step3Expand: 1.0,        // Scaling / coming out to framed container
     step3LockupRise: 0.8,    // Lockup emergence matching hero-image.png
   };
@@ -65,13 +69,16 @@
     let isUserPaused = prefersReducedMotion;
     let isStep3Active = false;
 
-    // Responsive dimensions for Step 2 stadium pill
+    // Responsive dimensions for Step 2 stadium pill with calibrated clearance for 'O'
     function getPillDimensions() {
       const isMobile = window.innerWidth <= 480;
       const isTablet = window.innerWidth <= 768;
-      const height = isMobile ? 100 : (isTablet ? 140 : 230);
-      const width = isMobile ? Math.min(220, window.innerWidth * 0.44) : (isTablet ? 280 : 540);
-      return { width, height };
+      const height = isMobile ? 95 : (isTablet ? 140 : 230);
+      const width = isMobile ? Math.min(195, window.innerWidth * 0.42) : (isTablet ? 270 : 520);
+      // Spacer has extra clearance to guarantee letter 'O' is completely clear and never clipped
+      const spacerClearance = isMobile ? 24 : (isTablet ? 36 : 48);
+      const spacerWidth = width + spacerClearance;
+      return { width, height, spacerWidth };
     }
 
     // Ensure video plays continuously
@@ -94,7 +101,7 @@
 
       const pillDims = getPillDimensions();
 
-      // Initial State Setup with GSAP
+      // Initial State: 1st Full Black Screen (no text yet, pure darkness)
       gsap.set(curtain, { opacity: 1, visibility: 'visible' });
       gsap.set(waitText, { opacity: 0, scale: 0.94, y: 28 });
       gsap.set(step2Stage, { opacity: 1, visibility: 'visible' });
@@ -122,37 +129,45 @@
       });
 
       // ======================================================================
-      // 1. Step 1 (Intro Screen): Black background + "YOUR WAIT IS WORTH NOW"
+      // 1. Step 1 (Intro Screen):
+      //    0.0s to 3.0s: 1st FULL SOLID BLACK SCREEN
+      //    At 3.0s: "YOUR WAIT IS WORTH NOW" smoothly fades in!
       // ======================================================================
+      const textEnterTime = HERO_CONFIG.blackIntroDuration; // 3.0 seconds
+      const textExitTime = textEnterTime + HERO_CONFIG.waitTextHold; // 5.2 seconds
+
       heroTl
+        // At 3 seconds: text emerges into the center of the black screen
         .to(waitText, {
           opacity: 1,
           scale: 1,
           y: 0,
-          duration: 0.6,
+          duration: HERO_CONFIG.waitTextFadeIn,
           ease: 'power2.out'
-        }, 0.1)
-        // Hold for the specified 2.5s duration
+        }, textEnterTime)
+        // Holds until 5.2s, then text floats up and curtain fades out
         .to(waitText, {
           opacity: 0,
-          y: -18,
+          y: -20,
           scale: 1.02,
           duration: 0.5,
           ease: 'power2.in'
-        }, HERO_CONFIG.step1Hold)
+        }, textExitTime)
         .to(curtain, {
           opacity: 0,
-          duration: HERO_CONFIG.step1Fade,
+          duration: HERO_CONFIG.step1FadeOut,
           ease: 'power2.inOut',
           onComplete: function () {
             curtain.style.visibility = 'hidden';
           }
-        }, HERO_CONFIG.step1Hold + 0.1);
+        }, textExitTime + 0.1);
 
       // ======================================================================
       // 2. Step 2 (Video Reveal / Mask Animation): Slit -> Circle -> Stadium
+      //    - Letter D is in Digiolic Green (#76C826)
+      //    - Letter O is completely clear and 100% visible (zero overlap)
       // ======================================================================
-      const step2Start = HERO_CONFIG.step1Hold + HERO_CONFIG.step1Fade - 0.15;
+      const step2Start = textExitTime + HERO_CONFIG.step1FadeOut - 0.15;
 
       heroTl
         // 2a. Slit opens vertically between DIGI and OLIC
@@ -167,9 +182,15 @@
           duration: HERO_CONFIG.step2CircleExpand,
           ease: 'power2.out'
         }, step2Start + HERO_CONFIG.step2SlitOpen)
-        // 2c. Widens into stadium pill, pushing DIGI left and OLIC right
-        .to([slitSpacer, portalWindow], {
+        // 2c. Widens into stadium capsule:
+        // Portal window expands to pillDims.width, spacer expands with clearance so O is never touched!
+        .to(portalWindow, {
           width: pillDims.width,
+          duration: HERO_CONFIG.step2StadiumWiden,
+          ease: 'power3.out'
+        }, step2Start + HERO_CONFIG.step2SlitOpen + HERO_CONFIG.step2CircleExpand)
+        .to(slitSpacer, {
+          width: pillDims.spacerWidth,
           duration: HERO_CONFIG.step2StadiumWiden,
           ease: 'power3.out'
         }, step2Start + HERO_CONFIG.step2SlitOpen + HERO_CONFIG.step2CircleExpand);
@@ -192,15 +213,15 @@
           duration: HERO_CONFIG.step3Expand,
           ease: 'expo.out'
         }, 'step3')
-        // 3b. DIGI and OLIC displace outward and fade out
+        // 3b. DIGI and OLIC displace outward and fade away
         .to(splitDigi, {
-          x: -120,
+          x: -140,
           opacity: 0,
           duration: 0.65,
           ease: 'power2.in'
         }, 'step3')
         .to(splitOlic, {
-          x: 120,
+          x: 140,
           opacity: 0,
           duration: 0.65,
           ease: 'power2.in'
@@ -250,7 +271,7 @@
         // Fallback timer for CSS animations
         setTimeout(function () {
           hero.classList.add('is-hero-settled');
-        }, 7500);
+        }, 10500);
       }
     }
 
@@ -260,7 +281,6 @@
       isStep3Active = true;
       if (heroTl) {
         if (heroTl.time() < heroTl.labels.step3) {
-          // Smoothly advance timeline to step3
           heroTl.tweenTo('step3', {
             duration: 0.35,
             ease: 'power2.inOut',

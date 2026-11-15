@@ -3,15 +3,16 @@
    Orchestrated via GSAP (with pure CSS keyframe fallback)
 
    Step 1 (Intro Screen):
-     - Solid full-screen black background (#000000, fixed z-index 99999)
-     - Clean sans-serif large bold heading: "YOUR WAIT IS WORTH NOW"
-     - 2.5-second hold before smooth transition / fade-out
+     - 1st: Solid full-screen black background (#000000, fixed z-index 99999)
+     - After 3.0 seconds: Large bold clean sans-serif heading "YOUR WAIT IS WORTH NOW"
+     - Smoothly fades out into Step 2
 
    Step 2 (Video Reveal / Mask Animation):
      - Pure White Stage (#FFFFFF) matching Wild motion reference
-     - Bold "DIGI" (left) and "OLIC" (right)
+     - Bold "DIGI" (with D in Digiolic Green #76C826) and "OLIC" (with O clearly visible)
      - Center Vertical Slit mask opens between them -> expands to circle ->
        widens horizontally into stadium capsule mask
+     - Zero overlap on the letter "O": Symmetrical 50/50 flex layout with generous clearance
      - Dynamic video element playing inside: assets/videos/hero-video.mp4
 
    Step 3 (Video Expansion / Card Displacement):
@@ -83,6 +84,7 @@
   text-transform: uppercase !important;
   color: #FFFFFF !important;
   text-shadow: 0 6px 36px rgba(0, 0, 0, 0.9), 0 0 50px rgba(255, 255, 255, 0.22);
+  opacity: 0;
   will-change: transform, opacity;
 }
 
@@ -112,6 +114,7 @@
   user-select: none;
   overflow: hidden;
   gap: 0;
+  box-sizing: border-box;
 }
 
 #heroSection .hero-split-half {
@@ -127,12 +130,32 @@
   will-change: transform, opacity;
 }
 
+/* Perfect 50/50 balance guarantees the center gap is at exact screen center (50%) */
 #heroSection .hero-split-digi {
-  text-align: right;
+  flex: 1 1 0% !important;
+  text-align: right !important;
+  padding-right: clamp(16px, 2.8vw, 42px) !important;
+  box-sizing: border-box;
 }
 
 #heroSection .hero-split-olic {
-  text-align: left;
+  flex: 1 1 0% !important;
+  text-align: left !important;
+  padding-left: clamp(16px, 2.8vw, 42px) !important;
+  box-sizing: border-box;
+}
+
+/* Letter D in Digiolic Green (#76C826) */
+#heroSection .hero-brand-d {
+  color: #76C826 !important;
+  display: inline-block;
+  text-shadow: 0 4px 20px rgba(118, 200, 38, 0.28);
+}
+
+/* Letter O in clean bold black, completely clear of the capsule pill */
+#heroSection .hero-char-o {
+  color: #0A0A0A !important;
+  display: inline-block;
 }
 
 /* Spacer that pushes DIGI left and OLIC right in exact sync with portal window */
@@ -432,17 +455,19 @@
 
 /* ==========================================================================
    CSS FALLBACK KEYFRAME ANIMATIONS (When GSAP is not loaded)
+   1st: 3.0s pure black screen
+   Then: "YOUR WAIT IS WORTH NOW" fades in
    ========================================================================== */
 @keyframes heroStep1TextAnim {
-  0% {
+  0%, 35% {
     opacity: 0;
     transform: translate3d(0, 30px, 0) scale(0.94);
   }
-  16% {
+  42% {
     opacity: 1;
     transform: translate3d(0, 0, 0) scale(1);
   }
-  78% {
+  75% {
     opacity: 1;
     transform: translate3d(0, 0, 0) scale(1);
   }
@@ -453,7 +478,7 @@
 }
 
 @keyframes heroStep1CurtainFade {
-  0%, 80% {
+  0%, 78% {
     opacity: 1;
     visibility: visible;
   }
@@ -484,13 +509,13 @@
     width: 14px;
   }
   48% {
-    width: clamp(130px, 19vw, 230px);
+    width: clamp(140px, 20vw, 240px);
   }
   58%, 84% {
-    width: clamp(320px, 46vw, 560px);
+    width: clamp(340px, 48vw, 580px);
   }
   94%, 100% {
-    width: clamp(320px, 46vw, 560px);
+    width: clamp(340px, 48vw, 580px);
   }
 }
 
@@ -520,7 +545,7 @@
     height: 100%;
     border-radius: 0px;
     box-shadow: none;
-    border-color: transparent;
+    border: none;
   }
 }
 
@@ -570,56 +595,56 @@
 /* Pure CSS Keyframes Fallback Timings (when GSAP is inactive) */
 @media (prefers-reduced-motion: no-preference) {
   #heroSection:not(.has-gsap-hero) .hero-step1-curtain {
-    animation: heroStep1CurtainFade 2.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    animation: heroStep1CurtainFade 6.0s cubic-bezier(0.22, 1, 0.36, 1) forwards;
   }
 
   #heroSection:not(.has-gsap-hero) .hero-step1-wait {
-    animation: heroStep1TextAnim 2.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation: heroStep1TextAnim 6.0s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   }
 
   #heroSection:not(.has-gsap-hero) .hero-step2-stage {
-    animation: heroStep2StageExit 6.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    animation: heroStep2StageExit 9.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
   }
 
   #heroSection:not(.has-gsap-hero) .hero-step2-split-row {
-    animation: heroSplitRowMotion 6.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    animation: heroSplitRowMotion 9.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
   }
 
   #heroSection:not(.has-gsap-hero) .hero-slit-spacer {
-    animation: heroSpacerWidthAnim 6.8s cubic-bezier(0.25, 1, 0.3, 1) forwards;
+    animation: heroSpacerWidthAnim 9.6s cubic-bezier(0.25, 1, 0.3, 1) forwards;
   }
 
   #heroSection:not(.has-gsap-hero) .hero-portal-window {
-    animation: heroPortalWindowMotion 6.8s cubic-bezier(0.25, 1, 0.3, 1) forwards;
+    animation: heroPortalWindowMotion 9.6s cubic-bezier(0.25, 1, 0.3, 1) forwards;
   }
 
   #heroSection:not(.has-gsap-hero) .hero-portal-overlay {
-    animation: heroOverlayFadeIn 6.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    animation: heroOverlayFadeIn 9.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
   }
 
   #heroSection:not(.has-gsap-hero) .home-hero-header,
   #heroSection:not(.has-gsap-hero) .home-hero-bottom {
-    animation: heroChromeFadeIn 0.75s cubic-bezier(0.16, 1, 0.3, 1) 6.1s both;
+    animation: heroChromeFadeIn 0.75s cubic-bezier(0.16, 1, 0.3, 1) 8.8s both;
   }
 
   #heroSection:not(.has-gsap-hero) .hero-manifest-pill {
     opacity: 0;
-    animation: heroElementRiseIn 0.65s cubic-bezier(0.16, 1, 0.3, 1) 6.3s both;
+    animation: heroElementRiseIn 0.65s cubic-bezier(0.16, 1, 0.3, 1) 9.0s both;
   }
 
   #heroSection:not(.has-gsap-hero) .hero-manifest-line-1 {
     opacity: 0;
-    animation: heroElementRiseIn 0.72s cubic-bezier(0.16, 1, 0.3, 1) 6.46s both;
+    animation: heroElementRiseIn 0.72s cubic-bezier(0.16, 1, 0.3, 1) 9.16s both;
   }
 
   #heroSection:not(.has-gsap-hero) .hero-manifest-line-2 {
     opacity: 0;
-    animation: heroElementRiseIn 0.72s cubic-bezier(0.16, 1, 0.3, 1) 6.62s both;
+    animation: heroElementRiseIn 0.72s cubic-bezier(0.16, 1, 0.3, 1) 9.32s both;
   }
 
   #heroSection:not(.has-gsap-hero) .hero-manifest-sub {
     opacity: 0;
-    animation: heroElementRiseIn 0.72s cubic-bezier(0.16, 1, 0.3, 1) 6.82s both;
+    animation: heroElementRiseIn 0.72s cubic-bezier(0.16, 1, 0.3, 1) 9.52s both;
   }
 }
 
@@ -711,6 +736,14 @@
     font-size: clamp(34px, 8vw, 62px);
   }
 
+  #heroSection .hero-split-digi {
+    padding-right: clamp(14px, 2.5vw, 28px) !important;
+  }
+
+  #heroSection .hero-split-olic {
+    padding-left: clamp(14px, 2.5vw, 28px) !important;
+  }
+
   #heroSection .hero-slit-spacer {
     height: clamp(95px, 20vw, 150px);
   }
@@ -723,13 +756,13 @@
       width: 10px;
     }
     48% {
-      width: clamp(95px, 20vw, 150px);
+      width: clamp(110px, 22vw, 165px);
     }
     58%, 84% {
-      width: clamp(200px, 46vw, 300px);
+      width: clamp(220px, 48vw, 320px);
     }
     94%, 100% {
-      width: clamp(200px, 46vw, 300px);
+      width: clamp(220px, 48vw, 320px);
     }
   }
 
@@ -794,6 +827,14 @@
     font-size: clamp(26px, 7vw, 36px);
   }
 
+  #heroSection .hero-split-digi {
+    padding-right: clamp(10px, 2.5vw, 18px) !important;
+  }
+
+  #heroSection .hero-split-olic {
+    padding-left: clamp(10px, 2.5vw, 18px) !important;
+  }
+
   #heroSection .hero-slit-spacer {
     height: clamp(80px, 20vw, 115px);
   }
@@ -806,13 +847,13 @@
       width: 8px;
     }
     48% {
-      width: clamp(80px, 20vw, 115px);
+      width: clamp(95px, 22vw, 130px);
     }
     58%, 84% {
-      width: clamp(160px, 44vw, 220px);
+      width: clamp(180px, 46vw, 240px);
     }
     94%, 100% {
-      width: clamp(160px, 44vw, 220px);
+      width: clamp(180px, 46vw, 240px);
     }
   }
 
