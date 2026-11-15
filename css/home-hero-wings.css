@@ -71,22 +71,58 @@
   justify-content: center;
   text-align: center;
   width: 100%;
-  max-width: 1280px;
+  max-width: 1400px;
 }
 
 #heroSection .hero-step1-wait {
   margin: 0 !important;
   font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
-  font-size: clamp(38px, 7.8vw, 104px) !important;
+  font-size: clamp(32px, 5.2vw, 78px) !important;
   font-weight: 900 !important;
-  line-height: 1.08 !important;
-  letter-spacing: clamp(0.04em, 0.08em, 0.14em) !important;
+  line-height: 1.15 !important;
+  letter-spacing: clamp(0.02em, 0.04em, 0.06em) !important;
   text-transform: uppercase !important;
-  color: #FFFFFF !important;
-  text-shadow: 0 6px 36px rgba(0, 0, 0, 0.9), 0 0 50px rgba(255, 255, 255, 0.22);
-  opacity: 0;
+  color: #FF2A2A !important;
+  text-shadow: 0 4px 28px rgba(255, 42, 42, 0.5), 0 0 60px rgba(255, 42, 42, 0.22) !important;
+  display: inline-flex !important;
+  flex-wrap: wrap !important;
+  justify-content: center !important;
+  align-items: center !important;
+  column-gap: clamp(12px, 1.8vw, 24px) !important;
+  row-gap: clamp(6px, 1vw, 12px) !important;
+  max-width: 96vw !important;
+  opacity: 1;
   will-change: transform, opacity;
 }
+
+@media (min-width: 1025px) {
+  #heroSection .hero-step1-wait {
+    flex-wrap: nowrap !important;
+    white-space: nowrap !important;
+  }
+}
+
+#heroSection .wait-word {
+  display: inline-block !important;
+  color: #FF2A2A !important;
+  opacity: 0;
+  transform: translate3d(0, 32px, 0);
+  will-change: transform, opacity;
+  animation-name: waitWordFadeSlide;
+  animation-duration: 0.6s;
+  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  animation-fill-mode: forwards;
+}
+
+/* Stagger animation-delay word by word: 3s black intro + word-by-word reveal */
+#heroSection .wait-word {
+  animation-delay: calc(3.0s + (var(--word-index, 0) * 0.24s));
+}
+#heroSection .wait-word:nth-child(1) { --word-index: 0; animation-delay: 3.00s; }
+#heroSection .wait-word:nth-child(2) { --word-index: 1; animation-delay: 3.24s; }
+#heroSection .wait-word:nth-child(3) { --word-index: 2; animation-delay: 3.48s; }
+#heroSection .wait-word:nth-child(4) { --word-index: 3; animation-delay: 3.72s; }
+#heroSection .wait-word:nth-child(5) { --word-index: 4; animation-delay: 3.96s; }
 
 /* ==========================================================================
    STEP 2: CLEAN STAGE ("DIGI [PORTAL VIDEO] OLIC")
@@ -440,6 +476,7 @@
    ========================================================================== */
 #heroSection.has-gsap-hero .hero-step1-curtain,
 #heroSection.has-gsap-hero .hero-step1-wait,
+#heroSection.has-gsap-hero .wait-word,
 #heroSection.has-gsap-hero .hero-step2-stage,
 #heroSection.has-gsap-hero .hero-step2-split-row,
 #heroSection.has-gsap-hero .hero-slit-spacer,
@@ -458,6 +495,18 @@
    1st: 3.0s pure black screen
    Then: "YOUR WAIT IS WORTH NOW" fades in
    ========================================================================== */
+/* Word-by-word reveal keyframe: smooth upward slide and fade-in */
+@keyframes waitWordFadeSlide {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 32px, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
 @keyframes heroStep1TextAnim {
   0%, 35% {
     opacity: 0;
@@ -595,15 +644,24 @@
 /* Pure CSS Keyframes Fallback Timings (when GSAP is inactive) */
 @media (prefers-reduced-motion: no-preference) {
   #heroSection:not(.has-gsap-hero) .hero-step1-curtain {
-    animation: heroStep1CurtainFade 6.0s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    animation: heroStep1CurtainFade 6.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
   }
 
   #heroSection:not(.has-gsap-hero) .hero-step1-wait {
-    animation: heroStep1TextAnim 6.0s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation: heroStep1TextAnim 6.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   }
 
+  #heroSection:not(.has-gsap-hero) .wait-word {
+    animation: waitWordFadeSlide 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+  #heroSection:not(.has-gsap-hero) .wait-word:nth-child(1) { animation-delay: 3.00s; }
+  #heroSection:not(.has-gsap-hero) .wait-word:nth-child(2) { animation-delay: 3.24s; }
+  #heroSection:not(.has-gsap-hero) .wait-word:nth-child(3) { animation-delay: 3.48s; }
+  #heroSection:not(.has-gsap-hero) .wait-word:nth-child(4) { animation-delay: 3.72s; }
+  #heroSection:not(.has-gsap-hero) .wait-word:nth-child(5) { animation-delay: 3.96s; }
+
   #heroSection:not(.has-gsap-hero) .hero-step2-stage {
-    animation: heroStep2StageExit 9.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    animation: heroStep2StageExit 10.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
   }
 
   #heroSection:not(.has-gsap-hero) .hero-step2-split-row {
@@ -727,9 +785,11 @@
    ========================================================================== */
 @media (max-width: 768px) {
   #heroSection .hero-step1-wait {
-    font-size: clamp(32px, 7.8vw, 54px) !important;
-    letter-spacing: clamp(0.04em, 0.08em, 0.12em) !important;
-    line-height: 1.2 !important;
+    font-size: clamp(30px, 7.5vw, 54px) !important;
+    letter-spacing: clamp(0.02em, 0.04em, 0.06em) !important;
+    line-height: 1.15 !important;
+    column-gap: clamp(10px, 2vw, 18px) !important;
+    row-gap: 6px !important;
   }
 
   #heroSection .hero-split-half {
@@ -818,9 +878,11 @@
 
 @media (max-width: 480px) {
   #heroSection .hero-step1-wait {
-    font-size: clamp(26px, 7.5vw, 38px) !important;
-    letter-spacing: 0.06em !important;
-    line-height: 1.25 !important;
+    font-size: clamp(24px, 7vw, 36px) !important;
+    letter-spacing: 0.03em !important;
+    line-height: 1.2 !important;
+    column-gap: clamp(8px, 2.2vw, 14px) !important;
+    row-gap: 4px !important;
   }
 
   #heroSection .hero-split-half {

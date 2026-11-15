@@ -34,8 +34,9 @@
 
     // Timings (in seconds)
     blackIntroDuration: 3.0, // Requested: 1st full black screen, then in 3s text appears
-    waitTextFadeIn: 0.65,    // Smooth fade in of "YOUR WAIT IS WORTH NOW"
-    waitTextHold: 2.2,       // Hold time for reading intro text
+    wordStagger: 0.24,       // Stagger between each word reveal
+    wordDuration: 0.55,      // Fade in and slide up per word
+    waitTextHold: 1.8,       // Hold time after all words appear
     step1FadeOut: 0.75,      // Fade out of Step 1 curtain
     step2SlitOpen: 0.45,     // Slit mask opening
     step2CircleExpand: 0.55, // Expansion into circle
@@ -51,6 +52,7 @@
 
     const curtain = document.getElementById('heroStep1');
     const waitText = document.getElementById('heroWaitLine');
+    const waitWords = waitText ? waitText.querySelectorAll('.wait-word') : [];
     const step2Stage = document.getElementById('heroStep2');
     const splitDigi = hero.querySelector('.hero-split-digi');
     const splitOlic = hero.querySelector('.hero-split-olic');
@@ -103,7 +105,10 @@
 
       // Initial State: 1st Full Black Screen (no text yet, pure darkness)
       gsap.set(curtain, { opacity: 1, visibility: 'visible' });
-      gsap.set(waitText, { opacity: 0, scale: 0.94, y: 28 });
+      gsap.set(waitText, { opacity: 1, scale: 1, y: 0 });
+      if (waitWords.length) {
+        gsap.set(waitWords, { opacity: 0, y: 32 });
+      }
       gsap.set(step2Stage, { opacity: 1, visibility: 'visible' });
       gsap.set(splitDigi, { x: 0, opacity: 1 });
       gsap.set(splitOlic, { x: 0, opacity: 1 });
@@ -131,24 +136,36 @@
       // ======================================================================
       // 1. Step 1 (Intro Screen):
       //    0.0s to 3.0s: 1st FULL SOLID BLACK SCREEN
-      //    At 3.0s: "YOUR WAIT IS WORTH NOW" smoothly fades in!
+      //    At 3.0s: Word-by-word reveal of "YOUR WAIT IS WORTH NOW" in red!
       // ======================================================================
       const textEnterTime = HERO_CONFIG.blackIntroDuration; // 3.0 seconds
-      const textExitTime = textEnterTime + HERO_CONFIG.waitTextHold; // 5.2 seconds
+      if (waitWords.length) {
+        heroTl.to(waitWords, {
+          opacity: 1,
+          y: 0,
+          duration: HERO_CONFIG.wordDuration,
+          stagger: HERO_CONFIG.wordStagger,
+          ease: 'power2.out'
+        }, textEnterTime);
+      } else {
+        heroTl.to(waitText, {
+          opacity: 1,
+          y: 0,
+          duration: 0.65,
+          ease: 'power2.out'
+        }, textEnterTime);
+      }
+
+      const totalWordsDuration = waitWords.length
+        ? ((waitWords.length - 1) * HERO_CONFIG.wordStagger) + HERO_CONFIG.wordDuration
+        : 0.65;
+      const textExitTime = textEnterTime + totalWordsDuration + HERO_CONFIG.waitTextHold;
 
       heroTl
-        // At 3 seconds: text emerges into the center of the black screen
-        .to(waitText, {
-          opacity: 1,
-          scale: 1,
-          y: 0,
-          duration: HERO_CONFIG.waitTextFadeIn,
-          ease: 'power2.out'
-        }, textEnterTime)
-        // Holds until 5.2s, then text floats up and curtain fades out
+        // Holds until textExitTime, then text floats up and curtain fades out
         .to(waitText, {
           opacity: 0,
-          y: -20,
+          y: -22,
           scale: 1.02,
           duration: 0.5,
           ease: 'power2.in'
