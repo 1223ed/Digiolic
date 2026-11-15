@@ -1,10 +1,9 @@
 /**
  * ==========================================================================
- * DIGIOLIC HOMEPAGE HERO — WINGS CINEMATIC CONTROLLER
- * 1. Initializes looped ambient playback of wings-v8_1080p.mp4 without scroll lock
- * 2. Applies fallback --sibling-index custom property for letter stagger ONLY
- *    when native CSS sibling-index() is unsupported (Modern Web Guidance)
- * 3. Respects prefers-reduced-motion and wires the Pause/Play accessibility button
+ * DIGIOLIC HOMEPAGE HERO — THREE-STEP CINEMATIC CONTROLLER
+ * Step 1: Solid Black Screen -> "YOUR WAIT IS WORTH NOW."
+ * Step 2: Clean Stage with DIGI [PORTAL VIDEO] OLIC Expanding Stadium
+ * Step 3: Portal Video Breaks Out to Full Bleed -> Settles into Manifest Lockup
  * ==========================================================================
  */
 
@@ -14,21 +13,28 @@
   function initHomeHeroWings() {
     const hero = document.getElementById('heroSection');
     const video = document.getElementById('homeHeroVideo');
-    const wordEl = document.getElementById('heroDigiolicWord');
     const toggleBtn = document.getElementById('heroMotionToggleBtn');
     const toggleLabel = toggleBtn ? toggleBtn.querySelector('.hero-motion-label') : null;
 
     if (!hero) return;
 
-    // Sibling-index fallback for older browsers without native CSS sibling-index()
-    if (wordEl && !CSS.supports('animation-delay: calc(sibling-index() * 0.1s)')) {
-      Array.from(wordEl.children).forEach((el, index) => {
-        el.style.setProperty('--sibling-index', String(index + 1));
-      });
-    }
-
     const reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
     let userPaused = reducedMotionQuery.matches;
+
+    // Settle timer: after 7.0s the intro choreography is complete
+    let settleTimeoutId = null;
+    function scheduleSettledState() {
+      if (settleTimeoutId) clearTimeout(settleTimeoutId);
+      if (reducedMotionQuery.matches) {
+        hero.classList.add('is-hero-settled');
+        return;
+      }
+      settleTimeoutId = setTimeout(function () {
+        if (!userPaused) {
+          hero.classList.add('is-hero-settled');
+        }
+      }, 7000);
+    }
 
     function syncVideoAndUi() {
       if (userPaused) {
@@ -49,7 +55,7 @@
           video.playsInline = true;
           const p = video.play();
           if (p && typeof p.catch === 'function') {
-            p.catch(() => {});
+            p.catch(function () {});
           }
         }
         if (toggleBtn) {
@@ -61,14 +67,17 @@
     }
 
     if (toggleBtn) {
-      toggleBtn.addEventListener('click', () => {
+      toggleBtn.addEventListener('click', function () {
         userPaused = !userPaused;
         syncVideoAndUi();
       });
     }
 
-    const handleMotionPrefChange = (e) => {
+    const handleMotionPrefChange = function (e) {
       userPaused = e.matches;
+      if (e.matches) {
+        hero.classList.add('is-hero-settled');
+      }
       syncVideoAndUi();
     };
 
@@ -76,13 +85,14 @@
       reducedMotionQuery.addEventListener('change', handleMotionPrefChange);
     }
 
-    window.addEventListener('pageshow', (e) => {
+    window.addEventListener('pageshow', function (e) {
       if (e.persisted && !userPaused && video) {
         video.currentTime = 0;
         syncVideoAndUi();
       }
     });
 
+    scheduleSettledState();
     syncVideoAndUi();
   }
 
@@ -92,4 +102,3 @@
     initHomeHeroWings();
   }
 })();
-
