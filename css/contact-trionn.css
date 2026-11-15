@@ -1024,27 +1024,17 @@ body.contact-page .mainframe-navbar.is-nav-dark .nav-sound-control:hover {
 }
 
 /* ==========================================================================
-   LOCATION & CONTACT MOBILE BAR (Directly Above Contact Form)
+   SINGLE-COLUMN LOCATION & CONTACT MOBILE BAR (Directly Above Map)
    ========================================================================== */
 .contact-location-info-bar {
-  margin-top: 1.5rem;
-  margin-bottom: 2.75rem;
-  padding-bottom: 2rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-  display: grid;
-  grid-template-columns: 1.4fr 1fr;
-  gap: 2rem;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
   width: 100%;
   box-sizing: border-box;
-}
-
-@media (max-width: 768px) {
-  .contact-location-info-bar {
-    grid-template-columns: 1fr;
-    gap: 1.25rem;
-    margin-bottom: 2rem;
-    padding-bottom: 1.5rem;
-  }
 }
 
 .contact-location-info-bar .location-info-item {
