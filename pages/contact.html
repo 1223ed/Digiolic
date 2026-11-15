@@ -28,6 +28,14 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Inter:ital,opsz,wght@0,14..32,300..900;1,14..32,300..900&family=Manrope:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+
+  <style>
+    /* Suppress duplicate unstyled raw Zoho WebForm container injected by WebFormServeServlet */
+    .zcwf_lblLeft.crmWebToEntityForm,
+    #crmWebToEntityForm.zcwf_lblLeft {
+      display: none !important;
+    }
+  </style>
 </head>
 <body class="contact-page">
 
@@ -167,16 +175,17 @@
           <form class="trionn-contact-form" id="webform1462145000000553302" name="WebToLeads1462145000000553302" action="https://crm.zoho.in/crm/WebToLeadForm" method="POST" onsubmit="javascript:document.charset='UTF-8'; return checkMandatory1462145000000553302()" accept-charset="UTF-8">
             
             <!-- Zoho CRM Web-to-Lead Configuration Tokens -->
-            <input type="text" style="display:none;" name="xnQsjsdp" value="eb5b6bba5a654ce4def7fb77e18869e3d14512c59538c7d9b0cd6652cd5c6310">
+            <input type="text" style="display:none;" name="xnQsjsdp" value="59157e8ff82cdb32262ca03db4343afa73c3b08d3b02136f98524d813cf0a3cc">
             <input type="hidden" name="zc_gad" id="zc_gad" value="">
-            <input type="text" style="display:none;" name="xmIwtLD" value="d55cc56cb8607a5135e8887157dcc79f5253dd3851b257429d798d5ba3b64b0bf5bbba6870063f667e21800923314e95">
+            <input type="text" style="display:none;" name="xmIwtLD" value="80c25918f394a6b48f15f75e9b04f0d239b5a57fce2645d763d600a35023b24b4de3821902d4441a38a60b3841737f1c">
             <input type="text" style="display:none;" name="actionType" value="TGVhZHM=">
             <input type="text" style="display:none;" name="returnURL" value="https://digiolic.com/">
             <!-- Do not remove this code. -->
             <input type="text" style="display:none;" id="ldeskuid" name="ldeskuid">
             <input type="text" style="display:none;" id="LDTuvid" name="LDTuvid">
             <!-- Do not remove this code. -->
-            <input type="text" type="hidden" style="display:none;" name="aG9uZXlwb3Q" value="">
+            <input type="hidden" name="aG9uZXlwb3Q" value="">
+            <input type="hidden" name="wFaTrisJS" value="true">
             
             <!-- Lead Source configured as Website matching Zoho CRM Webform -->
             <select style="display:none;" id="Lead_Source" name="Lead Source" aria-label="Lead Source">
@@ -416,9 +425,14 @@
             </script>
 
             <!-- Zoho CRM Analytics Script -->
-            <script id="wf_anal" src="https://crm.zohopublic.in/crm/WebFormAnalyticsServeServlet?rid=7195eacee5cb627fab7c562e8d90519dce9f720ae7b609011ef22aeb8c5cfec5a113c8122a4f882cfc0e53d6ddd918c9gid824098d0079da82bb92bc37a45f4900fcb80654e0646bfbbbeaa051372fb278bgid18b94be745e322971139b3f2eef671fb55d354389f6675c63eaa3453bda069a4gidf1c11ce756fb938ba93cd91d6d1d5f071e11f9967997eb6a9dfa1dc79a3a6d18&tw=ff034ab26c9e4c0eb5fb9ae185972439b737bd1ed906821ac10c44f910229716&version=v2"></script>
+            <script id="wf_anal" src="https://crm.zohopublic.in/crm/WebFormAnalyticsServeServlet?rid=56d738731f09a32a8bace1ab3bec484aa2ef2ead682926dcd9def0c8030014f492a7f981f17659c42d7ed867e8c828bbgid070245b19c5940b0247c817c979720aeb834daebf5bb9cbf561eed2e21b395f5gid8c7d0bb306199630ded90091ee6b4e0a4747a3e1d19362cc9f1697b12cc85324gidb60a03f78f39f7cae0f487ef26bcfdad6d1032656251e68f60f1817439eb0ccb&tw=faacc00b97"></script>
           </form>
           <iframe name="captchaFrame" style="display:none;"></iframe>
+
+          <!-- Zoho CRM Web-to-Lead Form Serve Script -->
+          <div style="display:none !important;" aria-hidden="true">
+            <script id="formScript1462145000000553302" src="https://crm.zoho.in/crm/WebFormServeServlet?rid=fc41ff7d01f404a69ba4231326383d2dbb92e4e0ba400b209f83f6206ab1939f5aa58964fd69595ad9d5d98a2afc57c3gid4e897f9dce23ff8535b1e5513f0f4e55892a6947892f7c10a4dd18c085bc2aa1&script=$sYG"></script>
+          </div>
         </div>
 
         <!-- Single-Column Location & Contact Mobile Block (Above Map, Covered by Video) -->
@@ -748,6 +762,71 @@
       }
       return true;
     }
+
+    // Direct asynchronous fetch submission to Zoho CRM with instant redirect
+    document.addEventListener('DOMContentLoaded', function() {
+      var form = document.getElementById('webform1462145000000553302');
+      if (!form) return;
+      var submitting = false;
+
+      form.addEventListener('submit', function(e) {
+        var ismandatory = checkMandatory1462145000000553302(true);
+        if (ismandatory === false) {
+          e.preventDefault();
+          return false;
+        }
+
+        if (window.fetch && !submitting) {
+          e.preventDefault();
+          submitting = true;
+
+          if (typeof _wfa_track !== 'undefined' && _wfa_track.wfa_submit) {
+            try { _wfa_track.wfa_submit(e); } catch(err) {}
+          }
+
+          var formData = new FormData(form);
+          fetch('https://crm.zoho.in/crm/WebToLeadForm', {
+            method: 'POST',
+            body: formData,
+            cache: 'no-cache'
+          })
+          .then(function(res) {
+            var contentType = res.headers.get('Content-Type') || '';
+            return contentType.includes('application/json') ? res.json() : res.text();
+          })
+          .then(function(data) {
+            if (typeof data === 'object') {
+              if (data.actionsubmit === 'redirect_url' || data.actionsubmit === 'parent_redirect' || data.actionsubmit === 'thankyou_page') {
+                if (data.success && typeof _wfa_track !== 'undefined' && _wfa_track.wfa_post_submit) {
+                  try { _wfa_track.wfa_post_submit(e); } catch(err) {}
+                }
+                window.location.assign(data.redirectUrl || 'https://digiolic.com/');
+              } else if (data.actionsubmit === 'Splash Message') {
+                alert(data.actionvalue || 'Thank you for reaching out! We will contact you soon.');
+                form.reset();
+                window.location.assign('https://digiolic.com/');
+              } else if (data.message) {
+                alert(data.message);
+                submitting = false;
+                var submitBtn = document.querySelector('.crmWebToEntityForm .formsubmit') || document.getElementById('formsubmit');
+                if (submitBtn) {
+                  submitBtn.removeAttribute('disabled');
+                  var span = submitBtn.querySelector('span');
+                  if (span) span.textContent = 'SEND INQUIRY';
+                }
+              } else {
+                window.location.assign('https://digiolic.com/');
+              }
+            } else {
+              window.location.assign('https://digiolic.com/');
+            }
+          })
+          .catch(function() {
+            form.submit();
+          });
+        }
+      });
+    });
 
     function addAriaSelected1462145000000553302() {}
 
