@@ -13,7 +13,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initCustomServiceSelect();
   initFloatingLabels();
   initScrollDownAction();
-  initContactAudio();
 });
 
 window.addEventListener('load', () => {
@@ -39,7 +38,6 @@ function initShutterScrollTransition() {
   const bannerSection = document.getElementById('contact-banner-section');
   const stripes = Array.from(document.querySelectorAll('.stripe-item')); // In order: 0 is top, 4 is bottom
   const bannerScrollBtn = document.getElementById('bannerScrollDownBtn');
-  const bannerSoundBtn = document.getElementById('bannerAudioToggleBtn');
   const bannerText = document.querySelector('.banner-text-content');
   const navbar = document.getElementById('mainframeNavbar');
   const formsSection = document.getElementById('contact-forms-section');
@@ -320,112 +318,6 @@ function initHeroHangingVideoLoop() {
     syncWithScroll,
     getActiveVideo: () => activeVideo
   };
-}
-
-/**
- * 3. Contact Background Audio Controller (Exact match to Zoho & About Us pages)
- * - Plays name-story.mp3 in the background with interactive toggle button to the left of Menu
- * - Automatically unlocks on first gesture if browser blocks immediate unmuted autoplay
- */
-function initContactAudio() {
-  const audio = document.getElementById('contactStoryAudio');
-  const toggleBtn = document.getElementById('contactAudioToggleBtn');
-  if (!audio || !toggleBtn) return;
-
-  let userManuallyPaused = false;
-  let isPlaying = true;
-  let gestureUnlocked = false;
-  audio.volume = 0.85;
-
-  function updateUI(active) {
-    if (active) {
-      toggleBtn.classList.add('is-playing');
-      toggleBtn.classList.remove('is-paused');
-      toggleBtn.setAttribute('aria-pressed', 'true');
-      toggleBtn.setAttribute('title', 'Pause Song');
-    } else {
-      toggleBtn.classList.remove('is-playing');
-      toggleBtn.classList.add('is-paused');
-      toggleBtn.setAttribute('aria-pressed', 'false');
-      toggleBtn.setAttribute('title', 'Play Song');
-    }
-  }
-
-  function startAudio() {
-    isPlaying = true;
-    updateUI(true);
-    const playPromise = audio.play();
-    if (playPromise !== undefined) {
-      playPromise
-        .then(() => {
-          isPlaying = true;
-          updateUI(true);
-        })
-        .catch(() => {
-          // Autoplay policy caught initial play; wait for gesture
-          if (!userManuallyPaused) {
-            updateUI(true);
-          }
-        });
-    } else {
-      updateUI(true);
-    }
-  }
-
-  function stopAudio() {
-    if (!audio.paused) {
-      audio.pause();
-    }
-    isPlaying = false;
-    updateUI(false);
-  }
-
-  audio.addEventListener('play', () => {
-    isPlaying = true;
-    updateUI(true);
-  });
-  audio.addEventListener('pause', () => {
-    if (userManuallyPaused) {
-      isPlaying = false;
-      updateUI(false);
-    }
-  });
-
-  // Toggle button click: manual Play / Pause
-  toggleBtn.addEventListener('click', (e) => {
-    e.stopPropagation();
-    gestureUnlocked = true;
-    if (!audio.paused || isPlaying) {
-      userManuallyPaused = true;
-      stopAudio();
-    } else {
-      userManuallyPaused = false;
-      startAudio();
-    }
-  });
-
-  // Attempt initial playback immediately on load
-  startAudio();
-
-  // Gesture unlock on any user movement / gesture / click / scroll / keydown
-  const unlockEvents = ['pointerdown', 'mousedown', 'click', 'touchstart', 'touchend', 'scroll', 'wheel', 'keydown', 'mousemove'];
-  function unlockAutoplayOnGesture() {
-    if (gestureUnlocked) return;
-    if (userManuallyPaused) return;
-
-    if (audio.paused) {
-      const p = audio.play();
-      if (p !== undefined) {
-        p.then(() => {
-          gestureUnlocked = true;
-          unlockEvents.forEach((evt) => window.removeEventListener(evt, unlockAutoplayOnGesture));
-          updateUI(true);
-        }).catch(() => {});
-      }
-    }
-  }
-
-  unlockEvents.forEach((evt) => window.addEventListener(evt, unlockAutoplayOnGesture, { passive: true }));
 }
 
 /**
