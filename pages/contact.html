@@ -183,17 +183,17 @@
           </p>
         </div>
 
-        <!-- Preserved Zoho CRM Web-to-Lead Form Code -->
+        <!-- Zoho CRM Web-to-Lead Form Code -->
         <div id="crmWebToEntityForm" class="crmWebToEntityForm" style="width: 100%;">
-          <form class="trionn-contact-form" id="webform1353623000000711081" name="WebToLeads1353623000000711081" action="https://crm.zoho.in/crm/WebToLeadForm" method="POST" onsubmit="javascript:document.charset='UTF-8'; return checkMandatory1353623000000711081()" accept-charset="UTF-8">
+          <form class="trionn-contact-form" id="webform1462145000000553302" name="WebToLeads1462145000000553302" action="https://crm.zoho.in/crm/WebToLeadForm" method="POST" onsubmit="javascript:document.charset='UTF-8'; return checkMandatory1462145000000553302()" accept-charset="UTF-8">
             
             <!-- Zoho CRM Web-to-Lead Configuration Tokens -->
-            <input type="text" style="display:none;" name="xnQsjsdp" value="2e487a3c0ff6fd4d79a558f95be466cbb40a55fb9208e9e076d8694f2512d99f">
+            <input type="text" style="display:none;" name="xnQsjsdp" value="faa8d59e21fb60dfdd8cde946ff086c5885ff5c12ba966c83be840f13a56d8cf">
             <input type="hidden" name="zc_gad" id="zc_gad" value="">
-            <input type="text" style="display:none;" name="xmIwtLD" value="c7d190d05df7e2311efa856299060097f6a301802a98bc00b6b00fbfae0f9cee7e24d455a1b96321724d6728fe106a58">
+            <input type="text" style="display:none;" name="xmIwtLD" value="712e6768c9d51b4defbc1c357eb0634eb7e050dafcfe3a63219c1f649cf5f46651060ccd2161cc75b10a45dc83b2cdc1">
             <input type="text" style="display:none;" name="actionType" value="TGVhZHM=">
             <input type="text" style="display:none;" name="returnURL" value="null">
-            <input type="text" style="display:none;" name="aG9uZXlwb3Q" value="">
+            <input type="text" type="hidden" style="display:none;" name="aG9uZXlwb3Q" value="">
 
             <div class="trionn-form-grid">
               <!-- Field 1: Name -->
@@ -202,23 +202,25 @@
                   <label for="Last_Name" class="form-input-badge">Name *</label>
                   <span class="form-error-badge">Enter your name</span>
                 </div>
-                <input type="text" id="Last_Name" name="Last Name" class="trionn-input" placeholder="Name *" maxlength="80" aria-required="true" required>
+                <input type="text" id="Last_Name" name="Last Name" aria-label="Last Name" class="trionn-input" placeholder="Name *" maxlength="80" aria-required="true" required>
               </div>
 
               <!-- Field 2: Company -->
               <div class="form-field-group">
                 <div class="form-badge-bar">
                   <label for="Company" class="form-input-badge">Company *</label>
+                  <span class="form-error-badge">Enter your company</span>
                 </div>
-                <input type="text" id="Company" name="Company" class="trionn-input" placeholder="Company *" maxlength="200" aria-required="true" required>
+                <input type="text" id="Company" name="Company" aria-label="Company" class="trionn-input" placeholder="Company *" maxlength="200" aria-required="true" required>
               </div>
 
-              <!-- Field 3: Mobile -->
+              <!-- Field 3: Phone -->
               <div class="form-field-group">
                 <div class="form-badge-bar">
-                  <label for="Mobile" class="form-input-badge">Mobile *</label>
+                  <label for="Phone" class="form-input-badge">Phone *</label>
+                  <span class="form-error-badge">Enter your phone</span>
                 </div>
-                <input type="text" id="Mobile" name="Mobile" class="trionn-input" placeholder="Mobile *" maxlength="30" aria-required="true" required>
+                <input type="text" id="Phone" name="Phone" aria-label="Phone" class="trionn-input" placeholder="Phone *" maxlength="30" aria-required="true" required>
               </div>
 
               <!-- Field 4: Email -->
@@ -227,7 +229,7 @@
                   <label for="Email" class="form-input-badge">Email *</label>
                   <span class="form-error-badge">Enter a valid email</span>
                 </div>
-                <input type="text" ftype="email" autocomplete="false" id="Email" name="Email" class="trionn-input" placeholder="Email *" maxlength="100" aria-required="true" required>
+                <input type="text" ftype="email" autocomplete="false" id="Email" name="Email" aria-label="Email" class="trionn-input" placeholder="Email *" maxlength="100" aria-required="true" required>
               </div>
 
               <!-- Field 5: Subject / Service (Full Width Multi-Select matching Salesforce code) -->
@@ -238,10 +240,7 @@
                 </div>
 
                 <!-- Native multi-select matching Zoho CRM Web-to-Lead configuration -->
-                <select class="zcwf_col_fld_slt" role="combobox" aria-expanded="false" aria-haspopup="listbox" id="LEADCF1" aria-required="true" aria-label="LEADCF1" name="LEADCF1" multiple style="display:none;">
-                  <option value="Salesfoce Developement">Salesfoce Developement</option>
-                  <option value="Salesforce Sales Cloud">Salesforce Sales Cloud</option>
-                  <option value="Salesforce Service Cloud">Salesforce Service Cloud</option>
+                <select class="zcwf_col_fld_slt" role="combobox" aria-expanded="false" aria-haspopup="listbox" id="LEADCF1" onChange="addAriaSelected1462145000000553302()" aria-required="true" aria-label="LEADCF1" name="LEADCF1" multiple style="display:none;">
                   <option value="Zoho CRM">Zoho CRM</option>
                   <option value="Zoho CRM Plus">Zoho CRM Plus</option>
                   <option value="Bigin">Bigin</option>
@@ -274,7 +273,6 @@
                   <option value="Zoho Sheet">Zoho Sheet</option>
                   <option value="Zoho Show">Zoho Show</option>
                   <option value="Zoho Analytics">Zoho Analytics</option>
-                  <option value="Zoho DataPrep">Zoho DataPrep</option>
                   <option value="Zoho One">Zoho One</option>
                   <option value="Zoho Creator">Zoho Creator</option>
                   <option value="Zoho Flow">Zoho Flow</option>
@@ -288,6 +286,9 @@
                   <option value="Digital strategy creation">Digital strategy creation</option>
                   <option value="Content marketing">Content marketing</option>
                   <option value="Ai-driven marketing automation">Ai-driven marketing automation</option>
+                  <option value="Salesfoce Developement">Salesfoce Developement</option>
+                  <option value="Salesforce Sales Cloud">Salesforce Sales Cloud</option>
+                  <option value="Salesforce Service Cloud">Salesforce Service Cloud</option>
                 </select>
 
                 <!-- Custom Select Dropdown UI (Trionn Luxury Design) -->
@@ -303,22 +304,50 @@
                     <label class="trionn-opt-item"><input type="checkbox" data-service-val="Salesforce Sales Cloud"><span>Salesforce Sales Cloud</span></label>
                     <label class="trionn-opt-item"><input type="checkbox" data-service-val="Salesforce Service Cloud"><span>Salesforce Service Cloud</span></label>
 
-                    <div class="trionn-opt-group-label">Zoho Applications</div>
+                    <div class="trionn-opt-group-label">Zoho Core CRM &amp; Automation</div>
+                    <label class="trionn-opt-item"><input type="checkbox" data-service-val="Zoho One"><span>Zoho One</span></label>
                     <label class="trionn-opt-item"><input type="checkbox" data-service-val="Zoho CRM"><span>Zoho CRM</span></label>
                     <label class="trionn-opt-item"><input type="checkbox" data-service-val="Zoho CRM Plus"><span>Zoho CRM Plus</span></label>
-                    <label class="trionn-opt-item"><input type="checkbox" data-service-val="Bigin"><span>Bigin</span></label>
-                    <label class="trionn-opt-item"><input type="checkbox" data-service-val="Zoho One"><span>Zoho One</span></label>
+                    <label class="trionn-opt-item"><input type="checkbox" data-service-val="Bigin"><span>Bigin by Zoho CRM</span></label>
                     <label class="trionn-opt-item"><input type="checkbox" data-service-val="Zoho Creator"><span>Zoho Creator</span></label>
                     <label class="trionn-opt-item"><input type="checkbox" data-service-val="Zoho Flow"><span>Zoho Flow</span></label>
+
+                    <div class="trionn-opt-group-label">Zoho Finance &amp; Operations</div>
                     <label class="trionn-opt-item"><input type="checkbox" data-service-val="Zoho Books"><span>Zoho Books</span></label>
                     <label class="trionn-opt-item"><input type="checkbox" data-service-val="Zoho Invoice"><span>Zoho Invoice</span></label>
                     <label class="trionn-opt-item"><input type="checkbox" data-service-val="Zoho Expense"><span>Zoho Expense</span></label>
                     <label class="trionn-opt-item"><input type="checkbox" data-service-val="Zoho Inventory"><span>Zoho Inventory</span></label>
+                    <label class="trionn-opt-item"><input type="checkbox" data-service-val="Zoho Checkout"><span>Zoho Checkout</span></label>
+
+                    <div class="trionn-opt-group-label">Zoho Customer Service &amp; Analytics</div>
                     <label class="trionn-opt-item"><input type="checkbox" data-service-val="Zoho Desk"><span>Zoho Desk</span></label>
                     <label class="trionn-opt-item"><input type="checkbox" data-service-val="Zoho SalesIQ"><span>Zoho SalesIQ</span></label>
                     <label class="trionn-opt-item"><input type="checkbox" data-service-val="Zoho Analytics"><span>Zoho Analytics</span></label>
+                    <label class="trionn-opt-item"><input type="checkbox" data-service-val="Zoho Assist"><span>Zoho Assist</span></label>
+                    <label class="trionn-opt-item"><input type="checkbox" data-service-val="Zoho Lens"><span>Zoho Lens</span></label>
+
+                    <div class="trionn-opt-group-label">Zoho Collaboration &amp; HR</div>
+                    <label class="trionn-opt-item"><input type="checkbox" data-service-val="Zoho Projects"><span>Zoho Projects</span></label>
+                    <label class="trionn-opt-item"><input type="checkbox" data-service-val="Zoho Mail"><span>Zoho Mail</span></label>
+                    <label class="trionn-opt-item"><input type="checkbox" data-service-val="Zoho Cliq"><span>Zoho Cliq</span></label>
+                    <label class="trionn-opt-item"><input type="checkbox" data-service-val="Zoho WorkDrive"><span>Zoho WorkDrive</span></label>
+                    <label class="trionn-opt-item"><input type="checkbox" data-service-val="Zoho Meeting"><span>Zoho Meeting</span></label>
+                    <label class="trionn-opt-item"><input type="checkbox" data-service-val="Zoho Sign"><span>Zoho Sign</span></label>
+                    <label class="trionn-opt-item"><input type="checkbox" data-service-val="Zoho Forms"><span>Zoho Forms</span></label>
+                    <label class="trionn-opt-item"><input type="checkbox" data-service-val="Zoho Bookings"><span>Zoho Bookings</span></label>
+                    <label class="trionn-opt-item"><input type="checkbox" data-service-val="Zoho Backstage"><span>Zoho Backstage</span></label>
+                    <label class="trionn-opt-item"><input type="checkbox" data-service-val="Zoho People"><span>Zoho People</span></label>
+                    <label class="trionn-opt-item"><input type="checkbox" data-service-val="Zoho People Plus"><span>Zoho People Plus</span></label>
+                    <label class="trionn-opt-item"><input type="checkbox" data-service-val="Zoho Recruit"><span>Zoho Recruit</span></label>
+                    <label class="trionn-opt-item"><input type="checkbox" data-service-val="Zoho Payroll"><span>Zoho Payroll</span></label>
+                    <label class="trionn-opt-item"><input type="checkbox" data-service-val="Zoho Writer"><span>Zoho Writer</span></label>
+                    <label class="trionn-opt-item"><input type="checkbox" data-service-val="Zoho Sheet"><span>Zoho Sheet</span></label>
+                    <label class="trionn-opt-item"><input type="checkbox" data-service-val="Zoho Show"><span>Zoho Show</span></label>
 
                     <div class="trionn-opt-group-label">Digital Marketing &amp; Strategy</div>
+                    <label class="trionn-opt-item"><input type="checkbox" data-service-val="Zoho Marketing Automation"><span>Zoho Marketing Automation</span></label>
+                    <label class="trionn-opt-item"><input type="checkbox" data-service-val="Zoho Campaigns"><span>Zoho Campaigns</span></label>
+                    <label class="trionn-opt-item"><input type="checkbox" data-service-val="Zoho Social"><span>Zoho Social</span></label>
                     <label class="trionn-opt-item"><input type="checkbox" data-service-val="Performance marketing"><span>Performance marketing</span></label>
                     <label class="trionn-opt-item"><input type="checkbox" data-service-val="Search engine optimization"><span>Search engine optimization</span></label>
                     <label class="trionn-opt-item"><input type="checkbox" data-service-val="Advertising"><span>Advertising</span></label>
@@ -338,20 +367,20 @@
               <!-- Field 6: Description (Full Width) -->
               <div class="form-field-group form-col-span-2">
                 <div class="form-badge-bar">
-                  <label for="Description" class="form-input-badge">Description *</label>
+                  <label for="Description" class="form-input-badge">Description</label>
                 </div>
-                <textarea id="Description" name="Description" class="trionn-textarea" placeholder="Describe your goals, requirements, clouds, or business needs... *" rows="4" aria-multiline="true" aria-required="true" required></textarea>
+                <textarea id="Description" name="Description" aria-label="Description" class="trionn-textarea" placeholder="Describe your goals, requirements, clouds, or business needs..." rows="4" aria-multiline="true"></textarea>
               </div>
 
               <!-- Field 7: Captcha Verification & Submit Inquiry Button in Same Line -->
               <div class="form-field-group form-col-span-2 form-captcha-submit-group">
                 <div class="trionn-captcha-submit-row">
                   <div class="trionn-captcha-left-block">
-                    <input type="text" id="captchaField1353623000000711081" aria-labelledby="reCaptchaField" maxlength="10" name="enterdigest" class="trionn-input trionn-captcha-code-input" placeholder="Enter captcha code *" required>
+                    <input type="text" id="captchaField1462145000000553302" aria-labelledby="reCaptchaField" maxlength="10" name="enterdigest" class="trionn-input trionn-captcha-code-input" placeholder="Enter captcha code *" required>
                     
                     <div class="trionn-captcha-img-wrap">
-                      <img id="imgid1353623000000711081" src="https://crm.zoho.in/crm/CaptchaServlet?formId=c7d190d05df7e2311efa856299060097f6a301802a98bc00b6b00fbfae0f9cee7e24d455a1b96321724d6728fe106a58&grpid=2e487a3c0ff6fd4d79a558f95be466cbb40a55fb9208e9e076d8694f2512d99f" alt="Captcha" class="trionn-captcha-img">
-                      <a href="javascript:;" onclick="reloadImg1353623000000711081();" class="trionn-captcha-reload" title="Reload captcha">
+                      <img id="imgid1462145000000553302" src="https://crm.zoho.in/crm/CaptchaServlet?formId=712e6768c9d51b4defbc1c357eb0634eb7e050dafcfe3a63219c1f649cf5f46651060ccd2161cc75b10a45dc83b2cdc1&grpid=faa8d59e21fb60dfdd8cde946ff086c5885ff5c12ba966c83be840f13a56d8cf" alt="Captcha" class="trionn-captcha-img">
+                      <a href="javascript:;" onclick="reloadImg1462145000000553302();" class="trionn-captcha-reload" title="Reload captcha">
                         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
                         Reload
                       </a>
@@ -370,13 +399,13 @@
                     </button>
                   </div>
                 </div>
-                <div id="captchaErr1353623000000711081" aria-live="polite" style="font-size: 12px; color: #FF6B50; visibility: hidden; margin-top: 6px;"></div>
+                <div id="captchaErr1462145000000553302" aria-live="polite" style="font-size: 12px; color: #FF6B50; visibility: hidden; margin-top: 6px;"></div>
               </div>
 
             </div>
 
             <!-- Zoho CRM Analytics Script -->
-            <script id="wf_anal" src="https://crm.zohopublic.in/crm/WebFormAnalyticsServeServlet?rid=f9e0b39d8ca7e2eb148c4c91c36555954dcb8d1b5dadbd49cda2c602da0e7772405f4bb7c02648531dfc1a05c63cbf17gidb6c617e8c73e2f94b3d352dfbf5824f1840255a175f22a3128c1efe7cc0a77b5gid283227293b4b7e23a29bc3f79cb0ffdfb785ed213cf33f04de0d1b4fd4136acbgidffd1ada594547c4238a08294b39b7ed47a25f67ee473b34bc8fd1a9ed617cca8&tw=34a697096648e60826ecb3980004bfe46388a6ac8726f64cf277c96332762d9d&version=v2"></script>
+            <script id="wf_anal" src="https://crm.zohopublic.in/crm/WebFormAnalyticsServeServlet?rid=b3c657e6e117d5170b4552d64e5fe0af1dd728b4b528194bd7aab8ac04933f2efb26f271e32d58a7500da3947e71f217gid6af6eb99da5329fd608b82fb3c7df3c060076903ce1151ed7d1285ad401eca3fgidfc897e164028bba7e2a2d04b1451eeee71e33adf5d4f085ea046afd2b3e88ad9gid15ea93ced082320c05e688d09881b2971ce6a7ecdb88534da2ca2db56994b541&tw=b9eea785ee89d1489c2d4e921d63104deb801437b5c67b407029d5c514de182b&version=v2"></script>
           </form>
           <iframe name="captchaFrame" style="display:none;"></iframe>
         </div>
@@ -589,8 +618,8 @@
 
   <!-- Zoho CRM Web-to-Lead Validation Scripts (Preserved 100%) -->
   <script>
-    function reloadImg1353623000000711081() {
-      var captcha = document.getElementById('imgid1353623000000711081');
+    function reloadImg1462145000000553302() {
+      var captcha = document.getElementById('imgid1462145000000553302');
       if (captcha) {
         if (captcha.src.indexOf('&d') !== -1) {
           captcha.src = captcha.src.substring(0, captcha.src.indexOf('&d')) + '&d' + new Date().getTime();
@@ -600,18 +629,19 @@
       }
     }
 
-    function historyBack1353623000000711081() {
+    function historyBack1462145000000553302() {
       var submitBtn = document.querySelector('.crmWebToEntityForm .formsubmit') || document.getElementById('formsubmit');
       if (submitBtn) {
         submitBtn.removeAttribute('disabled');
-        submitBtn.querySelector('span').textContent = 'SEND INQUIRY';
+        var span = submitBtn.querySelector('span');
+        if (span) span.textContent = 'SEND INQUIRY';
       }
-      reloadImg1353623000000711081();
-      window.removeEventListener('focus', historyBack1353623000000711081);
+      reloadImg1462145000000553302();
+      window.removeEventListener('focus', historyBack1462145000000553302);
     }
 
-    function validateEmail1353623000000711081() {
-      var form = document.forms['WebToLeads1353623000000711081'] || document.forms['WebToLeads1410226000000468646'];
+    function validateEmail1462145000000553302() {
+      var form = document.forms['WebToLeads1462145000000553302'] || document.getElementById('webform1462145000000553302');
       if (!form) return true;
       var emailFld = form.querySelectorAll('[ftype=email]');
       for (var i = 0; i < emailFld.length; i++) {
@@ -629,11 +659,11 @@
       return true;
     }
 
-    function checkMandatory1353623000000711081(isAjax) {
-      var form = document.forms['WebToLeads1353623000000711081'] || document.forms['WebToLeads1410226000000468646'];
+    function checkMandatory1462145000000553302(isAjax) {
+      var form = document.forms['WebToLeads1462145000000553302'] || document.getElementById('webform1462145000000553302');
       if (!form) return true;
-      var mndFileds = new Array('Company', 'Last Name', 'Email', 'Mobile', 'Description', 'LEADCF1');
-      var fldLangVal = new Array('Company', 'Name', 'Email', 'Mobile', 'Description', 'Services');
+      var mndFileds = new Array('Company', 'Last Name', 'Email', 'Phone', 'LEADCF1');
+      var fldLangVal = new Array('Company', 'Name', 'Email', 'Phone', 'Zoho/ Salesforce/Digital Marketing products');
       
       for (var i = 0; i < mndFileds.length; i++) {
         var fieldObj = form[mndFileds[i]];
@@ -645,7 +675,7 @@
               return false;
             }
             alert(fldLangVal[i] + ' cannot be empty.');
-            if (mndFileds[i] === 'LEADCF1' || mndFileds[i] === 'LEADCF2') {
+            if (mndFileds[i] === 'LEADCF1') {
               var trigger = document.querySelector('#trionnServicesSelect .trionn-select-trigger');
               if (trigger) trigger.focus();
             } else {
@@ -672,18 +702,18 @@
           } catch (e) {}
         }
       }
-      var captchaFld = document.getElementById('captchaField1353623000000711081') || form['enterdigest'];
+      var captchaFld = document.getElementById('captchaField1462145000000553302') || form['enterdigest'];
       if (captchaFld && ((captchaFld.value).replace(/^\s+|\s+$/g, '')).length == 0) {
         alert('Please enter the captcha.');
         captchaFld.focus();
         return false;
       }
-      if (!validateEmail1353623000000711081()) {
+      if (!validateEmail1462145000000553302()) {
         return false;
       }
       var urlparams = new URLSearchParams(window.location.search);
       if (urlparams.has('service') && (urlparams.get('service') === 'smarturl')) {
-        var webform = document.getElementById('webform1353623000000711081') || document.getElementById('webform1410226000000468646');
+        var webform = document.getElementById('webform1462145000000553302');
         var service = urlparams.get('service');
         var smarturlfield = document.createElement('input');
         smarturlfield.setAttribute('type', 'hidden');
@@ -698,23 +728,29 @@
         if (span) span.textContent = 'SENDING...';
       }
       if (!isAjax) {
-        window.addEventListener('focus', historyBack1353623000000711081);
+        window.addEventListener('focus', historyBack1462145000000553302);
       }
       return true;
     }
 
-    var validateEmail1410226000000468646 = validateEmail1353623000000711081;
-    var checkMandatory1410226000000468646 = checkMandatory1353623000000711081;
-    var reloadImg1410226000000468646 = reloadImg1353623000000711081;
-    var historyBack1410226000000468646 = historyBack1353623000000711081;
+    function addAriaSelected1462145000000553302() {}
 
-    window.reloadImg1353623000000711081 = reloadImg1353623000000711081;
-    window.historyBack1353623000000711081 = historyBack1353623000000711081;
+    // Backwards compatibility aliases
+    var reloadImg1353623000000711081 = reloadImg1462145000000553302;
+    var historyBack1353623000000711081 = historyBack1462145000000553302;
+    var validateEmail1353623000000711081 = validateEmail1462145000000553302;
+    var checkMandatory1353623000000711081 = checkMandatory1462145000000553302;
+
+    window.reloadImg1462145000000553302 = reloadImg1462145000000553302;
+    window.historyBack1462145000000553302 = historyBack1462145000000553302;
+    window.reloadImg1353623000000711081 = reloadImg1462145000000553302;
+    window.historyBack1353623000000711081 = historyBack1462145000000553302;
 
     _wFa_ajax_will_be_replaced = false;
     if (typeof _wfa_fstprtcken === 'undefined') {
       _wfa_fstprtcken = {};
     }
+    _wfa_fstprtcken[1462145000000553302] = true;
     _wfa_fstprtcken[1353623000000711081] = true;
     _wfa_fstprtcken[1410226000000468646] = true;
   </script>
