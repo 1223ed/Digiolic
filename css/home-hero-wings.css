@@ -1,25 +1,32 @@
 /* ==========================================================================
    DIGIOLIC HOMEPAGE HERO — THREE-STEP CINEMATIC CHOREOGRAPHY
-   Step 1 (0.0s - 2.2s):
-     - Solid Black Screen (#000000) covering entire viewport (fixed z-index 99999)
-     - Movie-scale Big Bold Typography: "YOUR WAIT IS WORTH NOW."
-   Step 2 (2.2s - 5.8s):
+   Orchestrated via GSAP (with pure CSS keyframe fallback)
+
+   Step 1 (Intro Screen):
+     - Solid full-screen black background (#000000, fixed z-index 99999)
+     - Clean sans-serif large bold heading: "YOUR WAIT IS WORTH NOW"
+     - 2.5-second hold before smooth transition / fade-out
+
+   Step 2 (Video Reveal / Mask Animation):
      - Pure White Stage (#FFFFFF) matching Wild motion reference
-     - Heavy Bold "DIGI" (left) and "OLIC" (right)
-     - Center Vertical Slit opens between them -> expands to circle ->
-       widens horizontally into stadium pill with wings video playing inside
-   Step 3 (5.8s onwards):
-     - Video "comes out" / expands to full-bleed (width: 100%, height: 100%, border-radius: 0)
-     - White stage & DIGI/OLIC smoothly disperse and fade out
-     - Dark vignette overlay fades in over ambient video
-     - Reference Lockup rises into place:
+     - Bold "DIGI" (left) and "OLIC" (right)
+     - Center Vertical Slit mask opens between them -> expands to circle ->
+       widens horizontally into stadium capsule mask
+     - Dynamic video element playing inside: assets/videos/hero-video.mp4
+
+   Step 3 (Video Expansion / Card Displacement):
+     - Video container gracefully "comes out" and scales to fill framed hero container
+     - DIGI and OLIC displace outward and fade away
+     - Framed container layout matching assets/images/hero-image.png settles in:
        * "30+ Years Experience | Certified Experts" Pill
        * Serif Editorial "Zoho, Salesforce & Digital Marketing"
        * Positioning Subtitle
      - Light-on-dark Navigation Header & Bottom Controls smoothly fade in
+     - Triggered automatically as video progresses OR on user scroll / click
+
    Accessibility & Performance:
      - prefers-reduced-motion: reduce jumps immediately to Step 3 final state
-     - WCAG 2.2.2 Pause/Play toggle pauses CSS keyframes and video
+     - WCAG 2.2.2 Pause/Play toggle pauses GSAP timeline and video
      - Fully responsive across desktop, tablet, and mobile (zero horizontal overflow)
    ========================================================================== */
 
@@ -39,7 +46,7 @@
 }
 
 /* ==========================================================================
-   STEP 1: FULL-SCREEN BLACK CURTAIN ("YOUR WAIT IS WORTH NOW.")
+   STEP 1: FULL-SCREEN SOLID BLACK INTRO SCREEN ("YOUR WAIT IS WORTH NOW")
    ========================================================================== */
 #heroSection .hero-step1-curtain {
   position: fixed;
@@ -69,7 +76,7 @@
 #heroSection .hero-step1-wait {
   margin: 0 !important;
   font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
-  font-size: clamp(40px, 7.8vw, 108px) !important;
+  font-size: clamp(38px, 7.8vw, 104px) !important;
   font-weight: 900 !important;
   line-height: 1.08 !important;
   letter-spacing: clamp(0.04em, 0.08em, 0.14em) !important;
@@ -80,7 +87,7 @@
 }
 
 /* ==========================================================================
-   STEP 2: CLEAN WHITE STAGE ("DIGI [PORTAL VIDEO] OLIC")
+   STEP 2: CLEAN STAGE ("DIGI [PORTAL VIDEO] OLIC")
    ========================================================================== */
 #heroSection .hero-step2-stage {
   position: absolute;
@@ -136,8 +143,8 @@
 }
 
 /* ==========================================================================
-   PORTAL VIDEO WINDOW (Step 2 Slit -> Stadium Pill -> Step 3 Full Bleed)
-   Contains the single wings video element #homeHeroVideo
+   PORTAL VIDEO WINDOW (Step 2 Mask / Slit -> Stadium Pill -> Step 3 Expansion)
+   Contains the dynamic video element #homeHeroVideo
    ========================================================================== */
 #heroSection .hero-portal-window {
   position: absolute;
@@ -188,7 +195,7 @@
 }
 
 /* ==========================================================================
-   LIGHT-ON-DARK HEADER & HERO CHROME (Step 3 Emergence)
+   LIGHT-ON-DARK HEADER & HERO CHROME
    ========================================================================== */
 #heroSection .home-hero-header {
   position: absolute;
@@ -312,7 +319,7 @@
 }
 
 /* ==========================================================================
-   STEP 3: REFERENCE TYPOGRAPHY MANIFEST STAGE (Matching Attached Image)
+   STEP 3: FRAMED CONTAINER LAYOUT MATCHING hero-image.png REFERENCE
    "30+ Years Experience | Certified Experts" + "Zoho, Salesforce & Digital Marketing"
    ========================================================================== */
 #heroSection .hero-wings-stage {
@@ -405,11 +412,27 @@
 }
 
 /* ==========================================================================
-   KEYFRAME ANIMATIONS (Sequential 3-Step Choreography)
-   Total duration: ~6.8s
+   GSAP OVERRIDE: When GSAP is active, disable pure CSS keyframes
+   so GSAP has 100% smooth, sub-pixel, physics-based control
    ========================================================================== */
+#heroSection.has-gsap-hero .hero-step1-curtain,
+#heroSection.has-gsap-hero .hero-step1-wait,
+#heroSection.has-gsap-hero .hero-step2-stage,
+#heroSection.has-gsap-hero .hero-step2-split-row,
+#heroSection.has-gsap-hero .hero-slit-spacer,
+#heroSection.has-gsap-hero .hero-portal-window,
+#heroSection.has-gsap-hero .hero-portal-overlay,
+#heroSection.has-gsap-hero .home-hero-header,
+#heroSection.has-gsap-hero .home-hero-bottom,
+#heroSection.has-gsap-hero .hero-manifest-pill,
+#heroSection.has-gsap-hero .hero-manifest-line,
+#heroSection.has-gsap-hero .hero-manifest-sub {
+  animation: none !important;
+}
 
-/* Step 1: Text motion */
+/* ==========================================================================
+   CSS FALLBACK KEYFRAME ANIMATIONS (When GSAP is not loaded)
+   ========================================================================== */
 @keyframes heroStep1TextAnim {
   0% {
     opacity: 0;
@@ -429,7 +452,6 @@
   }
 }
 
-/* Step 1: Curtain fade out */
 @keyframes heroStep1CurtainFade {
   0%, 80% {
     opacity: 1;
@@ -442,7 +464,6 @@
   }
 }
 
-/* Step 2: Split text row exit */
 @keyframes heroSplitRowMotion {
   0%, 82% {
     opacity: 1;
@@ -455,26 +476,24 @@
   }
 }
 
-/* Step 2: Slit spacer expansion between DIGI and OLIC */
 @keyframes heroSpacerWidthAnim {
   0%, 33% {
     width: 0px;
   }
   38% {
-    width: 14px; /* Thin vertical slit */
+    width: 14px;
   }
   48% {
-    width: clamp(130px, 19vw, 230px); /* Circle */
+    width: clamp(130px, 19vw, 230px);
   }
   58%, 84% {
-    width: clamp(320px, 46vw, 560px); /* Stadium pill */
+    width: clamp(320px, 46vw, 560px);
   }
   94%, 100% {
     width: clamp(320px, 46vw, 560px);
   }
 }
 
-/* Step 2 -> Step 3: Portal Window Expansion */
 @keyframes heroPortalWindowMotion {
   0%, 33% {
     width: 0px;
@@ -505,7 +524,6 @@
   }
 }
 
-/* Step 2: White stage fade out */
 @keyframes heroStep2StageExit {
   0%, 82% {
     opacity: 1;
@@ -518,7 +536,6 @@
   }
 }
 
-/* Step 3: Ambient dark overlay fade in */
 @keyframes heroOverlayFadeIn {
   0%, 82% {
     opacity: 0;
@@ -528,7 +545,6 @@
   }
 }
 
-/* Step 3: Header and bottom chrome fade in */
 @keyframes heroChromeFadeIn {
   0% {
     opacity: 0;
@@ -540,7 +556,6 @@
   }
 }
 
-/* Step 3: Manifest elements rise in */
 @keyframes heroElementRiseIn {
   0% {
     opacity: 0;
@@ -552,64 +567,59 @@
   }
 }
 
-/* ==========================================================================
-   ANIMATION TIMING & DELAYS (Opt-In When Motion Allowed)
-   ========================================================================== */
+/* Pure CSS Keyframes Fallback Timings (when GSAP is inactive) */
 @media (prefers-reduced-motion: no-preference) {
-  /* Step 1 Curtain (2.2s total) */
-  #heroSection .hero-step1-curtain {
-    animation: heroStep1CurtainFade 2.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  #heroSection:not(.has-gsap-hero) .hero-step1-curtain {
+    animation: heroStep1CurtainFade 2.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
   }
 
-  #heroSection .hero-step1-wait {
-    animation: heroStep1TextAnim 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  #heroSection:not(.has-gsap-hero) .hero-step1-wait {
+    animation: heroStep1TextAnim 2.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   }
 
-  /* Step 2 Stage & Portal (6.6s total timeline) */
-  #heroSection .hero-step2-stage {
-    animation: heroStep2StageExit 6.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  #heroSection:not(.has-gsap-hero) .hero-step2-stage {
+    animation: heroStep2StageExit 6.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
   }
 
-  #heroSection .hero-step2-split-row {
-    animation: heroSplitRowMotion 6.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  #heroSection:not(.has-gsap-hero) .hero-step2-split-row {
+    animation: heroSplitRowMotion 6.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
   }
 
-  #heroSection .hero-slit-spacer {
-    animation: heroSpacerWidthAnim 6.6s cubic-bezier(0.25, 1, 0.3, 1) forwards;
+  #heroSection:not(.has-gsap-hero) .hero-slit-spacer {
+    animation: heroSpacerWidthAnim 6.8s cubic-bezier(0.25, 1, 0.3, 1) forwards;
   }
 
-  #heroSection .hero-portal-window {
-    animation: heroPortalWindowMotion 6.6s cubic-bezier(0.25, 1, 0.3, 1) forwards;
+  #heroSection:not(.has-gsap-hero) .hero-portal-window {
+    animation: heroPortalWindowMotion 6.8s cubic-bezier(0.25, 1, 0.3, 1) forwards;
   }
 
-  #heroSection .hero-portal-overlay {
-    animation: heroOverlayFadeIn 6.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  #heroSection:not(.has-gsap-hero) .hero-portal-overlay {
+    animation: heroOverlayFadeIn 6.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
   }
 
-  /* Step 3 Chrome & Manifest */
-  #heroSection .home-hero-header,
-  #heroSection .home-hero-bottom {
-    animation: heroChromeFadeIn 0.75s cubic-bezier(0.16, 1, 0.3, 1) 5.9s both;
+  #heroSection:not(.has-gsap-hero) .home-hero-header,
+  #heroSection:not(.has-gsap-hero) .home-hero-bottom {
+    animation: heroChromeFadeIn 0.75s cubic-bezier(0.16, 1, 0.3, 1) 6.1s both;
   }
 
-  #heroSection .hero-manifest-pill {
+  #heroSection:not(.has-gsap-hero) .hero-manifest-pill {
     opacity: 0;
-    animation: heroElementRiseIn 0.65s cubic-bezier(0.16, 1, 0.3, 1) 6.1s both;
+    animation: heroElementRiseIn 0.65s cubic-bezier(0.16, 1, 0.3, 1) 6.3s both;
   }
 
-  #heroSection .hero-manifest-line-1 {
+  #heroSection:not(.has-gsap-hero) .hero-manifest-line-1 {
     opacity: 0;
-    animation: heroElementRiseIn 0.72s cubic-bezier(0.16, 1, 0.3, 1) 6.26s both;
+    animation: heroElementRiseIn 0.72s cubic-bezier(0.16, 1, 0.3, 1) 6.46s both;
   }
 
-  #heroSection .hero-manifest-line-2 {
-    opacity: 0;
-    animation: heroElementRiseIn 0.72s cubic-bezier(0.16, 1, 0.3, 1) 6.42s both;
-  }
-
-  #heroSection .hero-manifest-sub {
+  #heroSection:not(.has-gsap-hero) .hero-manifest-line-2 {
     opacity: 0;
     animation: heroElementRiseIn 0.72s cubic-bezier(0.16, 1, 0.3, 1) 6.62s both;
+  }
+
+  #heroSection:not(.has-gsap-hero) .hero-manifest-sub {
+    opacity: 0;
+    animation: heroElementRiseIn 0.72s cubic-bezier(0.16, 1, 0.3, 1) 6.82s both;
   }
 }
 
@@ -626,7 +636,7 @@
   height: 100% !important;
   border-radius: 0 !important;
   box-shadow: none !important;
-  border-color: transparent !important;
+  border: none !important;
   animation: none !important;
 }
 
@@ -659,7 +669,7 @@
     height: 100% !important;
     border-radius: 0 !important;
     box-shadow: none !important;
-    border-color: transparent !important;
+    border: none !important;
     animation: none !important;
   }
 
@@ -749,7 +759,7 @@
       height: 100%;
       border-radius: 0px;
       box-shadow: none;
-      border-color: transparent;
+      border: none;
     }
   }
 
@@ -832,7 +842,7 @@
       height: 100%;
       border-radius: 0px;
       box-shadow: none;
-      border-color: transparent;
+      border: none;
     }
   }
 
