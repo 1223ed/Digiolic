@@ -33,11 +33,11 @@
     imagePlaceholder: 'assets/images/hero-image.png',
 
     // Timings (in seconds)
-    blackIntroDuration: 3.0, // Requested: 1st full black screen, then in 3s text appears
-    wordStagger: 0.24,       // Stagger between each word reveal
-    wordDuration: 0.55,      // Fade in and slide up per word
-    waitTextHold: 1.8,       // Hold time after all words appear
-    step1FadeOut: 0.75,      // Fade out of Step 1 curtain
+    blackIntroDuration: 0.4, // Swift cinematic intro so screen is never stuck black
+    wordStagger: 0.15,       // Stagger between each word reveal
+    wordDuration: 0.4,       // Fade in and slide up per word
+    waitTextHold: 0.8,       // Hold time after all words appear
+    step1FadeOut: 0.5,       // Fade out of Step 1 curtain
     step2SlitOpen: 0.45,     // Slit mask opening
     step2CircleExpand: 0.55, // Expansion into circle
     step2StadiumWiden: 0.7,  // Widening into stadium capsule
@@ -66,8 +66,24 @@
     const toggleBtn = document.getElementById('heroMotionToggleBtn');
     const toggleLabel = toggleBtn ? toggleBtn.querySelector('.hero-motion-label') : null;
 
-    // Check motion preferences
+    // Check motion preferences and screen size (mobile displays immediately)
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const isMobileDevice = window.innerWidth <= 991;
+
+    // On mobile screens or reduced-motion mode, reveal the site immediately without delay or black curtain
+    if (isMobileDevice || prefersReducedMotion) {
+      hero.classList.add('is-hero-settled');
+      if (curtain) {
+        curtain.style.display = 'none';
+        curtain.setAttribute('aria-hidden', 'true');
+      }
+      if (step2Stage) {
+        step2Stage.style.display = 'none';
+      }
+      startVideo();
+      return;
+    }
+
     let isUserPaused = prefersReducedMotion;
     let isStep3Active = false;
 
@@ -317,12 +333,22 @@
       triggerStep3();
     });
 
+    if (curtain) {
+      curtain.addEventListener('click', triggerStep3);
+      curtain.addEventListener('touchstart', triggerStep3, { passive: true });
+    }
+
     // Scroll trigger: if user scrolls down, advance to Step 3 immediately
     window.addEventListener('scroll', function () {
-      if (window.scrollY > 35) {
+      if (window.scrollY > 20) {
         triggerStep3();
       }
     }, { passive: true });
+
+    // Desktop fail-safe timer: automatically reveal Step 3 after 2.8s max
+    setTimeout(function () {
+      triggerStep3();
+    }, 2800);
 
     // Pause / Play Controller
     function syncPlayback() {
