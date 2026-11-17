@@ -33,15 +33,15 @@
     imagePlaceholder: 'assets/images/hero-image.png',
 
     // Timings (in seconds)
-    blackIntroDuration: 0.4, // Swift cinematic intro so screen is never stuck black
-    wordStagger: 0.15,       // Stagger between each word reveal
-    wordDuration: 0.4,       // Fade in and slide up per word
-    waitTextHold: 0.8,       // Hold time after all words appear
-    step1FadeOut: 0.5,       // Fade out of Step 1 curtain
+    blackIntroDuration: 0.8, // 0.8s pure black screen intro
+    wordStagger: 0.16,       // Stagger between each word reveal
+    wordDuration: 0.45,      // Fade in and slide up per word
+    waitTextHold: 1.1,       // Hold time after all words appear
+    step1FadeOut: 0.55,      // Fade out of Step 1 curtain
     step2SlitOpen: 0.45,     // Slit mask opening
     step2CircleExpand: 0.55, // Expansion into circle
     step2StadiumWiden: 0.7,  // Widening into stadium capsule
-    step2Hold: 2.2,          // Hold showing video in stadium mask
+    step2Hold: 1.8,          // Hold showing video in stadium mask
     step3Expand: 1.0,        // Scaling / coming out to framed container
     step3LockupRise: 0.8,    // Lockup emergence matching hero-image.png
   };
@@ -66,12 +66,11 @@
     const toggleBtn = document.getElementById('heroMotionToggleBtn');
     const toggleLabel = toggleBtn ? toggleBtn.querySelector('.hero-motion-label') : null;
 
-    // Check motion preferences and screen size (mobile displays immediately)
+    // Check motion preferences (reduced-motion accessibility mode)
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const isMobileDevice = window.innerWidth <= 991;
 
-    // On mobile screens or reduced-motion mode, reveal the site immediately without delay or black curtain
-    if (isMobileDevice || prefersReducedMotion) {
+    // In reduced-motion mode, reveal the site immediately without intro animation
+    if (prefersReducedMotion) {
       hero.classList.add('is-hero-settled');
       if (curtain) {
         curtain.style.display = 'none';
@@ -248,13 +247,13 @@
         }, 'step3')
         // 3b. DIGI and OLIC displace outward and fade away
         .to(splitDigi, {
-          x: -140,
+          x: window.innerWidth <= 768 ? -70 : -140,
           opacity: 0,
           duration: 0.65,
           ease: 'power2.in'
         }, 'step3')
         .to(splitOlic, {
-          x: 140,
+          x: window.innerWidth <= 768 ? 70 : 140,
           opacity: 0,
           duration: 0.65,
           ease: 'power2.in'
@@ -327,11 +326,15 @@
       }
     }
 
-    // Click trigger on hero section (excluding navigation links & controls)
+    // Click or touch trigger on hero section (excluding navigation links & controls)
     hero.addEventListener('click', function (e) {
       if (e.target.closest('a, button, .home-hero-actions, .home-hero-bottom')) return;
       triggerStep3();
     });
+    hero.addEventListener('touchstart', function (e) {
+      if (e.target.closest('a, button, .home-hero-actions, .home-hero-bottom')) return;
+      triggerStep3();
+    }, { passive: true });
 
     if (curtain) {
       curtain.addEventListener('click', triggerStep3);
@@ -345,10 +348,12 @@
       }
     }, { passive: true });
 
-    // Desktop fail-safe timer: automatically reveal Step 3 after 2.8s max
+    // Safe fail-safe timer (12s): automatically settle if background tab was throttled
     setTimeout(function () {
-      triggerStep3();
-    }, 2800);
+      if (!isStep3Active) {
+        triggerStep3();
+      }
+    }, 12000);
 
     // Pause / Play Controller
     function syncPlayback() {

@@ -739,9 +739,9 @@
 }
 
 /* ==========================================================================
-   REDUCED MOTION & MOBILE IMMEDIATE REVEAL (Never Trap Screen in Black)
+   REDUCED MOTION (Immediate Final State for Reduced Motion Users)
    ========================================================================== */
-@media (prefers-reduced-motion: reduce), (max-width: 991px) {
+@media (prefers-reduced-motion: reduce) {
   #heroSection .hero-step1-curtain,
   #heroSection .hero-step2-stage {
     display: none !important;
