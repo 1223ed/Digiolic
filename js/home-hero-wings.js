@@ -34,13 +34,13 @@
 
     // Timings (in seconds)
     blackIntroDuration: 0.8, // 0.8s pure black screen intro
-    wordStagger: 0.16,       // Stagger between each word reveal
-    wordDuration: 0.45,      // Fade in and slide up per word
-    waitTextHold: 1.1,       // Hold time after all words appear
-    step1FadeOut: 0.55,      // Fade out of Step 1 curtain
+    wordStagger: 0.28,       // Reduced speed: relaxed stagger between each word reveal
+    wordDuration: 0.70,      // Reduced speed: graceful, slower fade in & slide up per word
+    waitTextHold: 4.1,       // 3 seconds more break/hold (was 1.1s -> now 4.1s hold before DIGIOLIC)
+    step1FadeOut: 0.70,      // Smooth cinematic fade out of Step 1 curtain into Step 2
     step2SlitOpen: 0.45,     // Slit mask opening
     step2CircleExpand: 0.55, // Expansion into circle
-    step2StadiumWiden: 0.7,  // Widening into stadium capsule
+    step2StadiumWiden: 0.70, // Widening into stadium capsule
     step2Hold: 1.8,          // Hold showing video in stadium mask
     step3Expand: 1.0,        // Scaling / coming out to framed container
     step3LockupRise: 0.8,    // Lockup emergence matching hero-image.png
@@ -348,12 +348,12 @@
       }
     }, { passive: true });
 
-    // Safe fail-safe timer (12s): automatically settle if background tab was throttled
+    // Safe fail-safe timer (18s): automatically settle if background tab was throttled
     setTimeout(function () {
       if (!isStep3Active) {
         triggerStep3();
       }
-    }, 12000);
+    }, 18000);
 
     // Pause / Play Controller
     function syncPlayback() {
