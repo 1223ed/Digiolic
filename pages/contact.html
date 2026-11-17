@@ -377,38 +377,19 @@
 
             </div>
 
-            <!-- Zoho SalesIQ Visitor Tracking Script -->
+            <!-- Zoho SalesIQ Form Attribution Script -->
             <script type="text/javascript" id="VisitorTracking">
-              var $zoho = $zoho || {};
-              $zoho.salesiq = $zoho.salesiq || {
-                widgetcode: 'siq2bed9aa75f6faa78475af054216bc6997114d41d6828ad6cfa24ad170aeec382',
-                values: {},
-                ready: function() {}
-              };
               function trackVisitor1462145000000553302() {
                 try {
-                  if (typeof $zoho !== 'undefined') {
+                  if (typeof $zoho !== 'undefined' && $zoho.salesiq && $zoho.salesiq.visitor) {
                     var form = document.forms['WebToLeads1462145000000553302'] || document.getElementById('webform1462145000000553302');
                     if (!form) return;
                     var LDTuvidObj = form['LDTuvid'];
-                    if (LDTuvidObj && $zoho.salesiq && $zoho.salesiq.visitor && typeof $zoho.salesiq.visitor.uniqueid === 'function') {
+                    if (LDTuvidObj && typeof $zoho.salesiq.visitor.uniqueid === 'function') {
                       var uid = $zoho.salesiq.visitor.uniqueid();
                       if (uid && uid !== 'undefined') {
                         LDTuvidObj.value = uid;
                       }
-                    }
-                    var firstnameObj = form['First Name'];
-                    var nameFld = form['Last Name'];
-                    var fullName = nameFld ? nameFld.value : '';
-                    if (firstnameObj && firstnameObj.value) {
-                      fullName = firstnameObj.value + ' ' + fullName;
-                    }
-                    if ($zoho.salesiq && $zoho.salesiq.visitor && typeof $zoho.salesiq.visitor.name === 'function') {
-                      $zoho.salesiq.visitor.name(fullName);
-                    }
-                    var emailObj = form['Email'];
-                    if (emailObj && $zoho.salesiq && $zoho.salesiq.visitor && typeof $zoho.salesiq.visitor.email === 'function') {
-                      $zoho.salesiq.visitor.email(emailObj.value);
                     }
                   }
                 } catch (e) {}
